@@ -1,0 +1,1 @@
+ -c:v:0 hevc_nvenc -pix_fmt p010le -rc:v:0 cbr -cq 2 -preset slow -tune hq -profile:v main10 -level 5 -tier high -bluray-compat false -b:v 3M -maxrate:v 5M -b_ref_mode 2 -spatial_aq 1 -aq-strength 5 -temporal_aq 1 -multipass 2 -filter:v fps=fps=30

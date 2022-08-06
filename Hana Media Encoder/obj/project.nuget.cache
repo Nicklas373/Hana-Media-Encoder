@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "AFJtEJOzr026ARSfse2yM7IWD1Z/ejMdh7YbME73Q10PZFt2ndRobX0Wkycg7PF/izTbv9iiuwc/e/oNhdmdGg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nickl\\source\\repos\\Hana Media Encoder\\Hana Media Encoder.vbproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nickl\\.nuget\\packages\\syncfusion.core.winforms\\20.2.0.38\\syncfusion.core.winforms.20.2.0.38.nupkg.sha512",
+    "C:\\Users\\Nickl\\.nuget\\packages\\syncfusion.licensing\\20.2.0.38\\syncfusion.licensing.20.2.0.38.nupkg.sha512",
+    "C:\\Users\\Nickl\\.nuget\\packages\\syncfusion.shared.base\\20.2.0.38\\syncfusion.shared.base.20.2.0.38.nupkg.sha512",
+    "C:\\Users\\Nickl\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
+    "C:\\Users\\Nickl\\.nuget\\packages\\system.management\\6.0.0\\system.management.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
