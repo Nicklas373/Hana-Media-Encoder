@@ -8,12 +8,19 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2022</Copyright>
-    <PackageReleaseNotes>v1.0.0 (20220724):
+    <PackageReleaseNotes>v1.0.1 (20220808):
+- Fixup trim inconsistency
+
+v1.0.0 (20220724):
+
 - INITIAL RELEASE</PackageReleaseNotes>
     <Authors>Dicky Herlambang</Authors>
     <Company>HANA-CI Build Project 2016 - 2022</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>Public</RepositoryType>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
