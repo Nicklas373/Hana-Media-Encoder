@@ -67,9 +67,16 @@ Public Class MainMenu
             Else
                 ffmpegConf = ffmpegConfig.Remove(0, 15) & "\"
                 ffmpegLetter = ffmpegConf.Substring(0, 1) & ":"
-                Button1.Enabled = True
-                Button3.Enabled = True
-                Button4.Enabled = True
+                If File.Exists(ffmpegConf & "ffmpeg.exe") AndAlso File.Exists(ffmpegConf & "ffplay.exe") AndAlso File.Exists(ffmpegConf & "ffprobe.exe") Then
+                    Button1.Enabled = True
+                    Button3.Enabled = True
+                    Button4.Enabled = True
+                Else
+                    Button1.Enabled = False
+                    Button3.Enabled = False
+                    Button4.Enabled = False
+                    MessageBoxAdv.Show("FFMPEG Binary is invalid !, please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             End If
         Else
             Button1.Enabled = False
@@ -916,7 +923,7 @@ Public Class MainMenu
                 MessageBoxAdv.Show("Please fill video max bitrate !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 CheckBox3.Checked = False
                 ReturnVideoStats = False
-            ElseIf combobox30.Text = "" Then
+            ElseIf ComboBox30.Text = "" Then
                 MessageBoxAdv.Show("Please fill frame rate !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 CheckBox3.Checked = False
                 ReturnVideoStats = False
@@ -1323,7 +1330,7 @@ Public Class MainMenu
     Private Sub AudioStream_Source(sender As Object, e As EventArgs) Handles ComboBox22.SelectedIndexChanged
         If ComboBox22.SelectedIndex >= 0 Then
             Dim audiostreamFlags As String = AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox22.SelectedItem.ToString, 11)) - 1).ToString & ".txt"
-            Dim audiostreamConfig As String = audioStreamConfigPath & "HME_Audio_Config_" & (CInt(Strings.Mid(ComboBox22.SelectedItem.ToString, 11)) - 1).ToString & ".txt"
+            Dim audiostreamConfig As String = AudioStreamConfigPath & "HME_Audio_Config_" & (CInt(Strings.Mid(ComboBox22.SelectedItem.ToString, 11)) - 1).ToString & ".txt"
             If File.Exists(audiostreamFlags) And File.Exists(audiostreamConfig) Then
                 Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Previous configuration already exists !" & vbCrLf & "Want to load previous configuration ?" &
                                                                               vbCrLf & vbCrLf & "NOTE: This will override current configuration", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -1369,7 +1376,7 @@ Public Class MainMenu
     Private Sub SaveAudioStream_Source(sender As Object, e As EventArgs) Handles CheckBox12.CheckedChanged
         If ComboBox22.SelectedIndex >= 0 Then
             Dim audiostreamFlags As String = AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox22.SelectedItem.ToString, 11)) - 1).ToString & ".txt"
-            Dim audiostreamConfig As String = audioStreamConfigPath & "HME_Audio_Config_" & (CInt(Strings.Mid(ComboBox22.SelectedItem.ToString, 11)) - 1).ToString & ".txt"
+            Dim audiostreamConfig As String = AudioStreamConfigPath & "HME_Audio_Config_" & (CInt(Strings.Mid(ComboBox22.SelectedItem.ToString, 11)) - 1).ToString & ".txt"
             If CheckBox12.Checked Then
                 If File.Exists(audiostreamFlags) And File.Exists(audiostreamConfig) Then
                     Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Previous configuration already exists !" & vbCrLf & "Want to override previous configuration ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -1423,7 +1430,7 @@ Public Class MainMenu
     Private Sub AudioStreamInitConfig()
         If ComboBox22.SelectedIndex >= 0 Then
             Dim AudioStreamFlags As String = AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox22.SelectedItem.ToString, 11)) - 1).ToString & ".txt"
-            Dim AudioStreamConfig As String = audioStreamConfigPath & "HME_Audio_Config_" & (CInt(Strings.Mid(ComboBox22.SelectedItem.ToString, 11)) - 1).ToString & ".txt"
+            Dim AudioStreamConfig As String = AudioStreamConfigPath & "HME_Audio_Config_" & (CInt(Strings.Mid(ComboBox22.SelectedItem.ToString, 11)) - 1).ToString & ".txt"
             Dim audioStreamSource As String = (CInt(Strings.Mid(ComboBox22.SelectedItem.ToString, 11)) - 1).ToString
             If ComboBox15.Text = "MP3" Then
                 If ComboBox16.Text = "" Then
@@ -2340,7 +2347,7 @@ Public Class MainMenu
                                     ComboBox26.Enabled = False
                                     ComboBox27.Enabled = False
                                     ComboBox28.Enabled = False
-                                    RichTextBox3.Text = "-ss " & TextBox7.Text & ":" & TextBox8.Text & ":" & TextBox9.Text & "." & TextBox10.Text & " -i " & Chr(34) & Label2.Text & Chr(34) &
+                                    RichTextBox3.Text = " -i " & Chr(34) & Label2.Text & Chr(34) & " -ss " & TextBox7.Text & ":" & TextBox8.Text & ":" & TextBox9.Text & "." & TextBox10.Text &
                                                         " -to " & TextBox14.Text & ":" & TextBox13.Text & ":" & TextBox12.Text & "." & TextBox11.Text
                                 Else
                                     MessageBoxAdv.Show("Please fill all time column first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)

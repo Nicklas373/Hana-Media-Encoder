@@ -166,24 +166,14 @@ Partial Class MainMenu
         Me.Label104 = New System.Windows.Forms.Label()
         Me.ComboBox26 = New System.Windows.Forms.ComboBox()
         Me.Label99 = New System.Windows.Forms.Label()
-        Me.Label98 = New System.Windows.Forms.Label()
-        Me.Label96 = New System.Windows.Forms.Label()
         Me.Label80 = New System.Windows.Forms.Label()
-        Me.Label95 = New System.Windows.Forms.Label()
         Me.Label79 = New System.Windows.Forms.Label()
-        Me.Label94 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
-        Me.Label93 = New System.Windows.Forms.Label()
         Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
-        Me.Label97 = New System.Windows.Forms.Label()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.Label82 = New System.Windows.Forms.Label()
         Me.CheckBox6 = New System.Windows.Forms.CheckBox()
-        Me.Label81 = New System.Windows.Forms.Label()
         Me.Label83 = New System.Windows.Forms.Label()
-        Me.Label92 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.Label91 = New System.Windows.Forms.Label()
         Me.Label84 = New System.Windows.Forms.Label()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
@@ -1711,24 +1701,14 @@ Partial Class MainMenu
         Me.TabPage4.Controls.Add(Me.Label104)
         Me.TabPage4.Controls.Add(Me.ComboBox26)
         Me.TabPage4.Controls.Add(Me.Label99)
-        Me.TabPage4.Controls.Add(Me.Label98)
-        Me.TabPage4.Controls.Add(Me.Label96)
         Me.TabPage4.Controls.Add(Me.Label80)
-        Me.TabPage4.Controls.Add(Me.Label95)
         Me.TabPage4.Controls.Add(Me.Label79)
-        Me.TabPage4.Controls.Add(Me.Label94)
         Me.TabPage4.Controls.Add(Me.Label78)
-        Me.TabPage4.Controls.Add(Me.Label93)
         Me.TabPage4.Controls.Add(Me.RichTextBox3)
-        Me.TabPage4.Controls.Add(Me.Label97)
         Me.TabPage4.Controls.Add(Me.CheckBox2)
-        Me.TabPage4.Controls.Add(Me.Label82)
         Me.TabPage4.Controls.Add(Me.CheckBox6)
-        Me.TabPage4.Controls.Add(Me.Label81)
         Me.TabPage4.Controls.Add(Me.Label83)
-        Me.TabPage4.Controls.Add(Me.Label92)
         Me.TabPage4.Controls.Add(Me.TextBox7)
-        Me.TabPage4.Controls.Add(Me.Label91)
         Me.TabPage4.Controls.Add(Me.Label84)
         Me.TabPage4.Controls.Add(Me.TextBox11)
         Me.TabPage4.Controls.Add(Me.TextBox8)
@@ -1807,26 +1787,6 @@ Partial Class MainMenu
         Me.Label99.TabIndex = 91
         Me.Label99.Text = "Trim Quality"
         '
-        'Label98
-        '
-        Me.Label98.AutoSize = True
-        Me.Label98.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label98.Location = New System.Drawing.Point(414, 380)
-        Me.Label98.Name = "Label98"
-        Me.Label98.Size = New System.Drawing.Size(325, 17)
-        Me.Label98.TabIndex = 89
-        Me.Label98.Text = "that have duration on 00:03:20.000 before video end"
-        '
-        'Label96
-        '
-        Me.Label96.AutoSize = True
-        Me.Label96.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label96.Location = New System.Drawing.Point(17, 380)
-        Me.Label96.Name = "Label96"
-        Me.Label96.Size = New System.Drawing.Size(402, 17)
-        Me.Label96.TabIndex = 88
-        Me.Label96.Text = "Video will get trimmed with first opening duration at 00:01:20.000"
-        '
         'Label80
         '
         Me.Label80.AutoSize = True
@@ -1835,16 +1795,6 @@ Partial Class MainMenu
         Me.Label80.Name = "Label80"
         Me.Label80.Size = New System.Drawing.Size(0, 17)
         Me.Label80.TabIndex = 58
-        '
-        'Label95
-        '
-        Me.Label95.AutoSize = True
-        Me.Label95.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label95.Location = New System.Drawing.Point(17, 343)
-        Me.Label95.Name = "Label95"
-        Me.Label95.Size = New System.Drawing.Size(183, 17)
-        Me.Label95.TabIndex = 87
-        Me.Label95.Text = "Duration Time = 00:03:20.000"
         '
         'Label79
         '
@@ -1856,16 +1806,6 @@ Partial Class MainMenu
         Me.Label79.TabIndex = 57
         Me.Label79.Text = "Video Duration:"
         '
-        'Label94
-        '
-        Me.Label94.AutoSize = True
-        Me.Label94.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label94.Location = New System.Drawing.Point(45, 326)
-        Me.Label94.Name = "Label94"
-        Me.Label94.Size = New System.Drawing.Size(155, 17)
-        Me.Label94.TabIndex = 86
-        Me.Label94.Text = "Start time = 00:01:20.000"
-        '
         'Label78
         '
         Me.Label78.AutoSize = True
@@ -1876,16 +1816,6 @@ Partial Class MainMenu
         Me.Label78.TabIndex = 56
         Me.Label78.Text = "Trim Command Summary"
         '
-        'Label93
-        '
-        Me.Label93.AutoSize = True
-        Me.Label93.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label93.Location = New System.Drawing.Point(17, 226)
-        Me.Label93.Name = "Label93"
-        Me.Label93.Size = New System.Drawing.Size(361, 17)
-        Me.Label93.TabIndex = 85
-        Me.Label93.Text = "- Duration time can not more than original video duration"
-        '
         'RichTextBox3
         '
         Me.RichTextBox3.Location = New System.Drawing.Point(803, 51)
@@ -1894,17 +1824,6 @@ Partial Class MainMenu
         Me.RichTextBox3.Size = New System.Drawing.Size(428, 343)
         Me.RichTextBox3.TabIndex = 55
         Me.RichTextBox3.Text = ""
-        '
-        'Label97
-        '
-        Me.Label97.AutoSize = True
-        Me.Label97.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label97.Location = New System.Drawing.Point(17, 262)
-        Me.Label97.Name = "Label97"
-        Me.Label97.Size = New System.Drawing.Size(561, 17)
-        Me.Label97.TabIndex = 84
-        Me.Label97.Text = "- Start time is the time that video will get cut and become the first duration fr" &
-    "om the video"
         '
         'CheckBox2
         '
@@ -1917,16 +1836,6 @@ Partial Class MainMenu
         Me.CheckBox2.Text = "Lock Profile"
         Me.CheckBox2.UseVisualStyleBackColor = True
         '
-        'Label82
-        '
-        Me.Label82.AutoSize = True
-        Me.Label82.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label82.Location = New System.Drawing.Point(17, 302)
-        Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(59, 17)
-        Me.Label82.TabIndex = 80
-        Me.Label82.Text = "Example"
-        '
         'CheckBox6
         '
         Me.CheckBox6.AutoSize = True
@@ -1936,16 +1845,6 @@ Partial Class MainMenu
         Me.CheckBox6.TabIndex = 44
         Me.CheckBox6.Text = "Enable Trim"
         Me.CheckBox6.UseVisualStyleBackColor = True
-        '
-        'Label81
-        '
-        Me.Label81.AutoSize = True
-        Me.Label81.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label81.Location = New System.Drawing.Point(17, 244)
-        Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(457, 17)
-        Me.Label81.TabIndex = 79
-        Me.Label81.Text = "- Duration time is the duration video that will added after video start time"
         '
         'Label83
         '
@@ -1957,16 +1856,6 @@ Partial Class MainMenu
         Me.Label83.TabIndex = 62
         Me.Label83.Text = "Start Time"
         '
-        'Label92
-        '
-        Me.Label92.AutoSize = True
-        Me.Label92.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label92.Location = New System.Drawing.Point(17, 208)
-        Me.Label92.Name = "Label92"
-        Me.Label92.Size = New System.Drawing.Size(405, 17)
-        Me.Label92.TabIndex = 78
-        Me.Label92.Text = "- Time format is hh:mm:ss.ms (ms stands for miliseconds, ex: 999)"
-        '
         'TextBox7
         '
         Me.TextBox7.Enabled = False
@@ -1975,16 +1864,6 @@ Partial Class MainMenu
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(43, 23)
         Me.TextBox7.TabIndex = 63
-        '
-        'Label91
-        '
-        Me.Label91.AutoSize = True
-        Me.Label91.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label91.Location = New System.Drawing.Point(17, 186)
-        Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(41, 17)
-        Me.Label91.TabIndex = 62
-        Me.Label91.Text = "NOTE"
         '
         'Label84
         '
@@ -2106,9 +1985,9 @@ Partial Class MainMenu
         Me.Label90.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label90.Location = New System.Drawing.Point(17, 131)
         Me.Label90.Name = "Label90"
-        Me.Label90.Size = New System.Drawing.Size(94, 17)
+        Me.Label90.Size = New System.Drawing.Size(64, 17)
         Me.Label90.TabIndex = 70
-        Me.Label90.Text = "Duration Time"
+        Me.Label90.Text = "End Time"
         '
         'TextBox14
         '
@@ -2403,7 +2282,6 @@ Partial Class MainMenu
     Friend WithEvents Label76 As Label
     Friend WithEvents Label77 As Label
     Friend WithEvents TabPage4 As TabPage
-    Friend WithEvents Label91 As Label
     Friend WithEvents TextBox11 As TextBox
     Friend WithEvents Label87 As Label
     Friend WithEvents TextBox12 As TextBox
@@ -2426,15 +2304,6 @@ Partial Class MainMenu
     Friend WithEvents RichTextBox3 As RichTextBox
     Friend WithEvents CheckBox2 As CheckBox
     Friend WithEvents CheckBox6 As CheckBox
-    Friend WithEvents Label92 As Label
-    Friend WithEvents Label98 As Label
-    Friend WithEvents Label96 As Label
-    Friend WithEvents Label95 As Label
-    Friend WithEvents Label94 As Label
-    Friend WithEvents Label93 As Label
-    Friend WithEvents Label97 As Label
-    Friend WithEvents Label82 As Label
-    Friend WithEvents Label81 As Label
     Friend WithEvents TabPage5 As TabPage
     Friend WithEvents CheckBox10 As CheckBox
     Friend WithEvents CheckBox9 As CheckBox
