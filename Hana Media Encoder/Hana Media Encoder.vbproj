@@ -8,7 +8,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2022</Copyright>
-    <PackageReleaseNotes>v1.0.1 (20220808):
+    <PackageReleaseNotes>v1.0.2 (20220809):
+- Add chapter module
+- Add more logic guard while encoding start
+
+v1.0.1 (20220808):
 - Fixup trim inconsistency
 
 v1.0.0 (20220724):
@@ -18,9 +22,9 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2022</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>Public</RepositoryType>
-    <Version>1.0.1</Version>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,8 +34,8 @@ v1.0.0 (20220724):
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Core.WinForms" Version="20.2.0.38" />
-    <PackageReference Include="Syncfusion.Shared.Base" Version="20.2.0.38" />
+    <PackageReference Include="Syncfusion.Core.WinForms" Version="20.2.0.43" />
+    <PackageReference Include="Syncfusion.Shared.Base" Version="20.2.0.43" />
     <PackageReference Include="System.Management" Version="6.0.0" />
   </ItemGroup>
 

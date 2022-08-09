@@ -19,6 +19,12 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_8884340D8E0C4D71B1312421F67172C0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -121,6 +127,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8884340D8E0C4D71B1312421F67172C0"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\bin\\Debug\\net6.0-windows\\chapter.py"
+            "TargetName" = "8:chapter.py"
+            "Tag" = "8:"
+            "Folder" = "8:_D6B82C45758E485CA0C5AC04002D03AC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -232,15 +258,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Hana Media Encoder"
-        "ProductCode" = "8:{75967B8F-45E7-4B92-9EC8-F211CC91AC68}"
-        "PackageCode" = "8:{E8DE70A5-F366-4799-82B6-6E7F33BFFE37}"
+        "ProductCode" = "8:{D2708218-605F-4DC1-A647-1640E8B21CED}"
+        "PackageCode" = "8:{096DDD0D-49DC-4083-BC7F-F0F8A41F0464}"
         "UpgradeCode" = "8:{6119A0DC-89FC-44EF-A490-66E4E915E4DF}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.2"
+        "ProductVersion" = "8:1.0.3"
         "Manufacturer" = "8:HANA-CI Build Project"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
