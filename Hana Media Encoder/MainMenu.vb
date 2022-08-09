@@ -9,6 +9,8 @@ Public Class MainMenu
     Dim origSavePath As String
     Dim origSaveExt As String
     Dim origSaveName As String
+    Dim pythonConf As String
+    Dim pythonLetter As String
     Dim ffmpegConf As String
     Dim ffmpegLetter As String
     Dim ffmpegEncStats As String
@@ -27,6 +29,9 @@ Public Class MainMenu
     Dim AudioStreamConfigPath As String = "audioConfig/"
     Dim VideoStreamFlagsPath As String = "videoStream/"
     Dim VideoStreamConfigPath As String = "videoConfig/"
+    Dim TimeSplit As String()
+    Dim TimeDur As Integer
+    Dim TimeChapter As Integer
     Private Sub MainMenu_load(sender As Object, e As EventArgs) Handles MyBase.Load
         AllowTransparency = False
         Style.TitleBar.TextHorizontalAlignment = HorizontalAlignment.Center
@@ -78,6 +83,22 @@ Public Class MainMenu
                     MessageBoxAdv.Show("FFMPEG Binary is invalid !, please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End If
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+            File.Delete("HME.bat")
+            File.Delete("HME_VF.bat")
+            File.Delete("HME_Audio_Flags.txt")
+            File.Delete("chapter.txt")
+            File.Delete("FFMETADATAFILE")
+            MassDelete("audioStream", "txt")
+            MassDelete("audioConfig", "txt")
+            MassDelete("videoStream", "txt")
+            MassDelete("videoConfig", "txt")
+            ChapterReplace("reset", "")
+            If File.Exists("thumbnail\1.png") Then
+                File.Delete("thumbnail\1.png")
+                File.Delete("thumbnail\2.png")
+            End If
         Else
             Button1.Enabled = False
             Button3.Enabled = False
@@ -125,14 +146,8 @@ Public Class MainMenu
                 If ComboBox24.Items.Count > 0 Then
                     ComboBox24.SelectedIndex = 0
                 End If
-                MassDelete("audioStream", "txt")
-                MassDelete("audioConfig", "txt")
-                MassDelete("videoStream", "txt")
-                MassDelete("videoConfig", "txt")
-                If File.Exists("thumbnail\1.png") Then
-                    File.Delete("thumbnail\1.png")
-                    File.Delete("thumbnail\2.png")
-                End If
+                CleanEnv("all")
+                ChapterReplace("reset", "")
                 getPreviewSummary(ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34))
                 If File.Exists("thumbnail\1.png") Then
                     Dim ImgPrev1 As New FileStream("thumbnail\1.png", FileMode.Open, FileAccess.Read)
@@ -353,6 +368,7 @@ Public Class MainMenu
             Dim line As String = process.StandardOutput.ReadToEnd()
             Dim codec_dur As String = getBetween(line, "Duration: ", ", start:")
             Label80.Text = codec_dur
+            Label81.Text = codec_dur
         End While
         process.WaitForExit()
         GC.Collect()
@@ -479,12 +495,49 @@ Public Class MainMenu
             MessageBoxAdv.Show("Warning: Debug mode was actived !" & vbCrLf & vbCrLf & "Progressbar will not working correctly while encoding" & vbCrLf & "Only use this mode to get some error log", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             MessageBoxAdv.Show("To disable debug mode, go to options then uncheck 'Debug Mode'", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
-        If CheckBox7.Checked = True And CheckBox8.Checked = True Then
+        If CheckBox15.Checked = True And CheckBox14.Checked = True Then
+            If Label2.Text IsNot "" Then
+                If TextBox1.Text IsNot "" Then
+                    If File.Exists(My.Application.Info.DirectoryPath & "\FFMETADATAFILE") Then
+                        If CheckBox1.Checked = True And CheckBox3.Checked = True Then
+                            If CheckBox4.Checked = True And CheckBox5.Checked = True Then
+                                If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
+                                    Dim flagsCount As Integer = ComboBox22.Items.Count
+                                    Dim flagsStart As Integer
+                                    For flagsStart = 1 To flagsCount
+                                        My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (flagsStart - 1).ToString & ".txt")), True)
+                                    Next
+                                    If File.Exists("HME_Audio_Flags.txt") Then
+                                        Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
+                                        Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & videoFilePath & Chr(34) & RichTextBox5.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                        HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                    End If
+                                Else
+                                    MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                End If
+                            ElseIf CheckBox4.Checked = False And CheckBox5.Checked = False Then
+                                Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & videoFilePath & Chr(34) & RichTextBox5.Text & " " & RichTextBox1.Text & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
+                                HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                            End If
+                        Else
+                            Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & videoFilePath & Chr(34) & RichTextBox5.Text & " -c copy " & RichTextBox1.Text & Chr(34) & TextBox1.Text & Chr(34)
+                            HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                        End If
+                    Else
+                        MessageBoxAdv.Show("Please re-lock chapter profile first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                Else
+                    MessageBoxAdv.Show("Please choose save media file first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+            Else
+                MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        ElseIf CheckBox7.Checked = True And CheckBox8.Checked = True Then
             If ComboBox1.Text = "Original Quality" Then
                 Dim newffargs As String = "ffmpeg -hide_banner " & RichTextBox4.Text & " " & Chr(34) & TextBox1.Text & Chr(34)
                 HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
             ElseIf ComboBox1.Text = "Custom Quality" Then
-                If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") Then
+                If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                     Dim streamCount As Integer = ComboBox22.Items.Count
                     Dim streamStart As Integer
                     For streamStart = 1 To streamCount
@@ -499,7 +552,7 @@ Public Class MainMenu
                         HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                     End If
                 Else
-                    MessageBoxAdv.Show("Audio stream config not found !" & vbCrLf & vbCrLf & "Please configure audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End If
         ElseIf CheckBox2.Checked = True And CheckBox6.Checked = True Then
@@ -524,7 +577,7 @@ Public Class MainMenu
                         newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 " & RichTextBox1.Text & " -an " & Chr(34) & TextBox1.Text & Chr(34)
                         HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                     ElseIf ComboBox28.Text = "Video + Audio (Specific source)" Then
-                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.SelectedItem.ToString, 11)) - 1).ToString & ".txt") Then
+                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.SelectedItem.ToString, 11)) - 1).ToString & ".txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                             Dim flagsCount As Integer = ComboBox22.Items.Count
                             Dim flagsStart As Integer
                             For flagsStart = 1 To flagsCount
@@ -534,10 +587,10 @@ Public Class MainMenu
                             newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 -map 0:" & (CInt(Strings.Mid(ComboBox27.SelectedItem.ToString, 11))).ToString & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
                             HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                         Else
-                            MessageBoxAdv.Show("Audio stream config not found !" & vbCrLf & vbCrLf & "Please configure audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
                     ElseIf ComboBox28.Text = "Video + Audio (All source)" Then
-                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") Then
+                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                             Dim flagsCount As Integer = ComboBox22.Items.Count
                             Dim flagsStart As Integer
                             For flagsStart = 1 To flagsCount
@@ -549,7 +602,7 @@ Public Class MainMenu
                                 HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                             End If
                         Else
-                            MessageBoxAdv.Show("Audio stream config not found !" & vbCrLf & vbCrLf & "Please configure audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
                     ElseIf ComboBox28.Text = "Audio Only (Specific Source)" Then
                         If File.Exists(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.SelectedItem.ToString, 11)) - 1).ToString & ".txt") Then
@@ -565,7 +618,7 @@ Public Class MainMenu
                             MessageBoxAdv.Show("Audio stream config not found !" & vbCrLf & vbCrLf & "Please configure audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
                     Else
-                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") Then
+                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                             Dim flagsCount As Integer = ComboBox22.Items.Count
                             Dim flagsStart As Integer
                             For flagsStart = 1 To flagsCount
@@ -577,7 +630,7 @@ Public Class MainMenu
                                 HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                             End If
                         Else
-                            MessageBoxAdv.Show("Audio stream config not found !" & vbCrLf & vbCrLf & "Please configure audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
                     End If
                 End If
@@ -588,7 +641,7 @@ Public Class MainMenu
             If Label2.Text IsNot "" Then
                 If TextBox1.Text IsNot "" Then
                     If CheckBox4.Checked = True And CheckBox5.Checked = True Then
-                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") Then
+                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                             Dim flagsCount As Integer = ComboBox22.Items.Count
                             Dim flagsStart As Integer
                             For flagsStart = 1 To flagsCount
@@ -600,7 +653,7 @@ Public Class MainMenu
                                 HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                             End If
                         Else
-                            MessageBoxAdv.Show("There are still missing audio stream config !" & vbCrLf & vbCrLf & "Please configure audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
                     ElseIf CheckBox4.Checked = False And CheckBox5.Checked = False Then
                         Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & videoFilePath & Chr(34) & RichTextBox1.Text & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
@@ -768,15 +821,7 @@ Public Class MainMenu
                 End If
                 Button1.Enabled = True
                 Button6.Enabled = True
-                GC.Collect()
-                GC.WaitForPendingFinalizers()
-                File.Delete("HME.bat")
-                File.Delete("HME_VF.bat")
-                File.Delete("HME_Audio_Flags.txt")
-                MassDelete("audioStream", "txt")
-                MassDelete("audioConfig", "txt")
-                MassDelete("videoStream", "txt")
-                MassDelete("videoConfig", "txt")
+                CleanEnv("null")
                 ProgressBar1.Value = 0
                 ProgressBar1.Visible = False
             End If
@@ -1966,10 +2011,13 @@ Public Class MainMenu
                 TextBox13.Enabled = True
                 TextBox14.Enabled = True
                 CheckBox8.Enabled = False
+                CheckBox8.Checked = False
+                CheckBox15.Enabled = False
+                CheckBox15.Checked = False
                 ComboBox26.Enabled = True
                 ComboBox26.SelectedIndex = -1
                 ComboBox28.SelectedIndex = -1
-                MessageBoxAdv.Show("Muxing options are not available while trim is enable !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBoxAdv.Show("Muxing and Chapter options are not available while trim is enable !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 CheckBox6.Checked = False
                 MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1999,6 +2047,7 @@ Public Class MainMenu
             ComboBox28.Enabled = False
             ComboBox28.SelectedIndex = -1
             CheckBox8.Enabled = True
+            CheckBox15.Enabled = True
         End If
     End Sub
     Private Sub TrimQualityCombo(sender As Object, e As EventArgs) Handles ComboBox26.SelectedIndexChanged
@@ -2074,7 +2123,6 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub LockProfile_Trim(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
-        Dim TimeSplit As String()
         Dim OriTime As Integer
         Dim TrimStartTime As Integer
         Dim TrimEndTime As Integer
@@ -2441,7 +2489,11 @@ Public Class MainMenu
             ComboBox1.Enabled = True
             ComboBox1.SelectedIndex = 0
             CheckBox7.Enabled = True
-            MessageBoxAdv.Show("Trim options are not available while muxing is enable !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            CheckBox6.Checked = False
+            CheckBox6.Enabled = False
+            CheckBox15.Checked = False
+            CheckBox15.Enabled = False
+            MessageBoxAdv.Show("Trim and Chapter options are not available while muxing is enable !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             TextBox15.Text = ""
             TextBox15.Enabled = False
@@ -2455,6 +2507,8 @@ Public Class MainMenu
             ComboBox1.Enabled = False
             ComboBox1.SelectedIndex = -1
             CheckBox7.Enabled = False
+            CheckBox6.Enabled = True
+            CheckBox15.Enabled = True
         End If
     End Sub
     Private Sub SameMedia_Muxing_Check(sender As Object, e As EventArgs) Handles CheckBox11.CheckedChanged
@@ -2763,6 +2817,224 @@ Public Class MainMenu
             RichTextBox4.Text = ""
         End If
     End Sub
+    Private Sub EnableChapter(sender As Object, e As EventArgs) Handles CheckBox15.CheckedChanged
+        If CheckBox15.Checked Then
+            If Label2.Text IsNot "" Then
+                Dim pythonConfig As String = FindConfig("config.ini", "Python Binary: ")
+                If pythonConfig = "null" Then
+                    CheckBox15.Checked = False
+                    MessageBoxAdv.Show("Python Binary was not found !, please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    pythonConf = pythonConfig.Remove(0, 15) & "\"
+                    pythonLetter = pythonConf.Substring(0, 1) & ":"
+                    If File.Exists(pythonConf & "python.exe") Then
+                        CheckBox14.Enabled = True
+                        TextBox5.Enabled = True
+                        TextBox17.Enabled = True
+                        TextBox18.Enabled = True
+                        TextBox19.Enabled = True
+                        Button11.Enabled = True
+                        Button12.Enabled = True
+                        Button13.Enabled = True
+                        Button14.Enabled = True
+                        RichTextBox5.Enabled = True
+                        CheckBox8.Checked = False
+                        CheckBox8.Enabled = False
+                        CheckBox6.Checked = False
+                        CheckBox6.Enabled = False
+                        MessageBoxAdv.Show("Trim and Muxing options are not available while chapter is enable !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        CheckBox15.Checked = False
+                        MessageBoxAdv.Show("Python Binary is invalid !, please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                End If
+            Else
+                CheckBox15.Checked = False
+                MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Else
+            CheckBox14.Enabled = False
+            TextBox5.Enabled = False
+            TextBox17.Enabled = False
+            TextBox18.Enabled = False
+            TextBox19.Enabled = False
+            Button11.Enabled = False
+            Button12.Enabled = False
+            Button13.Enabled = False
+            Button14.Enabled = False
+            RichTextBox5.Enabled = False
+            CheckBox8.Enabled = True
+            CheckBox6.Enabled = True
+        End If
+    End Sub
+    Private Sub ChapterLock(sender As Object, e As EventArgs) Handles CheckBox14.CheckedChanged
+        If CheckBox14.Checked = True Then
+            If ListView1.Items.Count > 0 Then
+                If File.Exists("chapter.txt") Then
+                    GC.Collect()
+                    GC.WaitForPendingFinalizers()
+                    File.Delete("chapter.txt")
+                End If
+                File.Create("chapter.txt").Dispose()
+                Using ChapterStream As New IO.StreamWriter("chapter.txt")
+                    For Each CH As ListViewItem In ListView1.Items
+                        Dim CHRow As String = ""
+                        For Each CHCell As ListViewItem.ListViewSubItem _
+                              In CH.SubItems
+                            CHRow &= CHCell.Text & " "
+                        Next
+                        CHRow = CHRow.Remove(CHRow.Length - 1, 1)
+                        ChapterStream.WriteLine(CHRow)
+                    Next
+                End Using
+                RunPy("chapter.py")
+                RichTextBox5.Text = " -i " & Chr(34) & My.Application.Info.DirectoryPath & "\FFMETADATAFILE" & Chr(34) & " -map_metadata 1 "
+                TextBox5.Enabled = False
+                TextBox17.Enabled = False
+                TextBox18.Enabled = False
+                TextBox19.Enabled = False
+                Button11.Enabled = False
+                Button12.Enabled = False
+                Button13.Enabled = False
+                Button14.Enabled = False
+                RichTextBox5.Enabled = False
+            Else
+                MessageBoxAdv.Show("Please add chapter first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                TextBox5.Enabled = True
+                TextBox17.Enabled = True
+                TextBox18.Enabled = True
+                TextBox19.Enabled = True
+                Button11.Enabled = True
+                Button12.Enabled = True
+                Button13.Enabled = True
+                Button14.Enabled = True
+                RichTextBox5.Enabled = True
+            End If
+        Else
+            TextBox5.Enabled = True
+            TextBox17.Enabled = True
+            TextBox18.Enabled = True
+            TextBox19.Enabled = True
+            Button11.Enabled = True
+            Button12.Enabled = True
+            Button13.Enabled = True
+            Button14.Enabled = True
+            RichTextBox5.Enabled = True
+        End If
+    End Sub
+    Private Sub AddChapter(sender As Object, e As EventArgs) Handles Button11.Click
+        If TextBox5.Text IsNot "" AndAlso TextBox17.Text IsNot "" AndAlso TextBox18.Text IsNot "" AndAlso TextBox19.Text IsNot "" Then
+            If ChapterTimeCheck() = True Then
+                Dim newTime As String = TextBox5.Text & ":" & TextBox17.Text & ":" & TextBox18.Text
+                Dim newChapter As New ListViewItem(newTime)
+                newChapter.SubItems.Add(TextBox19.Text)
+                ListView1.Items.Add(newChapter)
+                MessageBoxAdv.Show("Chapter successfully added !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MessageBoxAdv.Show("Time chapter can not more than video duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+            ChapterReset()
+        Else
+            MessageBoxAdv.Show("Add chapter failed !" & vbCrLf & vbCrLf & "Make sure to fill time and chapter title completely", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+    Private Sub UpdateChapter(sender As Object, e As EventArgs) Handles Button13.Click
+        If TextBox5.Text IsNot "" AndAlso TextBox17.Text IsNot "" AndAlso TextBox18.Text IsNot "" AndAlso TextBox19.Text IsNot "" Then
+            If ChapterTimeCheck() = True Then
+                Dim newTime As String = TextBox5.Text & ":" & TextBox17.Text & ":" & TextBox18.Text
+                ChapterReplace("update", newTime)
+                MessageBoxAdv.Show("Chapter successfully updated !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ChapterReset()
+            Else
+                MessageBoxAdv.Show("Time chapter can not more than video duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Else
+            MessageBoxAdv.Show("Update chapter failed !" & vbCrLf & vbCrLf & "Make sure to fill time and chapter title completely", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+    Private Sub RemoveChapter(sender As Object, e As EventArgs) Handles Button12.Click
+        ChapterReplace("remove", "")
+    End Sub
+    Private Sub ChapterReset(sender As Object, e As EventArgs) Handles Button14.Click
+        ChapterReplace("reset", "")
+    End Sub
+    Private Sub ChapterList_Clicked(sender As Object, e As EventArgs) Handles ListView1.Click
+        If TextBox5.Text IsNot "" Or TextBox17.Text IsNot "" Or TextBox18.Text IsNot "" Or TextBox19.Text IsNot "" Then
+            Dim chapterResult As DialogResult = MessageBoxAdv.Show(Me, "Want to replace current data" & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If chapterResult = DialogResult.Yes Then
+                ChapterReplace("show", "")
+            End If
+        Else
+            ChapterReplace("show", "")
+        End If
+    End Sub
+    Private Sub ChapterReplace(cmd As String, newTime As String)
+        If ListView1.SelectedItems.Count > 0 Then
+            If cmd = "show" Then
+                Dim TimeSplit As String()
+                TimeSplit = ListView1.SelectedItems(0).SubItems(0).Text.Split(":")
+                TextBox5.Text = TimeSplit(0)
+                TextBox17.Text = TimeSplit(1)
+                TextBox18.Text = TimeSplit(2)
+                TextBox19.Text = ListView1.SelectedItems(0).SubItems(1).Text
+            ElseIf cmd = "update" Then
+                ListView1.SelectedItems(0).SubItems(0).Text = newTime
+                ListView1.SelectedItems(0).SubItems(1).Text = TextBox19.Text
+            ElseIf cmd = "remove" Then
+                MessageBoxAdv.Show("Chapter name " & Chr(34) & ListView1.SelectedItems(0).SubItems(1).Text & Chr(34) & " removed !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ListView1.Items.Remove(ListView1.SelectedItems(0))
+            ElseIf cmd = "reset" Then
+                ListView1.Items.Clear()
+            End If
+        End If
+    End Sub
+    Private Function ChapterTimeCheck() As Boolean
+        If TextBox5.Text IsNot "" Then
+            If TextBox5.Text = "0" & CInt(TextBox5.Text) Then
+                TextBox5.Text = TextBox5.Text
+            ElseIf CInt(TextBox5.Text) >= 0 And CInt(TextBox5.Text) < 10 Then
+                TextBox5.Text = "0" & CInt(TextBox5.Text)
+            End If
+        Else
+            TextBox5.Text = "00"
+        End If
+        If TextBox17.Text IsNot "" Then
+            If TextBox17.Text = "0" & CInt(TextBox17.Text) Then
+                TextBox17.Text = TextBox17.Text
+            ElseIf CInt(TextBox17.Text) >= 0 And CInt(TextBox17.Text) < 10 Then
+                TextBox17.Text = "0" & TextBox17.Text
+            Else
+                TextBox17.Text = TextBox17.Text
+            End If
+        Else
+            TextBox17.Text = "00"
+        End If
+        If TextBox18.Text IsNot "" Then
+            If TextBox18.Text = "0" & CInt(TextBox18.Text) Then
+                TextBox18.Text = TextBox18.Text
+            ElseIf CInt(TextBox18.Text) >= 0 And CInt(TextBox18.Text) < 10 Then
+                TextBox18.Text = "0" & TextBox18.Text
+            Else
+                TextBox18.Text = TextBox18.Text
+            End If
+        Else
+            TextBox18.Text = "00"
+        End If
+        TimeSplit = Label81.Text.Split(":")
+        TimeDur = TimeConversion(TimeSplit(0), TimeSplit(1), TimeSplit(2))
+        TimeChapter = TimeConversion(CInt(TextBox5.Text), CInt(TextBox17.Text), CInt(TextBox18.Text))
+        If TimeChapter <= TimeDur Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+    Private Sub ChapterReset()
+        TextBox5.Text = ""
+        TextBox17.Text = ""
+        TextBox18.Text = ""
+        TextBox19.Text = ""
+    End Sub
     Private Sub ResetInit()
         CheckBox1.Checked = False
         CheckBox3.Enabled = False
@@ -2860,6 +3132,24 @@ Public Class MainMenu
                 MessageBoxAdv.Show("Maximum value for minute is 60 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 TextBox12.Text = ""
             End If
+        End If
+    End Sub
+    Private Sub ChapterTimeHours_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox5.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub ChapterTimeMinute_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox17.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub ChapterTimeSeconds_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox18.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
         End If
     End Sub
 End Class

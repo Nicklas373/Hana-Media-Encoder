@@ -145,4 +145,35 @@ Module MediaEncoderModule
         Dim process As Process = Process.Start(psi)
         process.WaitForExit()
     End Sub
+    Public Sub RunPy(py As String)
+        Dim Python As New ProcessStartInfo(py) With {
+            .FileName = "C:\Users\Lenovo\AppData\Local\Programs\Python\Python310\python.exe",
+            .Arguments = py,
+            .UseShellExecute = False,
+            .WindowStyle = ProcessWindowStyle.Hidden,
+            .CreateNoWindow = True,
+            .RedirectStandardOutput = True
+        }
+        Dim PyProc As Process = Process.Start(Python)
+        PyProc.WaitForExit()
+    End Sub
+    Public Sub CleanEnv(cleanStats As String)
+        GC.Collect()
+        GC.WaitForPendingFinalizers()
+        File.Delete("HME.bat")
+        File.Delete("HME_VF.bat")
+        File.Delete("HME_Audio_Flags.txt")
+        If cleanStats = "all" Then
+            File.Delete("chapter.txt")
+            File.Delete("FFMETADATAFILE")
+            MassDelete("audioStream", "txt")
+            MassDelete("audioConfig", "txt")
+            MassDelete("videoStream", "txt")
+            MassDelete("videoConfig", "txt")
+        End If
+        If File.Exists("thumbnail\1.png") Then
+            File.Delete("thumbnail\1.png")
+            File.Delete("thumbnail\2.png")
+        End If
+    End Sub
 End Module

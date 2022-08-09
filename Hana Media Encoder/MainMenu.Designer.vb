@@ -142,6 +142,28 @@ Partial Class MainMenu
         Me.Label62 = New System.Windows.Forms.Label()
         Me.CheckBox5 = New System.Windows.Forms.CheckBox()
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.Label81 = New System.Windows.Forms.Label()
+        Me.Label95 = New System.Windows.Forms.Label()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.TextBox19 = New System.Windows.Forms.TextBox()
+        Me.Label94 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label92 = New System.Windows.Forms.Label()
+        Me.TextBox17 = New System.Windows.Forms.TextBox()
+        Me.Label93 = New System.Windows.Forms.Label()
+        Me.TextBox18 = New System.Windows.Forms.TextBox()
+        Me.Label91 = New System.Windows.Forms.Label()
+        Me.Label82 = New System.Windows.Forms.Label()
+        Me.RichTextBox5 = New System.Windows.Forms.RichTextBox()
+        Me.CheckBox14 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox15 = New System.Windows.Forms.CheckBox()
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader2 = New System.Windows.Forms.ColumnHeader()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.ComboBox25 = New System.Windows.Forms.ComboBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -204,6 +226,7 @@ Partial Class MainMenu
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        Me.TabPage6.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -310,6 +333,7 @@ Partial Class MainMenu
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Location = New System.Drawing.Point(3, 46)
@@ -1508,6 +1532,233 @@ Partial Class MainMenu
         Me.CheckBox4.Text = "Enable Audio"
         Me.CheckBox4.UseVisualStyleBackColor = True
         '
+        'TabPage6
+        '
+        Me.TabPage6.Controls.Add(Me.Label81)
+        Me.TabPage6.Controls.Add(Me.Label95)
+        Me.TabPage6.Controls.Add(Me.Button14)
+        Me.TabPage6.Controls.Add(Me.Button13)
+        Me.TabPage6.Controls.Add(Me.Button12)
+        Me.TabPage6.Controls.Add(Me.Button11)
+        Me.TabPage6.Controls.Add(Me.TextBox19)
+        Me.TabPage6.Controls.Add(Me.Label94)
+        Me.TabPage6.Controls.Add(Me.TextBox5)
+        Me.TabPage6.Controls.Add(Me.Label92)
+        Me.TabPage6.Controls.Add(Me.TextBox17)
+        Me.TabPage6.Controls.Add(Me.Label93)
+        Me.TabPage6.Controls.Add(Me.TextBox18)
+        Me.TabPage6.Controls.Add(Me.Label91)
+        Me.TabPage6.Controls.Add(Me.Label82)
+        Me.TabPage6.Controls.Add(Me.RichTextBox5)
+        Me.TabPage6.Controls.Add(Me.CheckBox14)
+        Me.TabPage6.Controls.Add(Me.CheckBox15)
+        Me.TabPage6.Controls.Add(Me.ListView1)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(1243, 453)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "Chapter"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'Label81
+        '
+        Me.Label81.AutoSize = True
+        Me.Label81.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label81.Location = New System.Drawing.Point(157, 52)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(0, 17)
+        Me.Label81.TabIndex = 84
+        '
+        'Label95
+        '
+        Me.Label95.AutoSize = True
+        Me.Label95.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label95.Location = New System.Drawing.Point(36, 52)
+        Me.Label95.Name = "Label95"
+        Me.Label95.Size = New System.Drawing.Size(102, 17)
+        Me.Label95.TabIndex = 83
+        Me.Label95.Text = "Video Duration:"
+        '
+        'Button14
+        '
+        Me.Button14.Enabled = False
+        Me.Button14.Location = New System.Drawing.Point(560, 297)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(90, 33)
+        Me.Button14.TabIndex = 82
+        Me.Button14.Text = "Reset"
+        Me.Button14.UseVisualStyleBackColor = True
+        '
+        'Button13
+        '
+        Me.Button13.Enabled = False
+        Me.Button13.Location = New System.Drawing.Point(560, 219)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(90, 33)
+        Me.Button13.TabIndex = 81
+        Me.Button13.Text = "Update"
+        Me.Button13.UseVisualStyleBackColor = True
+        '
+        'Button12
+        '
+        Me.Button12.Enabled = False
+        Me.Button12.Location = New System.Drawing.Point(560, 258)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(90, 33)
+        Me.Button12.TabIndex = 80
+        Me.Button12.Text = "Remove"
+        Me.Button12.UseVisualStyleBackColor = True
+        '
+        'Button11
+        '
+        Me.Button11.Enabled = False
+        Me.Button11.Location = New System.Drawing.Point(560, 180)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(90, 33)
+        Me.Button11.TabIndex = 79
+        Me.Button11.Text = "Add"
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'TextBox19
+        '
+        Me.TextBox19.Enabled = False
+        Me.TextBox19.ImeMode = System.Windows.Forms.ImeMode.[On]
+        Me.TextBox19.Location = New System.Drawing.Point(99, 136)
+        Me.TextBox19.Name = "TextBox19"
+        Me.TextBox19.Size = New System.Drawing.Size(368, 23)
+        Me.TextBox19.TabIndex = 78
+        '
+        'Label94
+        '
+        Me.Label94.AutoSize = True
+        Me.Label94.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label94.Location = New System.Drawing.Point(35, 136)
+        Me.Label94.Name = "Label94"
+        Me.Label94.Size = New System.Drawing.Size(33, 17)
+        Me.Label94.TabIndex = 77
+        Me.Label94.Text = "Title"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Enabled = False
+        Me.TextBox5.Location = New System.Drawing.Point(99, 91)
+        Me.TextBox5.MaxLength = 2
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(43, 23)
+        Me.TextBox5.TabIndex = 72
+        '
+        'Label92
+        '
+        Me.Label92.AutoSize = True
+        Me.Label92.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label92.Location = New System.Drawing.Point(144, 94)
+        Me.Label92.Name = "Label92"
+        Me.Label92.Size = New System.Drawing.Size(11, 17)
+        Me.Label92.TabIndex = 73
+        Me.Label92.Text = ":"
+        '
+        'TextBox17
+        '
+        Me.TextBox17.Enabled = False
+        Me.TextBox17.Location = New System.Drawing.Point(156, 91)
+        Me.TextBox17.MaxLength = 2
+        Me.TextBox17.Name = "TextBox17"
+        Me.TextBox17.Size = New System.Drawing.Size(43, 23)
+        Me.TextBox17.TabIndex = 74
+        '
+        'Label93
+        '
+        Me.Label93.AutoSize = True
+        Me.Label93.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label93.Location = New System.Drawing.Point(203, 94)
+        Me.Label93.Name = "Label93"
+        Me.Label93.Size = New System.Drawing.Size(11, 17)
+        Me.Label93.TabIndex = 75
+        Me.Label93.Text = ":"
+        '
+        'TextBox18
+        '
+        Me.TextBox18.Enabled = False
+        Me.TextBox18.Location = New System.Drawing.Point(217, 91)
+        Me.TextBox18.MaxLength = 2
+        Me.TextBox18.Name = "TextBox18"
+        Me.TextBox18.Size = New System.Drawing.Size(43, 23)
+        Me.TextBox18.TabIndex = 76
+        '
+        'Label91
+        '
+        Me.Label91.AutoSize = True
+        Me.Label91.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label91.Location = New System.Drawing.Point(35, 91)
+        Me.Label91.Name = "Label91"
+        Me.Label91.Size = New System.Drawing.Size(37, 17)
+        Me.Label91.TabIndex = 71
+        Me.Label91.Text = "Time"
+        '
+        'Label82
+        '
+        Me.Label82.AutoSize = True
+        Me.Label82.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label82.Location = New System.Drawing.Point(803, 17)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(186, 17)
+        Me.Label82.TabIndex = 69
+        Me.Label82.Text = "Chapter Command Summary"
+        '
+        'RichTextBox5
+        '
+        Me.RichTextBox5.Enabled = False
+        Me.RichTextBox5.Location = New System.Drawing.Point(803, 51)
+        Me.RichTextBox5.Name = "RichTextBox5"
+        Me.RichTextBox5.ReadOnly = True
+        Me.RichTextBox5.Size = New System.Drawing.Size(428, 343)
+        Me.RichTextBox5.TabIndex = 68
+        Me.RichTextBox5.Text = ""
+        '
+        'CheckBox14
+        '
+        Me.CheckBox14.AutoSize = True
+        Me.CheckBox14.Enabled = False
+        Me.CheckBox14.Location = New System.Drawing.Point(128, 15)
+        Me.CheckBox14.Name = "CheckBox14"
+        Me.CheckBox14.Size = New System.Drawing.Size(88, 19)
+        Me.CheckBox14.TabIndex = 67
+        Me.CheckBox14.Text = "Lock Profile"
+        Me.CheckBox14.UseVisualStyleBackColor = True
+        '
+        'CheckBox15
+        '
+        Me.CheckBox15.AutoSize = True
+        Me.CheckBox15.Location = New System.Drawing.Point(17, 15)
+        Me.CheckBox15.Name = "CheckBox15"
+        Me.CheckBox15.Size = New System.Drawing.Size(106, 19)
+        Me.CheckBox15.TabIndex = 66
+        Me.CheckBox15.Text = "Enable Chapter"
+        Me.CheckBox15.UseVisualStyleBackColor = True
+        '
+        'ListView1
+        '
+        Me.ListView1.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2})
+        Me.ListView1.FullRowSelect = True
+        Me.ListView1.GridLines = True
+        Me.ListView1.Location = New System.Drawing.Point(34, 180)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(520, 253)
+        Me.ListView1.TabIndex = 0
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Time"
+        Me.ColumnHeader1.Width = 260
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Title"
+        Me.ColumnHeader2.Width = 260
+        '
         'TabPage5
         '
         Me.TabPage5.Controls.Add(Me.ComboBox25)
@@ -2147,6 +2398,8 @@ Partial Class MainMenu
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        Me.TabPage6.ResumeLayout(False)
+        Me.TabPage6.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
@@ -2334,4 +2587,26 @@ Partial Class MainMenu
     Friend WithEvents CheckBox13 As CheckBox
     Friend WithEvents ComboBox29 As ComboBox
     Friend WithEvents ComboBox30 As ComboBox
+    Friend WithEvents TabPage6 As TabPage
+    Friend WithEvents ListView1 As ListView
+    Friend WithEvents ColumnHeader1 As ColumnHeader
+    Friend WithEvents ColumnHeader2 As ColumnHeader
+    Friend WithEvents Label82 As Label
+    Friend WithEvents RichTextBox5 As RichTextBox
+    Friend WithEvents CheckBox14 As CheckBox
+    Friend WithEvents CheckBox15 As CheckBox
+    Friend WithEvents Button13 As Button
+    Friend WithEvents Button12 As Button
+    Friend WithEvents Button11 As Button
+    Friend WithEvents TextBox19 As TextBox
+    Friend WithEvents Label94 As Label
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Label92 As Label
+    Friend WithEvents TextBox17 As TextBox
+    Friend WithEvents Label93 As Label
+    Friend WithEvents TextBox18 As TextBox
+    Friend WithEvents Label91 As Label
+    Friend WithEvents Button14 As Button
+    Friend WithEvents Label81 As Label
+    Friend WithEvents Label95 As Label
 End Class
