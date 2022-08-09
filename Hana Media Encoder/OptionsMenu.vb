@@ -21,7 +21,7 @@ Public Class OptionsMenu
     Private Sub About_Btn(sender As Object, e As EventArgs) Handles Button3.Click
         about_pnl.Visible = True
     End Sub
-    Private Sub Browse_Btn(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Browse_Btn_FFMPEG(sender As Object, e As EventArgs)
         openfolderDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If openfolderDialog.ShowDialog() = DialogResult.OK Then
             If File.Exists(openfolderDialog.SelectedPath & "\ffmpeg.exe") And File.Exists(openfolderDialog.SelectedPath & "\ffplay.exe") And File.Exists(openfolderDialog.SelectedPath & "\ffprobe.exe") Then
@@ -52,7 +52,38 @@ Public Class OptionsMenu
             End If
         End If
     End Sub
-    Private Sub GPUOverrideCheck(sender As Object, e As EventArgs) Handles CheckBox2.Click
+    Private Sub Browse_Btn_Python(sender As Object, e As EventArgs) Handles Button2.Click
+        openfolderDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
+        If openfolderDialog.ShowDialog() = DialogResult.OK Then
+            If File.Exists(openfolderDialog.SelectedPath & "\python.exe") Then
+                TextBox2.Text = openfolderDialog.SelectedPath
+                If File.Exists("config.ini") Then
+                    Dim PythonConf As String = FindConfig("config.ini", "Python Binary: ")
+                    If PythonConf = "null" Then
+                        Dim writer As New StreamWriter("config.ini", True)
+                        writer.WriteLine("Python Binary: " & TextBox2.Text)
+                        writer.Close()
+                    Else
+                        Dim PythonReaderOldConf As String = File.ReadAllText("config.ini")
+                        PythonReaderOldConf = PythonReaderOldConf.Replace(PythonConf, "Python Binary: " & TextBox2.Text)
+                        File.WriteAllText("config.ini", PythonReaderOldConf)
+                    End If
+                Else
+                    File.Create("config.ini").Dispose()
+                    Dim writer As New StreamWriter("config.ini", True)
+                    writer.WriteLine("Python Binary: " & TextBox2.Text)
+                    writer.Close()
+                End If
+                MessageBoxAdv.Show("Application need to restart after changes Python Binary !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Close()
+                MainMenu.Show()
+                Application.Restart()
+            Else
+                MessageBoxAdv.Show("Make sure that folder have required Python Files !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+    End Sub
+    Private Sub GPUOverrideCheck(sender As Object, e As EventArgs)
         If CheckBox2.Checked Then
             ComboBox1.Enabled = True
             CheckBox1.Checked = False
@@ -86,6 +117,7 @@ Public Class OptionsMenu
             Dim frameCount As String = FindConfig("config.ini", "Frame Count: ")
             Dim ffmpegConfig As String = FindConfig("config.ini", "FFMPEG Binary: ")
             Dim hwdefConfig As String = FindConfig("config.ini", "GPU Engine: ")
+            Dim pythonConfig As String = FindConfig("config.ini", "Python Binary: ")
             If debugMode = "null" Then
                 CheckBox3.Checked = False
             Else
@@ -96,6 +128,11 @@ Public Class OptionsMenu
                 TextBox1.Text = ""
             Else
                 TextBox1.Text = ffmpegConfig.Remove(0, 15)
+            End If
+            If pythonConfig = "null" Then
+                TextBox2.Text = ""
+            Else
+                TextBox2.Text = pythonConfig.Remove(0, 15)
             End If
             If hwdefConfig = "GPU Engine: cuda" Or hwdefConfig = "GPU Engine: opencl" Or hwdefConfig = "GPU Engine: qsv" Then
                 CheckBox1.Checked = True
@@ -118,7 +155,7 @@ Public Class OptionsMenu
             End If
         End If
     End Sub
-    Private Sub GPUHWEnable(sender As Object, e As EventArgs) Handles CheckBox1.Click
+    Private Sub GPUHWEnable(sender As Object, e As EventArgs)
         Dim HWDecConf As String = FindConfig("config.ini", "GPU Engine: ")
         If CheckBox1.Checked Then
             If File.Exists("config.ini") Then
@@ -163,7 +200,7 @@ Public Class OptionsMenu
             End If
         End If
     End Sub
-    Private Sub DebugModeCheck(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
+    Private Sub DebugModeCheck(sender As Object, e As EventArgs)
         Dim debugMode As String = FindConfig("config.ini", "Debug Mode: ")
         If CheckBox3.Checked Then
             CheckBox4.Enabled = True
@@ -187,7 +224,7 @@ Public Class OptionsMenu
             writer.Close()
         End If
     End Sub
-    Private Sub FrameCountCheck(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
+    Private Sub FrameCountCheck(sender As Object, e As EventArgs)
         Dim frameCount As String = FindConfig("config.ini", "Frame Count: ")
         If File.Exists("config.ini") Then
             If frameCount = "null" Then
