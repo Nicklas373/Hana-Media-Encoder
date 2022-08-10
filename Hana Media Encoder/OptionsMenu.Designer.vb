@@ -25,10 +25,6 @@ Partial Class OptionsMenu
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OptionsMenu))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.General_pnl = New System.Windows.Forms.Panel()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -79,10 +75,6 @@ Partial Class OptionsMenu
         'General_pnl
         '
         Me.General_pnl.Controls.Add(Me.about_pnl)
-        Me.General_pnl.Controls.Add(Me.Label26)
-        Me.General_pnl.Controls.Add(Me.Label27)
-        Me.General_pnl.Controls.Add(Me.TextBox2)
-        Me.General_pnl.Controls.Add(Me.Button2)
         Me.General_pnl.Controls.Add(Me.Label24)
         Me.General_pnl.Controls.Add(Me.Label21)
         Me.General_pnl.Controls.Add(Me.Label22)
@@ -116,44 +108,6 @@ Partial Class OptionsMenu
         Me.General_pnl.Name = "General_pnl"
         Me.General_pnl.Size = New System.Drawing.Size(1254, 588)
         Me.General_pnl.TabIndex = 38
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label26.Location = New System.Drawing.Point(236, 287)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(358, 15)
-        Me.Label26.TabIndex = 36
-        Me.Label26.Text = "NOTE: Choose Python installation folder which contain python.exe"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label27.Location = New System.Drawing.Point(19, 259)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(95, 17)
-        Me.Label27.TabIndex = 34
-        Me.Label27.Text = "Python Binary"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(236, 258)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(650, 23)
-        Me.TextBox2.TabIndex = 35
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Button2.Location = New System.Drawing.Point(892, 255)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(86, 30)
-        Me.Button2.TabIndex = 33
-        Me.Button2.Text = "Browse"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'Label24
         '
@@ -252,7 +206,7 @@ Partial Class OptionsMenu
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label16.Location = New System.Drawing.Point(237, 556)
+        Me.Label16.Location = New System.Drawing.Point(237, 465)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(506, 15)
         Me.Label16.TabIndex = 22
@@ -263,7 +217,7 @@ Partial Class OptionsMenu
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label15.Location = New System.Drawing.Point(453, 464)
+        Me.Label15.Location = New System.Drawing.Point(453, 373)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(61, 17)
         Me.Label15.TabIndex = 21
@@ -273,7 +227,7 @@ Partial Class OptionsMenu
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label14.Location = New System.Drawing.Point(236, 464)
+        Me.Label14.Location = New System.Drawing.Point(236, 373)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(122, 17)
         Me.Label14.TabIndex = 20
@@ -283,7 +237,7 @@ Partial Class OptionsMenu
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label13.Location = New System.Drawing.Point(453, 492)
+        Me.Label13.Location = New System.Drawing.Point(453, 401)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(61, 17)
         Me.Label13.TabIndex = 19
@@ -293,7 +247,7 @@ Partial Class OptionsMenu
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label12.Location = New System.Drawing.Point(236, 492)
+        Me.Label12.Location = New System.Drawing.Point(236, 401)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(119, 17)
         Me.Label12.TabIndex = 18
@@ -303,7 +257,7 @@ Partial Class OptionsMenu
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label11.Location = New System.Drawing.Point(453, 521)
+        Me.Label11.Location = New System.Drawing.Point(453, 430)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(61, 17)
         Me.Label11.TabIndex = 17
@@ -313,7 +267,7 @@ Partial Class OptionsMenu
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label10.Location = New System.Drawing.Point(237, 521)
+        Me.Label10.Location = New System.Drawing.Point(237, 430)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(75, 17)
         Me.Label10.TabIndex = 16
@@ -323,7 +277,7 @@ Partial Class OptionsMenu
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label9.Location = New System.Drawing.Point(453, 436)
+        Me.Label9.Location = New System.Drawing.Point(453, 345)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(61, 17)
         Me.Label9.TabIndex = 15
@@ -333,7 +287,7 @@ Partial Class OptionsMenu
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label8.Location = New System.Drawing.Point(236, 436)
+        Me.Label8.Location = New System.Drawing.Point(236, 345)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(76, 17)
         Me.Label8.TabIndex = 14
@@ -343,7 +297,7 @@ Partial Class OptionsMenu
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.Location = New System.Drawing.Point(453, 407)
+        Me.Label7.Location = New System.Drawing.Point(453, 316)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(61, 17)
         Me.Label7.TabIndex = 13
@@ -353,7 +307,7 @@ Partial Class OptionsMenu
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label6.Location = New System.Drawing.Point(236, 407)
+        Me.Label6.Location = New System.Drawing.Point(236, 316)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(74, 17)
         Me.Label6.TabIndex = 12
@@ -363,7 +317,7 @@ Partial Class OptionsMenu
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(19, 407)
+        Me.Label3.Location = New System.Drawing.Point(20, 316)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(110, 17)
         Me.Label3.TabIndex = 11
@@ -372,7 +326,7 @@ Partial Class OptionsMenu
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(461, 358)
+        Me.CheckBox2.Location = New System.Drawing.Point(461, 281)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(362, 19)
         Me.CheckBox2.TabIndex = 10
@@ -382,7 +336,7 @@ Partial Class OptionsMenu
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(461, 332)
+        Me.CheckBox1.Location = New System.Drawing.Point(461, 255)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(206, 19)
         Me.CheckBox1.TabIndex = 9
@@ -394,7 +348,7 @@ Partial Class OptionsMenu
         Me.ComboBox1.Enabled = False
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Intel (QuickSync)", "NVIDIA (NVENC / NVDEC)", "AMD (OpenCL)"})
-        Me.ComboBox1.Location = New System.Drawing.Point(236, 331)
+        Me.ComboBox1.Location = New System.Drawing.Point(236, 254)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(206, 23)
         Me.ComboBox1.TabIndex = 8
@@ -403,7 +357,7 @@ Partial Class OptionsMenu
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label5.Location = New System.Drawing.Point(19, 331)
+        Me.Label5.Location = New System.Drawing.Point(19, 254)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(171, 17)
         Me.Label5.TabIndex = 7
@@ -484,10 +438,10 @@ Partial Class OptionsMenu
         'about_pnl
         '
         Me.about_pnl.Controls.Add(Me.Label20)
-        Me.about_pnl.Location = New System.Drawing.Point(0, 3)
+        Me.about_pnl.Location = New System.Drawing.Point(0, 0)
         Me.about_pnl.Name = "about_pnl"
         Me.about_pnl.Size = New System.Drawing.Size(1254, 585)
-        Me.about_pnl.TabIndex = 37
+        Me.about_pnl.TabIndex = 39
         '
         'Label20
         '
@@ -527,10 +481,6 @@ Partial Class OptionsMenu
     Friend WithEvents Button1 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents General_pnl As Panel
-    Friend WithEvents Label26 As Label
-    Friend WithEvents Label27 As Label
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Button2 As Button
     Friend WithEvents Label24 As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents Label22 As Label

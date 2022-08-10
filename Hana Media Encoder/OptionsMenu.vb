@@ -52,37 +52,6 @@ Public Class OptionsMenu
             End If
         End If
     End Sub
-    Private Sub Browse_Btn_Python(sender As Object, e As EventArgs) Handles Button2.Click
-        openfolderDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
-        If openfolderDialog.ShowDialog() = DialogResult.OK Then
-            If File.Exists(openfolderDialog.SelectedPath & "\python.exe") Then
-                TextBox2.Text = openfolderDialog.SelectedPath
-                If File.Exists("config.ini") Then
-                    Dim PythonConf As String = FindConfig("config.ini", "Python Binary: ")
-                    If PythonConf = "null" Then
-                        Dim writer As New StreamWriter("config.ini", True)
-                        writer.WriteLine("Python Binary: " & TextBox2.Text)
-                        writer.Close()
-                    Else
-                        Dim PythonReaderOldConf As String = File.ReadAllText("config.ini")
-                        PythonReaderOldConf = PythonReaderOldConf.Replace(PythonConf, "Python Binary: " & TextBox2.Text)
-                        File.WriteAllText("config.ini", PythonReaderOldConf)
-                    End If
-                Else
-                    File.Create("config.ini").Dispose()
-                    Dim writer As New StreamWriter("config.ini", True)
-                    writer.WriteLine("Python Binary: " & TextBox2.Text)
-                    writer.Close()
-                End If
-                MessageBoxAdv.Show("Application need to restart after changes Python Binary !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.Close()
-                MainMenu.Show()
-                Application.Restart()
-            Else
-                MessageBoxAdv.Show("Make sure that folder have required Python Files !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        End If
-    End Sub
     Private Sub GPUOverrideCheck(sender As Object, e As EventArgs)
         If CheckBox2.Checked Then
             ComboBox1.Enabled = True
@@ -128,11 +97,6 @@ Public Class OptionsMenu
                 TextBox1.Text = ""
             Else
                 TextBox1.Text = ffmpegConfig.Remove(0, 15)
-            End If
-            If pythonConfig = "null" Then
-                TextBox2.Text = ""
-            Else
-                TextBox2.Text = pythonConfig.Remove(0, 15)
             End If
             If hwdefConfig = "GPU Engine: cuda" Or hwdefConfig = "GPU Engine: opencl" Or hwdefConfig = "GPU Engine: qsv" Then
                 CheckBox1.Checked = True
