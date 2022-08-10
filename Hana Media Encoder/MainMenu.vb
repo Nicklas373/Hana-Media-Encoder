@@ -9,8 +9,6 @@ Public Class MainMenu
     Dim origSavePath As String
     Dim origSaveExt As String
     Dim origSaveName As String
-    Dim pythonConf As String
-    Dim pythonLetter As String
     Dim ffmpegConf As String
     Dim ffmpegLetter As String
     Dim ffmpegEncStats As String
@@ -2820,34 +2818,21 @@ Public Class MainMenu
     Private Sub EnableChapter(sender As Object, e As EventArgs) Handles CheckBox15.CheckedChanged
         If CheckBox15.Checked Then
             If Label2.Text IsNot "" Then
-                Dim pythonConfig As String = FindConfig("config.ini", "Python Binary: ")
-                If pythonConfig = "null" Then
-                    CheckBox15.Checked = False
-                    MessageBoxAdv.Show("Python Binary was not found !, please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Else
-                    pythonConf = pythonConfig.Remove(0, 15) & "\"
-                    pythonLetter = pythonConf.Substring(0, 1) & ":"
-                    If File.Exists(pythonConf & "python.exe") Then
-                        CheckBox14.Enabled = True
-                        TextBox5.Enabled = True
-                        TextBox17.Enabled = True
-                        TextBox18.Enabled = True
-                        TextBox19.Enabled = True
-                        Button11.Enabled = True
-                        Button12.Enabled = True
-                        Button13.Enabled = True
-                        Button14.Enabled = True
-                        RichTextBox5.Enabled = True
-                        CheckBox8.Checked = False
-                        CheckBox8.Enabled = False
-                        CheckBox6.Checked = False
-                        CheckBox6.Enabled = False
-                        MessageBoxAdv.Show("Trim and Muxing options are not available while chapter is enable !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Else
-                        CheckBox15.Checked = False
-                        MessageBoxAdv.Show("Python Binary is invalid !, please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
-                End If
+                CheckBox14.Enabled = True
+                TextBox5.Enabled = True
+                TextBox17.Enabled = True
+                TextBox18.Enabled = True
+                TextBox19.Enabled = True
+                Button11.Enabled = True
+                Button12.Enabled = True
+                Button13.Enabled = True
+                Button14.Enabled = True
+                RichTextBox5.Enabled = True
+                CheckBox8.Checked = False
+                CheckBox8.Enabled = False
+                CheckBox6.Checked = False
+                CheckBox6.Enabled = False
+                MessageBoxAdv.Show("Trim and Muxing options are not available while chapter is enable !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 CheckBox15.Checked = False
                 MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -2870,24 +2855,34 @@ Public Class MainMenu
     Private Sub ChapterLock(sender As Object, e As EventArgs) Handles CheckBox14.CheckedChanged
         If CheckBox14.Checked = True Then
             If ListView1.Items.Count > 0 Then
-                If File.Exists("chapter.txt") Then
+                If File.Exists("FFMETADATAFILE") Then
                     GC.Collect()
                     GC.WaitForPendingFinalizers()
-                    File.Delete("chapter.txt")
+                    File.Delete("FFMETADATAFILE")
                 End If
-                File.Create("chapter.txt").Dispose()
-                Using ChapterStream As New IO.StreamWriter("chapter.txt")
-                    For Each CH As ListViewItem In ListView1.Items
-                        Dim CHRow As String = ""
-                        For Each CHCell As ListViewItem.ListViewSubItem _
-                              In CH.SubItems
-                            CHRow &= CHCell.Text & " "
-                        Next
-                        CHRow = CHRow.Remove(CHRow.Length - 1, 1)
-                        ChapterStream.WriteLine(CHRow)
-                    Next
-                End Using
-                RunPy("chapter.py")
+                File.Create("FFMETADATAFILE").Dispose()
+                Dim writer As New StreamWriter("FFMETADATAFILE", True)
+                writer.WriteLine(";FFMETADATAFILE1")
+                writer.WriteLine("title=Chapter" & vbCrLf)
+                For cm = 0 To ListView1.Items.Count - 1
+                    Dim nextdur As String()
+                    Dim selectedDur As String() = ListView1.Items(cm).SubItems(0).Text.Split(":")
+                    If cm < ListView1.Items.Count - 1 Then
+                        nextdur = ListView1.Items(cm + 1).SubItems(0).Text.Split(":")
+                    Else
+                        nextdur = Label81.Text.Split(":")
+                    End If
+                    Dim selectedTitle As String = ListView1.Items(cm).SubItems(1).Text
+                    Dim convSelDur As Integer = TimeConversion(selectedDur(0), selectedDur(1), selectedDur(2))
+                    Dim convNextDur As Integer = TimeConversion(nextdur(0), nextdur(1), nextdur(2))
+                    MsgBox(convNextDur)
+                    writer.WriteLine("[CHAPTER]")
+                    writer.WriteLine("TIMEBASE=1/1000")
+                    writer.WriteLine("START=" & convSelDur * 1000)
+                    writer.WriteLine("END=" & (convNextDur - 1) * 1000)
+                    writer.WriteLine("Title=" & selectedTitle & vbCrLf)
+                Next
+                writer.Close()
                 RichTextBox5.Text = " -i " & Chr(34) & My.Application.Info.DirectoryPath & "\FFMETADATAFILE" & Chr(34) & " -map_metadata 1 "
                 TextBox5.Enabled = False
                 TextBox17.Enabled = False
@@ -2956,7 +2951,8 @@ Public Class MainMenu
         ChapterReplace("remove", "")
     End Sub
     Private Sub ChapterReset(sender As Object, e As EventArgs) Handles Button14.Click
-        ChapterReplace("reset", "")
+        MessageBoxAdv.Show("Chapter data has been reset !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ListView1.Items.Clear()
     End Sub
     Private Sub ChapterList_Clicked(sender As Object, e As EventArgs) Handles ListView1.Click
         If TextBox5.Text IsNot "" Or TextBox17.Text IsNot "" Or TextBox18.Text IsNot "" Or TextBox19.Text IsNot "" Then
@@ -2981,10 +2977,8 @@ Public Class MainMenu
                 ListView1.SelectedItems(0).SubItems(0).Text = newTime
                 ListView1.SelectedItems(0).SubItems(1).Text = TextBox19.Text
             ElseIf cmd = "remove" Then
-                MessageBoxAdv.Show("Chapter name " & Chr(34) & ListView1.SelectedItems(0).SubItems(1).Text & Chr(34) & " removed !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBoxAdv.Show("Chapter name " & Chr(34) & ListView1.SelectedItems(0).SubItems(1).Text & Chr(34) & " removed !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 ListView1.Items.Remove(ListView1.SelectedItems(0))
-            ElseIf cmd = "reset" Then
-                ListView1.Items.Clear()
             End If
         End If
     End Sub
