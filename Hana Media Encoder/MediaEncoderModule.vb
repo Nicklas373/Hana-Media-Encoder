@@ -145,18 +145,6 @@ Module MediaEncoderModule
         Dim process As Process = Process.Start(psi)
         process.WaitForExit()
     End Sub
-    Public Sub RunPy(py As String)
-        Dim Python As New ProcessStartInfo(py) With {
-            .FileName = "C:\Users\Lenovo\AppData\Local\Programs\Python\Python310\python.exe",
-            .Arguments = py,
-            .UseShellExecute = False,
-            .WindowStyle = ProcessWindowStyle.Hidden,
-            .CreateNoWindow = True,
-            .RedirectStandardOutput = True
-        }
-        Dim PyProc As Process = Process.Start(Python)
-        PyProc.WaitForExit()
-    End Sub
     Public Sub CleanEnv(cleanStats As String)
         GC.Collect()
         GC.WaitForPendingFinalizers()
