@@ -19,12 +19,6 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
-        "Entry"
-        {
-        "MsmKey" = "8:_8884340D8E0C4D71B1312421F67172C0"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
     }
     "Configurations"
     {
@@ -127,26 +121,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8884340D8E0C4D71B1312421F67172C0"
-            {
-            "SourcePath" = "8:..\\Hana Media Encoder\\bin\\Debug\\net6.0-windows\\chapter.py"
-            "TargetName" = "8:chapter.py"
-            "Tag" = "8:"
-            "Folder" = "8:_D6B82C45758E485CA0C5AC04002D03AC"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -177,7 +151,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_D6B82C45758E485CA0C5AC04002D03AC"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -258,29 +232,29 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Hana Media Encoder"
-        "ProductCode" = "8:{D2708218-605F-4DC1-A647-1640E8B21CED}"
-        "PackageCode" = "8:{096DDD0D-49DC-4083-BC7F-F0F8A41F0464}"
-        "UpgradeCode" = "8:{6119A0DC-89FC-44EF-A490-66E4E915E4DF}"
+        "ProductCode" = "8:{EC4DED56-602E-4247-BE1A-23D7644192C5}"
+        "PackageCode" = "8:{3F25BDAF-54CA-4DEB-8B49-0B396D2000A2}"
+        "UpgradeCode" = "8:{609EC41D-568B-4600-8751-AB57A6FBE6C9}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.3"
+        "ProductVersion" = "8:1.0.5"
         "Manufacturer" = "8:HANA-CI Build Project"
         "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:"
+        "ARPHELPLINK" = "8:https://github.com/Nicklas373/Hana-Media-Encoder"
         "Title" = "8:Hana Media Encoder - Setup"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Dicky Herlambang"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Hana Media Encoder"
-        "ARPURLINFOABOUT" = "8:"
+        "ARPURLINFOABOUT" = "8:https://github.com/HANA-CI-Build-Project"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
@@ -794,7 +768,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_253E5B8251864449844D3471D298269B"
             {
-            "SourcePath" = "8:..\\Hana Media Encoder\\obj\\Release\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\Hana Media Encoder\\obj\\Debug\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D6B82C45758E485CA0C5AC04002D03AC"

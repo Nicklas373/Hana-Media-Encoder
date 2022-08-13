@@ -8,7 +8,26 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2022</Copyright>
-    <PackageReleaseNotes>v1.0.2 (20220809):
+    <PackageReleaseNotes>v1.0.5 (20220813):
+- Always set as "Not Detected" when ffprobe detect empty stream id on A/V file
+- Check saved file extensions, if not suitable with selected codec then give it warning
+- Detect lower kb files as success
+   (For some cases, if trim only in several seconds, file size will be in kb (less than MB) and give error from the app cause size below than set algorithm. Use kb file sizes and limit to 1 KB , less than that is failure)
+- Do not count video frame for ffmpeg while video stream are not detected from media file
+- Do not enable video, chapter, and trim if media file does not contain any video stream, same with audio
+- Do not include A/V stream into specific combobox if A/V stream are not detected
+- Drop milliseconds on chapter mode
+- Fixup missing binding after remove python binary
+- Fixup algorithm with detect missing A/V stream for each stream while locking profile
+   (On old algorithm while select only specific profile, then algorithm will check all of profile that are not should be included into check, and that cause about failed to lock due missing A/V stream profile which are not should be saved)
+- Include "avoid_negative_ts 1" flags while trim without encoding
+- Organize declaration variable
+- Properly set value for skip frame count options
+- Properly use .text instead of .selecteditem to prevent missing focus on combobox if combobox value got changed by some algorithm
+- Reset picturebox while load another media file
+- Use another approach to get correct total video duration
+
+v1.0.2 (20220809):
 - Add chapter module
 - Add more logic guard while encoding start
 
@@ -22,9 +41,13 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2022</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>Public</RepositoryType>
-    <Version>1.0.3</Version>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
+    <Version>1.0.5</Version>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
+    <Description>Hana Media Encoder is the multimedia application that have feature to encode, decode, trim and muxing media files using FFMPEG pre-build application (Windows Version), Hana Media Encoder works by creating line of command from user preferences (From application features) then execute it to FFMPEG, FFPLAY or FFPROBE. This application are focusing on encoding video file by using only hardware GPU accelerated codec that FFMPEG has support it, for now (H264 and H265) codec only, and it doesn't have any aim to support native / software or CPU based encoding for video in the future. For audio codec it only supported for MP3, FLAC and WAV, and it will add other codec later.</Description>
+    <PackageProjectUrl>https://github.com/Nicklas373/Hana-Media-Encoder</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Nicklas373/Hana-Media-Encoder</RepositoryUrl>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
