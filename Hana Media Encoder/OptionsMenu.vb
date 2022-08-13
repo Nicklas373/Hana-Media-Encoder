@@ -21,7 +21,7 @@ Public Class OptionsMenu
     Private Sub About_Btn(sender As Object, e As EventArgs) Handles Button3.Click
         about_pnl.Visible = True
     End Sub
-    Private Sub Browse_Btn_FFMPEG(sender As Object, e As EventArgs)
+    Private Sub Browse_Btn_FFMPEG(sender As Object, e As EventArgs) Handles Button4.Click
         openfolderDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If openfolderDialog.ShowDialog() = DialogResult.OK Then
             If File.Exists(openfolderDialog.SelectedPath & "\ffmpeg.exe") And File.Exists(openfolderDialog.SelectedPath & "\ffplay.exe") And File.Exists(openfolderDialog.SelectedPath & "\ffprobe.exe") Then
@@ -52,7 +52,7 @@ Public Class OptionsMenu
             End If
         End If
     End Sub
-    Private Sub GPUOverrideCheck(sender As Object, e As EventArgs)
+    Private Sub GPUOverrideCheck(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
         If CheckBox2.Checked Then
             ComboBox1.Enabled = True
             CheckBox1.Checked = False
@@ -86,7 +86,6 @@ Public Class OptionsMenu
             Dim frameCount As String = FindConfig("config.ini", "Frame Count: ")
             Dim ffmpegConfig As String = FindConfig("config.ini", "FFMPEG Binary: ")
             Dim hwdefConfig As String = FindConfig("config.ini", "GPU Engine: ")
-            Dim pythonConfig As String = FindConfig("config.ini", "Python Binary: ")
             If debugMode = "null" Then
                 CheckBox3.Checked = False
             Else
@@ -97,6 +96,12 @@ Public Class OptionsMenu
                 TextBox1.Text = ""
             Else
                 TextBox1.Text = ffmpegConfig.Remove(0, 15)
+            End If
+            If frameCount = "null" Then
+                CheckBox4.Checked = False
+            Else
+                Dim newFrameState As String = frameCount.Remove(0, 13)
+                CheckBox4.Checked = newFrameState
             End If
             If hwdefConfig = "GPU Engine: cuda" Or hwdefConfig = "GPU Engine: opencl" Or hwdefConfig = "GPU Engine: qsv" Then
                 CheckBox1.Checked = True
@@ -119,7 +124,7 @@ Public Class OptionsMenu
             End If
         End If
     End Sub
-    Private Sub GPUHWEnable(sender As Object, e As EventArgs)
+    Private Sub GPUHWEnable(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         Dim HWDecConf As String = FindConfig("config.ini", "GPU Engine: ")
         If CheckBox1.Checked Then
             If File.Exists("config.ini") Then
@@ -164,7 +169,7 @@ Public Class OptionsMenu
             End If
         End If
     End Sub
-    Private Sub DebugModeCheck(sender As Object, e As EventArgs)
+    Private Sub DebugModeCheck(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
         Dim debugMode As String = FindConfig("config.ini", "Debug Mode: ")
         If CheckBox3.Checked Then
             CheckBox4.Enabled = True
@@ -188,7 +193,7 @@ Public Class OptionsMenu
             writer.Close()
         End If
     End Sub
-    Private Sub FrameCountCheck(sender As Object, e As EventArgs)
+    Private Sub FrameCountCheck(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
         Dim frameCount As String = FindConfig("config.ini", "Frame Count: ")
         If File.Exists("config.ini") Then
             If frameCount = "null" Then

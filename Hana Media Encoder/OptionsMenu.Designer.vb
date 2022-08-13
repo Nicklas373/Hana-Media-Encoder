@@ -25,6 +25,8 @@ Partial Class OptionsMenu
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OptionsMenu))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.General_pnl = New System.Windows.Forms.Panel()
+        Me.about_pnl = New System.Windows.Forms.Panel()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -56,8 +58,6 @@ Partial Class OptionsMenu
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.about_pnl = New System.Windows.Forms.Panel()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.General_pnl.SuspendLayout()
         Me.about_pnl.SuspendLayout()
@@ -108,6 +108,24 @@ Partial Class OptionsMenu
         Me.General_pnl.Name = "General_pnl"
         Me.General_pnl.Size = New System.Drawing.Size(1254, 588)
         Me.General_pnl.TabIndex = 38
+        '
+        'about_pnl
+        '
+        Me.about_pnl.Controls.Add(Me.Label20)
+        Me.about_pnl.Location = New System.Drawing.Point(0, 0)
+        Me.about_pnl.Name = "about_pnl"
+        Me.about_pnl.Size = New System.Drawing.Size(1254, 585)
+        Me.about_pnl.TabIndex = 39
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Segoe UI Semibold", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label20.Location = New System.Drawing.Point(460, 249)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(322, 47)
+        Me.Label20.TabIndex = 0
+        Me.Label20.Text = "Work In Progress ;)"
         '
         'Label24
         '
@@ -434,24 +452,6 @@ Partial Class OptionsMenu
         Me.Button3.Text = "About"
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button3.UseVisualStyleBackColor = False
-        '
-        'about_pnl
-        '
-        Me.about_pnl.Controls.Add(Me.Label20)
-        Me.about_pnl.Location = New System.Drawing.Point(0, 0)
-        Me.about_pnl.Name = "about_pnl"
-        Me.about_pnl.Size = New System.Drawing.Size(1254, 585)
-        Me.about_pnl.TabIndex = 39
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Segoe UI Semibold", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label20.Location = New System.Drawing.Point(460, 249)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(322, 47)
-        Me.Label20.TabIndex = 0
-        Me.Label20.Text = "Work In Progress ;)"
         '
         'OptionsMenu
         '
