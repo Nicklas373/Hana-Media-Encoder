@@ -2053,9 +2053,9 @@ Partial Class MainMenu
         Me.Label79.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label79.Location = New System.Drawing.Point(17, 59)
         Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(102, 17)
+        Me.Label79.Size = New System.Drawing.Size(105, 17)
         Me.Label79.TabIndex = 57
-        Me.Label79.Text = "Video Duration:"
+        Me.Label79.Text = "Media Duration:"
         '
         'Label78
         '
