@@ -55,6 +55,8 @@ Partial Class InformationMenu
         Me.CheckBox136 = New System.Windows.Forms.CheckBox()
         Me.GroupBox29 = New System.Windows.Forms.GroupBox()
         Me.GroupBox30 = New System.Windows.Forms.GroupBox()
+        Me.Label169 = New System.Windows.Forms.Label()
+        Me.Label168 = New System.Windows.Forms.Label()
         Me.Label125 = New System.Windows.Forms.Label()
         Me.Label126 = New System.Windows.Forms.Label()
         Me.Label127 = New System.Windows.Forms.Label()
@@ -69,6 +71,8 @@ Partial Class InformationMenu
         Me.CheckBox143 = New System.Windows.Forms.CheckBox()
         Me.CheckBox144 = New System.Windows.Forms.CheckBox()
         Me.GroupBox31 = New System.Windows.Forms.GroupBox()
+        Me.Label167 = New System.Windows.Forms.Label()
+        Me.Label166 = New System.Windows.Forms.Label()
         Me.Label130 = New System.Windows.Forms.Label()
         Me.Label131 = New System.Windows.Forms.Label()
         Me.CheckBox145 = New System.Windows.Forms.CheckBox()
@@ -539,15 +543,17 @@ Partial Class InformationMenu
         Me.Video_pnl_3.Controls.Add(Me.Video_pnl_4)
         Me.Video_pnl_3.Controls.Add(Me.GroupBox12)
         Me.Video_pnl_3.Controls.Add(Me.GroupBox10)
+        Me.Video_pnl_3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Video_pnl_3.Location = New System.Drawing.Point(0, 0)
         Me.Video_pnl_3.Margin = New System.Windows.Forms.Padding(0)
         Me.Video_pnl_3.Name = "Video_pnl_3"
-        Me.Video_pnl_3.Size = New System.Drawing.Size(1237, 507)
-        Me.Video_pnl_3.TabIndex = 255
+        Me.Video_pnl_3.Size = New System.Drawing.Size(1240, 510)
+        Me.Video_pnl_3.TabIndex = 271
         '
         'Video_pnl_4
         '
         Me.Video_pnl_4.AutoScroll = True
+        Me.Video_pnl_4.AutoSize = True
         Me.Video_pnl_4.Controls.Add(Me.Video_pnl_5)
         Me.Video_pnl_4.Controls.Add(Me.GroupBox16)
         Me.Video_pnl_4.Controls.Add(Me.GroupBox18)
@@ -555,8 +561,8 @@ Partial Class InformationMenu
         Me.Video_pnl_4.Location = New System.Drawing.Point(0, 0)
         Me.Video_pnl_4.Margin = New System.Windows.Forms.Padding(0)
         Me.Video_pnl_4.Name = "Video_pnl_4"
-        Me.Video_pnl_4.Size = New System.Drawing.Size(1237, 507)
-        Me.Video_pnl_4.TabIndex = 254
+        Me.Video_pnl_4.Size = New System.Drawing.Size(1240, 510)
+        Me.Video_pnl_4.TabIndex = 270
         '
         'Video_pnl_5
         '
@@ -565,11 +571,12 @@ Partial Class InformationMenu
         Me.Video_pnl_5.Controls.Add(Me.Video_pnl_6)
         Me.Video_pnl_5.Controls.Add(Me.GroupBox20)
         Me.Video_pnl_5.Controls.Add(Me.GroupBox24)
+        Me.Video_pnl_5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Video_pnl_5.Location = New System.Drawing.Point(0, 0)
         Me.Video_pnl_5.Margin = New System.Windows.Forms.Padding(0)
         Me.Video_pnl_5.Name = "Video_pnl_5"
-        Me.Video_pnl_5.Size = New System.Drawing.Size(1240, 556)
-        Me.Video_pnl_5.TabIndex = 262
+        Me.Video_pnl_5.Size = New System.Drawing.Size(1239, 556)
+        Me.Video_pnl_5.TabIndex = 269
         '
         'Video_pnl_6
         '
@@ -583,7 +590,7 @@ Partial Class InformationMenu
         Me.Video_pnl_6.Margin = New System.Windows.Forms.Padding(0)
         Me.Video_pnl_6.Name = "Video_pnl_6"
         Me.Video_pnl_6.Size = New System.Drawing.Size(1238, 702)
-        Me.Video_pnl_6.TabIndex = 264
+        Me.Video_pnl_6.TabIndex = 268
         '
         'GroupBox27
         '
@@ -778,6 +785,7 @@ Partial Class InformationMenu
         '
         Me.CheckBox132.AutoCheck = False
         Me.CheckBox132.AutoSize = True
+        Me.CheckBox132.Enabled = False
         Me.CheckBox132.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox132.Location = New System.Drawing.Point(629, 33)
         Me.CheckBox132.Name = "CheckBox132"
@@ -864,6 +872,8 @@ Partial Class InformationMenu
         '
         'GroupBox30
         '
+        Me.GroupBox30.Controls.Add(Me.Label169)
+        Me.GroupBox30.Controls.Add(Me.Label168)
         Me.GroupBox30.Controls.Add(Me.Label125)
         Me.GroupBox30.Controls.Add(Me.Label126)
         Me.GroupBox30.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
@@ -873,6 +883,26 @@ Partial Class InformationMenu
         Me.GroupBox30.TabIndex = 239
         Me.GroupBox30.TabStop = False
         Me.GroupBox30.Text = "Available flags"
+        '
+        'Label169
+        '
+        Me.Label169.AutoSize = True
+        Me.Label169.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label169.Location = New System.Drawing.Point(148, 29)
+        Me.Label169.Name = "Label169"
+        Me.Label169.Size = New System.Drawing.Size(96, 17)
+        Me.Label169.TabIndex = 243
+        Me.Label169.Text = "Normal Quality"
+        '
+        'Label168
+        '
+        Me.Label168.AutoSize = True
+        Me.Label168.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label168.Location = New System.Drawing.Point(148, 54)
+        Me.Label168.Name = "Label168"
+        Me.Label168.Size = New System.Drawing.Size(79, 17)
+        Me.Label168.TabIndex = 242
+        Me.Label168.Text = "High Quality"
         '
         'Label125
         '
@@ -967,6 +997,7 @@ Partial Class InformationMenu
         '
         Me.CheckBox140.AutoCheck = False
         Me.CheckBox140.AutoSize = True
+        Me.CheckBox140.Enabled = False
         Me.CheckBox140.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox140.Location = New System.Drawing.Point(629, 33)
         Me.CheckBox140.Name = "CheckBox140"
@@ -1007,7 +1038,6 @@ Partial Class InformationMenu
         Me.CheckBox143.AutoSize = True
         Me.CheckBox143.Checked = True
         Me.CheckBox143.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox143.Enabled = False
         Me.CheckBox143.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox143.Location = New System.Drawing.Point(694, 58)
         Me.CheckBox143.Name = "CheckBox143"
@@ -1032,6 +1062,8 @@ Partial Class InformationMenu
         '
         'GroupBox31
         '
+        Me.GroupBox31.Controls.Add(Me.Label167)
+        Me.GroupBox31.Controls.Add(Me.Label166)
         Me.GroupBox31.Controls.Add(Me.Label130)
         Me.GroupBox31.Controls.Add(Me.Label131)
         Me.GroupBox31.Controls.Add(Me.CheckBox145)
@@ -1045,32 +1077,52 @@ Partial Class InformationMenu
         Me.GroupBox31.Controls.Add(Me.CheckBox151)
         Me.GroupBox31.Controls.Add(Me.CheckBox152)
         Me.GroupBox31.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox31.Location = New System.Drawing.Point(4, 3)
+        Me.GroupBox31.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox31.Name = "GroupBox31"
-        Me.GroupBox31.Size = New System.Drawing.Size(1234, 125)
+        Me.GroupBox31.Size = New System.Drawing.Size(1235, 125)
         Me.GroupBox31.TabIndex = 244
         Me.GroupBox31.TabStop = False
-        Me.GroupBox31.Text = "Target Quality Level | VBR Only"
+        Me.GroupBox31.Text = "Target Quality Level (CRF)"
+        '
+        'Label167
+        '
+        Me.Label167.AutoSize = True
+        Me.Label167.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label167.Location = New System.Drawing.Point(628, 93)
+        Me.Label167.Name = "Label167"
+        Me.Label167.Size = New System.Drawing.Size(328, 17)
+        Me.Label167.TabIndex = 241
+        Me.Label167.Text = "H264 default value is 23, while HEVC default value is 28"
+        '
+        'Label166
+        '
+        Me.Label166.AutoSize = True
+        Me.Label166.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label166.Location = New System.Drawing.Point(7, 69)
+        Me.Label166.Name = "Label166"
+        Me.Label166.Size = New System.Drawing.Size(438, 17)
+        Me.Label166.TabIndex = 240
+        Me.Label166.Text = "Lower value mean lower compression with notice quality improvement"
         '
         'Label130
         '
         Me.Label130.AutoSize = True
-        Me.Label130.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label130.Location = New System.Drawing.Point(6, 55)
+        Me.Label130.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label130.Location = New System.Drawing.Point(6, 49)
         Me.Label130.Name = "Label130"
-        Me.Label130.Size = New System.Drawing.Size(419, 17)
+        Me.Label130.Size = New System.Drawing.Size(441, 17)
         Me.Label130.TabIndex = 239
-        Me.Label130.Text = "for constant quality mode in VBR rate control (from 0 to 51) (default 0)"
+        Me.Label130.Text = "Higher value mean higher compression with notice quality degredation"
         '
         'Label131
         '
         Me.Label131.AutoSize = True
         Me.Label131.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label131.Location = New System.Drawing.Point(6, 91)
+        Me.Label131.Location = New System.Drawing.Point(7, 98)
         Me.Label131.Name = "Label131"
         Me.Label131.Size = New System.Drawing.Size(133, 17)
         Me.Label131.TabIndex = 229
-        Me.Label131.Text = "FFMPEG Flags: -cq 30"
+        Me.Label131.Text = "FFMPEG Flags: -cq 28"
         '
         'CheckBox145
         '
@@ -1089,7 +1141,7 @@ Partial Class InformationMenu
         '
         Me.Label132.AutoSize = True
         Me.Label132.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label132.Location = New System.Drawing.Point(6, 33)
+        Me.Label132.Location = New System.Drawing.Point(6, 27)
         Me.Label132.Name = "Label132"
         Me.Label132.Size = New System.Drawing.Size(368, 17)
         Me.Label132.TabIndex = 200
@@ -1135,6 +1187,7 @@ Partial Class InformationMenu
         '
         Me.CheckBox148.AutoCheck = False
         Me.CheckBox148.AutoSize = True
+        Me.CheckBox148.Enabled = False
         Me.CheckBox148.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox148.Location = New System.Drawing.Point(629, 33)
         Me.CheckBox148.Name = "CheckBox148"
@@ -1845,9 +1898,9 @@ Partial Class InformationMenu
         Me.GroupBox24.Controls.Add(Me.Label112)
         Me.GroupBox24.Controls.Add(Me.Label113)
         Me.GroupBox24.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox24.Location = New System.Drawing.Point(4, 3)
+        Me.GroupBox24.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox24.Name = "GroupBox24"
-        Me.GroupBox24.Size = New System.Drawing.Size(1234, 206)
+        Me.GroupBox24.Size = New System.Drawing.Size(1235, 206)
         Me.GroupBox24.TabIndex = 244
         Me.GroupBox24.TabStop = False
         Me.GroupBox24.Text = "Rate Control"
@@ -2714,9 +2767,9 @@ Partial Class InformationMenu
         Me.GroupBox18.Controls.Add(Me.Label78)
         Me.GroupBox18.Controls.Add(Me.Label79)
         Me.GroupBox18.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox18.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox18.Location = New System.Drawing.Point(5, 3)
         Me.GroupBox18.Name = "GroupBox18"
-        Me.GroupBox18.Size = New System.Drawing.Size(1234, 228)
+        Me.GroupBox18.Size = New System.Drawing.Size(1232, 228)
         Me.GroupBox18.TabIndex = 242
         Me.GroupBox18.TabStop = False
         Me.GroupBox18.Text = "Pixel Format"
@@ -3847,9 +3900,9 @@ Partial Class InformationMenu
         Me.Label28.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label28.Location = New System.Drawing.Point(102, 116)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(210, 17)
+        Me.Label28.Size = New System.Drawing.Size(362, 17)
         Me.Label28.TabIndex = 227
-        Me.Label28.Text = "Intel Quick Sync Video acceleration"
+        Me.Label28.Text = "Intel QSV H.264 Encoder [Intel Quick Sync Video Accelerated]"
         '
         'Label29
         '
@@ -3868,9 +3921,9 @@ Partial Class InformationMenu
         Me.Label30.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label30.Location = New System.Drawing.Point(102, 59)
         Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(381, 17)
+        Me.Label30.Size = New System.Drawing.Size(323, 17)
         Me.Label30.TabIndex = 225
-        Me.Label30.Text = "AMD AMF H.265 Encoder [AMD GPU HW Accelerated Encoding]"
+        Me.Label30.Text = "AMD AMF H.265 Encoder [AMD GPU HW Accelerated]"
         '
         'Label31
         '
@@ -3889,9 +3942,9 @@ Partial Class InformationMenu
         Me.Label32.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label32.Location = New System.Drawing.Point(102, 87)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(422, 17)
+        Me.Label32.Size = New System.Drawing.Size(364, 17)
         Me.Label32.TabIndex = 223
-        Me.Label32.Text = "NVIDIA NVENC H.265 encoder [NVIDIA GPU HW Accelerated Encoding]"
+        Me.Label32.Text = "NVIDIA NVENC H.265 Encoder [NVIDIA GPU HW Accelerated]"
         '
         'Label33
         '
@@ -3949,9 +4002,9 @@ Partial Class InformationMenu
         Me.Label24.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label24.Location = New System.Drawing.Point(102, 116)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(210, 17)
+        Me.Label24.Size = New System.Drawing.Size(362, 17)
         Me.Label24.TabIndex = 227
-        Me.Label24.Text = "Intel Quick Sync Video acceleration"
+        Me.Label24.Text = "Intel QSV H.264 Encoder [Intel Quick Sync Video Accelerated]"
         '
         'Label27
         '
@@ -3970,9 +4023,9 @@ Partial Class InformationMenu
         Me.Label20.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label20.Location = New System.Drawing.Point(102, 59)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(381, 17)
+        Me.Label20.Size = New System.Drawing.Size(323, 17)
         Me.Label20.TabIndex = 225
-        Me.Label20.Text = "AMD AMF H.264 Encoder [AMD GPU HW Accelerated Encoding]"
+        Me.Label20.Text = "AMD AMF H.264 Encoder [AMD GPU HW Accelerated]"
         '
         'Label11
         '
@@ -3991,9 +4044,9 @@ Partial Class InformationMenu
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label12.Location = New System.Drawing.Point(102, 87)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(422, 17)
+        Me.Label12.Size = New System.Drawing.Size(364, 17)
         Me.Label12.TabIndex = 223
-        Me.Label12.Text = "NVIDIA NVENC H.264 encoder [NVIDIA GPU HW Accelerated Encoding]"
+        Me.Label12.Text = "NVIDIA NVENC H.264 Encoder [NVIDIA GPU HW Accelerated]"
         '
         'Label13
         '
@@ -5505,6 +5558,7 @@ Partial Class InformationMenu
         Me.Vid_pnl_1.ResumeLayout(False)
         Me.Video_pnl_2.ResumeLayout(False)
         Me.Video_pnl_3.ResumeLayout(False)
+        Me.Video_pnl_3.PerformLayout()
         Me.Video_pnl_4.ResumeLayout(False)
         Me.Video_pnl_5.ResumeLayout(False)
         Me.Video_pnl_6.ResumeLayout(False)
@@ -5697,6 +5751,76 @@ Partial Class InformationMenu
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Label60 As Label
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Audio_pnl_1 As Panel
+    Friend WithEvents GroupBox32 As GroupBox
+    Friend WithEvents Label134 As Label
+    Friend WithEvents CheckBox153 As CheckBox
+    Friend WithEvents CheckBox154 As CheckBox
+    Friend WithEvents CheckBox155 As CheckBox
+    Friend WithEvents GroupBox33 As GroupBox
+    Friend WithEvents Label135 As Label
+    Friend WithEvents Label136 As Label
+    Friend WithEvents Label137 As Label
+    Friend WithEvents Label138 As Label
+    Friend WithEvents Label139 As Label
+    Friend WithEvents Label140 As Label
+    Friend WithEvents GroupBox34 As GroupBox
+    Friend WithEvents GroupBox35 As GroupBox
+    Friend WithEvents Label141 As Label
+    Friend WithEvents CheckBox156 As CheckBox
+    Friend WithEvents CheckBox157 As CheckBox
+    Friend WithEvents CheckBox158 As CheckBox
+    Friend WithEvents GroupBox36 As GroupBox
+    Friend WithEvents Label142 As Label
+    Friend WithEvents CheckBox159 As CheckBox
+    Friend WithEvents CheckBox160 As CheckBox
+    Friend WithEvents CheckBox161 As CheckBox
+    Friend WithEvents GroupBox37 As GroupBox
+    Friend WithEvents Label143 As Label
+    Friend WithEvents CheckBox162 As CheckBox
+    Friend WithEvents CheckBox163 As CheckBox
+    Friend WithEvents CheckBox164 As CheckBox
+    Friend WithEvents Label144 As Label
+    Friend WithEvents Label145 As Label
+    Friend WithEvents GroupBox38 As GroupBox
+    Friend WithEvents GroupBox39 As GroupBox
+    Friend WithEvents Label146 As Label
+    Friend WithEvents Label147 As Label
+    Friend WithEvents Label148 As Label
+    Friend WithEvents Label149 As Label
+    Friend WithEvents Label150 As Label
+    Friend WithEvents Label151 As Label
+    Friend WithEvents Label152 As Label
+    Friend WithEvents Label153 As Label
+    Friend WithEvents Audio_pnl_2 As Panel
+    Friend WithEvents GroupBox40 As GroupBox
+    Friend WithEvents Label154 As Label
+    Friend WithEvents Label155 As Label
+    Friend WithEvents CheckBox165 As CheckBox
+    Friend WithEvents CheckBox166 As CheckBox
+    Friend WithEvents CheckBox167 As CheckBox
+    Friend WithEvents Label156 As Label
+    Friend WithEvents Label157 As Label
+    Friend WithEvents GroupBox41 As GroupBox
+    Friend WithEvents Label158 As Label
+    Friend WithEvents Label159 As Label
+    Friend WithEvents CheckBox168 As CheckBox
+    Friend WithEvents CheckBox169 As CheckBox
+    Friend WithEvents CheckBox170 As CheckBox
+    Friend WithEvents Label160 As Label
+    Friend WithEvents Label161 As Label
+    Friend WithEvents Label162 As Label
+    Friend WithEvents GroupBox42 As GroupBox
+    Friend WithEvents Label163 As Label
+    Friend WithEvents CheckBox171 As CheckBox
+    Friend WithEvents CheckBox172 As CheckBox
+    Friend WithEvents CheckBox173 As CheckBox
+    Friend WithEvents Label164 As Label
+    Friend WithEvents Label165 As Label
     Friend WithEvents Video_pnl_3 As Panel
     Friend WithEvents GroupBox12 As GroupBox
     Friend WithEvents GroupBox13 As GroupBox
@@ -5903,6 +6027,8 @@ Partial Class InformationMenu
     Friend WithEvents CheckBox136 As CheckBox
     Friend WithEvents GroupBox29 As GroupBox
     Friend WithEvents GroupBox30 As GroupBox
+    Friend WithEvents Label169 As Label
+    Friend WithEvents Label168 As Label
     Friend WithEvents Label125 As Label
     Friend WithEvents Label126 As Label
     Friend WithEvents Label127 As Label
@@ -5917,6 +6043,8 @@ Partial Class InformationMenu
     Friend WithEvents CheckBox143 As CheckBox
     Friend WithEvents CheckBox144 As CheckBox
     Friend WithEvents GroupBox31 As GroupBox
+    Friend WithEvents Label167 As Label
+    Friend WithEvents Label166 As Label
     Friend WithEvents Label130 As Label
     Friend WithEvents Label131 As Label
     Friend WithEvents CheckBox145 As CheckBox
@@ -5929,74 +6057,4 @@ Partial Class InformationMenu
     Friend WithEvents CheckBox150 As CheckBox
     Friend WithEvents CheckBox151 As CheckBox
     Friend WithEvents CheckBox152 As CheckBox
-    Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Audio_pnl_1 As Panel
-    Friend WithEvents GroupBox32 As GroupBox
-    Friend WithEvents Label134 As Label
-    Friend WithEvents CheckBox153 As CheckBox
-    Friend WithEvents CheckBox154 As CheckBox
-    Friend WithEvents CheckBox155 As CheckBox
-    Friend WithEvents GroupBox33 As GroupBox
-    Friend WithEvents Label135 As Label
-    Friend WithEvents Label136 As Label
-    Friend WithEvents Label137 As Label
-    Friend WithEvents Label138 As Label
-    Friend WithEvents Label139 As Label
-    Friend WithEvents Label140 As Label
-    Friend WithEvents GroupBox34 As GroupBox
-    Friend WithEvents GroupBox35 As GroupBox
-    Friend WithEvents Label141 As Label
-    Friend WithEvents CheckBox156 As CheckBox
-    Friend WithEvents CheckBox157 As CheckBox
-    Friend WithEvents CheckBox158 As CheckBox
-    Friend WithEvents GroupBox36 As GroupBox
-    Friend WithEvents Label142 As Label
-    Friend WithEvents CheckBox159 As CheckBox
-    Friend WithEvents CheckBox160 As CheckBox
-    Friend WithEvents CheckBox161 As CheckBox
-    Friend WithEvents GroupBox37 As GroupBox
-    Friend WithEvents Label143 As Label
-    Friend WithEvents CheckBox162 As CheckBox
-    Friend WithEvents CheckBox163 As CheckBox
-    Friend WithEvents CheckBox164 As CheckBox
-    Friend WithEvents Label144 As Label
-    Friend WithEvents Label145 As Label
-    Friend WithEvents GroupBox38 As GroupBox
-    Friend WithEvents GroupBox39 As GroupBox
-    Friend WithEvents Label146 As Label
-    Friend WithEvents Label147 As Label
-    Friend WithEvents Label148 As Label
-    Friend WithEvents Label149 As Label
-    Friend WithEvents Label150 As Label
-    Friend WithEvents Label151 As Label
-    Friend WithEvents Label152 As Label
-    Friend WithEvents Label153 As Label
-    Friend WithEvents Audio_pnl_2 As Panel
-    Friend WithEvents GroupBox40 As GroupBox
-    Friend WithEvents Label154 As Label
-    Friend WithEvents Label155 As Label
-    Friend WithEvents CheckBox165 As CheckBox
-    Friend WithEvents CheckBox166 As CheckBox
-    Friend WithEvents CheckBox167 As CheckBox
-    Friend WithEvents Label156 As Label
-    Friend WithEvents Label157 As Label
-    Friend WithEvents GroupBox41 As GroupBox
-    Friend WithEvents Label158 As Label
-    Friend WithEvents Label159 As Label
-    Friend WithEvents CheckBox168 As CheckBox
-    Friend WithEvents CheckBox169 As CheckBox
-    Friend WithEvents CheckBox170 As CheckBox
-    Friend WithEvents Label160 As Label
-    Friend WithEvents Label161 As Label
-    Friend WithEvents Label162 As Label
-    Friend WithEvents GroupBox42 As GroupBox
-    Friend WithEvents Label163 As Label
-    Friend WithEvents CheckBox171 As CheckBox
-    Friend WithEvents CheckBox172 As CheckBox
-    Friend WithEvents CheckBox173 As CheckBox
-    Friend WithEvents Label164 As Label
-    Friend WithEvents Label165 As Label
 End Class

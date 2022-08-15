@@ -14,8 +14,12 @@ Public Class InformationMenu
         Video_pnl_6.Visible = False
         Audio_pnl_2.Visible = False
     End Sub
-    Private Sub audioTab(sender As Object, e As EventArgs) Handles TabControl1.Click
-        TabControl1.SelectedTab = TabPage1
+    Private Sub controlTab(sender As Object, e As EventArgs) Handles TabControl1.Click
+        If TabControl1.SelectedIndex = 0 Then
+            TabControl1.SelectedTab = TabPage2
+        ElseIf TabControl1.SelectedIndex = 1 Then
+            TabControl1.SelectedTab = TabPage1
+        End If
     End Sub
     Private Sub Next_Btn_VideoConf(sender As Object, e As EventArgs) Handles Button7.Click
         If Vid_pnl_1.Visible = True And Video_pnl_2.Visible = False Then
@@ -28,6 +32,8 @@ Public Class InformationMenu
             Video_pnl_5.Visible = True
         ElseIf Video_pnl_5.Visible = True And Video_pnl_6.Visible = False Then
             Video_pnl_6.Visible = True
+        ElseIf Video_pnl_6.Visible = True Then
+            MessageBoxAdv.Show("Already on the last page !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
     Private Sub Prev_Btn_VideoConf(sender As Object, e As EventArgs) Handles Button8.Click
@@ -41,6 +47,8 @@ Public Class InformationMenu
             Video_pnl_3.Visible = False
         ElseIf Video_pnl_2.Visible = True And Video_pnl_3.Visible = False Then
             Video_pnl_2.Visible = False
+        ElseIf video_pnl_2.Visible = False Then
+            MessageBoxAdv.Show("Already on the first page !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
     Private Sub Video_CDC_Btn(sender As Object, e As EventArgs) Handles Button1.Click
@@ -52,11 +60,15 @@ Public Class InformationMenu
     Private Sub Prev_Btn_AudioConf(sender As Object, e As EventArgs) Handles Button3.Click
         If Audio_pnl_2.Visible = True Then
             Audio_pnl_2.Visible = False
+        ElseIf Audio_pnl_2.Visible = False Then
+            MessageBoxAdv.Show("Already on the first page !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
     Private Sub Next_Btn_AudioConf(sender As Object, e As EventArgs) Handles Button4.Click
         If Audio_pnl_2.Visible = False Then
             Audio_pnl_2.Visible = True
+        ElseIf Audio_pnl_2.Visible = True Then
+            MessageBoxAdv.Show("Already on the last page !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 End Class
