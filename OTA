@@ -1,9 +1,10 @@
 {
-	"release_date": "20220815",
-	"version": "1.0.6",
+	"release_date": "15 August 2022",
+	"version": "1.0.6.0",
 	"changelog": [
-		"Step 1",
-		"Step 2",
-		"Step 3"
-	]
+		"PLACEHOLDER",
+		"PLACEHOLDER",
+		"PLACEHOLDER"
+	],
+	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.0.5/HME_Setup.msi"
 }
