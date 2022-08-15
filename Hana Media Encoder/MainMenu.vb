@@ -13,10 +13,10 @@ Public Class MainMenu
     Dim ffmpegLetter As String
     Dim ffmpegEncStats As String
     Dim ffmpegErr As String
-    Dim ffmpegHwDef As String
     Dim frameMode As String
     Dim hwAccelFormat As String
     Dim hwAccelDev As String
+    Dim newdebugmode As String
     Dim openFileDialog As New OpenFileDialog
     Dim ReturnAudioStats As Boolean
     Dim ReturnVideoStats As Boolean
@@ -30,7 +30,7 @@ Public Class MainMenu
     Dim TimeChapter As Integer
     Dim VideoStreamFlagsPath As String = "videoStream/"
     Dim VideoStreamConfigPath As String = "videoConfig/"
-
+    Dim VideoFilePath As String
     Private Sub MainMenu_load(sender As Object, e As EventArgs) Handles MyBase.Load
         AllowTransparency = False
         Style.TitleBar.TextHorizontalAlignment = HorizontalAlignment.Center
@@ -43,43 +43,39 @@ Public Class MainMenu
         Label28.Visible = True
         Label28.Text = "Standby"
         If File.Exists("config.ini") Then
-            Dim ffmpegConfig As String = FindConfig("config.ini", "FFMPEG Binary: ")
-            Dim debugMode As String = FindConfig("config.ini", "Debug Mode: ")
-            Dim hwdefConfig As String = FindConfig("config.ini", "GPU Engine: ")
-            If hwdefConfig = "null" Then
-                ffmpegHwDef = "null"
-                MessageBoxAdv.Show("GPU HW Encoder was not configured , please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                MessageBoxAdv.Show("Native encoding are not supported yet !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Button1.Enabled = False
-                Button3.Enabled = False
-                Button4.Enabled = False
-            Else
-                Button1.Enabled = True
-                Button3.Enabled = True
-                Button4.Enabled = True
-            End If
-            If debugMode IsNot "null" Then
-                If debugMode.Remove(0, 12) = "True" Then
-                    Text = "Hana Media Encoder (Debug Mode)"
-                End If
-            End If
+            Dim ffmpegConfig As String = FindConfig("config.ini", "FFMPEG Binary:")
+            Dim debugMode As String = FindConfig("config.ini", "Debug Mode:")
+            Dim hwdefConfig As String = FindConfig("config.ini", "GPU Engine:")
             If ffmpegConfig = "null" Then
                 Button1.Enabled = False
                 Button3.Enabled = False
                 Button4.Enabled = False
-                MessageBoxAdv.Show("FFMPEG Binary was not found !, please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBoxAdv.Show("FFMPEG Binary was not found !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-                ffmpegConf = ffmpegConfig.Remove(0, 15) & "\"
+                ffmpegConf = ffmpegConfig.Remove(0, 14) & "\"
                 ffmpegLetter = ffmpegConf.Substring(0, 1) & ":"
                 If File.Exists(ffmpegConf & "ffmpeg.exe") AndAlso File.Exists(ffmpegConf & "ffplay.exe") AndAlso File.Exists(ffmpegConf & "ffprobe.exe") Then
-                    Button1.Enabled = True
-                    Button3.Enabled = True
-                    Button4.Enabled = True
+                    If hwdefConfig = "null" Then
+                        MessageBoxAdv.Show("GPU HW Encoder was not configured !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBoxAdv.Show("Native encoding are not supported yet !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        Button1.Enabled = False
+                        Button3.Enabled = False
+                        Button4.Enabled = False
+                    Else
+                        Button1.Enabled = True
+                        Button3.Enabled = True
+                        Button4.Enabled = True
+                        If debugMode IsNot "null" Then
+                            If debugMode.Remove(0, 11) = "True" Then
+                                Text = "Hana Media Encoder (Debug Mode)"
+                            End If
+                        End If
+                    End If
                 Else
                     Button1.Enabled = False
                     Button3.Enabled = False
                     Button4.Enabled = False
-                    MessageBoxAdv.Show("FFMPEG Binary is invalid !, please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBoxAdv.Show("FFMPEG Binary is invalid !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End If
             GC.Collect()
@@ -102,7 +98,7 @@ Public Class MainMenu
             Button1.Enabled = False
             Button3.Enabled = False
             Button4.Enabled = False
-            MessageBoxAdv.Show("FFMPEG Binary was not found !, please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBoxAdv.Show("Config file was not found !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
     Private Sub Options_Btn(sender As Object, e As EventArgs) Handles Button5.Click
@@ -497,412 +493,432 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub StartEncode(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim hwdefConfig As String = FindConfig("config.ini", "GPU Engine: ")
-        Dim videoFilePath As String
-        If CheckBox11.Checked = False And CheckBox11.Enabled = False And CheckBox8.Checked = True Then
-            videoFilePath = TextBox15.Text.ToString
-        Else
-            videoFilePath = Label2.Text.ToString
-        End If
-        If FindConfig("config.ini", "Debug Mode: ") IsNot "null" Then
-            debugMode = FindConfig("config.ini", "Debug Mode: ").Remove(0, 12)
-            If FindConfig("config.ini", "Frame Count: ") IsNot "null" Then
-                frameMode = FindConfig("config.ini", "Frame Count: ").Remove(0, 12)
-            Else
-                frameMode = "False"
-            End If
-        Else
-            debugMode = "False"
-        End If
-        If hwdefConfig = "GPU Engine: " Then
-            hwAccelFormat = ""
-            hwAccelDev = ""
-        Else
-            hwAccelFormat = "-hwaccel_output_format " & hwdefConfig.Remove(0, 12)
-            hwAccelDev = hwdefConfig.Remove(0, 12)
-        End If
-        If debugMode = "True" Then
-            MessageBoxAdv.Show("Warning: Debug mode was actived !" & vbCrLf & vbCrLf & "Progressbar will not working correctly while encoding" & vbCrLf & "Only use this mode to get some error log", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            MessageBoxAdv.Show("To disable debug mode, go to options then uncheck 'Debug Mode'", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-        If CheckBox15.Checked = True And CheckBox14.Checked = True Then
-            If Label2.Text IsNot "" Then
-                If TextBox1.Text IsNot "" Then
-                    If File.Exists(My.Application.Info.DirectoryPath & "\FFMETADATAFILE") Then
-                        If CheckBox1.Checked = True And CheckBox3.Checked = True Then
-                            If CheckBox4.Checked = True And CheckBox5.Checked = True Then
+        If File.Exists("config.ini") Then
+            Dim ffmpegConfig As String = FindConfig("config.ini", "FFMPEG Binary:")
+            Dim debugMode As String = FindConfig("config.ini", "Debug Mode:")
+            Dim hwdefConfig As String = FindConfig("config.ini", "GPU Engine:")
+            Dim frameConfig As String = FindConfig("config.ini", "Frame Count: ")
+            If ffmpegConfig IsNot "null" Then
+                ffmpegConf = ffmpegConfig.Remove(0, 14) & "\"
+                ffmpegLetter = ffmpegConf.Substring(0, 1) & ":"
+                If File.Exists(ffmpegConf & "ffmpeg.exe") AndAlso File.Exists(ffmpegConf & "ffplay.exe") AndAlso File.Exists(ffmpegConf & "ffprobe.exe") Then
+                    If hwdefConfig IsNot "null" And hwdefConfig.Remove(0, 11) IsNot "" Then
+                        If CheckBox11.Checked = False And CheckBox11.Enabled = False And CheckBox8.Checked = True Then
+                            VideoFilePath = TextBox15.Text.ToString
+                        Else
+                            VideoFilePath = Label2.Text.ToString
+                        End If
+                        If debugMode IsNot "null" Then
+                            newdebugmode = FindConfig("config.ini", "Debug Mode:").Remove(0, 11)
+                            If frameConfig IsNot "null" Then
+                                frameMode = FindConfig("config.ini", "Frame Count: ").Remove(0, 11)
+                            Else
+                                frameMode = "False"
+                            End If
+                        Else
+                            newdebugmode = "False"
+                        End If
+                        If hwdefConfig = "GPU Engine: " Then
+                            hwAccelFormat = ""
+                            hwAccelDev = ""
+                        Else
+                            hwAccelFormat = "-hwaccel_output_format " & hwdefConfig.Remove(0, 11)
+                            hwAccelDev = hwdefConfig.Remove(0, 11)
+                        End If
+                        If newdebugmode = "True" Then
+                            MessageBoxAdv.Show("Warning: Debug mode was actived !" & vbCrLf & vbCrLf & "Progressbar will not working correctly while encoding" & vbCrLf & "Only use this mode to get some error log", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            MessageBoxAdv.Show("To disable debug mode, go to options then uncheck 'Debug Mode'", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
+                        If CheckBox15.Checked = True And CheckBox14.Checked = True Then
+                            If Label2.Text IsNot "" Then
+                                If TextBox1.Text IsNot "" Then
+                                    If File.Exists(My.Application.Info.DirectoryPath & "\FFMETADATAFILE") Then
+                                        If CheckBox1.Checked = True And CheckBox3.Checked = True Then
+                                            If CheckBox4.Checked = True And CheckBox5.Checked = True Then
+                                                If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
+                                                    Dim flagsCount As Integer = ComboBox22.Items.Count
+                                                    Dim flagsStart As Integer
+                                                    For flagsStart = 1 To flagsCount
+                                                        My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (flagsStart - 1).ToString & ".txt")), True)
+                                                    Next
+                                                    If File.Exists("HME_Audio_Flags.txt") Then
+                                                        Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
+                                                        Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox5.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                        HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                                    End If
+                                                Else
+                                                    MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                                End If
+                                            ElseIf CheckBox4.Checked = False And CheckBox5.Checked = False Then
+                                                Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox5.Text & " " & RichTextBox1.Text & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
+                                                HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            End If
+                                        Else
+                                            Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox5.Text & " -c copy " & RichTextBox1.Text & Chr(34) & TextBox1.Text & Chr(34)
+                                            HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                        End If
+                                    Else
+                                        MessageBoxAdv.Show("Please re-lock chapter profile first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    End If
+                                Else
+                                    MessageBoxAdv.Show("Please choose save media file first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                End If
+                            Else
+                                MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            End If
+                        ElseIf CheckBox7.Checked = True And CheckBox8.Checked = True Then
+                            If ComboBox1.Text = "Original Quality" Then
+                                Dim newffargs As String = "ffmpeg -hide_banner " & RichTextBox4.Text & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                            ElseIf ComboBox1.Text = "Custom Quality" Then
                                 If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
-                                    Dim flagsCount As Integer = ComboBox22.Items.Count
-                                    Dim flagsStart As Integer
-                                    For flagsStart = 1 To flagsCount
-                                        My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (flagsStart - 1).ToString & ".txt")), True)
+                                    Dim streamCount As Integer = ComboBox22.Items.Count
+                                    Dim streamStart As Integer
+                                    For streamStart = 1 To streamCount
+                                        My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (streamStart - 1).ToString & ".txt")), True)
                                     Next
-                                    If File.Exists("HME_Audio_Flags.txt") Then
-                                        Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
-                                        Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & videoFilePath & Chr(34) & RichTextBox5.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                    Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
+                                    If CheckBox4.Checked = True And CheckBox5.Checked = True And CheckBox2.Checked = False Then
+                                        Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox4.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                        HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                    ElseIf CheckBox4.Checked = True And CheckBox5.Checked = False And CheckBox2.Checked = False Then
+                                        Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox4.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
                                         HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                     End If
                                 Else
                                     MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 End If
-                            ElseIf CheckBox4.Checked = False And CheckBox5.Checked = False Then
-                                Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & videoFilePath & Chr(34) & RichTextBox5.Text & " " & RichTextBox1.Text & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
-                                HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                             End If
-                        Else
-                            Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & videoFilePath & Chr(34) & RichTextBox5.Text & " -c copy " & RichTextBox1.Text & Chr(34) & TextBox1.Text & Chr(34)
-                            HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-                        End If
-                    Else
-                        MessageBoxAdv.Show("Please re-lock chapter profile first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
-                Else
-                    MessageBoxAdv.Show("Please choose save media file first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            Else
-                MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        ElseIf CheckBox7.Checked = True And CheckBox8.Checked = True Then
-            If ComboBox1.Text = "Original Quality" Then
-                Dim newffargs As String = "ffmpeg -hide_banner " & RichTextBox4.Text & " " & Chr(34) & TextBox1.Text & Chr(34)
-                HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-            ElseIf ComboBox1.Text = "Custom Quality" Then
-                If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
-                    Dim streamCount As Integer = ComboBox22.Items.Count
-                    Dim streamStart As Integer
-                    For streamStart = 1 To streamCount
-                        My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (streamStart - 1).ToString & ".txt")), True)
-                    Next
-                    Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
-                    If CheckBox4.Checked = True And CheckBox5.Checked = True And CheckBox2.Checked = False Then
-                        Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox4.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                        HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-                    ElseIf CheckBox4.Checked = True And CheckBox5.Checked = False And CheckBox2.Checked = False Then
-                        Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox4.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                        HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-                    End If
-                Else
-                    MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            End If
-        ElseIf CheckBox2.Checked = True And CheckBox6.Checked = True Then
-            If Label2.Text IsNot "" Then
-                If ComboBox26.Text = "Original Quality" Then
-                    Dim newffargs As String
-                    If ComboBox28.Text = "Video Only" Then
-                        newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 -c:v:0 copy -an -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
-                    ElseIf ComboBox28.Text = "Video + Audio (Specific source)" Then
-                        newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 -map 0:" & CInt(Strings.Mid(ComboBox27.Text.ToString, 11)).ToString & " -c copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
-                    ElseIf ComboBox28.Text = "Video + Audio (All source)" Then
-                        newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0 -c copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
-                    ElseIf ComboBox28.Text = "Audio Only (Specific Source)" Then
-                        If Label5.Text.Equals("Not Detected") = False Then
-                            newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:" & CInt(Strings.Mid(ComboBox27.Text.ToString, 11)).ToString & " -vn -c:a:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & " copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
-                        Else
-                            newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & " -c:a:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & " copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
-                        End If
-                    Else
-                        newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0 -c copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
-                    End If
-                    HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-                ElseIf ComboBox26.Text = "Custom Quality" Then
-                    Dim newffargs As String
-                    If ComboBox28.Text = "Video Only" Then
-                        newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 " & RichTextBox1.Text & " -an " & Chr(34) & TextBox1.Text & Chr(34)
-                        HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-                    ElseIf ComboBox28.Text = "Video + Audio (Specific source)" Then
-                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
-                            Dim flagsCount As Integer = ComboBox22.Items.Count
-                            Dim flagsStart As Integer
-                            For flagsStart = 1 To flagsCount
-                                My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt")), True)
-                            Next
-                            Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
-                            newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                            HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-                        Else
-                            MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        End If
-                    ElseIf ComboBox28.Text = "Video + Audio (All source)" Then
-                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
-                            Dim flagsCount As Integer = ComboBox22.Items.Count
-                            Dim flagsStart As Integer
-                            For flagsStart = 1 To flagsCount
-                                My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (flagsStart - 1).ToString & ".txt")), True)
-                            Next
-                            If File.Exists("HME_Audio_Flags.txt") Then
-                                Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
-                                newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0 " & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-                            End If
-                        Else
-                            MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        End If
-                    ElseIf ComboBox28.Text = "Audio Only (Specific Source)" Then
-                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt") Then
-                            Dim flagsCount As Integer = ComboBox22.Items.Count
-                            Dim flagsStart As Integer
-                            For flagsStart = 1 To flagsCount
-                                My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt")), True)
-                            Next
-                            Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
-                            If Label5.Text.Equals("Not Detected") = False Then
-                                newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & " -vn " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                            Else
-                                newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                            End If
-                            HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-                        Else
-                            MessageBoxAdv.Show("Audio stream config not found !" & vbCrLf & vbCrLf & "Please configure audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        End If
-                    Else
-                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
-                            Dim flagsCount As Integer = ComboBox22.Items.Count
-                            Dim flagsStart As Integer
-                            For flagsStart = 1 To flagsCount
-                                My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (flagsStart - 1).ToString & ".txt")), True)
-                            Next
-                            If File.Exists("HME_Audio_Flags.txt") Then
-                                Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
-                                newffargs = "ffmpeg -hide_banner " & hwAccelFormat & RichTextBox3.Text & " -map 0 " & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-                            End If
-                        Else
-                            MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        End If
-                    End If
-                End If
-            Else
-                MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        ElseIf CheckBox1.Checked = True And CheckBox3.Checked = True Then
-            If Label2.Text IsNot "" Then
-                If TextBox1.Text IsNot "" Then
-                    If Strings.Right(TextBox1.Text, 4) = "flac" Or Strings.Right(TextBox1.Text, 4) = ".mp3" Or Strings.Right(TextBox1.Text, 4) = ".wav" Then
-                        MessageBoxAdv.Show("Invalid file extension for saved media file !" & vbCrLf & vbCrLf &
-                                               "Current file extensions " & vbCrLf &
-                                               Strings.Right(TextBox1.Text, 4) & vbCrLf & vbCrLf &
-                                               "Current available file extensions " & vbCrLf &
-                                               ".mkv", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Else
-                        If CheckBox4.Checked = True And CheckBox5.Checked = True Then
-                            If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
-                                Dim flagsCount As Integer = ComboBox22.Items.Count
-                                Dim flagsStart As Integer
-                                For flagsStart = 1 To flagsCount
-                                    My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (flagsStart - 1).ToString & ".txt")), True)
-                                Next
-                                If File.Exists("HME_Audio_Flags.txt") Then
-                                    Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
-                                    Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & videoFilePath & Chr(34) & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                        ElseIf CheckBox2.Checked = True And CheckBox6.Checked = True Then
+                            If Label2.Text IsNot "" Then
+                                If ComboBox26.Text = "Original Quality" Then
+                                    Dim newffargs As String
+                                    If ComboBox28.Text = "Video Only" Then
+                                        newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 -c:v:0 copy -an -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                    ElseIf ComboBox28.Text = "Video + Audio (Specific source)" Then
+                                        newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 -map 0:" & CInt(Strings.Mid(ComboBox27.Text.ToString, 11)).ToString & " -c copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                    ElseIf ComboBox28.Text = "Video + Audio (All source)" Then
+                                        newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0 -c copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                    ElseIf ComboBox28.Text = "Audio Only (Specific Source)" Then
+                                        If Label5.Text.Equals("Not Detected") = False Then
+                                            newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:" & CInt(Strings.Mid(ComboBox27.Text.ToString, 11)).ToString & " -vn -c:a:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & " copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                        Else
+                                            newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & " -c:a:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & " copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                        End If
+                                    Else
+                                        newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0 -c copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                    End If
                                     HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                ElseIf ComboBox26.Text = "Custom Quality" Then
+                                    Dim newffargs As String
+                                    If ComboBox28.Text = "Video Only" Then
+                                        newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 " & RichTextBox1.Text & " -an " & Chr(34) & TextBox1.Text & Chr(34)
+                                        HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                    ElseIf ComboBox28.Text = "Video + Audio (Specific source)" Then
+                                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
+                                            Dim flagsCount As Integer = ComboBox22.Items.Count
+                                            Dim flagsStart As Integer
+                                            For flagsStart = 1 To flagsCount
+                                                My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt")), True)
+                                            Next
+                                            Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
+                                            newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                            HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                        Else
+                                            MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                        End If
+                                    ElseIf ComboBox28.Text = "Video + Audio (All source)" Then
+                                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
+                                            Dim flagsCount As Integer = ComboBox22.Items.Count
+                                            Dim flagsStart As Integer
+                                            For flagsStart = 1 To flagsCount
+                                                My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (flagsStart - 1).ToString & ".txt")), True)
+                                            Next
+                                            If File.Exists("HME_Audio_Flags.txt") Then
+                                                Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
+                                                newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0 " & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            End If
+                                        Else
+                                            MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                        End If
+                                    ElseIf ComboBox28.Text = "Audio Only (Specific Source)" Then
+                                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt") Then
+                                            Dim flagsCount As Integer = ComboBox22.Items.Count
+                                            Dim flagsStart As Integer
+                                            For flagsStart = 1 To flagsCount
+                                                My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt")), True)
+                                            Next
+                                            Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
+                                            If Label5.Text.Equals("Not Detected") = False Then
+                                                newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & " -vn " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                            Else
+                                                newffargs = "ffmpeg -hide_banner " & hwAccelFormat & " " & RichTextBox3.Text & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                            End If
+                                            HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                        Else
+                                            MessageBoxAdv.Show("Audio stream config not found !" & vbCrLf & vbCrLf & "Please configure audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                        End If
+                                    Else
+                                        If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
+                                            Dim flagsCount As Integer = ComboBox22.Items.Count
+                                            Dim flagsStart As Integer
+                                            For flagsStart = 1 To flagsCount
+                                                My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (flagsStart - 1).ToString & ".txt")), True)
+                                            Next
+                                            If File.Exists("HME_Audio_Flags.txt") Then
+                                                Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
+                                                newffargs = "ffmpeg -hide_banner " & hwAccelFormat & RichTextBox3.Text & " -map 0 " & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            End If
+                                        Else
+                                            MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                        End If
+                                    End If
                                 End If
                             Else
-                                MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             End If
-                        ElseIf CheckBox4.Checked = False And CheckBox5.Checked = False Then
-                            Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & videoFilePath & Chr(34) & RichTextBox1.Text & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
-                            HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-                        End If
-                    End If
-                Else
-                    MessageBoxAdv.Show("Please choose save media file first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            Else
-                MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        ElseIf CheckBox1.Checked = False And CheckBox3.Checked = False Then
-            If Label2.Text IsNot "" Then
-                If TextBox1.Text IsNot "" Then
-                    If Strings.Right(TextBox1.Text, 4) = ".mkv" Then
-                        MessageBoxAdv.Show("Invalid file extension for saved media file !" & vbCrLf & vbCrLf &
-                                               "Current file extensions " & vbCrLf &
-                                                Strings.Right(TextBox1.Text, 4) & vbCrLf & vbCrLf &
-                                                "Current available file extensions " & vbCrLf &
-                                                ".flac, .wav, .mp3", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Else
-                        If CheckBox4.Checked = True And CheckBox5.Checked = True Then
-                            If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") Then
-                                Dim flagsCount As Integer = ComboBox22.Items.Count
-                                Dim flagsStart As Integer
-                                For flagsStart = 1 To flagsCount
-                                    My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (flagsStart - 1).ToString & ".txt")), True)
-                                Next
-                                If File.Exists("HME_Audio_Flags.txt") Then
-                                    Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
-                                    Dim newffargs As String = "ffmpeg -hide_banner -i " & Chr(34) & videoFilePath & Chr(34) & " -vn " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                    HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                        ElseIf CheckBox1.Checked = True And CheckBox3.Checked = True Then
+                            If Label2.Text IsNot "" Then
+                                If TextBox1.Text IsNot "" Then
+                                    If Strings.Right(TextBox1.Text, 4) = "flac" Or Strings.Right(TextBox1.Text, 4) = ".mp3" Or Strings.Right(TextBox1.Text, 4) = ".wav" Then
+                                        MessageBoxAdv.Show("Invalid file extension for saved media file !" & vbCrLf & vbCrLf &
+                                                               "Current file extensions " & vbCrLf &
+                                                               Strings.Right(TextBox1.Text, 4) & vbCrLf & vbCrLf &
+                                                               "Current available file extensions " & vbCrLf &
+                                                               ".mkv", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    Else
+                                        If CheckBox4.Checked = True And CheckBox5.Checked = True Then
+                                            If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
+                                                Dim flagsCount As Integer = ComboBox22.Items.Count
+                                                Dim flagsStart As Integer
+                                                For flagsStart = 1 To flagsCount
+                                                    My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (flagsStart - 1).ToString & ".txt")), True)
+                                                Next
+                                                If File.Exists("HME_Audio_Flags.txt") Then
+                                                    Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
+                                                    Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                    HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                                End If
+                                            Else
+                                                MessageBoxAdv.Show("There are still missing video or audio stream config !" & vbCrLf & vbCrLf & "Please configure video or audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                            End If
+                                        ElseIf CheckBox4.Checked = False And CheckBox5.Checked = False Then
+                                            Dim newffargs As String = "ffmpeg -hide_banner " & hwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox1.Text & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
+                                            HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                        End If
+                                    End If
                                 Else
-                                    MessageBoxAdv.Show("Audio stream config not found !" & vbCrLf & vbCrLf & "Please configure audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    MessageBoxAdv.Show("Please choose save media file first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 End If
+                            Else
+                                MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            End If
+                        ElseIf CheckBox1.Checked = False And CheckBox3.Checked = False Then
+                            If Label2.Text IsNot "" Then
+                                If TextBox1.Text IsNot "" Then
+                                    If Strings.Right(TextBox1.Text, 4) = ".mkv" Then
+                                        MessageBoxAdv.Show("Invalid file extension for saved media file !" & vbCrLf & vbCrLf &
+                                                               "Current file extensions " & vbCrLf &
+                                                                Strings.Right(TextBox1.Text, 4) & vbCrLf & vbCrLf &
+                                                                "Current available file extensions " & vbCrLf &
+                                                                ".flac, .wav, .mp3", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    Else
+                                        If CheckBox4.Checked = True And CheckBox5.Checked = True Then
+                                            If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") Then
+                                                Dim flagsCount As Integer = ComboBox22.Items.Count
+                                                Dim flagsStart As Integer
+                                                For flagsStart = 1 To flagsCount
+                                                    My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (flagsStart - 1).ToString & ".txt")), True)
+                                                Next
+                                                If File.Exists("HME_Audio_Flags.txt") Then
+                                                    Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
+                                                    Dim newffargs As String = "ffmpeg -hide_banner -i " & Chr(34) & VideoFilePath & Chr(34) & " -vn " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                    HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                                Else
+                                                    MessageBoxAdv.Show("Audio stream config not found !" & vbCrLf & vbCrLf & "Please configure audio stream on audio tab", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                                End If
+                                            End If
+                                        End If
+                                    End If
+                                Else
+                                    MessageBoxAdv.Show("Please choose save media file first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                End If
+                            Else
+                                MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            End If
+                        Else
+                            MessageBoxAdv.Show("Current configuration is not valid !" & vbCrLf & vbCrLf & "Please check current configuration", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End If
+                        If File.Exists("HME.bat") Then
+                            If File.Exists(TextBox1.Text) Then
+                                MessageBoxAdv.Show("Current file " & TextBox1.Text & " Already exists !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                                Dim duplicateFile As DialogResult = MessageBoxAdv.Show(Me, "Remove existing file " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                If duplicateFile = DialogResult.Yes Then
+                                    GC.Collect()
+                                    GC.WaitForPendingFinalizers()
+                                    File.Delete(TextBox1.Text)
+                                Else
+                                    MessageBoxAdv.Show("Please move existing file to other location or choose other name or file location !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                                End If
+                            Else
+                                ProgressBar1.Visible = True
+                                Label28.Text = "ENCODE"
+                                Label70.Text = GetFileSize(VideoFilePath)
+                                Label71.Visible = False
+                                Label77.Visible = False
+                                Button1.Enabled = False
+                                Button6.Enabled = False
+                                TextBox1.Enabled = False
+                                ProgressBar1.Value = 0
+                                Dim frameCount As String
+                                If debugMode = "True" Or frameMode = "True" Or Label5.Text.Equals("Not Detected") = True Then
+                                    frameCount = "0"
+                                Else
+                                    Dim newffargs As String = "ffprobe -hide_banner -i " & Chr(34) & VideoFilePath & Chr(34) & " -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0"
+                                    HMEGenerate("HME_VF.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs, "")
+                                    Dim psi As New ProcessStartInfo("HME_VF.bat") With {
+                                        .RedirectStandardError = False,
+                                        .RedirectStandardOutput = True,
+                                        .CreateNoWindow = True,
+                                        .WindowStyle = ProcessWindowStyle.Hidden,
+                                        .UseShellExecute = False
+                                    }
+                                    Dim process As Process = Process.Start(psi)
+                                    frameCount = "0"
+                                    While Not process.StandardOutput.EndOfStream
+                                        frameCount = process.StandardOutput.ReadLine
+                                    End While
+                                    process.WaitForExit()
+                                End If
+                                ProgressBar1.Minimum = 0
+                                If Label5.Text.Equals("Not Detected") = False Or TextBox15.Text IsNot "" Or frameMode = "False" Or CheckBox1.Checked = True And CheckBox3.Checked = True Then
+                                    ProgressBar1.Maximum = frameCount
+                                Else
+                                    ProgressBar1.Maximum = 100
+                                End If
+                                Dim new_psi As New ProcessStartInfo("HME.bat") With {
+                                    .RedirectStandardError = True,
+                                    .RedirectStandardOutput = False,
+                                    .CreateNoWindow = True,
+                                    .WindowStyle = ProcessWindowStyle.Hidden,
+                                    .UseShellExecute = False
+                                }
+                                EncStartTime = DateTime.Now
+                                If Label5.Text.Equals("Not Detected") = False Or TextBox15.Text IsNot "" Or CheckBox1.Checked = True And CheckBox3.Checked = True Then
+                                    If debugMode = "True" Then
+                                        Dim new_process As Process = Process.Start(new_psi)
+                                        Do
+                                            Dim line As String = new_process.StandardError.ReadLine
+                                            If RemoveWhitespace(getBetween(line, "frame=", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame=", " fps")) = "0" Then
+                                                ffmpegEncStats = "Frame Error!"
+                                                ffmpegErr = new_process.StandardError.ReadToEnd
+                                            ElseIf RemoveWhitespace(getBetween(line, "frame=", " fps")) <= frameCount Then
+                                                ProgressBar1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
+                                            End If
+                                        Loop Until new_process.HasExited And new_process.StandardError.ReadLine = Nothing Or new_process.StandardError.ReadLine = ""
+                                    Else
+                                        Dim new_process As Process = Process.Start(new_psi)
+                                        Do
+                                            Dim line As String = new_process.StandardError.ReadLine
+                                            If RemoveWhitespace(getBetween(line, "frame=", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame=", " fps")) = "0" Then
+                                                ffmpegEncStats = "Frame Error!"
+                                                ffmpegErr = new_process.StandardError.ReadToEnd
+                                            ElseIf RemoveWhitespace(getBetween(line, "frame=", " fps")) <= frameCount Then
+                                                ProgressBar1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
+                                            End If
+                                        Loop Until new_process.HasExited And new_process.StandardError.ReadLine = Nothing Or new_process.StandardError.ReadLine = ""
+                                    End If
+                                Else
+                                    If debugMode = "True" And frameMode = "True" Or Label5.Text.Equals("Not Detected") Then
+                                        Dim new_process As Process = Process.Start(new_psi)
+                                        new_process.WaitForExit()
+                                    ElseIf debugMode = "True" And frameMode = "False" Or frameMode = "null" Then
+                                        Dim new_process As Process = Process.Start(new_psi)
+                                        While Not new_process.StandardError.EndOfStream
+                                            If ProgressBar1.Value < 100 Then
+                                                ProgressBar1.Value += 20
+                                            Else
+                                                ProgressBar1.Value = 100
+                                            End If
+                                        End While
+                                        new_process.WaitForExit()
+                                    End If
+                                End If
+                                EncEndTime = DateTime.Now
+                                If File.Exists(TextBox1.Text) Then
+                                    Dim destFile As New FileInfo(TextBox1.Text)
+                                    If destFile.Length / 1024 / 1024 < 1.0 Then
+                                        If destFile.Length / 1024 < 1.0 Then
+                                            If debugMode = "True" Then
+                                                MessageBoxAdv.Show("Encoding failed: " & ffmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error, ffmpegErr)
+                                            Else
+                                                MessageBoxAdv.Show("Encoding failed: " & ffmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                            End If
+                                            Label28.Text = "ERROR"
+                                            ProgressBar1.Value = ProgressBar1.Maximum
+                                            ProgressBar1.ForeColor = Color.Red
+                                        Else
+                                            If ProgressBar1.Value <> ProgressBar1.Maximum Then
+                                                ProgressBar1.Value = ProgressBar1.Maximum
+                                            End If
+                                            MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                            Label70.Visible = True
+                                            Label76.Visible = True
+                                            Label71.Visible = True
+                                            Label77.Visible = True
+                                            Label28.Text = "COMPLETED"
+                                            Label71.Text = "" & GetFileSize(TextBox1.Text)
+                                            Dim previewResult As DialogResult = MessageBoxAdv.Show(Me, "Play " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                            If previewResult = DialogResult.Yes Then
+                                                previewMediaModule(TextBox1.Text, ffmpegConf & "ffplay.exe")
+                                            End If
+                                        End If
+                                    Else
+                                        If ProgressBar1.Value <> ProgressBar1.Maximum Then
+                                            ProgressBar1.Value = ProgressBar1.Maximum
+                                        End If
+                                        MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                        Label70.Visible = True
+                                        Label76.Visible = True
+                                        Label71.Visible = True
+                                        Label77.Visible = True
+                                        Label28.Text = "COMPLETED"
+                                        Label71.Text = "" & GetFileSize(TextBox1.Text)
+                                        Dim previewResult As DialogResult = MessageBoxAdv.Show(Me, "Play " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                        If previewResult = DialogResult.Yes Then
+                                            previewMediaModule(TextBox1.Text, ffmpegConf & "ffplay.exe")
+                                        End If
+                                    End If
+                                Else
+                                    If debugMode = "True" Then
+                                        MessageBoxAdv.Show("Encoding failed: " & ffmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error, ffmpegErr)
+                                    Else
+                                        MessageBoxAdv.Show("Encoding failed: " & ffmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    End If
+                                    Label28.Text = "ERROR"
+                                    ProgressBar1.Value = ProgressBar1.Maximum
+                                    ProgressBar1.ForeColor = Color.Red
+                                End If
+                                Button1.Enabled = True
+                                Button6.Enabled = True
+                                CleanEnv("null")
+                                ProgressBar1.Value = 0
+                                ProgressBar1.Visible = False
                             End If
                         End If
+                    Else
+                        MessageBoxAdv.Show("GPU HW Accelerated are not set !" & vbCrLf & vbCrLf & "Please configure it on options menu before start encoding", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
                 Else
-                    MessageBoxAdv.Show("Please choose save media file first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBoxAdv.Show("FFMPEG Binary is invalid !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             Else
-                MessageBoxAdv.Show("Please choose media file source first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBoxAdv.Show("FFMPEG Binary not found !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Else
-            MessageBoxAdv.Show("Current configuration is not valid !" & vbCrLf & vbCrLf & "Please check current configuration", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
-        If File.Exists("HME.bat") Then
-            If File.Exists(TextBox1.Text) Then
-                MessageBoxAdv.Show("Current file " & TextBox1.Text & " Already exists !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Dim duplicateFile As DialogResult = MessageBoxAdv.Show(Me, "Remove existing file " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                If duplicateFile = DialogResult.Yes Then
-                    GC.Collect()
-                    GC.WaitForPendingFinalizers()
-                    File.Delete(TextBox1.Text)
-                Else
-                    MessageBoxAdv.Show("Please move existing file to other location or choose other name or file location !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                End If
-            Else
-                ProgressBar1.Visible = True
-                Label28.Text = "ENCODE"
-                Label70.Text = GetFileSize(videoFilePath)
-                Label71.Visible = False
-                Label77.Visible = False
-                Button1.Enabled = False
-                Button6.Enabled = False
-                TextBox1.Enabled = False
-                ProgressBar1.Value = 0
-                Dim frameCount As String
-                If debugMode = "True" Or frameMode = "True" Or Label5.Text.Equals("Not Detected") = True Then
-                    frameCount = "0"
-                Else
-                    Dim newffargs As String = "ffprobe -hide_banner -i " & Chr(34) & videoFilePath & Chr(34) & " -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0"
-                    HMEGenerate("HME_VF.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs, "")
-                    Dim psi As New ProcessStartInfo("HME_VF.bat") With {
-                        .RedirectStandardError = False,
-                        .RedirectStandardOutput = True,
-                        .CreateNoWindow = True,
-                        .WindowStyle = ProcessWindowStyle.Hidden,
-                        .UseShellExecute = False
-                    }
-                    Dim process As Process = Process.Start(psi)
-                    frameCount = "0"
-                    While Not process.StandardOutput.EndOfStream
-                        frameCount = process.StandardOutput.ReadLine
-                    End While
-                    process.WaitForExit()
-                End If
-                ProgressBar1.Minimum = 0
-                If Label5.Text.Equals("Not Detected") = False Or TextBox15.Text IsNot "" Or frameMode = "False" Or CheckBox1.Checked = True And CheckBox3.Checked = True Then
-                    ProgressBar1.Maximum = frameCount
-                Else
-                    ProgressBar1.Maximum = 100
-                End If
-                Dim new_psi As New ProcessStartInfo("HME.bat") With {
-                    .RedirectStandardError = True,
-                    .RedirectStandardOutput = False,
-                    .CreateNoWindow = True,
-                    .WindowStyle = ProcessWindowStyle.Hidden,
-                    .UseShellExecute = False
-                }
-                EncStartTime = DateTime.Now
-                If Label5.Text.Equals("Not Detected") = False Or TextBox15.Text IsNot "" Or CheckBox1.Checked = True And CheckBox3.Checked = True Then
-                    If debugMode = "True" Then
-                        Dim new_process As Process = Process.Start(new_psi)
-                        Do
-                            Dim line As String = new_process.StandardError.ReadLine
-                            If RemoveWhitespace(getBetween(line, "frame=", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame=", " fps")) = "0" Then
-                                ffmpegEncStats = "Frame Error!"
-                                ffmpegErr = new_process.StandardError.ReadToEnd
-                            ElseIf RemoveWhitespace(getBetween(line, "frame=", " fps")) <= frameCount Then
-                                ProgressBar1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
-                            End If
-                        Loop Until new_process.HasExited And new_process.StandardError.ReadLine = Nothing Or new_process.StandardError.ReadLine = ""
-                    Else
-                        Dim new_process As Process = Process.Start(new_psi)
-                        Do
-                            Dim line As String = new_process.StandardError.ReadLine
-                            If RemoveWhitespace(getBetween(line, "frame=", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame=", " fps")) = "0" Then
-                                ffmpegEncStats = "Frame Error!"
-                                ffmpegErr = new_process.StandardError.ReadToEnd
-                            ElseIf RemoveWhitespace(getBetween(line, "frame=", " fps")) <= frameCount Then
-                                ProgressBar1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
-                            End If
-                        Loop Until new_process.HasExited And new_process.StandardError.ReadLine = Nothing Or new_process.StandardError.ReadLine = ""
-                    End If
-                Else
-                    If debugMode = "True" And frameMode = "True" Or Label5.Text.Equals("Not Detected") Then
-                        Dim new_process As Process = Process.Start(new_psi)
-                        new_process.WaitForExit()
-                    ElseIf debugMode = "True" And frameMode = "False" Or frameMode = "null" Then
-                        Dim new_process As Process = Process.Start(new_psi)
-                        While Not new_process.StandardError.EndOfStream
-                            If ProgressBar1.Value < 100 Then
-                                ProgressBar1.Value += 20
-                            Else
-                                ProgressBar1.Value = 100
-                            End If
-                        End While
-                        new_process.WaitForExit()
-                    End If
-                End If
-                EncEndTime = DateTime.Now
-                If File.Exists(TextBox1.Text) Then
-                    Dim destFile As New FileInfo(TextBox1.Text)
-                    If destFile.Length / 1024 / 1024 < 1.0 Then
-                        If destFile.Length / 1024 < 1.0 Then
-                            If debugMode = "True" Then
-                                MessageBoxAdv.Show("Encoding failed: " & ffmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error, ffmpegErr)
-                            Else
-                                MessageBoxAdv.Show("Encoding failed: " & ffmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            End If
-                            Label28.Text = "ERROR"
-                            ProgressBar1.Value = ProgressBar1.Maximum
-                            ProgressBar1.ForeColor = Color.Red
-                        Else
-                            If ProgressBar1.Value <> ProgressBar1.Maximum Then
-                                ProgressBar1.Value = ProgressBar1.Maximum
-                            End If
-                            MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Label70.Visible = True
-                            Label76.Visible = True
-                            Label71.Visible = True
-                            Label77.Visible = True
-                            Label28.Text = "COMPLETED"
-                            Label71.Text = "" & GetFileSize(TextBox1.Text)
-                            Dim previewResult As DialogResult = MessageBoxAdv.Show(Me, "Play " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                            If previewResult = DialogResult.Yes Then
-                                previewMediaModule(TextBox1.Text, ffmpegConf & "ffplay.exe")
-                            End If
-                        End If
-                    Else
-                        If ProgressBar1.Value <> ProgressBar1.Maximum Then
-                            ProgressBar1.Value = ProgressBar1.Maximum
-                        End If
-                        MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        Label70.Visible = True
-                        Label76.Visible = True
-                        Label71.Visible = True
-                        Label77.Visible = True
-                        Label28.Text = "COMPLETED"
-                        Label71.Text = "" & GetFileSize(TextBox1.Text)
-                        Dim previewResult As DialogResult = MessageBoxAdv.Show(Me, "Play " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                        If previewResult = DialogResult.Yes Then
-                            previewMediaModule(TextBox1.Text, ffmpegConf & "ffplay.exe")
-                        End If
-                    End If
-                Else
-                    If debugMode = "True" Then
-                        MessageBoxAdv.Show("Encoding failed: " & ffmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error, ffmpegErr)
-                    Else
-                        MessageBoxAdv.Show("Encoding failed: " & ffmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
-                    Label28.Text = "ERROR"
-                    ProgressBar1.Value = ProgressBar1.Maximum
-                    ProgressBar1.ForeColor = Color.Red
-                End If
-                Button1.Enabled = True
-                Button6.Enabled = True
-                CleanEnv("null")
-                ProgressBar1.Value = 0
-                ProgressBar1.Visible = False
-            End If
+            MessageBoxAdv.Show("Config file was not found !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
     Private Sub EnableVideoCheck(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
@@ -3057,6 +3073,7 @@ Public Class MainMenu
             RichTextBox5.Text = ""
             CheckBox8.Enabled = True
             CheckBox6.Enabled = True
+            ChapterReset()
         End If
     End Sub
     Private Sub ChapterLock(sender As Object, e As EventArgs) Handles CheckBox14.CheckedChanged
