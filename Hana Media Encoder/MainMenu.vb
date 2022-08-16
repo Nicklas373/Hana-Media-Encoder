@@ -1,7 +1,10 @@
-﻿Imports System.IO
+﻿Imports System.Diagnostics.Eventing.Reader
+Imports System.IO
 Imports System.Text.RegularExpressions
 Imports Syncfusion.Windows.Forms
 Imports Syncfusion.WinForms.Controls
+Imports Windows.Devices.AllJoyn
+
 Public Class MainMenu
     Inherits SfForm
     Dim AudioStreamFlagsPath As String = "audioStream/"
@@ -16,6 +19,7 @@ Public Class MainMenu
     Dim frameMode As String
     Dim hwAccelFormat As String
     Dim hwAccelDev As String
+    Dim imgPage As Integer
     Dim newdebugmode As String
     Dim openFileDialog As New OpenFileDialog
     Dim ReturnAudioStats As Boolean
@@ -78,22 +82,7 @@ Public Class MainMenu
                     MessageBoxAdv.Show("FFMPEG Binary is invalid !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End If
-            GC.Collect()
-            GC.WaitForPendingFinalizers()
-            File.Delete("HME.bat")
-            File.Delete("HME_VF.bat")
-            File.Delete("HME_Audio_Flags.txt")
-            File.Delete("chapter.txt")
-            File.Delete("FFMETADATAFILE")
-            MassDelete("audioStream", "txt")
-            MassDelete("audioConfig", "txt")
-            MassDelete("videoStream", "txt")
-            MassDelete("videoConfig", "txt")
-            ChapterReplace("reset", "")
-            If File.Exists("thumbnail\1.png") Then
-                File.Delete("thumbnail\1.png")
-                File.Delete("thumbnail\2.png")
-            End If
+            CleanEnv("all")
         Else
             Button1.Enabled = False
             Button3.Enabled = False
@@ -147,6 +136,9 @@ Public Class MainMenu
                 PictureBox1.Invalidate()
                 ChapterReplace("reset", "")
                 getPreviewSummary(ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34))
+                GenerateSpectrum()
+                ComboBox31.Enabled = True
+                ComboBox31.SelectedIndex = 0
                 If File.Exists("thumbnail\1.png") Then
                     Dim ImgPrev1 As New FileStream("thumbnail\1.png", FileMode.Open, FileAccess.Read)
                     PictureBox1.Image = Image.FromStream(ImgPrev1)
@@ -185,6 +177,7 @@ Public Class MainMenu
                 Label76.Visible = False
                 Label71.Visible = False
                 Label77.Visible = False
+                ComboBox31.Enabled = False
             End If
         End If
     End Sub
@@ -208,17 +201,90 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub ImagePreview_Next(sender As Object, e As EventArgs) Handles Button7.Click
-        If File.Exists("thumbnail\2.png") Then
-            Dim ImgPrev2 As New FileStream("thumbnail\2.png", FileMode.Open, FileAccess.Read)
-            PictureBox1.Image = Image.FromStream(ImgPrev2)
-            ImgPrev2.Close()
+        If ComboBox31.SelectedIndex = 0 Then
+            If File.Exists("thumbnail\1.png") Then
+                Dim ImgPrev2 As New FileStream("thumbnail\2.png", FileMode.Open, FileAccess.Read)
+                PictureBox1.Image = Image.FromStream(ImgPrev2)
+                ImgPrev2.Close()
+                imgPage = 2
+            End If
+        ElseIf ComboBox31.SelectedIndex = 1 Then
+            If File.Exists("spectrum-temp.png") Then
+                Dim ImgPrev1 As New FileStream("spectrum-temp.png", FileMode.Open, FileAccess.Read)
+                PictureBox1.Image = Image.FromStream(ImgPrev1)
+                ImgPrev1.Close()
+                imgPage = 1
+            End If
         End If
     End Sub
     Private Sub ImagePreview_Prev(sender As Object, e As EventArgs) Handles Button8.Click
-        If File.Exists("thumbnail\1.png") Then
-            Dim ImgPrev1 As New FileStream("thumbnail\1.png", FileMode.Open, FileAccess.Read)
-            PictureBox1.Image = Image.FromStream(ImgPrev1)
-            ImgPrev1.Close()
+        If ComboBox31.SelectedIndex = 0 Then
+            If File.Exists("thumbnail\1.png") Then
+                Dim ImgPrev1 As New FileStream("thumbnail\1.png", FileMode.Open, FileAccess.Read)
+                PictureBox1.Image = Image.FromStream(ImgPrev1)
+                ImgPrev1.Close()
+                imgPage = 1
+            End If
+        ElseIf ComboBox31.SelectedIndex = 1 Then
+            If File.Exists("spectrum-temp.png") Then
+                Dim ImgPrev1 As New FileStream("spectrum-temp.png", FileMode.Open, FileAccess.Read)
+                PictureBox1.Image = Image.FromStream(ImgPrev1)
+                ImgPrev1.Close()
+            Else
+                MessageBoxAdv.Show("Please generate spectrum on spectrum menu first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+    End Sub
+    Private Sub PreviewOptions(sender As Object, e As EventArgs) Handles ComboBox31.SelectedIndexChanged
+        Dim imageDir As String
+        If ComboBox31.SelectedIndex = 0 Then
+            If File.Exists("thumbnail\1.png") Then
+                imageDir = "thumbnail\1.png"
+            Else
+                imageDir = ""
+            End If
+        ElseIf ComboBox31.SelectedIndex = 1 Then
+            If File.Exists("spectrum-temp.png") Then
+                imageDir = "spectrum-temp.png"
+            Else
+                imageDir = ""
+            End If
+        End If
+        Dim ImgPrev1 As New FileStream(imageDir, FileMode.Open, FileAccess.Read)
+        PictureBox1.Image = Image.FromStream(ImgPrev1)
+        ImgPrev1.Close()
+    End Sub
+    Private Sub PicturePreview(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        Dim imageDir As String
+        If ComboBox31.SelectedIndex = 0 Then
+            If imgPage = 1 Then
+                If File.Exists("thumbnail\1.png") Then
+                    imageDir = "thumbnail\1.png"
+                Else
+                    imageDir = ""
+                End If
+            ElseIf imgPage = 2 Then
+                If File.Exists("thumbnail\2.png") Then
+                    imageDir = "thumbnail\2.png"
+                Else
+                    imageDir = ""
+                End If
+            End If
+        ElseIf ComboBox31.SelectedIndex = 1 Then
+            If File.Exists("spectrum-temp.png") Then
+                imageDir = "spectrum-temp.png"
+            Else
+                imageDir = ""
+            End If
+        End If
+        If imageDir IsNot "" Then
+            Dim psi As ProcessStartInfo = New ProcessStartInfo With {
+                .FileName = imageDir,
+                .UseShellExecute = True
+            }
+            Process.Start(psi)
+        Else
+            MessageBoxAdv.Show("Please open file media first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
     Private Sub PreviewMedia(sender As Object, e As EventArgs) Handles Button4.Click
@@ -910,6 +976,57 @@ Public Class MainMenu
                         End If
                     Else
                         MessageBoxAdv.Show("GPU HW Accelerated are not set !" & vbCrLf & vbCrLf & "Please configure it on options menu before start encoding", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                Else
+                    MessageBoxAdv.Show("FFMPEG Binary is invalid !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+            Else
+                MessageBoxAdv.Show("FFMPEG Binary not found !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Else
+            MessageBoxAdv.Show("Config file was not found !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+    Private Sub GenerateSpectrum()
+        If File.Exists("config.ini") Then
+            Dim ffmpegConfig As String = FindConfig("config.ini", "FFMPEG Binary:")
+            Dim debugMode As String = FindConfig("config.ini", "Debug Mode:")
+            Dim hwdefConfig As String = FindConfig("config.ini", "GPU Engine:")
+            Dim frameConfig As String = FindConfig("config.ini", "Frame Count: ")
+            If ffmpegConfig IsNot "null" Then
+                ffmpegConf = ffmpegConfig.Remove(0, 14) & "\"
+                ffmpegLetter = ffmpegConf.Substring(0, 1) & ":"
+                If File.Exists(ffmpegConf & "ffmpeg.exe") AndAlso File.Exists(ffmpegConf & "ffplay.exe") AndAlso File.Exists(ffmpegConf & "ffprobe.exe") Then
+                    If Label2.Text IsNot "" Then
+                        If File.Exists("spectrum-temp.png") Then
+                            GC.Collect()
+                            GC.WaitForPendingFinalizers()
+                            File.Delete("spectrum-temp.png")
+                        End If
+                        Dim newffargs As String = "ffmpeg -hide_banner -i " & Chr(34) & Label2.Text & Chr(34) & " -lavfi showspectrumpic=854x480:mode=separate " &
+                            Chr(34) & My.Application.Info.DirectoryPath & "\spectrum-temp.png" & Chr(34)
+                        HMEGenerate("HME.bat", ffmpegLetter, Chr(34) & ffmpegConf & Chr(34), newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                        RunProc("HME.bat")
+                        If File.Exists("spectrum-temp.png") Then
+                            Dim destFile As New FileInfo("spectrum-temp.png")
+                            If destFile.Length / 1024 < 1.0 Then
+                                If debugMode = "True" Then
+                                    MessageBoxAdv.Show("Generate spectrum failed: " & ffmpegEncStats, "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error, ffmpegErr)
+                                Else
+                                    MessageBoxAdv.Show("Generate spectrum failed: " & ffmpegEncStats, "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                End If
+                            Else
+                                'MessageBoxAdv.Show("Generate spectrum success !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            End If
+                        Else
+                            If debugMode = "True" Then
+                                MessageBoxAdv.Show("Generate spectrum failed: " & ffmpegEncStats, "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error, ffmpegErr)
+                            Else
+                                MessageBoxAdv.Show("Generate spectrum failed: NOT FOUND" & ffmpegEncStats, "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            End If
+                        End If
+                    Else
+                        MessageBoxAdv.Show("Please choose save media file first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
                 Else
                     MessageBoxAdv.Show("FFMPEG Binary is invalid !" & vbCrLf & vbCrLf & "Please configure it on options menu !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)

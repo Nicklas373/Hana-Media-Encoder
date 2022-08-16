@@ -32,6 +32,7 @@ Partial Class MainMenu
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.ComboBox31 = New System.Windows.Forms.ComboBox()
         Me.ComboBox24 = New System.Windows.Forms.ComboBox()
         Me.ComboBox23 = New System.Windows.Forms.ComboBox()
         Me.Button8 = New System.Windows.Forms.Button()
@@ -240,7 +241,7 @@ Partial Class MainMenu
         Me.Button2.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(427, 5)
+        Me.Button2.Location = New System.Drawing.Point(440, 5)
         Me.Button2.Name = "Button2"
         Me.Button2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Button2.Size = New System.Drawing.Size(139, 56)
@@ -287,7 +288,7 @@ Partial Class MainMenu
         Me.Button5.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(572, 5)
+        Me.Button5.Location = New System.Drawing.Point(585, 6)
         Me.Button5.Name = "Button5"
         Me.Button5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Button5.Size = New System.Drawing.Size(139, 56)
@@ -306,7 +307,7 @@ Partial Class MainMenu
         Me.Button4.Location = New System.Drawing.Point(295, 5)
         Me.Button4.Name = "Button4"
         Me.Button4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button4.Size = New System.Drawing.Size(126, 56)
+        Me.Button4.Size = New System.Drawing.Size(139, 56)
         Me.Button4.TabIndex = 4
         Me.Button4.Text = "       Preview"
         Me.Button4.UseVisualStyleBackColor = False
@@ -344,6 +345,7 @@ Partial Class MainMenu
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.ComboBox31)
         Me.TabPage1.Controls.Add(Me.ComboBox24)
         Me.TabPage1.Controls.Add(Me.ComboBox23)
         Me.TabPage1.Controls.Add(Me.Button8)
@@ -394,6 +396,16 @@ Partial Class MainMenu
         Me.TabPage1.Text = "Source Info"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'ComboBox31
+        '
+        Me.ComboBox31.Enabled = False
+        Me.ComboBox31.FormattingEnabled = True
+        Me.ComboBox31.Items.AddRange(New Object() {"Screenshot", "Spectrum"})
+        Me.ComboBox31.Location = New System.Drawing.Point(931, 11)
+        Me.ComboBox31.Name = "ComboBox31"
+        Me.ComboBox31.Size = New System.Drawing.Size(134, 23)
+        Me.ComboBox31.TabIndex = 67
+        '
         'ComboBox24
         '
         Me.ComboBox24.Enabled = False
@@ -416,7 +428,7 @@ Partial Class MainMenu
         '
         Me.Button8.BackColor = System.Drawing.Color.Silver
         Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
-        Me.Button8.Location = New System.Drawing.Point(989, 273)
+        Me.Button8.Location = New System.Drawing.Point(967, 312)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(58, 39)
         Me.Button8.TabIndex = 45
@@ -426,7 +438,7 @@ Partial Class MainMenu
         '
         Me.Button7.BackColor = System.Drawing.Color.Silver
         Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
-        Me.Button7.Location = New System.Drawing.Point(1053, 273)
+        Me.Button7.Location = New System.Drawing.Point(1031, 312)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(58, 39)
         Me.Button7.TabIndex = 44
@@ -436,7 +448,7 @@ Partial Class MainMenu
         '
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label27.Location = New System.Drawing.Point(841, 3)
+        Me.Label27.Location = New System.Drawing.Point(807, 12)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(118, 17)
         Me.Label27.TabIndex = 43
@@ -444,9 +456,9 @@ Partial Class MainMenu
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(841, 33)
+        Me.PictureBox1.Location = New System.Drawing.Point(807, 42)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(390, 234)
+        Me.PictureBox1.Size = New System.Drawing.Size(425, 264)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 42
         Me.PictureBox1.TabStop = False
@@ -2609,4 +2621,5 @@ Partial Class MainMenu
     Friend WithEvents Button14 As Button
     Friend WithEvents Label81 As Label
     Friend WithEvents Label95 As Label
+    Friend WithEvents ComboBox31 As ComboBox
 End Class
