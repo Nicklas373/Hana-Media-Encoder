@@ -47,7 +47,8 @@ Public Class OTAMenu
                 File.Delete("OTA.bat")
             End If
             HMEGenerate("OTA.bat", "C:", Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "HME.msi", "")
-            RunProc("OTA.bat")
+            RunProcAlt("OTA.bat")
+            End
         Else
             If File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\HME.msi") Then
                 GC.Collect()
@@ -61,7 +62,7 @@ Public Class OTAMenu
         Button1.Text = "Downloading... " & e.ProgressPercentage & "%"
         If e.ProgressPercentage = 100 Then
             progPercentage = 100
-            MsgBox("Download Complete")
+            MessageBoxAdv.Show("Download Complete !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Button1.Text = "Install Update"
             installStats = True
         End If
