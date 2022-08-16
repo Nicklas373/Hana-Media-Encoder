@@ -145,6 +145,16 @@ Module MediaEncoderModule
         Dim process As Process = Process.Start(psi)
         process.WaitForExit()
     End Sub
+    Public Sub RunProcAlt(bat As String)
+        Dim psi As New ProcessStartInfo(bat) With {
+            .RedirectStandardError = False,
+            .RedirectStandardOutput = False,
+            .CreateNoWindow = True,
+            .WindowStyle = ProcessWindowStyle.Hidden,
+            .UseShellExecute = False
+        }
+        Dim process As Process = Process.Start(psi)
+    End Sub
     Public Sub CleanEnv(cleanStats As String)
         GC.Collect()
         GC.WaitForPendingFinalizers()
