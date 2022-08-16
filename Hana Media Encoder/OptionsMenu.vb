@@ -1,10 +1,13 @@
 ﻿Imports System.IO
+Imports System.Net
+Imports Newtonsoft.Json.Linq
 Imports Syncfusion.Windows.Forms
 Imports Syncfusion.WinForms.Controls
 Public Class OptionsMenu
     Inherits SfForm
     Dim openfolderDialog As New FolderBrowserDialog
     Dim configState As Boolean
+    Dim wc As New WebClient()
     Private Sub Options_load(sender As Object, e As EventArgs) Handles MyBase.Load
         AllowTransparency = False
         Style.TitleBar.TextHorizontalAlignment = HorizontalAlignment.Center
@@ -14,6 +17,10 @@ Public Class OptionsMenu
         about_pnl.Visible = False
         GetGPUInformation()
         GetBackPref()
+        Label4.Text = My.Application.Info.Title
+        Label20.Text = My.Application.Info.Version.ToString
+        Label25.Text = My.Application.Info.Copyright
+        Label26.Text = My.Application.Info.Description
     End Sub
     Private Sub General_Btn(sender As Object, e As EventArgs) Handles Button1.Click
         General_pnl.Visible = True
@@ -220,5 +227,49 @@ Public Class OptionsMenu
             writer.Close()
         End If
         configState = True
+    End Sub
+    Private Sub WebURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
+        Dim psi As ProcessStartInfo = New ProcessStartInfo With {
+               .FileName = "https://github.com/Nicklas373/Hana-Media-Encoder",
+               .UseShellExecute = True
+           }
+        Process.Start(psi)
+    End Sub
+    Private Sub CopyrightURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Dim psi As ProcessStartInfo = New ProcessStartInfo With {
+               .FileName = "https://github.com/Nicklas373/Hana-Media-Encoder/issues",
+               .UseShellExecute = True
+           }
+        Process.Start(psi)
+    End Sub
+    Private Sub OTAMenu(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim tryParse As Boolean
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        Try
+            Dim OTA As String = wc.DownloadString("https://raw.githubusercontent.com/Nicklas373/Hana-Media-Encoder/master/OTA")
+            Dim parsejson As JObject = JObject.Parse(OTA)
+            tryParse = True
+        Catch ex As Exception
+            tryParse = False
+        End Try
+        If tryParse Then
+            Dim OTA As String = wc.DownloadString("https://raw.githubusercontent.com/Nicklas373/Hana-Media-Encoder/master/OTA")
+            Dim parsejson As JObject = JObject.Parse(OTA)
+            Dim appver = parsejson.SelectToken("version").ToString()
+            Dim newParsedVer As String() = appver.Split(".")
+            Dim curParsedVer As String() = My.Application.Info.Version.ToString.Split(".")
+            Dim mergedNewVer As Integer
+            Dim mergedCurVer As Integer
+            mergedNewVer = String.Join(newParsedVer(0), newParsedVer(1), newParsedVer(2))
+            mergedCurVer = String.Join(curParsedVer(0), curParsedVer(1), curParsedVer(2))
+            If mergedNewVer > mergedCurVer Then
+                Dim menu_ota = New OTAMenu
+                menu_ota.Show()
+            Else
+                MessageBoxAdv.Show("No updates found !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Else
+            MessageBoxAdv.Show("Failed to retrieve update status !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 End Class

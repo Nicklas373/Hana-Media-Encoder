@@ -26,7 +26,16 @@ Partial Class OptionsMenu
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.General_pnl = New System.Windows.Forms.Panel()
         Me.about_pnl = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -61,6 +70,7 @@ Partial Class OptionsMenu
         Me.Panel1.SuspendLayout()
         Me.General_pnl.SuspendLayout()
         Me.about_pnl.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -111,21 +121,120 @@ Partial Class OptionsMenu
         '
         'about_pnl
         '
+        Me.about_pnl.AutoScroll = True
+        Me.about_pnl.Controls.Add(Me.Button2)
+        Me.about_pnl.Controls.Add(Me.LinkLabel1)
+        Me.about_pnl.Controls.Add(Me.Label28)
+        Me.about_pnl.Controls.Add(Me.LinkLabel2)
+        Me.about_pnl.Controls.Add(Me.Label27)
+        Me.about_pnl.Controls.Add(Me.Label26)
+        Me.about_pnl.Controls.Add(Me.Label25)
         Me.about_pnl.Controls.Add(Me.Label20)
+        Me.about_pnl.Controls.Add(Me.Label4)
+        Me.about_pnl.Controls.Add(Me.PictureBox1)
+        Me.about_pnl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.about_pnl.Location = New System.Drawing.Point(0, 0)
         Me.about_pnl.Name = "about_pnl"
-        Me.about_pnl.Size = New System.Drawing.Size(1254, 585)
-        Me.about_pnl.TabIndex = 39
+        Me.about_pnl.Size = New System.Drawing.Size(1254, 588)
+        Me.about_pnl.TabIndex = 40
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(524, 22)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(116, 23)
+        Me.Button2.TabIndex = 11
+        Me.Button2.Text = "Check for updates"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(230, 190)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(325, 15)
+        Me.LinkLabel1.TabIndex = 10
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "https://github.com/Nicklas373/Hana-Media-Encoder/issues"
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label28.Location = New System.Drawing.Point(230, 169)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(85, 17)
+        Me.Label28.TabIndex = 9
+        Me.Label28.Text = "Submit issue"
+        '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Location = New System.Drawing.Point(229, 138)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(289, 15)
+        Me.LinkLabel2.TabIndex = 8
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "https://github.com/Nicklas373/Hana-Media-Encoder"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label27.Location = New System.Drawing.Point(229, 117)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(57, 17)
+        Me.Label27.TabIndex = 6
+        Me.Label27.Text = "Website"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label26.Location = New System.Drawing.Point(18, 237)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(53, 17)
+        Me.Label26.TabIndex = 5
+        Me.Label26.Text = "Label26"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label25.Location = New System.Drawing.Point(230, 80)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(63, 17)
+        Me.Label25.TabIndex = 4
+        Me.Label25.Text = "copyright"
         '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Segoe UI Semibold", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label20.Location = New System.Drawing.Point(460, 249)
+        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label20.Location = New System.Drawing.Point(230, 61)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(322, 47)
-        Me.Label20.TabIndex = 0
-        Me.Label20.Text = "Work In Progress ;)"
+        Me.Label20.Size = New System.Drawing.Size(49, 17)
+        Me.Label20.TabIndex = 3
+        Me.Label20.Text = "appver"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label4.Location = New System.Drawing.Point(227, 21)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(111, 30)
+        Me.Label4.TabIndex = 2
+        Me.Label4.Text = "APPNAME"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.PictureBox1.Location = New System.Drawing.Point(18, 21)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(200, 200)
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
         '
         'Label24
         '
@@ -473,6 +582,7 @@ Partial Class OptionsMenu
         Me.General_pnl.PerformLayout()
         Me.about_pnl.ResumeLayout(False)
         Me.about_pnl.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -511,5 +621,14 @@ Partial Class OptionsMenu
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button4 As Button
     Friend WithEvents about_pnl As Panel
+    Friend WithEvents Label4 As Label
+    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label20 As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label26 As Label
+    Friend WithEvents LinkLabel2 As LinkLabel
+    Friend WithEvents Label27 As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents Label28 As Label
 End Class
