@@ -18,9 +18,9 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
 * H264 / HEVC (Native codec are not supported yet)
 * H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
 * H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
-* H264_NVENC / HEVC_NVEBC (Nvidia H.264/HEVC Encoder)
+* H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
 
-# Current Supported Video Codec
+# Current Supported Audio Codec
 * MP3 (libmp3lame)
 * FLAC (flac)
 * WAV (libpcm)

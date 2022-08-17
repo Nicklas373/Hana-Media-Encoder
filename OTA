@@ -1,10 +1,19 @@
 {
-	"release_date": "16 August 2022",
-	"version": "1.0.8.0",
+	"release_date": "17 August 2022",
+	"version": "1.1.0.0",
 	"changelog": [
-		"- Add new options for preview summary to preview screenshot or spectrum only",
-		"- Add function to preview image from picturebox using default image viewer",
-		"- Introduce audio spectrum generator"
+		"- Configure spectrum resolution to higher resolution 768x768 from 854x480",
+		"- Disable low power mode while using QSV",
+		"- Drop level profile configuration on video codec for QSV (Quicksync are not support it)",
+		"- Do not show image if thumbnail are not exists",
+		"- Fixup debug mode are not run correctly",
+		"- Fixup encoding logic in some cases",
+		"- Fixup issue with video codec detection issue (QSV in primary, other codec is config only)",
+		"- Fixup issue with audio codec detection issue (Copy profile)",
+		"- Fixup issue with audio codec profile enable unconditionally after try to lock profile without set saved media file",
+		"- Fixup missing main10 video profile on QSV",
+		"- Properly clean all temporary files and process after application close",
+		"- Specify ffplay to show audio waveform only if file detected as audio, if detected as video then show video"
 	],
-	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.0.8/HME_Setup.msi"
+	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.1.0/HME_Setup.msi"
 }
