@@ -36,11 +36,11 @@ Imports System.Reflection
     "der)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"* H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"* H264_NVENC / HEVC_NV"& _ 
     "ENC (Nvidia H.264/HEVC Encoder)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"# Current Supported Audio Codec"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"* MP3 (libmp"& _ 
     "3lame)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"* FLAC (flac)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"* WAV (libpcm)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)),  _
- Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.9"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.9"),  _
+ Assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("Hana Media Encoder"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("Hana Media Encoder"),  _
- Assembly: System.Reflection.AssemblyVersionAttribute("1.0.9"),  _
+ Assembly: System.Reflection.AssemblyVersionAttribute("1.1.0"),  _
  Assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/Nicklas373/Hana-Media-Encoder"),  _
  Assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows10.0.22621.0"),  _
  Assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows10.0.20348.0")> 
