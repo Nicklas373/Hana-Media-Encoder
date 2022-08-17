@@ -1,0 +1,89 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Nickl\\source\\repos\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Nickl\\source\\repos\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj": {
+      "version": "1.0.9",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nickl\\source\\repos\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj",
+        "projectName": "HME_HANA-CI",
+        "projectPath": "C:\\Users\\Nickl\\source\\repos\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj",
+        "packagesPath": "C:\\Users\\Nickl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nickl\\source\\repos\\Hana-Media-Encoder\\Hana Media Encoder\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Nickl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows10.0.22621.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows10.0.22621": {
+            "targetAlias": "net6.0-windows10.0.22621.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows10.0.22621": {
+          "targetAlias": "net6.0-windows10.0.22621.0",
+          "dependencies": {
+            "Syncfusion.Core.WinForms": {
+              "target": "Package",
+              "version": "[20.2.0.43, )"
+            },
+            "Syncfusion.Shared.Base": {
+              "target": "Package",
+              "version": "[20.2.0.43, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Windows.SDK.NET.Ref",
+              "version": "[10.0.22621.26, 10.0.22621.26]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.Windows.SDK.NET.Ref": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
