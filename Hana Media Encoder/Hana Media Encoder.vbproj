@@ -7,7 +7,21 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2022</Copyright>
-    <PackageReleaseNotes>v1.0.8 (20220816):
+    <PackageReleaseNotes>v1.1.0 (20220817):
+- Configure spectrum resolution to higher resolution 768x768 from 854x480
+- Disable low power mode while using QSV
+- Drop level profile configuration on video codec for QSV (Quicksync are not support it)
+- Do not show image if thumbnail are not exists
+- Fixup debug mode are not run correctly
+- Fixup encoding logic in some cases
+- Fixup issue with video codec detection issue (QSV in primary, other codec is config only)
+- Fixup issue with audio codec detection issue (Copy profile)
+- Fixup issue with audio codec profile enable unconditionally after try to lock profile without set saved media file
+- Fixup missing main10 video profile on QSV
+- Properly clean all temporary files and process after application close
+- Specify ffplay to show audio waveform only if file detected as audio, if detected as video then show video
+
+v1.0.8 (20220816):
 - Add new options for preview summary to preview screenshot or spectrum only
 - Add function to preview image from picturebox using default image viewer
 - Introduce audio spectrum generator
@@ -57,9 +71,9 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2022</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>Public</RepositoryType>
-    <Version>1.0.8</Version>
-    <AssemblyVersion>1.0.8</AssemblyVersion>
-    <FileVersion>1.0.7</FileVersion>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
     <Description>Hana Media Encoder is the multimedia application that have feature to encode, decode, many other function to process media files using FFMPEG pre-build application (Windows Version),
 Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE.
 Hana Media Encoder only focus to work with only hardware GPU accelerated codec that FFMPEG has support it, for now (H264 and H265) codec only, and it does not have any aim to support
@@ -79,9 +93,9 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
 * H264 / HEVC (Native codec are not supported yet)
 * H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
 * H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
-* H264_NVENC / HEVC_NVEBC (Nvidia H.264/HEVC Encoder)
+* H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
 
-# Current Supported Video Codec
+# Current Supported Audio Codec
 * MP3 (libmp3lame)
 * FLAC (flac)
 * WAV (libpcm)
