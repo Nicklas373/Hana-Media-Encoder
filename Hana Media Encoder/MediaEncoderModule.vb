@@ -123,12 +123,18 @@ Module MediaEncoderModule
         writer.WriteLine("Frequency=" & afreq)
         writer.Close()
     End Sub
-    Public Sub previewMediaModule(mediaFile As String, ffplay As String)
+    Public Sub previewMediaModule(mediaFile As String, ffplay As String, mediaID As String)
+        Dim newffargs As String
+        If mediaID = "Not Detected" Then
+            newffargs = " -x 960 -y 540 -showmode 1"
+        Else
+            newffargs = " -x 960 -y 540 -showmode 0"
+        End If
         Dim psi As New ProcessStartInfo(ffplay) With {
                .RedirectStandardError = False,
                .RedirectStandardOutput = True,
                .CreateNoWindow = True,
-               .Arguments = "-x 960 -y 540 " & Chr(34) & mediaFile & Chr(34),
+               .Arguments = Chr(34) & mediaFile & Chr(34) & newffargs,
                .WindowStyle = ProcessWindowStyle.Hidden,
                .UseShellExecute = False
            }
@@ -165,18 +171,28 @@ Module MediaEncoderModule
         File.Delete("HME_Stream_Replace.txt")
         File.Delete("HME_VF.bat")
         File.Delete("OTA.bat")
-        File.Delete("spectrum-temp.png")
         If cleanStats = "all" Then
             File.Delete("chapter.txt")
             File.Delete("FFMETADATAFILE")
+            File.Delete("spectrum-temp.png")
             MassDelete("audioStream", "txt")
             MassDelete("audioConfig", "txt")
             MassDelete("videoStream", "txt")
             MassDelete("videoConfig", "txt")
+            If File.Exists("thumbnail\1.png") Then
+                File.Delete("thumbnail\1.png")
+                File.Delete("thumbnail\2.png")
+            End If
         End If
-        If File.Exists("thumbnail\1.png") Then
-            File.Delete("thumbnail\1.png")
-            File.Delete("thumbnail\2.png")
-        End If
+    End Sub
+    Public Sub InitExit()
+        Dim progList As String() = {"ffplay", "ffmpeg", "ffprobe"}
+        For Each prog As Process In Process.GetProcesses
+            For Each progQueue As String In progList
+                If prog.ProcessName = progQueue Then
+                    prog.Kill()
+                End If
+            Next
+        Next
     End Sub
 End Module
