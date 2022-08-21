@@ -7,6 +7,9 @@
     <Compile Update="InformationMenu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Loading.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MainMenu.vb">
       <SubType>Form</SubType>
     </Compile>

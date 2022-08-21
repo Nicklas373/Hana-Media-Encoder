@@ -7,7 +7,19 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2022</Copyright>
-    <PackageReleaseNotes>v1.1.0 (20220817):
+    <PackageReleaseNotes>v1.2.0 (20220821):
+- Fixup application crash while OTA download is on progress in some case
+- Fixup h264 for nvidia gpu encode error while aqstrength is included
+- Fixup video frame rate information that are not show correctly in some case
+- Introduce loading interface while load or initialize new media file
+- Introduce new application logo and design
+- Introduce support for drag and drop media file into application on main menu
+- Only show short codec name for media file
+- Re-design all user interface component
+- Re-design message information interface
+- Re-written logic for create media screenshot and audio spectrum
+
+v1.1.0 (20220817):
 - Configure spectrum resolution to higher resolution 768x768 from 854x480
 - Disable low power mode while using QSV
 - Drop level profile configuration on video codec for QSV (Quicksync are not support it)
@@ -71,12 +83,12 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2022</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>Public</RepositoryType>
-    <Version>1.1.0</Version>
-    <AssemblyVersion>1.1.0</AssemblyVersion>
-    <FileVersion>1.1.0</FileVersion>
+    <Version>1.2.0</Version>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
+    <FileVersion>1.2.0</FileVersion>
     <Description>Hana Media Encoder is the multimedia application that have feature to encode, decode, many other function to process media files using FFMPEG pre-build application (Windows Version),
-Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE.
-Hana Media Encoder only focus to work with only hardware GPU accelerated codec that FFMPEG has support it, for now (H264 and H265) codec only, and it does not have any aim to support
+HME works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE, for now
+HME only focus to work with only hardware GPU accelerated codec that FFMPEG has support it, for now (H264 and H265) codec only, and it does not have any aim to support
 native or software or even CPU based encoding for media file in the future.
 
 For audio codec it only supported for MP3, FLAC and WAV, and it will add other codec later.
@@ -88,14 +100,14 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
 * Support trim media file with specific stream or all stream and with same or different profile for each stream
 * Support preview media file by using FFPLAY
 
-# Current Supported Video Codec
+# Current Supported Video Output Codec
 - H264 / H265 (AVC / HEVC)
 * H264 / HEVC (Native codec are not supported yet)
 * H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
 * H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
 * H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
 
-# Current Supported Audio Codec
+# Current Supported Audio Output Codec
 * MP3 (libmp3lame)
 * FLAC (flac)
 * WAV (libpcm)
@@ -109,6 +121,10 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
     <SupportedOSPlatformVersion>10.0.20348.0</SupportedOSPlatformVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageIcon>HME_Logo@2048px.png</PackageIcon>
+    <ApplicationIcon>ico\HME.ico</ApplicationIcon>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeSymbols>True</IncludeSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -120,14 +136,22 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="ico\HME.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Import Include="sync" />
+    <Import Include="Syncfusion.Win32" />
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Core.WinForms" Version="20.2.0.43" />
-    <PackageReference Include="Syncfusion.Shared.Base" Version="20.2.0.43" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Syncfusion.Core.WinForms" Version="20.2.0.44" />
+    <PackageReference Include="Syncfusion.Shared.Base" Version="20.2.0.44" />
+    <PackageReference Include="Syncfusion.Shared.Windows" Version="20.2.0.44" />
     <PackageReference Include="System.Management" Version="6.0.0" />
   </ItemGroup>
 
@@ -165,13 +189,18 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
 
   <ItemGroup>
     <Folder Include="audioConfig\" />
+    <Folder Include="audioConfig\" />
     <Folder Include="audioStream\" />
+    <Folder Include="thumbnail\" />
     <Folder Include="videoConfig\" />
     <Folder Include="videoStream\" />
-    <Folder Include="thumbnail\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\..\..\..\..\Adobe\1..Illustrator\Hana Media Encoder Project\Logo &amp; Icons\HME_Logo@2048px.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
