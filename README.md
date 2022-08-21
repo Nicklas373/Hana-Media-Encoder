@@ -48,4 +48,18 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
 - [.NET Desktop Runtime 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - [FFMPEG](https://www.gyan.dev/ffmpeg/builds/)
 
+# Documentation
+<p align="left">
+<img width="854" height="480" src="https://github.com/Nicklas373/Hana-Media-Encoder/blob/master/Hana%20Media%20Encoder/snap/snap_1.png">&nbsp;&nbsp;&nbsp;
+<img width="854" height="480" src="https://github.com/Nicklas373/Hana-Media-Encoder/blob/master/Hana%20Media%20Encoder/snap/snap_2.png">&nbsp;&nbsp;&nbsp;
+<img width="854" height="480" src="https://github.com/Nicklas373/Hana-Media-Encoder/blob/master/Hana%20Media%20Encoder/snap/snap_3.png">&nbsp;&nbsp;&nbsp;
+</p>
+
+# License
+Copyright (C) 2016-2022 HANA-CI Build Project
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
+
 # HANA-CI Build Project 2016 - 2022
