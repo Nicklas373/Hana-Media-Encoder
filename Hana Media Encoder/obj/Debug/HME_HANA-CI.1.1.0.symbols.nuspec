@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>HME_HANA-CI</id>
+    <version>1.1.0</version>
+    <title>Hana Media Encoder</title>
+    <authors>Dicky Herlambang</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="file">LICENSE</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>HME_Logo@2048px.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/Nicklas373/Hana-Media-Encoder</projectUrl>
+    <description>Hana Media Encoder is the multimedia application that have feature to encode, decode, many other function to process media files using FFMPEG pre-build application (Windows Version),
+HME works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE, for now
+HME only focus to work with only hardware GPU accelerated codec that FFMPEG has support it, for now (H264 and H265) codec only, and it does not have any aim to support
+native or software or even CPU based encoding for media file in the future.
+
+For audio codec it only supported for MP3, FLAC and WAV, and it will add other codec later.
+
+# Current Features:
+* Support multiple media file encoding with same or different profile for each stream
+* Support mux/demux media file with specific stream or all stream and with same or different profile for each stream
+* Support create chapter (Insert chapter METADATA) into media file (Video Only)
+* Support trim media file with specific stream or all stream and with same or different profile for each stream
+* Support preview media file by using FFPLAY
+
+# Current Supported Video Codec
+- H264 / H265 (AVC / HEVC)
+* H264 / HEVC (Native codec are not supported yet)
+* H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
+* H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
+* H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
+
+# Current Supported Audio Codec
+* MP3 (libmp3lame)
+* FLAC (flac)
+* WAV (libpcm)</description>
+    <releaseNotes>v1.1.0 (20220817):
+- Configure spectrum resolution to higher resolution 768x768 from 854x480
+- Disable low power mode while using QSV
+- Drop level profile configuration on video codec for QSV (Quicksync are not support it)
+- Do not show image if thumbnail are not exists
+- Fixup debug mode are not run correctly
+- Fixup encoding logic in some cases
+- Fixup issue with video codec detection issue (QSV in primary, other codec is config only)
+- Fixup issue with audio codec detection issue (Copy profile)
+- Fixup issue with audio codec profile enable unconditionally after try to lock profile without set saved media file
+- Fixup missing main10 video profile on QSV
+- Properly clean all temporary files and process after application close
+- Specify ffplay to show audio waveform only if file detected as audio, if detected as video then show video
+
+v1.0.8 (20220816):
+- Add new options for preview summary to preview screenshot or spectrum only
+- Add function to preview image from picturebox using default image viewer
+- Introduce audio spectrum generator
+   (After open media files, HME will automatically generate spectrum file as temporary image and can be show from preview summary)
+
+v1.0.7 (20220816):
+- Minor fix for update algorithm
+
+v1.0.6 (20220816):
+- Introduce About application menu
+- Introduce OTA menu
+- Only restart application while some of config has been changed, if not then do not restart application
+- Properly guard application load &amp; encode function if some of config file are not detected or not invalid
+- Properly reset chapter list if chapter menu has been disable
+- Re-configure config written algorithm (adapt with MainMenu changes)
+
+v1.0.5 (20220813):
+- Always set as "Not Detected" when ffprobe detect empty stream id on A/V file
+- Check saved file extensions, if not suitable with selected codec then give it warning
+- Detect lower kb files as success
+   (For some cases, if trim only in several seconds, file size will be in kb (less than MB) and give error from the app cause size below than set algorithm. Use kb file sizes and limit to 1 KB , less than that is failure)
+- Do not count video frame for ffmpeg while video stream are not detected from media file
+- Do not enable video, chapter, and trim if media file does not contain any video stream, same with audio
+- Do not include A/V stream into specific combobox if A/V stream are not detected
+- Drop milliseconds on chapter mode
+- Fixup missing binding after remove python binary
+- Fixup algorithm with detect missing A/V stream for each stream while locking profile
+   (On old algorithm while select only specific profile, then algorithm will check all of profile that are not should be included into check, and that cause about failed to lock due missing A/V stream profile which are not should be saved)
+- Include "avoid_negative_ts 1" flags while trim without encoding
+- Organize declaration variable
+- Properly set value for skip frame count options
+- Properly use .text instead of .selecteditem to prevent missing focus on combobox if combobox value got changed by some algorithm
+- Reset picturebox while load another media file
+- Use another approach to get correct total video duration
+
+v1.0.2 (20220809):
+- Add chapter module
+- Add more logic guard while encoding start
+
+v1.0.1 (20220808):
+- Fixup trim inconsistency
+
+v1.0.0 (20220724):
+
+- INITIAL RELEASE</releaseNotes>
+    <copyright>HANA-CI Build Project 2016 - 2022</copyright>
+    <repository type="Public" url="https://github.com/Nicklas373/Hana-Media-Encoder" />
+    <dependencies>
+      <group targetFramework="net6.0-windows10.0.22621">
+        <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
+        <dependency id="Syncfusion.Core.WinForms" version="20.2.0.44" exclude="Build,Analyzers" />
+        <dependency id="Syncfusion.Shared.Base" version="20.2.0.44" exclude="Build,Analyzers" />
+        <dependency id="Syncfusion.Shared.Windows" version="20.2.0.44" exclude="Build,Analyzers" />
+        <dependency id="System.Management" version="6.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows10.0.22621">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net6.0-windows10.0.22621/ico/HME.ico" buildAction="Content" />
+      <files include="any/net6.0-windows10.0.22621/ico/HME.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Users\Nickl\source\repos\Hana-Media-Encoder\Hana Media Encoder\bin\Debug\net6.0-windows10.0.22621.0\Hana Media Encoder.pdb" target="lib\net6.0-windows10.0.22621\Hana Media Encoder.pdb" />
+    <file src="C:\Users\Nickl\source\repos\Hana-Media-Encoder\Hana Media Encoder\bin\Debug\net6.0-windows10.0.22621.0\Hana Media Encoder.runtimeconfig.json" target="lib\net6.0-windows10.0.22621\Hana Media Encoder.runtimeconfig.json" />
+    <file src="C:\Users\Nickl\source\repos\Hana-Media-Encoder\Hana Media Encoder\bin\Debug\net6.0-windows10.0.22621.0\Hana Media Encoder.dll" target="lib\net6.0-windows10.0.22621\Hana Media Encoder.dll" />
+    <file src="C:\Users\Nickl\source\repos\Hana-Media-Encoder\Hana Media Encoder\ico\HME.ico" target="content\ico\HME.ico" />
+    <file src="C:\Users\Nickl\source\repos\Hana-Media-Encoder\Hana Media Encoder\ico\HME.ico" target="contentFiles\any\net6.0-windows10.0.22621\ico\HME.ico" />
+    <file src="C:\Users\Nickl\source\repos\Hana-Media-Encoder\Hana Media Encoder\LICENSE" target="\LICENSE" />
+    <file src="C:\Adobe\1..Illustrator\Hana Media Encoder Project\Logo &amp; Icons\HME_Logo@2048px.png" target="\HME_Logo@2048px.png" />
+    <file src="C:\Users\Nickl\source\repos\Hana-Media-Encoder\README.md" target="\README.md" />
+  </files>
+</package>

@@ -6,34 +6,54 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Syncfusion.Core.WinForms/20.2.0.43": {
+      "Newtonsoft.Json/13.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "Syncfusion.Core.WinForms/20.2.0.44": {
         "dependencies": {
-          "Syncfusion.Licensing": "20.2.0.43",
-          "Syncfusion.Shared.Base": "20.2.0.43"
+          "Syncfusion.Licensing": "20.2.0.44",
+          "Syncfusion.Shared.Base": "20.2.0.44"
         },
         "runtime": {
           "lib/net5.0-windows7.0/Syncfusion.Core.WinForms.dll": {
-            "assemblyVersion": "20.2500.0.43",
-            "fileVersion": "20.2500.0.43"
+            "assemblyVersion": "20.2500.0.44",
+            "fileVersion": "20.2500.0.44"
           }
         }
       },
-      "Syncfusion.Licensing/20.2.0.43": {
+      "Syncfusion.Licensing/20.2.0.44": {
         "runtime": {
           "lib/net6.0/Syncfusion.Licensing.dll": {
-            "assemblyVersion": "20.2.0.43",
-            "fileVersion": "20.2.0.43"
+            "assemblyVersion": "20.2.0.44",
+            "fileVersion": "20.2.0.44"
           }
         }
       },
-      "Syncfusion.Shared.Base/20.2.0.43": {
+      "Syncfusion.Shared.Base/20.2.0.44": {
         "dependencies": {
-          "Syncfusion.Licensing": "20.2.0.43"
+          "Syncfusion.Licensing": "20.2.0.44"
         },
         "runtime": {
           "lib/net5.0-windows7.0/Syncfusion.Shared.Base.dll": {
-            "assemblyVersion": "20.2500.0.43",
-            "fileVersion": "20.2500.0.43"
+            "assemblyVersion": "20.2500.0.44",
+            "fileVersion": "20.2500.0.44"
+          }
+        }
+      },
+      "Syncfusion.Shared.Windows/20.2.0.44": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.2.0.44",
+          "Syncfusion.Shared.Base": "20.2.0.44"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Shared.Windows.dll": {
+            "assemblyVersion": "20.2500.0.44",
+            "fileVersion": "20.2500.0.44"
           }
         }
       },
@@ -67,26 +87,40 @@
     }
   },
   "libraries": {
-    "Syncfusion.Core.WinForms/20.2.0.43": {
+    "Newtonsoft.Json/13.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RNe6KuGa9a9X8ZPIhcbKluK6nMgFaMcXPJUWuHBcRELmBGdK5bsnOX29VzfsdVqh0IFpFG3JNqxDgzRXTaN2Cg==",
-      "path": "syncfusion.core.winforms/20.2.0.43",
-      "hashPath": "syncfusion.core.winforms.20.2.0.43.nupkg.sha512"
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
-    "Syncfusion.Licensing/20.2.0.43": {
+    "Syncfusion.Core.WinForms/20.2.0.44": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6gcTsltYyA9EK7/FhIESvYAA1O9PrJQrXK1vyx3b0dbGa5oii22IBc4rmFIZvomrK7EFQDpkGpEtCQfUw+PMkA==",
-      "path": "syncfusion.licensing/20.2.0.43",
-      "hashPath": "syncfusion.licensing.20.2.0.43.nupkg.sha512"
+      "sha512": "sha512-ynSKFA3W6dps5+VXWUcIarE7U6ESqB3ewxZJkWqD3nGh+Y8UhEC/debdd5EkfK8hBXQWSNnYB1vysobEBblCTA==",
+      "path": "syncfusion.core.winforms/20.2.0.44",
+      "hashPath": "syncfusion.core.winforms.20.2.0.44.nupkg.sha512"
     },
-    "Syncfusion.Shared.Base/20.2.0.43": {
+    "Syncfusion.Licensing/20.2.0.44": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-o6dbGtt6vPNWKI2i1WUeVdMmKEfiXb2b7YYC7N5L3q2cb9m/vwYAFWJEBuPczpZU1P34SDLvCeW1oFwN7c4MdQ==",
-      "path": "syncfusion.shared.base/20.2.0.43",
-      "hashPath": "syncfusion.shared.base.20.2.0.43.nupkg.sha512"
+      "sha512": "sha512-7WnDnQN21aB5fwSIeXus4mZQHL2fvMplSyxZbvdPY5ikN7/iRwLjoXG3Sba0tOm+0mAe60nPET56D+3++qYYCA==",
+      "path": "syncfusion.licensing/20.2.0.44",
+      "hashPath": "syncfusion.licensing.20.2.0.44.nupkg.sha512"
+    },
+    "Syncfusion.Shared.Base/20.2.0.44": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rTb/jFlUNdFMAeThuEOXgcK4ezrLX1JQTdZmtM6nHmt/WyG4MelSicYBqtJMXclPNvIPYU/dPPKzpJLWSV474w==",
+      "path": "syncfusion.shared.base/20.2.0.44",
+      "hashPath": "syncfusion.shared.base.20.2.0.44.nupkg.sha512"
+    },
+    "Syncfusion.Shared.Windows/20.2.0.44": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VX95D8qErg2+Atg8l6HiV2xGNEJ96hiU5CG/y2pVkxHB/YmJaPOEM26cMbUCDpXVAeymSbILuWcPgV9qaKD95A==",
+      "path": "syncfusion.shared.windows/20.2.0.44",
+      "hashPath": "syncfusion.shared.windows.20.2.0.44.nupkg.sha512"
     },
     "System.CodeDom/6.0.0": {
       "type": "package",

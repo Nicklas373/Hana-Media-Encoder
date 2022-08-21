@@ -13,7 +13,7 @@
     <SourceRoot Include="C:\Users\Nickl\.nuget\packages\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgSyncfusion_Shared_Base Condition=" '$(PkgSyncfusion_Shared_Base)' == '' ">C:\Users\Nickl\.nuget\packages\syncfusion.shared.base\20.2.0.43</PkgSyncfusion_Shared_Base>
-    <PkgSyncfusion_Core_WinForms Condition=" '$(PkgSyncfusion_Core_WinForms)' == '' ">C:\Users\Nickl\.nuget\packages\syncfusion.core.winforms\20.2.0.43</PkgSyncfusion_Core_WinForms>
+    <PkgSyncfusion_Shared_Base Condition=" '$(PkgSyncfusion_Shared_Base)' == '' ">C:\Users\Nickl\.nuget\packages\syncfusion.shared.base\20.2.0.44</PkgSyncfusion_Shared_Base>
+    <PkgSyncfusion_Core_WinForms Condition=" '$(PkgSyncfusion_Core_WinForms)' == '' ">C:\Users\Nickl\.nuget\packages\syncfusion.core.winforms\20.2.0.44</PkgSyncfusion_Core_WinForms>
   </PropertyGroup>
 </Project>
