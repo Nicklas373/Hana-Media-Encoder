@@ -10,8 +10,6 @@ Public Class OptionsMenu
     Dim wc As New WebClient()
     Private Sub Options_load(sender As Object, e As EventArgs) Handles MyBase.Load
         AllowTransparency = False
-        Style.TitleBar.TextHorizontalAlignment = HorizontalAlignment.Center
-        Style.TitleBar.TextVerticalAlignment = VisualStyles.VerticalAlignment.Center
         MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro
         General_pnl.Visible = True
         about_pnl.Visible = False

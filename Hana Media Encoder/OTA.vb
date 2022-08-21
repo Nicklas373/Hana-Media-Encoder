@@ -7,6 +7,7 @@ Public Class OTAMenu
     Inherits SfForm
     Dim curParsedVer As String()
     Dim downloadURL As String
+    Dim downloadStats As Boolean = True
     Dim installStats As Boolean = False
     Dim newParsedVer As String()
     Dim mergedNewVer As Integer
@@ -18,8 +19,6 @@ Public Class OTAMenu
     Dim WithEvents WC As New WebClient
     Public Sub OTA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AllowTransparency = False
-        Style.TitleBar.TextHorizontalAlignment = HorizontalAlignment.Center
-        Style.TitleBar.TextVerticalAlignment = VisualStyles.VerticalAlignment.Center
         MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         OTA = WC.DownloadString("https://raw.githubusercontent.com/Nicklas373/Hana-Media-Encoder/master/OTA")
@@ -37,7 +36,7 @@ Public Class OTAMenu
         Next
         Label7.Text = appver.ToString
         Label5.Text = apprel.ToString
-        RichTextBox1.Text = "Changelog:" & vbCrLf & vbCrLf & parsedchangelog
+        RichTextBox1.Text = "What's New:" & vbCrLf & vbCrLf & parsedchangelog
     End Sub
     Private Sub UpdateNow(sender As Object, e As EventArgs) Handles Button1.Click
         If installStats = True Then
@@ -46,25 +45,31 @@ Public Class OTAMenu
                 GC.WaitForPendingFinalizers()
                 File.Delete("OTA.bat")
             End If
-            HMEGenerate("OTA.bat", "C:", Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "HME.msi", "")
+            HMEGenerate("OTA.bat", "C:", My.Application.Info.DirectoryPath, "HME.msi", "")
             RunProcAlt("OTA.bat")
             End
         Else
-            If File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\HME.msi") Then
-                GC.Collect()
-                GC.WaitForPendingFinalizers()
-                File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\HME.msi")
+            If downloadStats = False Then
+                MessageBoxAdv.Show("Download still on progress, please wait !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                If File.Exists(My.Application.Info.DirectoryPath & "\HME.msi") Then
+                    GC.Collect()
+                    GC.WaitForPendingFinalizers()
+                    File.Delete(My.Application.Info.DirectoryPath & "\HME.msi")
+                End If
+                WC.DownloadFileAsync(New Uri(downloadURL), My.Application.Info.DirectoryPath & "\HME.msi")
             End If
-            WC.DownloadFileAsync(New Uri(downloadURL), Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\HME.msi")
         End If
     End Sub
     Private Sub WC_DownloadProgressChanged(ByVal sender As Object, ByVal e As DownloadProgressChangedEventArgs) Handles WC.DownloadProgressChanged
+        downloadStats = False
         Button1.Text = "Downloading... " & e.ProgressPercentage & "%"
         If e.ProgressPercentage = 100 Then
             progPercentage = 100
             MessageBoxAdv.Show("Download Complete !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Button1.Text = "Install Update"
             installStats = True
+            downloadStats = True
         End If
     End Sub
 End Class

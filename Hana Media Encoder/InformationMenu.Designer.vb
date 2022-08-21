@@ -25,13 +25,81 @@ Partial Class InformationMenu
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(InformationMenu))
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.MainPanel = New System.Windows.Forms.Panel()
         Me.Vid_pnl_1 = New System.Windows.Forms.Panel()
         Me.Video_pnl_2 = New System.Windows.Forms.Panel()
         Me.Video_pnl_3 = New System.Windows.Forms.Panel()
         Me.Video_pnl_4 = New System.Windows.Forms.Panel()
         Me.Video_pnl_5 = New System.Windows.Forms.Panel()
         Me.Video_pnl_6 = New System.Windows.Forms.Panel()
+        Me.Audio_pnl_1 = New System.Windows.Forms.Panel()
+        Me.Audio_pnl_2 = New System.Windows.Forms.Panel()
+        Me.GroupBox40 = New System.Windows.Forms.GroupBox()
+        Me.Label154 = New System.Windows.Forms.Label()
+        Me.Label155 = New System.Windows.Forms.Label()
+        Me.CheckBox165 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox166 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox167 = New System.Windows.Forms.CheckBox()
+        Me.Label156 = New System.Windows.Forms.Label()
+        Me.Label157 = New System.Windows.Forms.Label()
+        Me.GroupBox41 = New System.Windows.Forms.GroupBox()
+        Me.Label158 = New System.Windows.Forms.Label()
+        Me.Label159 = New System.Windows.Forms.Label()
+        Me.CheckBox168 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox169 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox170 = New System.Windows.Forms.CheckBox()
+        Me.Label160 = New System.Windows.Forms.Label()
+        Me.Label161 = New System.Windows.Forms.Label()
+        Me.Label162 = New System.Windows.Forms.Label()
+        Me.GroupBox42 = New System.Windows.Forms.GroupBox()
+        Me.Label163 = New System.Windows.Forms.Label()
+        Me.CheckBox171 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox172 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox173 = New System.Windows.Forms.CheckBox()
+        Me.Label164 = New System.Windows.Forms.Label()
+        Me.Label165 = New System.Windows.Forms.Label()
+        Me.GroupBox32 = New System.Windows.Forms.GroupBox()
+        Me.Label134 = New System.Windows.Forms.Label()
+        Me.CheckBox153 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox154 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox155 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox33 = New System.Windows.Forms.GroupBox()
+        Me.Label135 = New System.Windows.Forms.Label()
+        Me.Label136 = New System.Windows.Forms.Label()
+        Me.Label137 = New System.Windows.Forms.Label()
+        Me.Label138 = New System.Windows.Forms.Label()
+        Me.Label139 = New System.Windows.Forms.Label()
+        Me.Label140 = New System.Windows.Forms.Label()
+        Me.GroupBox34 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox35 = New System.Windows.Forms.GroupBox()
+        Me.Label141 = New System.Windows.Forms.Label()
+        Me.CheckBox156 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox157 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox158 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox36 = New System.Windows.Forms.GroupBox()
+        Me.Label142 = New System.Windows.Forms.Label()
+        Me.CheckBox159 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox160 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox161 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox37 = New System.Windows.Forms.GroupBox()
+        Me.Label143 = New System.Windows.Forms.Label()
+        Me.CheckBox162 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox163 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox164 = New System.Windows.Forms.CheckBox()
+        Me.Label144 = New System.Windows.Forms.Label()
+        Me.Label145 = New System.Windows.Forms.Label()
+        Me.GroupBox38 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox39 = New System.Windows.Forms.GroupBox()
+        Me.Label146 = New System.Windows.Forms.Label()
+        Me.Label147 = New System.Windows.Forms.Label()
+        Me.Label148 = New System.Windows.Forms.Label()
+        Me.Label149 = New System.Windows.Forms.Label()
+        Me.Label150 = New System.Windows.Forms.Label()
+        Me.Label151 = New System.Windows.Forms.Label()
+        Me.Label152 = New System.Windows.Forms.Label()
+        Me.Label153 = New System.Windows.Forms.Label()
         Me.GroupBox27 = New System.Windows.Forms.GroupBox()
         Me.GroupBox28 = New System.Windows.Forms.GroupBox()
         Me.Label114 = New System.Windows.Forms.Label()
@@ -352,86 +420,29 @@ Partial Class InformationMenu
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Audio_pnl_1 = New System.Windows.Forms.Panel()
-        Me.Audio_pnl_2 = New System.Windows.Forms.Panel()
-        Me.GroupBox40 = New System.Windows.Forms.GroupBox()
-        Me.Label154 = New System.Windows.Forms.Label()
-        Me.Label155 = New System.Windows.Forms.Label()
-        Me.CheckBox165 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox166 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox167 = New System.Windows.Forms.CheckBox()
-        Me.Label156 = New System.Windows.Forms.Label()
-        Me.Label157 = New System.Windows.Forms.Label()
-        Me.GroupBox41 = New System.Windows.Forms.GroupBox()
-        Me.Label158 = New System.Windows.Forms.Label()
-        Me.Label159 = New System.Windows.Forms.Label()
-        Me.CheckBox168 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox169 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox170 = New System.Windows.Forms.CheckBox()
-        Me.Label160 = New System.Windows.Forms.Label()
-        Me.Label161 = New System.Windows.Forms.Label()
-        Me.Label162 = New System.Windows.Forms.Label()
-        Me.GroupBox42 = New System.Windows.Forms.GroupBox()
-        Me.Label163 = New System.Windows.Forms.Label()
-        Me.CheckBox171 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox172 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox173 = New System.Windows.Forms.CheckBox()
-        Me.Label164 = New System.Windows.Forms.Label()
-        Me.Label165 = New System.Windows.Forms.Label()
-        Me.GroupBox32 = New System.Windows.Forms.GroupBox()
-        Me.Label134 = New System.Windows.Forms.Label()
-        Me.CheckBox153 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox154 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox155 = New System.Windows.Forms.CheckBox()
-        Me.GroupBox33 = New System.Windows.Forms.GroupBox()
-        Me.Label135 = New System.Windows.Forms.Label()
-        Me.Label136 = New System.Windows.Forms.Label()
-        Me.Label137 = New System.Windows.Forms.Label()
-        Me.Label138 = New System.Windows.Forms.Label()
-        Me.Label139 = New System.Windows.Forms.Label()
-        Me.Label140 = New System.Windows.Forms.Label()
-        Me.GroupBox34 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox35 = New System.Windows.Forms.GroupBox()
-        Me.Label141 = New System.Windows.Forms.Label()
-        Me.CheckBox156 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox157 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox158 = New System.Windows.Forms.CheckBox()
-        Me.GroupBox36 = New System.Windows.Forms.GroupBox()
-        Me.Label142 = New System.Windows.Forms.Label()
-        Me.CheckBox159 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox160 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox161 = New System.Windows.Forms.CheckBox()
-        Me.GroupBox37 = New System.Windows.Forms.GroupBox()
-        Me.Label143 = New System.Windows.Forms.Label()
-        Me.CheckBox162 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox163 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox164 = New System.Windows.Forms.CheckBox()
-        Me.Label144 = New System.Windows.Forms.Label()
-        Me.Label145 = New System.Windows.Forms.Label()
-        Me.GroupBox38 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox39 = New System.Windows.Forms.GroupBox()
-        Me.Label146 = New System.Windows.Forms.Label()
-        Me.Label147 = New System.Windows.Forms.Label()
-        Me.Label148 = New System.Windows.Forms.Label()
-        Me.Label149 = New System.Windows.Forms.Label()
-        Me.Label150 = New System.Windows.Forms.Label()
-        Me.Label151 = New System.Windows.Forms.Label()
-        Me.Label152 = New System.Windows.Forms.Label()
-        Me.Label153 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.TabPage1.SuspendLayout()
+        Me.Label170 = New System.Windows.Forms.Label()
+        Me.Label171 = New System.Windows.Forms.Label()
+        Me.Label172 = New System.Windows.Forms.Label()
+        Me.MainPanel.SuspendLayout()
         Me.Vid_pnl_1.SuspendLayout()
         Me.Video_pnl_2.SuspendLayout()
         Me.Video_pnl_3.SuspendLayout()
         Me.Video_pnl_4.SuspendLayout()
         Me.Video_pnl_5.SuspendLayout()
         Me.Video_pnl_6.SuspendLayout()
+        Me.Audio_pnl_1.SuspendLayout()
+        Me.Audio_pnl_2.SuspendLayout()
+        Me.GroupBox40.SuspendLayout()
+        Me.GroupBox41.SuspendLayout()
+        Me.GroupBox42.SuspendLayout()
+        Me.GroupBox32.SuspendLayout()
+        Me.GroupBox33.SuspendLayout()
+        Me.GroupBox34.SuspendLayout()
+        Me.GroupBox35.SuspendLayout()
+        Me.GroupBox36.SuspendLayout()
+        Me.GroupBox37.SuspendLayout()
+        Me.GroupBox38.SuspendLayout()
+        Me.GroupBox39.SuspendLayout()
         Me.GroupBox27.SuspendLayout()
         Me.GroupBox28.SuspendLayout()
         Me.GroupBox29.SuspendLayout()
@@ -463,31 +474,15 @@ Partial Class InformationMenu
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        Me.Audio_pnl_1.SuspendLayout()
-        Me.Audio_pnl_2.SuspendLayout()
-        Me.GroupBox40.SuspendLayout()
-        Me.GroupBox41.SuspendLayout()
-        Me.GroupBox42.SuspendLayout()
-        Me.GroupBox32.SuspendLayout()
-        Me.GroupBox33.SuspendLayout()
-        Me.GroupBox34.SuspendLayout()
-        Me.GroupBox35.SuspendLayout()
-        Me.GroupBox36.SuspendLayout()
-        Me.GroupBox37.SuspendLayout()
-        Me.GroupBox38.SuspendLayout()
-        Me.GroupBox39.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button7
         '
         Me.Button7.BackColor = System.Drawing.Color.Silver
         Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
-        Me.Button7.Location = New System.Drawing.Point(1182, 516)
+        Me.Button7.Location = New System.Drawing.Point(676, 574)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(58, 39)
+        Me.Button7.Size = New System.Drawing.Size(59, 39)
         Me.Button7.TabIndex = 44
         Me.Button7.UseVisualStyleBackColor = False
         '
@@ -495,25 +490,57 @@ Partial Class InformationMenu
         '
         Me.Button8.BackColor = System.Drawing.Color.Silver
         Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
-        Me.Button8.Location = New System.Drawing.Point(1118, 516)
+        Me.Button8.Location = New System.Drawing.Point(519, 574)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(58, 39)
+        Me.Button8.Size = New System.Drawing.Size(59, 39)
         Me.Button8.TabIndex = 45
         Me.Button8.UseVisualStyleBackColor = False
         '
-        'TabPage1
+        'Button1
         '
-        Me.TabPage1.BackColor = System.Drawing.Color.White
-        Me.TabPage1.Controls.Add(Me.Vid_pnl_1)
-        Me.TabPage1.Controls.Add(Me.Button8)
-        Me.TabPage1.Controls.Add(Me.Button7)
-        Me.TabPage1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1243, 561)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "V"
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button1.Location = New System.Drawing.Point(1, 5)
+        Me.Button1.Name = "Button1"
+        Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Button1.Size = New System.Drawing.Size(180, 56)
+        Me.Button1.TabIndex = 12
+        Me.Button1.Text = "       Video Codec"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(184, 5)
+        Me.Button2.Name = "Button2"
+        Me.Button2.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Button2.Size = New System.Drawing.Size(180, 53)
+        Me.Button2.TabIndex = 13
+        Me.Button2.Text = "       Audio Codec"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'MainPanel
+        '
+        Me.MainPanel.AutoScroll = True
+        Me.MainPanel.AutoSize = True
+        Me.MainPanel.BackColor = System.Drawing.Color.Transparent
+        Me.MainPanel.Controls.Add(Me.Vid_pnl_1)
+        Me.MainPanel.Location = New System.Drawing.Point(0, 67)
+        Me.MainPanel.Margin = New System.Windows.Forms.Padding(0)
+        Me.MainPanel.Name = "MainPanel"
+        Me.MainPanel.Size = New System.Drawing.Size(1262, 500)
+        Me.MainPanel.TabIndex = 11
         '
         'Vid_pnl_1
         '
@@ -521,25 +548,30 @@ Partial Class InformationMenu
         Me.Vid_pnl_1.Controls.Add(Me.GroupBox3)
         Me.Vid_pnl_1.Controls.Add(Me.GroupBox2)
         Me.Vid_pnl_1.Controls.Add(Me.GroupBox1)
+        Me.Vid_pnl_1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Vid_pnl_1.Location = New System.Drawing.Point(0, 0)
         Me.Vid_pnl_1.Margin = New System.Windows.Forms.Padding(0)
         Me.Vid_pnl_1.Name = "Vid_pnl_1"
-        Me.Vid_pnl_1.Size = New System.Drawing.Size(1243, 507)
-        Me.Vid_pnl_1.TabIndex = 46
+        Me.Vid_pnl_1.Size = New System.Drawing.Size(1262, 500)
+        Me.Vid_pnl_1.TabIndex = 280
         '
         'Video_pnl_2
         '
+        Me.Video_pnl_2.BackColor = System.Drawing.Color.Transparent
         Me.Video_pnl_2.Controls.Add(Me.Video_pnl_3)
         Me.Video_pnl_2.Controls.Add(Me.GroupBox9)
         Me.Video_pnl_2.Controls.Add(Me.GroupBox8)
         Me.Video_pnl_2.Controls.Add(Me.GroupBox5)
+        Me.Video_pnl_2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Video_pnl_2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Video_pnl_2.Location = New System.Drawing.Point(0, 0)
         Me.Video_pnl_2.Name = "Video_pnl_2"
-        Me.Video_pnl_2.Size = New System.Drawing.Size(1240, 510)
-        Me.Video_pnl_2.TabIndex = 245
+        Me.Video_pnl_2.Size = New System.Drawing.Size(1262, 500)
+        Me.Video_pnl_2.TabIndex = 309
         '
         'Video_pnl_3
         '
+        Me.Video_pnl_3.BackColor = System.Drawing.Color.Transparent
         Me.Video_pnl_3.Controls.Add(Me.Video_pnl_4)
         Me.Video_pnl_3.Controls.Add(Me.GroupBox12)
         Me.Video_pnl_3.Controls.Add(Me.GroupBox10)
@@ -547,27 +579,28 @@ Partial Class InformationMenu
         Me.Video_pnl_3.Location = New System.Drawing.Point(0, 0)
         Me.Video_pnl_3.Margin = New System.Windows.Forms.Padding(0)
         Me.Video_pnl_3.Name = "Video_pnl_3"
-        Me.Video_pnl_3.Size = New System.Drawing.Size(1240, 510)
-        Me.Video_pnl_3.TabIndex = 271
+        Me.Video_pnl_3.Size = New System.Drawing.Size(1262, 500)
+        Me.Video_pnl_3.TabIndex = 308
         '
         'Video_pnl_4
         '
         Me.Video_pnl_4.AutoScroll = True
-        Me.Video_pnl_4.AutoSize = True
+        Me.Video_pnl_4.BackColor = System.Drawing.Color.Transparent
         Me.Video_pnl_4.Controls.Add(Me.Video_pnl_5)
         Me.Video_pnl_4.Controls.Add(Me.GroupBox16)
         Me.Video_pnl_4.Controls.Add(Me.GroupBox18)
         Me.Video_pnl_4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Video_pnl_4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Video_pnl_4.Location = New System.Drawing.Point(0, 0)
         Me.Video_pnl_4.Margin = New System.Windows.Forms.Padding(0)
         Me.Video_pnl_4.Name = "Video_pnl_4"
-        Me.Video_pnl_4.Size = New System.Drawing.Size(1240, 510)
-        Me.Video_pnl_4.TabIndex = 270
+        Me.Video_pnl_4.Size = New System.Drawing.Size(1262, 500)
+        Me.Video_pnl_4.TabIndex = 307
         '
         'Video_pnl_5
         '
         Me.Video_pnl_5.AutoScroll = True
-        Me.Video_pnl_5.BackColor = System.Drawing.Color.White
+        Me.Video_pnl_5.BackColor = System.Drawing.Color.Transparent
         Me.Video_pnl_5.Controls.Add(Me.Video_pnl_6)
         Me.Video_pnl_5.Controls.Add(Me.GroupBox20)
         Me.Video_pnl_5.Controls.Add(Me.GroupBox24)
@@ -575,13 +608,14 @@ Partial Class InformationMenu
         Me.Video_pnl_5.Location = New System.Drawing.Point(0, 0)
         Me.Video_pnl_5.Margin = New System.Windows.Forms.Padding(0)
         Me.Video_pnl_5.Name = "Video_pnl_5"
-        Me.Video_pnl_5.Size = New System.Drawing.Size(1239, 556)
-        Me.Video_pnl_5.TabIndex = 269
+        Me.Video_pnl_5.Size = New System.Drawing.Size(1245, 541)
+        Me.Video_pnl_5.TabIndex = 307
         '
         'Video_pnl_6
         '
         Me.Video_pnl_6.AutoScroll = True
-        Me.Video_pnl_6.BackColor = System.Drawing.Color.White
+        Me.Video_pnl_6.BackColor = System.Drawing.Color.Transparent
+        Me.Video_pnl_6.Controls.Add(Me.Audio_pnl_1)
         Me.Video_pnl_6.Controls.Add(Me.GroupBox27)
         Me.Video_pnl_6.Controls.Add(Me.GroupBox29)
         Me.Video_pnl_6.Controls.Add(Me.GroupBox31)
@@ -590,10 +624,885 @@ Partial Class InformationMenu
         Me.Video_pnl_6.Margin = New System.Windows.Forms.Padding(0)
         Me.Video_pnl_6.Name = "Video_pnl_6"
         Me.Video_pnl_6.Size = New System.Drawing.Size(1238, 702)
-        Me.Video_pnl_6.TabIndex = 268
+        Me.Video_pnl_6.TabIndex = 306
+        '
+        'Audio_pnl_1
+        '
+        Me.Audio_pnl_1.AutoScroll = True
+        Me.Audio_pnl_1.BackColor = System.Drawing.Color.Transparent
+        Me.Audio_pnl_1.Controls.Add(Me.Audio_pnl_2)
+        Me.Audio_pnl_1.Controls.Add(Me.GroupBox32)
+        Me.Audio_pnl_1.Controls.Add(Me.GroupBox34)
+        Me.Audio_pnl_1.Controls.Add(Me.GroupBox38)
+        Me.Audio_pnl_1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Audio_pnl_1.Location = New System.Drawing.Point(0, 0)
+        Me.Audio_pnl_1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Audio_pnl_1.Name = "Audio_pnl_1"
+        Me.Audio_pnl_1.Size = New System.Drawing.Size(1238, 702)
+        Me.Audio_pnl_1.TabIndex = 284
+        '
+        'Audio_pnl_2
+        '
+        Me.Audio_pnl_2.AutoScroll = True
+        Me.Audio_pnl_2.BackColor = System.Drawing.Color.Transparent
+        Me.Audio_pnl_2.Controls.Add(Me.GroupBox40)
+        Me.Audio_pnl_2.Controls.Add(Me.GroupBox41)
+        Me.Audio_pnl_2.Controls.Add(Me.GroupBox42)
+        Me.Audio_pnl_2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Audio_pnl_2.Location = New System.Drawing.Point(0, 0)
+        Me.Audio_pnl_2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Audio_pnl_2.Name = "Audio_pnl_2"
+        Me.Audio_pnl_2.Size = New System.Drawing.Size(1238, 702)
+        Me.Audio_pnl_2.TabIndex = 283
+        '
+        'GroupBox40
+        '
+        Me.GroupBox40.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox40.Controls.Add(Me.Label154)
+        Me.GroupBox40.Controls.Add(Me.Label155)
+        Me.GroupBox40.Controls.Add(Me.CheckBox165)
+        Me.GroupBox40.Controls.Add(Me.CheckBox166)
+        Me.GroupBox40.Controls.Add(Me.CheckBox167)
+        Me.GroupBox40.Controls.Add(Me.Label156)
+        Me.GroupBox40.Controls.Add(Me.Label157)
+        Me.GroupBox40.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox40.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.GroupBox40.Location = New System.Drawing.Point(1, 260)
+        Me.GroupBox40.Name = "GroupBox40"
+        Me.GroupBox40.Size = New System.Drawing.Size(1234, 138)
+        Me.GroupBox40.TabIndex = 246
+        Me.GroupBox40.TabStop = False
+        Me.GroupBox40.Text = "Frequency Levels"
+        '
+        'Label154
+        '
+        Me.Label154.AutoSize = True
+        Me.Label154.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label154.Location = New System.Drawing.Point(439, 56)
+        Me.Label154.Name = "Label154"
+        Me.Label154.Size = New System.Drawing.Size(314, 15)
+        Me.Label154.TabIndex = 254
+        Me.Label154.Text = "NOTE: MP3 has maximum frequency support at 48000 hz"
+        '
+        'Label155
+        '
+        Me.Label155.AutoSize = True
+        Me.Label155.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label155.Location = New System.Drawing.Point(438, 36)
+        Me.Label155.Name = "Label155"
+        Me.Label155.Size = New System.Drawing.Size(80, 13)
+        Me.Label155.TabIndex = 241
+        Me.Label155.Text = "Compatibility:"
+        '
+        'CheckBox165
+        '
+        Me.CheckBox165.AutoCheck = False
+        Me.CheckBox165.AutoSize = True
+        Me.CheckBox165.Checked = True
+        Me.CheckBox165.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox165.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox165.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox165.Location = New System.Drawing.Point(524, 34)
+        Me.CheckBox165.Name = "CheckBox165"
+        Me.CheckBox165.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox165.TabIndex = 242
+        Me.CheckBox165.Text = "FLAC"
+        Me.CheckBox165.UseVisualStyleBackColor = True
+        '
+        'CheckBox166
+        '
+        Me.CheckBox166.AutoCheck = False
+        Me.CheckBox166.AutoSize = True
+        Me.CheckBox166.Checked = True
+        Me.CheckBox166.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox166.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox166.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox166.Location = New System.Drawing.Point(583, 34)
+        Me.CheckBox166.Name = "CheckBox166"
+        Me.CheckBox166.Size = New System.Drawing.Size(51, 19)
+        Me.CheckBox166.TabIndex = 243
+        Me.CheckBox166.Text = "MP3"
+        Me.CheckBox166.UseVisualStyleBackColor = True
+        '
+        'CheckBox167
+        '
+        Me.CheckBox167.AutoCheck = False
+        Me.CheckBox167.AutoSize = True
+        Me.CheckBox167.Checked = True
+        Me.CheckBox167.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox167.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox167.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox167.Location = New System.Drawing.Point(640, 34)
+        Me.CheckBox167.Name = "CheckBox167"
+        Me.CheckBox167.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox167.TabIndex = 244
+        Me.CheckBox167.Text = "WAV"
+        Me.CheckBox167.UseVisualStyleBackColor = True
+        '
+        'Label156
+        '
+        Me.Label156.AutoSize = True
+        Me.Label156.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label156.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label156.Location = New System.Drawing.Point(9, 87)
+        Me.Label156.Name = "Label156"
+        Me.Label156.Size = New System.Drawing.Size(170, 17)
+        Me.Label156.TabIndex = 229
+        Me.Label156.Text = "FFMPEG Flags: -arate 48000"
+        '
+        'Label157
+        '
+        Me.Label157.AutoSize = True
+        Me.Label157.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label157.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label157.Location = New System.Drawing.Point(6, 33)
+        Me.Label157.Name = "Label157"
+        Me.Label157.Size = New System.Drawing.Size(351, 17)
+        Me.Label157.TabIndex = 200
+        Me.Label157.Text = "Configure audio frequency levels with range 8Khz - 192Khz"
+        '
+        'GroupBox41
+        '
+        Me.GroupBox41.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox41.Controls.Add(Me.Label158)
+        Me.GroupBox41.Controls.Add(Me.Label159)
+        Me.GroupBox41.Controls.Add(Me.CheckBox168)
+        Me.GroupBox41.Controls.Add(Me.CheckBox169)
+        Me.GroupBox41.Controls.Add(Me.CheckBox170)
+        Me.GroupBox41.Controls.Add(Me.Label160)
+        Me.GroupBox41.Controls.Add(Me.Label161)
+        Me.GroupBox41.Controls.Add(Me.Label162)
+        Me.GroupBox41.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox41.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.GroupBox41.Location = New System.Drawing.Point(4, 124)
+        Me.GroupBox41.Name = "GroupBox41"
+        Me.GroupBox41.Size = New System.Drawing.Size(1234, 130)
+        Me.GroupBox41.TabIndex = 245
+        Me.GroupBox41.TabStop = False
+        Me.GroupBox41.Text = "Compression Levels"
+        '
+        'Label158
+        '
+        Me.Label158.AutoSize = True
+        Me.Label158.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label158.Location = New System.Drawing.Point(435, 53)
+        Me.Label158.Name = "Label158"
+        Me.Label158.Size = New System.Drawing.Size(252, 15)
+        Me.Label158.TabIndex = 253
+        Me.Label158.Text = "NOTE: MP3 Compressed by using bit rate flags"
+        '
+        'Label159
+        '
+        Me.Label159.AutoSize = True
+        Me.Label159.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label159.Location = New System.Drawing.Point(435, 33)
+        Me.Label159.Name = "Label159"
+        Me.Label159.Size = New System.Drawing.Size(80, 13)
+        Me.Label159.TabIndex = 249
+        Me.Label159.Text = "Compatibility:"
+        '
+        'CheckBox168
+        '
+        Me.CheckBox168.AutoCheck = False
+        Me.CheckBox168.AutoSize = True
+        Me.CheckBox168.Checked = True
+        Me.CheckBox168.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox168.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox168.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox168.Location = New System.Drawing.Point(521, 31)
+        Me.CheckBox168.Name = "CheckBox168"
+        Me.CheckBox168.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox168.TabIndex = 250
+        Me.CheckBox168.Text = "FLAC"
+        Me.CheckBox168.UseVisualStyleBackColor = True
+        '
+        'CheckBox169
+        '
+        Me.CheckBox169.AutoCheck = False
+        Me.CheckBox169.AutoSize = True
+        Me.CheckBox169.Checked = True
+        Me.CheckBox169.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox169.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox169.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox169.Location = New System.Drawing.Point(580, 31)
+        Me.CheckBox169.Name = "CheckBox169"
+        Me.CheckBox169.Size = New System.Drawing.Size(51, 19)
+        Me.CheckBox169.TabIndex = 251
+        Me.CheckBox169.Text = "MP3"
+        Me.CheckBox169.UseVisualStyleBackColor = True
+        '
+        'CheckBox170
+        '
+        Me.CheckBox170.AutoCheck = False
+        Me.CheckBox170.AutoSize = True
+        Me.CheckBox170.Enabled = False
+        Me.CheckBox170.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox170.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox170.Location = New System.Drawing.Point(637, 31)
+        Me.CheckBox170.Name = "CheckBox170"
+        Me.CheckBox170.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox170.TabIndex = 252
+        Me.CheckBox170.Text = "WAV"
+        Me.CheckBox170.UseVisualStyleBackColor = True
+        '
+        'Label160
+        '
+        Me.Label160.AutoSize = True
+        Me.Label160.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label160.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label160.Location = New System.Drawing.Point(6, 59)
+        Me.Label160.Name = "Label160"
+        Me.Label160.Size = New System.Drawing.Size(353, 17)
+        Me.Label160.TabIndex = 230
+        Me.Label160.Text = "compression and lowest file size possible, (default: 0, 0 - 8)"
+        '
+        'Label161
+        '
+        Me.Label161.AutoSize = True
+        Me.Label161.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label161.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label161.Location = New System.Drawing.Point(6, 105)
+        Me.Label161.Name = "Label161"
+        Me.Label161.Size = New System.Drawing.Size(218, 17)
+        Me.Label161.TabIndex = 229
+        Me.Label161.Text = "FFMPEG Flags: -compression_level 5"
+        '
+        'Label162
+        '
+        Me.Label162.AutoSize = True
+        Me.Label162.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label162.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label162.Location = New System.Drawing.Point(6, 33)
+        Me.Label162.Name = "Label162"
+        Me.Label162.Size = New System.Drawing.Size(378, 17)
+        Me.Label162.TabIndex = 200
+        Me.Label162.Text = "Configure audio compression level , Higher value means higher"
+        '
+        'GroupBox42
+        '
+        Me.GroupBox42.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox42.Controls.Add(Me.Label163)
+        Me.GroupBox42.Controls.Add(Me.CheckBox171)
+        Me.GroupBox42.Controls.Add(Me.CheckBox172)
+        Me.GroupBox42.Controls.Add(Me.CheckBox173)
+        Me.GroupBox42.Controls.Add(Me.Label164)
+        Me.GroupBox42.Controls.Add(Me.Label165)
+        Me.GroupBox42.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox42.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.GroupBox42.Location = New System.Drawing.Point(4, 3)
+        Me.GroupBox42.Name = "GroupBox42"
+        Me.GroupBox42.Size = New System.Drawing.Size(1234, 115)
+        Me.GroupBox42.TabIndex = 244
+        Me.GroupBox42.TabStop = False
+        Me.GroupBox42.Text = "Channels"
+        '
+        'Label163
+        '
+        Me.Label163.AutoSize = True
+        Me.Label163.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label163.Location = New System.Drawing.Point(435, 33)
+        Me.Label163.Name = "Label163"
+        Me.Label163.Size = New System.Drawing.Size(80, 13)
+        Me.Label163.TabIndex = 245
+        Me.Label163.Text = "Compatibility:"
+        '
+        'CheckBox171
+        '
+        Me.CheckBox171.AutoCheck = False
+        Me.CheckBox171.AutoSize = True
+        Me.CheckBox171.Checked = True
+        Me.CheckBox171.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox171.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox171.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox171.Location = New System.Drawing.Point(521, 31)
+        Me.CheckBox171.Name = "CheckBox171"
+        Me.CheckBox171.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox171.TabIndex = 246
+        Me.CheckBox171.Text = "FLAC"
+        Me.CheckBox171.UseVisualStyleBackColor = True
+        '
+        'CheckBox172
+        '
+        Me.CheckBox172.AutoCheck = False
+        Me.CheckBox172.AutoSize = True
+        Me.CheckBox172.Checked = True
+        Me.CheckBox172.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox172.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox172.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox172.Location = New System.Drawing.Point(580, 31)
+        Me.CheckBox172.Name = "CheckBox172"
+        Me.CheckBox172.Size = New System.Drawing.Size(51, 19)
+        Me.CheckBox172.TabIndex = 247
+        Me.CheckBox172.Text = "MP3"
+        Me.CheckBox172.UseVisualStyleBackColor = True
+        '
+        'CheckBox173
+        '
+        Me.CheckBox173.AutoCheck = False
+        Me.CheckBox173.AutoSize = True
+        Me.CheckBox173.Checked = True
+        Me.CheckBox173.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox173.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox173.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox173.Location = New System.Drawing.Point(637, 31)
+        Me.CheckBox173.Name = "CheckBox173"
+        Me.CheckBox173.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox173.TabIndex = 248
+        Me.CheckBox173.Text = "WAV"
+        Me.CheckBox173.UseVisualStyleBackColor = True
+        '
+        'Label164
+        '
+        Me.Label164.AutoSize = True
+        Me.Label164.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label164.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label164.Location = New System.Drawing.Point(6, 71)
+        Me.Label164.Name = "Label164"
+        Me.Label164.Size = New System.Drawing.Size(163, 17)
+        Me.Label164.TabIndex = 229
+        Me.Label164.Text = "FFMPEG Flags: -achannel 2"
+        '
+        'Label165
+        '
+        Me.Label165.AutoSize = True
+        Me.Label165.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label165.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label165.Location = New System.Drawing.Point(6, 33)
+        Me.Label165.Name = "Label165"
+        Me.Label165.Size = New System.Drawing.Size(256, 17)
+        Me.Label165.TabIndex = 200
+        Me.Label165.Text = "Configure audio channels (default: 2, 0 - 8)"
+        '
+        'GroupBox32
+        '
+        Me.GroupBox32.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox32.Controls.Add(Me.Label134)
+        Me.GroupBox32.Controls.Add(Me.CheckBox153)
+        Me.GroupBox32.Controls.Add(Me.CheckBox154)
+        Me.GroupBox32.Controls.Add(Me.CheckBox155)
+        Me.GroupBox32.Controls.Add(Me.GroupBox33)
+        Me.GroupBox32.Controls.Add(Me.Label139)
+        Me.GroupBox32.Controls.Add(Me.Label140)
+        Me.GroupBox32.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.GroupBox32.Location = New System.Drawing.Point(1, 407)
+        Me.GroupBox32.Name = "GroupBox32"
+        Me.GroupBox32.Size = New System.Drawing.Size(1234, 240)
+        Me.GroupBox32.TabIndex = 246
+        Me.GroupBox32.TabStop = False
+        Me.GroupBox32.Text = "Bit Rate"
+        '
+        'Label134
+        '
+        Me.Label134.AutoSize = True
+        Me.Label134.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label134.Location = New System.Drawing.Point(379, 36)
+        Me.Label134.Name = "Label134"
+        Me.Label134.Size = New System.Drawing.Size(80, 13)
+        Me.Label134.TabIndex = 241
+        Me.Label134.Text = "Compatibility:"
+        '
+        'CheckBox153
+        '
+        Me.CheckBox153.AutoCheck = False
+        Me.CheckBox153.AutoSize = True
+        Me.CheckBox153.Enabled = False
+        Me.CheckBox153.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox153.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox153.Location = New System.Drawing.Point(465, 34)
+        Me.CheckBox153.Name = "CheckBox153"
+        Me.CheckBox153.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox153.TabIndex = 242
+        Me.CheckBox153.Text = "FLAC"
+        Me.CheckBox153.UseVisualStyleBackColor = True
+        '
+        'CheckBox154
+        '
+        Me.CheckBox154.AutoCheck = False
+        Me.CheckBox154.AutoSize = True
+        Me.CheckBox154.Checked = True
+        Me.CheckBox154.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox154.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox154.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox154.Location = New System.Drawing.Point(524, 34)
+        Me.CheckBox154.Name = "CheckBox154"
+        Me.CheckBox154.Size = New System.Drawing.Size(51, 19)
+        Me.CheckBox154.TabIndex = 243
+        Me.CheckBox154.Text = "MP3"
+        Me.CheckBox154.UseVisualStyleBackColor = True
+        '
+        'CheckBox155
+        '
+        Me.CheckBox155.AutoCheck = False
+        Me.CheckBox155.AutoSize = True
+        Me.CheckBox155.Enabled = False
+        Me.CheckBox155.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox155.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox155.Location = New System.Drawing.Point(581, 34)
+        Me.CheckBox155.Name = "CheckBox155"
+        Me.CheckBox155.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox155.TabIndex = 244
+        Me.CheckBox155.Text = "WAV"
+        Me.CheckBox155.UseVisualStyleBackColor = True
+        '
+        'GroupBox33
+        '
+        Me.GroupBox33.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox33.Controls.Add(Me.Label135)
+        Me.GroupBox33.Controls.Add(Me.Label136)
+        Me.GroupBox33.Controls.Add(Me.Label137)
+        Me.GroupBox33.Controls.Add(Me.Label138)
+        Me.GroupBox33.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.GroupBox33.Location = New System.Drawing.Point(6, 60)
+        Me.GroupBox33.Name = "GroupBox33"
+        Me.GroupBox33.Size = New System.Drawing.Size(330, 133)
+        Me.GroupBox33.TabIndex = 240
+        Me.GroupBox33.TabStop = False
+        Me.GroupBox33.Text = "Available flags"
+        '
+        'Label135
+        '
+        Me.Label135.AutoSize = True
+        Me.Label135.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label135.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label135.Location = New System.Drawing.Point(9, 106)
+        Me.Label135.Name = "Label135"
+        Me.Label135.Size = New System.Drawing.Size(57, 17)
+        Me.Label135.TabIndex = 243
+        Me.Label135.Text = "128 kb/s"
+        '
+        'Label136
+        '
+        Me.Label136.AutoSize = True
+        Me.Label136.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label136.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label136.Location = New System.Drawing.Point(8, 81)
+        Me.Label136.Name = "Label136"
+        Me.Label136.Size = New System.Drawing.Size(57, 17)
+        Me.Label136.TabIndex = 242
+        Me.Label136.Text = "192 kb/s"
+        '
+        'Label137
+        '
+        Me.Label137.AutoSize = True
+        Me.Label137.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label137.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label137.Location = New System.Drawing.Point(8, 55)
+        Me.Label137.Name = "Label137"
+        Me.Label137.Size = New System.Drawing.Size(59, 17)
+        Me.Label137.TabIndex = 241
+        Me.Label137.Text = "256 kb/s"
+        '
+        'Label138
+        '
+        Me.Label138.AutoSize = True
+        Me.Label138.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label138.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label138.Location = New System.Drawing.Point(8, 27)
+        Me.Label138.Name = "Label138"
+        Me.Label138.Size = New System.Drawing.Size(59, 17)
+        Me.Label138.TabIndex = 240
+        Me.Label138.Text = "320 kb/s"
+        '
+        'Label139
+        '
+        Me.Label139.AutoSize = True
+        Me.Label139.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label139.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label139.Location = New System.Drawing.Point(7, 206)
+        Me.Label139.Name = "Label139"
+        Me.Label139.Size = New System.Drawing.Size(144, 17)
+        Me.Label139.TabIndex = 229
+        Me.Label139.Text = "FFMPEG Flags: -b:a 320"
+        '
+        'Label140
+        '
+        Me.Label140.AutoSize = True
+        Me.Label140.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label140.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label140.Location = New System.Drawing.Point(6, 33)
+        Me.Label140.Name = "Label140"
+        Me.Label140.Size = New System.Drawing.Size(190, 17)
+        Me.Label140.TabIndex = 200
+        Me.Label140.Text = "Configure audio bit rate quality"
+        '
+        'GroupBox34
+        '
+        Me.GroupBox34.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox34.Controls.Add(Me.GroupBox35)
+        Me.GroupBox34.Controls.Add(Me.GroupBox36)
+        Me.GroupBox34.Controls.Add(Me.GroupBox37)
+        Me.GroupBox34.Controls.Add(Me.Label144)
+        Me.GroupBox34.Controls.Add(Me.Label145)
+        Me.GroupBox34.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox34.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.GroupBox34.Location = New System.Drawing.Point(4, 218)
+        Me.GroupBox34.Name = "GroupBox34"
+        Me.GroupBox34.Size = New System.Drawing.Size(1234, 183)
+        Me.GroupBox34.TabIndex = 245
+        Me.GroupBox34.TabStop = False
+        Me.GroupBox34.Text = "Bit Depth"
+        '
+        'GroupBox35
+        '
+        Me.GroupBox35.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox35.Controls.Add(Me.Label141)
+        Me.GroupBox35.Controls.Add(Me.CheckBox156)
+        Me.GroupBox35.Controls.Add(Me.CheckBox157)
+        Me.GroupBox35.Controls.Add(Me.CheckBox158)
+        Me.GroupBox35.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.GroupBox35.Location = New System.Drawing.Point(736, 63)
+        Me.GroupBox35.Name = "GroupBox35"
+        Me.GroupBox35.Size = New System.Drawing.Size(330, 78)
+        Me.GroupBox35.TabIndex = 241
+        Me.GroupBox35.TabStop = False
+        Me.GroupBox35.Text = "Available flags | 32 Bit"
+        '
+        'Label141
+        '
+        Me.Label141.AutoSize = True
+        Me.Label141.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label141.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label141.Location = New System.Drawing.Point(6, 36)
+        Me.Label141.Name = "Label141"
+        Me.Label141.Size = New System.Drawing.Size(80, 13)
+        Me.Label141.TabIndex = 230
+        Me.Label141.Text = "Compatibility:"
+        '
+        'CheckBox156
+        '
+        Me.CheckBox156.AutoCheck = False
+        Me.CheckBox156.AutoSize = True
+        Me.CheckBox156.Enabled = False
+        Me.CheckBox156.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox156.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox156.Location = New System.Drawing.Point(92, 34)
+        Me.CheckBox156.Name = "CheckBox156"
+        Me.CheckBox156.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox156.TabIndex = 231
+        Me.CheckBox156.Text = "FLAC"
+        Me.CheckBox156.UseVisualStyleBackColor = True
+        '
+        'CheckBox157
+        '
+        Me.CheckBox157.AutoCheck = False
+        Me.CheckBox157.AutoSize = True
+        Me.CheckBox157.Enabled = False
+        Me.CheckBox157.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox157.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox157.Location = New System.Drawing.Point(151, 34)
+        Me.CheckBox157.Name = "CheckBox157"
+        Me.CheckBox157.Size = New System.Drawing.Size(51, 19)
+        Me.CheckBox157.TabIndex = 234
+        Me.CheckBox157.Text = "MP3"
+        Me.CheckBox157.UseVisualStyleBackColor = True
+        '
+        'CheckBox158
+        '
+        Me.CheckBox158.AutoCheck = False
+        Me.CheckBox158.AutoSize = True
+        Me.CheckBox158.Checked = True
+        Me.CheckBox158.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox158.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox158.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox158.Location = New System.Drawing.Point(208, 34)
+        Me.CheckBox158.Name = "CheckBox158"
+        Me.CheckBox158.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox158.TabIndex = 237
+        Me.CheckBox158.Text = "WAV"
+        Me.CheckBox158.UseVisualStyleBackColor = True
+        '
+        'GroupBox36
+        '
+        Me.GroupBox36.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox36.Controls.Add(Me.Label142)
+        Me.GroupBox36.Controls.Add(Me.CheckBox159)
+        Me.GroupBox36.Controls.Add(Me.CheckBox160)
+        Me.GroupBox36.Controls.Add(Me.CheckBox161)
+        Me.GroupBox36.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.GroupBox36.Location = New System.Drawing.Point(376, 63)
+        Me.GroupBox36.Name = "GroupBox36"
+        Me.GroupBox36.Size = New System.Drawing.Size(330, 78)
+        Me.GroupBox36.TabIndex = 240
+        Me.GroupBox36.TabStop = False
+        Me.GroupBox36.Text = "Available flags | 24 Bit"
+        '
+        'Label142
+        '
+        Me.Label142.AutoSize = True
+        Me.Label142.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label142.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label142.Location = New System.Drawing.Point(6, 36)
+        Me.Label142.Name = "Label142"
+        Me.Label142.Size = New System.Drawing.Size(80, 13)
+        Me.Label142.TabIndex = 230
+        Me.Label142.Text = "Compatibility:"
+        '
+        'CheckBox159
+        '
+        Me.CheckBox159.AutoCheck = False
+        Me.CheckBox159.AutoSize = True
+        Me.CheckBox159.Checked = True
+        Me.CheckBox159.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox159.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox159.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox159.Location = New System.Drawing.Point(92, 34)
+        Me.CheckBox159.Name = "CheckBox159"
+        Me.CheckBox159.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox159.TabIndex = 231
+        Me.CheckBox159.Text = "FLAC"
+        Me.CheckBox159.UseVisualStyleBackColor = True
+        '
+        'CheckBox160
+        '
+        Me.CheckBox160.AutoCheck = False
+        Me.CheckBox160.AutoSize = True
+        Me.CheckBox160.Enabled = False
+        Me.CheckBox160.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox160.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox160.Location = New System.Drawing.Point(151, 34)
+        Me.CheckBox160.Name = "CheckBox160"
+        Me.CheckBox160.Size = New System.Drawing.Size(51, 19)
+        Me.CheckBox160.TabIndex = 234
+        Me.CheckBox160.Text = "MP3"
+        Me.CheckBox160.UseVisualStyleBackColor = True
+        '
+        'CheckBox161
+        '
+        Me.CheckBox161.AutoCheck = False
+        Me.CheckBox161.AutoSize = True
+        Me.CheckBox161.Checked = True
+        Me.CheckBox161.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox161.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox161.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox161.Location = New System.Drawing.Point(208, 34)
+        Me.CheckBox161.Name = "CheckBox161"
+        Me.CheckBox161.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox161.TabIndex = 237
+        Me.CheckBox161.Text = "WAV"
+        Me.CheckBox161.UseVisualStyleBackColor = True
+        '
+        'GroupBox37
+        '
+        Me.GroupBox37.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox37.Controls.Add(Me.Label143)
+        Me.GroupBox37.Controls.Add(Me.CheckBox162)
+        Me.GroupBox37.Controls.Add(Me.CheckBox163)
+        Me.GroupBox37.Controls.Add(Me.CheckBox164)
+        Me.GroupBox37.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.GroupBox37.Location = New System.Drawing.Point(6, 63)
+        Me.GroupBox37.Name = "GroupBox37"
+        Me.GroupBox37.Size = New System.Drawing.Size(330, 78)
+        Me.GroupBox37.TabIndex = 239
+        Me.GroupBox37.TabStop = False
+        Me.GroupBox37.Text = "Available flags | 16 Bit"
+        '
+        'Label143
+        '
+        Me.Label143.AutoSize = True
+        Me.Label143.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label143.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label143.Location = New System.Drawing.Point(6, 36)
+        Me.Label143.Name = "Label143"
+        Me.Label143.Size = New System.Drawing.Size(80, 13)
+        Me.Label143.TabIndex = 230
+        Me.Label143.Text = "Compatibility:"
+        '
+        'CheckBox162
+        '
+        Me.CheckBox162.AutoCheck = False
+        Me.CheckBox162.AutoSize = True
+        Me.CheckBox162.Checked = True
+        Me.CheckBox162.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox162.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox162.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox162.Location = New System.Drawing.Point(92, 34)
+        Me.CheckBox162.Name = "CheckBox162"
+        Me.CheckBox162.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox162.TabIndex = 231
+        Me.CheckBox162.Text = "FLAC"
+        Me.CheckBox162.UseVisualStyleBackColor = True
+        '
+        'CheckBox163
+        '
+        Me.CheckBox163.AutoCheck = False
+        Me.CheckBox163.AutoSize = True
+        Me.CheckBox163.Checked = True
+        Me.CheckBox163.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox163.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox163.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox163.Location = New System.Drawing.Point(151, 34)
+        Me.CheckBox163.Name = "CheckBox163"
+        Me.CheckBox163.Size = New System.Drawing.Size(51, 19)
+        Me.CheckBox163.TabIndex = 234
+        Me.CheckBox163.Text = "MP3"
+        Me.CheckBox163.UseVisualStyleBackColor = True
+        '
+        'CheckBox164
+        '
+        Me.CheckBox164.AutoCheck = False
+        Me.CheckBox164.AutoSize = True
+        Me.CheckBox164.Checked = True
+        Me.CheckBox164.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox164.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox164.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.CheckBox164.Location = New System.Drawing.Point(208, 34)
+        Me.CheckBox164.Name = "CheckBox164"
+        Me.CheckBox164.Size = New System.Drawing.Size(53, 19)
+        Me.CheckBox164.TabIndex = 237
+        Me.CheckBox164.Text = "WAV"
+        Me.CheckBox164.UseVisualStyleBackColor = True
+        '
+        'Label144
+        '
+        Me.Label144.AutoSize = True
+        Me.Label144.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label144.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label144.Location = New System.Drawing.Point(7, 154)
+        Me.Label144.Name = "Label144"
+        Me.Label144.Size = New System.Drawing.Size(221, 17)
+        Me.Label144.TabIndex = 229
+        Me.Label144.Text = "FFMPEG Flags: -acodec libpcm_s16le"
+        '
+        'Label145
+        '
+        Me.Label145.AutoSize = True
+        Me.Label145.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label145.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label145.Location = New System.Drawing.Point(6, 33)
+        Me.Label145.Name = "Label145"
+        Me.Label145.Size = New System.Drawing.Size(159, 17)
+        Me.Label145.TabIndex = 200
+        Me.Label145.Text = "Configure audio bit depth"
+        '
+        'GroupBox38
+        '
+        Me.GroupBox38.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox38.Controls.Add(Me.GroupBox39)
+        Me.GroupBox38.Controls.Add(Me.Label152)
+        Me.GroupBox38.Controls.Add(Me.Label153)
+        Me.GroupBox38.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.GroupBox38.Location = New System.Drawing.Point(4, 3)
+        Me.GroupBox38.Name = "GroupBox38"
+        Me.GroupBox38.Size = New System.Drawing.Size(1234, 209)
+        Me.GroupBox38.TabIndex = 244
+        Me.GroupBox38.TabStop = False
+        Me.GroupBox38.Text = "Codec / Encoder"
+        '
+        'GroupBox39
+        '
+        Me.GroupBox39.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox39.Controls.Add(Me.Label146)
+        Me.GroupBox39.Controls.Add(Me.Label147)
+        Me.GroupBox39.Controls.Add(Me.Label148)
+        Me.GroupBox39.Controls.Add(Me.Label149)
+        Me.GroupBox39.Controls.Add(Me.Label150)
+        Me.GroupBox39.Controls.Add(Me.Label151)
+        Me.GroupBox39.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox39.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.GroupBox39.Location = New System.Drawing.Point(6, 66)
+        Me.GroupBox39.Name = "GroupBox39"
+        Me.GroupBox39.Size = New System.Drawing.Size(330, 106)
+        Me.GroupBox39.TabIndex = 240
+        Me.GroupBox39.TabStop = False
+        Me.GroupBox39.Text = "Available Audio Codec"
+        '
+        'Label146
+        '
+        Me.Label146.AutoSize = True
+        Me.Label146.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label146.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label146.Location = New System.Drawing.Point(63, 81)
+        Me.Label146.Name = "Label146"
+        Me.Label146.Size = New System.Drawing.Size(191, 17)
+        Me.Label146.TabIndex = 244
+        Me.Label146.Text = "Waveform Audio (libpcm_s16le)"
+        '
+        'Label147
+        '
+        Me.Label147.AutoSize = True
+        Me.Label147.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label147.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label147.Location = New System.Drawing.Point(63, 53)
+        Me.Label147.Name = "Label147"
+        Me.Label147.Size = New System.Drawing.Size(114, 17)
+        Me.Label147.TabIndex = 243
+        Me.Label147.Text = "MP3 (libmp3lame)"
+        '
+        'Label148
+        '
+        Me.Label148.AutoSize = True
+        Me.Label148.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label148.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label148.Location = New System.Drawing.Point(63, 27)
+        Me.Label148.Name = "Label148"
+        Me.Label148.Size = New System.Drawing.Size(164, 17)
+        Me.Label148.TabIndex = 241
+        Me.Label148.Text = "Free Lossless Audio Codec"
+        '
+        'Label149
+        '
+        Me.Label149.AutoSize = True
+        Me.Label149.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label149.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label149.Location = New System.Drawing.Point(9, 81)
+        Me.Label149.Name = "Label149"
+        Me.Label149.Size = New System.Drawing.Size(37, 17)
+        Me.Label149.TabIndex = 242
+        Me.Label149.Text = "WAV"
+        '
+        'Label150
+        '
+        Me.Label150.AutoSize = True
+        Me.Label150.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label150.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label150.Location = New System.Drawing.Point(9, 53)
+        Me.Label150.Name = "Label150"
+        Me.Label150.Size = New System.Drawing.Size(35, 17)
+        Me.Label150.TabIndex = 241
+        Me.Label150.Text = "MP3"
+        '
+        'Label151
+        '
+        Me.Label151.AutoSize = True
+        Me.Label151.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label151.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label151.Location = New System.Drawing.Point(8, 27)
+        Me.Label151.Name = "Label151"
+        Me.Label151.Size = New System.Drawing.Size(38, 17)
+        Me.Label151.TabIndex = 240
+        Me.Label151.Text = "FLAC"
+        '
+        'Label152
+        '
+        Me.Label152.AutoSize = True
+        Me.Label152.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label152.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label152.Location = New System.Drawing.Point(7, 175)
+        Me.Label152.Name = "Label152"
+        Me.Label152.Size = New System.Drawing.Size(221, 17)
+        Me.Label152.TabIndex = 229
+        Me.Label152.Text = "FFMPEG Flags: -acodec libpcm_s16le"
+        '
+        'Label153
+        '
+        Me.Label153.AutoSize = True
+        Me.Label153.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label153.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label153.Location = New System.Drawing.Point(6, 33)
+        Me.Label153.Name = "Label153"
+        Me.Label153.Size = New System.Drawing.Size(393, 17)
+        Me.Label153.TabIndex = 200
+        Me.Label153.Text = "Configure Audio Codec / Encoder that will use for encoding audio"
         '
         'GroupBox27
         '
+        Me.GroupBox27.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox27.Controls.Add(Me.GroupBox28)
         Me.GroupBox27.Controls.Add(Me.Label122)
         Me.GroupBox27.Controls.Add(Me.CheckBox129)
@@ -607,6 +1516,7 @@ Partial Class InformationMenu
         Me.GroupBox27.Controls.Add(Me.CheckBox135)
         Me.GroupBox27.Controls.Add(Me.CheckBox136)
         Me.GroupBox27.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.GroupBox27.Location = New System.Drawing.Point(3, 337)
         Me.GroupBox27.Name = "GroupBox27"
         Me.GroupBox27.Size = New System.Drawing.Size(1234, 240)
@@ -625,6 +1535,7 @@ Partial Class InformationMenu
         Me.GroupBox28.Controls.Add(Me.Label120)
         Me.GroupBox28.Controls.Add(Me.Label121)
         Me.GroupBox28.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox28.Location = New System.Drawing.Point(6, 60)
         Me.GroupBox28.Name = "GroupBox28"
         Me.GroupBox28.Size = New System.Drawing.Size(330, 133)
@@ -676,6 +1587,7 @@ Partial Class InformationMenu
         '
         Me.Label118.AutoSize = True
         Me.Label118.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label118.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label118.Location = New System.Drawing.Point(9, 106)
         Me.Label118.Name = "Label118"
         Me.Label118.Size = New System.Drawing.Size(53, 17)
@@ -686,6 +1598,7 @@ Partial Class InformationMenu
         '
         Me.Label119.AutoSize = True
         Me.Label119.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label119.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label119.Location = New System.Drawing.Point(8, 81)
         Me.Label119.Name = "Label119"
         Me.Label119.Size = New System.Drawing.Size(22, 17)
@@ -696,6 +1609,7 @@ Partial Class InformationMenu
         '
         Me.Label120.AutoSize = True
         Me.Label120.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label120.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label120.Location = New System.Drawing.Point(8, 55)
         Me.Label120.Name = "Label120"
         Me.Label120.Size = New System.Drawing.Size(14, 17)
@@ -706,6 +1620,7 @@ Partial Class InformationMenu
         '
         Me.Label121.AutoSize = True
         Me.Label121.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label121.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label121.Location = New System.Drawing.Point(8, 27)
         Me.Label121.Name = "Label121"
         Me.Label121.Size = New System.Drawing.Size(24, 17)
@@ -715,7 +1630,9 @@ Partial Class InformationMenu
         'Label122
         '
         Me.Label122.AutoSize = True
+        Me.Label122.BackColor = System.Drawing.Color.Transparent
         Me.Label122.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label122.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label122.Location = New System.Drawing.Point(7, 206)
         Me.Label122.Name = "Label122"
         Me.Label122.Size = New System.Drawing.Size(145, 17)
@@ -726,19 +1643,23 @@ Partial Class InformationMenu
         '
         Me.CheckBox129.AutoCheck = False
         Me.CheckBox129.AutoSize = True
+        Me.CheckBox129.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox129.Enabled = False
         Me.CheckBox129.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox129.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox129.Location = New System.Drawing.Point(793, 60)
         Me.CheckBox129.Name = "CheckBox129"
         Me.CheckBox129.Size = New System.Drawing.Size(91, 19)
         Me.CheckBox129.TabIndex = 238
         Me.CheckBox129.Text = "HEVC (QSV)"
-        Me.CheckBox129.UseVisualStyleBackColor = True
+        Me.CheckBox129.UseVisualStyleBackColor = False
         '
         'Label123
         '
         Me.Label123.AutoSize = True
+        Me.Label123.BackColor = System.Drawing.Color.Transparent
         Me.Label123.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label123.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label123.Location = New System.Drawing.Point(6, 33)
         Me.Label123.Name = "Label123"
         Me.Label123.Size = New System.Drawing.Size(360, 17)
@@ -759,97 +1680,112 @@ Partial Class InformationMenu
         '
         Me.CheckBox130.AutoCheck = False
         Me.CheckBox130.AutoSize = True
+        Me.CheckBox130.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox130.Enabled = False
         Me.CheckBox130.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox130.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox130.Location = New System.Drawing.Point(793, 35)
         Me.CheckBox130.Name = "CheckBox130"
         Me.CheckBox130.Size = New System.Drawing.Size(94, 19)
         Me.CheckBox130.TabIndex = 237
         Me.CheckBox130.Text = "H.264 (QSV)"
-        Me.CheckBox130.UseVisualStyleBackColor = True
+        Me.CheckBox130.UseVisualStyleBackColor = False
         '
         'CheckBox131
         '
         Me.CheckBox131.AutoCheck = False
         Me.CheckBox131.AutoSize = True
+        Me.CheckBox131.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox131.Enabled = False
         Me.CheckBox131.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox131.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox131.Location = New System.Drawing.Point(694, 33)
         Me.CheckBox131.Name = "CheckBox131"
         Me.CheckBox131.Size = New System.Drawing.Size(95, 19)
         Me.CheckBox131.TabIndex = 234
         Me.CheckBox131.Text = "H.264 (AMF)"
-        Me.CheckBox131.UseVisualStyleBackColor = True
+        Me.CheckBox131.UseVisualStyleBackColor = False
         '
         'CheckBox132
         '
         Me.CheckBox132.AutoCheck = False
         Me.CheckBox132.AutoSize = True
+        Me.CheckBox132.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox132.Enabled = False
         Me.CheckBox132.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox132.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox132.Location = New System.Drawing.Point(629, 33)
         Me.CheckBox132.Name = "CheckBox132"
         Me.CheckBox132.Size = New System.Drawing.Size(59, 19)
         Me.CheckBox132.TabIndex = 231
         Me.CheckBox132.Text = "H.264"
-        Me.CheckBox132.UseVisualStyleBackColor = True
+        Me.CheckBox132.UseVisualStyleBackColor = False
         '
         'CheckBox133
         '
         Me.CheckBox133.AutoCheck = False
         Me.CheckBox133.AutoSize = True
+        Me.CheckBox133.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox133.Checked = True
         Me.CheckBox133.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox133.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox133.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox133.Location = New System.Drawing.Point(895, 35)
         Me.CheckBox133.Name = "CheckBox133"
         Me.CheckBox133.Size = New System.Drawing.Size(109, 19)
         Me.CheckBox133.TabIndex = 235
         Me.CheckBox133.Text = "H.264 (NVENC)"
-        Me.CheckBox133.UseVisualStyleBackColor = True
+        Me.CheckBox133.UseVisualStyleBackColor = False
         '
         'CheckBox134
         '
         Me.CheckBox134.AutoCheck = False
         Me.CheckBox134.AutoSize = True
+        Me.CheckBox134.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox134.Enabled = False
         Me.CheckBox134.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox134.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox134.Location = New System.Drawing.Point(629, 58)
         Me.CheckBox134.Name = "CheckBox134"
         Me.CheckBox134.Size = New System.Drawing.Size(56, 19)
         Me.CheckBox134.TabIndex = 232
         Me.CheckBox134.Text = "HEVC"
-        Me.CheckBox134.UseVisualStyleBackColor = True
+        Me.CheckBox134.UseVisualStyleBackColor = False
         '
         'CheckBox135
         '
         Me.CheckBox135.AutoCheck = False
         Me.CheckBox135.AutoSize = True
+        Me.CheckBox135.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox135.Enabled = False
         Me.CheckBox135.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox135.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox135.Location = New System.Drawing.Point(694, 58)
         Me.CheckBox135.Name = "CheckBox135"
         Me.CheckBox135.Size = New System.Drawing.Size(92, 19)
         Me.CheckBox135.TabIndex = 233
         Me.CheckBox135.Text = "HEVC (AMF)"
-        Me.CheckBox135.UseVisualStyleBackColor = True
+        Me.CheckBox135.UseVisualStyleBackColor = False
         '
         'CheckBox136
         '
         Me.CheckBox136.AutoCheck = False
         Me.CheckBox136.AutoSize = True
+        Me.CheckBox136.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox136.Checked = True
         Me.CheckBox136.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox136.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox136.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox136.Location = New System.Drawing.Point(895, 60)
         Me.CheckBox136.Name = "CheckBox136"
         Me.CheckBox136.Size = New System.Drawing.Size(106, 19)
         Me.CheckBox136.TabIndex = 236
         Me.CheckBox136.Text = "HEVC (NVENC)"
-        Me.CheckBox136.UseVisualStyleBackColor = True
+        Me.CheckBox136.UseVisualStyleBackColor = False
         '
         'GroupBox29
         '
+        Me.GroupBox29.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox29.Controls.Add(Me.GroupBox30)
         Me.GroupBox29.Controls.Add(Me.Label127)
         Me.GroupBox29.Controls.Add(Me.CheckBox137)
@@ -863,6 +1799,7 @@ Partial Class InformationMenu
         Me.GroupBox29.Controls.Add(Me.CheckBox143)
         Me.GroupBox29.Controls.Add(Me.CheckBox144)
         Me.GroupBox29.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.GroupBox29.Location = New System.Drawing.Point(3, 134)
         Me.GroupBox29.Name = "GroupBox29"
         Me.GroupBox29.Size = New System.Drawing.Size(1234, 197)
@@ -877,6 +1814,7 @@ Partial Class InformationMenu
         Me.GroupBox30.Controls.Add(Me.Label125)
         Me.GroupBox30.Controls.Add(Me.Label126)
         Me.GroupBox30.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox30.Location = New System.Drawing.Point(6, 63)
         Me.GroupBox30.Name = "GroupBox30"
         Me.GroupBox30.Size = New System.Drawing.Size(330, 80)
@@ -908,6 +1846,7 @@ Partial Class InformationMenu
         '
         Me.Label125.AutoSize = True
         Me.Label125.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label125.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label125.Location = New System.Drawing.Point(8, 55)
         Me.Label125.Name = "Label125"
         Me.Label125.Size = New System.Drawing.Size(35, 17)
@@ -918,6 +1857,7 @@ Partial Class InformationMenu
         '
         Me.Label126.AutoSize = True
         Me.Label126.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label126.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label126.Location = New System.Drawing.Point(8, 27)
         Me.Label126.Name = "Label126"
         Me.Label126.Size = New System.Drawing.Size(38, 17)
@@ -927,7 +1867,9 @@ Partial Class InformationMenu
         'Label127
         '
         Me.Label127.AutoSize = True
+        Me.Label127.BackColor = System.Drawing.Color.Transparent
         Me.Label127.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label127.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label127.Location = New System.Drawing.Point(6, 160)
         Me.Label127.Name = "Label127"
         Me.Label127.Size = New System.Drawing.Size(149, 17)
@@ -938,19 +1880,23 @@ Partial Class InformationMenu
         '
         Me.CheckBox137.AutoCheck = False
         Me.CheckBox137.AutoSize = True
+        Me.CheckBox137.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox137.Enabled = False
         Me.CheckBox137.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox137.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox137.Location = New System.Drawing.Point(793, 60)
         Me.CheckBox137.Name = "CheckBox137"
         Me.CheckBox137.Size = New System.Drawing.Size(91, 19)
         Me.CheckBox137.TabIndex = 238
         Me.CheckBox137.Text = "HEVC (QSV)"
-        Me.CheckBox137.UseVisualStyleBackColor = True
+        Me.CheckBox137.UseVisualStyleBackColor = False
         '
         'Label128
         '
         Me.Label128.AutoSize = True
+        Me.Label128.BackColor = System.Drawing.Color.Transparent
         Me.Label128.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label128.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label128.Location = New System.Drawing.Point(6, 33)
         Me.Label128.Name = "Label128"
         Me.Label128.Size = New System.Drawing.Size(330, 17)
@@ -971,97 +1917,112 @@ Partial Class InformationMenu
         '
         Me.CheckBox138.AutoCheck = False
         Me.CheckBox138.AutoSize = True
+        Me.CheckBox138.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox138.Enabled = False
         Me.CheckBox138.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox138.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox138.Location = New System.Drawing.Point(793, 35)
         Me.CheckBox138.Name = "CheckBox138"
         Me.CheckBox138.Size = New System.Drawing.Size(94, 19)
         Me.CheckBox138.TabIndex = 237
         Me.CheckBox138.Text = "H.264 (QSV)"
-        Me.CheckBox138.UseVisualStyleBackColor = True
+        Me.CheckBox138.UseVisualStyleBackColor = False
         '
         'CheckBox139
         '
         Me.CheckBox139.AutoCheck = False
         Me.CheckBox139.AutoSize = True
+        Me.CheckBox139.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox139.Enabled = False
         Me.CheckBox139.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox139.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox139.Location = New System.Drawing.Point(694, 33)
         Me.CheckBox139.Name = "CheckBox139"
         Me.CheckBox139.Size = New System.Drawing.Size(95, 19)
         Me.CheckBox139.TabIndex = 234
         Me.CheckBox139.Text = "H.264 (AMF)"
-        Me.CheckBox139.UseVisualStyleBackColor = True
+        Me.CheckBox139.UseVisualStyleBackColor = False
         '
         'CheckBox140
         '
         Me.CheckBox140.AutoCheck = False
         Me.CheckBox140.AutoSize = True
+        Me.CheckBox140.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox140.Enabled = False
         Me.CheckBox140.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox140.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox140.Location = New System.Drawing.Point(629, 33)
         Me.CheckBox140.Name = "CheckBox140"
         Me.CheckBox140.Size = New System.Drawing.Size(59, 19)
         Me.CheckBox140.TabIndex = 231
         Me.CheckBox140.Text = "H.264"
-        Me.CheckBox140.UseVisualStyleBackColor = True
+        Me.CheckBox140.UseVisualStyleBackColor = False
         '
         'CheckBox141
         '
         Me.CheckBox141.AutoCheck = False
         Me.CheckBox141.AutoSize = True
+        Me.CheckBox141.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox141.Enabled = False
         Me.CheckBox141.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox141.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox141.Location = New System.Drawing.Point(895, 35)
         Me.CheckBox141.Name = "CheckBox141"
         Me.CheckBox141.Size = New System.Drawing.Size(109, 19)
         Me.CheckBox141.TabIndex = 235
         Me.CheckBox141.Text = "H.264 (NVENC)"
-        Me.CheckBox141.UseVisualStyleBackColor = True
+        Me.CheckBox141.UseVisualStyleBackColor = False
         '
         'CheckBox142
         '
         Me.CheckBox142.AutoCheck = False
         Me.CheckBox142.AutoSize = True
+        Me.CheckBox142.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox142.Enabled = False
         Me.CheckBox142.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox142.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox142.Location = New System.Drawing.Point(629, 58)
         Me.CheckBox142.Name = "CheckBox142"
         Me.CheckBox142.Size = New System.Drawing.Size(56, 19)
         Me.CheckBox142.TabIndex = 232
         Me.CheckBox142.Text = "HEVC"
-        Me.CheckBox142.UseVisualStyleBackColor = True
+        Me.CheckBox142.UseVisualStyleBackColor = False
         '
         'CheckBox143
         '
         Me.CheckBox143.AutoCheck = False
         Me.CheckBox143.AutoSize = True
+        Me.CheckBox143.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox143.Checked = True
         Me.CheckBox143.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox143.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox143.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox143.Location = New System.Drawing.Point(694, 58)
         Me.CheckBox143.Name = "CheckBox143"
         Me.CheckBox143.Size = New System.Drawing.Size(92, 19)
         Me.CheckBox143.TabIndex = 233
         Me.CheckBox143.Text = "HEVC (AMF)"
-        Me.CheckBox143.UseVisualStyleBackColor = True
+        Me.CheckBox143.UseVisualStyleBackColor = False
         '
         'CheckBox144
         '
         Me.CheckBox144.AutoCheck = False
         Me.CheckBox144.AutoSize = True
+        Me.CheckBox144.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox144.Checked = True
         Me.CheckBox144.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox144.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox144.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox144.Location = New System.Drawing.Point(895, 60)
         Me.CheckBox144.Name = "CheckBox144"
         Me.CheckBox144.Size = New System.Drawing.Size(106, 19)
         Me.CheckBox144.TabIndex = 236
         Me.CheckBox144.Text = "HEVC (NVENC)"
-        Me.CheckBox144.UseVisualStyleBackColor = True
+        Me.CheckBox144.UseVisualStyleBackColor = False
         '
         'GroupBox31
         '
+        Me.GroupBox31.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox31.Controls.Add(Me.Label167)
         Me.GroupBox31.Controls.Add(Me.Label166)
         Me.GroupBox31.Controls.Add(Me.Label130)
@@ -1077,9 +2038,10 @@ Partial Class InformationMenu
         Me.GroupBox31.Controls.Add(Me.CheckBox151)
         Me.GroupBox31.Controls.Add(Me.CheckBox152)
         Me.GroupBox31.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox31.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.GroupBox31.Location = New System.Drawing.Point(2, 3)
         Me.GroupBox31.Name = "GroupBox31"
-        Me.GroupBox31.Size = New System.Drawing.Size(1235, 125)
+        Me.GroupBox31.Size = New System.Drawing.Size(1236, 125)
         Me.GroupBox31.TabIndex = 244
         Me.GroupBox31.TabStop = False
         Me.GroupBox31.Text = "Target Quality Level (CRF)"
@@ -1097,7 +2059,9 @@ Partial Class InformationMenu
         'Label166
         '
         Me.Label166.AutoSize = True
+        Me.Label166.BackColor = System.Drawing.Color.Transparent
         Me.Label166.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label166.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label166.Location = New System.Drawing.Point(7, 69)
         Me.Label166.Name = "Label166"
         Me.Label166.Size = New System.Drawing.Size(438, 17)
@@ -1107,7 +2071,9 @@ Partial Class InformationMenu
         'Label130
         '
         Me.Label130.AutoSize = True
+        Me.Label130.BackColor = System.Drawing.Color.Transparent
         Me.Label130.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label130.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label130.Location = New System.Drawing.Point(6, 49)
         Me.Label130.Name = "Label130"
         Me.Label130.Size = New System.Drawing.Size(441, 17)
@@ -1117,7 +2083,9 @@ Partial Class InformationMenu
         'Label131
         '
         Me.Label131.AutoSize = True
+        Me.Label131.BackColor = System.Drawing.Color.Transparent
         Me.Label131.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label131.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label131.Location = New System.Drawing.Point(7, 98)
         Me.Label131.Name = "Label131"
         Me.Label131.Size = New System.Drawing.Size(133, 17)
@@ -1128,19 +2096,23 @@ Partial Class InformationMenu
         '
         Me.CheckBox145.AutoCheck = False
         Me.CheckBox145.AutoSize = True
+        Me.CheckBox145.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox145.Enabled = False
         Me.CheckBox145.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox145.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox145.Location = New System.Drawing.Point(793, 60)
         Me.CheckBox145.Name = "CheckBox145"
         Me.CheckBox145.Size = New System.Drawing.Size(91, 19)
         Me.CheckBox145.TabIndex = 238
         Me.CheckBox145.Text = "HEVC (QSV)"
-        Me.CheckBox145.UseVisualStyleBackColor = True
+        Me.CheckBox145.UseVisualStyleBackColor = False
         '
         'Label132
         '
         Me.Label132.AutoSize = True
+        Me.Label132.BackColor = System.Drawing.Color.Transparent
         Me.Label132.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label132.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label132.Location = New System.Drawing.Point(6, 27)
         Me.Label132.Name = "Label132"
         Me.Label132.Size = New System.Drawing.Size(368, 17)
@@ -1161,94 +2133,108 @@ Partial Class InformationMenu
         '
         Me.CheckBox146.AutoCheck = False
         Me.CheckBox146.AutoSize = True
+        Me.CheckBox146.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox146.Enabled = False
         Me.CheckBox146.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox146.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox146.Location = New System.Drawing.Point(793, 35)
         Me.CheckBox146.Name = "CheckBox146"
         Me.CheckBox146.Size = New System.Drawing.Size(94, 19)
         Me.CheckBox146.TabIndex = 237
         Me.CheckBox146.Text = "H.264 (QSV)"
-        Me.CheckBox146.UseVisualStyleBackColor = True
+        Me.CheckBox146.UseVisualStyleBackColor = False
         '
         'CheckBox147
         '
         Me.CheckBox147.AutoCheck = False
         Me.CheckBox147.AutoSize = True
+        Me.CheckBox147.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox147.Enabled = False
         Me.CheckBox147.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox147.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox147.Location = New System.Drawing.Point(694, 33)
         Me.CheckBox147.Name = "CheckBox147"
         Me.CheckBox147.Size = New System.Drawing.Size(95, 19)
         Me.CheckBox147.TabIndex = 234
         Me.CheckBox147.Text = "H.264 (AMF)"
-        Me.CheckBox147.UseVisualStyleBackColor = True
+        Me.CheckBox147.UseVisualStyleBackColor = False
         '
         'CheckBox148
         '
         Me.CheckBox148.AutoCheck = False
         Me.CheckBox148.AutoSize = True
+        Me.CheckBox148.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox148.Enabled = False
         Me.CheckBox148.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox148.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox148.Location = New System.Drawing.Point(629, 33)
         Me.CheckBox148.Name = "CheckBox148"
         Me.CheckBox148.Size = New System.Drawing.Size(59, 19)
         Me.CheckBox148.TabIndex = 231
         Me.CheckBox148.Text = "H.264"
-        Me.CheckBox148.UseVisualStyleBackColor = True
+        Me.CheckBox148.UseVisualStyleBackColor = False
         '
         'CheckBox149
         '
         Me.CheckBox149.AutoCheck = False
         Me.CheckBox149.AutoSize = True
+        Me.CheckBox149.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox149.Checked = True
         Me.CheckBox149.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox149.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox149.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox149.Location = New System.Drawing.Point(895, 35)
         Me.CheckBox149.Name = "CheckBox149"
         Me.CheckBox149.Size = New System.Drawing.Size(109, 19)
         Me.CheckBox149.TabIndex = 235
         Me.CheckBox149.Text = "H.264 (NVENC)"
-        Me.CheckBox149.UseVisualStyleBackColor = True
+        Me.CheckBox149.UseVisualStyleBackColor = False
         '
         'CheckBox150
         '
         Me.CheckBox150.AutoCheck = False
         Me.CheckBox150.AutoSize = True
+        Me.CheckBox150.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox150.Enabled = False
         Me.CheckBox150.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox150.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox150.Location = New System.Drawing.Point(629, 58)
         Me.CheckBox150.Name = "CheckBox150"
         Me.CheckBox150.Size = New System.Drawing.Size(56, 19)
         Me.CheckBox150.TabIndex = 232
         Me.CheckBox150.Text = "HEVC"
-        Me.CheckBox150.UseVisualStyleBackColor = True
+        Me.CheckBox150.UseVisualStyleBackColor = False
         '
         'CheckBox151
         '
         Me.CheckBox151.AutoCheck = False
         Me.CheckBox151.AutoSize = True
+        Me.CheckBox151.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox151.Enabled = False
         Me.CheckBox151.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox151.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox151.Location = New System.Drawing.Point(694, 58)
         Me.CheckBox151.Name = "CheckBox151"
         Me.CheckBox151.Size = New System.Drawing.Size(92, 19)
         Me.CheckBox151.TabIndex = 233
         Me.CheckBox151.Text = "HEVC (AMF)"
-        Me.CheckBox151.UseVisualStyleBackColor = True
+        Me.CheckBox151.UseVisualStyleBackColor = False
         '
         'CheckBox152
         '
         Me.CheckBox152.AutoCheck = False
         Me.CheckBox152.AutoSize = True
+        Me.CheckBox152.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox152.Checked = True
         Me.CheckBox152.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox152.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox152.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox152.Location = New System.Drawing.Point(895, 60)
         Me.CheckBox152.Name = "CheckBox152"
         Me.CheckBox152.Size = New System.Drawing.Size(106, 19)
         Me.CheckBox152.TabIndex = 236
         Me.CheckBox152.Text = "HEVC (NVENC)"
-        Me.CheckBox152.UseVisualStyleBackColor = True
+        Me.CheckBox152.UseVisualStyleBackColor = False
         '
         'GroupBox20
         '
@@ -1259,6 +2245,7 @@ Partial Class InformationMenu
         Me.GroupBox20.Controls.Add(Me.GroupBox23)
         Me.GroupBox20.Controls.Add(Me.Label105)
         Me.GroupBox20.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.GroupBox20.Location = New System.Drawing.Point(2, 226)
         Me.GroupBox20.Name = "GroupBox20"
         Me.GroupBox20.Size = New System.Drawing.Size(1234, 476)
@@ -1268,6 +2255,7 @@ Partial Class InformationMenu
         '
         'GroupBox21
         '
+        Me.GroupBox21.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox21.Controls.Add(Me.Label80)
         Me.GroupBox21.Controls.Add(Me.CheckBox89)
         Me.GroupBox21.Controls.Add(Me.Label84)
@@ -1282,6 +2270,7 @@ Partial Class InformationMenu
         Me.GroupBox21.Controls.Add(Me.CheckBox95)
         Me.GroupBox21.Controls.Add(Me.CheckBox96)
         Me.GroupBox21.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox21.Location = New System.Drawing.Point(5, 266)
         Me.GroupBox21.Name = "GroupBox21"
         Me.GroupBox21.Size = New System.Drawing.Size(503, 188)
@@ -1386,6 +2375,7 @@ Partial Class InformationMenu
         '
         Me.Label87.AutoSize = True
         Me.Label87.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label87.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label87.Location = New System.Drawing.Point(10, 90)
         Me.Label87.Name = "Label87"
         Me.Label87.Size = New System.Drawing.Size(80, 13)
@@ -1448,6 +2438,7 @@ Partial Class InformationMenu
         '
         Me.Label88.AutoSize = True
         Me.Label88.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label88.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label88.Location = New System.Drawing.Point(8, 49)
         Me.Label88.Name = "Label88"
         Me.Label88.Size = New System.Drawing.Size(520, 17)
@@ -1459,6 +2450,7 @@ Partial Class InformationMenu
         '
         Me.Label89.AutoSize = True
         Me.Label89.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label89.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label89.Location = New System.Drawing.Point(540, 25)
         Me.Label89.Name = "Label89"
         Me.Label89.Size = New System.Drawing.Size(507, 17)
@@ -1468,6 +2460,7 @@ Partial Class InformationMenu
         '
         'GroupBox22
         '
+        Me.GroupBox22.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox22.Controls.Add(Me.Label90)
         Me.GroupBox22.Controls.Add(Me.CheckBox97)
         Me.GroupBox22.Controls.Add(Me.CheckBox98)
@@ -1487,6 +2480,7 @@ Partial Class InformationMenu
         Me.GroupBox22.Controls.Add(Me.Label98)
         Me.GroupBox22.Controls.Add(Me.Label99)
         Me.GroupBox22.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox22.Location = New System.Drawing.Point(540, 73)
         Me.GroupBox22.Name = "GroupBox22"
         Me.GroupBox22.Size = New System.Drawing.Size(512, 302)
@@ -1562,6 +2556,7 @@ Partial Class InformationMenu
         '
         Me.Label91.AutoSize = True
         Me.Label91.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label91.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label91.Location = New System.Drawing.Point(10, 202)
         Me.Label91.Name = "Label91"
         Me.Label91.Size = New System.Drawing.Size(80, 13)
@@ -1703,6 +2698,7 @@ Partial Class InformationMenu
         '
         'GroupBox23
         '
+        Me.GroupBox23.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox23.Controls.Add(Me.Label100)
         Me.GroupBox23.Controls.Add(Me.CheckBox105)
         Me.GroupBox23.Controls.Add(Me.Label101)
@@ -1717,6 +2713,7 @@ Partial Class InformationMenu
         Me.GroupBox23.Controls.Add(Me.CheckBox111)
         Me.GroupBox23.Controls.Add(Me.CheckBox112)
         Me.GroupBox23.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox23.Location = New System.Drawing.Point(6, 72)
         Me.GroupBox23.Name = "GroupBox23"
         Me.GroupBox23.Size = New System.Drawing.Size(503, 188)
@@ -1822,6 +2819,7 @@ Partial Class InformationMenu
         '
         Me.Label104.AutoSize = True
         Me.Label104.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label104.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label104.Location = New System.Drawing.Point(10, 90)
         Me.Label104.Name = "Label104"
         Me.Label104.Size = New System.Drawing.Size(80, 13)
@@ -1884,6 +2882,7 @@ Partial Class InformationMenu
         '
         Me.Label105.AutoSize = True
         Me.Label105.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label105.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label105.Location = New System.Drawing.Point(6, 25)
         Me.Label105.Name = "Label105"
         Me.Label105.Size = New System.Drawing.Size(538, 17)
@@ -1898,15 +2897,17 @@ Partial Class InformationMenu
         Me.GroupBox24.Controls.Add(Me.Label112)
         Me.GroupBox24.Controls.Add(Me.Label113)
         Me.GroupBox24.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox24.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.GroupBox24.Location = New System.Drawing.Point(0, 3)
         Me.GroupBox24.Name = "GroupBox24"
-        Me.GroupBox24.Size = New System.Drawing.Size(1235, 206)
+        Me.GroupBox24.Size = New System.Drawing.Size(1238, 206)
         Me.GroupBox24.TabIndex = 244
         Me.GroupBox24.TabStop = False
         Me.GroupBox24.Text = "Rate Control"
         '
         'GroupBox25
         '
+        Me.GroupBox25.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox25.Controls.Add(Me.Label106)
         Me.GroupBox25.Controls.Add(Me.Label107)
         Me.GroupBox25.Controls.Add(Me.CheckBox113)
@@ -1919,6 +2920,7 @@ Partial Class InformationMenu
         Me.GroupBox25.Controls.Add(Me.CheckBox119)
         Me.GroupBox25.Controls.Add(Me.CheckBox120)
         Me.GroupBox25.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox25.Location = New System.Drawing.Point(551, 50)
         Me.GroupBox25.Name = "GroupBox25"
         Me.GroupBox25.Size = New System.Drawing.Size(503, 119)
@@ -1962,6 +2964,7 @@ Partial Class InformationMenu
         '
         Me.Label108.AutoSize = True
         Me.Label108.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label108.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label108.Location = New System.Drawing.Point(12, 60)
         Me.Label108.Name = "Label108"
         Me.Label108.Size = New System.Drawing.Size(80, 13)
@@ -2064,6 +3067,7 @@ Partial Class InformationMenu
         '
         'GroupBox26
         '
+        Me.GroupBox26.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox26.Controls.Add(Me.Label109)
         Me.GroupBox26.Controls.Add(Me.Label110)
         Me.GroupBox26.Controls.Add(Me.CheckBox121)
@@ -2076,6 +3080,7 @@ Partial Class InformationMenu
         Me.GroupBox26.Controls.Add(Me.CheckBox127)
         Me.GroupBox26.Controls.Add(Me.CheckBox128)
         Me.GroupBox26.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox26.Location = New System.Drawing.Point(6, 51)
         Me.GroupBox26.Name = "GroupBox26"
         Me.GroupBox26.Size = New System.Drawing.Size(503, 119)
@@ -2119,6 +3124,7 @@ Partial Class InformationMenu
         '
         Me.Label111.AutoSize = True
         Me.Label111.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label111.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label111.Location = New System.Drawing.Point(12, 60)
         Me.Label111.Name = "Label111"
         Me.Label111.Size = New System.Drawing.Size(80, 13)
@@ -2224,6 +3230,7 @@ Partial Class InformationMenu
         '
         Me.Label112.AutoSize = True
         Me.Label112.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label112.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label112.Location = New System.Drawing.Point(6, 173)
         Me.Label112.Name = "Label112"
         Me.Label112.Size = New System.Drawing.Size(154, 17)
@@ -2234,6 +3241,7 @@ Partial Class InformationMenu
         '
         Me.Label113.AutoSize = True
         Me.Label113.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label113.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label113.Location = New System.Drawing.Point(6, 25)
         Me.Label113.Name = "Label113"
         Me.Label113.Size = New System.Drawing.Size(269, 17)
@@ -2242,15 +3250,17 @@ Partial Class InformationMenu
         '
         'GroupBox16
         '
+        Me.GroupBox16.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox16.Controls.Add(Me.GroupBox14)
         Me.GroupBox16.Controls.Add(Me.GroupBox15)
         Me.GroupBox16.Controls.Add(Me.GroupBox17)
         Me.GroupBox16.Controls.Add(Me.Label82)
         Me.GroupBox16.Controls.Add(Me.Label83)
         Me.GroupBox16.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox16.Location = New System.Drawing.Point(5, 236)
+        Me.GroupBox16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.GroupBox16.Location = New System.Drawing.Point(3, 223)
         Me.GroupBox16.Name = "GroupBox16"
-        Me.GroupBox16.Size = New System.Drawing.Size(1234, 320)
+        Me.GroupBox16.Size = New System.Drawing.Size(1236, 318)
         Me.GroupBox16.TabIndex = 243
         Me.GroupBox16.TabStop = False
         Me.GroupBox16.Text = "Profile"
@@ -2269,6 +3279,7 @@ Partial Class InformationMenu
         Me.GroupBox14.Controls.Add(Me.CheckBox63)
         Me.GroupBox14.Controls.Add(Me.CheckBox64)
         Me.GroupBox14.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox14.Location = New System.Drawing.Point(10, 172)
         Me.GroupBox14.Name = "GroupBox14"
         Me.GroupBox14.Size = New System.Drawing.Size(503, 115)
@@ -2280,6 +3291,7 @@ Partial Class InformationMenu
         '
         Me.CheckBox57.AutoCheck = False
         Me.CheckBox57.AutoSize = True
+        Me.CheckBox57.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox57.Enabled = False
         Me.CheckBox57.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox57.Location = New System.Drawing.Point(266, 88)
@@ -2287,7 +3299,7 @@ Partial Class InformationMenu
         Me.CheckBox57.Size = New System.Drawing.Size(91, 19)
         Me.CheckBox57.TabIndex = 248
         Me.CheckBox57.Text = "HEVC (QSV)"
-        Me.CheckBox57.UseVisualStyleBackColor = True
+        Me.CheckBox57.UseVisualStyleBackColor = False
         '
         'Label16
         '
@@ -2326,6 +3338,7 @@ Partial Class InformationMenu
         '
         Me.CheckBox59.AutoCheck = False
         Me.CheckBox59.AutoSize = True
+        Me.CheckBox59.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox59.Enabled = False
         Me.CheckBox59.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox59.Location = New System.Drawing.Point(368, 88)
@@ -2333,7 +3346,7 @@ Partial Class InformationMenu
         Me.CheckBox59.Size = New System.Drawing.Size(106, 19)
         Me.CheckBox59.TabIndex = 246
         Me.CheckBox59.Text = "HEVC (NVENC)"
-        Me.CheckBox59.UseVisualStyleBackColor = True
+        Me.CheckBox59.UseVisualStyleBackColor = False
         '
         'CheckBox60
         '
@@ -2353,6 +3366,7 @@ Partial Class InformationMenu
         '
         Me.Label62.AutoSize = True
         Me.Label62.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label62.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label62.Location = New System.Drawing.Point(6, 63)
         Me.Label62.Name = "Label62"
         Me.Label62.Size = New System.Drawing.Size(80, 13)
@@ -2391,6 +3405,7 @@ Partial Class InformationMenu
         '
         Me.CheckBox63.AutoCheck = False
         Me.CheckBox63.AutoSize = True
+        Me.CheckBox63.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox63.Enabled = False
         Me.CheckBox63.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox63.Location = New System.Drawing.Point(167, 86)
@@ -2398,12 +3413,13 @@ Partial Class InformationMenu
         Me.CheckBox63.Size = New System.Drawing.Size(92, 19)
         Me.CheckBox63.TabIndex = 243
         Me.CheckBox63.Text = "HEVC (AMF)"
-        Me.CheckBox63.UseVisualStyleBackColor = True
+        Me.CheckBox63.UseVisualStyleBackColor = False
         '
         'CheckBox64
         '
         Me.CheckBox64.AutoCheck = False
         Me.CheckBox64.AutoSize = True
+        Me.CheckBox64.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox64.Enabled = False
         Me.CheckBox64.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox64.Location = New System.Drawing.Point(102, 86)
@@ -2411,7 +3427,7 @@ Partial Class InformationMenu
         Me.CheckBox64.Size = New System.Drawing.Size(56, 19)
         Me.CheckBox64.TabIndex = 242
         Me.CheckBox64.Text = "HEVC"
-        Me.CheckBox64.UseVisualStyleBackColor = True
+        Me.CheckBox64.UseVisualStyleBackColor = False
         '
         'GroupBox15
         '
@@ -2427,6 +3443,7 @@ Partial Class InformationMenu
         Me.GroupBox15.Controls.Add(Me.CheckBox71)
         Me.GroupBox15.Controls.Add(Me.CheckBox72)
         Me.GroupBox15.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox15.Location = New System.Drawing.Point(543, 52)
         Me.GroupBox15.Name = "GroupBox15"
         Me.GroupBox15.Size = New System.Drawing.Size(503, 115)
@@ -2462,6 +3479,7 @@ Partial Class InformationMenu
         '
         Me.CheckBox66.AutoCheck = False
         Me.CheckBox66.AutoSize = True
+        Me.CheckBox66.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox66.Enabled = False
         Me.CheckBox66.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox66.Location = New System.Drawing.Point(266, 63)
@@ -2469,7 +3487,7 @@ Partial Class InformationMenu
         Me.CheckBox66.Size = New System.Drawing.Size(94, 19)
         Me.CheckBox66.TabIndex = 247
         Me.CheckBox66.Text = "H.264 (QSV)"
-        Me.CheckBox66.UseVisualStyleBackColor = True
+        Me.CheckBox66.UseVisualStyleBackColor = False
         '
         'Label63
         '
@@ -2498,6 +3516,7 @@ Partial Class InformationMenu
         '
         Me.CheckBox68.AutoCheck = False
         Me.CheckBox68.AutoSize = True
+        Me.CheckBox68.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox68.Enabled = False
         Me.CheckBox68.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox68.Location = New System.Drawing.Point(368, 63)
@@ -2505,12 +3524,13 @@ Partial Class InformationMenu
         Me.CheckBox68.Size = New System.Drawing.Size(109, 19)
         Me.CheckBox68.TabIndex = 245
         Me.CheckBox68.Text = "H.264 (NVENC)"
-        Me.CheckBox68.UseVisualStyleBackColor = True
+        Me.CheckBox68.UseVisualStyleBackColor = False
         '
         'Label64
         '
         Me.Label64.AutoSize = True
         Me.Label64.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label64.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label64.Location = New System.Drawing.Point(6, 63)
         Me.Label64.Name = "Label64"
         Me.Label64.Size = New System.Drawing.Size(80, 13)
@@ -2521,6 +3541,7 @@ Partial Class InformationMenu
         '
         Me.CheckBox69.AutoCheck = False
         Me.CheckBox69.AutoSize = True
+        Me.CheckBox69.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox69.Enabled = False
         Me.CheckBox69.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox69.Location = New System.Drawing.Point(167, 61)
@@ -2528,12 +3549,13 @@ Partial Class InformationMenu
         Me.CheckBox69.Size = New System.Drawing.Size(95, 19)
         Me.CheckBox69.TabIndex = 244
         Me.CheckBox69.Text = "H.264 (AMF)"
-        Me.CheckBox69.UseVisualStyleBackColor = True
+        Me.CheckBox69.UseVisualStyleBackColor = False
         '
         'CheckBox70
         '
         Me.CheckBox70.AutoCheck = False
         Me.CheckBox70.AutoSize = True
+        Me.CheckBox70.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox70.Enabled = False
         Me.CheckBox70.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox70.Location = New System.Drawing.Point(102, 61)
@@ -2541,12 +3563,13 @@ Partial Class InformationMenu
         Me.CheckBox70.Size = New System.Drawing.Size(59, 19)
         Me.CheckBox70.TabIndex = 241
         Me.CheckBox70.Text = "H.264"
-        Me.CheckBox70.UseVisualStyleBackColor = True
+        Me.CheckBox70.UseVisualStyleBackColor = False
         '
         'CheckBox71
         '
         Me.CheckBox71.AutoCheck = False
         Me.CheckBox71.AutoSize = True
+        Me.CheckBox71.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox71.Enabled = False
         Me.CheckBox71.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox71.Location = New System.Drawing.Point(167, 86)
@@ -2554,7 +3577,7 @@ Partial Class InformationMenu
         Me.CheckBox71.Size = New System.Drawing.Size(92, 19)
         Me.CheckBox71.TabIndex = 243
         Me.CheckBox71.Text = "HEVC (AMF)"
-        Me.CheckBox71.UseVisualStyleBackColor = True
+        Me.CheckBox71.UseVisualStyleBackColor = False
         '
         'CheckBox72
         '
@@ -2584,6 +3607,7 @@ Partial Class InformationMenu
         Me.GroupBox17.Controls.Add(Me.CheckBox79)
         Me.GroupBox17.Controls.Add(Me.CheckBox80)
         Me.GroupBox17.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox17.Location = New System.Drawing.Point(6, 51)
         Me.GroupBox17.Name = "GroupBox17"
         Me.GroupBox17.Size = New System.Drawing.Size(503, 115)
@@ -2670,6 +3694,7 @@ Partial Class InformationMenu
         '
         Me.Label81.AutoSize = True
         Me.Label81.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label81.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label81.Location = New System.Drawing.Point(6, 63)
         Me.Label81.Name = "Label81"
         Me.Label81.Size = New System.Drawing.Size(80, 13)
@@ -2736,6 +3761,7 @@ Partial Class InformationMenu
         '
         Me.Label82.AutoSize = True
         Me.Label82.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label82.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label82.Location = New System.Drawing.Point(10, 290)
         Me.Label82.Name = "Label82"
         Me.Label82.Size = New System.Drawing.Size(171, 17)
@@ -2746,6 +3772,7 @@ Partial Class InformationMenu
         '
         Me.Label83.AutoSize = True
         Me.Label83.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label83.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label83.Location = New System.Drawing.Point(6, 25)
         Me.Label83.Name = "Label83"
         Me.Label83.Size = New System.Drawing.Size(187, 17)
@@ -2767,9 +3794,10 @@ Partial Class InformationMenu
         Me.GroupBox18.Controls.Add(Me.Label78)
         Me.GroupBox18.Controls.Add(Me.Label79)
         Me.GroupBox18.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox18.Location = New System.Drawing.Point(5, 3)
+        Me.GroupBox18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.GroupBox18.Location = New System.Drawing.Point(0, -3)
         Me.GroupBox18.Name = "GroupBox18"
-        Me.GroupBox18.Size = New System.Drawing.Size(1232, 228)
+        Me.GroupBox18.Size = New System.Drawing.Size(1237, 223)
         Me.GroupBox18.TabIndex = 242
         Me.GroupBox18.TabStop = False
         Me.GroupBox18.Text = "Pixel Format"
@@ -2786,6 +3814,7 @@ Partial Class InformationMenu
         Me.GroupBox19.Controls.Add(Me.Label74)
         Me.GroupBox19.Controls.Add(Me.Label75)
         Me.GroupBox19.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox19.Location = New System.Drawing.Point(6, 51)
         Me.GroupBox19.Name = "GroupBox19"
         Me.GroupBox19.Size = New System.Drawing.Size(503, 146)
@@ -2816,8 +3845,9 @@ Partial Class InformationMenu
         'Label66
         '
         Me.Label66.AutoSize = True
-        Me.Label66.BackColor = System.Drawing.Color.White
+        Me.Label66.BackColor = System.Drawing.Color.Transparent
         Me.Label66.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label66.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label66.Location = New System.Drawing.Point(6, 116)
         Me.Label66.Name = "Label66"
         Me.Label66.Size = New System.Drawing.Size(45, 17)
@@ -2856,8 +3886,9 @@ Partial Class InformationMenu
         'Label70
         '
         Me.Label70.AutoSize = True
-        Me.Label70.BackColor = System.Drawing.Color.White
+        Me.Label70.BackColor = System.Drawing.Color.Transparent
         Me.Label70.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label70.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label70.Location = New System.Drawing.Point(6, 87)
         Me.Label70.Name = "Label70"
         Me.Label70.Size = New System.Drawing.Size(45, 17)
@@ -2867,8 +3898,9 @@ Partial Class InformationMenu
         'Label74
         '
         Me.Label74.AutoSize = True
-        Me.Label74.BackColor = System.Drawing.Color.White
+        Me.Label74.BackColor = System.Drawing.Color.Transparent
         Me.Label74.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label74.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label74.Location = New System.Drawing.Point(6, 59)
         Me.Label74.Name = "Label74"
         Me.Label74.Size = New System.Drawing.Size(59, 17)
@@ -2878,8 +3910,9 @@ Partial Class InformationMenu
         'Label75
         '
         Me.Label75.AutoSize = True
-        Me.Label75.BackColor = System.Drawing.Color.White
+        Me.Label75.BackColor = System.Drawing.Color.Transparent
         Me.Label75.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label75.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label75.Location = New System.Drawing.Point(6, 32)
         Me.Label75.Name = "Label75"
         Me.Label75.Size = New System.Drawing.Size(59, 17)
@@ -2893,6 +3926,7 @@ Partial Class InformationMenu
         Me.CheckBox81.Checked = True
         Me.CheckBox81.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox81.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox81.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox81.Location = New System.Drawing.Point(795, 53)
         Me.CheckBox81.Name = "CheckBox81"
         Me.CheckBox81.Size = New System.Drawing.Size(91, 19)
@@ -2907,6 +3941,7 @@ Partial Class InformationMenu
         Me.CheckBox82.Checked = True
         Me.CheckBox82.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox82.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox82.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox82.Location = New System.Drawing.Point(795, 28)
         Me.CheckBox82.Name = "CheckBox82"
         Me.CheckBox82.Size = New System.Drawing.Size(94, 19)
@@ -2921,6 +3956,7 @@ Partial Class InformationMenu
         Me.CheckBox83.Checked = True
         Me.CheckBox83.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox83.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox83.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox83.Location = New System.Drawing.Point(897, 53)
         Me.CheckBox83.Name = "CheckBox83"
         Me.CheckBox83.Size = New System.Drawing.Size(106, 19)
@@ -2935,6 +3971,7 @@ Partial Class InformationMenu
         Me.CheckBox84.Checked = True
         Me.CheckBox84.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox84.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox84.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox84.Location = New System.Drawing.Point(897, 28)
         Me.CheckBox84.Name = "CheckBox84"
         Me.CheckBox84.Size = New System.Drawing.Size(109, 19)
@@ -2949,6 +3986,7 @@ Partial Class InformationMenu
         Me.CheckBox85.Checked = True
         Me.CheckBox85.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox85.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox85.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox85.Location = New System.Drawing.Point(696, 26)
         Me.CheckBox85.Name = "CheckBox85"
         Me.CheckBox85.Size = New System.Drawing.Size(95, 19)
@@ -2963,6 +4001,7 @@ Partial Class InformationMenu
         Me.CheckBox86.Checked = True
         Me.CheckBox86.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox86.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox86.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox86.Location = New System.Drawing.Point(696, 51)
         Me.CheckBox86.Name = "CheckBox86"
         Me.CheckBox86.Size = New System.Drawing.Size(92, 19)
@@ -2977,6 +4016,7 @@ Partial Class InformationMenu
         Me.CheckBox87.Checked = True
         Me.CheckBox87.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox87.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox87.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox87.Location = New System.Drawing.Point(631, 51)
         Me.CheckBox87.Name = "CheckBox87"
         Me.CheckBox87.Size = New System.Drawing.Size(56, 19)
@@ -2991,6 +4031,7 @@ Partial Class InformationMenu
         Me.CheckBox88.Checked = True
         Me.CheckBox88.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox88.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox88.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox88.Location = New System.Drawing.Point(631, 26)
         Me.CheckBox88.Name = "CheckBox88"
         Me.CheckBox88.Size = New System.Drawing.Size(59, 19)
@@ -3012,6 +4053,7 @@ Partial Class InformationMenu
         '
         Me.Label78.AutoSize = True
         Me.Label78.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label78.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label78.Location = New System.Drawing.Point(6, 201)
         Me.Label78.Name = "Label78"
         Me.Label78.Size = New System.Drawing.Size(194, 17)
@@ -3022,6 +4064,7 @@ Partial Class InformationMenu
         '
         Me.Label79.AutoSize = True
         Me.Label79.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label79.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label79.Location = New System.Drawing.Point(6, 25)
         Me.Label79.Name = "Label79"
         Me.Label79.Size = New System.Drawing.Size(291, 17)
@@ -3043,6 +4086,7 @@ Partial Class InformationMenu
         Me.GroupBox12.Controls.Add(Me.Label56)
         Me.GroupBox12.Controls.Add(Me.Label57)
         Me.GroupBox12.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.GroupBox12.Location = New System.Drawing.Point(3, 217)
         Me.GroupBox12.Name = "GroupBox12"
         Me.GroupBox12.Size = New System.Drawing.Size(1234, 228)
@@ -3061,6 +4105,7 @@ Partial Class InformationMenu
         Me.GroupBox13.Controls.Add(Me.Label52)
         Me.GroupBox13.Controls.Add(Me.Label54)
         Me.GroupBox13.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox13.Location = New System.Drawing.Point(6, 51)
         Me.GroupBox13.Name = "GroupBox13"
         Me.GroupBox13.Size = New System.Drawing.Size(503, 146)
@@ -3072,6 +4117,7 @@ Partial Class InformationMenu
         '
         Me.Label58.AutoSize = True
         Me.Label58.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label58.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label58.Location = New System.Drawing.Point(102, 116)
         Me.Label58.Name = "Label58"
         Me.Label58.Size = New System.Drawing.Size(204, 17)
@@ -3081,8 +4127,9 @@ Partial Class InformationMenu
         'Label59
         '
         Me.Label59.AutoSize = True
-        Me.Label59.BackColor = System.Drawing.Color.White
+        Me.Label59.BackColor = System.Drawing.Color.Transparent
         Me.Label59.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label59.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label59.Location = New System.Drawing.Point(6, 116)
         Me.Label59.Name = "Label59"
         Me.Label59.Size = New System.Drawing.Size(30, 17)
@@ -3093,6 +4140,7 @@ Partial Class InformationMenu
         '
         Me.Label48.AutoSize = True
         Me.Label48.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label48.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label48.Location = New System.Drawing.Point(102, 87)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(204, 17)
@@ -3103,6 +4151,7 @@ Partial Class InformationMenu
         '
         Me.Label49.AutoSize = True
         Me.Label49.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label49.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label49.Location = New System.Drawing.Point(102, 59)
         Me.Label49.Name = "Label49"
         Me.Label49.Size = New System.Drawing.Size(204, 17)
@@ -3121,8 +4170,9 @@ Partial Class InformationMenu
         'Label51
         '
         Me.Label51.AutoSize = True
-        Me.Label51.BackColor = System.Drawing.Color.White
+        Me.Label51.BackColor = System.Drawing.Color.Transparent
         Me.Label51.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label51.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label51.Location = New System.Drawing.Point(6, 87)
         Me.Label51.Name = "Label51"
         Me.Label51.Size = New System.Drawing.Size(58, 17)
@@ -3132,8 +4182,9 @@ Partial Class InformationMenu
         'Label52
         '
         Me.Label52.AutoSize = True
-        Me.Label52.BackColor = System.Drawing.Color.White
+        Me.Label52.BackColor = System.Drawing.Color.Transparent
         Me.Label52.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label52.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label52.Location = New System.Drawing.Point(6, 59)
         Me.Label52.Name = "Label52"
         Me.Label52.Size = New System.Drawing.Size(35, 17)
@@ -3143,8 +4194,9 @@ Partial Class InformationMenu
         'Label54
         '
         Me.Label54.AutoSize = True
-        Me.Label54.BackColor = System.Drawing.Color.White
+        Me.Label54.BackColor = System.Drawing.Color.Transparent
         Me.Label54.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label54.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label54.Location = New System.Drawing.Point(6, 32)
         Me.Label54.Name = "Label54"
         Me.Label54.Size = New System.Drawing.Size(50, 17)
@@ -3158,6 +4210,7 @@ Partial Class InformationMenu
         Me.CheckBox49.Checked = True
         Me.CheckBox49.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox49.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox49.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox49.Location = New System.Drawing.Point(795, 53)
         Me.CheckBox49.Name = "CheckBox49"
         Me.CheckBox49.Size = New System.Drawing.Size(91, 19)
@@ -3172,6 +4225,7 @@ Partial Class InformationMenu
         Me.CheckBox50.Checked = True
         Me.CheckBox50.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox50.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox50.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox50.Location = New System.Drawing.Point(795, 28)
         Me.CheckBox50.Name = "CheckBox50"
         Me.CheckBox50.Size = New System.Drawing.Size(94, 19)
@@ -3186,6 +4240,7 @@ Partial Class InformationMenu
         Me.CheckBox51.Checked = True
         Me.CheckBox51.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox51.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox51.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox51.Location = New System.Drawing.Point(897, 53)
         Me.CheckBox51.Name = "CheckBox51"
         Me.CheckBox51.Size = New System.Drawing.Size(106, 19)
@@ -3200,6 +4255,7 @@ Partial Class InformationMenu
         Me.CheckBox52.Checked = True
         Me.CheckBox52.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox52.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox52.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox52.Location = New System.Drawing.Point(897, 28)
         Me.CheckBox52.Name = "CheckBox52"
         Me.CheckBox52.Size = New System.Drawing.Size(109, 19)
@@ -3211,25 +4267,31 @@ Partial Class InformationMenu
         '
         Me.CheckBox53.AutoCheck = False
         Me.CheckBox53.AutoSize = True
+        Me.CheckBox53.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBox53.Enabled = False
         Me.CheckBox53.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox53.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox53.Location = New System.Drawing.Point(696, 26)
         Me.CheckBox53.Name = "CheckBox53"
         Me.CheckBox53.Size = New System.Drawing.Size(95, 19)
         Me.CheckBox53.TabIndex = 234
         Me.CheckBox53.Text = "H.264 (AMF)"
-        Me.CheckBox53.UseVisualStyleBackColor = True
+        Me.CheckBox53.UseVisualStyleBackColor = False
         '
         'CheckBox54
         '
         Me.CheckBox54.AutoCheck = False
         Me.CheckBox54.AutoSize = True
+        Me.CheckBox54.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBox54.Enabled = False
         Me.CheckBox54.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox54.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox54.Location = New System.Drawing.Point(696, 51)
         Me.CheckBox54.Name = "CheckBox54"
         Me.CheckBox54.Size = New System.Drawing.Size(92, 19)
         Me.CheckBox54.TabIndex = 233
         Me.CheckBox54.Text = "HEVC (AMF)"
-        Me.CheckBox54.UseVisualStyleBackColor = True
+        Me.CheckBox54.UseVisualStyleBackColor = False
         '
         'CheckBox55
         '
@@ -3238,6 +4300,7 @@ Partial Class InformationMenu
         Me.CheckBox55.Checked = True
         Me.CheckBox55.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox55.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox55.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox55.Location = New System.Drawing.Point(631, 51)
         Me.CheckBox55.Name = "CheckBox55"
         Me.CheckBox55.Size = New System.Drawing.Size(56, 19)
@@ -3252,6 +4315,7 @@ Partial Class InformationMenu
         Me.CheckBox56.Checked = True
         Me.CheckBox56.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox56.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox56.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox56.Location = New System.Drawing.Point(631, 26)
         Me.CheckBox56.Name = "CheckBox56"
         Me.CheckBox56.Size = New System.Drawing.Size(59, 19)
@@ -3273,6 +4337,7 @@ Partial Class InformationMenu
         '
         Me.Label56.AutoSize = True
         Me.Label56.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label56.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label56.Location = New System.Drawing.Point(6, 201)
         Me.Label56.Name = "Label56"
         Me.Label56.Size = New System.Drawing.Size(168, 17)
@@ -3283,6 +4348,7 @@ Partial Class InformationMenu
         '
         Me.Label57.AutoSize = True
         Me.Label57.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label57.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label57.Location = New System.Drawing.Point(6, 25)
         Me.Label57.Name = "Label57"
         Me.Label57.Size = New System.Drawing.Size(186, 17)
@@ -3304,6 +4370,7 @@ Partial Class InformationMenu
         Me.GroupBox10.Controls.Add(Me.Label40)
         Me.GroupBox10.Controls.Add(Me.Label41)
         Me.GroupBox10.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.GroupBox10.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Size = New System.Drawing.Size(1234, 208)
@@ -3320,6 +4387,7 @@ Partial Class InformationMenu
         Me.GroupBox11.Controls.Add(Me.Label46)
         Me.GroupBox11.Controls.Add(Me.Label47)
         Me.GroupBox11.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox11.Location = New System.Drawing.Point(6, 51)
         Me.GroupBox11.Name = "GroupBox11"
         Me.GroupBox11.Size = New System.Drawing.Size(503, 122)
@@ -3331,6 +4399,7 @@ Partial Class InformationMenu
         '
         Me.Label42.AutoSize = True
         Me.Label42.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label42.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label42.Location = New System.Drawing.Point(102, 87)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(374, 17)
@@ -3341,6 +4410,7 @@ Partial Class InformationMenu
         '
         Me.Label43.AutoSize = True
         Me.Label43.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label43.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label43.Location = New System.Drawing.Point(102, 59)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(400, 17)
@@ -3351,6 +4421,7 @@ Partial Class InformationMenu
         '
         Me.Label44.AutoSize = True
         Me.Label44.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label44.Location = New System.Drawing.Point(102, 32)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(73, 17)
@@ -3360,8 +4431,9 @@ Partial Class InformationMenu
         'Label45
         '
         Me.Label45.AutoSize = True
-        Me.Label45.BackColor = System.Drawing.Color.White
+        Me.Label45.BackColor = System.Drawing.Color.Transparent
         Me.Label45.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label45.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label45.Location = New System.Drawing.Point(6, 87)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(63, 17)
@@ -3371,8 +4443,9 @@ Partial Class InformationMenu
         'Label46
         '
         Me.Label46.AutoSize = True
-        Me.Label46.BackColor = System.Drawing.Color.White
+        Me.Label46.BackColor = System.Drawing.Color.Transparent
         Me.Label46.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label46.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label46.Location = New System.Drawing.Point(6, 59)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(51, 17)
@@ -3382,8 +4455,9 @@ Partial Class InformationMenu
         'Label47
         '
         Me.Label47.AutoSize = True
-        Me.Label47.BackColor = System.Drawing.Color.White
+        Me.Label47.BackColor = System.Drawing.Color.Transparent
         Me.Label47.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label47.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label47.Location = New System.Drawing.Point(6, 32)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(77, 17)
@@ -3394,27 +4468,31 @@ Partial Class InformationMenu
         '
         Me.CheckBox41.AutoCheck = False
         Me.CheckBox41.AutoSize = True
+        Me.CheckBox41.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox41.Enabled = False
         Me.CheckBox41.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox41.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox41.Location = New System.Drawing.Point(795, 50)
         Me.CheckBox41.Name = "CheckBox41"
         Me.CheckBox41.Size = New System.Drawing.Size(91, 19)
         Me.CheckBox41.TabIndex = 238
         Me.CheckBox41.Text = "HEVC (QSV)"
-        Me.CheckBox41.UseVisualStyleBackColor = True
+        Me.CheckBox41.UseVisualStyleBackColor = False
         '
         'CheckBox42
         '
         Me.CheckBox42.AutoCheck = False
         Me.CheckBox42.AutoSize = True
+        Me.CheckBox42.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox42.Enabled = False
         Me.CheckBox42.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox42.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox42.Location = New System.Drawing.Point(795, 25)
         Me.CheckBox42.Name = "CheckBox42"
         Me.CheckBox42.Size = New System.Drawing.Size(94, 19)
         Me.CheckBox42.TabIndex = 237
         Me.CheckBox42.Text = "H.264 (QSV)"
-        Me.CheckBox42.UseVisualStyleBackColor = True
+        Me.CheckBox42.UseVisualStyleBackColor = False
         '
         'CheckBox43
         '
@@ -3423,6 +4501,7 @@ Partial Class InformationMenu
         Me.CheckBox43.Checked = True
         Me.CheckBox43.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox43.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox43.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox43.Location = New System.Drawing.Point(897, 50)
         Me.CheckBox43.Name = "CheckBox43"
         Me.CheckBox43.Size = New System.Drawing.Size(106, 19)
@@ -3437,6 +4516,7 @@ Partial Class InformationMenu
         Me.CheckBox44.Checked = True
         Me.CheckBox44.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox44.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox44.Location = New System.Drawing.Point(897, 25)
         Me.CheckBox44.Name = "CheckBox44"
         Me.CheckBox44.Size = New System.Drawing.Size(109, 19)
@@ -3448,53 +4528,61 @@ Partial Class InformationMenu
         '
         Me.CheckBox45.AutoCheck = False
         Me.CheckBox45.AutoSize = True
+        Me.CheckBox45.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox45.Enabled = False
         Me.CheckBox45.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox45.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox45.Location = New System.Drawing.Point(696, 23)
         Me.CheckBox45.Name = "CheckBox45"
         Me.CheckBox45.Size = New System.Drawing.Size(95, 19)
         Me.CheckBox45.TabIndex = 234
         Me.CheckBox45.Text = "H.264 (AMF)"
-        Me.CheckBox45.UseVisualStyleBackColor = True
+        Me.CheckBox45.UseVisualStyleBackColor = False
         '
         'CheckBox46
         '
         Me.CheckBox46.AutoCheck = False
         Me.CheckBox46.AutoSize = True
+        Me.CheckBox46.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox46.Enabled = False
         Me.CheckBox46.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox46.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox46.Location = New System.Drawing.Point(696, 48)
         Me.CheckBox46.Name = "CheckBox46"
         Me.CheckBox46.Size = New System.Drawing.Size(92, 19)
         Me.CheckBox46.TabIndex = 233
         Me.CheckBox46.Text = "HEVC (AMF)"
-        Me.CheckBox46.UseVisualStyleBackColor = True
+        Me.CheckBox46.UseVisualStyleBackColor = False
         '
         'CheckBox47
         '
         Me.CheckBox47.AutoCheck = False
         Me.CheckBox47.AutoSize = True
+        Me.CheckBox47.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox47.Enabled = False
         Me.CheckBox47.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox47.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox47.Location = New System.Drawing.Point(631, 48)
         Me.CheckBox47.Name = "CheckBox47"
         Me.CheckBox47.Size = New System.Drawing.Size(56, 19)
         Me.CheckBox47.TabIndex = 232
         Me.CheckBox47.Text = "HEVC"
-        Me.CheckBox47.UseVisualStyleBackColor = True
+        Me.CheckBox47.UseVisualStyleBackColor = False
         '
         'CheckBox48
         '
         Me.CheckBox48.AutoCheck = False
         Me.CheckBox48.AutoSize = True
+        Me.CheckBox48.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox48.Enabled = False
         Me.CheckBox48.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox48.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox48.Location = New System.Drawing.Point(631, 23)
         Me.CheckBox48.Name = "CheckBox48"
         Me.CheckBox48.Size = New System.Drawing.Size(59, 19)
         Me.CheckBox48.TabIndex = 231
         Me.CheckBox48.Text = "H.264"
-        Me.CheckBox48.UseVisualStyleBackColor = True
+        Me.CheckBox48.UseVisualStyleBackColor = False
         '
         'Label39
         '
@@ -3510,6 +4598,7 @@ Partial Class InformationMenu
         '
         Me.Label40.AutoSize = True
         Me.Label40.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label40.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label40.Location = New System.Drawing.Point(8, 176)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(167, 17)
@@ -3520,6 +4609,7 @@ Partial Class InformationMenu
         '
         Me.Label41.AutoSize = True
         Me.Label41.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label41.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label41.Location = New System.Drawing.Point(6, 25)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(388, 17)
@@ -3540,6 +4630,7 @@ Partial Class InformationMenu
         Me.GroupBox9.Controls.Add(Me.Label37)
         Me.GroupBox9.Controls.Add(Me.Label38)
         Me.GroupBox9.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.GroupBox9.Location = New System.Drawing.Point(9, 347)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Size = New System.Drawing.Size(1234, 104)
@@ -3554,6 +4645,7 @@ Partial Class InformationMenu
         Me.CheckBox33.Checked = True
         Me.CheckBox33.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox33.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox33.Location = New System.Drawing.Point(802, 50)
         Me.CheckBox33.Name = "CheckBox33"
         Me.CheckBox33.Size = New System.Drawing.Size(91, 19)
@@ -3568,6 +4660,7 @@ Partial Class InformationMenu
         Me.CheckBox34.Checked = True
         Me.CheckBox34.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox34.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox34.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox34.Location = New System.Drawing.Point(802, 25)
         Me.CheckBox34.Name = "CheckBox34"
         Me.CheckBox34.Size = New System.Drawing.Size(94, 19)
@@ -3582,6 +4675,7 @@ Partial Class InformationMenu
         Me.CheckBox35.Checked = True
         Me.CheckBox35.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox35.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox35.Location = New System.Drawing.Point(904, 50)
         Me.CheckBox35.Name = "CheckBox35"
         Me.CheckBox35.Size = New System.Drawing.Size(106, 19)
@@ -3596,6 +4690,7 @@ Partial Class InformationMenu
         Me.CheckBox36.Checked = True
         Me.CheckBox36.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox36.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox36.Location = New System.Drawing.Point(904, 25)
         Me.CheckBox36.Name = "CheckBox36"
         Me.CheckBox36.Size = New System.Drawing.Size(109, 19)
@@ -3610,6 +4705,7 @@ Partial Class InformationMenu
         Me.CheckBox37.Checked = True
         Me.CheckBox37.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox37.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox37.Location = New System.Drawing.Point(703, 23)
         Me.CheckBox37.Name = "CheckBox37"
         Me.CheckBox37.Size = New System.Drawing.Size(95, 19)
@@ -3624,6 +4720,7 @@ Partial Class InformationMenu
         Me.CheckBox38.Checked = True
         Me.CheckBox38.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox38.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox38.Location = New System.Drawing.Point(703, 48)
         Me.CheckBox38.Name = "CheckBox38"
         Me.CheckBox38.Size = New System.Drawing.Size(92, 19)
@@ -3638,6 +4735,7 @@ Partial Class InformationMenu
         Me.CheckBox39.Checked = True
         Me.CheckBox39.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox39.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox39.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox39.Location = New System.Drawing.Point(638, 48)
         Me.CheckBox39.Name = "CheckBox39"
         Me.CheckBox39.Size = New System.Drawing.Size(56, 19)
@@ -3652,6 +4750,7 @@ Partial Class InformationMenu
         Me.CheckBox40.Checked = True
         Me.CheckBox40.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox40.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox40.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox40.Location = New System.Drawing.Point(638, 23)
         Me.CheckBox40.Name = "CheckBox40"
         Me.CheckBox40.Size = New System.Drawing.Size(59, 19)
@@ -3673,6 +4772,7 @@ Partial Class InformationMenu
         '
         Me.Label37.AutoSize = True
         Me.Label37.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label37.Location = New System.Drawing.Point(6, 54)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(148, 17)
@@ -3683,6 +4783,7 @@ Partial Class InformationMenu
         '
         Me.Label38.AutoSize = True
         Me.Label38.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label38.Location = New System.Drawing.Point(6, 25)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(411, 17)
@@ -3703,6 +4804,7 @@ Partial Class InformationMenu
         Me.GroupBox8.Controls.Add(Me.Label10)
         Me.GroupBox8.Controls.Add(Me.Label53)
         Me.GroupBox8.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.GroupBox8.Location = New System.Drawing.Point(6, 237)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(1234, 104)
@@ -3717,6 +4819,7 @@ Partial Class InformationMenu
         Me.CheckBox25.Checked = True
         Me.CheckBox25.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox25.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox25.Location = New System.Drawing.Point(803, 50)
         Me.CheckBox25.Name = "CheckBox25"
         Me.CheckBox25.Size = New System.Drawing.Size(91, 19)
@@ -3731,6 +4834,7 @@ Partial Class InformationMenu
         Me.CheckBox26.Checked = True
         Me.CheckBox26.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox26.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox26.Location = New System.Drawing.Point(803, 25)
         Me.CheckBox26.Name = "CheckBox26"
         Me.CheckBox26.Size = New System.Drawing.Size(94, 19)
@@ -3745,6 +4849,7 @@ Partial Class InformationMenu
         Me.CheckBox27.Checked = True
         Me.CheckBox27.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox27.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox27.Location = New System.Drawing.Point(905, 50)
         Me.CheckBox27.Name = "CheckBox27"
         Me.CheckBox27.Size = New System.Drawing.Size(106, 19)
@@ -3759,6 +4864,7 @@ Partial Class InformationMenu
         Me.CheckBox28.Checked = True
         Me.CheckBox28.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox28.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox28.Location = New System.Drawing.Point(905, 25)
         Me.CheckBox28.Name = "CheckBox28"
         Me.CheckBox28.Size = New System.Drawing.Size(109, 19)
@@ -3773,6 +4879,7 @@ Partial Class InformationMenu
         Me.CheckBox29.Checked = True
         Me.CheckBox29.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox29.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox29.Location = New System.Drawing.Point(704, 23)
         Me.CheckBox29.Name = "CheckBox29"
         Me.CheckBox29.Size = New System.Drawing.Size(95, 19)
@@ -3787,6 +4894,7 @@ Partial Class InformationMenu
         Me.CheckBox30.Checked = True
         Me.CheckBox30.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox30.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox30.Location = New System.Drawing.Point(704, 48)
         Me.CheckBox30.Name = "CheckBox30"
         Me.CheckBox30.Size = New System.Drawing.Size(92, 19)
@@ -3801,6 +4909,7 @@ Partial Class InformationMenu
         Me.CheckBox31.Checked = True
         Me.CheckBox31.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox31.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox31.Location = New System.Drawing.Point(639, 48)
         Me.CheckBox31.Name = "CheckBox31"
         Me.CheckBox31.Size = New System.Drawing.Size(56, 19)
@@ -3815,6 +4924,7 @@ Partial Class InformationMenu
         Me.CheckBox32.Checked = True
         Me.CheckBox32.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox32.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox32.Location = New System.Drawing.Point(639, 23)
         Me.CheckBox32.Name = "CheckBox32"
         Me.CheckBox32.Size = New System.Drawing.Size(59, 19)
@@ -3836,6 +4946,7 @@ Partial Class InformationMenu
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label10.Location = New System.Drawing.Point(6, 54)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(208, 17)
@@ -3846,6 +4957,7 @@ Partial Class InformationMenu
         '
         Me.Label53.AutoSize = True
         Me.Label53.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label53.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label53.Location = New System.Drawing.Point(6, 25)
         Me.Label53.Name = "Label53"
         Me.Label53.Size = New System.Drawing.Size(281, 17)
@@ -3859,9 +4971,10 @@ Partial Class InformationMenu
         Me.GroupBox5.Controls.Add(Me.GroupBox6)
         Me.GroupBox5.Controls.Add(Me.Label60)
         Me.GroupBox5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox5.Location = New System.Drawing.Point(3, 5)
+        Me.GroupBox5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.GroupBox5.Location = New System.Drawing.Point(6, 5)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(1234, 226)
+        Me.GroupBox5.Size = New System.Drawing.Size(1231, 226)
         Me.GroupBox5.TabIndex = 214
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Codec / Encoder"
@@ -3870,6 +4983,7 @@ Partial Class InformationMenu
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label19.Location = New System.Drawing.Point(12, 198)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(187, 17)
@@ -3887,6 +5001,7 @@ Partial Class InformationMenu
         Me.GroupBox7.Controls.Add(Me.Label34)
         Me.GroupBox7.Controls.Add(Me.Label35)
         Me.GroupBox7.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox7.Location = New System.Drawing.Point(577, 51)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(565, 139)
@@ -3898,6 +5013,7 @@ Partial Class InformationMenu
         '
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label28.Location = New System.Drawing.Point(102, 116)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(362, 17)
@@ -3907,8 +5023,9 @@ Partial Class InformationMenu
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.BackColor = System.Drawing.Color.White
+        Me.Label29.BackColor = System.Drawing.Color.Transparent
         Me.Label29.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label29.Location = New System.Drawing.Point(6, 116)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(71, 17)
@@ -3919,6 +5036,7 @@ Partial Class InformationMenu
         '
         Me.Label30.AutoSize = True
         Me.Label30.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label30.Location = New System.Drawing.Point(102, 59)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(323, 17)
@@ -3928,8 +5046,9 @@ Partial Class InformationMenu
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.BackColor = System.Drawing.Color.White
+        Me.Label31.BackColor = System.Drawing.Color.Transparent
         Me.Label31.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label31.Location = New System.Drawing.Point(6, 59)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(74, 17)
@@ -3940,6 +5059,7 @@ Partial Class InformationMenu
         '
         Me.Label32.AutoSize = True
         Me.Label32.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label32.Location = New System.Drawing.Point(102, 87)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(364, 17)
@@ -3950,6 +5070,7 @@ Partial Class InformationMenu
         '
         Me.Label33.AutoSize = True
         Me.Label33.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label33.Location = New System.Drawing.Point(102, 32)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(189, 17)
@@ -3959,8 +5080,9 @@ Partial Class InformationMenu
         'Label34
         '
         Me.Label34.AutoSize = True
-        Me.Label34.BackColor = System.Drawing.Color.White
+        Me.Label34.BackColor = System.Drawing.Color.Transparent
         Me.Label34.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label34.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label34.Location = New System.Drawing.Point(6, 87)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(89, 17)
@@ -3970,8 +5092,9 @@ Partial Class InformationMenu
         'Label35
         '
         Me.Label35.AutoSize = True
-        Me.Label35.BackColor = System.Drawing.Color.White
+        Me.Label35.BackColor = System.Drawing.Color.Transparent
         Me.Label35.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label35.Location = New System.Drawing.Point(6, 32)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(42, 17)
@@ -3989,6 +5112,7 @@ Partial Class InformationMenu
         Me.GroupBox6.Controls.Add(Me.Label14)
         Me.GroupBox6.Controls.Add(Me.Label15)
         Me.GroupBox6.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox6.Location = New System.Drawing.Point(6, 51)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(565, 139)
@@ -4000,6 +5124,7 @@ Partial Class InformationMenu
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label24.Location = New System.Drawing.Point(102, 116)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(362, 17)
@@ -4009,8 +5134,9 @@ Partial Class InformationMenu
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.BackColor = System.Drawing.Color.White
+        Me.Label27.BackColor = System.Drawing.Color.Transparent
         Me.Label27.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label27.Location = New System.Drawing.Point(6, 116)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(71, 17)
@@ -4021,6 +5147,7 @@ Partial Class InformationMenu
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label20.Location = New System.Drawing.Point(102, 59)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(323, 17)
@@ -4030,8 +5157,9 @@ Partial Class InformationMenu
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.BackColor = System.Drawing.Color.White
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
         Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label11.Location = New System.Drawing.Point(6, 59)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(74, 17)
@@ -4042,6 +5170,7 @@ Partial Class InformationMenu
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label12.Location = New System.Drawing.Point(102, 87)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(364, 17)
@@ -4052,6 +5181,7 @@ Partial Class InformationMenu
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label13.Location = New System.Drawing.Point(102, 32)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(189, 17)
@@ -4061,8 +5191,9 @@ Partial Class InformationMenu
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.BackColor = System.Drawing.Color.White
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
         Me.Label14.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label14.Location = New System.Drawing.Point(6, 87)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(89, 17)
@@ -4072,8 +5203,9 @@ Partial Class InformationMenu
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.BackColor = System.Drawing.Color.White
+        Me.Label15.BackColor = System.Drawing.Color.Transparent
         Me.Label15.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label15.Location = New System.Drawing.Point(6, 32)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(42, 17)
@@ -4084,6 +5216,7 @@ Partial Class InformationMenu
         '
         Me.Label60.AutoSize = True
         Me.Label60.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label60.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label60.Location = New System.Drawing.Point(6, 25)
         Me.Label60.Name = "Label60"
         Me.Label60.Size = New System.Drawing.Size(392, 17)
@@ -4105,6 +5238,7 @@ Partial Class InformationMenu
         Me.GroupBox3.Controls.Add(Me.Label18)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.GroupBox3.Location = New System.Drawing.Point(6, 223)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(1237, 219)
@@ -4116,6 +5250,7 @@ Partial Class InformationMenu
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label9.Location = New System.Drawing.Point(6, 178)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(180, 17)
@@ -4131,6 +5266,7 @@ Partial Class InformationMenu
         Me.GroupBox4.Controls.Add(Me.Label3)
         Me.GroupBox4.Controls.Add(Me.Label2)
         Me.GroupBox4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.GroupBox4.Location = New System.Drawing.Point(6, 50)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(479, 125)
@@ -4171,8 +5307,9 @@ Partial Class InformationMenu
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.White
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(6, 87)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(68, 17)
@@ -4182,8 +5319,9 @@ Partial Class InformationMenu
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.White
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label3.Location = New System.Drawing.Point(6, 59)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 17)
@@ -4193,8 +5331,9 @@ Partial Class InformationMenu
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.White
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(6, 32)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(77, 17)
@@ -4205,27 +5344,31 @@ Partial Class InformationMenu
         '
         Me.CheckBox1.AutoCheck = False
         Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox1.Enabled = False
         Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox1.Location = New System.Drawing.Point(806, 50)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(91, 19)
         Me.CheckBox1.TabIndex = 219
         Me.CheckBox1.Text = "HEVC (QSV)"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.CheckBox1.UseVisualStyleBackColor = False
         '
         'CheckBox2
         '
         Me.CheckBox2.AutoCheck = False
         Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox2.Enabled = False
         Me.CheckBox2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox2.Location = New System.Drawing.Point(806, 25)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(94, 19)
         Me.CheckBox2.TabIndex = 218
         Me.CheckBox2.Text = "H.264 (QSV)"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.CheckBox2.UseVisualStyleBackColor = False
         '
         'CheckBox19
         '
@@ -4234,6 +5377,7 @@ Partial Class InformationMenu
         Me.CheckBox19.Checked = True
         Me.CheckBox19.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox19.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox19.Location = New System.Drawing.Point(908, 50)
         Me.CheckBox19.Name = "CheckBox19"
         Me.CheckBox19.Size = New System.Drawing.Size(106, 19)
@@ -4248,6 +5392,7 @@ Partial Class InformationMenu
         Me.CheckBox20.Checked = True
         Me.CheckBox20.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox20.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox20.Location = New System.Drawing.Point(908, 25)
         Me.CheckBox20.Name = "CheckBox20"
         Me.CheckBox20.Size = New System.Drawing.Size(109, 19)
@@ -4259,58 +5404,67 @@ Partial Class InformationMenu
         '
         Me.CheckBox21.AutoCheck = False
         Me.CheckBox21.AutoSize = True
+        Me.CheckBox21.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox21.Enabled = False
         Me.CheckBox21.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox21.Location = New System.Drawing.Point(707, 23)
         Me.CheckBox21.Name = "CheckBox21"
         Me.CheckBox21.Size = New System.Drawing.Size(95, 19)
         Me.CheckBox21.TabIndex = 215
         Me.CheckBox21.Text = "H.264 (AMF)"
-        Me.CheckBox21.UseVisualStyleBackColor = True
+        Me.CheckBox21.UseVisualStyleBackColor = False
         '
         'CheckBox22
         '
         Me.CheckBox22.AutoCheck = False
         Me.CheckBox22.AutoSize = True
+        Me.CheckBox22.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox22.Enabled = False
         Me.CheckBox22.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox22.Location = New System.Drawing.Point(707, 48)
         Me.CheckBox22.Name = "CheckBox22"
         Me.CheckBox22.Size = New System.Drawing.Size(92, 19)
         Me.CheckBox22.TabIndex = 214
         Me.CheckBox22.Text = "HEVC (AMF)"
-        Me.CheckBox22.UseVisualStyleBackColor = True
+        Me.CheckBox22.UseVisualStyleBackColor = False
         '
         'CheckBox23
         '
         Me.CheckBox23.AutoCheck = False
         Me.CheckBox23.AutoSize = True
+        Me.CheckBox23.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox23.Enabled = False
         Me.CheckBox23.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox23.Location = New System.Drawing.Point(642, 48)
         Me.CheckBox23.Name = "CheckBox23"
         Me.CheckBox23.Size = New System.Drawing.Size(56, 19)
         Me.CheckBox23.TabIndex = 213
         Me.CheckBox23.Text = "HEVC"
-        Me.CheckBox23.UseVisualStyleBackColor = True
+        Me.CheckBox23.UseVisualStyleBackColor = False
         '
         'CheckBox24
         '
         Me.CheckBox24.AutoCheck = False
         Me.CheckBox24.AutoSize = True
+        Me.CheckBox24.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox24.Enabled = False
         Me.CheckBox24.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox24.Location = New System.Drawing.Point(642, 23)
         Me.CheckBox24.Name = "CheckBox24"
         Me.CheckBox24.Size = New System.Drawing.Size(59, 19)
         Me.CheckBox24.TabIndex = 212
         Me.CheckBox24.Text = "H.264"
-        Me.CheckBox24.UseVisualStyleBackColor = True
+        Me.CheckBox24.UseVisualStyleBackColor = False
         '
         'Label18
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label18.Location = New System.Drawing.Point(6, 30)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(279, 17)
@@ -4341,6 +5495,7 @@ Partial Class InformationMenu
         Me.GroupBox2.Controls.Add(Me.Label21)
         Me.GroupBox2.Controls.Add(Me.Label23)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.GroupBox2.Location = New System.Drawing.Point(6, 104)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(1237, 113)
@@ -4355,6 +5510,7 @@ Partial Class InformationMenu
         Me.CheckBox9.Checked = True
         Me.CheckBox9.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox9.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox9.Location = New System.Drawing.Point(806, 55)
         Me.CheckBox9.Name = "CheckBox9"
         Me.CheckBox9.Size = New System.Drawing.Size(91, 19)
@@ -4369,6 +5525,7 @@ Partial Class InformationMenu
         Me.CheckBox10.Checked = True
         Me.CheckBox10.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox10.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox10.Location = New System.Drawing.Point(806, 30)
         Me.CheckBox10.Name = "CheckBox10"
         Me.CheckBox10.Size = New System.Drawing.Size(94, 19)
@@ -4383,6 +5540,7 @@ Partial Class InformationMenu
         Me.CheckBox11.Checked = True
         Me.CheckBox11.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox11.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox11.Location = New System.Drawing.Point(908, 55)
         Me.CheckBox11.Name = "CheckBox11"
         Me.CheckBox11.Size = New System.Drawing.Size(106, 19)
@@ -4397,6 +5555,7 @@ Partial Class InformationMenu
         Me.CheckBox12.Checked = True
         Me.CheckBox12.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox12.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox12.Location = New System.Drawing.Point(908, 30)
         Me.CheckBox12.Name = "CheckBox12"
         Me.CheckBox12.Size = New System.Drawing.Size(109, 19)
@@ -4411,6 +5570,7 @@ Partial Class InformationMenu
         Me.CheckBox13.Checked = True
         Me.CheckBox13.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox13.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox13.Location = New System.Drawing.Point(707, 28)
         Me.CheckBox13.Name = "CheckBox13"
         Me.CheckBox13.Size = New System.Drawing.Size(95, 19)
@@ -4425,6 +5585,7 @@ Partial Class InformationMenu
         Me.CheckBox14.Checked = True
         Me.CheckBox14.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox14.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox14.Location = New System.Drawing.Point(707, 53)
         Me.CheckBox14.Name = "CheckBox14"
         Me.CheckBox14.Size = New System.Drawing.Size(92, 19)
@@ -4439,6 +5600,7 @@ Partial Class InformationMenu
         Me.CheckBox15.Checked = True
         Me.CheckBox15.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox15.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox15.Location = New System.Drawing.Point(642, 53)
         Me.CheckBox15.Name = "CheckBox15"
         Me.CheckBox15.Size = New System.Drawing.Size(56, 19)
@@ -4453,6 +5615,7 @@ Partial Class InformationMenu
         Me.CheckBox16.Checked = True
         Me.CheckBox16.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox16.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox16.Location = New System.Drawing.Point(642, 28)
         Me.CheckBox16.Name = "CheckBox16"
         Me.CheckBox16.Size = New System.Drawing.Size(59, 19)
@@ -4474,6 +5637,7 @@ Partial Class InformationMenu
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label21.Location = New System.Drawing.Point(6, 57)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(245, 17)
@@ -4484,6 +5648,7 @@ Partial Class InformationMenu
         '
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label23.Location = New System.Drawing.Point(6, 30)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(327, 17)
@@ -4504,6 +5669,7 @@ Partial Class InformationMenu
         Me.GroupBox1.Controls.Add(Me.Label25)
         Me.GroupBox1.Controls.Add(Me.Label26)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.GroupBox1.Location = New System.Drawing.Point(6, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(1237, 95)
@@ -4515,27 +5681,31 @@ Partial Class InformationMenu
         '
         Me.CheckBox7.AutoCheck = False
         Me.CheckBox7.AutoSize = True
+        Me.CheckBox7.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox7.Enabled = False
         Me.CheckBox7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox7.Location = New System.Drawing.Point(808, 46)
         Me.CheckBox7.Name = "CheckBox7"
         Me.CheckBox7.Size = New System.Drawing.Size(89, 19)
         Me.CheckBox7.TabIndex = 210
         Me.CheckBox7.Text = "HEVC (QSV)"
-        Me.CheckBox7.UseVisualStyleBackColor = True
+        Me.CheckBox7.UseVisualStyleBackColor = False
         '
         'CheckBox8
         '
         Me.CheckBox8.AutoCheck = False
         Me.CheckBox8.AutoSize = True
+        Me.CheckBox8.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox8.Enabled = False
         Me.CheckBox8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox8.Location = New System.Drawing.Point(808, 23)
         Me.CheckBox8.Name = "CheckBox8"
         Me.CheckBox8.Size = New System.Drawing.Size(89, 19)
         Me.CheckBox8.TabIndex = 209
         Me.CheckBox8.Text = "H.264 (QSV)"
-        Me.CheckBox8.UseVisualStyleBackColor = True
+        Me.CheckBox8.UseVisualStyleBackColor = False
         '
         'CheckBox5
         '
@@ -4544,6 +5714,7 @@ Partial Class InformationMenu
         Me.CheckBox5.Checked = True
         Me.CheckBox5.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox5.Location = New System.Drawing.Point(908, 48)
         Me.CheckBox5.Name = "CheckBox5"
         Me.CheckBox5.Size = New System.Drawing.Size(106, 19)
@@ -4558,6 +5729,7 @@ Partial Class InformationMenu
         Me.CheckBox6.Checked = True
         Me.CheckBox6.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox6.Location = New System.Drawing.Point(908, 23)
         Me.CheckBox6.Name = "CheckBox6"
         Me.CheckBox6.Size = New System.Drawing.Size(106, 19)
@@ -4569,27 +5741,31 @@ Partial Class InformationMenu
         '
         Me.CheckBox4.AutoCheck = False
         Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox4.Enabled = False
         Me.CheckBox4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox4.Location = New System.Drawing.Point(707, 23)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(92, 19)
         Me.CheckBox4.TabIndex = 206
         Me.CheckBox4.Text = "H.264 (AMF)"
-        Me.CheckBox4.UseVisualStyleBackColor = True
+        Me.CheckBox4.UseVisualStyleBackColor = False
         '
         'CheckBox3
         '
         Me.CheckBox3.AutoCheck = False
         Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox3.Enabled = False
         Me.CheckBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox3.Location = New System.Drawing.Point(707, 48)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(92, 19)
         Me.CheckBox3.TabIndex = 205
         Me.CheckBox3.Text = "HEVC (AMF)"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.CheckBox3.UseVisualStyleBackColor = False
         '
         'CheckBox17
         '
@@ -4598,6 +5774,7 @@ Partial Class InformationMenu
         Me.CheckBox17.Checked = True
         Me.CheckBox17.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox17.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox17.Location = New System.Drawing.Point(642, 48)
         Me.CheckBox17.Name = "CheckBox17"
         Me.CheckBox17.Size = New System.Drawing.Size(56, 19)
@@ -4612,6 +5789,7 @@ Partial Class InformationMenu
         Me.CheckBox18.Checked = True
         Me.CheckBox18.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox18.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox18.Location = New System.Drawing.Point(642, 23)
         Me.CheckBox18.Name = "CheckBox18"
         Me.CheckBox18.Size = New System.Drawing.Size(56, 19)
@@ -4623,6 +5801,7 @@ Partial Class InformationMenu
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label22.Location = New System.Drawing.Point(6, 48)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(213, 17)
@@ -4643,925 +5822,107 @@ Partial Class InformationMenu
         '
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label26.Location = New System.Drawing.Point(6, 25)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(337, 17)
         Me.Label26.TabIndex = 200
         Me.Label26.Text = "Enable Bluray compatibility workarounds  (Default: False)"
         '
-        'TabControl1
-        '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.TabControl1.Location = New System.Drawing.Point(7, 3)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1251, 591)
-        Me.TabControl1.TabIndex = 0
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.Button3)
-        Me.TabPage2.Controls.Add(Me.Button4)
-        Me.TabPage2.Controls.Add(Me.Audio_pnl_1)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Size = New System.Drawing.Size(1243, 561)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "A"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.Silver
-        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(1101, 511)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(58, 39)
-        Me.Button3.TabIndex = 268
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.Color.Silver
-        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.Location = New System.Drawing.Point(1165, 511)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(58, 39)
-        Me.Button4.TabIndex = 267
-        Me.Button4.UseVisualStyleBackColor = False
-        '
-        'Audio_pnl_1
-        '
-        Me.Audio_pnl_1.AutoScroll = True
-        Me.Audio_pnl_1.BackColor = System.Drawing.Color.White
-        Me.Audio_pnl_1.Controls.Add(Me.Audio_pnl_2)
-        Me.Audio_pnl_1.Controls.Add(Me.GroupBox32)
-        Me.Audio_pnl_1.Controls.Add(Me.GroupBox34)
-        Me.Audio_pnl_1.Controls.Add(Me.GroupBox38)
-        Me.Audio_pnl_1.Location = New System.Drawing.Point(0, 0)
-        Me.Audio_pnl_1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Audio_pnl_1.Name = "Audio_pnl_1"
-        Me.Audio_pnl_1.Size = New System.Drawing.Size(1238, 502)
-        Me.Audio_pnl_1.TabIndex = 266
-        '
-        'Audio_pnl_2
-        '
-        Me.Audio_pnl_2.AutoScroll = True
-        Me.Audio_pnl_2.BackColor = System.Drawing.Color.White
-        Me.Audio_pnl_2.Controls.Add(Me.GroupBox40)
-        Me.Audio_pnl_2.Controls.Add(Me.GroupBox41)
-        Me.Audio_pnl_2.Controls.Add(Me.GroupBox42)
-        Me.Audio_pnl_2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Audio_pnl_2.Location = New System.Drawing.Point(0, 0)
-        Me.Audio_pnl_2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Audio_pnl_2.Name = "Audio_pnl_2"
-        Me.Audio_pnl_2.Size = New System.Drawing.Size(1238, 647)
-        Me.Audio_pnl_2.TabIndex = 268
-        '
-        'GroupBox40
-        '
-        Me.GroupBox40.Controls.Add(Me.Label154)
-        Me.GroupBox40.Controls.Add(Me.Label155)
-        Me.GroupBox40.Controls.Add(Me.CheckBox165)
-        Me.GroupBox40.Controls.Add(Me.CheckBox166)
-        Me.GroupBox40.Controls.Add(Me.CheckBox167)
-        Me.GroupBox40.Controls.Add(Me.Label156)
-        Me.GroupBox40.Controls.Add(Me.Label157)
-        Me.GroupBox40.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox40.Location = New System.Drawing.Point(1, 260)
-        Me.GroupBox40.Name = "GroupBox40"
-        Me.GroupBox40.Size = New System.Drawing.Size(1234, 138)
-        Me.GroupBox40.TabIndex = 246
-        Me.GroupBox40.TabStop = False
-        Me.GroupBox40.Text = "Frequency Levels"
-        '
-        'Label154
-        '
-        Me.Label154.AutoSize = True
-        Me.Label154.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label154.Location = New System.Drawing.Point(439, 56)
-        Me.Label154.Name = "Label154"
-        Me.Label154.Size = New System.Drawing.Size(314, 15)
-        Me.Label154.TabIndex = 254
-        Me.Label154.Text = "NOTE: MP3 has maximum frequency support at 48000 hz"
-        '
-        'Label155
-        '
-        Me.Label155.AutoSize = True
-        Me.Label155.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label155.Location = New System.Drawing.Point(438, 36)
-        Me.Label155.Name = "Label155"
-        Me.Label155.Size = New System.Drawing.Size(80, 13)
-        Me.Label155.TabIndex = 241
-        Me.Label155.Text = "Compatibility:"
-        '
-        'CheckBox165
-        '
-        Me.CheckBox165.AutoCheck = False
-        Me.CheckBox165.AutoSize = True
-        Me.CheckBox165.Checked = True
-        Me.CheckBox165.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox165.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox165.Location = New System.Drawing.Point(524, 34)
-        Me.CheckBox165.Name = "CheckBox165"
-        Me.CheckBox165.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox165.TabIndex = 242
-        Me.CheckBox165.Text = "FLAC"
-        Me.CheckBox165.UseVisualStyleBackColor = True
-        '
-        'CheckBox166
-        '
-        Me.CheckBox166.AutoCheck = False
-        Me.CheckBox166.AutoSize = True
-        Me.CheckBox166.Checked = True
-        Me.CheckBox166.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox166.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox166.Location = New System.Drawing.Point(583, 34)
-        Me.CheckBox166.Name = "CheckBox166"
-        Me.CheckBox166.Size = New System.Drawing.Size(51, 19)
-        Me.CheckBox166.TabIndex = 243
-        Me.CheckBox166.Text = "MP3"
-        Me.CheckBox166.UseVisualStyleBackColor = True
-        '
-        'CheckBox167
-        '
-        Me.CheckBox167.AutoCheck = False
-        Me.CheckBox167.AutoSize = True
-        Me.CheckBox167.Checked = True
-        Me.CheckBox167.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox167.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox167.Location = New System.Drawing.Point(640, 34)
-        Me.CheckBox167.Name = "CheckBox167"
-        Me.CheckBox167.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox167.TabIndex = 244
-        Me.CheckBox167.Text = "WAV"
-        Me.CheckBox167.UseVisualStyleBackColor = True
-        '
-        'Label156
-        '
-        Me.Label156.AutoSize = True
-        Me.Label156.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label156.Location = New System.Drawing.Point(9, 87)
-        Me.Label156.Name = "Label156"
-        Me.Label156.Size = New System.Drawing.Size(170, 17)
-        Me.Label156.TabIndex = 229
-        Me.Label156.Text = "FFMPEG Flags: -arate 48000"
-        '
-        'Label157
-        '
-        Me.Label157.AutoSize = True
-        Me.Label157.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label157.Location = New System.Drawing.Point(6, 33)
-        Me.Label157.Name = "Label157"
-        Me.Label157.Size = New System.Drawing.Size(351, 17)
-        Me.Label157.TabIndex = 200
-        Me.Label157.Text = "Configure audio frequency levels with range 8Khz - 192Khz"
-        '
-        'GroupBox41
-        '
-        Me.GroupBox41.Controls.Add(Me.Label158)
-        Me.GroupBox41.Controls.Add(Me.Label159)
-        Me.GroupBox41.Controls.Add(Me.CheckBox168)
-        Me.GroupBox41.Controls.Add(Me.CheckBox169)
-        Me.GroupBox41.Controls.Add(Me.CheckBox170)
-        Me.GroupBox41.Controls.Add(Me.Label160)
-        Me.GroupBox41.Controls.Add(Me.Label161)
-        Me.GroupBox41.Controls.Add(Me.Label162)
-        Me.GroupBox41.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox41.Location = New System.Drawing.Point(4, 124)
-        Me.GroupBox41.Name = "GroupBox41"
-        Me.GroupBox41.Size = New System.Drawing.Size(1234, 130)
-        Me.GroupBox41.TabIndex = 245
-        Me.GroupBox41.TabStop = False
-        Me.GroupBox41.Text = "Compression Levels"
-        '
-        'Label158
-        '
-        Me.Label158.AutoSize = True
-        Me.Label158.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label158.Location = New System.Drawing.Point(435, 53)
-        Me.Label158.Name = "Label158"
-        Me.Label158.Size = New System.Drawing.Size(252, 15)
-        Me.Label158.TabIndex = 253
-        Me.Label158.Text = "NOTE: MP3 Compressed by using bit rate flags"
-        '
-        'Label159
-        '
-        Me.Label159.AutoSize = True
-        Me.Label159.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label159.Location = New System.Drawing.Point(435, 33)
-        Me.Label159.Name = "Label159"
-        Me.Label159.Size = New System.Drawing.Size(80, 13)
-        Me.Label159.TabIndex = 249
-        Me.Label159.Text = "Compatibility:"
-        '
-        'CheckBox168
-        '
-        Me.CheckBox168.AutoCheck = False
-        Me.CheckBox168.AutoSize = True
-        Me.CheckBox168.Checked = True
-        Me.CheckBox168.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox168.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox168.Location = New System.Drawing.Point(521, 31)
-        Me.CheckBox168.Name = "CheckBox168"
-        Me.CheckBox168.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox168.TabIndex = 250
-        Me.CheckBox168.Text = "FLAC"
-        Me.CheckBox168.UseVisualStyleBackColor = True
-        '
-        'CheckBox169
-        '
-        Me.CheckBox169.AutoCheck = False
-        Me.CheckBox169.AutoSize = True
-        Me.CheckBox169.Checked = True
-        Me.CheckBox169.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox169.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox169.Location = New System.Drawing.Point(580, 31)
-        Me.CheckBox169.Name = "CheckBox169"
-        Me.CheckBox169.Size = New System.Drawing.Size(51, 19)
-        Me.CheckBox169.TabIndex = 251
-        Me.CheckBox169.Text = "MP3"
-        Me.CheckBox169.UseVisualStyleBackColor = True
-        '
-        'CheckBox170
-        '
-        Me.CheckBox170.AutoCheck = False
-        Me.CheckBox170.AutoSize = True
-        Me.CheckBox170.Enabled = False
-        Me.CheckBox170.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox170.Location = New System.Drawing.Point(637, 31)
-        Me.CheckBox170.Name = "CheckBox170"
-        Me.CheckBox170.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox170.TabIndex = 252
-        Me.CheckBox170.Text = "WAV"
-        Me.CheckBox170.UseVisualStyleBackColor = True
-        '
-        'Label160
-        '
-        Me.Label160.AutoSize = True
-        Me.Label160.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label160.Location = New System.Drawing.Point(6, 59)
-        Me.Label160.Name = "Label160"
-        Me.Label160.Size = New System.Drawing.Size(353, 17)
-        Me.Label160.TabIndex = 230
-        Me.Label160.Text = "compression and lowest file size possible, (default: 0, 0 - 8)"
-        '
-        'Label161
-        '
-        Me.Label161.AutoSize = True
-        Me.Label161.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label161.Location = New System.Drawing.Point(6, 105)
-        Me.Label161.Name = "Label161"
-        Me.Label161.Size = New System.Drawing.Size(218, 17)
-        Me.Label161.TabIndex = 229
-        Me.Label161.Text = "FFMPEG Flags: -compression_level 5"
-        '
-        'Label162
-        '
-        Me.Label162.AutoSize = True
-        Me.Label162.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label162.Location = New System.Drawing.Point(6, 33)
-        Me.Label162.Name = "Label162"
-        Me.Label162.Size = New System.Drawing.Size(378, 17)
-        Me.Label162.TabIndex = 200
-        Me.Label162.Text = "Configure audio compression level , Higher value means higher"
-        '
-        'GroupBox42
-        '
-        Me.GroupBox42.Controls.Add(Me.Label163)
-        Me.GroupBox42.Controls.Add(Me.CheckBox171)
-        Me.GroupBox42.Controls.Add(Me.CheckBox172)
-        Me.GroupBox42.Controls.Add(Me.CheckBox173)
-        Me.GroupBox42.Controls.Add(Me.Label164)
-        Me.GroupBox42.Controls.Add(Me.Label165)
-        Me.GroupBox42.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox42.Location = New System.Drawing.Point(4, 3)
-        Me.GroupBox42.Name = "GroupBox42"
-        Me.GroupBox42.Size = New System.Drawing.Size(1234, 115)
-        Me.GroupBox42.TabIndex = 244
-        Me.GroupBox42.TabStop = False
-        Me.GroupBox42.Text = "Channels"
-        '
-        'Label163
-        '
-        Me.Label163.AutoSize = True
-        Me.Label163.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label163.Location = New System.Drawing.Point(435, 33)
-        Me.Label163.Name = "Label163"
-        Me.Label163.Size = New System.Drawing.Size(80, 13)
-        Me.Label163.TabIndex = 245
-        Me.Label163.Text = "Compatibility:"
-        '
-        'CheckBox171
-        '
-        Me.CheckBox171.AutoCheck = False
-        Me.CheckBox171.AutoSize = True
-        Me.CheckBox171.Checked = True
-        Me.CheckBox171.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox171.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox171.Location = New System.Drawing.Point(521, 31)
-        Me.CheckBox171.Name = "CheckBox171"
-        Me.CheckBox171.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox171.TabIndex = 246
-        Me.CheckBox171.Text = "FLAC"
-        Me.CheckBox171.UseVisualStyleBackColor = True
-        '
-        'CheckBox172
-        '
-        Me.CheckBox172.AutoCheck = False
-        Me.CheckBox172.AutoSize = True
-        Me.CheckBox172.Checked = True
-        Me.CheckBox172.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox172.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox172.Location = New System.Drawing.Point(580, 31)
-        Me.CheckBox172.Name = "CheckBox172"
-        Me.CheckBox172.Size = New System.Drawing.Size(51, 19)
-        Me.CheckBox172.TabIndex = 247
-        Me.CheckBox172.Text = "MP3"
-        Me.CheckBox172.UseVisualStyleBackColor = True
-        '
-        'CheckBox173
-        '
-        Me.CheckBox173.AutoCheck = False
-        Me.CheckBox173.AutoSize = True
-        Me.CheckBox173.Checked = True
-        Me.CheckBox173.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox173.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox173.Location = New System.Drawing.Point(637, 31)
-        Me.CheckBox173.Name = "CheckBox173"
-        Me.CheckBox173.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox173.TabIndex = 248
-        Me.CheckBox173.Text = "WAV"
-        Me.CheckBox173.UseVisualStyleBackColor = True
-        '
-        'Label164
-        '
-        Me.Label164.AutoSize = True
-        Me.Label164.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label164.Location = New System.Drawing.Point(6, 71)
-        Me.Label164.Name = "Label164"
-        Me.Label164.Size = New System.Drawing.Size(163, 17)
-        Me.Label164.TabIndex = 229
-        Me.Label164.Text = "FFMPEG Flags: -achannel 2"
-        '
-        'Label165
-        '
-        Me.Label165.AutoSize = True
-        Me.Label165.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label165.Location = New System.Drawing.Point(6, 33)
-        Me.Label165.Name = "Label165"
-        Me.Label165.Size = New System.Drawing.Size(256, 17)
-        Me.Label165.TabIndex = 200
-        Me.Label165.Text = "Configure audio channels (default: 2, 0 - 8)"
-        '
-        'GroupBox32
-        '
-        Me.GroupBox32.Controls.Add(Me.Label134)
-        Me.GroupBox32.Controls.Add(Me.CheckBox153)
-        Me.GroupBox32.Controls.Add(Me.CheckBox154)
-        Me.GroupBox32.Controls.Add(Me.CheckBox155)
-        Me.GroupBox32.Controls.Add(Me.GroupBox33)
-        Me.GroupBox32.Controls.Add(Me.Label139)
-        Me.GroupBox32.Controls.Add(Me.Label140)
-        Me.GroupBox32.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox32.Location = New System.Drawing.Point(1, 407)
-        Me.GroupBox32.Name = "GroupBox32"
-        Me.GroupBox32.Size = New System.Drawing.Size(1234, 240)
-        Me.GroupBox32.TabIndex = 246
-        Me.GroupBox32.TabStop = False
-        Me.GroupBox32.Text = "Bit Rate"
-        '
-        'Label134
-        '
-        Me.Label134.AutoSize = True
-        Me.Label134.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label134.Location = New System.Drawing.Point(379, 36)
-        Me.Label134.Name = "Label134"
-        Me.Label134.Size = New System.Drawing.Size(80, 13)
-        Me.Label134.TabIndex = 241
-        Me.Label134.Text = "Compatibility:"
-        '
-        'CheckBox153
-        '
-        Me.CheckBox153.AutoCheck = False
-        Me.CheckBox153.AutoSize = True
-        Me.CheckBox153.Enabled = False
-        Me.CheckBox153.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox153.Location = New System.Drawing.Point(465, 34)
-        Me.CheckBox153.Name = "CheckBox153"
-        Me.CheckBox153.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox153.TabIndex = 242
-        Me.CheckBox153.Text = "FLAC"
-        Me.CheckBox153.UseVisualStyleBackColor = True
-        '
-        'CheckBox154
-        '
-        Me.CheckBox154.AutoCheck = False
-        Me.CheckBox154.AutoSize = True
-        Me.CheckBox154.Checked = True
-        Me.CheckBox154.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox154.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox154.Location = New System.Drawing.Point(524, 34)
-        Me.CheckBox154.Name = "CheckBox154"
-        Me.CheckBox154.Size = New System.Drawing.Size(51, 19)
-        Me.CheckBox154.TabIndex = 243
-        Me.CheckBox154.Text = "MP3"
-        Me.CheckBox154.UseVisualStyleBackColor = True
-        '
-        'CheckBox155
-        '
-        Me.CheckBox155.AutoCheck = False
-        Me.CheckBox155.AutoSize = True
-        Me.CheckBox155.Enabled = False
-        Me.CheckBox155.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox155.Location = New System.Drawing.Point(581, 34)
-        Me.CheckBox155.Name = "CheckBox155"
-        Me.CheckBox155.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox155.TabIndex = 244
-        Me.CheckBox155.Text = "WAV"
-        Me.CheckBox155.UseVisualStyleBackColor = True
-        '
-        'GroupBox33
-        '
-        Me.GroupBox33.Controls.Add(Me.Label135)
-        Me.GroupBox33.Controls.Add(Me.Label136)
-        Me.GroupBox33.Controls.Add(Me.Label137)
-        Me.GroupBox33.Controls.Add(Me.Label138)
-        Me.GroupBox33.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox33.Location = New System.Drawing.Point(6, 60)
-        Me.GroupBox33.Name = "GroupBox33"
-        Me.GroupBox33.Size = New System.Drawing.Size(330, 133)
-        Me.GroupBox33.TabIndex = 240
-        Me.GroupBox33.TabStop = False
-        Me.GroupBox33.Text = "Available flags"
-        '
-        'Label135
-        '
-        Me.Label135.AutoSize = True
-        Me.Label135.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label135.Location = New System.Drawing.Point(9, 106)
-        Me.Label135.Name = "Label135"
-        Me.Label135.Size = New System.Drawing.Size(57, 17)
-        Me.Label135.TabIndex = 243
-        Me.Label135.Text = "128 kb/s"
-        '
-        'Label136
-        '
-        Me.Label136.AutoSize = True
-        Me.Label136.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label136.Location = New System.Drawing.Point(8, 81)
-        Me.Label136.Name = "Label136"
-        Me.Label136.Size = New System.Drawing.Size(57, 17)
-        Me.Label136.TabIndex = 242
-        Me.Label136.Text = "192 kb/s"
-        '
-        'Label137
-        '
-        Me.Label137.AutoSize = True
-        Me.Label137.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label137.Location = New System.Drawing.Point(8, 55)
-        Me.Label137.Name = "Label137"
-        Me.Label137.Size = New System.Drawing.Size(59, 17)
-        Me.Label137.TabIndex = 241
-        Me.Label137.Text = "256 kb/s"
-        '
-        'Label138
-        '
-        Me.Label138.AutoSize = True
-        Me.Label138.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label138.Location = New System.Drawing.Point(8, 27)
-        Me.Label138.Name = "Label138"
-        Me.Label138.Size = New System.Drawing.Size(59, 17)
-        Me.Label138.TabIndex = 240
-        Me.Label138.Text = "320 kb/s"
-        '
-        'Label139
-        '
-        Me.Label139.AutoSize = True
-        Me.Label139.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label139.Location = New System.Drawing.Point(7, 206)
-        Me.Label139.Name = "Label139"
-        Me.Label139.Size = New System.Drawing.Size(144, 17)
-        Me.Label139.TabIndex = 229
-        Me.Label139.Text = "FFMPEG Flags: -b:a 320"
-        '
-        'Label140
-        '
-        Me.Label140.AutoSize = True
-        Me.Label140.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label140.Location = New System.Drawing.Point(6, 33)
-        Me.Label140.Name = "Label140"
-        Me.Label140.Size = New System.Drawing.Size(190, 17)
-        Me.Label140.TabIndex = 200
-        Me.Label140.Text = "Configure audio bit rate quality"
-        '
-        'GroupBox34
-        '
-        Me.GroupBox34.Controls.Add(Me.GroupBox35)
-        Me.GroupBox34.Controls.Add(Me.GroupBox36)
-        Me.GroupBox34.Controls.Add(Me.GroupBox37)
-        Me.GroupBox34.Controls.Add(Me.Label144)
-        Me.GroupBox34.Controls.Add(Me.Label145)
-        Me.GroupBox34.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox34.Location = New System.Drawing.Point(4, 218)
-        Me.GroupBox34.Name = "GroupBox34"
-        Me.GroupBox34.Size = New System.Drawing.Size(1234, 183)
-        Me.GroupBox34.TabIndex = 245
-        Me.GroupBox34.TabStop = False
-        Me.GroupBox34.Text = "Bit Depth"
-        '
-        'GroupBox35
-        '
-        Me.GroupBox35.Controls.Add(Me.Label141)
-        Me.GroupBox35.Controls.Add(Me.CheckBox156)
-        Me.GroupBox35.Controls.Add(Me.CheckBox157)
-        Me.GroupBox35.Controls.Add(Me.CheckBox158)
-        Me.GroupBox35.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox35.Location = New System.Drawing.Point(736, 63)
-        Me.GroupBox35.Name = "GroupBox35"
-        Me.GroupBox35.Size = New System.Drawing.Size(330, 78)
-        Me.GroupBox35.TabIndex = 241
-        Me.GroupBox35.TabStop = False
-        Me.GroupBox35.Text = "Available flags | 32 Bit"
-        '
-        'Label141
-        '
-        Me.Label141.AutoSize = True
-        Me.Label141.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label141.Location = New System.Drawing.Point(6, 36)
-        Me.Label141.Name = "Label141"
-        Me.Label141.Size = New System.Drawing.Size(80, 13)
-        Me.Label141.TabIndex = 230
-        Me.Label141.Text = "Compatibility:"
-        '
-        'CheckBox156
-        '
-        Me.CheckBox156.AutoCheck = False
-        Me.CheckBox156.AutoSize = True
-        Me.CheckBox156.Enabled = False
-        Me.CheckBox156.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox156.Location = New System.Drawing.Point(92, 34)
-        Me.CheckBox156.Name = "CheckBox156"
-        Me.CheckBox156.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox156.TabIndex = 231
-        Me.CheckBox156.Text = "FLAC"
-        Me.CheckBox156.UseVisualStyleBackColor = True
-        '
-        'CheckBox157
-        '
-        Me.CheckBox157.AutoCheck = False
-        Me.CheckBox157.AutoSize = True
-        Me.CheckBox157.Enabled = False
-        Me.CheckBox157.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox157.Location = New System.Drawing.Point(151, 34)
-        Me.CheckBox157.Name = "CheckBox157"
-        Me.CheckBox157.Size = New System.Drawing.Size(51, 19)
-        Me.CheckBox157.TabIndex = 234
-        Me.CheckBox157.Text = "MP3"
-        Me.CheckBox157.UseVisualStyleBackColor = True
-        '
-        'CheckBox158
-        '
-        Me.CheckBox158.AutoCheck = False
-        Me.CheckBox158.AutoSize = True
-        Me.CheckBox158.Checked = True
-        Me.CheckBox158.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox158.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox158.Location = New System.Drawing.Point(208, 34)
-        Me.CheckBox158.Name = "CheckBox158"
-        Me.CheckBox158.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox158.TabIndex = 237
-        Me.CheckBox158.Text = "WAV"
-        Me.CheckBox158.UseVisualStyleBackColor = True
-        '
-        'GroupBox36
-        '
-        Me.GroupBox36.Controls.Add(Me.Label142)
-        Me.GroupBox36.Controls.Add(Me.CheckBox159)
-        Me.GroupBox36.Controls.Add(Me.CheckBox160)
-        Me.GroupBox36.Controls.Add(Me.CheckBox161)
-        Me.GroupBox36.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox36.Location = New System.Drawing.Point(376, 63)
-        Me.GroupBox36.Name = "GroupBox36"
-        Me.GroupBox36.Size = New System.Drawing.Size(330, 78)
-        Me.GroupBox36.TabIndex = 240
-        Me.GroupBox36.TabStop = False
-        Me.GroupBox36.Text = "Available flags | 24 Bit"
-        '
-        'Label142
-        '
-        Me.Label142.AutoSize = True
-        Me.Label142.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label142.Location = New System.Drawing.Point(6, 36)
-        Me.Label142.Name = "Label142"
-        Me.Label142.Size = New System.Drawing.Size(80, 13)
-        Me.Label142.TabIndex = 230
-        Me.Label142.Text = "Compatibility:"
-        '
-        'CheckBox159
-        '
-        Me.CheckBox159.AutoCheck = False
-        Me.CheckBox159.AutoSize = True
-        Me.CheckBox159.Checked = True
-        Me.CheckBox159.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox159.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox159.Location = New System.Drawing.Point(92, 34)
-        Me.CheckBox159.Name = "CheckBox159"
-        Me.CheckBox159.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox159.TabIndex = 231
-        Me.CheckBox159.Text = "FLAC"
-        Me.CheckBox159.UseVisualStyleBackColor = True
-        '
-        'CheckBox160
-        '
-        Me.CheckBox160.AutoCheck = False
-        Me.CheckBox160.AutoSize = True
-        Me.CheckBox160.Enabled = False
-        Me.CheckBox160.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox160.Location = New System.Drawing.Point(151, 34)
-        Me.CheckBox160.Name = "CheckBox160"
-        Me.CheckBox160.Size = New System.Drawing.Size(51, 19)
-        Me.CheckBox160.TabIndex = 234
-        Me.CheckBox160.Text = "MP3"
-        Me.CheckBox160.UseVisualStyleBackColor = True
-        '
-        'CheckBox161
-        '
-        Me.CheckBox161.AutoCheck = False
-        Me.CheckBox161.AutoSize = True
-        Me.CheckBox161.Checked = True
-        Me.CheckBox161.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox161.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox161.Location = New System.Drawing.Point(208, 34)
-        Me.CheckBox161.Name = "CheckBox161"
-        Me.CheckBox161.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox161.TabIndex = 237
-        Me.CheckBox161.Text = "WAV"
-        Me.CheckBox161.UseVisualStyleBackColor = True
-        '
-        'GroupBox37
-        '
-        Me.GroupBox37.Controls.Add(Me.Label143)
-        Me.GroupBox37.Controls.Add(Me.CheckBox162)
-        Me.GroupBox37.Controls.Add(Me.CheckBox163)
-        Me.GroupBox37.Controls.Add(Me.CheckBox164)
-        Me.GroupBox37.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox37.Location = New System.Drawing.Point(6, 63)
-        Me.GroupBox37.Name = "GroupBox37"
-        Me.GroupBox37.Size = New System.Drawing.Size(330, 78)
-        Me.GroupBox37.TabIndex = 239
-        Me.GroupBox37.TabStop = False
-        Me.GroupBox37.Text = "Available flags | 16 Bit"
-        '
-        'Label143
-        '
-        Me.Label143.AutoSize = True
-        Me.Label143.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label143.Location = New System.Drawing.Point(6, 36)
-        Me.Label143.Name = "Label143"
-        Me.Label143.Size = New System.Drawing.Size(80, 13)
-        Me.Label143.TabIndex = 230
-        Me.Label143.Text = "Compatibility:"
-        '
-        'CheckBox162
-        '
-        Me.CheckBox162.AutoCheck = False
-        Me.CheckBox162.AutoSize = True
-        Me.CheckBox162.Checked = True
-        Me.CheckBox162.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox162.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox162.Location = New System.Drawing.Point(92, 34)
-        Me.CheckBox162.Name = "CheckBox162"
-        Me.CheckBox162.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox162.TabIndex = 231
-        Me.CheckBox162.Text = "FLAC"
-        Me.CheckBox162.UseVisualStyleBackColor = True
-        '
-        'CheckBox163
-        '
-        Me.CheckBox163.AutoCheck = False
-        Me.CheckBox163.AutoSize = True
-        Me.CheckBox163.Checked = True
-        Me.CheckBox163.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox163.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox163.Location = New System.Drawing.Point(151, 34)
-        Me.CheckBox163.Name = "CheckBox163"
-        Me.CheckBox163.Size = New System.Drawing.Size(51, 19)
-        Me.CheckBox163.TabIndex = 234
-        Me.CheckBox163.Text = "MP3"
-        Me.CheckBox163.UseVisualStyleBackColor = True
-        '
-        'CheckBox164
-        '
-        Me.CheckBox164.AutoCheck = False
-        Me.CheckBox164.AutoSize = True
-        Me.CheckBox164.Checked = True
-        Me.CheckBox164.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox164.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox164.Location = New System.Drawing.Point(208, 34)
-        Me.CheckBox164.Name = "CheckBox164"
-        Me.CheckBox164.Size = New System.Drawing.Size(53, 19)
-        Me.CheckBox164.TabIndex = 237
-        Me.CheckBox164.Text = "WAV"
-        Me.CheckBox164.UseVisualStyleBackColor = True
-        '
-        'Label144
-        '
-        Me.Label144.AutoSize = True
-        Me.Label144.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label144.Location = New System.Drawing.Point(7, 154)
-        Me.Label144.Name = "Label144"
-        Me.Label144.Size = New System.Drawing.Size(221, 17)
-        Me.Label144.TabIndex = 229
-        Me.Label144.Text = "FFMPEG Flags: -acodec libpcm_s16le"
-        '
-        'Label145
-        '
-        Me.Label145.AutoSize = True
-        Me.Label145.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label145.Location = New System.Drawing.Point(6, 33)
-        Me.Label145.Name = "Label145"
-        Me.Label145.Size = New System.Drawing.Size(159, 17)
-        Me.Label145.TabIndex = 200
-        Me.Label145.Text = "Configure audio bit depth"
-        '
-        'GroupBox38
-        '
-        Me.GroupBox38.Controls.Add(Me.GroupBox39)
-        Me.GroupBox38.Controls.Add(Me.Label152)
-        Me.GroupBox38.Controls.Add(Me.Label153)
-        Me.GroupBox38.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox38.Location = New System.Drawing.Point(4, 3)
-        Me.GroupBox38.Name = "GroupBox38"
-        Me.GroupBox38.Size = New System.Drawing.Size(1234, 209)
-        Me.GroupBox38.TabIndex = 244
-        Me.GroupBox38.TabStop = False
-        Me.GroupBox38.Text = "Codec / Encoder"
-        '
-        'GroupBox39
-        '
-        Me.GroupBox39.Controls.Add(Me.Label146)
-        Me.GroupBox39.Controls.Add(Me.Label147)
-        Me.GroupBox39.Controls.Add(Me.Label148)
-        Me.GroupBox39.Controls.Add(Me.Label149)
-        Me.GroupBox39.Controls.Add(Me.Label150)
-        Me.GroupBox39.Controls.Add(Me.Label151)
-        Me.GroupBox39.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox39.Location = New System.Drawing.Point(6, 66)
-        Me.GroupBox39.Name = "GroupBox39"
-        Me.GroupBox39.Size = New System.Drawing.Size(330, 106)
-        Me.GroupBox39.TabIndex = 240
-        Me.GroupBox39.TabStop = False
-        Me.GroupBox39.Text = "Available Audio Codec"
-        '
-        'Label146
-        '
-        Me.Label146.AutoSize = True
-        Me.Label146.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label146.Location = New System.Drawing.Point(63, 81)
-        Me.Label146.Name = "Label146"
-        Me.Label146.Size = New System.Drawing.Size(191, 17)
-        Me.Label146.TabIndex = 244
-        Me.Label146.Text = "Waveform Audio (libpcm_s16le)"
-        '
-        'Label147
-        '
-        Me.Label147.AutoSize = True
-        Me.Label147.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label147.Location = New System.Drawing.Point(63, 53)
-        Me.Label147.Name = "Label147"
-        Me.Label147.Size = New System.Drawing.Size(114, 17)
-        Me.Label147.TabIndex = 243
-        Me.Label147.Text = "MP3 (libmp3lame)"
-        '
-        'Label148
-        '
-        Me.Label148.AutoSize = True
-        Me.Label148.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label148.Location = New System.Drawing.Point(63, 27)
-        Me.Label148.Name = "Label148"
-        Me.Label148.Size = New System.Drawing.Size(164, 17)
-        Me.Label148.TabIndex = 241
-        Me.Label148.Text = "Free Lossless Audio Codec"
-        '
-        'Label149
-        '
-        Me.Label149.AutoSize = True
-        Me.Label149.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label149.Location = New System.Drawing.Point(9, 81)
-        Me.Label149.Name = "Label149"
-        Me.Label149.Size = New System.Drawing.Size(37, 17)
-        Me.Label149.TabIndex = 242
-        Me.Label149.Text = "WAV"
-        '
-        'Label150
-        '
-        Me.Label150.AutoSize = True
-        Me.Label150.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label150.Location = New System.Drawing.Point(9, 53)
-        Me.Label150.Name = "Label150"
-        Me.Label150.Size = New System.Drawing.Size(35, 17)
-        Me.Label150.TabIndex = 241
-        Me.Label150.Text = "MP3"
-        '
-        'Label151
-        '
-        Me.Label151.AutoSize = True
-        Me.Label151.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label151.Location = New System.Drawing.Point(8, 27)
-        Me.Label151.Name = "Label151"
-        Me.Label151.Size = New System.Drawing.Size(38, 17)
-        Me.Label151.TabIndex = 240
-        Me.Label151.Text = "FLAC"
-        '
-        'Label152
-        '
-        Me.Label152.AutoSize = True
-        Me.Label152.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label152.Location = New System.Drawing.Point(7, 175)
-        Me.Label152.Name = "Label152"
-        Me.Label152.Size = New System.Drawing.Size(221, 17)
-        Me.Label152.TabIndex = 229
-        Me.Label152.Text = "FFMPEG Flags: -acodec libpcm_s16le"
-        '
-        'Label153
-        '
-        Me.Label153.AutoSize = True
-        Me.Label153.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label153.Location = New System.Drawing.Point(6, 33)
-        Me.Label153.Name = "Label153"
-        Me.Label153.Size = New System.Drawing.Size(393, 17)
-        Me.Label153.TabIndex = 200
-        Me.Label153.Text = "Configure Audio Codec / Encoder that will use for encoding audio"
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Controls.Add(Me.TabControl1)
-        Me.Panel1.Location = New System.Drawing.Point(1, 67)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1262, 597)
-        Me.Panel1.TabIndex = 11
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Silver
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button1.Location = New System.Drawing.Point(1, 5)
-        Me.Button1.Name = "Button1"
-        Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button1.Size = New System.Drawing.Size(151, 56)
-        Me.Button1.TabIndex = 12
-        Me.Button1.Text = "Video Codec"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Silver
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(157, 6)
-        Me.Button2.Name = "Button2"
-        Me.Button2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button2.Size = New System.Drawing.Size(151, 53)
-        Me.Button2.TabIndex = 13
-        Me.Button2.Text = "Audio Codec"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.UseVisualStyleBackColor = False
+        'Label170
+        '
+        Me.Label170.AutoSize = True
+        Me.Label170.BackColor = System.Drawing.Color.Transparent
+        Me.Label170.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label170.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label170.Location = New System.Drawing.Point(639, 581)
+        Me.Label170.Name = "Label170"
+        Me.Label170.Size = New System.Drawing.Size(19, 21)
+        Me.Label170.TabIndex = 73
+        Me.Label170.Text = "0"
+        '
+        'Label171
+        '
+        Me.Label171.AutoSize = True
+        Me.Label171.BackColor = System.Drawing.Color.Transparent
+        Me.Label171.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label171.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label171.Location = New System.Drawing.Point(621, 581)
+        Me.Label171.Name = "Label171"
+        Me.Label171.Size = New System.Drawing.Size(17, 21)
+        Me.Label171.TabIndex = 72
+        Me.Label171.Text = "/"
+        '
+        'Label172
+        '
+        Me.Label172.AutoSize = True
+        Me.Label172.BackColor = System.Drawing.Color.Transparent
+        Me.Label172.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label172.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label172.Location = New System.Drawing.Point(602, 581)
+        Me.Label172.Name = "Label172"
+        Me.Label172.Size = New System.Drawing.Size(19, 21)
+        Me.Label172.TabIndex = 71
+        Me.Label172.Text = "0"
         '
         'InformationMenu
         '
+        Me.AllowRoundedCorners = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Silver
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1264, 681)
+        Me.Controls.Add(Me.Label170)
+        Me.Controls.Add(Me.Label171)
+        Me.Controls.Add(Me.Label172)
+        Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.MainPanel)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "InformationMenu"
-        Me.Style.BackColor = System.Drawing.Color.Silver
+        Me.Style.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.Style.MdiChild.IconHorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Center
         Me.Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center
-        Me.Text = "Hana Media Encoder - Information "
-        Me.TabPage1.ResumeLayout(False)
+        Me.Style.TitleBar.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Style.TitleBar.BottomBorderColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Style.TitleBar.CloseButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Style.TitleBar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Style.TitleBar.MinimizeButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Text = "Information "
+        Me.MainPanel.ResumeLayout(False)
         Me.Vid_pnl_1.ResumeLayout(False)
         Me.Video_pnl_2.ResumeLayout(False)
         Me.Video_pnl_3.ResumeLayout(False)
-        Me.Video_pnl_3.PerformLayout()
         Me.Video_pnl_4.ResumeLayout(False)
         Me.Video_pnl_5.ResumeLayout(False)
         Me.Video_pnl_6.ResumeLayout(False)
+        Me.Audio_pnl_1.ResumeLayout(False)
+        Me.Audio_pnl_2.ResumeLayout(False)
+        Me.GroupBox40.ResumeLayout(False)
+        Me.GroupBox40.PerformLayout()
+        Me.GroupBox41.ResumeLayout(False)
+        Me.GroupBox41.PerformLayout()
+        Me.GroupBox42.ResumeLayout(False)
+        Me.GroupBox42.PerformLayout()
+        Me.GroupBox32.ResumeLayout(False)
+        Me.GroupBox32.PerformLayout()
+        Me.GroupBox33.ResumeLayout(False)
+        Me.GroupBox33.PerformLayout()
+        Me.GroupBox34.ResumeLayout(False)
+        Me.GroupBox34.PerformLayout()
+        Me.GroupBox35.ResumeLayout(False)
+        Me.GroupBox35.PerformLayout()
+        Me.GroupBox36.ResumeLayout(False)
+        Me.GroupBox36.PerformLayout()
+        Me.GroupBox37.ResumeLayout(False)
+        Me.GroupBox37.PerformLayout()
+        Me.GroupBox38.ResumeLayout(False)
+        Me.GroupBox38.PerformLayout()
+        Me.GroupBox39.ResumeLayout(False)
+        Me.GroupBox39.PerformLayout()
         Me.GroupBox27.ResumeLayout(False)
         Me.GroupBox27.PerformLayout()
         Me.GroupBox28.ResumeLayout(False)
@@ -5624,43 +5985,16 @@ Partial Class InformationMenu
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.TabControl1.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
-        Me.Audio_pnl_1.ResumeLayout(False)
-        Me.Audio_pnl_2.ResumeLayout(False)
-        Me.GroupBox40.ResumeLayout(False)
-        Me.GroupBox40.PerformLayout()
-        Me.GroupBox41.ResumeLayout(False)
-        Me.GroupBox41.PerformLayout()
-        Me.GroupBox42.ResumeLayout(False)
-        Me.GroupBox42.PerformLayout()
-        Me.GroupBox32.ResumeLayout(False)
-        Me.GroupBox32.PerformLayout()
-        Me.GroupBox33.ResumeLayout(False)
-        Me.GroupBox33.PerformLayout()
-        Me.GroupBox34.ResumeLayout(False)
-        Me.GroupBox34.PerformLayout()
-        Me.GroupBox35.ResumeLayout(False)
-        Me.GroupBox35.PerformLayout()
-        Me.GroupBox36.ResumeLayout(False)
-        Me.GroupBox36.PerformLayout()
-        Me.GroupBox37.ResumeLayout(False)
-        Me.GroupBox37.PerformLayout()
-        Me.GroupBox38.ResumeLayout(False)
-        Me.GroupBox38.PerformLayout()
-        Me.GroupBox39.ResumeLayout(False)
-        Me.GroupBox39.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Button7 As Button
     Friend WithEvents Button8 As Button
-    Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents MainPanel As Panel
     Friend WithEvents Vid_pnl_1 As Panel
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label9 As Label
@@ -5751,76 +6085,6 @@ Partial Class InformationMenu
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Label60 As Label
-    Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Audio_pnl_1 As Panel
-    Friend WithEvents GroupBox32 As GroupBox
-    Friend WithEvents Label134 As Label
-    Friend WithEvents CheckBox153 As CheckBox
-    Friend WithEvents CheckBox154 As CheckBox
-    Friend WithEvents CheckBox155 As CheckBox
-    Friend WithEvents GroupBox33 As GroupBox
-    Friend WithEvents Label135 As Label
-    Friend WithEvents Label136 As Label
-    Friend WithEvents Label137 As Label
-    Friend WithEvents Label138 As Label
-    Friend WithEvents Label139 As Label
-    Friend WithEvents Label140 As Label
-    Friend WithEvents GroupBox34 As GroupBox
-    Friend WithEvents GroupBox35 As GroupBox
-    Friend WithEvents Label141 As Label
-    Friend WithEvents CheckBox156 As CheckBox
-    Friend WithEvents CheckBox157 As CheckBox
-    Friend WithEvents CheckBox158 As CheckBox
-    Friend WithEvents GroupBox36 As GroupBox
-    Friend WithEvents Label142 As Label
-    Friend WithEvents CheckBox159 As CheckBox
-    Friend WithEvents CheckBox160 As CheckBox
-    Friend WithEvents CheckBox161 As CheckBox
-    Friend WithEvents GroupBox37 As GroupBox
-    Friend WithEvents Label143 As Label
-    Friend WithEvents CheckBox162 As CheckBox
-    Friend WithEvents CheckBox163 As CheckBox
-    Friend WithEvents CheckBox164 As CheckBox
-    Friend WithEvents Label144 As Label
-    Friend WithEvents Label145 As Label
-    Friend WithEvents GroupBox38 As GroupBox
-    Friend WithEvents GroupBox39 As GroupBox
-    Friend WithEvents Label146 As Label
-    Friend WithEvents Label147 As Label
-    Friend WithEvents Label148 As Label
-    Friend WithEvents Label149 As Label
-    Friend WithEvents Label150 As Label
-    Friend WithEvents Label151 As Label
-    Friend WithEvents Label152 As Label
-    Friend WithEvents Label153 As Label
-    Friend WithEvents Audio_pnl_2 As Panel
-    Friend WithEvents GroupBox40 As GroupBox
-    Friend WithEvents Label154 As Label
-    Friend WithEvents Label155 As Label
-    Friend WithEvents CheckBox165 As CheckBox
-    Friend WithEvents CheckBox166 As CheckBox
-    Friend WithEvents CheckBox167 As CheckBox
-    Friend WithEvents Label156 As Label
-    Friend WithEvents Label157 As Label
-    Friend WithEvents GroupBox41 As GroupBox
-    Friend WithEvents Label158 As Label
-    Friend WithEvents Label159 As Label
-    Friend WithEvents CheckBox168 As CheckBox
-    Friend WithEvents CheckBox169 As CheckBox
-    Friend WithEvents CheckBox170 As CheckBox
-    Friend WithEvents Label160 As Label
-    Friend WithEvents Label161 As Label
-    Friend WithEvents Label162 As Label
-    Friend WithEvents GroupBox42 As GroupBox
-    Friend WithEvents Label163 As Label
-    Friend WithEvents CheckBox171 As CheckBox
-    Friend WithEvents CheckBox172 As CheckBox
-    Friend WithEvents CheckBox173 As CheckBox
-    Friend WithEvents Label164 As Label
-    Friend WithEvents Label165 As Label
     Friend WithEvents Video_pnl_3 As Panel
     Friend WithEvents GroupBox12 As GroupBox
     Friend WithEvents GroupBox13 As GroupBox
@@ -6057,4 +6321,73 @@ Partial Class InformationMenu
     Friend WithEvents CheckBox150 As CheckBox
     Friend WithEvents CheckBox151 As CheckBox
     Friend WithEvents CheckBox152 As CheckBox
+    Friend WithEvents Audio_pnl_1 As Panel
+    Friend WithEvents GroupBox32 As GroupBox
+    Friend WithEvents Label134 As Label
+    Friend WithEvents CheckBox153 As CheckBox
+    Friend WithEvents CheckBox154 As CheckBox
+    Friend WithEvents CheckBox155 As CheckBox
+    Friend WithEvents GroupBox33 As GroupBox
+    Friend WithEvents Label135 As Label
+    Friend WithEvents Label136 As Label
+    Friend WithEvents Label137 As Label
+    Friend WithEvents Label138 As Label
+    Friend WithEvents Label139 As Label
+    Friend WithEvents Label140 As Label
+    Friend WithEvents GroupBox34 As GroupBox
+    Friend WithEvents GroupBox35 As GroupBox
+    Friend WithEvents Label141 As Label
+    Friend WithEvents CheckBox156 As CheckBox
+    Friend WithEvents CheckBox157 As CheckBox
+    Friend WithEvents CheckBox158 As CheckBox
+    Friend WithEvents GroupBox36 As GroupBox
+    Friend WithEvents Label142 As Label
+    Friend WithEvents CheckBox159 As CheckBox
+    Friend WithEvents CheckBox160 As CheckBox
+    Friend WithEvents CheckBox161 As CheckBox
+    Friend WithEvents GroupBox37 As GroupBox
+    Friend WithEvents Label143 As Label
+    Friend WithEvents CheckBox162 As CheckBox
+    Friend WithEvents CheckBox163 As CheckBox
+    Friend WithEvents CheckBox164 As CheckBox
+    Friend WithEvents Label144 As Label
+    Friend WithEvents Label145 As Label
+    Friend WithEvents GroupBox38 As GroupBox
+    Friend WithEvents GroupBox39 As GroupBox
+    Friend WithEvents Label146 As Label
+    Friend WithEvents Label147 As Label
+    Friend WithEvents Label148 As Label
+    Friend WithEvents Label149 As Label
+    Friend WithEvents Label150 As Label
+    Friend WithEvents Label151 As Label
+    Friend WithEvents Label152 As Label
+    Friend WithEvents Label153 As Label
+    Friend WithEvents Audio_pnl_2 As Panel
+    Friend WithEvents GroupBox40 As GroupBox
+    Friend WithEvents Label154 As Label
+    Friend WithEvents Label155 As Label
+    Friend WithEvents CheckBox165 As CheckBox
+    Friend WithEvents CheckBox166 As CheckBox
+    Friend WithEvents CheckBox167 As CheckBox
+    Friend WithEvents Label156 As Label
+    Friend WithEvents Label157 As Label
+    Friend WithEvents GroupBox41 As GroupBox
+    Friend WithEvents Label158 As Label
+    Friend WithEvents Label159 As Label
+    Friend WithEvents CheckBox168 As CheckBox
+    Friend WithEvents CheckBox169 As CheckBox
+    Friend WithEvents CheckBox170 As CheckBox
+    Friend WithEvents Label160 As Label
+    Friend WithEvents Label161 As Label
+    Friend WithEvents Label162 As Label
+    Friend WithEvents GroupBox42 As GroupBox
+    Friend WithEvents Label163 As Label
+    Friend WithEvents CheckBox171 As CheckBox
+    Friend WithEvents CheckBox172 As CheckBox
+    Friend WithEvents CheckBox173 As CheckBox
+    Friend WithEvents Label164 As Label
+    Friend WithEvents Label165 As Label
+    Friend WithEvents Label170 As Label
+    Friend WithEvents Label171 As Label
+    Friend WithEvents Label172 As Label
 End Class

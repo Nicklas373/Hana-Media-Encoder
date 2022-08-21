@@ -167,6 +167,7 @@ Module MediaEncoderModule
         File.Delete("chapter.txt")
         File.Delete("FFMETADATAFILE")
         File.Delete("HME.bat")
+        File.Delete("HME.msi")
         File.Delete("HME_Audio_Flags.txt")
         File.Delete("HME_Stream_Replace.txt")
         File.Delete("HME_VF.bat")
@@ -179,10 +180,7 @@ Module MediaEncoderModule
             MassDelete("audioConfig", "txt")
             MassDelete("videoStream", "txt")
             MassDelete("videoConfig", "txt")
-            If File.Exists("thumbnail\1.png") Then
-                File.Delete("thumbnail\1.png")
-                File.Delete("thumbnail\2.png")
-            End If
+            MassDelete("thumbnail", "png")
         End If
     End Sub
     Public Sub InitExit()

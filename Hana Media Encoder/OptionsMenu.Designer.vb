@@ -84,6 +84,7 @@ Partial Class OptionsMenu
         '
         'General_pnl
         '
+        Me.General_pnl.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.General_pnl.Controls.Add(Me.about_pnl)
         Me.General_pnl.Controls.Add(Me.Label24)
         Me.General_pnl.Controls.Add(Me.Label21)
@@ -114,14 +115,16 @@ Partial Class OptionsMenu
         Me.General_pnl.Controls.Add(Me.Label1)
         Me.General_pnl.Controls.Add(Me.TextBox1)
         Me.General_pnl.Controls.Add(Me.Button4)
-        Me.General_pnl.Location = New System.Drawing.Point(3, 0)
+        Me.General_pnl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.General_pnl.Location = New System.Drawing.Point(0, 0)
         Me.General_pnl.Name = "General_pnl"
-        Me.General_pnl.Size = New System.Drawing.Size(1254, 588)
+        Me.General_pnl.Size = New System.Drawing.Size(1257, 588)
         Me.General_pnl.TabIndex = 38
         '
         'about_pnl
         '
         Me.about_pnl.AutoScroll = True
+        Me.about_pnl.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.about_pnl.Controls.Add(Me.Button2)
         Me.about_pnl.Controls.Add(Me.LinkLabel1)
         Me.about_pnl.Controls.Add(Me.Label28)
@@ -135,22 +138,28 @@ Partial Class OptionsMenu
         Me.about_pnl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.about_pnl.Location = New System.Drawing.Point(0, 0)
         Me.about_pnl.Name = "about_pnl"
-        Me.about_pnl.Size = New System.Drawing.Size(1254, 588)
-        Me.about_pnl.TabIndex = 40
+        Me.about_pnl.Size = New System.Drawing.Size(1257, 588)
+        Me.about_pnl.TabIndex = 44
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(524, 22)
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button2.Location = New System.Drawing.Point(627, 22)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(116, 23)
         Me.Button2.TabIndex = 11
         Me.Button2.Text = "Check for updates"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'LinkLabel1
         '
+        Me.LinkLabel1.ActiveLinkColor = System.Drawing.Color.DodgerBlue
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(230, 190)
+        Me.LinkLabel1.LinkColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.LinkLabel1.Location = New System.Drawing.Point(238, 207)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(325, 15)
         Me.LinkLabel1.TabIndex = 10
@@ -160,17 +169,20 @@ Partial Class OptionsMenu
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label28.Location = New System.Drawing.Point(230, 169)
+        Me.Label28.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label28.Location = New System.Drawing.Point(237, 181)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(85, 17)
+        Me.Label28.Size = New System.Drawing.Size(108, 26)
         Me.Label28.TabIndex = 9
         Me.Label28.Text = "Submit issue"
         '
         'LinkLabel2
         '
+        Me.LinkLabel2.ActiveLinkColor = System.Drawing.Color.DodgerBlue
         Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Location = New System.Drawing.Point(229, 138)
+        Me.LinkLabel2.LinkColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.LinkLabel2.Location = New System.Drawing.Point(237, 155)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(289, 15)
         Me.LinkLabel2.TabIndex = 8
@@ -180,10 +192,11 @@ Partial Class OptionsMenu
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label27.Location = New System.Drawing.Point(229, 117)
+        Me.Label27.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label27.Location = New System.Drawing.Point(237, 127)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(57, 17)
+        Me.Label27.Size = New System.Drawing.Size(72, 26)
         Me.Label27.TabIndex = 6
         Me.Label27.Text = "Website"
         '
@@ -191,7 +204,8 @@ Partial Class OptionsMenu
         '
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label26.Location = New System.Drawing.Point(18, 237)
+        Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label26.Location = New System.Drawing.Point(18, 271)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(53, 17)
         Me.Label26.TabIndex = 5
@@ -200,36 +214,42 @@ Partial Class OptionsMenu
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label25.Location = New System.Drawing.Point(230, 80)
+        Me.Label25.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label25.Location = New System.Drawing.Point(237, 85)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(63, 17)
+        Me.Label25.Size = New System.Drawing.Size(84, 26)
         Me.Label25.TabIndex = 4
         Me.Label25.Text = "copyright"
         '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label20.Location = New System.Drawing.Point(230, 61)
+        Me.Label20.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label20.Location = New System.Drawing.Point(237, 58)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(49, 17)
+        Me.Label20.Size = New System.Drawing.Size(65, 26)
         Me.Label20.TabIndex = 3
         Me.Label20.Text = "appver"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(227, 21)
+        Me.Label4.Font = New System.Drawing.Font("Poppins", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(234, 21)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(111, 30)
+        Me.Label4.Size = New System.Drawing.Size(137, 42)
         Me.Label4.TabIndex = 2
         Me.Label4.Text = "APPNAME"
         '
         'PictureBox1
         '
-        Me.PictureBox1.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.InitialImage = Nothing
         Me.PictureBox1.Location = New System.Drawing.Point(18, 21)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(200, 200)
@@ -240,6 +260,7 @@ Partial Class OptionsMenu
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label24.Location = New System.Drawing.Point(234, 138)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(927, 15)
@@ -252,6 +273,7 @@ Partial Class OptionsMenu
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label21.Location = New System.Drawing.Point(234, 158)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(761, 15)
@@ -263,6 +285,7 @@ Partial Class OptionsMenu
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label22.Location = New System.Drawing.Point(235, 119)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(342, 15)
@@ -283,6 +306,7 @@ Partial Class OptionsMenu
         '
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label23.Location = New System.Drawing.Point(18, 94)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(145, 17)
@@ -293,6 +317,7 @@ Partial Class OptionsMenu
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label19.Location = New System.Drawing.Point(234, 63)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(443, 15)
@@ -304,6 +329,7 @@ Partial Class OptionsMenu
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label18.Location = New System.Drawing.Point(235, 44)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(326, 15)
@@ -323,6 +349,7 @@ Partial Class OptionsMenu
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label17.Location = New System.Drawing.Point(18, 19)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(87, 17)
@@ -333,6 +360,7 @@ Partial Class OptionsMenu
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label16.Location = New System.Drawing.Point(237, 465)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(506, 15)
@@ -344,6 +372,7 @@ Partial Class OptionsMenu
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label15.Location = New System.Drawing.Point(453, 373)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(61, 17)
@@ -354,6 +383,7 @@ Partial Class OptionsMenu
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label14.Location = New System.Drawing.Point(236, 373)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(122, 17)
@@ -364,6 +394,7 @@ Partial Class OptionsMenu
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label13.Location = New System.Drawing.Point(453, 401)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(61, 17)
@@ -374,6 +405,7 @@ Partial Class OptionsMenu
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label12.Location = New System.Drawing.Point(236, 401)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(119, 17)
@@ -384,6 +416,7 @@ Partial Class OptionsMenu
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label11.Location = New System.Drawing.Point(453, 430)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(61, 17)
@@ -394,6 +427,7 @@ Partial Class OptionsMenu
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label10.Location = New System.Drawing.Point(237, 430)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(75, 17)
@@ -404,6 +438,7 @@ Partial Class OptionsMenu
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label9.Location = New System.Drawing.Point(453, 345)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(61, 17)
@@ -414,6 +449,7 @@ Partial Class OptionsMenu
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(236, 345)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(76, 17)
@@ -424,6 +460,7 @@ Partial Class OptionsMenu
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label7.Location = New System.Drawing.Point(453, 316)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(61, 17)
@@ -434,6 +471,7 @@ Partial Class OptionsMenu
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label6.Location = New System.Drawing.Point(236, 316)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(74, 17)
@@ -444,6 +482,7 @@ Partial Class OptionsMenu
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label3.Location = New System.Drawing.Point(20, 316)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(110, 17)
@@ -453,6 +492,7 @@ Partial Class OptionsMenu
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox2.Location = New System.Drawing.Point(461, 281)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(362, 19)
@@ -463,6 +503,7 @@ Partial Class OptionsMenu
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox1.Location = New System.Drawing.Point(461, 255)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(206, 19)
@@ -472,7 +513,10 @@ Partial Class OptionsMenu
         '
         'ComboBox1
         '
+        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.ComboBox1.Enabled = False
+        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Intel (QuickSync)", "NVIDIA (NVENC / NVDEC)", "AMD (OpenCL)"})
         Me.ComboBox1.Location = New System.Drawing.Point(236, 254)
@@ -484,6 +528,7 @@ Partial Class OptionsMenu
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(19, 254)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(171, 17)
@@ -494,6 +539,7 @@ Partial Class OptionsMenu
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(236, 219)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(404, 15)
@@ -504,6 +550,7 @@ Partial Class OptionsMenu
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(19, 190)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(101, 17)
@@ -512,6 +559,8 @@ Partial Class OptionsMenu
         '
         'TextBox1
         '
+        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.TextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.TextBox1.Location = New System.Drawing.Point(236, 189)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
@@ -520,63 +569,74 @@ Partial Class OptionsMenu
         '
         'Button4
         '
+        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Button4.Location = New System.Drawing.Point(892, 186)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(86, 30)
         Me.Button4.TabIndex = 0
         Me.Button4.Text = "Browse"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.Color.Silver
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button1.Location = New System.Drawing.Point(8, 5)
         Me.Button1.Name = "Button1"
         Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button1.Size = New System.Drawing.Size(122, 56)
+        Me.Button1.Size = New System.Drawing.Size(180, 56)
         Me.Button1.TabIndex = 1
-        Me.Button1.Text = "General"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.Text = "       General"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Button3
         '
-        Me.Button3.BackColor = System.Drawing.Color.Silver
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.Button3.FlatAppearance.BorderSize = 0
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(136, 5)
+        Me.Button3.Location = New System.Drawing.Point(194, 5)
         Me.Button3.Name = "Button3"
         Me.Button3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button3.Size = New System.Drawing.Size(110, 56)
+        Me.Button3.Size = New System.Drawing.Size(180, 56)
         Me.Button3.TabIndex = 2
         Me.Button3.Text = "About"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button3.UseVisualStyleBackColor = False
         '
         'OptionsMenu
         '
+        Me.AllowRoundedCorners = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Silver
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1264, 681)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "OptionsMenu"
-        Me.Style.BackColor = System.Drawing.Color.Silver
+        Me.Style.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.Style.MdiChild.IconHorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Center
         Me.Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center
-        Me.Text = "Hana Media Encoder - Options"
+        Me.Style.TitleBar.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Style.TitleBar.BottomBorderColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Style.TitleBar.CloseButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Style.TitleBar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Style.TitleBar.MinimizeButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Text = "Options"
         Me.Panel1.ResumeLayout(False)
         Me.General_pnl.ResumeLayout(False)
         Me.General_pnl.PerformLayout()
@@ -621,14 +681,14 @@ Partial Class OptionsMenu
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button4 As Button
     Friend WithEvents about_pnl As Panel
-    Friend WithEvents Label4 As Label
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label20 As Label
-    Friend WithEvents Label25 As Label
-    Friend WithEvents Label26 As Label
-    Friend WithEvents LinkLabel2 As LinkLabel
-    Friend WithEvents Label27 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents Label28 As Label
+    Friend WithEvents LinkLabel2 As LinkLabel
+    Friend WithEvents Label27 As Label
+    Friend WithEvents Label26 As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
