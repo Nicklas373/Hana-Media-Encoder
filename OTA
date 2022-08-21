@@ -1,19 +1,17 @@
 {
-	"release_date": "17 August 2022",
-	"version": "1.1.0.0",
+	"release_date": "21 August 2022",
+	"version": "1.2.0.0",
 	"changelog": [
-		"- Configure spectrum resolution to higher resolution 768x768 from 854x480",
-		"- Disable low power mode while using QSV",
-		"- Drop level profile configuration on video codec for QSV (Quicksync are not support it)",
-		"- Do not show image if thumbnail are not exists",
-		"- Fixup debug mode are not run correctly",
-		"- Fixup encoding logic in some cases",
-		"- Fixup issue with video codec detection issue (QSV in primary, other codec is config only)",
-		"- Fixup issue with audio codec detection issue (Copy profile)",
-		"- Fixup issue with audio codec profile enable unconditionally after try to lock profile without set saved media file",
-		"- Fixup missing main10 video profile on QSV",
-		"- Properly clean all temporary files and process after application close",
-		"- Specify ffplay to show audio waveform only if file detected as audio, if detected as video then show video"
+		"- Fixup application crash while OTA download is on progress in some case",
+		"- Fixup h264 for nvidia gpu encode error while aqstrength is included",
+		"- Fixup video frame rate information that are not show correctly in some case",
+		"- Introduce loading interface while load or initialize new media file",
+		"- Introduce new application logo and design",
+		"- Introduce support for drag and drop media file into application on main menu",
+		"- Only show short codec name for media file",
+		"- Re-design all user interface component",
+		"- Re-design message information interface",
+		"- Re-written logic for create media screenshot and audio spectrum"
 	],
-	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.1.0/HME_Setup.msi"
+	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.2.0/HME_Setup.msi"
 }
