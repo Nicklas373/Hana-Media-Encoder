@@ -50,9 +50,9 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
 
 # Documentation
 <p align="left">
-<img width="854" height="480" src="https://github.com/Nicklas373/Hana-Media-Encoder/blob/master/Hana%20Media%20Encoder/snap/snap_1.png">&nbsp;&nbsp;&nbsp;
-<img width="854" height="480" src="https://github.com/Nicklas373/Hana-Media-Encoder/blob/master/Hana%20Media%20Encoder/snap/snap_2.png">&nbsp;&nbsp;&nbsp;
-<img width="854" height="480" src="https://github.com/Nicklas373/Hana-Media-Encoder/blob/master/Hana%20Media%20Encoder/snap/snap_3.png">&nbsp;&nbsp;&nbsp;
+<img width="854" height="480" src="https://github.com/Nicklas373/Hana-Media-Encoder/blob/master/snap/snap_1.png">&nbsp;&nbsp;&nbsp;
+<img width="854" height="480" src="https://github.com/Nicklas373/Hana-Media-Encoder/blob/master/snap/snap_2.png">&nbsp;&nbsp;&nbsp;
+<img width="854" height="480" src="https://github.com/Nicklas373/Hana-Media-Encoder/blob/master/snap/snap_3.png">&nbsp;&nbsp;&nbsp;
 </p>
 
 # License
