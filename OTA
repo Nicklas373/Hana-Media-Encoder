@@ -1,8 +1,24 @@
 {
 	"release_date": "27 August 2022",
-	"version": "1.2.6.0",
+	"version": "1.2.0.0",
 	"changelog": [
-		"- Fixup issue with unknown icon or logo after update to v1.2.5"
+		"- Change screenshot to snapshots",
+		"- Configure color for details button on messagebox",
+		"- Fixup issue with FileExplorer crash or freeze while using drag n drop feature into this app",
+		"- Fixup issue with FFMPEG command on video or audio menu missing after unlock profile",
+		"- Fixup issue with media name in some cases can no be updated while on load progress (white block text)",
+		"- Fixup issue with restore value from video resolution and aspect ratio in some cases return empty or wrong value",
+		"- Fixup issue with Snapshot in some cases can not get in total of 5 snapshots and cause application error",
+		"- Fixup issue with unknown value that show up on sample format (Now formatted as 16, 24 and 32bit)",
+		"- Fixup issue with weird color when some toggle or function are on disable state",
+		"- Fixup issue with video resolution and aspect ratio command",
+		"- Include new information for video and audio summary (Video / Audio profile and audio bit rate)",
+		"- Introduce loading initial interface",
+		"- Introduce new feature to configure video aspect ratio and video resolution on video menu",
+		"- Introduce several icon and placeholder image for snapshots, spectrum , preview, next, previous and some toggle on chapter button",
+		"- Include proper check for file extensions on open media file function same like drag n drop function (Make sure media file are valid file to process)",
+		"- Limit maximum video resolution to upscale to 7680 x 4320",
+		"- Properly tell exists total and initial screenshot and spectrum file that are generated from applications"
 	],
-	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.2.6/HME_Setup.msi"
+	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.2.5/HME_Setup.msi"
 }
