@@ -173,11 +173,11 @@ Public Class MainMenu
     End Sub
     Private Async Sub OpenMedia_Load()
         Await Task.Run(Sub() DoNothing())
+        Dim loadInit = New Loading(Label2.Text)
+        loadInit.Show()
         ResetInit()
         ComboBox24.Enabled = True
         ComboBox23.Enabled = True
-        Dim loadInit = New Loading(Label2.Text)
-        loadInit.Show()
         getVideoSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34), "0")
         getAudioSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34), "0")
         getDurationSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34))
@@ -193,6 +193,7 @@ Public Class MainMenu
         If ComboBox24.Items.Count > 0 Then
             ComboBox24.SelectedIndex = 0
         End If
+        CleanEnv("all")
         PictureBox1.Image = Nothing
         PictureBox1.BackColor = Color.Empty
         PictureBox1.Invalidate()
@@ -207,6 +208,10 @@ Public Class MainMenu
             ImgPrev1.Close()
             Label96.Text = 1
             Label98.Text = TotalScreenshot.ToString
+            Button7.Visible = True
+            Button7.Enabled = True
+            Button8.Visible = True
+            Button8.Enabled = True
         Else
             Videofile = Chr(34) & Label2.Text & Chr(34)
             Newffargs = "ffmpeg -hide_banner -i " & Videofile & " -an -vcodec copy " & Chr(34) & My.Application.Info.DirectoryPath & "\" & "thumbnail\1.png"
@@ -222,15 +227,22 @@ Public Class MainMenu
                 TotalScreenshot = 1
                 Label96.Text = 1
                 Label98.Text = TotalScreenshot.ToString
+                Button7.Visible = True
+                Button7.Enabled = True
+                Button8.Visible = True
+                Button8.Enabled = True
             Else
+                Dim ImgPrev1 As New FileStream(VideoErrorPlaceholder, FileMode.Open, FileAccess.Read)
+                PictureBox1.Image = Image.FromStream(ImgPrev1)
+                ImgPrev1.Close()
                 Label96.Text = 0
                 Label98.Text = 0
+                Button7.Visible = False
+                Button7.Enabled = False
+                Button8.Visible = False
+                Button8.Enabled = False
             End If
         End If
-        Button7.Visible = True
-        Button7.Enabled = True
-        Button8.Visible = True
-        Button8.Enabled = True
         CleanEnv("minimal")
         If Label5.Text.Equals("Not Detected") = True Then
             ComboBox24.Text = ""
@@ -286,10 +298,10 @@ Public Class MainMenu
                     ImgPrev2.Close()
                     Label96.Text = CurPos + 1
                 Else
-                    MessageBoxAdv.Show("Already on last screenshot !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBoxAdv.Show("Already on last snapshots !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Else
-                MessageBoxAdv.Show("Already on last screenshot !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBoxAdv.Show("Already on last snapshots !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         ElseIf ComboBox31.SelectedIndex = 1 Then
             If Label96.Text = 0 And Label98.Text = 0 Then
@@ -310,10 +322,10 @@ Public Class MainMenu
                     ImgPrev2.Close()
                     Label96.Text = CurPos - 1
                 Else
-                    MessageBoxAdv.Show("Already on first screenshot !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBoxAdv.Show("Already on first snapshots !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Else
-                MessageBoxAdv.Show("Already on first screenshot !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBoxAdv.Show("Already on first snapshots !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         ElseIf ComboBox31.SelectedIndex = 1 Then
             If Label96.Text = 0 And Label98.Text = 0 Then
@@ -327,15 +339,22 @@ Public Class MainMenu
         If ComboBox31.SelectedIndex = 0 Then
             If File.Exists("thumbnail\1.png") Then
                 ImageDir = "thumbnail\1.png"
+                Label96.Text = "1"
+                Label98.Text = TotalScreenshot.ToString
+                Button7.Visible = True
+                Button7.Enabled = True
+                Button8.Visible = True
+                Button8.Enabled = True
             Else
                 ImageDir = VideoErrorPlaceholder
+                Label96.Text = 0
+                Label98.Text = 0
+                Button7.Visible = False
+                Button7.Enabled = False
+                Button8.Visible = False
+                Button8.Enabled = False
             End If
-            Label96.Text = "1"
-            Label98.Text = TotalScreenshot.ToString
-            Button7.Visible = True
-            Button7.Enabled = True
-            Button8.Visible = True
-            Button8.Enabled = True
+
         ElseIf ComboBox31.SelectedIndex = 1 Then
             If File.Exists("spectrum-temp.png") Then
                 ImageDir = "spectrum-temp.png"
@@ -3419,7 +3438,7 @@ Public Class MainMenu
                         writer.WriteLine("Title=" & selectedTitle & vbCrLf)
                     Next
                     writer.Close()
-                    RichTextBox5.Text = " -i " & Chr(34) & My.Application.Info.DirectoryPath & "\FFMETADATAFILE" & Chr(34) & " -map_metadata 1 "
+                    RichTextBox5.Text = " -i " & Chr(34) & My.Application.Info.DirectoryPath & "\FFMETADATAFILE" & Chr(34) & " -map_chapters 1 "
                     TextBox5.Enabled = False
                     TextBox17.Enabled = False
                     TextBox18.Enabled = False
@@ -3428,7 +3447,6 @@ Public Class MainMenu
                     Button12.Enabled = False
                     Button13.Enabled = False
                     Button14.Enabled = False
-                    RichTextBox5.Enabled = False
                 End If
             Else
                 MessageBoxAdv.Show("Please add chapter first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -3571,22 +3589,23 @@ Public Class MainMenu
     End Sub
     Private Sub ResetInit()
         CheckBox1.Checked = False
+        CheckBox2.Checked = False
+        CheckBox2.Enabled = False
         CheckBox3.Enabled = False
         CheckBox3.Checked = False
         CheckBox4.Checked = False
-        CheckBox7.Checked = False
-        CheckBox8.Checked = False
+        CheckBox5.Checked = False
+        CheckBox5.Enabled = False
         CheckBox6.Checked = False
-        CheckBox2.Checked = False
-        CheckBox2.Enabled = False
-        CheckBox12.Enabled = False
-        CheckBox12.Checked = False
+        CheckBox7.Checked = False
+        CheckBox7.Enabled = False
+        CheckBox8.Checked = False
         CheckBox11.Enabled = False
         CheckBox11.Checked = False
-        CheckBox9.Enabled = False
-        CheckBox9.Checked = False
-        CheckBox10.Enabled = False
-        CheckBox10.Checked = False
+        CheckBox12.Enabled = False
+        CheckBox12.Checked = False
+        CheckBox14.Checked = False
+        CheckBox15.Checked = False
     End Sub
     Private Sub StartTimeHours_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox7.KeyPress
         If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then

@@ -392,7 +392,7 @@ Partial Class MainMenu
         '
         'Button6
         '
-        Me.Button6.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Button6.BackColor = System.Drawing.Color.Transparent
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
@@ -1973,6 +1973,7 @@ Partial Class MainMenu
         'CheckBox4
         '
         Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.CheckBox4.Location = New System.Drawing.Point(17, 389)
@@ -1980,7 +1981,7 @@ Partial Class MainMenu
         Me.CheckBox4.Size = New System.Drawing.Size(156, 28)
         Me.CheckBox4.TabIndex = 1
         Me.CheckBox4.Text = "Enable Audio"
-        Me.CheckBox4.UseVisualStyleBackColor = True
+        Me.CheckBox4.UseVisualStyleBackColor = False
         '
         'TabPage6
         '
@@ -2209,7 +2210,7 @@ Partial Class MainMenu
         Me.CheckBox14.Enabled = False
         Me.CheckBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox14.Location = New System.Drawing.Point(210, 389)
+        Me.CheckBox14.Location = New System.Drawing.Point(199, 389)
         Me.CheckBox14.Name = "CheckBox14"
         Me.CheckBox14.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox14.TabIndex = 67
@@ -2219,6 +2220,7 @@ Partial Class MainMenu
         'CheckBox15
         '
         Me.CheckBox15.AutoSize = True
+        Me.CheckBox15.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox15.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.CheckBox15.Location = New System.Drawing.Point(17, 389)
@@ -2226,7 +2228,7 @@ Partial Class MainMenu
         Me.CheckBox15.Size = New System.Drawing.Size(174, 28)
         Me.CheckBox15.TabIndex = 66
         Me.CheckBox15.Text = "Enable Chapter"
-        Me.CheckBox15.UseVisualStyleBackColor = True
+        Me.CheckBox15.UseVisualStyleBackColor = False
         '
         'ListView1
         '
@@ -2456,7 +2458,7 @@ Partial Class MainMenu
         Me.CheckBox7.Enabled = False
         Me.CheckBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox7.Location = New System.Drawing.Point(208, 389)
+        Me.CheckBox7.Location = New System.Drawing.Point(199, 389)
         Me.CheckBox7.Name = "CheckBox7"
         Me.CheckBox7.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox7.TabIndex = 44
@@ -2466,6 +2468,7 @@ Partial Class MainMenu
         'CheckBox8
         '
         Me.CheckBox8.AutoSize = True
+        Me.CheckBox8.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.CheckBox8.Location = New System.Drawing.Point(17, 389)
@@ -2473,7 +2476,7 @@ Partial Class MainMenu
         Me.CheckBox8.Size = New System.Drawing.Size(170, 28)
         Me.CheckBox8.TabIndex = 43
         Me.CheckBox8.Text = "Enable Muxing"
-        Me.CheckBox8.UseVisualStyleBackColor = True
+        Me.CheckBox8.UseVisualStyleBackColor = False
         '
         'TabPage4
         '
@@ -2731,7 +2734,7 @@ Partial Class MainMenu
         Me.CheckBox2.Enabled = False
         Me.CheckBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox2.Location = New System.Drawing.Point(174, 389)
+        Me.CheckBox2.Location = New System.Drawing.Point(199, 389)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox2.TabIndex = 45
@@ -2741,14 +2744,15 @@ Partial Class MainMenu
         'CheckBox6
         '
         Me.CheckBox6.AutoSize = True
+        Me.CheckBox6.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox6.Location = New System.Drawing.Point(18, 389)
+        Me.CheckBox6.Location = New System.Drawing.Point(17, 389)
         Me.CheckBox6.Name = "CheckBox6"
         Me.CheckBox6.Size = New System.Drawing.Size(143, 28)
         Me.CheckBox6.TabIndex = 44
         Me.CheckBox6.Text = "Enable Trim"
-        Me.CheckBox6.UseVisualStyleBackColor = True
+        Me.CheckBox6.UseVisualStyleBackColor = False
         '
         'Label83
         '
