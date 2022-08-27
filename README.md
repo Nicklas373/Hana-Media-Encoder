@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="300" height="300" src="https://github.com/Nicklas373/Hana-Media-Encoder/blob/master/Hana%20Media%20Encoder/ico/HME_Logo.png"><br>
+  <img width="300" height="300" src="https://github.com/Nicklas373/Hana-Media-Encoder/blob/master/Hana%20Media%20Encoder/Assets/HME_Logo.png"><br>
 </p>
 
 # Hana Media Encoder 
