@@ -1,11 +1,10 @@
 ﻿Imports System.IO
-Imports Syncfusion.Windows.Forms
 Imports Syncfusion.WinForms.Controls
 Public Class Loading
     Inherits SfForm
-    Public Sub loading_load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub Loading_load(sender As Object, e As EventArgs) Handles MyBase.Load
         AllowTransparency = False
-        MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro
+        AllowRoundedCorners = True
         CenterForm(MainMenu)
         ProgressBar1.Style = ProgressBarStyle.Marquee
         ProgressBar1.MarqueeAnimationSpeed = 40
@@ -13,7 +12,9 @@ Public Class Loading
     End Sub
     Public Sub New(mediaTitle As String)
         InitializeComponent()
-        Label1.Text = "Initialize Media: " & Path.GetFileName(mediaTitle)
+        Me.Refresh()
+        Label1.Text = "Loading Media: " & Path.GetFileName(mediaTitle)
+        Me.Refresh()
     End Sub
     Public Shared Sub CenterForm(ByVal frm As Form, Optional ByVal parent As Form = Nothing)
         '' Note: call this from frm's Load event!
