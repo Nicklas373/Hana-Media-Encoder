@@ -12,7 +12,7 @@ Module GlobalVariable
     Public ReadOnly VideoErrorPlaceholder As String = "Assets\Snapshot_Error_Placeholder.png"
 
     ' Global variable
-    Public AppChangelog As String
+    Public AppChangelog
     Public AppRel As String
     Public AppVer As String
     Public AudiostreamConfig As String
