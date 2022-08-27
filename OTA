@@ -2,7 +2,8 @@
 	"release_date": "27 August 2022",
 	"version": "1.2.6.0",
 	"changelog": [
-		"- Fixup issue with unknown icon or logo after update to v1.2.5"
+		"- Fixup issue with unknown icon or logo after update to v1.2.5",
+		""
 	],
 	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.2.6/HME_Setup.msi"
 }
