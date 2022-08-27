@@ -203,4 +203,23 @@
 
         Return value
     End Function
+    Public Function vAspectRatio(cmbx As String) As String
+        'ComboBox31.text'
+        Dim value As String
+        If cmbx = "3:2" Then
+            value = "3/2"
+        ElseIf cmbx = "4:3" Then
+            value = "4/3"
+        ElseIf cmbx = "16:9" Then
+            value = "16/9"
+        ElseIf cmbx = "16:10" Then
+            value = "16/10"
+        ElseIf cmbx = "21:9" Then
+            value = "21/9"
+        Else
+            value = "null"
+        End If
+
+        Return value
+    End Function
 End Module
