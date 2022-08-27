@@ -5,9 +5,6 @@ Imports Syncfusion.Windows.Forms
 Imports Syncfusion.WinForms.Controls
 Public Class OptionsMenu
     Inherits SfForm
-    Dim openfolderDialog As New FolderBrowserDialog
-    Dim configState As Boolean
-    Dim wc As New WebClient()
     Private Sub Options_load(sender As Object, e As EventArgs) Handles MyBase.Load
         AllowTransparency = False
         MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro
@@ -28,19 +25,19 @@ Public Class OptionsMenu
         about_pnl.Visible = True
     End Sub
     Private Sub Browse_Btn_FFMPEG(sender As Object, e As EventArgs) Handles Button4.Click
-        openfolderDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
-        If openfolderDialog.ShowDialog() = DialogResult.OK Then
-            If File.Exists(openfolderDialog.SelectedPath & "\ffmpeg.exe") And File.Exists(openfolderDialog.SelectedPath & "\ffplay.exe") And File.Exists(openfolderDialog.SelectedPath & "\ffprobe.exe") Then
-                TextBox1.Text = openfolderDialog.SelectedPath
+        OpenFolderDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
+        If OpenFolderDialog.ShowDialog() = DialogResult.OK Then
+            If File.Exists(OpenFolderDialog.SelectedPath & "\ffmpeg.exe") And File.Exists(OpenFolderDialog.SelectedPath & "\ffplay.exe") And File.Exists(OpenFolderDialog.SelectedPath & "\ffprobe.exe") Then
+                TextBox1.Text = OpenFolderDialog.SelectedPath
                 If File.Exists("config.ini") Then
-                    Dim FFMPEGConf As String = FindConfig("config.ini", "FFMPEG Binary:")
-                    If FFMPEGConf = "null" Then
+                    FfmpegConf = FindConfig("config.ini", "FFMPEG Binary:")
+                    If FfmpegConf = "null" Then
                         Dim writer As New StreamWriter("config.ini", True)
                         writer.WriteLine("FFMPEG Binary:" & TextBox1.Text)
                         writer.Close()
                     Else
                         Dim FFMPEGReaderOldConf As String = File.ReadAllText("config.ini")
-                        FFMPEGReaderOldConf = FFMPEGReaderOldConf.Replace(FFMPEGConf, "FFMPEG Binary:" & TextBox1.Text)
+                        FFMPEGReaderOldConf = FFMPEGReaderOldConf.Replace(FfmpegConf, "FFMPEG Binary:" & TextBox1.Text)
                         File.WriteAllText("config.ini", FFMPEGReaderOldConf)
                     End If
                 Else
@@ -49,7 +46,7 @@ Public Class OptionsMenu
                     writer.WriteLine("FFMPEG Binary:" & TextBox1.Text)
                     writer.Close()
                 End If
-                configState = True
+                ConfigState = True
             Else
                 MessageBoxAdv.Show("Make sure that folder have required FFMPEG Files !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -66,7 +63,7 @@ Public Class OptionsMenu
         End If
     End Sub
     Private Sub Options_Close(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If configState = True Then
+        If ConfigState = True Then
             MessageBoxAdv.Show("Application need restart after change some options !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Hide()
             Me.Dispose()
@@ -92,34 +89,34 @@ Public Class OptionsMenu
     End Sub
     Private Sub GetBackPref()
         If File.Exists("config.ini") Then
-            Dim debugMode As String = FindConfig("config.ini", "Debug Mode:")
-            Dim frameCount As String = FindConfig("config.ini", "Frame Count:")
-            Dim ffmpegConfig As String = FindConfig("config.ini", "FFMPEG Binary:")
-            Dim hwdefConfig As String = FindConfig("config.ini", "GPU Engine:")
-            If debugMode = "null" Then
+            DebugMode = FindConfig("config.ini", "Debug Mode:")
+            FrameCount = FindConfig("config.ini", "Frame Count:")
+            FfmpegConfig = FindConfig("config.ini", "FFMPEG Binary:")
+            Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
+            If DebugMode = "null" Then
                 CheckBox3.Checked = False
             Else
-                Dim newDebugState As String = debugMode.Remove(0, 11)
-                CheckBox3.Checked = newDebugState
+                Newdebugstate = DebugMode.Remove(0, 11)
+                CheckBox3.Checked = Newdebugstate
             End If
-            If ffmpegConfig = "null" Then
+            If FfmpegConfig = "null" Then
                 TextBox1.Text = ""
             Else
-                TextBox1.Text = ffmpegConfig.Remove(0, 14)
+                TextBox1.Text = FfmpegConfig.Remove(0, 14)
             End If
-            If frameCount = "null" Then
+            If FrameCount = "null" Then
                 CheckBox4.Checked = False
             Else
-                Dim newFrameState As String = frameCount.Remove(0, 11)
-                CheckBox4.Checked = newFrameState
+                Newframestate = FrameCount.Remove(0, 12)
+                CheckBox4.Checked = Newframestate
             End If
-            If hwdefConfig = "GPU Engine:cuda" Or hwdefConfig = "GPU Engine:opencl" Or hwdefConfig = "GPU Engine:qsv" Then
+            If Hwdefconfig = "GPU Engine:cuda" Or Hwdefconfig = "GPU Engine:opencl" Or Hwdefconfig = "GPU Engine:qsv" Then
                 CheckBox1.Checked = True
-                If hwdefConfig.Remove(0, 11) = "qsv" Then
+                If Hwdefconfig.Remove(0, 11) = "qsv" Then
                     ComboBox1.SelectedText = "Intel (QuickSync)"
-                ElseIf hwdefConfig.Remove(0, 11) = "opencl" Then
+                ElseIf Hwdefconfig.Remove(0, 11) = "opencl" Then
                     ComboBox1.SelectedText = "AMD (OpenCL)"
-                ElseIf hwdefConfig.Remove(0, 11) = "cuda" Then
+                ElseIf Hwdefconfig.Remove(0, 11) = "cuda" Then
                     ComboBox1.SelectedText = "NVIDIA (NVENC / NVDEC)"
                 End If
             Else
@@ -132,14 +129,14 @@ Public Class OptionsMenu
                     ComboBox1.SelectedText = "NVIDIA (NVENC / NVDEC)"
                 End If
             End If
-            configState = False
+            ConfigState = False
         End If
     End Sub
     Private Sub GPUHWEnable(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-        Dim HWDecConf As String = FindConfig("config.ini", "GPU Engine:")
         If CheckBox1.Checked Then
             If File.Exists("config.ini") Then
-                If HWDecConf = "null" Then
+                Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
+                If Hwdefconfig = "null" Then
                     If GetGraphicsHWEngine(ComboBox1.Text) = "null" Then
                     Else
                         Dim writer As New StreamWriter("config.ini", True)
@@ -150,7 +147,7 @@ Public Class OptionsMenu
                     If GetGraphicsHWEngine(ComboBox1.Text) = "null" Then
                     Else
                         Dim HWDecOldConf As String = File.ReadAllText("config.ini")
-                        HWDecOldConf = HWDecOldConf.Replace(HWDecConf, "GPU Engine:" & GetGraphicsHWEngine(ComboBox1.Text))
+                        HWDecOldConf = HWDecOldConf.Replace(Hwdefconfig, "GPU Engine:" & GetGraphicsHWEngine(ComboBox1.Text))
                         File.WriteAllText("config.ini", HWDecOldConf)
                     End If
                 End If
@@ -170,7 +167,7 @@ Public Class OptionsMenu
         Else
             If File.Exists("config.ini") Then
                 Dim HWDecOldConf As String = File.ReadAllText("config.ini")
-                HWDecOldConf = HWDecOldConf.Replace(HWDecConf, "GPU Engine:")
+                HWDecOldConf = HWDecOldConf.Replace(Hwdefconfig, "GPU Engine:")
                 File.WriteAllText("config.ini", HWDecOldConf)
             Else
                 File.Create("config.ini").Dispose()
@@ -179,23 +176,23 @@ Public Class OptionsMenu
                 writer.Close()
             End If
         End If
-        configState = True
+        ConfigState = True
     End Sub
     Private Sub DebugModeCheck(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
-        Dim debugMode As String = FindConfig("config.ini", "Debug Mode:")
         If CheckBox3.Checked Then
             CheckBox4.Enabled = True
         Else
             CheckBox4.Enabled = False
         End If
         If File.Exists("config.ini") Then
-            If debugMode = "null" Then
+            DebugMode = FindConfig("config.ini", "Debug Mode:")
+            If DebugMode = "null" Then
                 Dim writer As New StreamWriter("config.ini", True)
                 writer.WriteLine("Debug Mode:" & CheckBox3.Checked)
                 writer.Close()
             Else
                 Dim debugModeOldConf As String = File.ReadAllText("config.ini")
-                debugModeOldConf = debugModeOldConf.Replace(debugMode, "Debug Mode:" & CheckBox3.Checked)
+                debugModeOldConf = debugModeOldConf.Replace(DebugMode, "Debug Mode:" & CheckBox3.Checked)
                 File.WriteAllText("config.ini", debugModeOldConf)
             End If
         Else
@@ -204,18 +201,18 @@ Public Class OptionsMenu
             writer.WriteLine("Debug Mode:" & CheckBox3.Checked)
             writer.Close()
         End If
-        configState = True
+        ConfigState = True
     End Sub
     Private Sub FrameCountCheck(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
-        Dim frameCount As String = FindConfig("config.ini", "Frame Count:")
         If File.Exists("config.ini") Then
-            If frameCount = "null" Then
+            FrameCount = FindConfig("config.ini", "Frame Count:")
+            If FrameCount = "null" Then
                 Dim writer As New StreamWriter("config.ini", True)
                 writer.WriteLine("Frame Count:" & CheckBox4.Checked)
                 writer.Close()
             Else
                 Dim frameCountOldConf As String = File.ReadAllText("config.ini")
-                frameCountOldConf = frameCountOldConf.Replace(frameCount, "Frame Count:" & CheckBox4.Checked)
+                frameCountOldConf = frameCountOldConf.Replace(FrameCount, "Frame Count:" & CheckBox4.Checked)
                 File.WriteAllText("config.ini", frameCountOldConf)
             End If
         Else
@@ -224,16 +221,16 @@ Public Class OptionsMenu
             writer.WriteLine("Frame Count:" & CheckBox4.Checked)
             writer.Close()
         End If
-        configState = True
+        ConfigState = True
     End Sub
-    Private Sub WebURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
-        Dim psi As ProcessStartInfo = New ProcessStartInfo With {
+    Private Sub WebURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.Click
+        Dim psi As New ProcessStartInfo With {
                .FileName = "https://github.com/Nicklas373/Hana-Media-Encoder",
                .UseShellExecute = True
            }
         Process.Start(psi)
     End Sub
-    Private Sub CopyrightURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+    Private Sub CopyrightURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.Click
         Dim psi As ProcessStartInfo = New ProcessStartInfo With {
                .FileName = "https://github.com/Nicklas373/Hana-Media-Encoder/issues",
                .UseShellExecute = True
@@ -244,23 +241,21 @@ Public Class OptionsMenu
         Dim tryParse As Boolean
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Try
-            Dim OTA As String = wc.DownloadString("https://raw.githubusercontent.com/Nicklas373/Hana-Media-Encoder/master/OTA")
-            Dim parsejson As JObject = JObject.Parse(OTA)
+            OTA = WC.DownloadString("https://raw.githubusercontent.com/Nicklas373/Hana-Media-Encoder/master/OTA")
+            Parsejson = JObject.Parse(OTA)
             tryParse = True
         Catch ex As Exception
             tryParse = False
         End Try
         If tryParse Then
-            Dim OTA As String = wc.DownloadString("https://raw.githubusercontent.com/Nicklas373/Hana-Media-Encoder/master/OTA")
-            Dim parsejson As JObject = JObject.Parse(OTA)
-            Dim appver = parsejson.SelectToken("version").ToString()
-            Dim newParsedVer As String() = appver.Split(".")
-            Dim curParsedVer As String() = My.Application.Info.Version.ToString.Split(".")
-            Dim mergedNewVer As Integer
-            Dim mergedCurVer As Integer
-            mergedNewVer = String.Join(newParsedVer(0), newParsedVer(1), newParsedVer(2))
-            mergedCurVer = String.Join(curParsedVer(0), curParsedVer(1), curParsedVer(2))
-            If mergedNewVer > mergedCurVer Then
+            OTA = WC.DownloadString("https://raw.githubusercontent.com/Nicklas373/Hana-Media-Encoder/master/OTA")
+            Parsejson = JObject.Parse(OTA)
+            AppVer = Parsejson.SelectToken("version").ToString()
+            NewParsedVer = AppVer.Split(".")
+            CurParsedVer = My.Application.Info.Version.ToString.Split(".")
+            MergedNewVer = String.Join(NewParsedVer(0), NewParsedVer(1), NewParsedVer(2))
+            MergedCurVer = String.Join(CurParsedVer(0), CurParsedVer(1), CurParsedVer(2))
+            If MergedNewVer > MergedCurVer Then
                 Dim menu_ota = New OTAMenu
                 menu_ota.Show()
             Else
