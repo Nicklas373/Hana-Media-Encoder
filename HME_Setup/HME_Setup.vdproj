@@ -427,15 +427,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Hana Media Encoder"
-        "ProductCode" = "8:{8B2649DE-FB70-4951-B9AB-7D1AB85F3488}"
-        "PackageCode" = "8:{480219A7-E9C8-40E2-A1EC-7DCCDFF72DF6}"
+        "ProductCode" = "8:{84E6C810-3C73-457A-93E6-789BE8718148}"
+        "PackageCode" = "8:{F471742F-C504-4A4B-A9A6-4F9038EE017D}"
         "UpgradeCode" = "8:{6119A0DC-89FC-44EF-A490-66E4E915E4DF}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.2.5"
+        "ProductVersion" = "8:1.2.6"
         "Manufacturer" = "8:HANA-CI Build Project"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/Nicklas373/Hana-Media-Encoder"
@@ -963,7 +963,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_253E5B8251864449844D3471D298269B"
             {
-            "SourcePath" = "8:..\\Hana Media Encoder\\obj\\Release\\net6.0-windows10.0.22621.0\\apphost.exe"
+            "SourcePath" = "8:..\\Hana Media Encoder\\obj\\Debug\\net6.0-windows10.0.22621.0\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D6B82C45758E485CA0C5AC04002D03AC"
