@@ -15,7 +15,61 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_070B2774AA014BB3A02E77CFB1158447"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_253E5B8251864449844D3471D298269B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_40FB057E81D54720A6B785828DD00B70"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4AC4B1175AAD4B76B51DB5FC0DB59D29"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_561CF94F2D6E49AE95956FC85742E09B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_590791B94C3C4B1CA450DE9EFE7C842F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6089CDFA43BC4AD3A55D8F95EAA987DC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_638E66AC424E47C8B71585C29EE6F33D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7CBAE0B292B9445D809C396952D8EED0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EACC46E79B044240A8C5607016DB45AD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -126,6 +180,186 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_070B2774AA014BB3A02E77CFB1158447"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Snapshot_Placeholder.png"
+            "TargetName" = "8:Snapshot_Placeholder.png"
+            "Tag" = "8:"
+            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_40FB057E81D54720A6B785828DD00B70"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_Logo_Hi.png"
+            "TargetName" = "8:HME_Logo_Hi.png"
+            "Tag" = "8:"
+            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4AC4B1175AAD4B76B51DB5FC0DB59D29"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_128.ico"
+            "TargetName" = "8:HME_128.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_561CF94F2D6E49AE95956FC85742E09B"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME.ico"
+            "TargetName" = "8:HME.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_590791B94C3C4B1CA450DE9EFE7C842F"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_256.ico"
+            "TargetName" = "8:HME_256.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6089CDFA43BC4AD3A55D8F95EAA987DC"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Spectrum_Placeholder.png"
+            "TargetName" = "8:Spectrum_Placeholder.png"
+            "Tag" = "8:"
+            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_638E66AC424E47C8B71585C29EE6F33D"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_Logo.png"
+            "TargetName" = "8:HME_Logo.png"
+            "Tag" = "8:"
+            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7CBAE0B292B9445D809C396952D8EED0"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Snapshot_Error_Placeholder.png"
+            "TargetName" = "8:Snapshot_Error_Placeholder.png"
+            "Tag" = "8:"
+            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EACC46E79B044240A8C5607016DB45AD"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Spectrum_Error_Placeholder.png"
+            "TargetName" = "8:Spectrum_Error_Placeholder.png"
+            "Tag" = "8:"
+            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -135,7 +369,7 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_0A6EEF3DD3EA427BA7CE73662C3A2E3D"
             {
             "Name" = "8:#1916"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:DesktopFolder"
@@ -164,57 +398,13 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_20021B1A7E694FA199C258D686AFEE00"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_B024D129C8B0493E9A37D83DB28A4C5E"
                     {
-                    "Name" = "8:audioStream"
+                    "Name" = "8:Assets"
                     "AlwaysCreate" = "11:TRUE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_B27B74D4EE5F46509E5CCFB181E3F6C8"
-                        "Folders"
-                        {
-                        }
-                    }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_3B78B7EE852144D9B22CCB2930A919FA"
-                    {
-                    "Name" = "8:videoConfig"
-                    "AlwaysCreate" = "11:TRUE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_BAE8F814D65D479DA944F4E5E39E6193"
-                        "Folders"
-                        {
-                        }
-                    }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_45B40C49171542959E5EF9D2322A1AB4"
-                    {
-                    "Name" = "8:thumbnail"
-                    "AlwaysCreate" = "11:TRUE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_DE9E323616B842CD83322FB58E23882A"
-                        "Folders"
-                        {
-                        }
-                    }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5003C587180F407B8227C01B63F17FBB"
-                    {
-                    "Name" = "8:videoStream"
-                    "AlwaysCreate" = "11:TRUE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_7851937DA2FF4105A2679894B5243A95"
-                        "Folders"
-                        {
-                        }
-                    }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_FDFE3878B8CC44BEA5600B850B543581"
-                    {
-                    "Name" = "8:audioConfig"
-                    "AlwaysCreate" = "11:TRUE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_7886FCC5134044B8B6FD26D902A25CFA"
+                    "Property" = "8:_73C516990BFC467CA2C037123B0CD5C2"
                         "Folders"
                         {
                         }
@@ -237,15 +427,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Hana Media Encoder"
-        "ProductCode" = "8:{035376C7-DC4B-426C-8642-DED501B177EB}"
-        "PackageCode" = "8:{A6721D09-263F-411A-B62E-CB68430F3869}"
+        "ProductCode" = "8:{4C2F7A04-229B-4AED-B9AC-16469C3D1D3F}"
+        "PackageCode" = "8:{32112BAE-6E29-46A1-B7E6-D51FF0743B91}"
         "UpgradeCode" = "8:{6119A0DC-89FC-44EF-A490-66E4E915E4DF}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.0"
+        "ProductVersion" = "8:1.2.6"
         "Manufacturer" = "8:HANA-CI Build Project"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/Nicklas373/Hana-Media-Encoder"
@@ -255,7 +445,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Hana Media Encoder"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_4AC4B1175AAD4B76B51DB5FC0DB59D29"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -362,14 +552,14 @@
             {
             "Name" = "8:Hana Media Encoder"
             "Arguments" = "8:"
-            "Description" = "8:"
+            "Description" = "8:Hana Media Encoder"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_253E5B8251864449844D3471D298269B"
             "Folder" = "8:_0A6EEF3DD3EA427BA7CE73662C3A2E3D"
             "WorkingFolder" = "8:_D6B82C45758E485CA0C5AC04002D03AC"
-            "Icon" = "8:"
+            "Icon" = "8:_4AC4B1175AAD4B76B51DB5FC0DB59D29"
             "Feature" = "8:"
             }
         }
@@ -773,7 +963,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_253E5B8251864449844D3471D298269B"
             {
-            "SourcePath" = "8:..\\Hana Media Encoder\\obj\\Debug\\net6.0-windows10.0.22621.0\\apphost.exe"
+            "SourcePath" = "8:..\\Hana Media Encoder\\obj\\Release\\net6.0-windows10.0.22621.0\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D6B82C45758E485CA0C5AC04002D03AC"
