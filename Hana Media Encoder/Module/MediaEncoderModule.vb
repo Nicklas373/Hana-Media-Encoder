@@ -54,6 +54,24 @@ Module MediaEncoderModule
         writer.WriteLine("exit")
         writer.Close()
     End Sub
+    Public Sub HMEGenerateAlt(HMEName As String, ffmpegletter As String, ffmpegbin As String, ffargs As String, ffargs2 As String)
+        If File.Exists(HMEName) Then
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+            File.Delete(HMEName)
+            File.Create(HMEName).Dispose()
+        Else
+            File.Create(HMEName).Dispose()
+        End If
+        Dim writer As New StreamWriter(HMEName, True)
+        writer.WriteLine("@echo off")
+        writer.WriteLine(ffmpegletter)
+        writer.WriteLine("cd " & ffmpegbin)
+        writer.WriteLine(ffargs)
+        writer.WriteLine(ffargs2)
+        writer.WriteLine("exit")
+        writer.Close()
+    End Sub
     Public Sub HMEStreamProfileGenerate(HMEName As String, ffargs As String)
         If File.Exists(HMEName) Then
             GC.Collect()
@@ -73,7 +91,7 @@ Module MediaEncoderModule
     Public Sub HMEVideoStreamConfigGenerate(HMEName As String, brCompat As String, ovrbitrate As String, bref As String, codec As String, framerate As String,
                                             level As String, maxbitrate As String, multipass As String, preset As String, pixfmt As String, profile As String,
                                             ratectr As String, spatialaq As String, aqstrength As String, temporalaq As String, targetql As String,
-                                            tier As String, tune As String)
+                                            tier As String, tune As String, ar As String, res As String)
         If File.Exists(HMEName) Then
             GC.Collect()
             GC.WaitForPendingFinalizers()
@@ -101,6 +119,8 @@ Module MediaEncoderModule
         writer.WriteLine("TargetQL=" & targetql)
         writer.WriteLine("Tier=" & tier)
         writer.WriteLine("Tune=" & tune)
+        writer.WriteLine("AspectRatio=" & ar)
+        writer.WriteLine("Resolution=" & res)
         writer.Close()
     End Sub
     Public Sub HMEAudioStreamConfigGenerate(HMEName As String, acodec As String, abitdepth As String, aratecontrol As String,
@@ -169,8 +189,10 @@ Module MediaEncoderModule
         File.Delete("HME.bat")
         File.Delete("HME.msi")
         File.Delete("HME_Audio_Flags.txt")
+        File.Delete("HME_FFMPEG_Init.bat")
         File.Delete("HME_Stream_Replace.txt")
         File.Delete("HME_VF.bat")
+        File.Delete("Init_Res.txt")
         File.Delete("OTA.bat")
         If cleanStats = "all" Then
             File.Delete("chapter.txt")
