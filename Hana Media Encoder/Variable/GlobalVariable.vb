@@ -4,12 +4,12 @@ Module GlobalVariable
     ' Readonly variable
     Public ReadOnly AudioStreamFlagsPath As String = "audioStream\"
     Public ReadOnly AudioStreamConfigPath As String = "audioConfig\"
-    Public ReadOnly SpectrumPlaceholder As String = "..\..\..\Assets\Spectrum_Placeholder.png"
-    Public ReadOnly SpectrumErrorPlaceholder As String = "..\..\..\Assets\Spectrum_Error_Placeholder.png"
+    Public ReadOnly SpectrumPlaceholder As String = "Assets\Spectrum_Placeholder.png"
+    Public ReadOnly SpectrumErrorPlaceholder As String = "Assets\Spectrum_Error_Placeholder.png"
     Public ReadOnly VideoStreamFlagsPath As String = "videoStream\"
     Public ReadOnly VideoStreamConfigPath As String = "videoConfig\"
-    Public ReadOnly VideoPlaceholder As String = "..\..\..\Assets\Snapshot_Placeholder.png"
-    Public ReadOnly VideoErrorPlaceholder As String = "..\..\..\Assets\Snapshot_Error_Placeholder.png"
+    Public ReadOnly VideoPlaceholder As String = "Assets\Snapshot_Placeholder.png"
+    Public ReadOnly VideoErrorPlaceholder As String = "Assets\Snapshot_Error_Placeholder.png"
 
     ' Global variable
     Public AppChangelog As String
