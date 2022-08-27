@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Hana Media Encoder/1.2.0": {
+      "Hana Media Encoder/1.2.5": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.1",
           "Syncfusion.Core.WinForms": "20.2.0.44",
@@ -105,7 +105,7 @@
     }
   },
   "libraries": {
-    "Hana Media Encoder/1.2.0": {
+    "Hana Media Encoder/1.2.5": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
