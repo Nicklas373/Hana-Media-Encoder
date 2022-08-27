@@ -161,7 +161,6 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
   </ItemGroup>
 
   <ItemGroup>
-    <Import Include="sync" />
     <Import Include="Syncfusion.Win32" />
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
@@ -198,10 +197,6 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Assets\HME_Logo.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
     <None Update="Assets\HME_Logo_Hi.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
@@ -221,6 +216,7 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
