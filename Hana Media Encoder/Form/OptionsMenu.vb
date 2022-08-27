@@ -223,15 +223,15 @@ Public Class OptionsMenu
         End If
         ConfigState = True
     End Sub
-    Private Sub WebURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.Click
+    Private Sub WebURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         Dim psi As New ProcessStartInfo With {
                .FileName = "https://github.com/Nicklas373/Hana-Media-Encoder",
                .UseShellExecute = True
            }
         Process.Start(psi)
     End Sub
-    Private Sub CopyrightURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.Click
-        Dim psi As ProcessStartInfo = New ProcessStartInfo With {
+    Private Sub CopyrightURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Dim psi As New ProcessStartInfo With {
                .FileName = "https://github.com/Nicklas373/Hana-Media-Encoder/issues",
                .UseShellExecute = True
            }
