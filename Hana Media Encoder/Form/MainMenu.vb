@@ -1276,6 +1276,7 @@ Public Class MainMenu
             End If
         Else
             VcodecReset()
+            ComboBox2.Enabled = True
             ComboBox29.Enabled = True
             CheckBox13.Enabled = True
         End If
@@ -1339,7 +1340,7 @@ Public Class MainMenu
                     HMEVideoStreamConfigGenerate(VideoStreamConfig, "", "", "", "Copy", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
                     ReturnVideoStats = True
                 Else
-                    If ComboBox32.SelectedIndex < 0 Then
+                    If ComboBox32.SelectedIndex < 0 Or ComboBox32.SelectedIndex = 5 Then
                         AspectRatio = ""
                     Else
                         AspectRatio = "setdar=dar=" & vAspectRatio(ComboBox32.Text) & ","
@@ -1347,7 +1348,7 @@ Public Class MainMenu
                     If TextBox20.Text = "" Then
                         VideoWidth = ""
                     Else
-                        VideoWidth = "scale=" & TextBox20.Text
+                        VideoWidth = "scale=" & TextBox20.Text & "x"
                     End If
                     If TextBox21.Text = "" Then
                         VideoHeight = ""
@@ -1359,17 +1360,17 @@ Public Class MainMenu
                             HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & " -pix_fmt " &
                                              vPixFmt(ComboBox3.Text) & " -quality " & vPresetAmf(ComboBox5.Text) & " -profile:v " & vProfile(ComboBox7.Text) &
                                              " -level " & vLevel(ComboBox8.Text) & " -b:v " & TextBox3.Text & "M -maxrate:v " & TextBox4.Text & "M -filter:v " & AspectRatio &
-                                             VideoWidth & "x" & VideoHeight & "fps=fps=" & ComboBox30.Text)
+                                             VideoWidth & VideoHeight & "fps=fps=" & ComboBox30.Text)
                             HMEVideoStreamConfigGenerate(VideoStreamConfig, "", TextBox3.Text, "", ComboBox2.Text, ComboBox30.Text, ComboBox8.Text, TextBox4.Text, "",
-                                             ComboBox5.Text, "yuv420p", ComboBox7.Text, "", "", "", "", "", "", "", AspectRatio, VideoWidth & "x" & VideoHeight)
+                                             ComboBox5.Text, "yuv420p", ComboBox7.Text, "", "", "", "", "", "", "", AspectRatio, VideoWidth & VideoHeight)
                             ReturnVideoStats = True
                         Else
                             HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & " -pix_fmt " &
                                              vPixFmt(ComboBox3.Text) & " -quality " & vPresetAmf(ComboBox5.Text) & " -profile:v " & vProfile(ComboBox7.Text) &
                                              " -level " & vLevel(ComboBox8.Text) & " -profile_tier " & vTier(ComboBox9.Text) & " -b:v " & TextBox3.Text &
-                                             "M -maxrate:v " & TextBox4.Text & "M -filter:v " & AspectRatio & VideoWidth & "x" & VideoHeight & "fps=fps=" & ComboBox30.Text)
+                                             "M -maxrate:v " & TextBox4.Text & "M -filter:v " & AspectRatio & VideoWidth & VideoHeight & "fps=fps=" & ComboBox30.Text)
                             HMEVideoStreamConfigGenerate(VideoStreamConfig, "", TextBox3.Text, "", ComboBox2.Text, ComboBox30.Text, ComboBox8.Text, TextBox4.Text, "",
-                                             ComboBox5.Text, "yuv420p", "main", "", "", "", "", "", ComboBox9.Text, "", AspectRatio, VideoWidth & "x" & VideoHeight)
+                                             ComboBox5.Text, "yuv420p", "main", "", "", "", "", "", ComboBox9.Text, "", AspectRatio, VideoWidth & VideoHeight)
                             ReturnVideoStats = True
                         End If
                     ElseIf HwAccelDev = "qsv" Then
@@ -1377,7 +1378,7 @@ Public Class MainMenu
                                               vPixFmt(ComboBox3.Text) & " -preset " & vPreset(ComboBox5.Text) & " -profile:v " & vProfile(ComboBox7.Text) &
                                                " -maxrate:v " & TextBox4.Text & "M -filter:v " & AspectRatio & VideoWidth & VideoHeight & "fps=fps=" & ComboBox30.Text & " -low_power false")
                         HMEVideoStreamConfigGenerate(VideoStreamConfig, "", TextBox3.Text, "", ComboBox2.Text, ComboBox30.Text, "", TextBox4.Text, "", ComboBox5.Text,
-                                              ComboBox3.Text, ComboBox7.Text, "", "", "", "", "", "", "", AspectRatio, VideoWidth & "x" & VideoHeight)
+                                              ComboBox3.Text, ComboBox7.Text, "", "", "", "", "", "", "", AspectRatio, VideoWidth & VideoHeight)
                         ReturnVideoStats = True
                     ElseIf HwAccelDev = "cuda" Then
                         If TextBox2.Text = "" Then
@@ -1390,9 +1391,9 @@ Public Class MainMenu
                                               vPixFmt(ComboBox3.Text) & " -rc:v:0 " & vRateControl(ComboBox4.Text) & " -cq " & TextBox2.Text & " -preset " & vPreset(ComboBox5.Text) & " -tune " &
                                               vTune(ComboBox6.Text) & " -profile:v " & vProfile(ComboBox7.Text) & " -level " & vLevel(ComboBox8.Text) & " -tier " & vTier(ComboBox9.Text) & " -bluray-compat " &
                                               vBrcompat(ComboBox21.Text) & " -b:v " & TextBox3.Text & "M -maxrate:v " & TextBox4.Text & "M -b_ref_mode " & bRefMode(ComboBox10.Text) & " -multipass " &
-                                              multiPass(ComboBox14.Text) & " -filter:v " & AspectRatio & VideoWidth & "x" & VideoHeight & "fps=fps=" & ComboBox30.Text)
+                                              multiPass(ComboBox14.Text) & " -filter:v " & AspectRatio & VideoWidth & VideoHeight & "fps=fps=" & ComboBox30.Text)
                                 HMEVideoStreamConfigGenerate(VideoStreamConfig, ComboBox21.Text, TextBox3.Text, ComboBox10.Text, ComboBox2.Text, ComboBox30.Text, ComboBox8.Text, TextBox4.Text, ComboBox14.Text,
-                                              ComboBox5.Text, ComboBox3.Text, ComboBox7.Text, ComboBox4.Text, "", "", "", TextBox2.Text, ComboBox9.Text, ComboBox6.Text, AspectRatio, VideoWidth & "x" & VideoHeight)
+                                              ComboBox5.Text, ComboBox3.Text, ComboBox7.Text, ComboBox4.Text, "", "", "", TextBox2.Text, ComboBox9.Text, ComboBox6.Text, AspectRatio, VideoWidth & VideoHeight)
                                 ReturnVideoStats = True
                             Else
                                 HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & " -pix_fmt " &
@@ -1400,10 +1401,10 @@ Public Class MainMenu
                                               vTune(ComboBox6.Text) & " -profile:v " & vProfile(ComboBox7.Text) & " -level " & vLevel(ComboBox8.Text) & " -tier " & vTier(ComboBox9.Text) & " -bluray-compat " &
                                               vBrcompat(ComboBox21.Text) & " -b:v " & TextBox3.Text & "M -maxrate:v " & TextBox4.Text & "M -b_ref_mode " & bRefMode(ComboBox10.Text) & " -spatial_aq " &
                                               vSpaTempAQ(ComboBox11.Text) & " -aq-strength " & vAQStrength(ComboBox12.Text) & " -temporal_aq " & vSpaTempAQ(ComboBox13.Text) & " -multipass " &
-                                              multiPass(ComboBox14.Text) & " -filter:v " & AspectRatio & VideoWidth & "x" & VideoHeight & "fps=fps=" & ComboBox30.Text)
+                                              multiPass(ComboBox14.Text) & " -filter:v " & AspectRatio & VideoWidth & VideoHeight & "fps=fps=" & ComboBox30.Text)
                                 HMEVideoStreamConfigGenerate(VideoStreamConfig, ComboBox21.Text, TextBox3.Text, ComboBox10.Text, ComboBox2.Text, ComboBox30.Text, ComboBox8.Text, TextBox4.Text, ComboBox14.Text,
                                              ComboBox5.Text, ComboBox3.Text, ComboBox7.Text, ComboBox4.Text, ComboBox11.Text, ComboBox12.Text, ComboBox13.Text, TextBox2.Text, ComboBox9.Text, ComboBox6.Text,
-                                             AspectRatio, VideoWidth & "x" & VideoHeight)
+                                             AspectRatio, VideoWidth & VideoHeight)
                                 ReturnVideoStats = True
                             End If
                         End If
@@ -1529,13 +1530,13 @@ Public Class MainMenu
                         TextBox20.Text = ""
                         TextBox21.Text = ""
                     Else
-                        TextBox20.Text = Strings.Left(Strings.Mid(prevVideoResolution, 11), 4)
-                        TextBox21.Text = Strings.Right(prevVideoResolution, 4)
+                        TextBox20.Text = getBetween(prevVideoResolution, "scale=", "x")
+                        TextBox21.Text = getBetween(prevVideoResolution, "x", ",")
                     End If
-                    If Strings.Mid(prevVideoAspectRatio, 12) = "" Then
+                    If Strings.Mid(prevVideoAspectRatio, 13) = "" Then
                         ComboBox32.Text = ""
                     Else
-                        ComboBox32.Text = Strings.Mid(prevVideoAspectRatio, 12)
+                        ComboBox32.Text = Strings.Mid(getBetween(prevVideoAspectRatio, "r=", "/"), 5) & ":" & getBetween(prevVideoAspectRatio, "/", ",")
                     End If
                     RichTextBox1.Text = ""
                     RichTextBox1.Text = File.ReadAllText(VideoStreamFlags)
@@ -1638,6 +1639,9 @@ Public Class MainMenu
             TextBox2.Enabled = False
             ComboBox6.Enabled = False
             ComboBox9.Enabled = False
+            ComboBox32.Enabled = False
+            TextBox20.Enabled = False
+            TextBox21.Enabled = False
         ElseIf HwAccelDev = "opencl" Then
             ComboBox21.Enabled = False
             ComboBox10.Enabled = False
@@ -1666,6 +1670,9 @@ Public Class MainMenu
             ComboBox8.Enabled = True
             TextBox4.Enabled = True
             ComboBox5.Enabled = True
+            ComboBox32.Enabled = True
+            TextBox20.Enabled = True
+            TextBox21.Enabled = True
         ElseIf HwAccelDev = "qsv" Then
             ComboBox21.Enabled = False
             ComboBox10.Enabled = False
@@ -1695,6 +1702,9 @@ Public Class MainMenu
             ComboBox5.Enabled = True
             ComboBox7.Enabled = True
             ComboBox9.Enabled = True
+            ComboBox32.Enabled = True
+            TextBox20.Enabled = True
+            TextBox21.Enabled = True
         ElseIf HwAccelDev = "cuda" Then
             TextBox3.Enabled = True
             ComboBox21.Enabled = True
@@ -1723,8 +1733,13 @@ Public Class MainMenu
             TextBox2.Enabled = True
             ComboBox6.Enabled = True
             ComboBox9.Enabled = True
+            ComboBox32.Enabled = True
+            TextBox20.Enabled = True
+            TextBox21.Enabled = True
         End If
-        RichTextBox1.Text = ""
+        If CheckBox1.Checked = False Then
+            RichTextBox1.Text = ""
+        End If
     End Sub
     Private Sub EnableAudioCheck(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
         If CheckBox4.Checked = True Then
@@ -2162,7 +2177,9 @@ Public Class MainMenu
             ComboBox20.Enabled = False
             TextBox6.Enabled = True
         End If
-        RichTextBox2.Text = ""
+        If CheckBox4.Checked = False Then
+            RichTextBox2.Text = ""
+        End If
         ComboBox15.Enabled = True
     End Sub
     Private Sub FrequencyCheck()
