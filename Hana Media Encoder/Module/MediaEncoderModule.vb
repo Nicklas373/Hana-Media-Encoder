@@ -1,6 +1,66 @@
 ﻿Imports System.IO
 Imports System.Management
 Module MediaEncoderModule
+    Public Sub CleanEnv(cleanStats As String)
+        GC.Collect()
+        GC.WaitForPendingFinalizers()
+        File.Delete("chapter.txt")
+        File.Delete("FFMETADATAFILE")
+        File.Delete("HME.bat")
+        File.Delete("HME.msi")
+        File.Delete("HME_Audio_Flags.txt")
+        File.Delete("HME_FFMPEG_Init.bat")
+        File.Delete("HME_Stream_Replace.txt")
+        File.Delete("HME_VF.bat")
+        File.Delete("Init_Res.txt")
+        File.Delete("OTA.bat")
+        If cleanStats = "all" Then
+            File.Delete("chapter.txt")
+            File.Delete("FFMETADATAFILE")
+            File.Delete("spectrum-temp.png")
+            MassDelete("audioStream", "txt")
+            MassDelete("audioConfig", "txt")
+            MassDelete("videoStream", "txt")
+            MassDelete("videoConfig", "txt")
+            MassDelete("thumbnail", "png")
+        End If
+    End Sub
+    Public Function GetChapterTimeList(metadata As String) As String
+        Dim count As Integer = 0
+        Dim readMetadataLines() As String = File.ReadAllLines(metadata)
+        Dim selectedTime As String
+        If File.ReadAllText(metadata).Contains("START=") = True Then
+            Do
+                If readMetadataLines(count).Contains("START=") Then
+                    Dim curLines As String = RemoveWhitespace(Strings.Mid(readMetadataLines(count), 7))
+                    Dim updatedLines As String = curLines.Remove(curLines.Length - 7)
+                    selectedTime = updatedLines
+                End If
+                count += 1
+            Loop While count < File.ReadAllLines(metadata).Length
+        Else
+            selectedTime = "null"
+        End If
+        Return selectedTime
+    End Function
+    Public Function GetChapterTitleList(metadata As String) As String
+        Dim count As Integer = 0
+        Dim readMetadataLines() As String = File.ReadAllLines(metadata)
+        Dim selectedTitle As String
+        If File.ReadAllText(metadata).Contains("title=") = True Then
+            Do
+                If readMetadataLines(count).Contains("title=") Then
+                    Dim curLines As String = RemoveWhitespace(Strings.Mid(readMetadataLines(count), 7))
+                    Dim updatedLines As String = curLines.Remove(curLines.Length - 7)
+                    selectedTitle = updatedLines
+                End If
+                count += 1
+            Loop While count < File.ReadAllLines(metadata).Length
+        Else
+            selectedTitle = "null"
+        End If
+        Return selectedTitle
+    End Function
     Public Function GetGraphicsCardName(gpuProperty As String) As String
         Dim searcher As ManagementObjectSearcher = New ManagementObjectSearcher("SELECT * FROM Win32_VideoController")
         Dim graphicsCard As String = String.Empty
@@ -29,11 +89,98 @@ Module MediaEncoderModule
 
         Return HWDecName
     End Function
+    Public Sub InitExit()
+        Dim progList As String() = {"ffplay", "ffmpeg", "ffprobe"}
+        For Each prog As Process In Process.GetProcesses
+            For Each progQueue As String In progList
+                If prog.ProcessName = progQueue Then
+                    prog.Kill()
+                End If
+            Next
+        Next
+    End Sub
     Public Function TimeConversion(Hours As Integer, Minute As Integer, Seconds As Integer) As Integer
         Dim hoursToMinute As Integer = Hours * 60
         Dim minuteToSeconds As Integer = (hoursToMinute + Minute) * 60
         Dim newSeconds As Integer = minuteToSeconds + Seconds
         Return newSeconds
+    End Function
+    Public Function TimeConversionReverse(CnvDur As Integer) As String
+        Dim hoursValue As Integer = 3600 'Hours Value
+        Dim hoursCounter As Integer = 0 'Hours Counter Value / Final hours value
+        Dim minuteDeviation As Integer 'Deviation from CnvDur - (hoursValue * hoursCounter)
+        Dim minuteValue As Integer = 60 'Minute Value
+        Dim minuteCounter As Integer = 0 'Minute Counter Value / Final minute value
+        Dim secondsDeviation As Integer 'Deviation from minuteDeviation - (minuteValue * minuteCounter)
+        Dim conversionResult As String 'Final time result
+        If hoursValue > CnvDur Then
+            hoursValue = 3600
+            hoursCounter = 0
+        Else
+            If hoursValue < CnvDur Then
+                For b = 3600 To CnvDur Step 3600
+                    hoursCounter += 1
+                Next b
+            End If
+        End If
+        minuteDeviation = CnvDur - (hoursValue * hoursCounter)
+        If minuteValue > minuteDeviation Then
+            minuteValue = 60
+            minuteCounter = 0
+        Else
+            If minuteValue < minuteDeviation Then
+                For z = 60 To minuteDeviation Step 60
+                    minuteCounter += 1
+                Next z
+            End If
+        End If
+        If minuteCounter > 59 Then
+            hoursCounter += 1
+            minuteCounter = 0
+            secondsDeviation = 0
+        Else
+            minuteDeviation = minuteDeviation
+            hoursCounter = hoursCounter
+            secondsDeviation = minuteDeviation - (minuteValue * minuteCounter)
+        End If
+
+        If secondsDeviation > 59 Then
+            secondsDeviation = 0
+            minuteCounter += 1
+        Else
+            secondsDeviation = secondsDeviation
+            minuteCounter = minuteCounter
+        End If
+        If hoursCounter < 10 Then
+            If minuteCounter < 10 Then
+                If secondsDeviation < 10 Then
+                    conversionResult = "0" & hoursCounter & ":0" & minuteCounter & ":0" & secondsDeviation
+                Else
+                    conversionResult = "0" & hoursCounter & ":0" & minuteCounter & ":" & secondsDeviation
+                End If
+            Else
+                If secondsDeviation < 10 Then
+                    conversionResult = "0" & hoursCounter & ":" & minuteCounter & ":0" & secondsDeviation
+                Else
+                    conversionResult = "0" & hoursCounter & ":" & minuteCounter & ":" & secondsDeviation
+                End If
+            End If
+        Else
+            If minuteCounter < 10 Then
+                If secondsDeviation < 10 Then
+                    conversionResult = hoursCounter & ":0" & minuteCounter & ":0" & secondsDeviation
+                Else
+                    conversionResult = hoursCounter & ":0" & minuteCounter & ":" & secondsDeviation
+                End If
+            Else
+                If secondsDeviation < 10 Then
+                    conversionResult = hoursCounter & ":" & minuteCounter & ":0" & secondsDeviation
+                Else
+                    conversionResult = hoursCounter & ":" & minuteCounter & ":" & secondsDeviation
+                End If
+            End If
+        End If
+        Return conversionResult
     End Function
     Public Sub HMEGenerate(HMEName As String, ffmpegletter As String, ffmpegbin As String, ffargs As String, ffargs2 As String)
         If File.Exists(HMEName) Then
@@ -180,39 +327,5 @@ Module MediaEncoderModule
             .UseShellExecute = False
         }
         Dim process As Process = Process.Start(psi)
-    End Sub
-    Public Sub CleanEnv(cleanStats As String)
-        GC.Collect()
-        GC.WaitForPendingFinalizers()
-        File.Delete("chapter.txt")
-        File.Delete("FFMETADATAFILE")
-        File.Delete("HME.bat")
-        File.Delete("HME.msi")
-        File.Delete("HME_Audio_Flags.txt")
-        File.Delete("HME_FFMPEG_Init.bat")
-        File.Delete("HME_Stream_Replace.txt")
-        File.Delete("HME_VF.bat")
-        File.Delete("Init_Res.txt")
-        File.Delete("OTA.bat")
-        If cleanStats = "all" Then
-            File.Delete("chapter.txt")
-            File.Delete("FFMETADATAFILE")
-            File.Delete("spectrum-temp.png")
-            MassDelete("audioStream", "txt")
-            MassDelete("audioConfig", "txt")
-            MassDelete("videoStream", "txt")
-            MassDelete("videoConfig", "txt")
-            MassDelete("thumbnail", "png")
-        End If
-    End Sub
-    Public Sub InitExit()
-        Dim progList As String() = {"ffplay", "ffmpeg", "ffprobe"}
-        For Each prog As Process In Process.GetProcesses
-            For Each progQueue As String In progList
-                If prog.ProcessName = progQueue Then
-                    prog.Kill()
-                End If
-            Next
-        Next
     End Sub
 End Module
