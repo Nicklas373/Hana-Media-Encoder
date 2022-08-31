@@ -8,6 +8,7 @@ Public Class MainMenu
         AllowTransparency = False
         AllowRoundedCorners = True
         Panel1.AllowDrop = True
+        Me.KeyPreview = True
         MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro
         MessageBoxAdv.MetroColorTable.DetailsButtonBackColor = ColorTranslator.FromHtml("#F4A950")
         MessageBoxAdv.MetroColorTable.DetailsButtonForeColor = ColorTranslator.FromHtml("#161B21")
@@ -75,6 +76,21 @@ Public Class MainMenu
         CleanEnv("all")
         InitExit()
     End Sub
+    Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
+        If Label2.Text IsNot "" And TabPage1.Visible = True And File.Exists("thumbnail\1.png") Then
+            'detect left arrow key
+            If keyData = Keys.Left Then
+                ImagePrev_Prev()
+                Return True
+            End If
+            'detect right arrow key
+            If keyData = Keys.Right Then
+                ImagePrev_Next()
+                Return True
+            End If
+        End If
+        Return MyBase.ProcessCmdKey(msg, keyData)
+    End Function
     Private Sub Panel1_DragDrop(sender As Object, e As DragEventArgs) Handles Panel1.DragDrop
         Dim files() As String = e.Data.GetData(DataFormats.FileDrop)
         Dim dropStats As Boolean
@@ -288,6 +304,12 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub ImagePreview_Next(sender As Object, e As EventArgs) Handles Button7.Click
+        ImagePrev_Next()
+    End Sub
+    Private Sub ImagePreview_Prev(sender As Object, e As EventArgs) Handles Button8.Click
+        ImagePrev_Prev()
+    End Sub
+    Private Sub ImagePrev_Next()
         CurPos = CInt(Label96.Text)
         MaxPos = CInt(Label98.Text)
         If ComboBox31.SelectedIndex = 0 Then
@@ -311,7 +333,7 @@ Public Class MainMenu
             End If
         End If
     End Sub
-    Private Sub ImagePreview_Prev(sender As Object, e As EventArgs) Handles Button8.Click
+    Private Sub ImagePrev_Prev()
         CurPos = CInt(Label96.Text)
         MaxPos = CInt(Label98.Text)
         If ComboBox31.SelectedIndex = 0 Then
@@ -3368,12 +3390,12 @@ Public Class MainMenu
                     Button12.Enabled = True
                     Button13.Enabled = True
                     Button14.Enabled = True
-                    RichTextBox5.Enabled = True
                     CheckBox8.Checked = False
                     CheckBox8.Enabled = False
                     CheckBox6.Checked = False
                     CheckBox6.Enabled = False
                     ChapterReset()
+                    GetChapter()
                     MessageBoxAdv.Show("Trim and Muxing options are not available while chapter is enable !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Else
@@ -3394,11 +3416,11 @@ Public Class MainMenu
             Button12.Enabled = False
             Button13.Enabled = False
             Button14.Enabled = False
-            RichTextBox5.Enabled = False
             RichTextBox5.Text = ""
             CheckBox8.Enabled = True
             CheckBox6.Enabled = True
             ChapterReset()
+            ListView1.Items.Clear()
         End If
     End Sub
     Private Sub ChapterLock(sender As Object, e As EventArgs) Handles CheckBox14.CheckedChanged
@@ -3475,11 +3497,35 @@ Public Class MainMenu
     Private Sub AddChapter(sender As Object, e As EventArgs) Handles Button11.Click
         If TextBox5.Text IsNot "" AndAlso TextBox17.Text IsNot "" AndAlso TextBox18.Text IsNot "" AndAlso TextBox19.Text IsNot "" Then
             If ChapterTimeCheck() = True Then
+                Dim curTimeCnv As String()
                 Dim newTime As String = TextBox5.Text & ":" & TextBox17.Text & ":" & TextBox18.Text
+                Dim newTimeCnv As String() = newTime.Split(":")
                 Dim newChapter As New ListViewItem(newTime)
-                newChapter.SubItems.Add(TextBox19.Text)
-                ListView1.Items.Add(newChapter)
-                MessageBoxAdv.Show("Chapter successfully added !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If ListView1.Items.Count = 0 Then
+                    newChapter.SubItems.Add(TextBox19.Text)
+                    ListView1.Items.Add(newChapter)
+                    MessageBoxAdv.Show("Chapter successfully added !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    ListView1.Items(0).Selected = False
+                    ListView1.Items(0).Focused = False
+                    ListView1.Items(ListView1.Items.Count - 1).Selected = True
+                    ListView1.Items(ListView1.Items.Count - 1).Focused = True
+                    ListView1.FocusedItem.Selected = True
+                    ListView1.Focus()
+                    curTimeCnv = ListView1.SelectedItems(0).SubItems(0).Text.Split(":")
+                    If TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) < TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Or
+                       TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) = TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Then
+                        ListView1.Items(0).Selected = False
+                        ListView1.Items(0).Focused = False
+                        MessageBoxAdv.Show("New time chapter can not less or same than previous time chapter duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        ListView1.Items(0).Selected = False
+                        ListView1.Items(0).Focused = False
+                        newChapter.SubItems.Add(TextBox19.Text)
+                        ListView1.Items.Add(newChapter)
+                        MessageBoxAdv.Show("Chapter successfully added !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
+                End If
             Else
                 MessageBoxAdv.Show("Time chapter can not more than video duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -3488,13 +3534,232 @@ Public Class MainMenu
             MessageBoxAdv.Show("Add chapter failed !" & vbCrLf & vbCrLf & "Make sure to fill time and chapter title completely", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
+    Private Sub GetChapter()
+        Newffargs = "ffmpeg -i " & Chr(34) & Label2.Text & Chr(34) & " -f ffmetadata " & Chr(34) & My.Application.Info.DirectoryPath & "\FFMETADATAFILE" & Chr(34)
+        HMEGenerate("HME_Chapters.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
+        RunProc("HME_Chapters.bat")
+        If File.Exists("FFMETADATAFILE") = True Then
+            Dim chapterStatus As Boolean
+            Dim curLoop As Integer = 1
+            Dim cnvTime As String
+            Dim count As Integer = 0
+            Dim selectedTime As New List(Of String)()
+            Dim selectedTitle As New List(Of String)()
+            Dim readMetadataLines() As String = File.ReadAllLines("FFMETADATAFILE")
+            If File.ReadAllText("FFMETADATAFILE").Contains("START=") = True Then
+                Do
+                    If readMetadataLines(count).Contains("START=") Then
+                        Dim curLines As String = RemoveWhitespace(Strings.Mid(readMetadataLines(count), 7))
+                        Dim updatedLines As String
+                        If curLines = "0" Then
+                            updatedLines = curLines
+                        Else
+                            updatedLines = curLines.Remove(curLines.Length - 9)
+                        End If
+
+                        cnvTime = TimeConversionReverse(updatedLines)
+                        selectedTime.Add(cnvTime)
+                    End If
+                    count += 1
+                Loop While count < File.ReadAllLines("FFMETADATAFILE").Length
+                chapterStatus = True
+            Else
+                chapterStatus = False
+            End If
+            count = 0
+            If File.ReadAllText("FFMETADATAFILE").Contains("title=") = True Then
+                Do
+                    If readMetadataLines(count).Contains("title=") Then
+                        Dim curLines As String = Strings.Mid(readMetadataLines(count), 7)
+                        selectedTitle.Add(curLines)
+                        curLoop += 1
+                    End If
+                    count += 1
+                Loop While count < File.ReadAllLines("FFMETADATAFILE").Length
+                chapterStatus = True
+            Else
+                chapterStatus = False
+            End If
+            If chapterStatus = True Then
+                Dim listOfTitle As List(Of String) = New List(Of String)(selectedTitle)
+                Dim n As Integer = 0
+                For Each value As String In selectedTime
+                    Dim newChapter As New ListViewItem(value)
+                    ListView1.Items.Add(newChapter)
+                    newChapter.SubItems.Add(listOfTitle(n))
+                    n += 1
+                Next
+            End If
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+            File.Delete("FFMETADATAFILE")
+        End If
+    End Sub
     Private Sub UpdateChapter(sender As Object, e As EventArgs) Handles Button13.Click
         If TextBox5.Text IsNot "" AndAlso TextBox17.Text IsNot "" AndAlso TextBox18.Text IsNot "" AndAlso TextBox19.Text IsNot "" Then
             If ChapterTimeCheck() = True Then
-                Dim newTime As String = TextBox5.Text & ":" & TextBox17.Text & ":" & TextBox18.Text
-                ChapterReplace("update", newTime)
-                MessageBoxAdv.Show("Chapter successfully updated !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                ChapterReset()
+                If ListView1.SelectedItems.Count > 0 Then
+                    Dim curTimeCnv As String()
+                    Dim newTime As String = TextBox5.Text & ":" & TextBox17.Text & ":" & TextBox18.Text
+                    Dim newTimeCnv As String() = newTime.Split(":")
+                    If ListView1.FocusedItem.Index = 0 Then
+                        If ListView1.Items.Count > 0 Then
+                            ListView1.Items(1).Selected = False
+                            ListView1.Items(1).Focused = False
+                            ListView1.FocusedItem.Selected = False
+                            ListView1.Items(ListView1.FocusedItem.Index + 1).Selected = True
+                            ListView1.Items(ListView1.FocusedItem.Index + 1).Focused = True
+                            ListView1.FocusedItem.Selected = True
+                            ListView1.Focus()
+                            curTimeCnv = ListView1.SelectedItems(0).SubItems(0).Text.Split(":")
+                            If TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) > TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Or
+                                TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) = TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Then
+                                If ListView1.FocusedItem.Index + 1 > 1 Then
+                                    ListView1.Items(0).Selected = False
+                                    ListView1.Items(0).Focused = False
+                                Else
+                                    ListView1.Items(1).Selected = False
+                                    ListView1.Items(1).Focused = False
+                                End If
+                                ListView1.FocusedItem.Selected = False
+                                ListView1.Items(ListView1.FocusedItem.Index - 1).Selected = True
+                                ListView1.Items(ListView1.FocusedItem.Index - 1).Focused = True
+                                ListView1.FocusedItem.Selected = True
+                                ListView1.Focus()
+                                MessageBoxAdv.Show("New time chapter can not more or same than next time chapter duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Else
+                                If ListView1.FocusedItem.Index + 1 > 1 Then
+                                    ListView1.Items(0).Selected = False
+                                    ListView1.Items(0).Focused = False
+                                Else
+                                    ListView1.Items(1).Selected = False
+                                    ListView1.Items(1).Focused = False
+                                End If
+                                ListView1.FocusedItem.Selected = False
+                                ListView1.Items(ListView1.FocusedItem.Index - 1).Selected = True
+                                ListView1.Items(ListView1.FocusedItem.Index - 1).Focused = True
+                                ListView1.FocusedItem.Selected = True
+                                ListView1.Focus()
+                                ChapterReplace("update", newTime)
+                                MessageBoxAdv.Show("Chapter successfully updated !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                ChapterReset()
+                            End If
+                        Else
+                            ChapterReplace("update", newTime)
+                            MessageBoxAdv.Show("Chapter successfully updated !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            ChapterReset()
+                        End If
+                    ElseIf ListView1.FocusedItem.Index + 1 = ListView1.Items.Count Then
+                        ListView1.Items(0).Selected = False
+                        ListView1.Items(0).Focused = False
+                        ListView1.FocusedItem.Selected = False
+                        ListView1.Items(ListView1.FocusedItem.Index - 1).Selected = True
+                        ListView1.Items(ListView1.FocusedItem.Index - 1).Focused = True
+                        ListView1.FocusedItem.Selected = True
+                        ListView1.Focus()
+                        curTimeCnv = ListView1.SelectedItems(0).SubItems(0).Text.Split(":")
+                        If TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) < TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Or
+                            TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) = TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Then
+                            If ListView1.FocusedItem.Index + 1 > 1 Then
+                                ListView1.Items(0).Selected = False
+                                ListView1.Items(0).Focused = False
+                            Else
+                                ListView1.Items(1).Selected = False
+                                ListView1.Items(1).Focused = False
+                            End If
+                            ListView1.FocusedItem.Selected = False
+                            ListView1.Items(ListView1.FocusedItem.Index + 1).Selected = True
+                            ListView1.Items(ListView1.FocusedItem.Index + 1).Focused = True
+                            ListView1.FocusedItem.Selected = True
+                            ListView1.Focus()
+                            MessageBoxAdv.Show("New time chapter can not less than previous time chapter duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Else
+                            If ListView1.FocusedItem.Index + 1 > 1 Then
+                                ListView1.Items(0).Selected = False
+                                ListView1.Items(0).Focused = False
+                            Else
+                                ListView1.Items(1).Selected = False
+                                ListView1.Items(1).Focused = False
+                            End If
+                            ListView1.FocusedItem.Selected = False
+                            ListView1.Items(ListView1.FocusedItem.Index + 1).Selected = True
+                            ListView1.Items(ListView1.FocusedItem.Index + 1).Focused = True
+                            ListView1.FocusedItem.Selected = True
+                            ListView1.Focus()
+                            ChapterReplace("update", newTime)
+                            MessageBoxAdv.Show("Chapter successfully updated !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            ChapterReset()
+                        End If
+                    ElseIf ListView1.FocusedItem.Index + 1 > 1 And ListView1.FocusedItem.Index < ListView1.Items.Count Then
+                        ListView1.Items(0).Selected = False
+                        ListView1.Items(0).Focused = False
+                        ListView1.FocusedItem.Selected = False
+                        ListView1.Items(ListView1.FocusedItem.Index + 1).Selected = True
+                        ListView1.Items(ListView1.FocusedItem.Index + 1).Focused = True
+                        ListView1.FocusedItem.Selected = True
+                        ListView1.Focus()
+                        curTimeCnv = ListView1.SelectedItems(0).SubItems(0).Text.Split(":")
+                        If TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) > TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Or
+                            TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) = TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Then
+                            If ListView1.FocusedItem.Index + 1 > 1 Then
+                                ListView1.Items(0).Selected = False
+                                ListView1.Items(0).Focused = False
+                            Else
+                                ListView1.Items(1).Selected = False
+                                ListView1.Items(1).Focused = False
+                            End If
+                            ListView1.FocusedItem.Selected = False
+                            ListView1.Items(ListView1.FocusedItem.Index - 1).Selected = True
+                            ListView1.Items(ListView1.FocusedItem.Index - 1).Focused = True
+                            ListView1.FocusedItem.Selected = True
+                            ListView1.Focus()
+                            MessageBoxAdv.Show("New time chapter can not more than next time chapter duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Else
+                            ListView1.Items(0).Selected = False
+                            ListView1.Items(0).Focused = False
+                            ListView1.FocusedItem.Selected = False
+                            ListView1.Items(ListView1.FocusedItem.Index - 2).Selected = True
+                            ListView1.Items(ListView1.FocusedItem.Index - 2).Focused = True
+                            ListView1.FocusedItem.Selected = True
+                            ListView1.Focus()
+                            curTimeCnv = ListView1.SelectedItems(0).SubItems(0).Text.Split(":")
+                            If TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) < TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Or
+                                TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) = TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Then
+                                If ListView1.FocusedItem.Index + 1 > 1 Then
+                                    ListView1.Items(0).Selected = False
+                                    ListView1.Items(0).Focused = False
+                                Else
+                                    ListView1.Items(1).Selected = False
+                                    ListView1.Items(1).Focused = False
+                                End If
+                                ListView1.FocusedItem.Selected = False
+                                ListView1.Items(ListView1.FocusedItem.Index + 1).Selected = True
+                                ListView1.Items(ListView1.FocusedItem.Index + 1).Focused = True
+                                ListView1.FocusedItem.Selected = True
+                                ListView1.Focus()
+                                MessageBoxAdv.Show("New time chapter can not less than previous time chapter duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Else
+                                If ListView1.FocusedItem.Index + 1 > 1 Then
+                                    ListView1.Items(0).Selected = False
+                                    ListView1.Items(0).Focused = False
+                                Else
+                                    ListView1.Items(1).Selected = False
+                                    ListView1.Items(1).Focused = False
+                                End If
+                                ListView1.FocusedItem.Selected = False
+                                ListView1.Items(ListView1.FocusedItem.Index + 1).Selected = True
+                                ListView1.Items(ListView1.FocusedItem.Index + 1).Focused = True
+                                ListView1.FocusedItem.Selected = True
+                                ListView1.Focus()
+                                ChapterReplace("update", newTime)
+                                MessageBoxAdv.Show("Chapter successfully updated !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                ChapterReset()
+                            End If
+                        End If
+                    End If
+                Else
+                    MessageBoxAdv.Show("Please select chapter that want to update !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             Else
                 MessageBoxAdv.Show("Time chapter can not more than video duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -3503,7 +3768,11 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub RemoveChapter(sender As Object, e As EventArgs) Handles Button12.Click
-        ChapterReplace("remove", "")
+        If ListView1.SelectedItems.Count > 0 Then
+            ChapterReplace("remove", "")
+        Else
+            MessageBoxAdv.Show("Please select chapter that want to remove !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
     Private Sub ChapterReset(sender As Object, e As EventArgs) Handles Button14.Click
         MessageBoxAdv.Show("Chapter data has been reset !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -3511,7 +3780,7 @@ Public Class MainMenu
     End Sub
     Private Sub ChapterList_Clicked(sender As Object, e As EventArgs) Handles ListView1.Click
         If TextBox5.Text IsNot "" Or TextBox17.Text IsNot "" Or TextBox18.Text IsNot "" Or TextBox19.Text IsNot "" Then
-            Dim chapterResult As DialogResult = MessageBoxAdv.Show(Me, "Want to replace current data" & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            Dim chapterResult As DialogResult = MessageBoxAdv.Show(Me, "Want to replace current title " & ListView1.SelectedItems(0).SubItems(1).Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If chapterResult = DialogResult.Yes Then
                 ChapterReplace("show", "")
             End If
@@ -3657,32 +3926,32 @@ Public Class MainMenu
     End Sub
     Private Sub StartTime_Minute(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
         If TextBox8.Text IsNot "" Then
-            If CInt(TextBox8.Text) > 60 Then
-                MessageBoxAdv.Show("Maximum value for minute is 60 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If CInt(TextBox8.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for minute is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 TextBox8.Text = ""
             End If
         End If
     End Sub
     Private Sub StartTime_Seconds(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
         If TextBox9.Text IsNot "" Then
-            If CInt(TextBox9.Text) > 60 Then
-                MessageBoxAdv.Show("Maximum value for minute is 60 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If CInt(TextBox9.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 TextBox9.Text = ""
             End If
         End If
     End Sub
     Private Sub EndTime_Minute(sender As Object, e As EventArgs) Handles TextBox13.TextChanged
         If TextBox13.Text IsNot "" Then
-            If CInt(TextBox13.Text) > 60 Then
-                MessageBoxAdv.Show("Maximum value for minute is 60 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If CInt(TextBox13.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for minute is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 TextBox13.Text = ""
             End If
         End If
     End Sub
     Private Sub EndTime_Seconds(sender As Object, e As EventArgs) Handles TextBox12.TextChanged
         If TextBox12.Text IsNot "" Then
-            If CInt(TextBox12.Text) > 60 Then
-                MessageBoxAdv.Show("Maximum value for minute is 60 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If CInt(TextBox12.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 TextBox12.Text = ""
             End If
         End If
@@ -3730,6 +3999,22 @@ Public Class MainMenu
             If CInt(TextBox21.Text) > 4320 Then
                 MessageBoxAdv.Show("Maximum width support is 4320", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 TextBox21.Text = ""
+            End If
+        End If
+    End Sub
+    Private Sub Chapter_Seconds_Validity(sender As Object, e As EventArgs) Handles TextBox18.TextChanged
+        If TextBox18.Text IsNot "" Then
+            If CInt(TextBox18.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                TextBox18.Text = ""
+            End If
+        End If
+    End Sub
+    Private Sub Chapter_Minute_Validity(sender As Object, e As EventArgs) Handles TextBox17.TextChanged
+        If TextBox17.Text IsNot "" Then
+            If CInt(TextBox17.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                TextBox17.Text = ""
             End If
         End If
     End Sub
