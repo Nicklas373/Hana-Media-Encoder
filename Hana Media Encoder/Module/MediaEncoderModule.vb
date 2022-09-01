@@ -89,6 +89,114 @@ Module MediaEncoderModule
 
         Return HWDecName
     End Function
+    Public Sub HMEAudioStreamConfigGenerate(HMEName As String, acodec As String, abitdepth As String, aratecontrol As String,
+                                             arate As String, achannel As String, acomplvl As String, afreq As String)
+        If File.Exists(HMEName) Then
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+            File.Delete(HMEName)
+            File.Create(HMEName).Dispose()
+        Else
+            File.Create(HMEName).Dispose()
+        End If
+        Dim writer As New StreamWriter(HMEName, True)
+        writer.WriteLine("Codec=" & acodec)
+        writer.WriteLine("BitDepth=" & abitdepth)
+        writer.WriteLine("RateControl=" & aratecontrol)
+        writer.WriteLine("Rate=" & arate)
+        writer.WriteLine("Channel=" & achannel)
+        writer.WriteLine("Compression=" & acomplvl)
+        writer.WriteLine("Frequency=" & afreq)
+        writer.Close()
+    End Sub
+    Public Sub HMEGenerate(HMEName As String, ffmpegletter As String, ffmpegbin As String, ffargs As String, ffargs2 As String)
+        If File.Exists(HMEName) Then
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+            File.Delete(HMEName)
+            File.Create(HMEName).Dispose()
+        Else
+            File.Create(HMEName).Dispose()
+        End If
+        Dim writer As New StreamWriter(HMEName, True)
+        writer.WriteLine("chcp 65001")
+        writer.WriteLine("@echo off")
+        writer.WriteLine(ffmpegletter)
+        writer.WriteLine("cd " & ffmpegbin)
+        writer.WriteLine(ffargs)
+        writer.WriteLine(ffargs2)
+        writer.WriteLine("exit")
+        writer.Close()
+    End Sub
+    Public Sub HMEGenerateAlt(HMEName As String, ffmpegletter As String, ffmpegbin As String, ffargs As String, ffargs2 As String)
+        If File.Exists(HMEName) Then
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+            File.Delete(HMEName)
+            File.Create(HMEName).Dispose()
+        Else
+            File.Create(HMEName).Dispose()
+        End If
+        Dim writer As New StreamWriter(HMEName, True)
+        writer.WriteLine("@echo off")
+        writer.WriteLine(ffmpegletter)
+        writer.WriteLine("cd " & ffmpegbin)
+        writer.WriteLine(ffargs)
+        writer.WriteLine(ffargs2)
+        writer.WriteLine("exit")
+        writer.Close()
+    End Sub
+    Public Sub HMEStreamProfileGenerate(HMEName As String, ffargs As String)
+        If File.Exists(HMEName) Then
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+            File.Delete(HMEName)
+            File.Create(HMEName).Dispose()
+            Dim writer As New StreamWriter(HMEName, True)
+            writer.WriteLine(ffargs)
+            writer.Close()
+        Else
+            File.Create(HMEName).Dispose()
+            Dim writer As New StreamWriter(HMEName, True)
+            writer.WriteLine(ffargs)
+            writer.Close()
+        End If
+    End Sub
+    Public Sub HMEVideoStreamConfigGenerate(HMEName As String, brCompat As String, ovrbitrate As String, bref As String, codec As String, framerate As String,
+                                            level As String, maxbitrate As String, multipass As String, preset As String, pixfmt As String, profile As String,
+                                            ratectr As String, spatialaq As String, aqstrength As String, temporalaq As String, targetql As String,
+                                            tier As String, tune As String, ar As String, res As String)
+        If File.Exists(HMEName) Then
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+            File.Delete(HMEName)
+            File.Create(HMEName).Dispose()
+        Else
+            File.Create(HMEName).Dispose()
+        End If
+        Dim writer As New StreamWriter(HMEName, True)
+        writer.WriteLine("BRCompat=" & brCompat)
+        writer.WriteLine("OvrBitrate=" & ovrbitrate)
+        writer.WriteLine("Bref=" & bref)
+        writer.WriteLine("Codec=" & codec)
+        writer.WriteLine("Fps=" & framerate)
+        writer.WriteLine("Level=" & level)
+        writer.WriteLine("MaxBitrate=" & maxbitrate)
+        writer.WriteLine("Multipass=" & multipass)
+        writer.WriteLine("Preset=" & preset)
+        writer.WriteLine("PixelFormat=" & pixfmt)
+        writer.WriteLine("Profile=" & profile)
+        writer.WriteLine("RateControl=" & ratectr)
+        writer.WriteLine("SpatialAQ=" & spatialaq)
+        writer.WriteLine("AQStrength=" & aqstrength)
+        writer.WriteLine("TemporalAQ=" & temporalaq)
+        writer.WriteLine("TargetQL=" & targetql)
+        writer.WriteLine("Tier=" & tier)
+        writer.WriteLine("Tune=" & tune)
+        writer.WriteLine("AspectRatio=" & ar)
+        writer.WriteLine("Resolution=" & res)
+        writer.Close()
+    End Sub
     Public Sub InitExit()
         Dim progList As String() = {"ffplay", "ffmpeg", "ffprobe"}
         For Each prog As Process In Process.GetProcesses
@@ -182,114 +290,6 @@ Module MediaEncoderModule
         End If
         Return conversionResult
     End Function
-    Public Sub HMEGenerate(HMEName As String, ffmpegletter As String, ffmpegbin As String, ffargs As String, ffargs2 As String)
-        If File.Exists(HMEName) Then
-            GC.Collect()
-            GC.WaitForPendingFinalizers()
-            File.Delete(HMEName)
-            File.Create(HMEName).Dispose()
-        Else
-            File.Create(HMEName).Dispose()
-        End If
-        Dim writer As New StreamWriter(HMEName, True)
-        writer.WriteLine("chcp 65001")
-        writer.WriteLine("@echo off")
-        writer.WriteLine(ffmpegletter)
-        writer.WriteLine("cd " & ffmpegbin)
-        writer.WriteLine(ffargs)
-        writer.WriteLine(ffargs2)
-        writer.WriteLine("exit")
-        writer.Close()
-    End Sub
-    Public Sub HMEGenerateAlt(HMEName As String, ffmpegletter As String, ffmpegbin As String, ffargs As String, ffargs2 As String)
-        If File.Exists(HMEName) Then
-            GC.Collect()
-            GC.WaitForPendingFinalizers()
-            File.Delete(HMEName)
-            File.Create(HMEName).Dispose()
-        Else
-            File.Create(HMEName).Dispose()
-        End If
-        Dim writer As New StreamWriter(HMEName, True)
-        writer.WriteLine("@echo off")
-        writer.WriteLine(ffmpegletter)
-        writer.WriteLine("cd " & ffmpegbin)
-        writer.WriteLine(ffargs)
-        writer.WriteLine(ffargs2)
-        writer.WriteLine("exit")
-        writer.Close()
-    End Sub
-    Public Sub HMEStreamProfileGenerate(HMEName As String, ffargs As String)
-        If File.Exists(HMEName) Then
-            GC.Collect()
-            GC.WaitForPendingFinalizers()
-            File.Delete(HMEName)
-            File.Create(HMEName).Dispose()
-            Dim writer As New StreamWriter(HMEName, True)
-            writer.WriteLine(ffargs)
-            writer.Close()
-        Else
-            File.Create(HMEName).Dispose()
-            Dim writer As New StreamWriter(HMEName, True)
-            writer.WriteLine(ffargs)
-            writer.Close()
-        End If
-    End Sub
-    Public Sub HMEVideoStreamConfigGenerate(HMEName As String, brCompat As String, ovrbitrate As String, bref As String, codec As String, framerate As String,
-                                            level As String, maxbitrate As String, multipass As String, preset As String, pixfmt As String, profile As String,
-                                            ratectr As String, spatialaq As String, aqstrength As String, temporalaq As String, targetql As String,
-                                            tier As String, tune As String, ar As String, res As String)
-        If File.Exists(HMEName) Then
-            GC.Collect()
-            GC.WaitForPendingFinalizers()
-            File.Delete(HMEName)
-            File.Create(HMEName).Dispose()
-        Else
-            File.Create(HMEName).Dispose()
-        End If
-        Dim writer As New StreamWriter(HMEName, True)
-        writer.WriteLine("BRCompat=" & brCompat)
-        writer.WriteLine("OvrBitrate=" & ovrbitrate)
-        writer.WriteLine("Bref=" & bref)
-        writer.WriteLine("Codec=" & codec)
-        writer.WriteLine("Fps=" & framerate)
-        writer.WriteLine("Level=" & level)
-        writer.WriteLine("MaxBitrate=" & maxbitrate)
-        writer.WriteLine("Multipass=" & multipass)
-        writer.WriteLine("Preset=" & preset)
-        writer.WriteLine("PixelFormat=" & pixfmt)
-        writer.WriteLine("Profile=" & profile)
-        writer.WriteLine("RateControl=" & ratectr)
-        writer.WriteLine("SpatialAQ=" & spatialaq)
-        writer.WriteLine("AQStrength=" & aqstrength)
-        writer.WriteLine("TemporalAQ=" & temporalaq)
-        writer.WriteLine("TargetQL=" & targetql)
-        writer.WriteLine("Tier=" & tier)
-        writer.WriteLine("Tune=" & tune)
-        writer.WriteLine("AspectRatio=" & ar)
-        writer.WriteLine("Resolution=" & res)
-        writer.Close()
-    End Sub
-    Public Sub HMEAudioStreamConfigGenerate(HMEName As String, acodec As String, abitdepth As String, aratecontrol As String,
-                                             arate As String, achannel As String, acomplvl As String, afreq As String)
-        If File.Exists(HMEName) Then
-            GC.Collect()
-            GC.WaitForPendingFinalizers()
-            File.Delete(HMEName)
-            File.Create(HMEName).Dispose()
-        Else
-            File.Create(HMEName).Dispose()
-        End If
-        Dim writer As New StreamWriter(HMEName, True)
-        writer.WriteLine("Codec=" & acodec)
-        writer.WriteLine("BitDepth=" & abitdepth)
-        writer.WriteLine("RateControl=" & aratecontrol)
-        writer.WriteLine("Rate=" & arate)
-        writer.WriteLine("Channel=" & achannel)
-        writer.WriteLine("Compression=" & acomplvl)
-        writer.WriteLine("Frequency=" & afreq)
-        writer.Close()
-    End Sub
     Public Sub previewMediaModule(mediaFile As String, ffplay As String, mediaID As String)
         Dim newffargs As String
         If mediaID = "Not Detected" Then
