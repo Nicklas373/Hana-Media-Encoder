@@ -73,6 +73,8 @@ Module GlobalVariable
     Public Parsedchangelog As String
     Public Parsejson As JObject
     Public ProgPercentage As Integer
+    Public TempMaxValue As Integer
+    Public TempValue As Integer
     Public TimeSplit As String()
     Public TimeDur As Integer
     Public TimeChapter As Integer
