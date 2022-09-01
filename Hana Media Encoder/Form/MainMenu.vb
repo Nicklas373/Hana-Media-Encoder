@@ -1077,7 +1077,7 @@ Public Class MainMenu
                     End If
                 Else
                     ProgressBar1.Visible = True
-                    Label28.Text = "ENCODE"
+                    Label28.Text = "Initialize"
                     Label70.Text = GetFileSize(VideoFilePath)
                     Label71.Visible = False
                     Label77.Visible = False
@@ -1087,6 +1087,9 @@ Public Class MainMenu
                     ProgressBar1.Value = 0
                     If Newdebugmode = "True" Or FrameMode = "True" Or Label5.Text.Equals("Not Detected") = True Then
                         FrameCount = "0"
+                        Me.Refresh()
+                        Label28.Text = "Frame size 0"
+                        Me.Refresh()
                     Else
                         Newffargs = "ffprobe -hide_banner -i " & Chr(34) & VideoFilePath & Chr(34) & " -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0"
                         HMEGenerate("HME_VF.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
@@ -1102,6 +1105,11 @@ Public Class MainMenu
                         While Not process.StandardOutput.EndOfStream
                             FrameCount = process.StandardOutput.ReadLine
                         End While
+                        Me.Refresh()
+                        Label28.Text = "Count frame"
+                        Me.Refresh()
+                        Label28.Text = "Frame " & FrameCount
+                        Me.Refresh()
                         Await Task.Delay(1000)
                         Await process.WaitForExitAsync()
                         process.WaitForExit()
@@ -1119,6 +1127,9 @@ Public Class MainMenu
                         .WindowStyle = ProcessWindowStyle.Hidden,
                         .UseShellExecute = False
                     }
+                    Me.Refresh()
+                    Label28.Text = "Encoding"
+                    Me.Refresh()
                     EncStartTime = DateTime.Now
                     If Label5.Text.Equals("Not Detected") = False Or TextBox15.Text IsNot "" Or CheckBox1.Checked = True And CheckBox3.Checked = True Then
                         If Newdebugmode = "True" Then
@@ -1185,19 +1196,27 @@ Public Class MainMenu
                                 Else
                                     MessageBoxAdv.Show("Encoding failed: " & FfmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 End If
-                                Label28.Text = "ERROR"
+                                Me.Refresh()
+                                Label28.Text = "Error"
+                                Me.Refresh()
+                                ProgressBar1.Refresh()
                                 ProgressBar1.Value = ProgressBar1.Maximum
+                                ProgressBar1.Refresh()
                                 ProgressBar1.ForeColor = Color.Red
                             Else
                                 If ProgressBar1.Value <> ProgressBar1.Maximum Then
+                                    ProgressBar1.Refresh()
                                     ProgressBar1.Value = ProgressBar1.Maximum
+                                    ProgressBar1.Refresh()
                                 End If
                                 MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Label70.Visible = True
                                 Label76.Visible = True
                                 Label71.Visible = True
                                 Label77.Visible = True
-                                Label28.Text = "COMPLETED"
+                                Me.Refresh()
+                                Label28.Text = "Completed"
+                                Me.Refresh()
                                 Label71.Text = "" & GetFileSize(TextBox1.Text)
                                 Dim previewResult As DialogResult = MessageBoxAdv.Show(Me, "Play " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                                 If previewResult = DialogResult.Yes Then
@@ -1206,14 +1225,18 @@ Public Class MainMenu
                             End If
                         Else
                             If ProgressBar1.Value <> ProgressBar1.Maximum Then
+                                ProgressBar1.Refresh()
                                 ProgressBar1.Value = ProgressBar1.Maximum
+                                ProgressBar1.Refresh()
                             End If
                             MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Label70.Visible = True
                             Label76.Visible = True
                             Label71.Visible = True
                             Label77.Visible = True
-                            Label28.Text = "COMPLETED"
+                            Me.Refresh()
+                            Label28.Text = "Completed"
+                            Me.Refresh()
                             Label71.Text = "" & GetFileSize(TextBox1.Text)
                             Dim previewResult As DialogResult = MessageBoxAdv.Show(Me, "Play " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                             If previewResult = DialogResult.Yes Then
@@ -1226,9 +1249,12 @@ Public Class MainMenu
                         Else
                             MessageBoxAdv.Show("Encoding failed: " & FfmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
-                        Label28.Text = "ERROR"
+                        Me.Refresh()
+                        Label28.Text = "Error"
+                        Me.Refresh()
+                        ProgressBar1.Refresh()
                         ProgressBar1.Value = ProgressBar1.Maximum
-                        ProgressBar1.ForeColor = Color.Red
+                        ProgressBar1.Refresh()
                     End If
                     Button1.Enabled = True
                     Button6.Enabled = True
@@ -1271,11 +1297,16 @@ Public Class MainMenu
                     CheckBox1.Checked = False
                     MessageBoxAdv.Show("Current media file does not contain any video stream !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
-                    ComboBox2.Enabled = True
-                    CheckBox3.Enabled = True
-                    ComboBox29.Enabled = True
-                    CheckBox13.Enabled = True
-                    ComboBox29.SelectedIndex = 0
+                    If Hwdefconfig IsNot "null" Then
+                        ComboBox2.Enabled = True
+                        CheckBox3.Enabled = True
+                        ComboBox29.Enabled = True
+                        CheckBox13.Enabled = True
+                        ComboBox29.SelectedIndex = 0
+                    Else
+                        CheckBox1.Checked = False
+                        MessageBoxAdv.Show("GPU HW Accelerated are not set !" & vbCrLf & vbCrLf & "Please configure it on options menu before start encoding", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
                 End If
             Else
                 CheckBox1.Checked = False
