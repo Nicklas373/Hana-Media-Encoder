@@ -434,7 +434,7 @@ Partial Class MainMenu
         Me.Panel1.Controls.Add(Me.TabControl1)
         Me.Panel1.Location = New System.Drawing.Point(-5, 67)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1920, 900)
+        Me.Panel1.Size = New System.Drawing.Size(3840, 2160)
         Me.Panel1.TabIndex = 1
         '
         'TabControl1
@@ -452,7 +452,7 @@ Partial Class MainMenu
         Me.TabControl1.Location = New System.Drawing.Point(3, 46)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1920, 850)
+        Me.TabControl1.Size = New System.Drawing.Size(3840, 2110)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -515,7 +515,7 @@ Partial Class MainMenu
         Me.TabPage1.Location = New System.Drawing.Point(4, 26)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1912, 820)
+        Me.TabPage1.Size = New System.Drawing.Size(3832, 2080)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Source Info"
         '
@@ -1151,7 +1151,7 @@ Partial Class MainMenu
         Me.TabPage2.Location = New System.Drawing.Point(4, 26)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1912, 820)
+        Me.TabPage2.Size = New System.Drawing.Size(3832, 2080)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Video"
         '
@@ -1772,7 +1772,7 @@ Partial Class MainMenu
         Me.TabPage3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.TabPage3.Location = New System.Drawing.Point(4, 26)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(1912, 820)
+        Me.TabPage3.Size = New System.Drawing.Size(3832, 2080)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Audio"
         '
@@ -2052,7 +2052,7 @@ Partial Class MainMenu
         Me.TabPage6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.TabPage6.Location = New System.Drawing.Point(4, 26)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(1912, 820)
+        Me.TabPage6.Size = New System.Drawing.Size(3832, 2080)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Chapter"
         '
@@ -2333,7 +2333,7 @@ Partial Class MainMenu
         Me.TabPage5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.TabPage5.Location = New System.Drawing.Point(4, 26)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(1912, 820)
+        Me.TabPage5.Size = New System.Drawing.Size(3832, 2080)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Muxing"
         '
@@ -2573,7 +2573,7 @@ Partial Class MainMenu
         Me.TabPage4.Location = New System.Drawing.Point(4, 26)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(1912, 820)
+        Me.TabPage4.Size = New System.Drawing.Size(3832, 2080)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Trim"
         '
@@ -2995,7 +2995,7 @@ Partial Class MainMenu
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(1920, 1080)
+        Me.MaximumSize = New System.Drawing.Size(3840, 2160)
         Me.MinimumSize = New System.Drawing.Size(1280, 720)
         Me.Name = "MainMenu"
         Me.Padding = New System.Windows.Forms.Padding(0)

@@ -10,10 +10,10 @@ Public Class Loading
         ProgressBar1.MarqueeAnimationSpeed = 40
         ProgressBar1.Refresh()
     End Sub
-    Public Sub New(mediaTitle As String)
+    Public Sub New(mediaType As String, mediaTitle As String)
         InitializeComponent()
         Me.Refresh()
-        Label1.Text = "Loading Media: " & Path.GetFileName(mediaTitle)
+        Label1.Text = "Loading " & mediaType & " : " & Path.GetFileName(mediaTitle)
         Me.Refresh()
     End Sub
     Public Shared Sub CenterForm(ByVal frm As Form, Optional ByVal parent As Form = Nothing)
