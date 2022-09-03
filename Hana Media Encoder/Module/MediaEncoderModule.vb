@@ -17,50 +17,14 @@ Module MediaEncoderModule
         If cleanStats = "all" Then
             File.Delete("chapter.txt")
             File.Delete("FFMETADATAFILE")
-            File.Delete("spectrum-temp.png")
+            File.Delete("spectrum-temp.jpg")
             MassDelete("audioStream", "txt")
             MassDelete("audioConfig", "txt")
             MassDelete("videoStream", "txt")
             MassDelete("videoConfig", "txt")
-            MassDelete("thumbnail", "png")
+            MassDelete("thumbnail", "jpg")
         End If
     End Sub
-    Public Function GetChapterTimeList(metadata As String) As String
-        Dim count As Integer = 0
-        Dim readMetadataLines() As String = File.ReadAllLines(metadata)
-        Dim selectedTime As String
-        If File.ReadAllText(metadata).Contains("START=") = True Then
-            Do
-                If readMetadataLines(count).Contains("START=") Then
-                    Dim curLines As String = RemoveWhitespace(Strings.Mid(readMetadataLines(count), 7))
-                    Dim updatedLines As String = curLines.Remove(curLines.Length - 7)
-                    selectedTime = updatedLines
-                End If
-                count += 1
-            Loop While count < File.ReadAllLines(metadata).Length
-        Else
-            selectedTime = "null"
-        End If
-        Return selectedTime
-    End Function
-    Public Function GetChapterTitleList(metadata As String) As String
-        Dim count As Integer = 0
-        Dim readMetadataLines() As String = File.ReadAllLines(metadata)
-        Dim selectedTitle As String
-        If File.ReadAllText(metadata).Contains("title=") = True Then
-            Do
-                If readMetadataLines(count).Contains("title=") Then
-                    Dim curLines As String = RemoveWhitespace(Strings.Mid(readMetadataLines(count), 7))
-                    Dim updatedLines As String = curLines.Remove(curLines.Length - 7)
-                    selectedTitle = updatedLines
-                End If
-                count += 1
-            Loop While count < File.ReadAllLines(metadata).Length
-        Else
-            selectedTitle = "null"
-        End If
-        Return selectedTitle
-    End Function
     Public Function GetGraphicsCardName(gpuProperty As String) As String
         Dim searcher As ManagementObjectSearcher = New ManagementObjectSearcher("SELECT * FROM Win32_VideoController")
         Dim graphicsCard As String = String.Empty
@@ -206,6 +170,47 @@ Module MediaEncoderModule
                 End If
             Next
         Next
+        Environment.Exit(Environment.ExitCode)
+    End Sub
+    Public Sub previewMediaModule(mediaFile As String, ffplay As String, mediaID As String)
+        Dim newffargs As String
+        If mediaID = "Not Detected" Then
+            newffargs = " -x 960 -y 540 -showmode 1"
+        Else
+            newffargs = " -x 960 -y 540 -showmode 0"
+        End If
+        Dim psi As New ProcessStartInfo(ffplay) With {
+               .RedirectStandardError = False,
+               .RedirectStandardOutput = True,
+               .CreateNoWindow = True,
+               .Arguments = Chr(34) & mediaFile & Chr(34) & newffargs,
+               .WindowStyle = ProcessWindowStyle.Hidden,
+               .UseShellExecute = False
+           }
+        Dim process As Process = Process.Start(psi)
+    End Sub
+    Public Sub RunProc(bat As String)
+        Dim psi As New ProcessStartInfo(bat) With {
+            .RedirectStandardError = False,
+            .RedirectStandardOutput = False,
+            .CreateNoWindow = True,
+            .WindowStyle = ProcessWindowStyle.Hidden,
+            .UseShellExecute = False
+        }
+        Dim process As Process = Process.Start(psi)
+        process.WaitForExit()
+    End Sub
+    Public Async Sub RunProcAsync(bat As String)
+        Dim psi As New ProcessStartInfo(bat) With {
+            .RedirectStandardError = False,
+            .RedirectStandardOutput = False,
+            .CreateNoWindow = True,
+            .WindowStyle = ProcessWindowStyle.Hidden,
+            .UseShellExecute = False
+        }
+        Dim process As Process = Process.Start(psi)
+        Await Task.Delay(1500)
+        Await Task.Run(Sub() process.waitforexit)
     End Sub
     Public Function TimeConversion(Hours As Integer, Minute As Integer, Seconds As Integer) As Integer
         Dim hoursToMinute As Integer = Hours * 60
@@ -251,7 +256,6 @@ Module MediaEncoderModule
             hoursCounter = hoursCounter
             secondsDeviation = minuteDeviation - (minuteValue * minuteCounter)
         End If
-
         If secondsDeviation > 59 Then
             secondsDeviation = 0
             minuteCounter += 1
@@ -290,42 +294,4 @@ Module MediaEncoderModule
         End If
         Return conversionResult
     End Function
-    Public Sub previewMediaModule(mediaFile As String, ffplay As String, mediaID As String)
-        Dim newffargs As String
-        If mediaID = "Not Detected" Then
-            newffargs = " -x 960 -y 540 -showmode 1"
-        Else
-            newffargs = " -x 960 -y 540 -showmode 0"
-        End If
-        Dim psi As New ProcessStartInfo(ffplay) With {
-               .RedirectStandardError = False,
-               .RedirectStandardOutput = True,
-               .CreateNoWindow = True,
-               .Arguments = Chr(34) & mediaFile & Chr(34) & newffargs,
-               .WindowStyle = ProcessWindowStyle.Hidden,
-               .UseShellExecute = False
-           }
-        Dim process As Process = Process.Start(psi)
-    End Sub
-    Public Sub RunProc(bat As String)
-        Dim psi As New ProcessStartInfo(bat) With {
-            .RedirectStandardError = False,
-            .RedirectStandardOutput = False,
-            .CreateNoWindow = True,
-            .WindowStyle = ProcessWindowStyle.Hidden,
-            .UseShellExecute = False
-        }
-        Dim process As Process = Process.Start(psi)
-        process.WaitForExit()
-    End Sub
-    Public Sub RunProcAlt(bat As String)
-        Dim psi As New ProcessStartInfo(bat) With {
-            .RedirectStandardError = False,
-            .RedirectStandardOutput = False,
-            .CreateNoWindow = True,
-            .WindowStyle = ProcessWindowStyle.Hidden,
-            .UseShellExecute = False
-        }
-        Dim process As Process = Process.Start(psi)
-    End Sub
 End Module
