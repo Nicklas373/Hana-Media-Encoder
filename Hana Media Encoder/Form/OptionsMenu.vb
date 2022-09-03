@@ -12,6 +12,7 @@ Public Class OptionsMenu
         about_pnl.Visible = False
         GetGPUInformation()
         GetBackPref()
+        CheckBox4.Enabled = True
         Label4.Text = My.Application.Info.Title
         Label20.Text = My.Application.Info.Version.ToString
         Label25.Text = My.Application.Info.Copyright
@@ -179,11 +180,6 @@ Public Class OptionsMenu
         ConfigState = True
     End Sub
     Private Sub DebugModeCheck(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
-        If CheckBox3.Checked Then
-            CheckBox4.Enabled = True
-        Else
-            CheckBox4.Enabled = False
-        End If
         If File.Exists("config.ini") Then
             DebugMode = FindConfig("config.ini", "Debug Mode:")
             If DebugMode = "null" Then
