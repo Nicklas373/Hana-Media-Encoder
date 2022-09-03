@@ -229,10 +229,10 @@ Partial Class MainMenu
         Me.Label89 = New System.Windows.Forms.Label()
         Me.Label90 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label76 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
+        Me.ProgressBarAdv1 = New Syncfusion.Windows.Forms.Tools.ProgressBarAdv()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -242,6 +242,7 @@ Partial Class MainMenu
         Me.TabPage6.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.TabPage4.SuspendLayout()
+        CType(Me.ProgressBarAdv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button2
@@ -269,7 +270,7 @@ Partial Class MainMenu
         Me.Label71.AutoSize = True
         Me.Label71.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label71.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label71.Location = New System.Drawing.Point(329, 658)
+        Me.Label71.Location = New System.Drawing.Point(329, 657)
         Me.Label71.Name = "Label71"
         Me.Label71.Size = New System.Drawing.Size(91, 15)
         Me.Label71.TabIndex = 8
@@ -282,7 +283,7 @@ Partial Class MainMenu
         Me.Label70.AutoSize = True
         Me.Label70.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label70.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label70.Location = New System.Drawing.Point(174, 658)
+        Me.Label70.Location = New System.Drawing.Point(174, 657)
         Me.Label70.Name = "Label70"
         Me.Label70.Size = New System.Drawing.Size(64, 15)
         Me.Label70.TabIndex = 7
@@ -2926,17 +2927,6 @@ Partial Class MainMenu
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.ProgressBar1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.ProgressBar1.Location = New System.Drawing.Point(626, 654)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(641, 23)
-        Me.ProgressBar1.TabIndex = 10
-        Me.ProgressBar1.Visible = False
-        '
         'Label28
         '
         Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -2955,7 +2945,7 @@ Partial Class MainMenu
         Me.Label76.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label76.AutoSize = True
         Me.Label76.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label76.Location = New System.Drawing.Point(139, 658)
+        Me.Label76.Location = New System.Drawing.Point(139, 657)
         Me.Label76.Name = "Label76"
         Me.Label76.Size = New System.Drawing.Size(30, 15)
         Me.Label76.TabIndex = 12
@@ -2967,12 +2957,44 @@ Partial Class MainMenu
         Me.Label77.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label77.AutoSize = True
         Me.Label77.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label77.Location = New System.Drawing.Point(244, 658)
+        Me.Label77.Location = New System.Drawing.Point(244, 657)
         Me.Label77.Name = "Label77"
         Me.Label77.Size = New System.Drawing.Size(79, 15)
         Me.Label77.TabIndex = 13
         Me.Label77.Text = "Encoded Size:"
         Me.Label77.Visible = False
+        '
+        'ProgressBarAdv1
+        '
+        Me.ProgressBarAdv1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProgressBarAdv1.BackgroundFallbackStyle = Syncfusion.Windows.Forms.Tools.ProgressBarBackgroundStyles.Office2016Black
+        Me.ProgressBarAdv1.BackgroundStyle = Syncfusion.Windows.Forms.Tools.ProgressBarBackgroundStyles.Office2016Black
+        Me.ProgressBarAdv1.BackMultipleColors = New System.Drawing.Color() {System.Drawing.Color.Empty}
+        Me.ProgressBarAdv1.BackSegments = False
+        Me.ProgressBarAdv1.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust
+        Me.ProgressBarAdv1.BorderColor = System.Drawing.Color.Transparent
+        Me.ProgressBarAdv1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ProgressBarAdv1.CustomText = Nothing
+        Me.ProgressBarAdv1.CustomWaitingRender = False
+        Me.ProgressBarAdv1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.ProgressBarAdv1.ForegroundImage = Nothing
+        Me.ProgressBarAdv1.GradientEndColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.ProgressBarAdv1.GradientStartColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.ProgressBarAdv1.Location = New System.Drawing.Point(626, 650)
+        Me.ProgressBarAdv1.MultipleColors = New System.Drawing.Color() {System.Drawing.Color.Empty}
+        Me.ProgressBarAdv1.Name = "ProgressBarAdv1"
+        Me.ProgressBarAdv1.ProgressFallbackStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.Office2016Black
+        Me.ProgressBarAdv1.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.Office2016Black
+        Me.ProgressBarAdv1.SegmentWidth = 10
+        Me.ProgressBarAdv1.Size = New System.Drawing.Size(641, 23)
+        Me.ProgressBarAdv1.TabIndex = 14
+        Me.ProgressBarAdv1.Text = "ProgressBarAdv1"
+        Me.ProgressBarAdv1.TextVisible = False
+        Me.ProgressBarAdv1.ThemeName = "Office2016Black"
+        Me.ProgressBarAdv1.ThemeStyle.FillColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.ProgressBarAdv1.Visible = False
+        Me.ProgressBarAdv1.WaitingGradientWidth = 400
         '
         'MainMenu
         '
@@ -2981,10 +3003,10 @@ Partial Class MainMenu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1264, 681)
+        Me.Controls.Add(Me.ProgressBarAdv1)
         Me.Controls.Add(Me.Label77)
         Me.Controls.Add(Me.Label76)
         Me.Controls.Add(Me.Label28)
-        Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label71)
         Me.Controls.Add(Me.Label70)
@@ -3027,6 +3049,7 @@ Partial Class MainMenu
         Me.TabPage5.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
+        CType(Me.ProgressBarAdv1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -3046,7 +3069,6 @@ Partial Class MainMenu
     Friend WithEvents Button6 As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
-    Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents Label28 As Label
     Friend WithEvents Label76 As Label
     Friend WithEvents Label77 As Label
@@ -3242,4 +3264,5 @@ Partial Class MainMenu
     Friend WithEvents Label109 As Label
     Friend WithEvents ComboBox32 As ComboBox
     Friend WithEvents Label108 As Label
+    Friend WithEvents ProgressBarAdv1 As Syncfusion.Windows.Forms.Tools.ProgressBarAdv
 End Class

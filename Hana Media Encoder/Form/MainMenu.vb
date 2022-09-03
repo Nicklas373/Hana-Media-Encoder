@@ -25,6 +25,8 @@ Public Class MainMenu
         MessageBoxAdv.MetroColorTable.BorderColor = ColorTranslator.FromHtml("#F4A950")
         MessageBoxAdv.CanResize = True
         MessageBoxAdv.MaximumSize = New Size(520, Screen.PrimaryScreen.WorkingArea.Size.Height)
+        Me.ProgressBarAdv1.ForeColor = ColorTranslator.FromHtml("#F4A950")
+        Me.ProgressBarAdv1.ThemeStyle.FillColor = ColorTranslator.FromHtml("#F4A950")
         Me.TabControl1.Region = New Region(New RectangleF(Me.TabPage1.Left, Me.TabPage1.Left, Me.TabPage1.Width, Me.TabPage1.Height))
         Label69.Visible = True
         Label28.Visible = True
@@ -77,14 +79,11 @@ Public Class MainMenu
         InitExit()
     End Sub
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
-        If Label2.Text IsNot "" And TabPage1.Visible = True And File.Exists("thumbnail\1.png") Then
-            'detect left arrow key
+        If Label2.Text IsNot "" And TabPage1.Visible = True And File.Exists("thumbnail\1.jpg") Then
             If keyData = Keys.Left Then
                 ImagePrev_Prev()
                 Return True
-            End If
-            'detect right arrow key
-            If keyData = Keys.Right Then
+            ElseIf keyData = Keys.Right Then
                 ImagePrev_Next()
                 Return True
             End If
@@ -117,8 +116,10 @@ Public Class MainMenu
         If dropStats = True Then
             If CheckBox3.Checked = True Then
                 MessageBoxAdv.Show("Profile locked !, please unlock profile on video tab to save media file !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Label2.Text = ""
             ElseIf CheckBox5.Checked = True Then
                 MessageBoxAdv.Show("Profile locked !, please unlock profile on audio tab to save media file !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Label2.Text = ""
             Else
                 If Strings.Right(Label2.Text, 4) = ".mkv" Or Strings.Right(Label2.Text, 4) = ".mp4" Or Strings.Right(Label2.Text, 4) = ".avi" Or
                             Strings.Right(Label2.Text, 4) = ".flv" Or Strings.Right(Label2.Text, 3) = ".ts" Or Strings.Right(Label2.Text, 4) = "m2ts" Or
@@ -152,8 +153,10 @@ Public Class MainMenu
     Private Sub OpenMedia_Btn(sender As Object, e As EventArgs) Handles Button1.Click
         If CheckBox3.Checked = True Then
             MessageBoxAdv.Show("Profile locked !, please unlock profile on video tab to save media file !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Label2.Text = ""
         ElseIf CheckBox5.Checked = True Then
             MessageBoxAdv.Show("Profile locked !, please unlock profile on audio tab to save media file !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Label2.Text = ""
         Else
             OpenFileDialog.DefaultExt = "*.*|.avi|.mp4|.mkv|.mp2|.m2ts|.ts|.wav|.flac|.aiff|.alac|.mp3"
             OpenFileDialog.FilterIndex = 1
@@ -162,16 +165,16 @@ Public Class MainMenu
             OpenFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
             If OpenFileDialog.ShowDialog() = DialogResult.OK Then
                 If Strings.Right(OpenFileDialog.FileName, 4) = ".mkv" Or Strings.Right(OpenFileDialog.FileName, 4) = ".mp4" Or Strings.Right(OpenFileDialog.FileName, 4) = ".avi" Or
-                                Strings.Right(OpenFileDialog.FileName, 4) = ".flv" Or Strings.Right(OpenFileDialog.FileName, 3) = ".ts" Or Strings.Right(OpenFileDialog.FileName, 4) = "m2ts" Or
-                                Strings.Right(OpenFileDialog.FileName, 4) = ".mov" Or Strings.Right(OpenFileDialog.FileName, 4) = ".mp4" Or Strings.Right(OpenFileDialog.FileName, 4) = ".vob" Or
-                                Strings.Right(OpenFileDialog.FileName, 4) = ".3gp" Or Strings.Right(OpenFileDialog.FileName, 4) = ".mxf" Or Strings.Right(OpenFileDialog.FileName, 4) = "flac" Or
-                                Strings.Right(OpenFileDialog.FileName, 4) = ".wav" Or Strings.Right(OpenFileDialog.FileName, 4) = ".mp3" Or Strings.Right(OpenFileDialog.FileName, 4) = ".mp2" Or
-                                Strings.Right(OpenFileDialog.FileName, 4) = ".aac" Or Strings.Right(OpenFileDialog.FileName, 4) = ".dts" Or Strings.Right(OpenFileDialog.FileName, 4) = ".dsd" Or
-                                Strings.Right(OpenFileDialog.FileName, 4) = ".pcm" Or Strings.Right(OpenFileDialog.FileName, 4) = "opus" Or Strings.Right(OpenFileDialog.FileName, 4) = ".ogg" Or
-                                Strings.Right(OpenFileDialog.FileName, 4) = ".ape" Or Strings.Right(OpenFileDialog.FileName, 4) = "alac" Or Strings.Right(OpenFileDialog.FileName, 4) = "aiff" Or
-                                Strings.Right(OpenFileDialog.FileName, 4) = ".aif" Or Strings.Right(OpenFileDialog.FileName, 4) = ".m4a" Or Strings.Right(OpenFileDialog.FileName, 4) = ".tak" Or
-                                Strings.Right(OpenFileDialog.FileName, 4) = ".tta" Or Strings.Right(OpenFileDialog.FileName, 4) = ".wma" Or Strings.Right(OpenFileDialog.FileName, 3) = ".wv" Or
-                                Strings.Right(OpenFileDialog.FileName, 4) = "webm" Then
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".flv" Or Strings.Right(OpenFileDialog.FileName, 3) = ".ts" Or Strings.Right(OpenFileDialog.FileName, 4) = "m2ts" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".mov" Or Strings.Right(OpenFileDialog.FileName, 4) = ".mp4" Or Strings.Right(OpenFileDialog.FileName, 4) = ".vob" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".3gp" Or Strings.Right(OpenFileDialog.FileName, 4) = ".mxf" Or Strings.Right(OpenFileDialog.FileName, 4) = "flac" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".wav" Or Strings.Right(OpenFileDialog.FileName, 4) = ".mp3" Or Strings.Right(OpenFileDialog.FileName, 4) = ".mp2" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".aac" Or Strings.Right(OpenFileDialog.FileName, 4) = ".dts" Or Strings.Right(OpenFileDialog.FileName, 4) = ".dsd" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".pcm" Or Strings.Right(OpenFileDialog.FileName, 4) = "opus" Or Strings.Right(OpenFileDialog.FileName, 4) = ".ogg" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".ape" Or Strings.Right(OpenFileDialog.FileName, 4) = "alac" Or Strings.Right(OpenFileDialog.FileName, 4) = "aiff" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".aif" Or Strings.Right(OpenFileDialog.FileName, 4) = ".m4a" Or Strings.Right(OpenFileDialog.FileName, 4) = ".tak" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".tta" Or Strings.Right(OpenFileDialog.FileName, 4) = ".wma" Or Strings.Right(OpenFileDialog.FileName, 3) = ".wv" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = "webm" Then
                     Label2.Text = OpenFileDialog.FileName
                     If ComboBox2.SelectedIndex >= 0 Then
                         ComboBox2.SelectedIndex = 0
@@ -187,8 +190,7 @@ Public Class MainMenu
             End If
         End If
     End Sub
-    Private Async Sub OpenMedia_Load()
-        Await Task.Run(Sub() DoNothing())
+    Private Sub OpenMedia_Load()
         Dim loadInit = New Loading("Media", Label2.Text)
         loadInit.Show()
         ResetInit()
@@ -202,9 +204,9 @@ Public Class MainMenu
         Button8.Enabled = False
         ComboBox24.Enabled = True
         ComboBox23.Enabled = True
-        GetVideoSummary_Async(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34), "0")
-        GetAudioSummary_Async(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34), "0")
-        GetDurationSummary_Async(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34))
+        getVideoSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34), "0")
+        getAudioSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34), "0")
+        getDurationSummary_Async(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34))
         ComboBox22.Items.Clear()
         ComboBox23.Items.Clear()
         ComboBox24.Items.Clear()
@@ -223,42 +225,10 @@ Public Class MainMenu
         PictureBox1.Invalidate()
         ChapterReplace("reset", "")
         loadInit.Close()
-        getPreviewSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34))
-        GenerateSpectrum()
+        getPreviewSummary_Async(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34))
+        getSpectrumSummary()
         ComboBox31.Enabled = True
         ComboBox31.SelectedIndex = 0
-        If File.Exists("thumbnail\1.png") Then
-            Dim ImgPrev1 As New FileStream("thumbnail\1.png", FileMode.Open, FileAccess.Read)
-            PictureBox1.Image = Image.FromStream(ImgPrev1)
-            ImgPrev1.Close()
-            Label96.Text = 1
-            Label98.Text = TotalScreenshot.ToString
-        Else
-            Videofile = Chr(34) & Label2.Text & Chr(34)
-            Newffargs = "ffmpeg -hide_banner -i " & Videofile & " -an -vcodec copy " & Chr(34) & My.Application.Info.DirectoryPath & "\" & "thumbnail\1.png"
-            HMEGenerate("HME_Audio_Only_Summary.bat", FfmpegLetter, FfmpegConf, Newffargs, "")
-            RunProc("HME_Audio_Only_Summary.bat")
-            GC.Collect()
-            GC.WaitForPendingFinalizers()
-            File.Delete("HME_Audio_Only_Summary.bat")
-            If File.Exists("thumbnail\1.png") Then
-                Dim ImgPrev1 As New FileStream("thumbnail\1.png", FileMode.Open, FileAccess.Read)
-                PictureBox1.Image = Image.FromStream(ImgPrev1)
-                ImgPrev1.Close()
-                TotalScreenshot = 1
-                Label96.Text = 1
-                Label98.Text = TotalScreenshot.ToString
-            Else
-                Dim ImgPrev1 As New FileStream(VideoErrorPlaceholder, FileMode.Open, FileAccess.Read)
-                PictureBox1.Image = Image.FromStream(ImgPrev1)
-                ImgPrev1.Close()
-                Label96.Text = 0
-                Label98.Text = 0
-                Button1.Enabled = True
-                Button3.Enabled = True
-                Button4.Enabled = True
-            End If
-        End If
         CleanEnv("minimal")
         If Label5.Text.Equals("Not Detected") = True Then
             ComboBox24.Text = ""
@@ -269,15 +239,13 @@ Public Class MainMenu
         Label76.Visible = True
         Label70.Visible = True
         Label70.Text = GetFileSize(Label2.Text)
-        ProgressBar1.Visible = False
         Label71.Visible = False
         Label77.Visible = False
         Label28.Text = "Standby"
-        loadInit.Close()
     End Sub
     Private Sub OpenMedia_Reset()
         Label2.Text = ""
-        ProgressBar1.Visible = False
+        ProgressBarAdv1.Visible = False
         Label70.Visible = False
         Label76.Visible = False
         Label71.Visible = False
@@ -313,9 +281,9 @@ Public Class MainMenu
         CurPos = CInt(Label96.Text)
         MaxPos = CInt(Label98.Text)
         If ComboBox31.SelectedIndex = 0 Then
-            If File.Exists("thumbnail\1.png") Then
+            If File.Exists("thumbnail\1.jpg") Then
                 If CurPos < MaxPos Then
-                    Dim ImgPrev2 As New FileStream("thumbnail\" & CurPos + 1 & ".png", FileMode.Open, FileAccess.Read)
+                    Dim ImgPrev2 As New FileStream("thumbnail\" & CurPos + 1 & ".jpg", FileMode.Open, FileAccess.Read)
                     PictureBox1.Image = Image.FromStream(ImgPrev2)
                     ImgPrev2.Close()
                     Label96.Text = CurPos + 1
@@ -325,21 +293,15 @@ Public Class MainMenu
             Else
                 MessageBoxAdv.Show("Already on last snapshots !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
-        ElseIf ComboBox31.SelectedIndex = 1 Then
-            If Label96.Text = 0 And Label98.Text = 0 Then
-                MessageBoxAdv.Show("Spectrum image not available !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Else
-                MessageBoxAdv.Show("Spectrum only have one image !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
         End If
     End Sub
     Private Sub ImagePrev_Prev()
         CurPos = CInt(Label96.Text)
         MaxPos = CInt(Label98.Text)
         If ComboBox31.SelectedIndex = 0 Then
-            If File.Exists("thumbnail\1.png") Then
+            If File.Exists("thumbnail\1.jpg") Then
                 If CurPos > 1 Then
-                    Dim ImgPrev2 As New FileStream("thumbnail\" & CurPos - 1 & ".png", FileMode.Open, FileAccess.Read)
+                    Dim ImgPrev2 As New FileStream("thumbnail\" & CurPos - 1 & ".jpg", FileMode.Open, FileAccess.Read)
                     PictureBox1.Image = Image.FromStream(ImgPrev2)
                     ImgPrev2.Close()
                     Label96.Text = CurPos - 1
@@ -349,18 +311,12 @@ Public Class MainMenu
             Else
                 MessageBoxAdv.Show("Already on first snapshots !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
-        ElseIf ComboBox31.SelectedIndex = 1 Then
-            If Label96.Text = 0 And Label98.Text = 0 Then
-                MessageBoxAdv.Show("Spectrum image not available !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Else
-                MessageBoxAdv.Show("Spectrum only have one image !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
         End If
     End Sub
     Private Sub PreviewOptions(sender As Object, e As EventArgs) Handles ComboBox31.SelectedIndexChanged
         If ComboBox31.SelectedIndex = 0 Then
-            If File.Exists("thumbnail\1.png") Then
-                ImageDir = "thumbnail\1.png"
+            If File.Exists("thumbnail\1.jpg") Then
+                ImageDir = "thumbnail\1.jpg"
                 Label96.Text = "1"
                 Label98.Text = TotalScreenshot.ToString
                 Button7.Visible = True
@@ -378,26 +334,22 @@ Public Class MainMenu
             End If
 
         ElseIf ComboBox31.SelectedIndex = 1 Then
-            If File.Exists("spectrum-temp.png") Then
-                ImageDir = "spectrum-temp.png"
+            If File.Exists("spectrum-temp.jpg") Then
+                ImageDir = "spectrum-temp.jpg"
             Else
                 ImageDir = SpectrumErrorPlaceholder
             End If
             If TotalSpectrum = 0 Then
                 Label96.Text = 0
                 Label98.Text = 0
-                Button7.Visible = False
-                Button7.Enabled = False
-                Button8.Visible = False
-                Button8.Enabled = False
             Else
                 Label96.Text = "1"
                 Label98.Text = TotalSpectrum.ToString
-                Button7.Visible = True
-                Button7.Enabled = True
-                Button8.Visible = True
-                Button8.Enabled = True
             End If
+            Button7.Visible = False
+            Button7.Enabled = False
+            Button8.Visible = False
+            Button8.Enabled = False
         Else
             ImageDir = VideoErrorPlaceholder
         End If
@@ -407,27 +359,21 @@ Public Class MainMenu
     End Sub
     Private Sub PicturePreview(sender As Object, e As EventArgs) Handles PictureBox1.Click
         If ComboBox31.SelectedIndex = 0 Then
-            If File.Exists("thumbnail\1.png") Then
-                ImageDir = "thumbnail\" & CInt(Label96.Text) & ".png"
+            If File.Exists("thumbnail\1.jpg") Then
+                ImageDir = "thumbnail\" & CInt(Label96.Text) & ".jpg"
             Else
                 ImageDir = "null"
             End If
         ElseIf ComboBox31.SelectedIndex = 1 Then
-            If File.Exists("spectrum-temp.png") Then
-                ImageDir = "spectrum-temp.png"
+            If File.Exists("spectrum-temp.jpg") Then
+                ImageDir = "spectrum-temp.jpg"
             Else
                 ImageDir = "null"
             End If
         Else
             ImageDir = "null"
         End If
-        If ImageDir = "null" Then
-            If ComboBox31.SelectedIndex = 1 Then
-                MessageBoxAdv.Show("Spectrum not available !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                MessageBoxAdv.Show("Please open file media first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        Else
+        If ImageDir IsNot "null" Then
             Dim psi As New ProcessStartInfo With {
                 .FileName = ImageDir,
                 .UseShellExecute = True
@@ -443,11 +389,11 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub VideoStream_Info(sender As Object, e As EventArgs) Handles ComboBox24.SelectedIndexChanged
-        GetVideoSummary_Async(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34), "0")
+        getVideoSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34), (CInt(Strings.Mid(ComboBox24.Text.ToString, 11)) - 1).ToString)
     End Sub
-    Public Async Function GetVideoSummary_Async(ffmpegletter As String, ffmpegbin As String, videoFile As String, videoStream As String) As Task
-        Newffargs = "ffprobe -hide_banner " & " -show_streams -select_streams v:" & (CInt(Strings.Mid(ComboBox24.Text.ToString, 11)) - 1).ToString & " " & Chr(34) & Label2.Text & Chr(34)
-        HMEGenerate("HME_Video_Summary.bat", ffmpegletter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
+    Public Sub getVideoSummary(ffmpegletter As String, ffmpegbin As String, videoFile As String, videoStream As String)
+        Newffargs = "ffprobe -hide_banner " & " -show_streams -select_streams v:" & videoStream & " " & videoFile & " 2>&1 "
+        HMEGenerate("HME_Video_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
         Dim psi As New ProcessStartInfo("HME_Video_Summary.bat") With {
            .RedirectStandardError = False,
            .RedirectStandardOutput = True,
@@ -481,8 +427,6 @@ Public Class MainMenu
                 Dim codec_color_space As String = getBetween(line, "color_space=", "color_transfer")
                 Dim codec_frame_rate As String = getBetween(line, "r_frame_rate=", "avg_frame_rate=")
                 Dim codec_new_bit_rate As String = RemoveWhitespace(getBetween(line, "bit_rate=", "max_bit_rate="))
-                'Dim codec_new_bit_rate As String = RemoveWhitespace(getBetween(line, "bitrate:", "kb/s"))
-                'Dim codec_old_bit_rate As String = RemoveWhitespace(getBetween(line, "], ", "kb/s"))
                 Dim codec_asp_ratio As String = getBetween(line, "display_aspect_ratio=", "pix_fmt")
                 Dim codec_wi As String = getBetween(line, "width=", "height")
                 Dim codec_he As String = getBetween(line, "height=", "coded_width")
@@ -523,21 +467,19 @@ Public Class MainMenu
                 ComboBox24.Enabled = True
             End If
         End While
-        Await Task.Delay(1000)
-        Await process.WaitForExitAsync()
         process.WaitForExit()
         GC.Collect()
         GC.WaitForPendingFinalizers()
         File.Delete("HME_Video_Summary.bat")
-    End Function
+    End Sub
     Private Sub AudioStream_Info(sender As Object, e As EventArgs) Handles ComboBox23.SelectedIndexChanged
-        GetAudioSummary_Async(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34), (CInt(Strings.Mid(ComboBox23.Text.ToString, 11)) - 1).ToString)
+        getAudioSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34), (CInt(Strings.Mid(ComboBox23.Text.ToString, 11)) - 1).ToString)
         If ComboBox23.SelectedIndex > 0 Then
             MessageBoxAdv.Show("Spectrum only generate on audio stream 0:1" & vbCrLf & vbCrLf &
                                "To generate spectrum, try to demux audio file and open that audio file here !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
-    Public Async Function GetAudioSummary_Async(ffmpegletter As String, ffmpegbin As String, audioFile As String, audioStream As String) As Task
+    Public Sub getAudioSummary(ffmpegletter As String, ffmpegbin As String, audioFile As String, audioStream As String)
         Newffargs = "ffprobe -hide_banner " & " -show_streams -select_streams a:" & audioStream & " " & audioFile & " 2>&1 "
         HMEGenerate("HME_Audio_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
         Dim psi As New ProcessStartInfo("HME_Audio_Summary.bat") With {
@@ -600,8 +542,6 @@ Public Class MainMenu
                 ComboBox23.Enabled = True
             End If
         End While
-        Await Task.Delay(1000)
-        Await process.WaitForExitAsync()
         process.WaitForExit()
         GC.Collect()
         GC.WaitForPendingFinalizers()
@@ -630,15 +570,13 @@ Public Class MainMenu
                     End If
                 End If
             End While
-            Await Task.Delay(1000)
-            Await new_process.WaitForExitAsync()
             new_process.WaitForExit()
         End If
         GC.Collect()
         GC.WaitForPendingFinalizers()
         File.Delete("HME_Audio_Summary.bat")
-    End Function
-    Public Async Function GetDurationSummary_Async(ffmpegletter As String, ffmpegbin As String, videoFile As String) As Task
+    End Sub
+    Public Async Sub getDurationSummary_Async(ffmpegletter As String, ffmpegbin As String, videoFile As String)
         Newffargs = "ffprobe -hide_banner -i " & videoFile & " 2>&1 "
         HMEGenerate("HME_Duration_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
         Dim psi As New ProcessStartInfo("HME_Duration_Summary.bat") With {
@@ -660,88 +598,140 @@ Public Class MainMenu
             Label80.Text = codec_dur
             Label81.Text = Strings.Left(codec_dur, 8)
         End While
-        Await Task.Delay(1000)
-        Await process.WaitForExitAsync()
-        process.WaitForExit()
+        Await Task.Run(Sub() process.WaitForExit())
         GC.Collect()
         GC.WaitForPendingFinalizers()
         File.Delete("HME_Duration_Summary.bat")
-    End Function
-    Public Async Function getPreviewSummary(ffmpegLetter As String, ffmpegBin As String, videoFile As String) As Task
+    End Sub
+    Private Sub getSpectrumSummary()
         Dim curMediaDur As String() = Label80.Text.Split(":")
         Dim curMediaTime As Integer = TimeConversion(curMediaDur(0), curMediaDur(1), Strings.Left(curMediaDur(2), 2))
-        Dim curLoopPos As Integer = 1
-        Dim curPreviewLine As New List(Of String)()
+        If curMediaTime < 1800 Then
+            If File.Exists("spectrum-temp.jpg") Then
+                GC.Collect()
+                GC.WaitForPendingFinalizers()
+                File.Delete("spectrum-temp.jpg")
+            End If
+            If File.Exists("HME.bat") Then
+                GC.Collect()
+                GC.WaitForPendingFinalizers()
+                File.Delete("HME.bat")
+            End If
+            Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & Label2.Text & Chr(34) & " -lavfi showspectrumpic=768x768:mode=separate " &
+                                Chr(34) & My.Application.Info.DirectoryPath & "\spectrum-temp.jpg" & Chr(34)
+            HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+            RunProc("HME.bat")
+            If File.Exists("spectrum-temp.jpg") = False Then
+                MessageBoxAdv.Show("Generate spectrum failed !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                TotalSpectrum = 0
+            Else
+                TotalSpectrum = 1
+            End If
+        End If
+    End Sub
+    Public Async Sub getPreviewSummary_Async(ffmpegLetter As String, ffmpegBin As String, videoFile As String)
+        Dim curMediaDur As String() = Label80.Text.Split(":")
+        Dim curMediaTime As Integer = TimeConversion(curMediaDur(0), curMediaDur(1), Strings.Left(curMediaDur(2), 2))
         Dim loadInit = New Loading("Snapshots", Label2.Text)
         loadInit.Show()
-        If File.Exists("HME_Image_Preview_Summary.bat") Then
-            GC.Collect()
-            GC.WaitForPendingFinalizers()
-            File.Delete("HME_Image_Preview_Summary.bat")
-        End If
-        If curMediaTime > 50 Then
-            For curLoop As Integer = 10 To 50 Step 10
-                Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -ss " & curLoop & " -vframes 1 " & Chr(34) & My.Application.Info.DirectoryPath & "\" & "thumbnail\" & curLoopPos & ".png" & Chr(34)
-                curPreviewLine.Add(Newffargs & vbCrLf)
-                curLoopPos += 1
-            Next curLoop
+        If curMediaTime > 1800 Then
+            Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -f image2 -vf " & Chr(34) & "select='not(mod(n,250))'" & Chr(34) & " -vframes 5 -vsync vfr " & Chr(34) & My.Application.Info.DirectoryPath & "\thumbnail\%%d.jpg" & Chr(34)
             TotalScreenshot = 5
-        ElseIf curMediaTime > 2 And curMediaTime < 50 Then
-            For curLoop As Integer = 4 To 20 Step 4
-                Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -ss " & curLoop & " -vframes 1 " & Chr(34) & My.Application.Info.DirectoryPath & "\" & "thumbnail\" & curLoopPos & ".png" & Chr(34)
-                curPreviewLine.Add(Newffargs & vbCrLf)
-                curLoopPos += 1
-            Next curLoop
-            TotalScreenshot = 5
-        ElseIf curMediaTime <= 2 Then
-            curPreviewLine.Add("ffmpeg -hide_banner -i " & videoFile & " -ss 00:00:01.000 -vframes 1 " & Chr(34) & My.Application.Info.DirectoryPath & "\" & "thumbnail\1.png" & Chr(34))
-            curPreviewLine.Add("ffmpeg -hide_banner -i " & videoFile & " -ss 00:00:02.000 -vframes 1 " & Chr(34) & My.Application.Info.DirectoryPath & "\" & "thumbnail\2.png" & Chr(34))
-            TotalScreenshot = 2
+            HMEGenerate("HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, Newffargs, "")
+        Else
+            Newffargs = "ffprobe -hide_banner -i " & videoFile & " -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0"
+            HMEGenerate("HME_VF.bat", ffmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
+            FrameCount = "0"
+            Dim generateFrame As New ProcessStartInfo("HME_VF.bat") With {
+                                .RedirectStandardError = False,
+                                .RedirectStandardOutput = True,
+                                .CreateNoWindow = True,
+                                .WindowStyle = ProcessWindowStyle.Hidden,
+                                .UseShellExecute = False
+                            }
+            Dim process As Process = Process.Start(generateFrame)
+            Do
+                Dim lineReader As StreamReader = process.StandardOutput
+                Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
+                FrameCount = process.StandardOutput.ReadLine
+            Loop Until Await Task.Run(Function() process.StandardOutput.EndOfStream)
+            Await Task.Run(Sub() process.WaitForExit())
+            If FrameCount >= 50 Then
+                Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -f image2 -vf " & Chr(34) & "select='not(mod(n," & CInt(FrameCount / 50) & "))'" & Chr(34) & " -vframes 5 -vsync vfr " & Chr(34) & My.Application.Info.DirectoryPath & "\thumbnail\%%d.jpg" & Chr(34)
+                TotalScreenshot = 5
+                HMEGenerate("HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, Newffargs, "")
+            ElseIf FrameCount < 50 Then
+                Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -ss 00:00:00.000 -vframes 1 -s 1920x1080 -f image2 " & Chr(34) & My.Application.Info.DirectoryPath & "\thumbnail\1.jpg" & Chr(34)
+                Newffargs2 = "ffmpeg -hide_banner -i " & videoFile & " -ss 00:00:01.000 -vframes 1 -s 1920x1080 -f image2 " & Chr(34) & My.Application.Info.DirectoryPath & "\thumbnail\2.jpg" & Chr(34)
+                TotalScreenshot = 2
+                HMEGenerate("HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, Newffargs, Newffargs2)
+            Else
+                TotalScreenshot = 0
+            End If
         End If
+        Label96.Text = 1
         Label98.Text = 0
-        TempValue = 0
-        For Each value As String In curPreviewLine
-            HMEGenerate("HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, value, "")
-            Dim psi As New ProcessStartInfo("HME_Image_Preview_Summary.bat") With {
+        If Newffargs IsNot "" Then
+            Dim generateSnapshots As New ProcessStartInfo("HME_Image_Preview_Summary.bat") With {
                                     .RedirectStandardError = False,
                                     .RedirectStandardOutput = False,
                                     .CreateNoWindow = True,
                                     .WindowStyle = ProcessWindowStyle.Hidden,
                                     .UseShellExecute = False
                                 }
-            Dim process As Process = Process.Start(psi)
-            Await Task.Delay(1000)
-            Await process.WaitForExitAsync()
-            process.WaitForExit()
-            TempValue += 1
-            GC.Collect()
-            GC.WaitForPendingFinalizers()
-            File.Delete("HME_Image_Preview_Summary.bat")
-            If File.Exists("thumbnail\1.png") Then
-                If TempValue = TotalScreenshot Then
-                    Button1.Enabled = True
-                    Button3.Enabled = True
-                    Button4.Enabled = True
+            Dim new_process As Process = Process.Start(generateSnapshots)
+            Await Task.Delay(1500)
+            Await Task.Run(Sub() new_process.WaitForExit())
+            If File.Exists("thumbnail\1.jpg") Then
+                Dim ImgPrev1 As New FileStream("thumbnail\1.jpg", FileMode.Open, FileAccess.Read)
+                PictureBox1.Image = Image.FromStream(ImgPrev1)
+                ImgPrev1.Close()
+                Label96.Text = 1
+                Label98.Text = TotalScreenshot.ToString
+                Button7.Visible = True
+                Button7.Enabled = True
+                Button8.Visible = True
+                Button8.Enabled = True
+            Else
+                videoFile = Chr(34) & Label2.Text & Chr(34)
+                Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -an -vcodec copy " & Chr(34) & My.Application.Info.DirectoryPath & "\" & "thumbnail\1.jpg"
+                HMEGenerate("HME_Audio_Only_Summary.bat", ffmpegLetter, FfmpegConf, Newffargs, "")
+                RunProcAsync("HME_Audio_Only_Summary.bat")
+                If File.Exists("thumbnail\1.jpg") Then
+                    Dim ImgPrev1 As New FileStream("thumbnail\1.jpg", FileMode.Open, FileAccess.Read)
+                    PictureBox1.Image = Image.FromStream(ImgPrev1)
+                    ImgPrev1.Close()
+                    TotalScreenshot = 1
+                    Label96.Text = 1
+                    Label98.Text = TotalScreenshot.ToString
                     Button7.Visible = True
                     Button7.Enabled = True
                     Button8.Visible = True
                     Button8.Enabled = True
-                    loadInit.Close()
-                    Label98.Text = TotalScreenshot
-                    TempValue = 0
                 Else
+                    Dim ImgPrev1 As New FileStream(VideoErrorPlaceholder, FileMode.Open, FileAccess.Read)
+                    PictureBox1.Image = Image.FromStream(ImgPrev1)
+                    ImgPrev1.Close()
+                    Label96.Text = 0
+                    Label98.Text = 0
                     Button7.Visible = False
                     Button7.Enabled = False
                     Button8.Visible = False
                     Button8.Enabled = False
-                    Label98.Text = TempValue
                 End If
-            Else
-                loadInit.Close()
             End If
-        Next
-    End Function
-    Public Async Function getStreamSummary(ffmpegletter As String, ffmpegbin As String, videoFile As String, ffmpegMode As String) As Task
+        End If
+        GC.Collect()
+        GC.WaitForPendingFinalizers()
+        File.Delete("HME_Audio_Only_Summary.bat")
+        File.Delete("HME_Image_Preview_Summary.bat")
+        File.Delete("HME_VF.bat")
+        Button1.Enabled = True
+        Button3.Enabled = True
+        Button4.Enabled = True
+        loadInit.Close()
+    End Sub
+    Public Sub getStreamSummary(ffmpegletter As String, ffmpegbin As String, videoFile As String, ffmpegMode As String)
         Newffargs = "ffmpeg -hide_banner -i " & videoFile & " 2>&1 "
         HMEGenerate("HME_Stream_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
         Dim psi As New ProcessStartInfo("HME_Stream_Summary.bat") With {
@@ -756,95 +746,91 @@ Public Class MainMenu
             Dim line As String = process.StandardOutput.ReadToEnd()
             Dim stream_info As String = getBetween(line, "kb/s", "At least one output file must be specified")
             StreamInfo = stream_info
-            Dim start As Integer
-            Dim videoRegex As New Regex(": Video:", RegexOptions.IgnoreCase Or RegexOptions.Singleline)
-            Dim audioRegex As New Regex(": Audio:", RegexOptions.IgnoreCase Or RegexOptions.Singleline)
-            Dim videoMatches As MatchCollection = videoRegex.Matches(StreamInfo)
-            Dim audioMatches As MatchCollection = audioRegex.Matches(StreamInfo)
-            If ffmpegMode = "Encoding" Then
-                ComboBox22.Items.Clear()
-                ComboBox23.Items.Clear()
-                ComboBox24.Items.Clear()
-                ComboBox25.Items.Clear()
-                ComboBox29.Items.Clear()
+        End While
+        process.WaitForExit()
+        GC.Collect()
+        GC.WaitForPendingFinalizers()
+        File.Delete("HME_Stream_Summary.bat")
+        Dim start As Integer
+        Dim videoRegex As New Regex(": Video:", RegexOptions.IgnoreCase Or RegexOptions.Singleline)
+        Dim audioRegex As New Regex(": Audio:", RegexOptions.IgnoreCase Or RegexOptions.Singleline)
+        Dim videoMatches As MatchCollection = videoRegex.Matches(StreamInfo)
+        Dim audioMatches As MatchCollection = audioRegex.Matches(StreamInfo)
+        If ffmpegMode = "Encoding" Then
+            ComboBox22.Items.Clear()
+            ComboBox23.Items.Clear()
+            ComboBox24.Items.Clear()
+            ComboBox25.Items.Clear()
+            ComboBox29.Items.Clear()
+            If Label5.Text.Equals("Not Detected") = False Then
+                For start = 1 To videoMatches.Count
+                    ComboBox24.Items.Add("Stream #0:" & start)
+                    ComboBox29.Items.Add("Stream #0:" & start)
+                Next
+            End If
+            If Label44.Text.Equals("Not Detected") = False Then
+                For start = 1 To audioMatches.Count
+                    ComboBox22.Items.Add("Stream #0:" & start)
+                    ComboBox25.Items.Add("Stream #0:" & start)
+                    ComboBox23.Items.Add("Stream #0:" & start)
+                Next
+            End If
+        ElseIf ffmpegMode = "Muxing" Then
+            ComboBox22.Items.Clear()
+            ComboBox25.Items.Clear()
+            ComboBox29.Items.Clear()
+            For start = 1 To videoMatches.Count
+                ComboBox29.Items.Add("Stream #0:" & start)
+            Next
+            For start = 1 To audioMatches.Count
+                ComboBox25.Items.Add("Stream #0:" & start)
+                ComboBox22.Items.Add("Stream #0:" & start)
+            Next
+        ElseIf ffmpegMode = "Muxing + Custom" Then
+            ComboBox22.Items.Clear()
+            ComboBox25.Items.Clear()
+            ComboBox29.Items.Clear()
+            For start = 1 To videoMatches.Count
+                ComboBox29.Items.Add("Stream #0:" & start)
+            Next
+            For start = 1 To audioMatches.Count + 1
+                ComboBox22.Items.Add("Stream #0:" & start)
+                ComboBox25.Items.Add("Stream #0:" & start)
+            Next
+        ElseIf ffmpegMode = "Trim" Then
+            ComboBox27.Items.Clear()
+            ComboBox22.Items.Clear()
+            ComboBox29.Items.Clear()
+            If ComboBox28.SelectedIndex = 0 Then
                 If Label5.Text.Equals("Not Detected") = False Then
                     For start = 1 To videoMatches.Count
-                        ComboBox24.Items.Add("Stream #0:" & start)
+                        ComboBox29.Items.Add("Stream #0:" & start)
+                        ComboBox27.Items.Add("Stream #0:" & start)
+                    Next
+                End If
+            Else
+                If Label5.Text.Equals("Not Detected") = False Then
+                    For start = 1 To videoMatches.Count
                         ComboBox29.Items.Add("Stream #0:" & start)
                     Next
                 End If
                 If Label44.Text.Equals("Not Detected") = False Then
                     For start = 1 To audioMatches.Count
                         ComboBox22.Items.Add("Stream #0:" & start)
-                        ComboBox25.Items.Add("Stream #0:" & start)
-                        ComboBox23.Items.Add("Stream #0:" & start)
+                        ComboBox27.Items.Add("Stream #0:" & start)
                     Next
                 End If
-            ElseIf ffmpegMode = "Muxing" Then
-                ComboBox22.Items.Clear()
-                ComboBox25.Items.Clear()
-                ComboBox29.Items.Clear()
-                For start = 1 To videoMatches.Count
-                    ComboBox29.Items.Add("Stream #0:" & start)
-                Next
-                For start = 1 To audioMatches.Count
-                    ComboBox25.Items.Add("Stream #0:" & start)
-                    ComboBox22.Items.Add("Stream #0:" & start)
-                Next
-            ElseIf ffmpegMode = "Muxing + Custom" Then
-                ComboBox22.Items.Clear()
-                ComboBox25.Items.Clear()
-                ComboBox29.Items.Clear()
-                For start = 1 To videoMatches.Count
-                    ComboBox29.Items.Add("Stream #0:" & start)
-                Next
-                For start = 1 To audioMatches.Count + 1
-                    ComboBox22.Items.Add("Stream #0:" & start)
-                    ComboBox25.Items.Add("Stream #0:" & start)
-                Next
-            ElseIf ffmpegMode = "Trim" Then
-                ComboBox27.Items.Clear()
-                ComboBox22.Items.Clear()
-                ComboBox29.Items.Clear()
-                If ComboBox28.SelectedIndex = 0 Then
-                    If Label5.Text.Equals("Not Detected") = False Then
-                        For start = 1 To videoMatches.Count
-                            ComboBox29.Items.Add("Stream #0:" & start)
-                            ComboBox27.Items.Add("Stream #0:" & start)
-                        Next
-                    End If
-                Else
-                    If Label5.Text.Equals("Not Detected") = False Then
-                        For start = 1 To videoMatches.Count
-                            ComboBox29.Items.Add("Stream #0:" & start)
-                        Next
-                    End If
-                    If Label44.Text.Equals("Not Detected") = False Then
-                        For start = 1 To audioMatches.Count
-                            ComboBox22.Items.Add("Stream #0:" & start)
-                            ComboBox27.Items.Add("Stream #0:" & start)
-                        Next
-                    End If
-                End If
             End If
-        End While
-        Await Task.Delay(1000)
-        Await process.WaitForExitAsync()
-        process.WaitForExit()
-        GC.Collect()
-        GC.WaitForPendingFinalizers()
-        File.Delete("HME_Stream_Summary.bat")
-    End Function
-    Private Sub StartEncode(sender As Object, e As EventArgs) Handles Button3.Click
-        StartEncode_Async()
+        End If
     End Sub
-    Private Async Function StartEncode_Async() As Task
+    Private Async Sub StartEncode(sender As Object, e As EventArgs) Handles Button3.Click
         DebugMode = FindConfig("config.ini", "Debug Mode:")
         FrameConfig = FindConfig("config.ini", "Frame Count:")
         FfmpegConfig = FindConfig("config.ini", "FFMPEG Binary:")
         FfmpegConf = FfmpegConfig.Remove(0, 14) & "\"
         FfmpegLetter = String.Concat(FfmpegConf.AsSpan(0, 1), ":")
         Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
+        Button3.Enabled = False
         If Hwdefconfig IsNot "null" And Hwdefconfig.Remove(0, 11) IsNot "" Then
             If Label2.Text IsNot "" Then
                 If TextBox1.Text IsNot "" Then
@@ -1076,23 +1062,23 @@ Public Class MainMenu
                         MessageBoxAdv.Show("Please move existing file to other location or choose other name or file location !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
                 Else
-                    ProgressBar1.Visible = True
-                    Label28.Text = "Initialize"
+                    ProgressBarAdv1.Visible = True
+                    Label28.Text = "Calculate frame"
                     Label70.Text = GetFileSize(VideoFilePath)
                     Label71.Visible = False
                     Label77.Visible = False
                     Button1.Enabled = False
                     Button6.Enabled = False
                     TextBox1.Enabled = False
-                    ProgressBar1.Value = 0
+                    ProgressBarAdv1.Value = 0
                     If Newdebugmode = "True" Or FrameMode = "True" Or Label5.Text.Equals("Not Detected") = True Then
                         FrameCount = "0"
-                        Me.Refresh()
-                        Label28.Text = "Frame size 0"
-                        Me.Refresh()
                     Else
+                        Dim loadInit = New Loading("Frame", Label2.Text)
+                        loadInit.Show()
                         Newffargs = "ffprobe -hide_banner -i " & Chr(34) & VideoFilePath & Chr(34) & " -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0"
                         HMEGenerate("HME_VF.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
+                        FrameCount = "0"
                         Dim psi As New ProcessStartInfo("HME_VF.bat") With {
                             .RedirectStandardError = False,
                             .RedirectStandardOutput = True,
@@ -1101,24 +1087,21 @@ Public Class MainMenu
                             .UseShellExecute = False
                         }
                         Dim process As Process = Process.Start(psi)
-                        FrameCount = "0"
-                        While Not process.StandardOutput.EndOfStream
-                            FrameCount = process.StandardOutput.ReadLine
-                        End While
-                        Me.Refresh()
-                        Label28.Text = "Count frame"
-                        Me.Refresh()
-                        Label28.Text = "Frame " & FrameCount
-                        Me.Refresh()
-                        Await Task.Delay(1000)
-                        Await process.WaitForExitAsync()
-                        process.WaitForExit()
+                        Do
+                            Dim lineReader As StreamReader = process.StandardOutput
+                            Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
+                            FrameCount = line
+                        Loop Until Await Task.Run(Function() process.StandardOutput.EndOfStream)
+                        Await Task.Run(Sub() process.WaitForExit())
+                        loadInit.Close()
                     End If
-                    ProgressBar1.Minimum = 0
+                    Label28.Text = "Encoding"
+                    EncStartTime = DateTime.Now
+                    ProgressBarAdv1.Minimum = 0
                     If Label5.Text.Equals("Not Detected") = False Or TextBox15.Text IsNot "" Or FrameMode = "False" Or CheckBox1.Checked = True And CheckBox3.Checked = True Then
-                        ProgressBar1.Maximum = FrameCount
+                        ProgressBarAdv1.Maximum = FrameCount
                     Else
-                        ProgressBar1.Maximum = 100
+                        ProgressBarAdv1.Maximum = 100
                     End If
                     Dim new_psi As New ProcessStartInfo("HME.bat") With {
                         .RedirectStandardError = True,
@@ -1127,66 +1110,48 @@ Public Class MainMenu
                         .WindowStyle = ProcessWindowStyle.Hidden,
                         .UseShellExecute = False
                     }
-                    Me.Refresh()
-                    Label28.Text = "Encoding"
-                    Me.Refresh()
-                    EncStartTime = DateTime.Now
                     If Label5.Text.Equals("Not Detected") = False Or TextBox15.Text IsNot "" Or CheckBox1.Checked = True And CheckBox3.Checked = True Then
-                        If Newdebugmode = "True" Then
+                        If Newdebugmode = "True" And FrameMode = "False" Or FrameMode = "null" Then
                             Dim new_process As Process = Process.Start(new_psi)
-                            While Not new_process.StandardError.EndOfStream
-                                Dim line As String = new_process.StandardError.ReadLine
+                            Do
+                                Dim lineReader As StreamReader = new_process.StandardError
+                                Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
                                 If RemoveWhitespace(getBetween(line, "frame=", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame=", " fps")) = "0" Then
                                     FfmpegEncStats = "Frame Error!"
                                     FfmpegErr = new_process.StandardError.ReadToEnd
                                 ElseIf RemoveWhitespace(getBetween(line, "frame=", " fps")) <= FrameCount Then
-                                    ProgressBar1.Refresh()
-                                    ProgressBar1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
-                                    ProgressBar1.Refresh()
+                                    ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
                                 End If
-                            End While
-                            Await Task.Delay(1000)
-                            Await new_process.WaitForExitAsync()
-                            new_process.WaitForExit()
-                        ElseIf Newdebugmode = "False" Or Newdebugmode = "null" Then
+                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                            Await Task.Run(Sub() new_process.WaitForExit())
+                        ElseIf Newdebugmode = "False" And FrameMode = "False" Or FrameMode = "null" Then
                             Dim new_process As Process = Process.Start(new_psi)
-                            While Not new_process.StandardError.EndOfStream
-                                Dim line As String = new_process.StandardError.ReadLine
+                            Do
+                                Dim lineReader As StreamReader = new_process.StandardError
+                                Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
                                 If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame=", " fps")) = "0" Then
                                     FfmpegEncStats = "Frame Error!"
                                 ElseIf RemoveWhitespace(getBetween(line, "frame= ", " fps")) <= FrameCount Then
-                                    ProgressBar1.Refresh()
-                                    ProgressBar1.Value = CInt(RemoveWhitespace(getBetween(line, "frame= ", " fps")))
-                                    ProgressBar1.Refresh()
+                                    ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame= ", " fps")))
                                 End If
-                            End While
-                            Await Task.Delay(1000)
-                            Await new_process.WaitForExitAsync()
-                            new_process.WaitForExit()
+                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                            Await Task.Run(Sub() new_process.WaitForExit())
                         End If
                     Else
-                        If Newdebugmode = "True" And FrameMode = "True" Or Label5.Text.Equals("Not Detected") Then
-                            Dim new_process As Process = Process.Start(new_psi)
-                            Await Task.Delay(1000)
-                            Await new_process.WaitForExitAsync()
-                            new_process.WaitForExit()
-                        ElseIf Newdebugmode = "True" And FrameMode = "False" Or FrameMode = "null" Then
-                            Dim new_process As Process = Process.Start(new_psi)
-                            While Not new_process.StandardError.EndOfStream
-                                If ProgressBar1.Value < 100 Then
-                                    ProgressBar1.Refresh()
-                                    ProgressBar1.Value += 20
-                                    ProgressBar1.Refresh()
-                                Else
-                                    ProgressBar1.Value = 100
-                                End If
-                            End While
-                            Await Task.Delay(1000)
-                            Await new_process.WaitForExitAsync()
-                            new_process.WaitForExit()
-                        End If
+                        Dim new_process As Process = Process.Start(new_psi)
+                        Do
+                            If ProgressBarAdv1.Value < 100 Then
+                                ProgressBarAdv1.Value += 20
+                            Else
+                                ProgressBarAdv1.Value = 100
+                            End If
+                        Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                        Await Task.Run(Sub() new_process.WaitForExit())
                     End If
                     EncEndTime = DateTime.Now
+                    If ProgressBarAdv1.Value <> ProgressBarAdv1.Maximum Then
+                        ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
+                    End If
                     If File.Exists(TextBox1.Text) Then
                         Dim destFile As New FileInfo(TextBox1.Text)
                         If destFile.Length / 1024 / 1024 < 1.0 Then
@@ -1196,27 +1161,16 @@ Public Class MainMenu
                                 Else
                                     MessageBoxAdv.Show("Encoding failed: " & FfmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 End If
-                                Me.Refresh()
                                 Label28.Text = "Error"
-                                Me.Refresh()
-                                ProgressBar1.Refresh()
-                                ProgressBar1.Value = ProgressBar1.Maximum
-                                ProgressBar1.Refresh()
-                                ProgressBar1.ForeColor = Color.Red
+                                ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
+                                ProgressBarAdv1.ForeColor = Color.Red
                             Else
-                                If ProgressBar1.Value <> ProgressBar1.Maximum Then
-                                    ProgressBar1.Refresh()
-                                    ProgressBar1.Value = ProgressBar1.Maximum
-                                    ProgressBar1.Refresh()
-                                End If
                                 MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Label70.Visible = True
                                 Label76.Visible = True
                                 Label71.Visible = True
                                 Label77.Visible = True
-                                Me.Refresh()
                                 Label28.Text = "Completed"
-                                Me.Refresh()
                                 Label71.Text = "" & GetFileSize(TextBox1.Text)
                                 Dim previewResult As DialogResult = MessageBoxAdv.Show(Me, "Play " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                                 If previewResult = DialogResult.Yes Then
@@ -1224,19 +1178,12 @@ Public Class MainMenu
                                 End If
                             End If
                         Else
-                            If ProgressBar1.Value <> ProgressBar1.Maximum Then
-                                ProgressBar1.Refresh()
-                                ProgressBar1.Value = ProgressBar1.Maximum
-                                ProgressBar1.Refresh()
-                            End If
                             MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Label70.Visible = True
                             Label76.Visible = True
                             Label71.Visible = True
                             Label77.Visible = True
-                            Me.Refresh()
                             Label28.Text = "Completed"
-                            Me.Refresh()
                             Label71.Text = "" & GetFileSize(TextBox1.Text)
                             Dim previewResult As DialogResult = MessageBoxAdv.Show(Me, "Play " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                             If previewResult = DialogResult.Yes Then
@@ -1249,46 +1196,21 @@ Public Class MainMenu
                         Else
                             MessageBoxAdv.Show("Encoding failed: " & FfmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
-                        Me.Refresh()
                         Label28.Text = "Error"
-                        Me.Refresh()
-                        ProgressBar1.Refresh()
-                        ProgressBar1.Value = ProgressBar1.Maximum
-                        ProgressBar1.Refresh()
+                        ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
+                        ProgressBarAdv1.ForeColor = Color.Red
                     End If
                     Button1.Enabled = True
                     Button6.Enabled = True
                     CleanEnv("null")
-                    ProgressBar1.Value = 0
-                    ProgressBar1.Visible = False
+                    ProgressBarAdv1.Value = 0
+                    ProgressBarAdv1.Visible = False
                 End If
             End If
         Else
             MessageBoxAdv.Show("GPU HW Accelerated are not set !" & vbCrLf & vbCrLf & "Please configure it on options menu before start encoding", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-    End Function
-    Private Sub GenerateSpectrum()
-        Dim curMediaDur As String() = Label80.Text.Split(":")
-        Dim curMediaTime As Integer = TimeConversion(curMediaDur(0), curMediaDur(1), Strings.Left(curMediaDur(2), 2))
-        If curMediaTime > 1800 Then
-            MessageBoxAdv.Show("Generate spectrum failed !" & vbCrLf & vbCrLf & "Media duration time more than 30 minutes", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Else
-            If File.Exists("spectrum-temp.png") Then
-                GC.Collect()
-                GC.WaitForPendingFinalizers()
-                File.Delete("spectrum-temp.png")
-            End If
-            Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & Label2.Text & Chr(34) & " -lavfi showspectrumpic=768x768:mode=separate " &
-                                Chr(34) & My.Application.Info.DirectoryPath & "\spectrum-temp.png" & Chr(34)
-            HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-            RunProc("HME.bat")
-            If File.Exists("spectrum-temp.png") = False Then
-                MessageBoxAdv.Show("Generate spectrum failed !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                TotalSpectrum = 0
-            Else
-                TotalSpectrum = 1
-            End If
-        End If
+        Button3.Enabled = True
     End Sub
     Private Sub EnableVideoCheck(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked = True Then
@@ -1297,16 +1219,11 @@ Public Class MainMenu
                     CheckBox1.Checked = False
                     MessageBoxAdv.Show("Current media file does not contain any video stream !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
-                    If Hwdefconfig IsNot "null" Then
-                        ComboBox2.Enabled = True
-                        CheckBox3.Enabled = True
-                        ComboBox29.Enabled = True
-                        CheckBox13.Enabled = True
-                        ComboBox29.SelectedIndex = 0
-                    Else
-                        CheckBox1.Checked = False
-                        MessageBoxAdv.Show("GPU HW Accelerated are not set !" & vbCrLf & vbCrLf & "Please configure it on options menu before start encoding", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
+                    ComboBox2.Enabled = True
+                    CheckBox3.Enabled = True
+                    ComboBox29.Enabled = True
+                    CheckBox13.Enabled = True
+                    ComboBox29.SelectedIndex = 0
                 End If
             Else
                 CheckBox1.Checked = False
@@ -1361,6 +1278,7 @@ Public Class MainMenu
             TextBox20.Enabled = False
             TextBox21.Text = ""
             TextBox21.Enabled = False
+            RichTextBox1.Text = ""
         End If
     End Sub
     Private Sub LockProfileVideoCheck(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
@@ -1920,6 +1838,7 @@ Public Class MainMenu
             ComboBox22.SelectedIndex = -1
             CheckBox12.Enabled = False
             CheckBox12.Checked = False
+            RichTextBox2.Text = ""
         End If
     End Sub
     Private Sub AudioStream_Source(sender As Object, e As EventArgs) Handles ComboBox22.SelectedIndexChanged
@@ -2711,7 +2630,7 @@ Public Class MainMenu
                 ComboBox22.Items.Clear()
                 ComboBox22.Items.Add(ComboBox27.Text.ToString)
             Else
-                If ProgressBar1.Value <> 0 Then
+                If ProgressBarAdv1.Value <> 0 Then
                     ComboBox22.Items.Clear()
                     Dim start As Integer
                     For start = 0 To ComboBox27.Items.Count
@@ -3875,8 +3794,8 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub ChapterReset(sender As Object, e As EventArgs) Handles Button14.Click
+        ChapterReset()
         MessageBoxAdv.Show("Chapter data has been reset !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        ListView1.Items.Clear()
     End Sub
     Private Sub ChapterList_Clicked(sender As Object, e As EventArgs) Handles ListView1.Click
         If TextBox5.Text IsNot "" Or TextBox17.Text IsNot "" Or TextBox18.Text IsNot "" Or TextBox19.Text IsNot "" Then
