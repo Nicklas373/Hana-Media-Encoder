@@ -13,7 +13,11 @@ Public Class Loading
     Public Sub New(mediaType As String, mediaTitle As String)
         InitializeComponent()
         Me.Refresh()
-        Label1.Text = "Loading " & mediaType & " : " & Path.GetFileName(mediaTitle)
+        If mediaType = "Frame" Then
+            Label1.Text = "Calculate frame size"
+        Else
+            Label1.Text = "Loading " & mediaType & " : " & Path.GetFileName(mediaTitle)
+        End If
         Me.Refresh()
     End Sub
     Public Shared Sub CenterForm(ByVal frm As Form, Optional ByVal parent As Form = Nothing)
