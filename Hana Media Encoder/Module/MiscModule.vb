@@ -8,12 +8,17 @@ Module MiscModule
         Else
             Dim newFile As New FileInfo(file)
             If newFile.Exists Then
-                Dim fileSize As Double = newFile.Length / 1024 / 1024
+                Dim fileSize As Double = newFile.Length / 1024 / 1024 / 1024
                 If fileSize < 1.0 Then
-                    Dim newFileSize As Double = (newFile.Length / 1024)
-                    srcFile = Format(newFileSize, "###.##").ToString & " KB"
+                    Dim newFileSize As Double = newFile.Length / 1024 / 1024
+                    If newFileSize < 1.0 Then
+                        Dim smallFileSize As Double = newFile.Length / 1024
+                        srcFile = Format(newFileSize, "###.##").ToString & " KB"
+                    Else
+                        srcFile = Format(newFileSize, "###.##").ToString & " MB"
+                    End If
                 Else
-                    srcFile = Format(fileSize, "###.##").ToString & " MB"
+                    srcFile = Format(fileSize, "###.##").ToString & " GB"
                 End If
                 Return srcFile
             Else
