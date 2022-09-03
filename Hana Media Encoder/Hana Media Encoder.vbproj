@@ -7,7 +7,32 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2022</Copyright>
-    <PackageReleaseNotes>v1.2.6 (20220827):
+    <PackageReleaseNotes>v1.3.0 (20220903):
+- Do not clear or reset chapter when chapter reset was clicked (Back to initial state instead)
+- Do not show next or previous button when show spectrum
+- Fixup white color issue while move is hovering into some of buttons
+- Fixup chapter are not reset properly when 'Enable Chapter' are disable
+- Fixup issue with remove chapter when chapter listview are not selected by user
+- Fixup issue with UI freeze while load media, initialize frame or while encoding process
+- Guard enable video options to check if GPU HW Accelerated config already set or not
+- Introduce chapter time validity before input chapter on minute and seconds
+- Introduce fullscreen layout and resizeable layout for main menu
+- Introduce function to get video chapter directly from ffmpeg metadata and import it into chapter listview
+- Introduce new algorithm for 'Add Chapter' to check if new chapter are the same or less than previous chapter for time duration if is exists
+- Introduce new algorithm on 'Update Chapter' to check if new chapter are same, less or more than previous or next chapter in time duration
+- Introduce progressbar widget from SyncFusion
+- Implement new asynchronous method for getduration_summary, getpreview_summary
+- Override arrow function key to control ImagePreview on picturebox
+- Properly reset media file name text if was not loaded
+- Properly show encoding text status instead only show "ENCODING and COMPLETED"
+- Separate function to next and previous image into standalone function to avoid repeat call function
+- Show GB (gigabyte) as file size when MB size is too high
+- Switch to jpg from png as image extensions
+- Reduce warning notifications while selecting snapshot or spectrum
+- Re-work logic to get snapshot with asynchronous workload (reduce time to load snapshots)
+- Re-work implementation of asynchronous method for start encode functions
+
+v1.2.6 (20220827):
 - Fix issue with clickable link that crash while clicked
 - Fix issue when insert chapters on existing video with chapters file are not replacing the new one
 - Properly reset media file before insert new one
@@ -109,8 +134,8 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2022</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.2.6</Version>
-    <AssemblyVersion>1.2.6</AssemblyVersion>
+    <Version>1.3.0</Version>
+    <AssemblyVersion>1.3.0</AssemblyVersion>
     <FileVersion>1.2.6</FileVersion>
     <Description>     Hana Media Encoder is the multimedia application that have feature to encode, decode, many other function to process media files using FFMPEG pre-build application (Windows Version),
 HME works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE, for now
@@ -122,7 +147,7 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
 # Current Features:
 * Support multiple media file encoding with same or different profile for each stream
 * Support mux/demux media file with specific stream or all stream and with same or different profile for each stream
-* Support create chapter (Insert chapter METADATA) into media file (Video Only)
+* Support manage chapter from media file (Video Only)
 * Support trim media file with specific stream or all stream and with same or different profile for each stream
 * Support preview media file by using FFPLAY
 

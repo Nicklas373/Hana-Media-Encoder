@@ -1,11 +1,27 @@
 {
-	"release_date": "27 August 2022",
-	"version": "1.2.6.0",
+	"release_date": "03 September 2022",
+	"version": "1.3.0.0",
 	"changelog": [
-		"- Fix issue with clickable link that crash while clicked",
-		"- Fix issue when insert chapters on existing video with chapters file are not replacing the new one",
-		"- Properly reset media file before insert new one",
-		"- Properly set button that are should / shouldn't be disable or not"
+		"- Do not clear or reset chapter when chapter reset was clicked (Back to initial state instead)",
+		"- Do not show next or previous button when show spectrum",
+		"- Fixup white color issue while move is hovering into some of buttons",
+		"- Fixup chapter are not reset properly when 'Enable Chapter' are disable",
+		"- Fixup issue with remove chapter when chapter listview are not selected by user",
+		"- Fixup issue with UI freeze while load media, initialize frame or while encoding process",
+		"- Guard enable video options to check if GPU HW Accelerated config already set or not",
+		"- Introduce chapter time validity before input chapter on minute and seconds",
+		"- Introduce fullscreen layout and resizeable layout for main menu",
+		"- Introduce function to get video chapter directly from ffmpeg metadata and import it into chapter listview",
+		"- Introduce new algorithm for 'Add Chapter' to check if new chapter are the same or less than previous chapter for time duration if is exists",
+		"- Introduce new algorithm on 'Update Chapter' to check if new chapter are same, less or more than previous or next chapter in time duration",
+		"- Introduce progressbar widget from SyncFusion",
+		"- Properly reset media file name text if was not loaded",
+		"- Properly show encoding text status instead only show ENCODING and COMPLETED",
+		"- Show GB (gigabyte) as file size when MB size is too high",
+		"- Switch to jpg from png as image extensions",
+		"- Reduce warning notifications while selecting snapshot or spectrum",
+		"- Re-work logic to get snapshot with asynchronous workload (reduce time to load snapshots)",
+		"- Re-work implementation of asynchronous method for start encode functions"
 	],
-	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.2.6/HME_Setup.msi"
+	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.3.0/HME_Setup.msi"
 }
