@@ -25,8 +25,6 @@ Public Class MainMenu
         MessageBoxAdv.MetroColorTable.BorderColor = ColorTranslator.FromHtml("#F4A950")
         MessageBoxAdv.CanResize = True
         MessageBoxAdv.MaximumSize = New Size(520, Screen.PrimaryScreen.WorkingArea.Size.Height)
-        Me.ProgressBarAdv1.ForeColor = ColorTranslator.FromHtml("#F4A950")
-        Me.ProgressBarAdv1.ThemeStyle.FillColor = ColorTranslator.FromHtml("#F4A950")
         Me.TabControl1.Region = New Region(New RectangleF(Me.TabPage1.Left, Me.TabPage1.Left, Me.TabPage1.Width, Me.TabPage1.Height))
         Label69.Visible = True
         Label28.Visible = True
@@ -260,7 +258,7 @@ Public Class MainMenu
         Else
             SaveFileDialog.DefaultExt = ".mkv|.wav|.flac|.mp3"
             SaveFileDialog.FilterIndex = 1
-            SaveFileDialog.Filter = "MKV|*.mkv|FLAC|*.flac|WAV|*.wav|MP3|*.mp3"
+            SaveFileDialog.Filter = "MKV|*.mkv|MP4|*.mp4|AAC|*.m4a|FLAC|*.flac|WAV|*.wav|MP3|*.mp3"
             SaveFileDialog.Title = "Save Media File"
             SaveFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
             If SaveFileDialog.ShowDialog() = DialogResult.OK Then
@@ -653,7 +651,7 @@ Public Class MainMenu
             Do
                 Dim lineReader As StreamReader = process.StandardOutput
                 Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
-                FrameCount = process.StandardOutput.ReadLine
+                FrameCount = line
             Loop Until Await Task.Run(Function() process.StandardOutput.EndOfStream)
             Await Task.Run(Sub() process.WaitForExit())
             If FrameCount >= 50 Then
@@ -840,9 +838,9 @@ Public Class MainMenu
                         VideoFilePath = Label2.Text.ToString
                     End If
                     If DebugMode IsNot "null" Then
-                        Newdebugmode = FindConfig("config.ini", "Debug Mode:").Remove(0, 11)
+                        Newdebugmode = DebugMode.Remove(0, 11)
                         If FrameConfig IsNot "null" Then
-                            FrameMode = FindConfig("config.ini", "Frame Count:").Remove(0, 12)
+                            FrameMode = FrameConfig.Remove(0, 12)
                         Else
                             FrameMode = "False"
                         End If
@@ -1071,14 +1069,14 @@ Public Class MainMenu
                     Button6.Enabled = False
                     TextBox1.Enabled = False
                     ProgressBarAdv1.Value = 0
-                    If Newdebugmode = "True" Or FrameMode = "True" Or Label5.Text.Equals("Not Detected") = True Then
+                    If FrameMode = "True" Or Label5.Text.Equals("Not Detected") = True Then
                         FrameCount = "0"
                     Else
                         Dim loadInit = New Loading("Frame", Label2.Text)
                         loadInit.Show()
+                        FrameCount = "0"
                         Newffargs = "ffprobe -hide_banner -i " & Chr(34) & VideoFilePath & Chr(34) & " -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0"
                         HMEGenerate("HME_VF.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
-                        FrameCount = "0"
                         Dim psi As New ProcessStartInfo("HME_VF.bat") With {
                             .RedirectStandardError = False,
                             .RedirectStandardOutput = True,
@@ -1091,7 +1089,7 @@ Public Class MainMenu
                             Dim lineReader As StreamReader = process.StandardOutput
                             Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
                             FrameCount = line
-                        Loop Until Await Task.Run(Function() process.StandardOutput.EndOfStream)
+                        Loop Until Await Task.Run(Function() process.StandardOutput.endofstream)
                         Await Task.Run(Sub() process.WaitForExit())
                         loadInit.Close()
                     End If
@@ -1111,25 +1109,42 @@ Public Class MainMenu
                         .UseShellExecute = False
                     }
                     If Label5.Text.Equals("Not Detected") = False Or TextBox15.Text IsNot "" Or CheckBox1.Checked = True And CheckBox3.Checked = True Then
-                        If Newdebugmode = "True" And FrameMode = "False" Or FrameMode = "null" Then
+                        If Newdebugmode = "True" And FrameMode = "False" Then
                             Dim new_process As Process = Process.Start(new_psi)
                             Do
                                 Dim lineReader As StreamReader = new_process.StandardError
                                 Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
-                                If RemoveWhitespace(getBetween(line, "frame=", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame=", " fps")) = "0" Then
+                                If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
                                     FfmpegEncStats = "Frame Error!"
-                                    FfmpegErr = new_process.StandardError.ReadToEnd
-                                ElseIf RemoveWhitespace(getBetween(line, "frame=", " fps")) <= FrameCount Then
+                                ElseIf RemoveWhitespace(getBetween(line, "frame= ", " fps")) <= FrameCount Then
                                     ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
                                 End If
+                                FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
                             Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
                             Await Task.Run(Sub() new_process.WaitForExit())
-                        ElseIf Newdebugmode = "False" And FrameMode = "False" Or FrameMode = "null" Then
+                        ElseIf Newdebugmode = "True" And FrameMode = "True" Then
+                            Dim new_process As Process = Process.Start(new_psi)
+                            Do
+                                Dim lineReader As StreamReader = new_process.StandardError
+                                Dim line As String = Await Task.Run(Function() lineReader.ReadToEndAsync)
+                                FfmpegEncStats = "Frame Error!"
+                                FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
+                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                            Await Task.Run(Sub() new_process.WaitForExit())
+                        ElseIf Newdebugmode = "False" And FrameMode = "True" Then
+                            Dim new_process As Process = Process.Start(new_psi)
+                            Do
+                                Dim lineReader As StreamReader = new_process.StandardError
+                                Dim line As String = Await Task.Run(Function() lineReader.ReadToEndAsync)
+                                FfmpegEncStats = "Frame Error!"
+                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                            Await Task.Run(Sub() new_process.WaitForExit())
+                        ElseIf Newdebugmode = "False" And FrameMode = "False" Then
                             Dim new_process As Process = Process.Start(new_psi)
                             Do
                                 Dim lineReader As StreamReader = new_process.StandardError
                                 Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
-                                If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame=", " fps")) = "0" Then
+                                If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
                                     FfmpegEncStats = "Frame Error!"
                                 ElseIf RemoveWhitespace(getBetween(line, "frame= ", " fps")) <= FrameCount Then
                                     ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame= ", " fps")))
@@ -1138,34 +1153,48 @@ Public Class MainMenu
                             Await Task.Run(Sub() new_process.WaitForExit())
                         End If
                     Else
-                        Dim new_process As Process = Process.Start(new_psi)
-                        Do
-                            If ProgressBarAdv1.Value < 100 Then
-                                ProgressBarAdv1.Value += 20
-                            Else
-                                ProgressBarAdv1.Value = 100
-                            End If
-                        Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
-                        Await Task.Run(Sub() new_process.WaitForExit())
+                        If Newdebugmode = "True" And FrameMode = "True" Then
+                            Dim new_process As Process = Process.Start(new_psi)
+                            Do
+                                Dim lineReader As StreamReader = new_process.StandardError
+                                Dim line As String = Await Task.Run(Function() lineReader.ReadToEndAsync)
+                                FfmpegEncStats = "Frame Error!"
+                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                            Await Task.Run(Sub() new_process.WaitForExit())
+                        ElseIf Newdebugmode = "True" And FrameMode = "False" Then
+                            Dim new_process As Process = Process.Start(new_psi)
+                            Do
+                                Dim lineReader As StreamReader = new_process.StandardError
+                                Dim line As String = Await Task.Run(Function() lineReader.ReadToEndAsync)
+                                FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
+                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                            Await Task.Run(Sub() new_process.WaitForExit())
+                        Else
+                            Dim new_process As Process = Process.Start(new_psi)
+                            Await Task.Run(Sub() new_process.WaitForExit())
+                        End If
                     End If
                     EncEndTime = DateTime.Now
-                    If ProgressBarAdv1.Value <> ProgressBarAdv1.Maximum Then
-                        ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
-                    End If
                     If File.Exists(TextBox1.Text) Then
                         Dim destFile As New FileInfo(TextBox1.Text)
                         If destFile.Length / 1024 / 1024 < 1.0 Then
                             If destFile.Length / 1024 < 1.0 Then
-                                If DebugMode = "True" Then
+                                If Newdebugmode = "True" Then
                                     MessageBoxAdv.Show("Encoding failed: " & FfmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error, FfmpegErr)
                                 Else
                                     MessageBoxAdv.Show("Encoding failed: " & FfmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 End If
                                 Label28.Text = "Error"
                                 ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
-                                ProgressBarAdv1.ForeColor = Color.Red
                             Else
-                                MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                If ProgressBarAdv1.Value <> ProgressBarAdv1.Maximum Then
+                                    ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
+                                End If
+                                If Newdebugmode = "True" Then
+                                    MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information, FfmpegErr)
+                                Else
+                                    MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                End If
                                 Label70.Visible = True
                                 Label76.Visible = True
                                 Label71.Visible = True
@@ -1178,7 +1207,14 @@ Public Class MainMenu
                                 End If
                             End If
                         Else
-                            MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            If ProgressBarAdv1.Value <> ProgressBarAdv1.Maximum Then
+                                ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
+                            End If
+                            If Newdebugmode = "True" Then
+                                MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information, FfmpegErr)
+                            Else
+                                MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            End If
                             Label70.Visible = True
                             Label76.Visible = True
                             Label71.Visible = True
@@ -1198,7 +1234,6 @@ Public Class MainMenu
                         End If
                         Label28.Text = "Error"
                         ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
-                        ProgressBarAdv1.ForeColor = Color.Red
                     End If
                     Button1.Enabled = True
                     Button6.Enabled = True
@@ -1640,7 +1675,7 @@ Public Class MainMenu
                 ComboBox20.SelectedIndex = -1
                 TextBox6.Enabled = False
                 TextBox6.Text = ""
-            ElseIf ComboBox15.Text = "MP3" Then
+            ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
                 ComboBox16.Enabled = True
                 ComboBox16.SelectedIndex = -1
                 TextBox6.Enabled = True
@@ -1947,7 +1982,7 @@ Public Class MainMenu
             AudiostreamFlags = AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox22.Text.ToString, 11)) - 1).ToString & ".txt"
             AudiostreamConfig = AudioStreamConfigPath & "HME_Audio_Config_" & (CInt(Strings.Mid(ComboBox22.Text.ToString, 11)) - 1).ToString & ".txt"
             AudioStreamSourceList = (CInt(Strings.Mid(ComboBox22.Text.ToString, 11)) - 1).ToString
-            If ComboBox15.Text = "MP3" Then
+            If ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
                 If ComboBox16.Text = "" Then
                     MessageBoxAdv.Show("Please choose audio frequency !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     CheckBox5.Checked = False
@@ -1969,9 +2004,8 @@ Public Class MainMenu
                             CheckBox5.Checked = False
                             ReturnAudioStats = False
                         Else
-                            HMEStreamProfileGenerate(AudiostreamFlags, " -c:a:" & AudioStreamSourceList & " " &
-                                                     aCodec(ComboBox15.Text, ComboBox18.Text) & " -ac:a:" & AudioStreamSourceList & " " & TextBox6.Text & " -b:a:" & AudioStreamSourceList & " " & ComboBox19.Text & "k" & " -ar:a:" & AudioStreamSourceList &
-                                                     " " & ComboBox16.Text)
+                            HMEStreamProfileGenerate(AudiostreamFlags, " -c:a:" & AudioStreamSourceList & " " & aCodec(ComboBox15.Text, ComboBox18.Text) & " -ac:a:" & AudioStreamSourceList & " " & TextBox6.Text & " -b:a:" & AudioStreamSourceList & " " &
+                                                         ComboBox19.Text & "k" & " -ar:a:" & AudioStreamSourceList & " " & ComboBox16.Text)
                             HMEAudioStreamConfigGenerate(AudiostreamConfig, aCodec(ComboBox15.Text, ComboBox18.Text), "", "CBR", ComboBox19.Text, TextBox6.Text, "", ComboBox16.Text)
                             ReturnAudioStats = True
                         End If
@@ -1981,9 +2015,14 @@ Public Class MainMenu
                             CheckBox5.Checked = False
                             ReturnAudioStats = False
                         Else
-                            HMEStreamProfileGenerate(AudiostreamFlags, " -c:a:" & AudioStreamSourceList & " " &
-                                                aCodec(ComboBox15.Text, ComboBox18.Text) & " -ac:a:" & AudioStreamSourceList & " " & TextBox6.Text & " -q:a:" & AudioStreamSourceList & " " & ComboBox17.Text & " -ar:a:" & AudioStreamSourceList & " " &
+                            If ComboBox15.Text = "MP3" Then
+                                HMEStreamProfileGenerate(AudiostreamFlags, " -c:a:" & AudioStreamSourceList & " " & aCodec(ComboBox15.Text, ComboBox18.Text) & " -ac:a:" & AudioStreamSourceList & " " & TextBox6.Text & " -q:a:" & AudioStreamSourceList & " " &
+                                                         ComboBox17.Text & " -ar:a:" & AudioStreamSourceList & " " & ComboBox16.Text)
+                            ElseIf ComboBox15.Text = "AAC" Then
+                                HMEStreamProfileGenerate(AudiostreamFlags, " -c:a:" & AudioStreamSourceList & " " & aCodec(ComboBox15.Text, ComboBox18.Text) & " -ac:a:" & AudioStreamSourceList & " " & TextBox6.Text & " -vbr:a:" & AudioStreamSourceList & " " &
+                                                         ComboBox17.Text & " -ar:a:" & AudioStreamSourceList & " " &
                                                 ComboBox16.Text)
+                            End If
                             HMEAudioStreamConfigGenerate(AudiostreamConfig, aCodec(ComboBox15.Text, ComboBox18.Text), "", "VBR", ComboBox19.Text, TextBox6.Text, ComboBox17.Text, ComboBox16.Text)
                             ReturnAudioStats = True
                         End If
@@ -2222,7 +2261,7 @@ Public Class MainMenu
             ComboBox19.Enabled = False
             ComboBox20.Enabled = False
             TextBox6.Enabled = False
-        ElseIf ComboBox15.Text = "MP3" Then
+        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
             ComboBox16.Enabled = True
             TextBox6.Enabled = True
             ComboBox17.Enabled = False
@@ -2245,7 +2284,7 @@ Public Class MainMenu
     Private Sub FrequencyCheck()
         If ComboBox16.Items.Contains("64000") AndAlso ComboBox16.Items.Contains("88200") AndAlso ComboBox16.Items.Contains("96000") AndAlso
                ComboBox16.Items.Contains("176400") AndAlso ComboBox16.Items.Contains("192000") Then
-            If ComboBox15.Text = "MP3" Then
+            If ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
                 ComboBox16.SelectedIndex = -1
                 ComboBox16.Items.Remove("64000")
                 ComboBox16.Items.Remove("88200")
@@ -2254,8 +2293,7 @@ Public Class MainMenu
                 ComboBox16.Items.Remove("192000")
             End If
         Else
-            If ComboBox15.Text = "MP3" Then
-            Else
+            If ComboBox15.Text IsNot "MP3" Or ComboBox15.Text IsNot "AAC" Then
                 If ComboBox16.Items.Contains("64000") = False AndAlso ComboBox16.Items.Contains("88200") = False AndAlso
                     ComboBox16.Items.Contains("96000") = False AndAlso ComboBox16.Items.Contains("176400") = False AndAlso
                     ComboBox16.Items.Contains("192000") = False Then
@@ -2282,13 +2320,32 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub MP3BitRateCheck(sender As Object, e As EventArgs) Handles ComboBox20.SelectedIndexChanged
-        If ComboBox15.Text = "MP3" Then
+        If ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
+            If ComboBox15.Text = "AAC" Then
+                If ComboBox19.Items.Contains("320") Then
+                    ComboBox19.Items.Remove("320")
+                End If
+            End If
             If ComboBox20.Text = "CBR" Then
                 ComboBox19.Enabled = True
                 ComboBox17.Enabled = False
             ElseIf ComboBox20.Text = "VBR" Then
                 ComboBox19.Enabled = False
                 ComboBox17.Enabled = True
+                If ComboBox15.Text = "AAC" Then
+                    If ComboBox17.Items.Contains("0") = True AndAlso ComboBox17.Items.Contains("6") = True AndAlso ComboBox17.Items.Contains("7") = True AndAlso
+                        ComboBox17.Items.Contains("8") = True Then
+                        ComboBox17.Items.Remove("0")
+                        ComboBox17.Items.Remove("6")
+                        ComboBox17.Items.Remove("7")
+                        ComboBox17.Items.Remove("8")
+                    Else
+                        ComboBox17.Items.Add("0")
+                        ComboBox17.Items.Add("6")
+                        ComboBox17.Items.Add("7")
+                        ComboBox17.Items.Add("8")
+                    End If
+                End If
             End If
         End If
     End Sub

@@ -1982,7 +1982,7 @@ Partial Class MainMenu
         Me.ComboBox15.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ComboBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox15.FormattingEnabled = True
-        Me.ComboBox15.Items.AddRange(New Object() {"Copy", "MP3", "FLAC", "WAV"})
+        Me.ComboBox15.Items.AddRange(New Object() {"Copy", "AAC", "MP3", "FLAC", "WAV"})
         Me.ComboBox15.Location = New System.Drawing.Point(174, 26)
         Me.ComboBox15.Name = "ComboBox15"
         Me.ComboBox15.Size = New System.Drawing.Size(134, 23)
@@ -2977,7 +2977,7 @@ Partial Class MainMenu
         Me.ProgressBarAdv1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ProgressBarAdv1.CustomText = Nothing
         Me.ProgressBarAdv1.CustomWaitingRender = False
-        Me.ProgressBarAdv1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.ProgressBarAdv1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.ProgressBarAdv1.ForegroundImage = Nothing
         Me.ProgressBarAdv1.GradientEndColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.ProgressBarAdv1.GradientStartColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
