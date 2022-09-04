@@ -7,7 +7,12 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2022</Copyright>
-    <PackageReleaseNotes>v1.3.0 (20220903):
+    <PackageReleaseNotes>v1.3.1 (20220904):
+- Fixup debug mode are not show log while enable in some cases
+- Fixup encoding algorithm
+- Introduce MP4 and AAC media file extensions
+
+v1.3.0 (20220903):
 - Do not clear or reset chapter when chapter reset was clicked (Back to initial state instead)
 - Do not show next or previous button when show spectrum
 - Fixup white color issue while move is hovering into some of buttons
@@ -134,9 +139,9 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2022</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.3.0</Version>
-    <AssemblyVersion>1.3.0</AssemblyVersion>
-    <FileVersion>1.2.6</FileVersion>
+    <Version>1.3.1</Version>
+    <AssemblyVersion>1.3.1</AssemblyVersion>
+    <FileVersion>1.3.1</FileVersion>
     <Description>     Hana Media Encoder is the multimedia application that have feature to encode, decode, many other function to process media files using FFMPEG pre-build application (Windows Version),
 HME works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE, for now
 HME only focus to work with only hardware GPU accelerated codec that FFMPEG has support it, for now (H264 and H265) codec only, and it does not have any aim to support native or

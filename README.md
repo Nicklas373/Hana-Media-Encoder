@@ -13,7 +13,7 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
 # Current Features:
 * Support multiple media file encoding with same or different profile for each stream
 * Support mux/demux media file with specific stream or all stream and with same or different profile for each stream
-* Support create chapter (Insert chapter METADATA) into media file (Video Only)
+* Support manage chapter from media file (Video Only)
 * Support trim media file with specific stream or all stream and with same or different profile for each stream
 * Support preview media file by using FFPLAY
 
@@ -32,8 +32,8 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
 # How to install
 * Download .NET Framework 6.0, Hana Media Encoder setup & FFMPEG Pre-build
 * Extract FFMPEG to folder
-* Run Hana Media Encoder with Administrator
-  (If run with admin are prohibited then Install Hana Media Encoder with folder location except "Program Files" or "Program Files (x86)", better to install it on desktop or other folder that doesn't required any permission (Due write-access protection))
+* Install Hana Media Encoder beside folder location except "Program Files" or "Program Files (x86)" or other folder that doesn't required any permission (Due write-access protection)
+  (Ex: Install it on desktop or user folder)
 * Go to options menu
 * Configure FFMPEG binary folder to your bin folder from FFMPEG folder (FFMPEG/bin)
 * After application restart then open application again then go to options
