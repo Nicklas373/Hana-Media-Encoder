@@ -19,6 +19,7 @@ Module GlobalVariable
     Public AudiostreamFlags As String
     Public AudioStreamSourceList As String
     Public AspectRatio As String
+    Public BitRate As String
     Public CurParsedVer As String()
     Public CurPos As Integer
     Public ConfigState As Boolean
@@ -42,6 +43,7 @@ Module GlobalVariable
     Public FrameConfig As String
     Public FrameCount As String
     Public FrameMode As String
+    Public FPS As String
     Public HwAccelFormat As String
     Public HwAccelDev As String
     Public Hwdefconfig As String
@@ -54,6 +56,7 @@ Module GlobalVariable
     Public Newframestate As String
     Public NewParsedVer As String()
     Public MaxPos As Integer
+    Public MaxBitRate As String
     Public MergedCurVer As Integer
     Public MergedNewVer As Integer
     Public MissedFlags(255) As Integer
@@ -73,6 +76,7 @@ Module GlobalVariable
     Public Parsedchangelog As String
     Public Parsejson As JObject
     Public ProgPercentage As Integer
+    Public TargetQualityControl As String
     Public TempValue As String
     Public TimeSplit As String()
     Public TimeDur As Integer
