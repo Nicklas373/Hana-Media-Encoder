@@ -3,13 +3,13 @@
         'Combobox10.text'
         Dim value As String
         If Cmbx = "disabled" Then
-            value = "0"
+            value = " -b_ref_mode 0 "
         ElseIf Cmbx = "each" Then
-            value = "1"
+            value = " -b_ref_mode 1 "
         ElseIf Cmbx = "middle" Then
-            value = "2"
+            value = " -b_ref_mode 2 "
         Else
-            value = "0"
+            value = " "
         End If
 
         Return value
@@ -49,9 +49,9 @@
         'Combobox8.text'
         Dim value As String
         If Cmbx = "" Then
-            value = "auto"
+            value = " "
         Else
-            value = Cmbx
+            value = " -level " & Cmbx
         End If
 
         Return value
@@ -59,44 +59,39 @@
     Public Function multiPass(Cmbx As String) As String
         'Combobox14.text'
         Dim value As String
-        If Cmbx = "disabled" Then
-            value = "0"
-        ElseIf Cmbx = "qres" Then
-            value = "1"
-        ElseIf Cmbx = "fullres" Then
-            value = "2"
+        If Cmbx = "1-Pass" Then
+            value = " -multipass 0 "
+        ElseIf Cmbx = "2-Pass (1/4 Resolution)" Then
+            value = " -multipass 1 "
+        ElseIf Cmbx = "2-Pass (Full Resolution)" Then
+            value = " -multipass 2 "
         Else
-            value = "0"
+            value = " "
         End If
 
         Return value
     End Function
-    Public Function vPreset(Cmbx As String) As String
+    Public Function vPreset(Cmbx As String, GPUHW As String) As String
         'Combobox5.text'
         Dim value As String
         If Cmbx = "" Then
-            value = "default"
+            value = " "
         Else
-            value = Cmbx
-        End If
-
-        Return value
-    End Function
-    Public Function vPresetAmf(Cmbx As String) As String
-        'Combobox5.text'
-        Dim value As String
-        If Cmbx = "" Then
-            value = "balanced"
-        ElseIf Cmbx = "default" Then
-            value = "balanced"
-        ElseIf Cmbx = "slow" Then
-            value = "quality"
-        ElseIf Cmbx = "medium" Then
-            value = "balanced"
-        ElseIf Cmbx = "fast" Then
-            value = "speed"
-        Else
-            value = "balanced"
+            If GPUHW = "opencl" Then
+                If Cmbx = "default" Then
+                    value = " -quality balanced "
+                ElseIf Cmbx = "slow" Then
+                    value = " -quality quality "
+                ElseIf Cmbx = "medium" Then
+                    value = " -quality balanced "
+                ElseIf Cmbx = "fast" Then
+                    value = " -quality speed "
+                Else
+                    value = ""
+                End If
+            Else
+                value = " -preset " & Cmbx & " "
+            End If
         End If
 
         Return value
@@ -105,9 +100,9 @@
         'Combobox3.text'
         Dim value As String
         If Cmbx = "" Then
-            value = "yuv420p"
+            value = " "
         Else
-            value = Cmbx
+            value = " -pix_fmt " & Cmbx & " "
         End If
 
         Return value
@@ -116,9 +111,9 @@
         'Combobox7.text'
         Dim value As String
         If Cmbx = "" Then
-            value = "main"
+            value = " "
         Else
-            value = Cmbx
+            value = " -profile:v " & Cmbx & " "
         End If
 
         Return value
@@ -127,26 +122,26 @@
         'Combobox4.text'
         Dim value As String
         If Cmbx = "" Then
-            value = "vbr"
-        ElseIf Cmbx = "VBR" Then
-            value = "vbr"
-        ElseIf Cmbx = "CBR" Then
-            value = "cbr"
+            value = " "
+        ElseIf Cmbx = "Variable Bit Rate" Then
+            value = " -rc:v:0 vbr "
+        ElseIf Cmbx = "Constant Bit Rate" Then
+            value = " -rc:v:0 cbr "
         Else
-            value = "vbr"
+            value = " "
         End If
 
         Return value
     End Function
     Public Function vSpaTempAQ(Cmbx As String) As String
-        'Combobox11&13.text'
+        'Combobox11.text'
         Dim value As String
-        If Cmbx = "disabled" Then
-            value = "0"
-        ElseIf Cmbx = "enabled" Then
-            value = "1"
+        If Cmbx = "disable" Then
+            value = ""
+        ElseIf Cmbx = "enable" Then
+            value = " -spatial_aq 1 "
         Else
-            value = "0"
+            value = ""
         End If
 
         Return value
@@ -155,9 +150,22 @@
         'Combobox12.text'
         Dim value As String
         If Cmbx = "" Then
-            value = "8"
+            value = " "
         Else
-            value = Cmbx
+            value = " -aq-strength " & Cmbx
+        End If
+
+        Return value
+    End Function
+    Public Function vTempAQ(Cmbx As String) As String
+        'Combobox13.text'
+        Dim value As String
+        If Cmbx = "disable" Then
+            value = ""
+        ElseIf Cmbx = "enable" Then
+            value = " -temporal_aq 1 "
+        Else
+            value = ""
         End If
 
         Return value
@@ -166,26 +174,30 @@
         'Combobox6.text'
         Dim value As String
         If Cmbx = "High quality" Then
-            value = "hq"
+            value = " -tune hq "
         ElseIf Cmbx = "Low latency" Then
-            value = "ll"
+            value = " -tune ll"
         ElseIf Cmbx = "Ultra low latency" Then
-            value = "ull"
+            value = " -tune ull "
         ElseIf Cmbx = "Lossless" Then
-            value = "lossless"
+            value = " -tune lossless"
         Else
-            value = "hq"
+            value = " "
         End If
 
         Return value
     End Function
-    Public Function vTier(Cmbx As String) As String
+    Public Function vTier(Cmbx As String, GPUHW As String) As String
         'Combobox9.text'
         Dim value As String
         If Cmbx = "" Then
-            value = "main"
+            value = " "
         Else
-            value = Cmbx
+            If GPUHW = "opencl" Then
+                value = " -profile_tier " & Cmbx
+            Else
+                value = " -tier " & Cmbx
+            End If
         End If
 
         Return value
@@ -194,11 +206,11 @@
         'ComboBox21.text'
         Dim value As String
         If cmbx = "enable" Then
-            value = "true"
+            value = " -bluray-compat true "
         ElseIf cmbx = "disable" Then
-            value = "false"
+            value = " "
         Else
-            value = "false"
+            value = " "
         End If
 
         Return value
