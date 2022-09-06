@@ -9,6 +9,7 @@ Module MediaEncoderModule
         File.Delete("HME.bat")
         File.Delete("HME.msi")
         File.Delete("HME_Audio_Flags.txt")
+        File.Delete("HME_Chapters.bat")
         File.Delete("HME_FFMPEG_Init.bat")
         File.Delete("HME_Stream_Replace.txt")
         File.Delete("HME_VF.bat")
@@ -54,7 +55,7 @@ Module MediaEncoderModule
         Return HWDecName
     End Function
     Public Sub HMEAudioStreamConfigGenerate(HMEName As String, acodec As String, abitdepth As String, aratecontrol As String,
-                                             arate As String, achannel As String, acomplvl As String, afreq As String)
+                                             arate As String, achannel As String, acomplvl As String, afreq As String, achannellayout As String)
         If File.Exists(HMEName) Then
             GC.Collect()
             GC.WaitForPendingFinalizers()
@@ -69,6 +70,7 @@ Module MediaEncoderModule
         writer.WriteLine("RateControl=" & aratecontrol)
         writer.WriteLine("Rate=" & arate)
         writer.WriteLine("Channel=" & achannel)
+        writer.WriteLine("ChannelLayout=" & achannellayout)
         writer.WriteLine("Compression=" & acomplvl)
         writer.WriteLine("Frequency=" & afreq)
         writer.Close()
@@ -200,6 +202,16 @@ Module MediaEncoderModule
         Dim process As Process = Process.Start(psi)
         process.WaitForExit()
     End Sub
+    Public Sub RunProcAlt(bat As String)
+        Dim psi As New ProcessStartInfo(bat) With {
+            .RedirectStandardError = False,
+            .RedirectStandardOutput = False,
+            .CreateNoWindow = True,
+            .WindowStyle = ProcessWindowStyle.Hidden,
+            .UseShellExecute = False
+        }
+        Dim process As Process = Process.Start(psi)
+    End Sub
     Public Async Sub RunProcAsync(bat As String)
         Dim psi As New ProcessStartInfo(bat) With {
             .RedirectStandardError = False,
@@ -210,7 +222,7 @@ Module MediaEncoderModule
         }
         Dim process As Process = Process.Start(psi)
         Await Task.Delay(1500)
-        Await Task.Run(Sub() process.waitforexit)
+        Await Task.Run(Sub() process.WaitForExit())
     End Sub
     Public Function TimeConversion(Hours As Integer, Minute As Integer, Seconds As Integer) As Integer
         Dim hoursToMinute As Integer = Hours * 60

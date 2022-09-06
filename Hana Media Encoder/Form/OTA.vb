@@ -39,7 +39,7 @@ Public Class OTAMenu
                 File.Delete("OTA.bat")
             End If
             HMEGenerate("OTA.bat", "C:", My.Application.Info.DirectoryPath, "HME.msi", "")
-            RunProc("OTA.bat")
+            RunProcAlt("OTA.bat")
             End
         Else
             If downloadStats = False Then
