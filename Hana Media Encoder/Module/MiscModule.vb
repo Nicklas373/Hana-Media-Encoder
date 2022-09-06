@@ -67,7 +67,4 @@ Module MiscModule
             File.Delete(deleteFile)
         Next
     End Sub
-    Public Sub DoNothing()
-        ' I Just want to do nothing '_'
-    End Sub
 End Module
