@@ -143,6 +143,10 @@ Public Class MainMenu
             e.Effect = DragDropEffects.All
         End If
     End Sub
+    Private Sub Information_Btn(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim menu_information = New InformationMenu
+        menu_information.Show()
+    End Sub
     Private Sub Options_Btn(sender As Object, e As EventArgs) Handles Button5.Click
         Me.Hide()
         Dim menu_options = New OptionsMenu
@@ -158,7 +162,7 @@ Public Class MainMenu
         Else
             OpenFileDialog.DefaultExt = "*.*|.avi|.mp4|.mkv|.mp2|.m2ts|.ts|.wav|.flac|.aiff|.alac|.mp3"
             OpenFileDialog.FilterIndex = 1
-            OpenFileDialog.Filter = "All files (*.*)|*.*|AVI|*.avi|MPEG-4|*.mp4|Matroska Video|*.mkv|MPEG-2|*.m2v;*.m2ts;*.ts|FLAC|*.flac|WAV|*.wav|AIFF|*.aiff|ALAC|*.alac|MP3|*.mp3"
+            OpenFileDialog.Filter = "All files (*.*)|*.*|AVI|*.avi|MPEG-4|*.mp4|Matroska Video|*.mkv|MPEG-2|*.m2v;*.m2ts;*.ts|FLAC|*.flac|WAV|*.wav|AIFF|*.aiff|ALAC|*.alac|AAC|*.aac|MP3|*.mp3"
             OpenFileDialog.Title = "Choose Media File"
             OpenFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
             If OpenFileDialog.ShowDialog() = DialogResult.OK Then
@@ -1351,68 +1355,398 @@ Public Class MainMenu
             RichTextBox1.Text = ""
         End If
     End Sub
-    Private Sub LockProfileVideoCheck(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
-        If CheckBox3.Checked = True Then
-            If TextBox1.Text = "" Then
-                MessageBoxAdv.Show("Please choose save media file first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                CheckBox3.Checked = False
-                ComboBox2.Enabled = True
-            Else
-                FlagsCount = ComboBox29.Items.Count
-                FlagsResult = 0
-                FlagsValue = 0
-                For FlagsStart = 1 To FlagsCount
-                    If File.Exists(VideoStreamFlagsPath & "HME_Video_" & (FlagsStart - 1).ToString & ".txt") Then
-                        FlagsResult += 1
+	Private Sub VideoStreamSource(sender As Object, e As EventArgs) Handles ComboBox29.SelectedIndexChanged
+        If ComboBox29.SelectedIndex >= 0 Then
+            VideoStreamFlags = VideoStreamFlagsPath & "HME_Video_" & (CInt(Strings.Mid(ComboBox29.Text.ToString, 11)) - 1).ToString & ".txt"
+            VideoStreamConfig = VideoStreamConfigPath & "HME_Video_Config_" & (CInt(Strings.Mid(ComboBox29.Text.ToString, 11)) - 1).ToString & ".txt"
+            If File.Exists(VideoStreamFlags) And File.Exists(VideoStreamConfig) Then
+                Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Configuration for video with stream #0:" & CInt(Strings.Mid(ComboBox29.Text.ToString, 11)).ToString & "  already exists !" & vbCrLf & vbCrLf &
+                                                                      "Check old video stream configuration ?" & vbCrLf & "NOTE: This will replace existing video configuration", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                If configResult = DialogResult.Yes Then
+                    VcodecReset()
+                    Dim prevVideoBrCompat As String = FindConfig(VideoStreamConfig, "BRCompat=")
+                    Dim prevVideoOvr As String = FindConfig(VideoStreamConfig, "OvrBitrate=")
+                    Dim prevVideoBref As String = FindConfig(VideoStreamConfig, "Bref=")
+                    Dim prevVideoCodec As String = FindConfig(VideoStreamConfig, "Codec=")
+                    Dim prevVideoFps As String = FindConfig(VideoStreamConfig, "Fps=")
+                    Dim prevVideoLvl As String = FindConfig(VideoStreamConfig, "Level=")
+                    Dim prevVideoMaxBr As String = FindConfig(VideoStreamConfig, "MaxBitrate=")
+                    Dim prevVideoMp As String = FindConfig(VideoStreamConfig, "Multipass=")
+                    Dim prevVideoPreset As String = FindConfig(VideoStreamConfig, "Preset=")
+                    Dim prevVideoPixFmt As String = FindConfig(VideoStreamConfig, "PixelFormat=")
+                    Dim prevVideoProfile As String = FindConfig(VideoStreamConfig, "Profile=")
+                    Dim prevVideoRateCtr As String = FindConfig(VideoStreamConfig, "RateControl=")
+                    Dim prevVideoSpatialAQ As String = FindConfig(VideoStreamConfig, "SpatialAQ=")
+                    Dim prevVideoAQStrength As String = FindConfig(VideoStreamConfig, "AQStrength=")
+                    Dim prevVideoTempAQ As String = FindConfig(VideoStreamConfig, "TemporalAQ=")
+                    Dim prevVideoTargetQL As String = FindConfig(VideoStreamConfig, "TargetQL=")
+                    Dim prevVideoTier As String = FindConfig(VideoStreamConfig, "Tier=")
+                    Dim prevVideoTune As String = FindConfig(VideoStreamConfig, "Tune=")
+                    Dim prevVideoAspectRatio As String = FindConfig(VideoStreamConfig, "AspectRatio=")
+                    Dim prevVideoResolution As String = FindConfig(VideoStreamConfig, "Resolution=")
+                    If Strings.Mid(prevVideoBrCompat, 10) = "" Then
+                        ComboBox21.Text = ""
                     Else
-                        MissedFlags(FlagsStart) = FlagsStart
-                    End If
-                    FlagsValue += 1
-                Next
-                If FlagsResult = FlagsCount Then
-                    TextBox3.Enabled = False
-                    ComboBox21.Enabled = False
-                    ComboBox10.Enabled = False
-                    ComboBox2.Enabled = False
-                    ComboBox30.Enabled = False
-                    ComboBox8.Enabled = False
-                    TextBox4.Enabled = False
-                    ComboBox14.Enabled = False
-                    ComboBox5.Enabled = False
-                    ComboBox3.Enabled = False
-                    ComboBox7.Enabled = False
-                    ComboBox4.Enabled = False
-                    ComboBox11.Enabled = False
-                    ComboBox12.Enabled = False
-                    ComboBox13.Enabled = False
-                    TextBox2.Enabled = False
-                    ComboBox6.Enabled = False
-                    ComboBox9.Enabled = False
-                    ComboBox29.Enabled = False
-                    Button15.Enabled = False
-                    Button16.Enabled = False
-                    ComboBox32.Enabled = False
-                    TextBox20.Enabled = False
-                    TextBox21.Enabled = False
-                    Label28.Text = "READY"
-                Else
-                    For FlagsStart = 1 To FlagsValue
-                        If MissedFlags(FlagsStart).ToString IsNot "" And CInt(MissedFlags(FlagsStart)) > 0 Then
-                            MessageBoxAdv.Show("Please save configuration for video stream #0:" & MissedFlags(FlagsStart), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        If RemoveWhitespace(Strings.Mid(prevVideoBrCompat, 26)) = "true" Then
+                            ComboBox21.Text = "enable"
+                        Else
+                            ComboBox21.Text = "disable"
                         End If
-                    Next
-                    CheckBox3.Checked = False
+                    End If
+                    If Strings.Mid(prevVideoOvr, 12) = "" Then
+                        TextBox3.Text = ""
+                    Else
+                        TextBox3.Text = RemoveWhitespace(Strings.Left(Strings.Mid(prevVideoOvr, 18), 1))
+                    End If
+                    If Strings.Mid(prevVideoBref, 6) = "" Then
+                        ComboBox10.Text = ""
+                    Else
+                        If RemoveWhitespace(Strings.Mid(prevVideoBref, 18)) = "0" Then
+                            ComboBox10.Text = "disabled"
+                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoBref, 18)) = "1" Then
+                            ComboBox10.Text = "each"
+                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoBref, 18)) = "2" Then
+                            ComboBox10.Text = "middle"
+                        End If
+                    End If
+                    ComboBox2.Text = Strings.Left(Strings.Mid(prevVideoCodec, 7), 4).ToUpper
+                    ComboBox30.Text = Strings.Right(prevVideoFps, 2)
+                    If Strings.Mid(prevVideoLvl, 7) = "" Then
+                        ComboBox8.Text = ""
+                    Else
+                        ComboBox8.Text = RemoveWhitespace(Strings.Mid(prevVideoLvl, 14))
+                    End If
+                    If Strings.Mid(prevVideoMaxBr, 12) = "" Then
+                        TextBox4.Text = ""
+                    Else
+                        TextBox4.Text = RemoveWhitespace(Strings.Left(Strings.Mid(prevVideoMaxBr, 24), 1))
+                    End If
+                    If Strings.Mid(prevVideoMp, 11) = "" Then
+                        ComboBox14.Text = ""
+                    Else
+                        If RemoveWhitespace(Strings.Mid(prevVideoMp, 23)) = "0" Then
+                            ComboBox14.Text = "1 Pass"
+                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoMp, 23)) = "1" Then
+                            ComboBox14.Text = "2 Pass (1/4 Resolution)"
+                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoMp, 23)) = "2" Then
+                            ComboBox14.Text = "2 Pass (Full Resolution)"
+                        End If
+                    End If
+                    Dim tempPreset As String
+                    Dim tempTier As String
+                    If Strings.Right(Strings.Mid(prevVideoCodec, 7), 3) = "amf" Then
+                        If Strings.Mid(prevVideoPreset, 8) = "" Then
+                            tempPreset = ""
+                            tempTier = ""
+                        Else
+                            If Strings.Mid(prevVideoPreset, 8) = "" Then
+                                tempPreset = ""
+                            Else
+                                If RemoveWhitespace(Strings.Mid(prevVideoPreset, 18)) = "quality" Then
+                                    tempPreset = "slow"
+                                ElseIf RemoveWhitespace(Strings.Mid(prevVideoPreset, 18)) = "balanced" Then
+                                    tempPreset = "medium"
+                                ElseIf RemoveWhitespace(Strings.Mid(prevVideoPreset, 18)) = "speed" Then
+                                    tempPreset = "fast"
+                                Else
+                                    tempPreset = ""
+                                End If
+                            End If
+                            If Strings.Mid(prevVideoTier, 6) = "" Then
+                                tempTier = ""
+                            Else
+                                tempTier = Strings.Mid(prevVideoTier, 21)
+                            End If
+                        End If
+                    Else
+                        If Strings.Mid(prevVideoPreset, 8) = "" Then
+                            tempPreset = ""
+                            tempTier = ""
+                        Else
+                            If Strings.Mid(prevVideoPreset, 8) = "" Then
+                                tempPreset = ""
+                            Else
+                                tempPreset = Strings.Mid(prevVideoPreset, 17)
+                            End If
+                            If Strings.Mid(prevVideoTier, 6) = "" Then
+                                tempTier = ""
+                            Else
+                                tempTier = Strings.Mid(prevVideoTier, 13)
+                            End If
+                        End If
+                    End If
+                    ComboBox5.Text = tempPreset
+                    If Strings.Mid(prevVideoPixFmt, 13) = "" Then
+                        ComboBox3.Text = ""
+                    Else
+                        ComboBox3.Text = Strings.Mid(prevVideoPixFmt, 23)
+                    End If
+                    If Strings.Mid(prevVideoProfile, 9) = "" Then
+                        ComboBox7.Text = ""
+                    Else
+                        ComboBox7.Text = Strings.Mid(prevVideoProfile, 21)
+                    End If
+                    If Strings.Mid(prevVideoRateCtr, 13) = "" Then
+                        ComboBox4.Text = ""
+                    Else
+                        If RemoveWhitespace(Strings.Mid(prevVideoRateCtr, 22)) = "vbr" Then
+                            ComboBox4.Text = "Variable Bit Rate"
+                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoRateCtr, 22)) = "cbr" Then
+                            ComboBox4.Text = "Constant Bit Rate"
+                        Else
+                            ComboBox4.Text = ""
+                        End If
+                    End If
+                    If Strings.Mid(prevVideoSpatialAQ, 11) = "" Then
+                        ComboBox11.Text = ""
+                    Else
+                        If RemoveWhitespace(Strings.Mid(prevVideoSpatialAQ, 23)) = "1" Then
+                            ComboBox11.Text = "enable"
+                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoSpatialAQ, 23)) = "0" Then
+                            ComboBox11.Text = "disable"
+                        End If
+                    End If
+                    If Strings.Mid(prevVideoAQStrength, 12) = "" Then
+                        ComboBox12.Text = ""
+                    Else
+                        ComboBox12.Text = Strings.Mid(prevVideoAQStrength, 26)
+                    End If
+                    If Strings.Mid(prevVideoTempAQ, 12) = "" Then
+                        ComboBox13.Text = ""
+                    Else
+                        If RemoveWhitespace(Strings.Mid(prevVideoTempAQ, 26)) = "1" Then
+                            ComboBox13.Text = "enable"
+                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoTempAQ, 26)) = "0" Then
+                            ComboBox13.Text = "disable"
+                        End If
+                    End If
+                    If Strings.Mid(prevVideoTargetQL, 10) = "" Then
+                        TextBox2.Text = 0
+                    Else
+                        TextBox2.Text = RemoveWhitespace(Strings.Mid(prevVideoTargetQL, 15))
+                    End If
+                    ComboBox9.Text = tempTier
+                    If Strings.Mid(prevVideoTune, 6) = "" Then
+                        ComboBox6.Text = ""
+                    Else
+                        If RemoveWhitespace(Strings.Mid(prevVideoTune, 13)) = "hq" Then
+                            ComboBox6.Text = "High quality"
+                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoTune, 13)) = "ll" Then
+                            ComboBox6.Text = "Low latency"
+                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoTune, 13)) = "ull" Then
+                            ComboBox6.Text = "Ultra low latency"
+                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoTune, 13)) = "lossless" Then
+                            ComboBox6.Text = "Lossless"
+                        End If
+                    End If
+                    If Strings.Mid(prevVideoResolution, 11) = "x" Then
+                        TextBox20.Text = ""
+                        TextBox21.Text = ""
+                    Else
+                        TextBox20.Text = getBetween(prevVideoResolution, "n=", "x")
+                        TextBox21.Text = getBetween(prevVideoResolution, "x", "|")
+                    End If
+                    If Strings.Mid(prevVideoAspectRatio, 13) = "" Then
+                        ComboBox32.Text = ""
+                    Else
+                        ComboBox32.Text = Strings.Mid(getBetween(prevVideoAspectRatio, "r=", "/"), 5) & ":" & getBetween(prevVideoAspectRatio, "/", ",")
+                    End If
+                    RichTextBox1.Text = ""
+                    RichTextBox1.Text = File.ReadAllText(VideoStreamFlags)
                 End If
+                Button15.Enabled = False
+                Button16.Enabled = True
+            Else
+                Button15.Enabled = True
+                Button16.Enabled = False
             End If
-        Else
-            VcodecReset()
-            ComboBox2.Enabled = True
-            ComboBox29.Enabled = True
-            Button15.Enabled = True
-            Button16.Enabled = True
         End If
     End Sub
-    Private Sub VideoStreamInitConfig()
+	Private Sub VideoCodecCheck(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        Dim codecChange As DialogResult = MessageBoxAdv.Show(Me, "Warning !" & vbCrLf & vbCrLf & "Change video will reset current configuration" &
+                                                               vbCrLf & "Please save configuration on 'save config stream' options" &
+                                                               vbCrLf & vbCrLf & "Change codec ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If codecChange = DialogResult.Yes Then
+            If Hwdefconfig = "GPU Engine:" Then
+                HwAccelDev = ""
+            Else
+                HwAccelFormat = "-hwaccel_output_format " & Hwdefconfig.Remove(0, 11)
+                HwAccelDev = Hwdefconfig.Remove(0, 11)
+            End If
+            If ComboBox2.Text = "Copy" Then
+                TextBox3.Enabled = False
+                ComboBox21.Enabled = False
+                ComboBox10.Enabled = False
+                ComboBox30.Enabled = False
+                ComboBox8.Enabled = False
+                TextBox4.Enabled = False
+                ComboBox14.Enabled = False
+                ComboBox5.Enabled = False
+                ComboBox3.Enabled = False
+                ComboBox7.Enabled = False
+                ComboBox4.Enabled = False
+                ComboBox11.Enabled = False
+                ComboBox12.Enabled = False
+                ComboBox13.Enabled = False
+                TextBox2.Enabled = False
+                ComboBox6.Enabled = False
+                ComboBox9.Enabled = False
+                TextBox3.Text = ""
+                ComboBox21.SelectedIndex = -1
+                ComboBox10.SelectedIndex = -1
+                ComboBox30.SelectedIndex = -1
+                ComboBox8.SelectedIndex = -1
+                TextBox4.Text = ""
+                ComboBox14.SelectedIndex = -1
+                ComboBox5.SelectedIndex = -1
+                ComboBox3.SelectedIndex = -1
+                ComboBox7.SelectedIndex = -1
+                ComboBox4.SelectedIndex = -1
+                ComboBox11.SelectedIndex = -1
+                ComboBox12.SelectedIndex = -1
+                ComboBox13.SelectedIndex = -1
+                TextBox2.Text = ""
+                ComboBox6.SelectedIndex = -1
+                ComboBox9.SelectedIndex = -1
+                ComboBox32.SelectedIndex = -1
+                ComboBox32.Enabled = False
+                TextBox20.Text = ""
+                TextBox20.Enabled = False
+                TextBox21.Text = ""
+                TextBox21.Enabled = False
+            ElseIf HwAccelDev = "opencl" Then
+                ComboBox21.Enabled = False
+                ComboBox10.Enabled = False
+                ComboBox14.Enabled = False
+                ComboBox3.Text = "yuv420p"
+                ComboBox3.Enabled = False
+                If ComboBox2.Text = "HEVC" Then
+                    ComboBox7.Text = "main"
+                    ComboBox7.Enabled = False
+                    ComboBox9.Enabled = True
+                Else
+                    ComboBox7.Enabled = True
+                    If ComboBox7.Items.Contains("main10") Then
+                        ComboBox7.Items.Remove("main10")
+                    End If
+                    ComboBox9.Enabled = False
+                End If
+                ComboBox4.Enabled = False
+                ComboBox11.Enabled = False
+                ComboBox12.Enabled = False
+                ComboBox13.Enabled = False
+                ComboBox6.Enabled = False
+                TextBox2.Enabled = False
+                TextBox3.Enabled = True
+                ComboBox30.Enabled = True
+                ComboBox8.Enabled = True
+                TextBox4.Enabled = True
+                ComboBox5.Enabled = True
+                ComboBox21.SelectedIndex = -1
+                ComboBox10.SelectedIndex = -1
+                ComboBox4.SelectedIndex = -1
+                ComboBox11.SelectedIndex = -1
+                ComboBox12.SelectedIndex = -1
+                ComboBox13.SelectedIndex = -1
+                TextBox2.Text = ""
+                ComboBox6.SelectedIndex = -1
+                ComboBox32.SelectedIndex = -1
+                TextBox20.Text = ""
+                TextBox21.Text = ""
+                ComboBox32.Enabled = True
+                TextBox20.Enabled = True
+                TextBox21.Enabled = True
+            ElseIf HwAccelDev = "qsv" Then
+                ComboBox21.Enabled = False
+                ComboBox10.Enabled = False
+                ComboBox14.Enabled = False
+                If ComboBox2.Text = "HEVC" Then
+                    If ComboBox7.Items.Contains("high") Then
+                        ComboBox7.Items.Remove("high")
+                    End If
+                    If ComboBox7.Items.Contains("main10") = False Then
+                        ComboBox7.Items.Add("main10")
+                    End If
+                Else
+                    If ComboBox7.Items.Contains("main10") Then
+                        ComboBox7.Items.Remove("main10")
+                    End If
+                    ComboBox9.Enabled = False
+                End If
+                ComboBox3.Text = "p010le"
+                ComboBox3.Enabled = False
+                ComboBox4.Enabled = False
+                ComboBox11.Enabled = False
+                ComboBox12.Enabled = False
+                ComboBox13.Enabled = False
+                ComboBox6.Enabled = False
+                TextBox2.Enabled = False
+                TextBox3.Enabled = False
+                ComboBox30.Enabled = True
+                ComboBox8.Enabled = False
+                TextBox4.Enabled = True
+                ComboBox5.Enabled = True
+                ComboBox7.Enabled = True
+                ComboBox8.SelectedIndex = -1
+                ComboBox9.Enabled = False
+                ComboBox9.SelectedIndex = -1
+                ComboBox21.SelectedIndex = -1
+                ComboBox10.SelectedIndex = -1
+                ComboBox4.SelectedIndex = -1
+                ComboBox11.SelectedIndex = -1
+                ComboBox12.SelectedIndex = -1
+                ComboBox13.SelectedIndex = -1
+                TextBox2.Text = ""
+                ComboBox6.SelectedIndex = -1
+                ComboBox32.SelectedIndex = -1
+                TextBox20.Text = ""
+                TextBox21.Text = ""
+                ComboBox32.Enabled = True
+                TextBox20.Enabled = True
+                TextBox21.Enabled = True
+            ElseIf HwAccelDev = "cuda" Then
+                TextBox3.Enabled = True
+                ComboBox21.Enabled = True
+                ComboBox10.Enabled = True
+                ComboBox30.Enabled = True
+                ComboBox8.Enabled = True
+                TextBox4.Enabled = True
+                ComboBox14.Enabled = True
+                ComboBox5.Enabled = True
+                ComboBox3.Enabled = True
+                ComboBox7.Enabled = True
+                If ComboBox2.Text = "HEVC" Then
+                    If ComboBox7.Items.Contains("high") Then
+                        ComboBox7.Items.Remove("high")
+                    End If
+                    If ComboBox7.Items.Contains("main10") = False Then
+                        ComboBox7.Items.Add("main10")
+                    End If
+                Else
+                    If ComboBox7.Items.Contains("main10") Then
+                        ComboBox7.Items.Remove("main10")
+                    End If
+                    ComboBox9.Enabled = False
+                End If
+                ComboBox4.Enabled = True
+                ComboBox11.Enabled = True
+                ComboBox12.Enabled = True
+                ComboBox13.Enabled = True
+                TextBox2.Enabled = True
+                ComboBox6.Enabled = True
+                ComboBox9.Enabled = True
+                ComboBox32.SelectedIndex = -1
+                TextBox20.Text = ""
+                TextBox21.Text = ""
+                ComboBox32.Enabled = True
+                TextBox20.Enabled = True
+                TextBox21.Enabled = True
+            End If
+        Else
+            MessageBoxAdv.Show("Abort change video codec !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+	Private Sub VideoStreamInitConfig()
         Dim forceDecision As Boolean = False
         If ComboBox29.SelectedIndex >= 0 Then
             Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
@@ -1608,281 +1942,7 @@ Public Class MainMenu
             Button16.Enabled = True
         End If
     End Sub
-    Private Sub VideoStreamSource(sender As Object, e As EventArgs) Handles ComboBox29.SelectedIndexChanged
-        If ComboBox29.SelectedIndex >= 0 Then
-            VideoStreamFlags = VideoStreamFlagsPath & "HME_Video_" & (CInt(Strings.Mid(ComboBox29.Text.ToString, 11)) - 1).ToString & ".txt"
-            VideoStreamConfig = VideoStreamConfigPath & "HME_Video_Config_" & (CInt(Strings.Mid(ComboBox29.Text.ToString, 11)) - 1).ToString & ".txt"
-            If File.Exists(VideoStreamFlags) And File.Exists(VideoStreamConfig) Then
-                Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Configuration for video with stream #0:" & CInt(Strings.Mid(ComboBox29.Text.ToString, 11)).ToString & "  already exists !" & vbCrLf & vbCrLf &
-                                                                      "Check old video stream configuration ?" & vbCrLf & "NOTE: This will replace existing video configuration", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                If configResult = DialogResult.Yes Then
-                    VcodecReset()
-                    Dim prevVideoBrCompat As String = FindConfig(VideoStreamConfig, "BRCompat=")
-                    Dim prevVideoOvr As String = FindConfig(VideoStreamConfig, "OvrBitrate=")
-                    Dim prevVideoBref As String = FindConfig(VideoStreamConfig, "Bref=")
-                    Dim prevVideoCodec As String = FindConfig(VideoStreamConfig, "Codec=")
-                    Dim prevVideoFps As String = FindConfig(VideoStreamConfig, "Fps=")
-                    Dim prevVideoLvl As String = FindConfig(VideoStreamConfig, "Level=")
-                    Dim prevVideoMaxBr As String = FindConfig(VideoStreamConfig, "MaxBitrate=")
-                    Dim prevVideoMp As String = FindConfig(VideoStreamConfig, "Multipass=")
-                    Dim prevVideoPreset As String = FindConfig(VideoStreamConfig, "Preset=")
-                    Dim prevVideoPixFmt As String = FindConfig(VideoStreamConfig, "PixelFormat=")
-                    Dim prevVideoProfile As String = FindConfig(VideoStreamConfig, "Profile=")
-                    Dim prevVideoRateCtr As String = FindConfig(VideoStreamConfig, "RateControl=")
-                    Dim prevVideoSpatialAQ As String = FindConfig(VideoStreamConfig, "SpatialAQ=")
-                    Dim prevVideoAQStrength As String = FindConfig(VideoStreamConfig, "AQStrength=")
-                    Dim prevVideoTempAQ As String = FindConfig(VideoStreamConfig, "TemporalAQ=")
-                    Dim prevVideoTargetQL As String = FindConfig(VideoStreamConfig, "TargetQL=")
-                    Dim prevVideoTier As String = FindConfig(VideoStreamConfig, "Tier=")
-                    Dim prevVideoTune As String = FindConfig(VideoStreamConfig, "Tune=")
-                    Dim prevVideoAspectRatio As String = FindConfig(VideoStreamConfig, "AspectRatio=")
-                    Dim prevVideoResolution As String = FindConfig(VideoStreamConfig, "Resolution=")
-                    If Strings.Mid(prevVideoBrCompat, 10) = "" Then
-                        ComboBox21.Text = ""
-                    Else
-                        If RemoveWhitespace(Strings.Mid(prevVideoBrCompat, 26)) = "true" Then
-                            ComboBox21.Text = "enable"
-                        Else
-                            ComboBox21.Text = "disable"
-                        End If
-                    End If
-                    If Strings.Mid(prevVideoOvr, 12) = "" Then
-                        TextBox3.Text = ""
-                    Else
-                        TextBox3.Text = RemoveWhitespace(Strings.Left(Strings.Mid(prevVideoOvr, 18), 1))
-                    End If
-                    If Strings.Mid(prevVideoBref, 6) = "" Then
-                        ComboBox10.Text = ""
-                    Else
-                        If RemoveWhitespace(Strings.Mid(prevVideoBref, 18)) = "0" Then
-                            ComboBox10.Text = "disabled"
-                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoBref, 18)) = "1" Then
-                            ComboBox10.Text = "each"
-                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoBref, 18)) = "2" Then
-                            ComboBox10.Text = "middle"
-                        End If
-                    End If
-                    ComboBox2.Text = Strings.Left(Strings.Mid(prevVideoCodec, 7), 4).ToUpper
-                    ComboBox30.Text = Strings.Right(prevVideoFps, 2)
-                    If Strings.Mid(prevVideoLvl, 7) = "" Then
-                        ComboBox8.Text = ""
-                    Else
-                        ComboBox8.Text = RemoveWhitespace(Strings.Mid(prevVideoLvl, 14))
-                    End If
-                    If Strings.Mid(prevVideoMaxBr, 12) = "" Then
-                        TextBox4.Text = ""
-                    Else
-                        TextBox4.Text = RemoveWhitespace(Strings.Left(Strings.Mid(prevVideoMaxBr, 24), 1))
-                    End If
-                    If Strings.Mid(prevVideoMp, 11) = "" Then
-                        ComboBox14.Text = ""
-                    Else
-                        If RemoveWhitespace(Strings.Mid(prevVideoMp, 23)) = "0" Then
-                            ComboBox14.Text = "1 Pass"
-                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoMp, 23)) = "1" Then
-                            ComboBox14.Text = "2 Pass (1/4 Resolution)"
-                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoMp, 23)) = "2" Then
-                            ComboBox14.Text = "2 Pass (Full Resolution)"
-                        End If
-                    End If
-                    Dim tempPreset As String
-                    Dim tempTier As String
-                    If Strings.Right(Strings.Mid(prevVideoCodec, 7), 3) = "amf" Then
-                        If Strings.Mid(prevVideoPreset, 8) = "" Then
-                            tempPreset = ""
-                            tempTier = ""
-                        Else
-                            If Strings.Mid(prevVideoPreset, 8) = "" Then
-                                tempPreset = ""
-                            Else
-                                If RemoveWhitespace(Strings.Mid(prevVideoPreset, 18)) = "quality" Then
-                                    tempPreset = "slow"
-                                ElseIf RemoveWhitespace(Strings.Mid(prevVideoPreset, 18)) = "balanced" Then
-                                    tempPreset = "medium"
-                                ElseIf RemoveWhitespace(Strings.Mid(prevVideoPreset, 18)) = "speed" Then
-                                    tempPreset = "fast"
-                                End If
-                            End If
-                            If Strings.Mid(prevVideoTier, 6) = "" Then
-                                tempTier = ""
-                            Else
-                                tempTier = Strings.Mid(prevVideoTier, 21)
-                            End If
-                        End If
-                    Else
-                        If Strings.Mid(prevVideoPreset, 8) = "" Then
-                            tempPreset = ""
-                            tempTier = ""
-                        Else
-                            If Strings.Mid(prevVideoPreset, 8) = "" Then
-                                tempPreset = ""
-                            Else
-                                tempPreset = Strings.Mid(prevVideoPreset, 17)
-                            End If
-                            If Strings.Mid(prevVideoTier, 6) = "" Then
-                                tempTier = ""
-                            Else
-                                tempTier = Strings.Mid(prevVideoTier, 13)
-                            End If
-                        End If
-                    End If
-                    ComboBox5.Text = tempPreset
-                    If Strings.Mid(prevVideoPixFmt, 13) = "" Then
-                        ComboBox3.Text = ""
-                    Else
-                        ComboBox3.Text = Strings.Mid(prevVideoPixFmt, 23)
-                    End If
-                    If Strings.Mid(prevVideoProfile, 9) = "" Then
-                        ComboBox7.Text = ""
-                    Else
-                        ComboBox7.Text = Strings.Mid(prevVideoProfile, 21)
-                    End If
-                    If Strings.Mid(prevVideoRateCtr, 13) = "" Then
-                        ComboBox4.Text = ""
-                    Else
-                        If RemoveWhitespace(Strings.Mid(prevVideoRateCtr, 22)) = "vbr" Then
-                            ComboBox4.Text = "Variable Bit Rate"
-                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoRateCtr, 22)) = "cbr" Then
-                            ComboBox4.Text = "Constant Bit Rate"
-                        Else
-                            ComboBox4.Text = ""
-                        End If
-                    End If
-                    If Strings.Mid(prevVideoSpatialAQ, 11) = "" Then
-                        ComboBox11.Text = ""
-                    Else
-                        If RemoveWhitespace(Strings.Mid(prevVideoSpatialAQ, 23)) = "1" Then
-                            ComboBox11.Text = "enable"
-                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoSpatialAQ, 23)) = "0" Then
-                            ComboBox11.Text = "disable"
-                        End If
-                    End If
-                    If Strings.Mid(prevVideoAQStrength, 12) = "" Then
-                        ComboBox12.Text = ""
-                    Else
-                        ComboBox12.Text = Strings.Mid(prevVideoAQStrength, 26)
-                    End If
-                    If Strings.Mid(prevVideoTempAQ, 12) = "" Then
-                        ComboBox13.Text = ""
-                    Else
-                        If RemoveWhitespace(Strings.Mid(prevVideoTempAQ, 26)) = "1" Then
-                            ComboBox13.Text = "enable"
-                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoTempAQ, 26)) = "0" Then
-                            ComboBox13.Text = "disable"
-                        End If
-                    End If
-                    If Strings.Mid(prevVideoTargetQL, 10) = "" Then
-                        TextBox2.Text = 0
-                    Else
-                        TextBox2.Text = RemoveWhitespace(Strings.Mid(prevVideoTargetQL, 15))
-                    End If
-                    ComboBox9.Text = tempTier
-                    If Strings.Mid(prevVideoTune, 6) = "" Then
-                        ComboBox6.Text = ""
-                    Else
-                        If RemoveWhitespace(Strings.Mid(prevVideoTune, 13)) = "hq" Then
-                            ComboBox6.Text = "High quality"
-                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoTune, 13)) = "ll" Then
-                            ComboBox6.Text = "Low latency"
-                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoTune, 13)) = "ull" Then
-                            ComboBox6.Text = "Ultra low latency"
-                        ElseIf RemoveWhitespace(Strings.Mid(prevVideoTune, 13)) = "lossless" Then
-                            ComboBox6.Text = "Lossless"
-                        End If
-                    End If
-                    If Strings.Mid(prevVideoResolution, 11) = "x" Then
-                        TextBox20.Text = ""
-                        TextBox21.Text = ""
-                    Else
-                        TextBox20.Text = getBetween(prevVideoResolution, "n=", "x")
-                        TextBox21.Text = getBetween(prevVideoResolution, "x", "|")
-                    End If
-                    If Strings.Mid(prevVideoAspectRatio, 13) = "" Then
-                        ComboBox32.Text = ""
-                    Else
-                        ComboBox32.Text = Strings.Mid(getBetween(prevVideoAspectRatio, "r=", "/"), 5) & ":" & getBetween(prevVideoAspectRatio, "/", ",")
-                    End If
-                    RichTextBox1.Text = ""
-                    RichTextBox1.Text = File.ReadAllText(VideoStreamFlags)
-                End If
-                Button15.Enabled = False
-                Button16.Enabled = True
-            Else
-                Button15.Enabled = True
-                Button16.Enabled = False
-            End If
-        End If
-    End Sub
-    Private Sub CodecCheck(sender As Object, e As EventArgs) Handles ComboBox15.SelectedIndexChanged
-        Dim codecChange As DialogResult = MessageBoxAdv.Show(Me, "Warning !" & vbCrLf & vbCrLf & "Change audio codec will reset current configuration" &
-                                                               vbCrLf & "Change audio codec ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If codecChange = DialogResult.Yes Then
-            BitDepthCheck()
-            FrequencyCheck()
-            If ComboBox15.Text = "WAV" Then
-                ComboBox16.Enabled = True
-                ComboBox16.SelectedIndex = -1
-                ComboBox17.Enabled = False
-                ComboBox17.SelectedIndex = -1
-                ComboBox18.Enabled = True
-                ComboBox18.SelectedIndex = -1
-                ComboBox19.Enabled = False
-                ComboBox19.SelectedIndex = -1
-                ComboBox20.Enabled = False
-                ComboBox20.SelectedIndex = -1
-                ComboBox33.Enabled = True
-                ComboBox33.SelectedIndex = -1
-                ComboBox34.Enabled = False
-                ComboBox34.SelectedIndex = -1
-            ElseIf ComboBox15.Text = "Copy" Then
-                ComboBox16.Enabled = False
-                ComboBox16.SelectedIndex = -1
-                ComboBox17.Enabled = False
-                ComboBox17.SelectedIndex = -1
-                ComboBox18.Enabled = False
-                ComboBox18.SelectedIndex = -1
-                ComboBox19.Enabled = False
-                ComboBox19.SelectedIndex = -1
-                ComboBox20.Enabled = False
-                ComboBox20.SelectedIndex = -1
-                ComboBox33.Enabled = False
-                ComboBox33.SelectedIndex = -1
-                ComboBox34.Enabled = False
-                ComboBox34.SelectedIndex = -1
-            ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
-                ComboBox16.Enabled = True
-                ComboBox16.SelectedIndex = -1
-                ComboBox33.Enabled = True
-                ComboBox33.SelectedIndex = -1
-                ComboBox34.Enabled = False
-                ComboBox34.SelectedIndex = -1
-                ComboBox17.Enabled = False
-                ComboBox17.SelectedIndex = -1
-                ComboBox18.Enabled = False
-                ComboBox18.SelectedIndex = -1
-                ComboBox19.Enabled = True
-                ComboBox19.SelectedIndex = -1
-                ComboBox20.Enabled = True
-                ComboBox20.SelectedIndex = -1
-            ElseIf ComboBox15.Text = "FLAC" Then
-                ComboBox16.Enabled = True
-                ComboBox16.SelectedIndex = -1
-                ComboBox17.Enabled = True
-                ComboBox17.SelectedIndex = -1
-                ComboBox18.Enabled = True
-                ComboBox18.SelectedIndex = -1
-                ComboBox19.Enabled = False
-                ComboBox19.SelectedIndex = -1
-                ComboBox20.Enabled = False
-                ComboBox20.SelectedIndex = -1
-                ComboBox33.Enabled = True
-                ComboBox33.SelectedIndex = -1
-                ComboBox34.Enabled = False
-                ComboBox34.SelectedIndex = -1
-            End If
-        End If
-    End Sub
-    Private Sub VcodecReset()
+	Private Sub VcodecReset()
         Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
         If Hwdefconfig = "GPU Engine:" Then
             HwAccelFormat = ""
@@ -2011,6 +2071,141 @@ Public Class MainMenu
             RichTextBox1.Text = ""
         End If
     End Sub
+	Private Sub VideoFrameRateCheck(ByVal sender As Object, ByVal e As KeyPressEventArgs)
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub VideoMaxBitRateCheck(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox4.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+	Private Sub VideoSpatialAQCheck(sender As Object, e As EventArgs) Handles ComboBox11.SelectedIndexChanged
+        If ComboBox11.Text = "disable" Then
+            ComboBox12.SelectedIndex = -1
+            ComboBox13.SelectedIndex = -1
+            ComboBox12.Enabled = False
+            ComboBox13.Enabled = False
+            If ComboBox6.Items.Contains("Lossless") = False Then
+                ComboBox6.Items.Add("Lossless")
+            End If
+        Else
+            MessageBoxAdv.Show("Enabling Adaptive Quantization will remove lossless encoding in tier options !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ComboBox12.Enabled = True
+            ComboBox13.Enabled = True
+            If ComboBox6.Items.Contains("Lossless") Then
+                ComboBox6.Items.Remove("Lossless")
+            End If
+        End If
+    End Sub
+    Private Sub VideoTargetQualityCheck(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox2.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub VideoTargeQualityDefault(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+        If TextBox2.Text = "" Then
+            TextBox2.Text = "0"
+        Else
+            If Integer.Parse(TextBox2.Text.ToString) < 0 Or Integer.Parse(TextBox2.Text.ToString) > 51 Then
+                TextBox2.Text = "0"
+                MessageBoxAdv.Show("Value for target quality control is between 0 to 51 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+    End Sub
+	Private Sub Res_Height_Check(sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox20.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub Res_Width_Check(sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox21.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub Res_Height_Validity(sender As Object, e As EventArgs) Handles TextBox20.TextChanged
+        If TextBox20.Text IsNot "" Then
+            If CInt(TextBox20.Text) > 7680 Then
+                MessageBoxAdv.Show("Maximum height support is 7680", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TextBox20.Text = ""
+            End If
+        End If
+    End Sub
+    Private Sub Res_Width_Validity(sender As Object, e As EventArgs) Handles TextBox21.TextChanged
+        If TextBox21.Text IsNot "" Then
+            If CInt(TextBox21.Text) > 4320 Then
+                MessageBoxAdv.Show("Maximum width support is 4320", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TextBox21.Text = ""
+            End If
+        End If
+    End Sub
+    Private Sub LockProfileVideoCheck(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
+        If CheckBox3.Checked = True Then
+            If TextBox1.Text = "" Then
+                MessageBoxAdv.Show("Please choose save media file first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                CheckBox3.Checked = False
+                ComboBox2.Enabled = True
+            Else
+                FlagsCount = ComboBox29.Items.Count
+                FlagsResult = 0
+                FlagsValue = 0
+                For FlagsStart = 1 To FlagsCount
+                    If File.Exists(VideoStreamFlagsPath & "HME_Video_" & (FlagsStart - 1).ToString & ".txt") Then
+                        FlagsResult += 1
+                    Else
+                        MissedFlags(FlagsStart) = FlagsStart
+                    End If
+                    FlagsValue += 1
+                Next
+                If FlagsResult = FlagsCount Then
+                    TextBox3.Enabled = False
+                    ComboBox21.Enabled = False
+                    ComboBox10.Enabled = False
+                    ComboBox2.Enabled = False
+                    ComboBox30.Enabled = False
+                    ComboBox8.Enabled = False
+                    TextBox4.Enabled = False
+                    ComboBox14.Enabled = False
+                    ComboBox5.Enabled = False
+                    ComboBox3.Enabled = False
+                    ComboBox7.Enabled = False
+                    ComboBox4.Enabled = False
+                    ComboBox11.Enabled = False
+                    ComboBox12.Enabled = False
+                    ComboBox13.Enabled = False
+                    TextBox2.Enabled = False
+                    ComboBox6.Enabled = False
+                    ComboBox9.Enabled = False
+                    ComboBox29.Enabled = False
+                    Button15.Enabled = False
+                    Button16.Enabled = False
+                    ComboBox32.Enabled = False
+                    TextBox20.Enabled = False
+                    TextBox21.Enabled = False
+                    Label28.Text = "READY"
+                Else
+                    For FlagsStart = 1 To FlagsValue
+                        If MissedFlags(FlagsStart).ToString IsNot "" And CInt(MissedFlags(FlagsStart)) > 0 Then
+                            MessageBoxAdv.Show("Please save configuration for video stream #0:" & MissedFlags(FlagsStart), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End If
+                    Next
+                    CheckBox3.Checked = False
+                End If
+            End If
+        Else
+            VcodecReset()
+            ComboBox2.Enabled = True
+            ComboBox29.Enabled = True
+            Button15.Enabled = True
+            Button16.Enabled = True
+        End If
+    End Sub
     Private Sub EnableAudioCheck(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
         If CheckBox4.Checked = True Then
             If Label2.Text IsNot "" Or CheckBox8.Checked And TextBox15.Text IsNot "" Then
@@ -2055,7 +2250,7 @@ Public Class MainMenu
             RichTextBox2.Text = ""
         End If
     End Sub
-    Private Sub AudioStream_Source(sender As Object, e As EventArgs) Handles ComboBox22.SelectedIndexChanged
+	Private Sub AudioStream_Source(sender As Object, e As EventArgs) Handles ComboBox22.SelectedIndexChanged
         If ComboBox22.SelectedIndex >= 0 Then
             AudiostreamFlags = AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox22.Text.ToString, 11)) - 1).ToString & ".txt"
             AudiostreamConfig = AudioStreamConfigPath & "HME_Audio_Config_" & (CInt(Strings.Mid(ComboBox22.Text.ToString, 11)) - 1).ToString & ".txt"
@@ -2100,6 +2295,75 @@ Public Class MainMenu
             Else
                 Button17.Enabled = True
                 Button18.Enabled = False
+            End If
+        End If
+    End Sub
+	Private Sub AudioCodecCheck(sender As Object, e As EventArgs) Handles ComboBox15.SelectedIndexChanged
+        Dim codecChange As DialogResult = MessageBoxAdv.Show(Me, "Warning !" & vbCrLf & vbCrLf & "Change audio codec will reset current configuration" &
+                                                               vbCrLf & "Change audio codec ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If codecChange = DialogResult.Yes Then
+            AudioBitDepthCheck()
+            AudioFrequencyCheck()
+            If ComboBox15.Text = "WAV" Then
+                ComboBox16.Enabled = True
+                ComboBox16.SelectedIndex = -1
+                ComboBox17.Enabled = False
+                ComboBox17.SelectedIndex = -1
+                ComboBox18.Enabled = True
+                ComboBox18.SelectedIndex = -1
+                ComboBox19.Enabled = False
+                ComboBox19.SelectedIndex = -1
+                ComboBox20.Enabled = False
+                ComboBox20.SelectedIndex = -1
+                ComboBox33.Enabled = True
+                ComboBox33.SelectedIndex = -1
+                ComboBox34.Enabled = False
+                ComboBox34.SelectedIndex = -1
+            ElseIf ComboBox15.Text = "Copy" Then
+                ComboBox16.Enabled = False
+                ComboBox16.SelectedIndex = -1
+                ComboBox17.Enabled = False
+                ComboBox17.SelectedIndex = -1
+                ComboBox18.Enabled = False
+                ComboBox18.SelectedIndex = -1
+                ComboBox19.Enabled = False
+                ComboBox19.SelectedIndex = -1
+                ComboBox20.Enabled = False
+                ComboBox20.SelectedIndex = -1
+                ComboBox33.Enabled = False
+                ComboBox33.SelectedIndex = -1
+                ComboBox34.Enabled = False
+                ComboBox34.SelectedIndex = -1
+            ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
+                ComboBox16.Enabled = True
+                ComboBox16.SelectedIndex = -1
+                ComboBox33.Enabled = True
+                ComboBox33.SelectedIndex = -1
+                ComboBox34.Enabled = False
+                ComboBox34.SelectedIndex = -1
+                ComboBox17.Enabled = False
+                ComboBox17.SelectedIndex = -1
+                ComboBox18.Enabled = False
+                ComboBox18.SelectedIndex = -1
+                ComboBox19.Enabled = True
+                ComboBox19.SelectedIndex = -1
+                ComboBox20.Enabled = True
+                ComboBox20.SelectedIndex = -1
+            ElseIf ComboBox15.Text = "FLAC" Then
+                ComboBox16.Enabled = True
+                ComboBox16.SelectedIndex = -1
+                ComboBox17.Enabled = True
+                ComboBox17.SelectedIndex = -1
+                ComboBox18.Enabled = True
+                ComboBox18.SelectedIndex = -1
+                ComboBox19.Enabled = False
+                ComboBox19.SelectedIndex = -1
+                ComboBox20.Enabled = False
+                ComboBox20.SelectedIndex = -1
+                ComboBox33.Enabled = True
+                ComboBox33.SelectedIndex = -1
+                ComboBox34.Enabled = False
+                ComboBox34.SelectedIndex = -1
             End If
         End If
     End Sub
@@ -2245,6 +2509,162 @@ Public Class MainMenu
             End If
         End If
     End Sub
+	Private Sub AcodecReset()
+        AudioBitDepthCheck()
+        AudioFrequencyCheck()
+        If ComboBox15.Text = "WAV" Then
+            ComboBox16.Enabled = True
+            ComboBox17.Enabled = False
+            ComboBox18.Enabled = True
+            ComboBox19.Enabled = False
+            ComboBox20.Enabled = False
+            ComboBox33.Enabled = True
+        ElseIf ComboBox15.Text = "Copy" Then
+            ComboBox16.Enabled = False
+            ComboBox17.Enabled = False
+            ComboBox18.Enabled = False
+            ComboBox19.Enabled = False
+            ComboBox20.Enabled = False
+            ComboBox33.Enabled = False
+        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
+            ComboBox16.Enabled = True
+            ComboBox33.Enabled = True
+            ComboBox17.Enabled = False
+            ComboBox18.Enabled = False
+            ComboBox19.Enabled = True
+            ComboBox20.Enabled = True
+        ElseIf ComboBox15.Text = "FLAC" Then
+            ComboBox16.Enabled = True
+            ComboBox17.Enabled = True
+            ComboBox18.Enabled = True
+            ComboBox19.Enabled = False
+            ComboBox20.Enabled = False
+            ComboBox33.Enabled = True
+        End If
+        If CheckBox4.Checked = False Then
+            RichTextBox2.Text = ""
+        End If
+        ComboBox15.Enabled = True
+    End Sub
+	Private Sub AudioChannel_Init(sender As Object, e As EventArgs) Handles ComboBox33.SelectedIndexChanged
+        ComboBox34.Items.Clear()
+        ComboBox34.Enabled = True
+        If ComboBox33.Text = "1" Then
+            ComboBox34.Items.Add("mono")
+        ElseIf ComboBox33.Text = "2" Then
+            ComboBox34.Items.Add("stereo")
+            ComboBox34.Items.Add("2.1")
+        ElseIf ComboBox33.Text = "3" Then
+            ComboBox34.Items.Add("3.0")
+            ComboBox34.Items.Add("3.0(back)")
+            ComboBox34.Items.Add("3.1")
+        ElseIf ComboBox33.Text = "4" Then
+            ComboBox34.Items.Add("4.0")
+            ComboBox34.Items.Add("4.1")
+            ComboBox34.Items.Add("quad")
+            ComboBox34.Items.Add("quad(side)")
+        ElseIf ComboBox33.Text = "5" Then
+            ComboBox34.Items.Add("5.0")
+            ComboBox34.Items.Add("5.0(side)")
+            ComboBox34.Items.Add("5.1")
+            ComboBox34.Items.Add("5.1(side)")
+        Else
+            ComboBox34.Items.Add("mono")
+            ComboBox34.Items.Add("stereo")
+        End If
+    End Sub
+    Private Sub AudioBitRateCheck(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox3.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+	Private Sub AudioFrequencyCheck()
+        If ComboBox16.Items.Contains("64000") = True AndAlso ComboBox16.Items.Contains("88200") = True AndAlso ComboBox16.Items.Contains("96000") = True AndAlso
+               ComboBox16.Items.Contains("176400") = True AndAlso ComboBox16.Items.Contains("192000") = True Then
+            ComboBox16.SelectedIndex = -1
+            If ComboBox15.Text.Equals("MP3") = True Or ComboBox15.Text.Equals("AAC") = True Then
+                ComboBox16.Items.Remove("64000")
+                ComboBox16.Items.Remove("88200")
+                ComboBox16.Items.Remove("96000")
+                ComboBox16.Items.Remove("176400")
+                ComboBox16.Items.Remove("192000")
+            End If
+        Else
+            If ComboBox16.Items.Contains("64000") = False AndAlso ComboBox16.Items.Contains("88200") = False AndAlso
+                    ComboBox16.Items.Contains("96000") = False AndAlso ComboBox16.Items.Contains("176400") = False AndAlso
+                    ComboBox16.Items.Contains("192000") = False Then
+                ComboBox16.SelectedIndex = -1
+                If ComboBox15.Text.Contains("MP3") = False Or ComboBox15.Text.Contains("AAC") = False Then
+                    ComboBox16.Items.Add("64000")
+                    ComboBox16.Items.Add("88200")
+                    ComboBox16.Items.Add("96000")
+                    ComboBox16.Items.Add("176400")
+                    ComboBox16.Items.Add("192000")
+                End If
+            End If
+
+        End If
+    End Sub
+    Private Sub AudioBitDepthCheck()
+        If ComboBox18.Items.Contains("32 Bit") = True Then
+            If ComboBox15.Text = "FLAC" Then
+                ComboBox18.Items.Remove("32 Bit")
+            End If
+        Else
+            If ComboBox15.Text = "FLAC" Then
+            Else
+                ComboBox18.Items.Add("32 Bit")
+            End If
+        End If
+    End Sub
+    Private Sub AudioLossyBitRateCheck(sender As Object, e As EventArgs) Handles ComboBox20.SelectedIndexChanged
+        If ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
+            If ComboBox20.Text = "CBR" Then
+                ComboBox19.Enabled = True
+                ComboBox17.Enabled = False
+                ComboBox17.SelectedIndex = -1
+                If ComboBox19.Items.Contains("320") Then
+                    If ComboBox15.Text.Contains("AAC") = true Then
+                        ComboBox19.Items.Remove("320")
+                    End If
+                Else
+                    If ComboBox15.Text.Contains("AAC") = False Then
+                        ComboBox19.Items.Clear()
+                        ComboBox19.Items.Add("256")
+                        ComboBox19.Items.Add("192")
+                        ComboBox19.Items.Add("128")
+                    End If
+                End If
+            ElseIf ComboBox20.Text = "VBR" Then
+                ComboBox19.Enabled = False
+                ComboBox19.SelectedIndex = -1
+                ComboBox17.Enabled = True
+                If ComboBox17.Items.Contains("0") = True AndAlso ComboBox17.Items.Contains("6") = True AndAlso ComboBox17.Items.Contains("7") = True AndAlso
+                        ComboBox17.Items.Contains("8") = True Then
+                    If ComboBox15.Text.Equals("AAC") = True Then
+                        ComboBox17.Items.Remove("0")
+                        ComboBox17.Items.Remove("6")
+                        ComboBox17.Items.Remove("7")
+                        ComboBox17.Items.Remove("8")
+                    End If
+                Else
+                    If ComboBox15.Text.Equals("AAC") = False Then
+                        ComboBox17.Items.Clear()
+                        ComboBox17.Items.Add("0")
+                        ComboBox17.Items.Add("1")
+                        ComboBox17.Items.Add("2")
+                        ComboBox17.Items.Add("3")
+                        ComboBox17.Items.Add("4")
+                        ComboBox17.Items.Add("5")
+                        ComboBox17.Items.Add("6")
+                        ComboBox17.Items.Add("7")
+                        ComboBox17.Items.Add("8")
+                    End If
+                End If
+            End If
+        End If
+    End Sub
     Private Sub LockProfileAudioCheck(sender As Object, e As EventArgs) Handles CheckBox5.CheckedChanged
         If CheckBox5.Checked = True Then
             If TextBox1.Text = "" Then
@@ -2346,403 +2766,6 @@ Public Class MainMenu
             Button17.Enabled = True
             Button18.Enabled = True
         End If
-    End Sub
-    Private Sub AudioChannel_Init(sender As Object, e As EventArgs) Handles ComboBox33.SelectedIndexChanged
-        ComboBox34.Items.Clear()
-        ComboBox34.Enabled = True
-        If ComboBox33.Text = "1" Then
-            ComboBox34.Items.Add("mono")
-        ElseIf ComboBox33.Text = "2" Then
-            ComboBox34.Items.Add("stereo")
-            ComboBox34.Items.Add("2.1")
-        ElseIf ComboBox33.Text = "3" Then
-            ComboBox34.Items.Add("3.0")
-            ComboBox34.Items.Add("3.0(back)")
-            ComboBox34.Items.Add("3.1")
-        ElseIf ComboBox33.Text = "4" Then
-            ComboBox34.Items.Add("4.0")
-            ComboBox34.Items.Add("4.1")
-            ComboBox34.Items.Add("quad")
-            ComboBox34.Items.Add("quad(side)")
-        ElseIf ComboBox33.Text = "5" Then
-            ComboBox34.Items.Add("5.0")
-            ComboBox34.Items.Add("5.0(side)")
-            ComboBox34.Items.Add("5.1")
-            ComboBox34.Items.Add("5.1(side)")
-        Else
-            ComboBox34.Items.Add("mono")
-            ComboBox34.Items.Add("stereo")
-        End If
-    End Sub
-    Private Sub BitRateCheck(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox3.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub FrameRateCheck(ByVal sender As Object, ByVal e As KeyPressEventArgs)
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub MaxBitRateCheck(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox4.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub TargetQualityCheck(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox2.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub TargeQualityDefault(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
-        If TextBox2.Text = "" Then
-            TextBox2.Text = "0"
-        Else
-            If Integer.Parse(TextBox2.Text.ToString) < 0 Or Integer.Parse(TextBox2.Text.ToString) > 51 Then
-                TextBox2.Text = "0"
-                MessageBoxAdv.Show("Value for target quality control is between 0 to 51 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        End If
-    End Sub
-    Private Sub AcodecReset()
-        BitDepthCheck()
-        FrequencyCheck()
-        If ComboBox15.Text = "WAV" Then
-            ComboBox16.Enabled = True
-            ComboBox17.Enabled = False
-            ComboBox18.Enabled = True
-            ComboBox19.Enabled = False
-            ComboBox20.Enabled = False
-            ComboBox33.Enabled = True
-        ElseIf ComboBox15.Text = "Copy" Then
-            ComboBox16.Enabled = False
-            ComboBox17.Enabled = False
-            ComboBox18.Enabled = False
-            ComboBox19.Enabled = False
-            ComboBox20.Enabled = False
-            ComboBox33.Enabled = False
-        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
-            ComboBox16.Enabled = True
-            ComboBox33.Enabled = True
-            ComboBox17.Enabled = False
-            ComboBox18.Enabled = False
-            ComboBox19.Enabled = True
-            ComboBox20.Enabled = True
-        ElseIf ComboBox15.Text = "FLAC" Then
-            ComboBox16.Enabled = True
-            ComboBox17.Enabled = True
-            ComboBox18.Enabled = True
-            ComboBox19.Enabled = False
-            ComboBox20.Enabled = False
-            ComboBox33.Enabled = True
-        End If
-        If CheckBox4.Checked = False Then
-            RichTextBox2.Text = ""
-        End If
-        ComboBox15.Enabled = True
-    End Sub
-    Private Sub FrequencyCheck()
-        If ComboBox16.Items.Contains("64000") = True AndAlso ComboBox16.Items.Contains("88200") = True AndAlso ComboBox16.Items.Contains("96000") = True AndAlso
-               ComboBox16.Items.Contains("176400") = True AndAlso ComboBox16.Items.Contains("192000") = True Then
-            ComboBox16.SelectedIndex = -1
-            If ComboBox15.Text.Equals("MP3") = True Or ComboBox15.Text.Equals("AAC") = True Then
-                ComboBox16.Items.Remove("64000")
-                ComboBox16.Items.Remove("88200")
-                ComboBox16.Items.Remove("96000")
-                ComboBox16.Items.Remove("176400")
-                ComboBox16.Items.Remove("192000")
-            End If
-        Else
-            If ComboBox16.Items.Contains("64000") = False AndAlso ComboBox16.Items.Contains("88200") = False AndAlso
-                    ComboBox16.Items.Contains("96000") = False AndAlso ComboBox16.Items.Contains("176400") = False AndAlso
-                    ComboBox16.Items.Contains("192000") = False Then
-                ComboBox16.SelectedIndex = -1
-                If ComboBox15.Text.Contains("MP3") = False Or ComboBox15.Text.Contains("AAC") = False Then
-                    ComboBox16.Items.Add("64000")
-                    ComboBox16.Items.Add("88200")
-                    ComboBox16.Items.Add("96000")
-                    ComboBox16.Items.Add("176400")
-                    ComboBox16.Items.Add("192000")
-                End If
-            End If
-
-        End If
-    End Sub
-    Private Sub BitDepthCheck()
-        If ComboBox18.Items.Contains("32 Bit") = True Then
-            If ComboBox15.Text = "FLAC" Then
-                ComboBox18.Items.Remove("32 Bit")
-            End If
-        Else
-            If ComboBox15.Text = "FLAC" Then
-            Else
-                ComboBox18.Items.Add("32 Bit")
-            End If
-        End If
-    End Sub
-    Private Sub MP3BitRateCheck(sender As Object, e As EventArgs) Handles ComboBox20.SelectedIndexChanged
-        If ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
-            If ComboBox20.Text = "CBR" Then
-                ComboBox19.Enabled = True
-                ComboBox17.Enabled = False
-                ComboBox17.SelectedIndex = -1
-                If ComboBox19.Items.Contains("320") Then
-                    If ComboBox15.Text.Contains("AAC") = true Then
-                        ComboBox19.Items.Remove("320")
-                    End If
-                Else
-                    If ComboBox15.Text.Contains("AAC") = False Then
-                        ComboBox19.Items.Remove("256")
-                        ComboBox19.Items.Remove("192")
-                        ComboBox19.Items.Remove("128")
-                        ComboBox19.Items.Add("320")
-                        ComboBox19.Items.Add("256")
-                        ComboBox19.Items.Add("192")
-                        ComboBox19.Items.Add("128")
-                    End If
-                End If
-            ElseIf ComboBox20.Text = "VBR" Then
-                ComboBox19.Enabled = False
-                ComboBox19.SelectedIndex = -1
-                ComboBox17.Enabled = True
-                If ComboBox17.Items.Contains("0") = True AndAlso ComboBox17.Items.Contains("6") = True AndAlso ComboBox17.Items.Contains("7") = True AndAlso
-                        ComboBox17.Items.Contains("8") = True Then
-                    If ComboBox15.Text.Equals("AAC") = True Then
-                        ComboBox17.Items.Remove("0")
-                        ComboBox17.Items.Remove("6")
-                        ComboBox17.Items.Remove("7")
-                        ComboBox17.Items.Remove("8")
-                    End If
-                Else
-                    If ComboBox15.Text.Equals("AAC") = False Then
-                        ComboBox17.Items.Remove("1")
-                        ComboBox17.Items.Remove("2")
-                        ComboBox17.Items.Remove("3")
-                        ComboBox17.Items.Remove("4")
-                        ComboBox17.Items.Remove("5")
-                        ComboBox17.Items.Add("0")
-                        ComboBox17.Items.Add("1")
-                        ComboBox17.Items.Add("2")
-                        ComboBox17.Items.Add("3")
-                        ComboBox17.Items.Add("4")
-                        ComboBox17.Items.Add("5")
-                        ComboBox17.Items.Add("6")
-                        ComboBox17.Items.Add("7")
-                        ComboBox17.Items.Add("8")
-                    End If
-                End If
-            End If
-        End If
-    End Sub
-    Private Sub SpatialAQCheck(sender As Object, e As EventArgs) Handles ComboBox11.SelectedIndexChanged
-        If ComboBox11.Text = "disable" Then
-            ComboBox12.SelectedIndex = -1
-            ComboBox13.SelectedIndex = -1
-            ComboBox12.Enabled = False
-            ComboBox13.Enabled = False
-            If ComboBox6.Items.Contains("Lossless") = False Then
-                ComboBox6.Items.Add("Lossless")
-            End If
-        Else
-            MessageBoxAdv.Show("Enabling Adaptive Quantization will remove lossless encoding in tier options !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            ComboBox12.Enabled = True
-            ComboBox13.Enabled = True
-            If ComboBox6.Items.Contains("Lossless") Then
-                ComboBox6.Items.Remove("Lossless")
-            End If
-        End If
-    End Sub
-    Private Sub VideoCodecCheck(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
-        Dim codecChange As DialogResult = MessageBoxAdv.Show(Me, "Warning !" & vbCrLf & vbCrLf & "Change video will reset current configuration" &
-                                                               vbCrLf & "Please save configuration on 'save config stream' options" &
-                                                               vbCrLf & vbCrLf & "Change codec ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If codecChange = DialogResult.Yes Then
-            If Hwdefconfig = "GPU Engine:" Then
-                HwAccelDev = ""
-            Else
-                HwAccelFormat = "-hwaccel_output_format " & Hwdefconfig.Remove(0, 11)
-                HwAccelDev = Hwdefconfig.Remove(0, 11)
-            End If
-            If ComboBox2.Text = "Copy" Then
-                TextBox3.Enabled = False
-                ComboBox21.Enabled = False
-                ComboBox10.Enabled = False
-                ComboBox30.Enabled = False
-                ComboBox8.Enabled = False
-                TextBox4.Enabled = False
-                ComboBox14.Enabled = False
-                ComboBox5.Enabled = False
-                ComboBox3.Enabled = False
-                ComboBox7.Enabled = False
-                ComboBox4.Enabled = False
-                ComboBox11.Enabled = False
-                ComboBox12.Enabled = False
-                ComboBox13.Enabled = False
-                TextBox2.Enabled = False
-                ComboBox6.Enabled = False
-                ComboBox9.Enabled = False
-                TextBox3.Text = ""
-                ComboBox21.SelectedIndex = -1
-                ComboBox10.SelectedIndex = -1
-                ComboBox30.SelectedIndex = -1
-                ComboBox8.SelectedIndex = -1
-                TextBox4.Text = ""
-                ComboBox14.SelectedIndex = -1
-                ComboBox5.SelectedIndex = -1
-                ComboBox3.SelectedIndex = -1
-                ComboBox7.SelectedIndex = -1
-                ComboBox4.SelectedIndex = -1
-                ComboBox11.SelectedIndex = -1
-                ComboBox12.SelectedIndex = -1
-                ComboBox13.SelectedIndex = -1
-                TextBox2.Text = ""
-                ComboBox6.SelectedIndex = -1
-                ComboBox9.SelectedIndex = -1
-                ComboBox32.SelectedIndex = -1
-                ComboBox32.Enabled = False
-                TextBox20.Text = ""
-                TextBox20.Enabled = False
-                TextBox21.Text = ""
-                TextBox21.Enabled = False
-            ElseIf HwAccelDev = "opencl" Then
-                ComboBox21.Enabled = False
-                ComboBox10.Enabled = False
-                ComboBox14.Enabled = False
-                ComboBox3.Text = "yuv420p"
-                ComboBox3.Enabled = False
-                If ComboBox2.Text = "HEVC" Then
-                    ComboBox7.Text = "main"
-                    ComboBox7.Enabled = False
-                    ComboBox9.Enabled = True
-                Else
-                    ComboBox7.Enabled = True
-                    If ComboBox7.Items.Contains("main10") Then
-                        ComboBox7.Items.Remove("main10")
-                    End If
-                    ComboBox9.Enabled = False
-                End If
-                ComboBox4.Enabled = False
-                ComboBox11.Enabled = False
-                ComboBox12.Enabled = False
-                ComboBox13.Enabled = False
-                ComboBox6.Enabled = False
-                TextBox2.Enabled = False
-                TextBox3.Enabled = True
-                ComboBox30.Enabled = True
-                ComboBox8.Enabled = True
-                TextBox4.Enabled = True
-                ComboBox5.Enabled = True
-                ComboBox21.SelectedIndex = -1
-                ComboBox10.SelectedIndex = -1
-                ComboBox4.SelectedIndex = -1
-                ComboBox11.SelectedIndex = -1
-                ComboBox12.SelectedIndex = -1
-                ComboBox13.SelectedIndex = -1
-                TextBox2.Text = ""
-                ComboBox6.SelectedIndex = -1
-                ComboBox32.SelectedIndex = -1
-                TextBox20.Text = ""
-                TextBox21.Text = ""
-                ComboBox32.Enabled = True
-                TextBox20.Enabled = True
-                TextBox21.Enabled = True
-            ElseIf HwAccelDev = "qsv" Then
-                ComboBox21.Enabled = False
-                ComboBox10.Enabled = False
-                ComboBox14.Enabled = False
-                If ComboBox2.Text = "HEVC" Then
-                    If ComboBox7.Items.Contains("high") Then
-                        ComboBox7.Items.Remove("high")
-                    End If
-                    If ComboBox7.Items.Contains("main10") = False Then
-                        ComboBox7.Items.Add("main10")
-                    End If
-                Else
-                    If ComboBox7.Items.Contains("main10") Then
-                        ComboBox7.Items.Remove("main10")
-                    End If
-                    ComboBox9.Enabled = False
-                End If
-                ComboBox3.Text = "p010le"
-                ComboBox3.Enabled = False
-                ComboBox4.Enabled = False
-                ComboBox11.Enabled = False
-                ComboBox12.Enabled = False
-                ComboBox13.Enabled = False
-                ComboBox6.Enabled = False
-                TextBox2.Enabled = False
-                TextBox3.Enabled = False
-                ComboBox30.Enabled = True
-                ComboBox8.Enabled = False
-                TextBox4.Enabled = True
-                ComboBox5.Enabled = True
-                ComboBox7.Enabled = True
-                ComboBox8.SelectedIndex = -1
-                ComboBox9.Enabled = False
-                ComboBox9.SelectedIndex = -1
-                ComboBox21.SelectedIndex = -1
-                ComboBox10.SelectedIndex = -1
-                ComboBox4.SelectedIndex = -1
-                ComboBox11.SelectedIndex = -1
-                ComboBox12.SelectedIndex = -1
-                ComboBox13.SelectedIndex = -1
-                TextBox2.Text = ""
-                ComboBox6.SelectedIndex = -1
-                ComboBox32.SelectedIndex = -1
-                TextBox20.Text = ""
-                TextBox21.Text = ""
-                ComboBox32.Enabled = True
-                TextBox20.Enabled = True
-                TextBox21.Enabled = True
-            ElseIf HwAccelDev = "cuda" Then
-                TextBox3.Enabled = True
-                ComboBox21.Enabled = True
-                ComboBox10.Enabled = True
-                ComboBox30.Enabled = True
-                ComboBox8.Enabled = True
-                TextBox4.Enabled = True
-                ComboBox14.Enabled = True
-                ComboBox5.Enabled = True
-                ComboBox3.Enabled = True
-                ComboBox7.Enabled = True
-                If ComboBox2.Text = "HEVC" Then
-                    If ComboBox7.Items.Contains("high") Then
-                        ComboBox7.Items.Remove("high")
-                    End If
-                    If ComboBox7.Items.Contains("main10") = False Then
-                        ComboBox7.Items.Add("main10")
-                    End If
-                Else
-                    If ComboBox7.Items.Contains("main10") Then
-                        ComboBox7.Items.Remove("main10")
-                    End If
-                    ComboBox9.Enabled = False
-                End If
-                ComboBox4.Enabled = True
-                ComboBox11.Enabled = True
-                ComboBox12.Enabled = True
-                ComboBox13.Enabled = True
-                TextBox2.Enabled = True
-                ComboBox6.Enabled = True
-                ComboBox9.Enabled = True
-                ComboBox32.SelectedIndex = -1
-                TextBox20.Text = ""
-                TextBox21.Text = ""
-                ComboBox32.Enabled = True
-                TextBox20.Enabled = True
-                TextBox21.Enabled = True
-            End If
-        Else
-            MessageBoxAdv.Show("Abort change video codec !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-    End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim menu_information = New InformationMenu
-        menu_information.Show()
     End Sub
     Private Sub EnableTrim(sender As Object, e As EventArgs) Handles CheckBox6.CheckedChanged
         If CheckBox6.Checked = True Then
@@ -2889,6 +2912,86 @@ Public Class MainMenu
             End If
         End If
     End Sub
+    Private Sub StartTimeHours_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox7.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub StartTimeMinute_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox8.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub StartTimeSeconds_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox9.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub StartTimeMs_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox10.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub DurTimeHours_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox14.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub EndTimeMinute_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox13.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub EndTimeSeconds_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox12.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub EndTimeMs_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox11.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub StartTime_Minute(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
+        If TextBox8.Text IsNot "" Then
+            If CInt(TextBox8.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for minute is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                TextBox8.Text = ""
+            End If
+        End If
+    End Sub
+    Private Sub StartTime_Seconds(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
+        If TextBox9.Text IsNot "" Then
+            If CInt(TextBox9.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                TextBox9.Text = ""
+            End If
+        End If
+    End Sub
+    Private Sub EndTime_Minute(sender As Object, e As EventArgs) Handles TextBox13.TextChanged
+        If TextBox13.Text IsNot "" Then
+            If CInt(TextBox13.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for minute is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                TextBox13.Text = ""
+            End If
+        End If
+    End Sub
+    Private Sub EndTime_Seconds(sender As Object, e As EventArgs) Handles TextBox12.TextChanged
+        If TextBox12.Text IsNot "" Then
+            If CInt(TextBox12.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                TextBox12.Text = ""
+            End If
+        End If
+    End Sub
     Private Sub LockProfile_Trim(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
         If CheckBox2.Checked = True Then
             If TextBox1.Text = "" Then
@@ -2902,12 +3005,18 @@ Public Class MainMenu
                 CheckBox2.Checked = False
             Else
                 If ComboBox28.SelectedIndex >= 0 And ComboBox28.SelectedIndex < 3 Then
-                    If Strings.Right(TextBox1.Text, 4) = "flac" Or Strings.Right(TextBox1.Text, 4) = ".mp3" Or Strings.Right(TextBox1.Text, 4) = ".wav" Then
+                    If Strings.Right(TextBox1.Text, 4) = "flac" Or Strings.Right(TextBox1.Text, 4) = ".mp3" Or Strings.Right(TextBox1.Text, 4) = ".wav" Or
+                            Strings.Right(TextBox1.Text, 4) = ".mp2" Or Strings.Right(TextBox1.Text, 4) = ".aac" Or Strings.Right(TextBox1.Text, 4) = ".dts" Or
+                            Strings.Right(TextBox1.Text, 4) = ".dsd" Or Strings.Right(TextBox1.Text, 4) = ".pcm" Or Strings.Right(TextBox1.Text, 4) = "opus" Or
+                            Strings.Right(TextBox1.Text, 4) = ".ogg" Or Strings.Right(TextBox1.Text, 4) = ".ape" Or Strings.Right(TextBox1.Text, 4) = "alac" Or
+                            Strings.Right(TextBox1.Text, 4) = "aiff" Or Strings.Right(TextBox1.Text, 4) = ".aif" Or Strings.Right(TextBox1.Text, 4) = ".m4a" Or
+                            Strings.Right(TextBox1.Text, 4) = ".tak" Or Strings.Right(TextBox1.Text, 4) = ".tta" Or Strings.Right(TextBox1.Text, 4) = ".wma" Or
+                            Strings.Right(TextBox1.Text, 3) = ".wv" Then
                         MessageBoxAdv.Show("Invalid file extension for saved media file !" & vbCrLf & vbCrLf &
                                            "Current file extensions " & vbCrLf &
                                            Strings.Right(TextBox1.Text, 4) & vbCrLf & vbCrLf &
                                            "Current available file extensions " & vbCrLf &
-                                           ".mkv", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                           ".mkv, .mp4", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Else
                         If ComboBox26.SelectedIndex = 1 Then
                             If ComboBox28.SelectedIndex = 0 Then
@@ -3046,12 +3155,15 @@ Public Class MainMenu
                         End If
                     End If
                 ElseIf ComboBox28.SelectedIndex = 3 Then
-                    If Strings.Right(TextBox1.Text, 4) = ".mkv" Then
+                    If Strings.Right(TextBox1.Text, 4) = ".mkv" Or Strings.Right(TextBox1.Text, 4) = ".mp4" Or Strings.Right(TextBox1.Text, 4) = ".avi" Or
+                            Strings.Right(TextBox1.Text, 4) = ".flv" Or Strings.Right(TextBox1.Text, 3) = ".ts" Or Strings.Right(TextBox1.Text, 4) = "m2ts" Or
+                            Strings.Right(TextBox1.Text, 4) = ".mov" Or Strings.Right(TextBox1.Text, 4) = ".vob" Or Strings.Right(TextBox1.Text, 4) = ".3gp" Or
+                            Strings.Right(TextBox1.Text, 4) = ".mxf" Or Strings.Right(TextBox1.Text, 4) = "webm" Then
                         MessageBoxAdv.Show("Invalid file extension for saved media file !" & vbCrLf & vbCrLf &
                                            "Current file extensions " & vbCrLf &
                                            Strings.Right(TextBox1.Text, 4) & vbCrLf & vbCrLf &
                                            "Current available file extensions " & vbCrLf &
-                                           ".flac, .mp3., .wav", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                           ".flac, .mp3., .wav, .aac", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Else
                         If ComboBox26.SelectedIndex = 1 Then
                             If ComboBox28.SelectedIndex = 3 Then
@@ -3362,9 +3474,15 @@ Public Class MainMenu
         OpenFileDialog.Title = "Choose Media File"
         OpenFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If OpenFileDialog.ShowDialog() = DialogResult.OK Then
-            TextBox15.Text = OpenFileDialog.FileName
-            ComboBox25.Items.Clear()
-            getStreamSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & TextBox15.Text & Chr(34), "Muxing")
+            If Strings.Right(OpenFileDialog.FileName, 4) = ".mkv" Or Strings.Right(OpenFileDialog.FileName, 4) = ".mp4" Or Strings.Right(OpenFileDialog.FileName, 4) = ".avi" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".flv" Or Strings.Right(OpenFileDialog.FileName, 3) = ".ts" Or Strings.Right(OpenFileDialog.FileName, 4) = "m2ts" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".mov" Or Strings.Right(OpenFileDialog.FileName, 4) = ".vob" Or Strings.Right(OpenFileDialog.FileName, 4) = "webm" Then
+                TextBox15.Text = OpenFileDialog.FileName
+                ComboBox25.Items.Clear()
+                getStreamSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & TextBox15.Text & Chr(34), "Muxing")
+            Else
+                MessageBoxAdv.Show("Media file format are not supported !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
     Private Sub BrowseAudio_Muxing(sender As Object, e As EventArgs) Handles Button10.Click
@@ -3374,7 +3492,17 @@ Public Class MainMenu
         OpenFileDialog.Title = "Choose Media File"
         OpenFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If OpenFileDialog.ShowDialog() = DialogResult.OK Then
-            TextBox16.Text = OpenFileDialog.FileName
+            If Strings.Right(OpenFileDialog.FileName, 4) = ".mp3" Or Strings.Right(OpenFileDialog.FileName, 4) = ".mp2" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".aac" Or Strings.Right(OpenFileDialog.FileName, 4) = ".dts" Or Strings.Right(OpenFileDialog.FileName, 4) = ".dsd" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".pcm" Or Strings.Right(OpenFileDialog.FileName, 4) = "opus" Or Strings.Right(OpenFileDialog.FileName, 4) = ".ogg" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".ape" Or Strings.Right(OpenFileDialog.FileName, 4) = "alac" Or Strings.Right(OpenFileDialog.FileName, 4) = "aiff" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".aif" Or Strings.Right(OpenFileDialog.FileName, 4) = ".m4a" Or Strings.Right(OpenFileDialog.FileName, 4) = ".tak" Or
+                            Strings.Right(OpenFileDialog.FileName, 4) = ".tta" Or Strings.Right(OpenFileDialog.FileName, 4) = ".wma" Or Strings.Right(OpenFileDialog.FileName, 3) = ".wv" Then
+                TextBox16.Text = OpenFileDialog.FileName
+            Else
+                MessageBoxAdv.Show("Media file format are not supported !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
         End If
     End Sub
     Private Sub ReplaceExistingAudio_Check(sender As Object, e As EventArgs) Handles CheckBox9.CheckedChanged
@@ -3412,11 +3540,18 @@ Public Class MainMenu
             Else
                 If Label2.Text IsNot "" Or TextBox15.Text IsNot "" Then
                     If TextBox16.Text IsNot "" Then
-                        If Strings.Right(TextBox1.Text, 4) = "flac" Or Strings.Right(TextBox1.Text, 4) = ".mp3" Or Strings.Right(TextBox1.Text, 4) = ".wav" Then
-                            MessageBoxAdv.Show("Current file extensions " & vbCrLf &
-                                                Strings.Right(TextBox1.Text, 4) & vbCrLf & vbCrLf &
-                                                "Current available file extensions " & vbCrLf &
-                                                ".mkv", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        If Strings.Right(TextBox1.Text, 4) = "flac" Or Strings.Right(TextBox1.Text, 4) = ".mp3" Or Strings.Right(TextBox1.Text, 4) = ".wav" Or
+                            Strings.Right(TextBox1.Text, 4) = ".mp2" Or Strings.Right(TextBox1.Text, 4) = ".aac" Or Strings.Right(TextBox1.Text, 4) = ".dts" Or
+                            Strings.Right(TextBox1.Text, 4) = ".dsd" Or Strings.Right(TextBox1.Text, 4) = ".pcm" Or Strings.Right(TextBox1.Text, 4) = "opus" Or
+                            Strings.Right(TextBox1.Text, 4) = ".ogg" Or Strings.Right(TextBox1.Text, 4) = ".ape" Or Strings.Right(TextBox1.Text, 4) = "alac" Or
+                            Strings.Right(TextBox1.Text, 4) = "aiff" Or Strings.Right(TextBox1.Text, 4) = ".aif" Or Strings.Right(TextBox1.Text, 4) = ".m4a" Or
+                            Strings.Right(TextBox1.Text, 4) = ".tak" Or Strings.Right(TextBox1.Text, 4) = ".tta" Or Strings.Right(TextBox1.Text, 4) = ".wma" Or
+                            Strings.Right(TextBox1.Text, 3) = ".wv" Then
+                            MessageBoxAdv.Show("Invalid file extension for saved media file !" & vbCrLf & vbCrLf &
+                                           "Current file extensions " & vbCrLf &
+                                           Strings.Right(TextBox1.Text, 4) & vbCrLf & vbCrLf &
+                                           "Current available file extensions " & vbCrLf &
+                                           ".mkv, .mp4", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Else
                             Button9.Enabled = False
                             Button10.Enabled = False
@@ -3690,118 +3825,7 @@ Public Class MainMenu
             ListView1.Items.Clear()
         End If
     End Sub
-    Private Sub ChapterLock(sender As Object, e As EventArgs) Handles CheckBox14.CheckedChanged
-        If CheckBox14.Checked = True Then
-            If ListView1.Items.Count > 0 Then
-                If Strings.Right(TextBox1.Text, 4) = "flac" Or Strings.Right(TextBox1.Text, 4) = ".mp3" Or Strings.Right(TextBox1.Text, 4) = ".wav" Then
-                    MessageBoxAdv.Show("Invalid file extension for saved media file !" & vbCrLf & vbCrLf &
-                                              "Current file extensions " & vbCrLf &
-                                              Strings.Right(TextBox1.Text, 4) & vbCrLf & vbCrLf &
-                                              "Current available file extensions " & vbCrLf &
-                                              ".mkv", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Else
-                    If File.Exists("FFMETADATAFILE") Then
-                        GC.Collect()
-                        GC.WaitForPendingFinalizers()
-                        File.Delete("FFMETADATAFILE")
-                    End If
-                    File.Create("FFMETADATAFILE").Dispose()
-                    Dim writer As New StreamWriter("FFMETADATAFILE", True)
-                    writer.WriteLine(";FFMETADATAFILE1")
-                    writer.WriteLine("title=Chapter" & vbCrLf)
-                    For cm = 0 To ListView1.Items.Count - 1
-                        Dim nextdur As String()
-                        Dim selectedDur As String() = ListView1.Items(cm).SubItems(0).Text.Split(":")
-                        If cm < ListView1.Items.Count - 1 Then
-                            nextdur = ListView1.Items(cm + 1).SubItems(0).Text.Split(":")
-                        Else
-                            nextdur = Label81.Text.Split(":")
-                        End If
-                        Dim selectedTitle As String = ListView1.Items(cm).SubItems(1).Text
-                        Dim convSelDur As Integer = TimeConversion(selectedDur(0), selectedDur(1), selectedDur(2))
-                        Dim convNextDur As Integer = TimeConversion(nextdur(0), nextdur(1), nextdur(2))
-                        writer.WriteLine("[CHAPTER]")
-                        writer.WriteLine("TIMEBASE=1/1000")
-                        writer.WriteLine("START=" & convSelDur * 1000)
-                        writer.WriteLine("END=" & (convNextDur - 1) * 1000)
-                        writer.WriteLine("Title=" & selectedTitle & vbCrLf)
-                    Next
-                    writer.Close()
-                    RichTextBox5.Text = " -i " & Chr(34) & My.Application.Info.DirectoryPath & "\FFMETADATAFILE" & Chr(34) & " -map_chapters 1 "
-                    TextBox5.Enabled = False
-                    TextBox17.Enabled = False
-                    TextBox18.Enabled = False
-                    TextBox19.Enabled = False
-                    Button11.Enabled = False
-                    Button12.Enabled = False
-                    Button13.Enabled = False
-                    Button14.Enabled = False
-                End If
-            Else
-                MessageBoxAdv.Show("Please add chapter first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                TextBox5.Enabled = True
-                TextBox17.Enabled = True
-                TextBox18.Enabled = True
-                TextBox19.Enabled = True
-                Button11.Enabled = True
-                Button12.Enabled = True
-                Button13.Enabled = True
-                Button14.Enabled = True
-                RichTextBox5.Enabled = True
-            End If
-        Else
-            TextBox5.Enabled = True
-            TextBox17.Enabled = True
-            TextBox18.Enabled = True
-            TextBox19.Enabled = True
-            Button11.Enabled = True
-            Button12.Enabled = True
-            Button13.Enabled = True
-            Button14.Enabled = True
-            RichTextBox5.Enabled = True
-        End If
-    End Sub
-    Private Sub AddChapter(sender As Object, e As EventArgs) Handles Button11.Click
-        If TextBox5.Text IsNot "" AndAlso TextBox17.Text IsNot "" AndAlso TextBox18.Text IsNot "" AndAlso TextBox19.Text IsNot "" Then
-            If ChapterTimeCheck() = True Then
-                Dim curTimeCnv As String()
-                Dim newTime As String = TextBox5.Text & ":" & TextBox17.Text & ":" & TextBox18.Text
-                Dim newTimeCnv As String() = newTime.Split(":")
-                Dim newChapter As New ListViewItem(newTime)
-                If ListView1.Items.Count = 0 Then
-                    newChapter.SubItems.Add(TextBox19.Text)
-                    ListView1.Items.Add(newChapter)
-                    MessageBoxAdv.Show("Chapter successfully added !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Else
-                    ListView1.Items(0).Selected = False
-                    ListView1.Items(0).Focused = False
-                    ListView1.Items(ListView1.Items.Count - 1).Selected = True
-                    ListView1.Items(ListView1.Items.Count - 1).Focused = True
-                    ListView1.FocusedItem.Selected = True
-                    ListView1.Focus()
-                    curTimeCnv = ListView1.SelectedItems(0).SubItems(0).Text.Split(":")
-                    If TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) < TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Or
-                       TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) = TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Then
-                        ListView1.Items(0).Selected = False
-                        ListView1.Items(0).Focused = False
-                        MessageBoxAdv.Show("New time chapter can not less or same than previous time chapter duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Else
-                        ListView1.Items(0).Selected = False
-                        ListView1.Items(0).Focused = False
-                        newChapter.SubItems.Add(TextBox19.Text)
-                        ListView1.Items.Add(newChapter)
-                        MessageBoxAdv.Show("Chapter successfully added !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    End If
-                End If
-            Else
-                MessageBoxAdv.Show("Time chapter can not more than video duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-            ChapterReset()
-        Else
-            MessageBoxAdv.Show("Add chapter failed !" & vbCrLf & vbCrLf & "Make sure to fill time and chapter title completely", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
-    End Sub
-    Private Sub GetChapter()
+	Private Sub GetChapter()
         Newffargs = "ffmpeg -i " & Chr(34) & Label2.Text & Chr(34) & " -f ffmetadata " & Chr(34) & My.Application.Info.DirectoryPath & "\FFMETADATAFILE" & Chr(34)
         HMEGenerate("HME_Chapters.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
         RunProc("HME_Chapters.bat")
@@ -3860,6 +3884,46 @@ Public Class MainMenu
             GC.Collect()
             GC.WaitForPendingFinalizers()
             File.Delete("FFMETADATAFILE")
+        End If
+    End Sub
+	Private Sub AddChapter(sender As Object, e As EventArgs) Handles Button11.Click
+        If TextBox5.Text IsNot "" AndAlso TextBox17.Text IsNot "" AndAlso TextBox18.Text IsNot "" AndAlso TextBox19.Text IsNot "" Then
+            If ChapterTimeCheck() = True Then
+                Dim curTimeCnv As String()
+                Dim newTime As String = TextBox5.Text & ":" & TextBox17.Text & ":" & TextBox18.Text
+                Dim newTimeCnv As String() = newTime.Split(":")
+                Dim newChapter As New ListViewItem(newTime)
+                If ListView1.Items.Count = 0 Then
+                    newChapter.SubItems.Add(TextBox19.Text)
+                    ListView1.Items.Add(newChapter)
+                    MessageBoxAdv.Show("Chapter successfully added !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    ListView1.Items(0).Selected = False
+                    ListView1.Items(0).Focused = False
+                    ListView1.Items(ListView1.Items.Count - 1).Selected = True
+                    ListView1.Items(ListView1.Items.Count - 1).Focused = True
+                    ListView1.FocusedItem.Selected = True
+                    ListView1.Focus()
+                    curTimeCnv = ListView1.SelectedItems(0).SubItems(0).Text.Split(":")
+                    If TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) < TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Or
+                       TimeConversion(newTimeCnv(0), newTimeCnv(1), newTimeCnv(2)) = TimeConversion(curTimeCnv(0), curTimeCnv(1), curTimeCnv(2)) Then
+                        ListView1.Items(0).Selected = False
+                        ListView1.Items(0).Focused = False
+                        MessageBoxAdv.Show("New time chapter can not less or same than previous time chapter duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        ListView1.Items(0).Selected = False
+                        ListView1.Items(0).Focused = False
+                        newChapter.SubItems.Add(TextBox19.Text)
+                        ListView1.Items.Add(newChapter)
+                        MessageBoxAdv.Show("Chapter successfully added !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
+                End If
+            Else
+                MessageBoxAdv.Show("Time chapter can not more than video duration !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+            ChapterReset()
+        Else
+            MessageBoxAdv.Show("Add chapter failed !" & vbCrLf & vbCrLf & "Make sure to fill time and chapter title completely", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
     Private Sub UpdateChapter(sender As Object, e As EventArgs) Handles Button13.Click
@@ -4123,6 +4187,111 @@ Public Class MainMenu
         TextBox18.Text = "00"
         TextBox19.Text = ""
     End Sub
+	Private Sub ChapterTimeHours_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox5.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub ChapterTimeMinute_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox17.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub ChapterTimeSeconds_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox18.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Handled = True
+        End If
+    End Sub
+	Private Sub Chapter_Seconds_Validity(sender As Object, e As EventArgs) Handles TextBox18.TextChanged
+        If TextBox18.Text IsNot "" Then
+            If CInt(TextBox18.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                TextBox18.Text = ""
+            End If
+        End If
+    End Sub
+    Private Sub Chapter_Minute_Validity(sender As Object, e As EventArgs) Handles TextBox17.TextChanged
+        If TextBox17.Text IsNot "" Then
+            If CInt(TextBox17.Text) > 59 Then
+                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                TextBox17.Text = ""
+            End If
+        End If
+    End Sub
+    Private Sub ChapterLock(sender As Object, e As EventArgs) Handles CheckBox14.CheckedChanged
+        If CheckBox14.Checked = True Then
+            If ListView1.Items.Count > 0 Then
+                If Strings.Right(TextBox1.Text, 4) = "flac" Or Strings.Right(TextBox1.Text, 4) = ".mp3" Or Strings.Right(TextBox1.Text, 4) = ".wav" Then
+                    MessageBoxAdv.Show("Invalid file extension for saved media file !" & vbCrLf & vbCrLf &
+                                              "Current file extensions " & vbCrLf &
+                                              Strings.Right(TextBox1.Text, 4) & vbCrLf & vbCrLf &
+                                              "Current available file extensions " & vbCrLf &
+                                              ".mkv", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    If File.Exists("FFMETADATAFILE") Then
+                        GC.Collect()
+                        GC.WaitForPendingFinalizers()
+                        File.Delete("FFMETADATAFILE")
+                    End If
+                    File.Create("FFMETADATAFILE").Dispose()
+                    Dim writer As New StreamWriter("FFMETADATAFILE", True)
+                    writer.WriteLine(";FFMETADATAFILE1")
+                    writer.WriteLine("title=Chapter" & vbCrLf)
+                    For cm = 0 To ListView1.Items.Count - 1
+                        Dim nextdur As String()
+                        Dim selectedDur As String() = ListView1.Items(cm).SubItems(0).Text.Split(":")
+                        If cm < ListView1.Items.Count - 1 Then
+                            nextdur = ListView1.Items(cm + 1).SubItems(0).Text.Split(":")
+                        Else
+                            nextdur = Label81.Text.Split(":")
+                        End If
+                        Dim selectedTitle As String = ListView1.Items(cm).SubItems(1).Text
+                        Dim convSelDur As Integer = TimeConversion(selectedDur(0), selectedDur(1), selectedDur(2))
+                        Dim convNextDur As Integer = TimeConversion(nextdur(0), nextdur(1), nextdur(2))
+                        writer.WriteLine("[CHAPTER]")
+                        writer.WriteLine("TIMEBASE=1/1000")
+                        writer.WriteLine("START=" & convSelDur * 1000)
+                        writer.WriteLine("END=" & (convNextDur - 1) * 1000)
+                        writer.WriteLine("Title=" & selectedTitle & vbCrLf)
+                    Next
+                    writer.Close()
+                    RichTextBox5.Text = " -i " & Chr(34) & My.Application.Info.DirectoryPath & "\FFMETADATAFILE" & Chr(34) & " -map_chapters 1 "
+                    TextBox5.Enabled = False
+                    TextBox17.Enabled = False
+                    TextBox18.Enabled = False
+                    TextBox19.Enabled = False
+                    Button11.Enabled = False
+                    Button12.Enabled = False
+                    Button13.Enabled = False
+                    Button14.Enabled = False
+                End If
+            Else
+                MessageBoxAdv.Show("Please add chapter first !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                TextBox5.Enabled = True
+                TextBox17.Enabled = True
+                TextBox18.Enabled = True
+                TextBox19.Enabled = True
+                Button11.Enabled = True
+                Button12.Enabled = True
+                Button13.Enabled = True
+                Button14.Enabled = True
+                RichTextBox5.Enabled = True
+            End If
+        Else
+            TextBox5.Enabled = True
+            TextBox17.Enabled = True
+            TextBox18.Enabled = True
+            TextBox19.Enabled = True
+            Button11.Enabled = True
+            Button12.Enabled = True
+            Button13.Enabled = True
+            Button14.Enabled = True
+            RichTextBox5.Enabled = True
+        End If
+    End Sub
     Private Sub ResetInit()
         CheckBox1.Checked = False
         CheckBox2.Checked = False
@@ -4144,147 +4313,5 @@ Public Class MainMenu
         Button18.Enabled = False
         CheckBox14.Checked = False
         CheckBox15.Checked = False
-    End Sub
-    Private Sub StartTimeHours_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox7.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub StartTimeMinute_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox8.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub StartTimeSeconds_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox9.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub StartTimeMs_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox10.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub DurTimeHours_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox14.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub EndTimeMinute_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox13.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub EndTimeSeconds_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox12.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub EndTimeMs_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox11.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub StartTime_Minute(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
-        If TextBox8.Text IsNot "" Then
-            If CInt(TextBox8.Text) > 59 Then
-                MessageBoxAdv.Show("Maximum value for minute is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                TextBox8.Text = ""
-            End If
-        End If
-    End Sub
-    Private Sub StartTime_Seconds(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
-        If TextBox9.Text IsNot "" Then
-            If CInt(TextBox9.Text) > 59 Then
-                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                TextBox9.Text = ""
-            End If
-        End If
-    End Sub
-    Private Sub EndTime_Minute(sender As Object, e As EventArgs) Handles TextBox13.TextChanged
-        If TextBox13.Text IsNot "" Then
-            If CInt(TextBox13.Text) > 59 Then
-                MessageBoxAdv.Show("Maximum value for minute is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                TextBox13.Text = ""
-            End If
-        End If
-    End Sub
-    Private Sub EndTime_Seconds(sender As Object, e As EventArgs) Handles TextBox12.TextChanged
-        If TextBox12.Text IsNot "" Then
-            If CInt(TextBox12.Text) > 59 Then
-                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                TextBox12.Text = ""
-            End If
-        End If
-    End Sub
-    Private Sub ChapterTimeHours_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox5.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub ChapterTimeMinute_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox17.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub ChapterTimeSeconds_Check(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox18.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub Res_Height_Check(sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox20.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub Res_Width_Check(sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox21.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBoxAdv.Show("Please enter numbers only !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub Res_Height_Validity(sender As Object, e As EventArgs) Handles TextBox20.TextChanged
-        If TextBox20.Text IsNot "" Then
-            If CInt(TextBox20.Text) > 7680 Then
-                MessageBoxAdv.Show("Maximum height support is 7680", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                TextBox20.Text = ""
-            End If
-        End If
-    End Sub
-    Private Sub Res_Width_Validity(sender As Object, e As EventArgs) Handles TextBox21.TextChanged
-        If TextBox21.Text IsNot "" Then
-            If CInt(TextBox21.Text) > 4320 Then
-                MessageBoxAdv.Show("Maximum width support is 4320", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                TextBox21.Text = ""
-            End If
-        End If
-    End Sub
-    Private Sub Chapter_Seconds_Validity(sender As Object, e As EventArgs) Handles TextBox18.TextChanged
-        If TextBox18.Text IsNot "" Then
-            If CInt(TextBox18.Text) > 59 Then
-                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                TextBox18.Text = ""
-            End If
-        End If
-    End Sub
-    Private Sub Chapter_Minute_Validity(sender As Object, e As EventArgs) Handles TextBox17.TextChanged
-        If TextBox17.Text IsNot "" Then
-            If CInt(TextBox17.Text) > 59 Then
-                MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                TextBox17.Text = ""
-            End If
-        End If
     End Sub
 End Class
