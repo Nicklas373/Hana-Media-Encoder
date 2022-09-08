@@ -272,11 +272,13 @@ Partial Class MainMenu
         Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox6 = New System.Windows.Forms.CheckBox()
+        Me.Label134 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label76 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.ProgressBarAdv1 = New Syncfusion.Windows.Forms.Tools.ProgressBarAdv()
+        Me.ComboBox36 = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -3491,6 +3493,18 @@ Partial Class MainMenu
         Me.CheckBox6.Text = "Enable Trim"
         Me.CheckBox6.UseVisualStyleBackColor = False
         '
+        'Label134
+        '
+        Me.Label134.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label134.AutoSize = True
+        Me.Label134.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label134.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label134.Location = New System.Drawing.Point(1053, 655)
+        Me.Label134.Name = "Label134"
+        Me.Label134.Size = New System.Drawing.Size(87, 15)
+        Me.Label134.TabIndex = 77
+        Me.Label134.Text = "On Completed:"
+        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Transparent
@@ -3565,13 +3579,13 @@ Partial Class MainMenu
         Me.ProgressBarAdv1.ForegroundImage = Nothing
         Me.ProgressBarAdv1.GradientEndColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.ProgressBarAdv1.GradientStartColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.ProgressBarAdv1.Location = New System.Drawing.Point(626, 650)
+        Me.ProgressBarAdv1.Location = New System.Drawing.Point(447, 650)
         Me.ProgressBarAdv1.MultipleColors = New System.Drawing.Color() {System.Drawing.Color.Empty}
         Me.ProgressBarAdv1.Name = "ProgressBarAdv1"
         Me.ProgressBarAdv1.ProgressFallbackStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.Office2016Black
         Me.ProgressBarAdv1.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.Office2016Black
         Me.ProgressBarAdv1.SegmentWidth = 10
-        Me.ProgressBarAdv1.Size = New System.Drawing.Size(641, 23)
+        Me.ProgressBarAdv1.Size = New System.Drawing.Size(601, 23)
         Me.ProgressBarAdv1.TabIndex = 14
         Me.ProgressBarAdv1.Text = "ProgressBarAdv1"
         Me.ProgressBarAdv1.TextVisible = False
@@ -3579,6 +3593,20 @@ Partial Class MainMenu
         Me.ProgressBarAdv1.ThemeStyle.FillColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.ProgressBarAdv1.Visible = False
         Me.ProgressBarAdv1.WaitingGradientWidth = 400
+        '
+        'ComboBox36
+        '
+        Me.ComboBox36.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ComboBox36.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.ComboBox36.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox36.Font = New System.Drawing.Font("Segoe UI Semilight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ComboBox36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.ComboBox36.FormattingEnabled = True
+        Me.ComboBox36.Items.AddRange(New Object() {"Do Nothing", "Exit Application", "Log Out", "Shutdown", "Restart"})
+        Me.ComboBox36.Location = New System.Drawing.Point(1143, 650)
+        Me.ComboBox36.Name = "ComboBox36"
+        Me.ComboBox36.Size = New System.Drawing.Size(109, 25)
+        Me.ComboBox36.TabIndex = 66
         '
         'MainMenu
         '
@@ -3588,6 +3616,8 @@ Partial Class MainMenu
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1264, 681)
         Me.Controls.Add(Me.ProgressBarAdv1)
+        Me.Controls.Add(Me.Label134)
+        Me.Controls.Add(Me.ComboBox36)
         Me.Controls.Add(Me.Label77)
         Me.Controls.Add(Me.Label76)
         Me.Controls.Add(Me.Label28)
@@ -3930,4 +3960,6 @@ Partial Class MainMenu
     Friend WithEvents Label131 As Label
     Friend WithEvents ComboBox35 As ComboBox
     Friend WithEvents Label133 As Label
+    Friend WithEvents Label134 As Label
+    Friend WithEvents ComboBox36 As ComboBox
 End Class

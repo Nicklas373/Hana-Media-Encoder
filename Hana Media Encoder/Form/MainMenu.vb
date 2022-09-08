@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports System.Runtime.CompilerServices
 Imports System.Text.RegularExpressions
 Imports Syncfusion.Windows.Forms
 Imports Syncfusion.WinForms.Controls
@@ -38,6 +37,7 @@ Public Class MainMenu
         Button7.Enabled = False
         Button8.Visible = False
         Button8.Enabled = False
+        ComboBox36.SelectedIndex = 0
         Dim res1 As String = getBetween(File.ReadAllText("Init_Res.txt"), "START: ", " |")
         Dim res2 As String = getBetween(File.ReadAllText("Init_Res.txt"), "| ", " :END")
         If res1 = "" Then
@@ -1256,6 +1256,7 @@ Public Class MainMenu
                     CleanEnv("null")
                     ProgressBarAdv1.Value = 0
                     ProgressBarAdv1.Visible = False
+                    OnCompleted(ComboBox36.Text)
                 End If
             End If
         Else
@@ -2614,7 +2615,7 @@ Public Class MainMenu
                 ComboBox17.Enabled = False
                 ComboBox17.SelectedIndex = -1
                 If ComboBox19.Items.Contains("320") Then
-                    If ComboBox15.Text.Contains("AAC") = true Then
+                    If ComboBox15.Text.Contains("AAC") = True Then
                         ComboBox19.Items.Remove("320")
                     End If
                 Else
@@ -3814,7 +3815,7 @@ Public Class MainMenu
             ListView1.Items.Clear()
         End If
     End Sub
-	Private Sub GetChapter()
+    Private Sub GetChapter()
         Newffargs = "ffmpeg -i " & Chr(34) & Label2.Text & Chr(34) & " -f ffmetadata " & Chr(34) & My.Application.Info.DirectoryPath & "\FFMETADATAFILE" & Chr(34)
         HMEGenerate("HME_Chapters.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
         RunProc("HME_Chapters.bat")
@@ -3875,7 +3876,7 @@ Public Class MainMenu
             File.Delete("FFMETADATAFILE")
         End If
     End Sub
-	Private Sub AddChapter(sender As Object, e As EventArgs) Handles Button11.Click
+    Private Sub AddChapter(sender As Object, e As EventArgs) Handles Button11.Click
         If TextBox5.Text IsNot "" AndAlso TextBox17.Text IsNot "" AndAlso TextBox18.Text IsNot "" AndAlso TextBox19.Text IsNot "" Then
             If ChapterTimeCheck() = True Then
                 Dim curTimeCnv As String()

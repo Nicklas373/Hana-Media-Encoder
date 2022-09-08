@@ -1,5 +1,19 @@
 ﻿Imports System.IO
 Module MiscModule
+    Public Function FindConfig(confpath As String, contains As String) As String
+        Dim value As String
+        Using sReader As New StreamReader(confpath)
+            While Not sReader.EndOfStream
+                Dim line As String = sReader.ReadLine()
+                If line.Contains(contains) Then
+                    value = line
+                    Return value
+                End If
+            End While
+            value = "null"
+            Return value
+        End Using
+    End Function
     Public Function GetFileSize(file As String) As String
         Dim srcFile As String
         If file = "" Then
@@ -45,26 +59,26 @@ Module MiscModule
         End If
         Return ""
     End Function
-    Public Function RemoveWhitespace(fullString As String) As String
-        Return New String(fullString.Where(Function(x) Not Char.IsWhiteSpace(x)).ToArray())
-    End Function
-    Public Function FindConfig(confpath As String, contains As String) As String
-        Dim value As String
-        Using sReader As New StreamReader(confpath)
-            While Not sReader.EndOfStream
-                Dim line As String = sReader.ReadLine()
-                If line.Contains(contains) Then
-                    value = line
-                    Return value
-                End If
-            End While
-            value = "null"
-            Return value
-        End Using
-    End Function
+    Public Sub OnCompleted(cmbx As String)
+        If cmbx = "Do Nothing" Then
+
+        ElseIf cmbx = "Exit Application" Then
+            CleanEnv("all")
+            InitExit()
+        ElseIf cmbx = "Log Out" Then
+            Shell("Shutdown -l -t 5 -c " & Chr(34) & "Your computer will log out after 5 seconds" & Chr(34))
+        ElseIf cmbx = "Restart" Then
+            Shell("Shutdown -r -t 5 -c " & Chr(34) & "Your computer will log out after 5 seconds" & Chr(34))
+        ElseIf cmbx = "Shutdown" Then
+            Shell("Shutdown -s -t 5 -c " & Chr(34) & "Your computer will log out after 5 seconds" & Chr(34))
+        End If
+    End Sub
     Public Sub MassDelete(dirname As String, ext As String)
         For Each deleteFile In Directory.GetFiles(dirname, "*." & ext, SearchOption.TopDirectoryOnly)
             File.Delete(deleteFile)
         Next
     End Sub
+    Public Function RemoveWhitespace(fullString As String) As String
+        Return New String(fullString.Where(Function(x) Not Char.IsWhiteSpace(x)).ToArray())
+    End Function
 End Module
