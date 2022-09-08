@@ -12,6 +12,7 @@ Public Class InformationMenu
         Video_pnl_4.Visible = False
         Video_pnl_5.Visible = False
         Video_pnl_6.Visible = False
+        Video_pnl_7.Visible = False
         Audio_pnl_2.Visible = False
     End Sub
     Private Sub Next_Btn_VideoConf(sender As Object, e As EventArgs) Handles Button7.Click
@@ -36,7 +37,12 @@ Public Class InformationMenu
                 Video_pnl_6.AutoScroll = True
                 Video_pnl_6.Visible = True
                 Label172.Text = CInt(Label172.Text) + 1
-            ElseIf Video_pnl_6.Visible = True Then
+            ElseIf Video_pnl_6.Visible = True And video_pnl_7.Visible = False Then
+                Video_pnl_6.AutoScroll = False
+                Video_pnl_7.AutoScroll = True
+                Video_pnl_7.Visible = True
+                Label172.Text = CInt(Label172.Text) + 1
+            ElseIf Video_pnl_7.Visible = True Then
                 MessageBoxAdv.Show("Already on the last page !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         ElseIf vid_btn_state = False And aud_btn_state = True Then
@@ -53,7 +59,12 @@ Public Class InformationMenu
     End Sub
     Private Sub Prev_Btn_VideoConf(sender As Object, e As EventArgs) Handles Button8.Click
         If vid_btn_state = True And aud_btn_state = False Then
-            If Video_pnl_5.Visible = True And Video_pnl_6.Visible = True Then
+            If Video_pnl_6.Visible = True And Video_pnl_7.Visible = True Then
+                Video_pnl_7.Visible = False
+                Video_pnl_7.AutoScroll = False
+                Video_pnl_6.AutoScroll = True
+                Label172.Text = CInt(Label172.Text) - 1
+            ElseIf Video_pnl_5.Visible = True And Video_pnl_6.Visible = True Then
                 Video_pnl_6.Visible = False
                 Video_pnl_6.AutoScroll = False
                 Video_pnl_5.AutoScroll = True
@@ -94,6 +105,7 @@ Public Class InformationMenu
         Audio_pnl_1.Visible = False
         Audio_pnl_2.AutoScroll = False
         Audio_pnl_1.AutoScroll = False
+        Video_pnl_7.Visible = False
         Video_pnl_6.Visible = False
         Video_pnl_5.Visible = False
         Video_pnl_4.Visible = False
@@ -103,15 +115,17 @@ Public Class InformationMenu
         vid_btn_state = True
         aud_btn_state = False
         Label172.Text = "1"
-        Label170.Text = "6"
+        Label170.Text = "7"
     End Sub
     Private Sub Audio_CDC_Btn(sender As Object, e As EventArgs) Handles Button2.Click
         Audio_pnl_2.Visible = False
+        Video_pnl_7.AutoScroll = False
         Video_pnl_6.AutoScroll = False
         Video_pnl_5.AutoScroll = False
         Video_pnl_4.AutoScroll = False
         Audio_pnl_1.Visible = True
         Audio_pnl_1.AutoScroll = True
+        Video_pnl_7.Visible = True
         Video_pnl_6.Visible = True
         Video_pnl_5.Visible = True
         Video_pnl_4.Visible = True
