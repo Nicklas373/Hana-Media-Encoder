@@ -131,7 +131,7 @@ Module MediaEncoderModule
     Public Sub HMEVideoStreamConfigGenerate(HMEName As String, brCompat As String, ovrbitrate As String, bref As String, codec As String, framerate As String,
                                             level As String, maxbitrate As String, multipass As String, preset As String, pixfmt As String, profile As String,
                                             ratectr As String, spatialaq As String, aqstrength As String, temporalaq As String, targetql As String,
-                                            tier As String, tune As String, ar As String, res As String)
+                                            tier As String, tune As String, ar As String, res As String, algo As String)
         If File.Exists(HMEName) Then
             GC.Collect()
             GC.WaitForPendingFinalizers()
@@ -161,6 +161,7 @@ Module MediaEncoderModule
         writer.WriteLine("Tune=" & tune)
         writer.WriteLine("AspectRatio=" & ar)
         writer.WriteLine("Resolution=" & res)
+        writer.WriteLine("ScaleAlgo=" & algo)
         writer.Close()
     End Sub
     Public Sub InitExit()

@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Runtime.CompilerServices
 Imports System.Text.RegularExpressions
 Imports Syncfusion.Windows.Forms
 Imports Syncfusion.WinForms.Controls
@@ -1153,65 +1154,42 @@ Public Class MainMenu
                         If Newdebugmode = "True" And FrameMode = "False" Then
                             Dim new_process As Process = Process.Start(new_psi)
                             Do
-                                Dim lineReader As StreamReader = new_process.StandardError
+                                Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
                                 Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
                                 If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
                                     FfmpegEncStats = "Frame Error!"
-                                ElseIf RemoveWhitespace(getBetween(line, "frame= ", " fps")) <= FrameCount Then
-                                    ProgressBarAdv1.Refresh()
-                                    ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
-                                    ProgressBarAdv1.Refresh()
                                 End If
                                 FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
                             Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
                             Await Task.Run(Sub() new_process.WaitForExit())
                         ElseIf Newdebugmode = "True" And FrameMode = "True" Then
                             Dim new_process As Process = Process.Start(new_psi)
-                            Do
-                                Dim lineReader As StreamReader = new_process.StandardError
-                                Dim line As String = Await Task.Run(Function() lineReader.ReadToEndAsync)
-                                FfmpegEncStats = "Frame Error!"
-                                FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
-                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                            FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
                             Await Task.Run(Sub() new_process.WaitForExit())
                         ElseIf Newdebugmode = "False" And FrameMode = "True" Then
                             Dim new_process As Process = Process.Start(new_psi)
-                            Do
-                                Dim lineReader As StreamReader = new_process.StandardError
-                                Dim line As String = Await Task.Run(Function() lineReader.ReadToEndAsync)
-                                FfmpegEncStats = "Frame Error!"
-                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
                             Await Task.Run(Sub() new_process.WaitForExit())
                         ElseIf Newdebugmode = "False" And FrameMode = "False" Then
                             Dim new_process As Process = Process.Start(new_psi)
                             Do
-                                Dim lineReader As StreamReader = new_process.StandardError
+                                Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
                                 Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
                                 If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
                                     FfmpegEncStats = "Frame Error!"
                                 ElseIf RemoveWhitespace(getBetween(line, "frame= ", " fps")) <= FrameCount Then
-                                    ProgressBarAdv1.Refresh()
-                                    ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame= ", " fps")))
-                                    ProgressBarAdv1.Refresh()
+                                    ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
                                 End If
-                                FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
                             Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
                             Await Task.Run(Sub() new_process.WaitForExit())
                         End If
                     Else
                         If Newdebugmode = "True" And FrameMode = "True" Then
                             Dim new_process As Process = Process.Start(new_psi)
-                            Do
-                                Dim lineReader As StreamReader = new_process.StandardError
-                                Dim line As String = Await Task.Run(Function() lineReader.ReadToEndAsync)
-                                FfmpegEncStats = "Frame Error!"
-                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                            FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
                             Await Task.Run(Sub() new_process.WaitForExit())
                         ElseIf Newdebugmode = "True" And FrameMode = "False" Then
                             Dim new_process As Process = Process.Start(new_psi)
                             Do
-                                Dim lineReader As StreamReader = new_process.StandardError
-                                Dim line As String = Await Task.Run(Function() lineReader.ReadToEndAsync)
                                 FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
                             Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
                             Await Task.Run(Sub() new_process.WaitForExit())
@@ -1300,6 +1278,8 @@ Public Class MainMenu
                     Button15.Enabled = True
                     Button16.Enabled = True
                     ComboBox29.SelectedIndex = 0
+                    Resolution_Width_UpDown.Minimum = 0
+                    Resolution_Height_UpDown.Minimum = 0
                     Resolution_Width_UpDown.Maximum = videoRes(0)
                     Resolution_Height_UpDown.Maximum = videoRes(1)
                 End If
@@ -1389,6 +1369,7 @@ Public Class MainMenu
                     Dim prevVideoTune As String = FindConfig(VideoStreamConfig, "Tune=")
                     Dim prevVideoAspectRatio As String = FindConfig(VideoStreamConfig, "AspectRatio=")
                     Dim prevVideoResolution As String = FindConfig(VideoStreamConfig, "Resolution=")
+                    Dim prevVideoScaleAlgo As String = FindConfig(VideoStreamConfig, "ScaleAlgo=")
                     If Strings.Mid(prevVideoBrCompat, 10) = "" Then
                         ComboBox21.Text = ""
                     Else
@@ -1545,16 +1526,21 @@ Public Class MainMenu
                         End If
                     End If
                     If Strings.Mid(prevVideoResolution, 11) = "x" Then
-                        Resolution_Height_UpDown.Value = 0
                         Resolution_Width_UpDown.Value = 0
+                        Resolution_Height_UpDown.Value = 0
                     Else
-                        Resolution_Height_UpDown.Value = CInt(getBetween(prevVideoResolution, "n=", "x"))
-                        Resolution_Width_UpDown.Value = CInt(getBetween(prevVideoResolution, "x", "|"))
+                        Resolution_Width_UpDown.Value = CInt(RemoveWhitespace(getBetween(prevVideoResolution, "n=", "x")))
+                        Resolution_Height_UpDown.Value = CInt(RemoveWhitespace(getBetween(prevVideoResolution, "x", "|")))
                     End If
                     If Strings.Mid(prevVideoAspectRatio, 13) = "" Then
                         ComboBox32.Text = ""
                     Else
                         ComboBox32.Text = Strings.Mid(getBetween(prevVideoAspectRatio, "r=", "/"), 5) & ":" & getBetween(prevVideoAspectRatio, "/", ",")
+                    End If
+                    If Strings.Mid(prevVideoScaleAlgo, 11) = "" Or Strings.Mid(prevVideoScaleAlgo, 11) = "disabled" Then
+                        ComboBox35.Text = ""
+                    Else
+                        ComboBox35.Text = Strings.Mid(prevVideoScaleAlgo, 11)
                     End If
                     RichTextBox1.Text = ""
                     RichTextBox1.Text = File.ReadAllText(VideoStreamFlags)
@@ -1619,6 +1605,8 @@ Public Class MainMenu
                 Resolution_Height_UpDown.Enabled = False
                 Resolution_Width_UpDown.Value = 0
                 Resolution_Width_UpDown.Enabled = False
+                ComboBox35.SelectedIndex = -1
+                ComboBox35.Enabled = False
             ElseIf HwAccelDev = "opencl" Then
                 ComboBox21.Enabled = False
                 ComboBox10.Enabled = False
@@ -1661,6 +1649,8 @@ Public Class MainMenu
                 ComboBox32.Enabled = True
                 Resolution_Height_UpDown.Enabled = True
                 Resolution_Width_UpDown.Enabled = True
+                ComboBox35.SelectedIndex = -1
+                ComboBox35.Enabled = True
             ElseIf HwAccelDev = "qsv" Then
                 ComboBox21.Enabled = False
                 ComboBox10.Enabled = False
@@ -1709,6 +1699,8 @@ Public Class MainMenu
                 ComboBox32.Enabled = True
                 Resolution_Height_UpDown.Enabled = True
                 Resolution_Width_UpDown.Enabled = True
+                ComboBox35.SelectedIndex = -1
+                ComboBox35.Enabled = True
             ElseIf HwAccelDev = "cuda" Then
                 BitRate_UpDown.Enabled = True
                 ComboBox21.Enabled = True
@@ -1746,6 +1738,8 @@ Public Class MainMenu
                 ComboBox32.Enabled = True
                 Resolution_Height_UpDown.Enabled = True
                 Resolution_Width_UpDown.Enabled = True
+                ComboBox35.SelectedIndex = -1
+                ComboBox35.Enabled = True
             End If
             CheckBox12.Enabled = True
         Else
@@ -1779,7 +1773,7 @@ Public Class MainMenu
                 VideoStreamSourceList = (CInt(Strings.Mid(ComboBox29.Text.ToString, 11)) - 1).ToString
                 If ComboBox2.Text.Equals("Copy") = True Then
                     HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " copy")
-                    HMEVideoStreamConfigGenerate(VideoStreamConfig, "", "", "", "Copy", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+                    HMEVideoStreamConfigGenerate(VideoStreamConfig, "", "", "", "Copy", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
                     ReturnVideoStats = True
                 Else
                     If ComboBox32.SelectedIndex < 0 Or ComboBox32.SelectedIndex = 5 Then
@@ -1791,9 +1785,17 @@ Public Class MainMenu
                         VideoWidth = ""
                     Else
                         If AspectRatio = "" Then
-                            VideoWidth = " -filter:v scale=" & Resolution_Width_UpDown.Value & "x"
+                            If HwAccelDev = "cuda" Then
+                                VideoWidth = " -filter:v scale_cuda=" & Resolution_Width_UpDown.Value & "x"
+                            Else
+                                VideoWidth = " -filter:v scale=" & Resolution_Width_UpDown.Value & "x"
+                            End If
                         Else
-                            VideoWidth = "scale=" & Resolution_Width_UpDown.Value & "x"
+                            If HwAccelDev = "cuda" Then
+                                VideoWidth = "scale_cuda=" & Resolution_Width_UpDown.Value & "x"
+                            Else
+                                VideoWidth = "scale=" & Resolution_Width_UpDown.Value & "x"
+                            End If
                         End If
                     End If
                     If Resolution_Width_UpDown.Value = 0 Then
@@ -1802,16 +1804,41 @@ Public Class MainMenu
                         If VideoWidth = "" Then
                             VideoHeight = ""
                         Else
-                            VideoHeight = Resolution_Height_UpDown.Value & ","
+                            VideoHeight = Resolution_Height_UpDown.Value
+                        End If
+                    End If
+                    If Resolution_Height_UpDown.Value = 0 And Resolution_Width_UpDown.Value = 0 Then
+                        If ComboBox35.Text = "disabled" Or ComboBox35.Text = "" Then
+                            ScaleAlgo = ""
+                        Else
+                            If HwAccelDev = "cuda" Then
+                                ScaleAlgo = " -filter:v scale_cuda=interp_algo=" & ComboBox35.Text
+                            Else
+                                ScaleAlgo = " -filter:v scale=flags=" & ComboBox35.Text
+                            End If
+                        End If
+                    Else
+                        If ComboBox35.Text = "disabled" Or ComboBox35.Text = "" Then
+                            ScaleAlgo = ""
+                        Else
+                            If HwAccelDev = "cuda" Then
+                                ScaleAlgo = "=interp_algo=" & ComboBox35.Text
+                            Else
+                                ScaleAlgo = ":flags=" & ComboBox35.Text
+                            End If
                         End If
                     End If
                     If ComboBox30.SelectedIndex < 0 Then
                         FPS = ""
                     Else
-                        If AspectRatio = "" And VideoWidth = "" Then
+                        If AspectRatio = "" And VideoWidth = "" And ScaleAlgo = "" Then
                             FPS = " -filter:v fps=fps=" & ComboBox30.Text
                         Else
-                            FPS = "fps=fps=" & ComboBox30.Text
+                            If ScaleAlgo = "" Then
+                                FPS = "fps=fps=" & ComboBox30.Text
+                            Else
+                                FPS = ",fps=fps=" & ComboBox30.Text
+                            End If
                         End If
                     End If
                     If BitRate_UpDown.Value = 0 Then
@@ -1828,23 +1855,26 @@ Public Class MainMenu
                         If ComboBox2.Text = "H264" Then
                             HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & vPixFmt(ComboBox3.Text) &
                                                          vPreset(ComboBox5.Text, HwAccelDev) & vProfile(ComboBox7.Text) & vLevel(ComboBox8.Text) & BitRate & MaxBitRate & AspectRatio &
-                                                         VideoWidth & VideoHeight & FPS)
+                                                         VideoWidth & VideoHeight & ScaleAlgo & FPS)
                             HMEVideoStreamConfigGenerate(VideoStreamConfig, "", BitRate, "", vCodec(ComboBox2.Text, HwAccelDev), FPS, vLevel(ComboBox8.Text), MaxBitRate, "",
-                                                         vPreset(ComboBox5.Text, HwAccelDev), "yuv420p", vProfile(ComboBox7.Text), "", "", "", "", "", "", "", AspectRatio, Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|")
+                                                         vPreset(ComboBox5.Text, HwAccelDev), "yuv420p", vProfile(ComboBox7.Text), "", "", "", "", "", "", "", AspectRatio,
+                                                         Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|", ComboBox35.Text)
                             ReturnVideoStats = True
                         Else
                             HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & vPixFmt(ComboBox3.Text) &
                                                          vPreset(ComboBox5.Text, HwAccelDev) & vProfile(ComboBox7.Text) & vLevel(ComboBox8.Text) & vTier(ComboBox9.Text, HwAccelDev) &
-                                                         BitRate & MaxBitRate & AspectRatio & VideoWidth & VideoHeight & FPS)
+                                                         BitRate & MaxBitRate & AspectRatio & VideoWidth & VideoHeight & ScaleAlgo & FPS)
                             HMEVideoStreamConfigGenerate(VideoStreamConfig, "", BitRate, "", vCodec(ComboBox2.Text, HwAccelDev), FPS, vLevel(ComboBox8.Text), MaxBitRate, "",
-                                                         vPreset(ComboBox5.Text, HwAccelDev), "yuv420p", "main", "", "", "", "", "", vTier(ComboBox9.Text, HwAccelDev), "", AspectRatio, Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|")
+                                                         vPreset(ComboBox5.Text, HwAccelDev), "yuv420p", "main", "", "", "", "", "", vTier(ComboBox9.Text, HwAccelDev), "",
+                                                         AspectRatio, Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|", ComboBox35.Text)
                             ReturnVideoStats = True
                         End If
                     ElseIf HwAccelDev = "qsv" Then
                         HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & vPixFmt(ComboBox3.Text) &
-                                                     vPreset(ComboBox5.Text, HwAccelDev) & vProfile(ComboBox7.Text) & MaxBitRate & AspectRatio & VideoWidth & VideoHeight & FPS & " -low_power false")
+                                                     vPreset(ComboBox5.Text, HwAccelDev) & vProfile(ComboBox7.Text) & MaxBitRate & AspectRatio & VideoWidth & VideoHeight & ScaleAlgo & FPS & " -low_power false")
                         HMEVideoStreamConfigGenerate(VideoStreamConfig, "", "", "", vCodec(ComboBox2.Text, HwAccelDev), FPS, "", MaxBitRate, "", vPreset(ComboBox5.Text, HwAccelDev),
-                                                     vPixFmt(ComboBox3.Text), vProfile(ComboBox7.Text), "", "", "", "", "", "", "", AspectRatio, Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|")
+                                                     vPixFmt(ComboBox3.Text), vProfile(ComboBox7.Text), "", "", "", "", "", "", "", AspectRatio, Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|",
+                                                     ComboBox35.Text)
                         ReturnVideoStats = True
                     ElseIf HwAccelDev = "cuda" Then
                         If CRF_VBR_UpDown.Value = 0 Then
@@ -1856,20 +1886,21 @@ Public Class MainMenu
                             HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & vPixFmt(ComboBox3.Text) &
                                                          vRateControl(ComboBox4.Text) & TargetQualityControl & vPreset(ComboBox5.Text, HwAccelDev) & vTune(ComboBox6.Text) & vProfile(ComboBox7.Text) &
                                                          vLevel(ComboBox8.Text) & vTier(ComboBox9.Text, HwAccelDev) & vBrcompat(ComboBox21.Text) & BitRate & MaxBitRate & bRefMode(ComboBox10.Text) &
-                                                         multiPass(ComboBox14.Text) & AspectRatio & VideoWidth & VideoHeight & FPS)
+                                                         multiPass(ComboBox14.Text) & AspectRatio & VideoWidth & VideoHeight & ScaleAlgo & FPS)
                             HMEVideoStreamConfigGenerate(VideoStreamConfig, vBrcompat(ComboBox21.Text), BitRate, bRefMode(ComboBox10.Text), vCodec(ComboBox2.Text, HwAccelDev), FPS, vLevel(ComboBox8.Text),
                                                              MaxBitRate, multiPass(ComboBox14.Text), vPreset(ComboBox5.Text, HwAccelDev), vPixFmt(ComboBox3.Text), vProfile(ComboBox7.Text), vRateControl(ComboBox4.Text),
-                                                             "", "", "", TargetQualityControl, vTier(ComboBox9.Text, HwAccelDev), vTune(ComboBox6.Text), AspectRatio, Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|")
+                                                             "", "", "", TargetQualityControl, vTier(ComboBox9.Text, HwAccelDev), vTune(ComboBox6.Text), AspectRatio, Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|",
+                                                             ComboBox35.Text)
                             ReturnVideoStats = True
                         Else
                             HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & vPixFmt(ComboBox3.Text) & vRateControl(ComboBox4.Text) &
                                                          TargetQualityControl & vPreset(ComboBox5.Text, HwAccelDev) & vTune(ComboBox6.Text) & vProfile(ComboBox7.Text) & vLevel(ComboBox8.Text) & vTier(ComboBox9.Text, HwAccelDev) &
                                                          vBrcompat(ComboBox21.Text) & BitRate & MaxBitRate & bRefMode(ComboBox10.Text) & vSpaTempAQ(ComboBox11.Text) & vAQStrength(ComboBox12.Text) & vTempAQ(ComboBox13.Text) &
-                                                         multiPass(ComboBox14.Text) & AspectRatio & VideoWidth & VideoHeight & FPS)
+                                                         multiPass(ComboBox14.Text) & AspectRatio & VideoWidth & VideoHeight & ScaleAlgo & FPS)
                             HMEVideoStreamConfigGenerate(VideoStreamConfig, vBrcompat(ComboBox21.Text), BitRate, bRefMode(ComboBox10.Text), vCodec(ComboBox2.Text, HwAccelDev), FPS, vLevel(ComboBox8.Text), MaxBitRate,
                                                              multiPass(ComboBox14.Text), vPreset(ComboBox5.Text, HwAccelDev), vPixFmt(ComboBox3.Text), vProfile(ComboBox7.Text), vRateControl(ComboBox4.Text), vSpaTempAQ(ComboBox11.Text),
                                                              vAQStrength(ComboBox12.Text), vTempAQ(ComboBox13.Text), TargetQualityControl, vTier(ComboBox9.Text, HwAccelDev), vTune(ComboBox6.Text),
-                                             AspectRatio, Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|")
+                                             AspectRatio, Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|", ComboBox35.Text)
                             ReturnVideoStats = True
                         End If
                     End If
@@ -1978,6 +2009,7 @@ Public Class MainMenu
             ComboBox32.Enabled = False
             Resolution_Height_UpDown.Enabled = False
             Resolution_Width_UpDown.Enabled = False
+            ComboBox35.Enabled = False
         ElseIf HwAccelDev = "opencl" Then
             ComboBox21.Enabled = False
             ComboBox10.Enabled = False
@@ -2009,6 +2041,7 @@ Public Class MainMenu
             ComboBox32.Enabled = True
             Resolution_Height_UpDown.Enabled = True
             Resolution_Width_UpDown.Enabled = True
+            ComboBox35.Enabled = True
         ElseIf HwAccelDev = "qsv" Then
             ComboBox21.Enabled = False
             ComboBox10.Enabled = False
@@ -2041,6 +2074,7 @@ Public Class MainMenu
             ComboBox32.Enabled = True
             Resolution_Height_UpDown.Enabled = True
             Resolution_Width_UpDown.Enabled = True
+            ComboBox35.Enabled = True
         ElseIf HwAccelDev = "cuda" Then
             BitRate_UpDown.Enabled = True
             ComboBox21.Enabled = True
@@ -2072,6 +2106,7 @@ Public Class MainMenu
             ComboBox32.Enabled = True
             Resolution_Height_UpDown.Enabled = True
             Resolution_Width_UpDown.Enabled = True
+            ComboBox35.Enabled = True
         End If
         If CheckBox1.Checked = False Then
             RichTextBox1.Text = ""
@@ -2149,6 +2184,7 @@ Public Class MainMenu
                     Button15.Enabled = False
                     Button16.Enabled = False
                     ComboBox32.Enabled = False
+                    ComboBox35.Enabled = False
                     Resolution_Height_UpDown.Enabled = False
                     Resolution_Width_UpDown.Enabled = False
                     Label28.Text = "READY"
@@ -2308,7 +2344,7 @@ Public Class MainMenu
                 ComboBox17.SelectedIndex = -1
                 ComboBox18.Enabled = False
                 ComboBox18.SelectedIndex = -1
-                ComboBox19.Enabled = True
+                ComboBox19.Enabled = False
                 ComboBox19.SelectedIndex = -1
                 ComboBox20.Enabled = True
                 ComboBox20.SelectedIndex = -1
@@ -2519,18 +2555,14 @@ Public Class MainMenu
             ComboBox34.Items.Add("2.1")
         ElseIf ComboBox33.Text = "3" Then
             ComboBox34.Items.Add("3.0")
-            ComboBox34.Items.Add("3.0(back)")
             ComboBox34.Items.Add("3.1")
         ElseIf ComboBox33.Text = "4" Then
             ComboBox34.Items.Add("4.0")
             ComboBox34.Items.Add("4.1")
             ComboBox34.Items.Add("quad")
-            ComboBox34.Items.Add("quad(side)")
         ElseIf ComboBox33.Text = "5" Then
             ComboBox34.Items.Add("5.0")
-            ComboBox34.Items.Add("5.0(side)")
             ComboBox34.Items.Add("5.1")
-            ComboBox34.Items.Add("5.1(side)")
         Else
             ComboBox34.Items.Add("mono")
             ComboBox34.Items.Add("stereo")
