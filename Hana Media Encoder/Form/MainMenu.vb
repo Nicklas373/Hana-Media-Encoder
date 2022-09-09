@@ -2142,7 +2142,7 @@ Public Class MainMenu
                 Vid_Options_Pnl.Height += 1
             End While
             Button19.BackgroundImage = Image.FromFile(UpBtnPath)
-            Vid_Encoder_Opt_Pnl.Location = New Point(10, 157)
+            Vid_Encoder_Opt_Pnl.Location = New Point(10, 174)
         ElseIf Button19.Text = " " Then
             While Vid_Options_Pnl.Height >= 40
                 Button19.Text = ""
@@ -2174,7 +2174,7 @@ Public Class MainMenu
                 Vid_Enc_Add_Pnl.Height += 1
             End While
             Button21.BackgroundImage = Image.FromFile(UpBtnPath)
-            Vid_Enc_QC_Pnl.Location = New Point(306, 157)
+            Vid_Enc_QC_Pnl.Location = New Point(306, 174)
         ElseIf Button21.Text = " " Then
             While Vid_Enc_Add_Pnl.Height >= 47
                 Button21.Text = ""
@@ -2201,11 +2201,11 @@ Public Class MainMenu
     End Sub
     Private Sub Expand_Hide_Btn_Asp_Ratio(sender As Object, e As EventArgs) Handles Button23.Click
         If Button23.Text = "" Then
-            While Asp_Res_Pnl.Height <= 147
+            While Asp_Res_Pnl.Height <= 174
                 Button23.Text = " "
                 Asp_Res_Pnl.Height += 1
             End While
-            AQ_Pnl.Location = New Point(624, 157)
+            AQ_Pnl.Location = New Point(624, 174)
             Button23.BackgroundImage = Image.FromFile(UpBtnPath)
         ElseIf Button23.Text = " " Then
             While Asp_Res_Pnl.Height >= 47

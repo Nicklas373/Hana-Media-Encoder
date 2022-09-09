@@ -4,12 +4,15 @@ Module GlobalVariable
     ' Readonly variable
     Public ReadOnly AudioStreamFlagsPath As String = "audioStream\"
     Public ReadOnly AudioStreamConfigPath As String = "audioConfig\"
-    Public ReadOnly SpectrumPlaceholder As String = "Assets\Spectrum_Placeholder.png"
-    Public ReadOnly SpectrumErrorPlaceholder As String = "Assets\Spectrum_Error_Placeholder.png"
+    Public ReadOnly DownBtnPath As String = "..\..\..\Assets\arrow_down.png"
+    Public ReadOnly NotifyIcoPath As String = "..\..\..\Assets\HME_256.ico"
+    Public ReadOnly SpectrumPlaceholder As String = "..\..\..\Assets\Spectrum_Placeholder.png"
+    Public ReadOnly SpectrumErrorPlaceholder As String = "..\..\..\Assets\Spectrum_Error_Placeholder.png"
+    Public ReadOnly UpBtnPath As String = "..\..\..\Assets\arrow_up.png"
     Public ReadOnly VideoStreamFlagsPath As String = "videoStream\"
     Public ReadOnly VideoStreamConfigPath As String = "videoConfig\"
-    Public ReadOnly VideoPlaceholder As String = "Assets\Snapshot_Placeholder.png"
-    Public ReadOnly VideoErrorPlaceholder As String = "Assets\Snapshot_Error_Placeholder.png"
+    Public ReadOnly VideoPlaceholder As String = "..\..\..\Assets\Snapshot_Placeholder.png"
+    Public ReadOnly VideoErrorPlaceholder As String = "..\..\..\Assets\Snapshot_Error_Placeholder.png"
 
     ' Global variable
     Public AppChangelog
@@ -65,6 +68,7 @@ Module GlobalVariable
     Public ReturnAudioStats As Boolean
     Public ReturnVideoStats As Boolean
     Public SaveFileDialog As New SaveFileDialog
+    Public ScaleAlgo As String
     Public StreamCount As Integer
     Public StreamInfo As String
     Public StreamStart As Integer
