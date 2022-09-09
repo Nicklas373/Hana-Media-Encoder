@@ -92,7 +92,8 @@ Partial Class MainMenu
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Label121 = New System.Windows.Forms.Label()
-        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Vid_Options_Pnl = New System.Windows.Forms.Panel()
+        Me.Button19 = New System.Windows.Forms.Button()
         Me.Label120 = New System.Windows.Forms.Label()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
@@ -100,13 +101,15 @@ Partial Class MainMenu
         Me.Label58 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label34 = New System.Windows.Forms.Label()
-        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Vid_Enc_Add_Pnl = New System.Windows.Forms.Panel()
+        Me.Button21 = New System.Windows.Forms.Button()
         Me.Label119 = New System.Windows.Forms.Label()
         Me.ComboBox21 = New System.Windows.Forms.ComboBox()
         Me.Label75 = New System.Windows.Forms.Label()
         Me.ComboBox10 = New System.Windows.Forms.ComboBox()
         Me.Label53 = New System.Windows.Forms.Label()
-        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Asp_Res_Pnl = New System.Windows.Forms.Panel()
+        Me.Button23 = New System.Windows.Forms.Button()
         Me.ComboBox35 = New System.Windows.Forms.ComboBox()
         Me.Label133 = New System.Windows.Forms.Label()
         Me.CheckBox12 = New System.Windows.Forms.CheckBox()
@@ -117,7 +120,8 @@ Partial Class MainMenu
         Me.Label108 = New System.Windows.Forms.Label()
         Me.Label109 = New System.Windows.Forms.Label()
         Me.Label110 = New System.Windows.Forms.Label()
-        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Vid_Enc_QC_Pnl = New System.Windows.Forms.Panel()
+        Me.Button22 = New System.Windows.Forms.Button()
         Me.Label117 = New System.Windows.Forms.Label()
         Me.Label116 = New System.Windows.Forms.Label()
         Me.Label115 = New System.Windows.Forms.Label()
@@ -132,7 +136,8 @@ Partial Class MainMenu
         Me.ComboBox14 = New System.Windows.Forms.ComboBox()
         Me.Label57 = New System.Windows.Forms.Label()
         Me.Label43 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Vid_Encoder_Opt_Pnl = New System.Windows.Forms.Panel()
+        Me.Button20 = New System.Windows.Forms.Button()
         Me.Label113 = New System.Windows.Forms.Label()
         Me.Label49 = New System.Windows.Forms.Label()
         Me.ComboBox8 = New System.Windows.Forms.ComboBox()
@@ -144,7 +149,8 @@ Partial Class MainMenu
         Me.ComboBox7 = New System.Windows.Forms.ComboBox()
         Me.ComboBox9 = New System.Windows.Forms.ComboBox()
         Me.Label48 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.AQ_Pnl = New System.Windows.Forms.Panel()
+        Me.Button24 = New System.Windows.Forms.Button()
         Me.Label112 = New System.Windows.Forms.Label()
         Me.Label54 = New System.Windows.Forms.Label()
         Me.ComboBox11 = New System.Windows.Forms.ComboBox()
@@ -161,13 +167,15 @@ Partial Class MainMenu
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Label125 = New System.Windows.Forms.Label()
-        Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.Audio_Enc_Ch_Pnl = New System.Windows.Forms.Panel()
+        Me.Button27 = New System.Windows.Forms.Button()
         Me.Label124 = New System.Windows.Forms.Label()
         Me.ComboBox33 = New System.Windows.Forms.ComboBox()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.ComboBox34 = New System.Windows.Forms.ComboBox()
         Me.Label111 = New System.Windows.Forms.Label()
-        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.Audio_Enc_QC_Pnl = New System.Windows.Forms.Panel()
+        Me.Button26 = New System.Windows.Forms.Button()
         Me.Label123 = New System.Windows.Forms.Label()
         Me.ComboBox20 = New System.Windows.Forms.ComboBox()
         Me.Label66 = New System.Windows.Forms.Label()
@@ -175,7 +183,8 @@ Partial Class MainMenu
         Me.Label72 = New System.Windows.Forms.Label()
         Me.ComboBox19 = New System.Windows.Forms.ComboBox()
         Me.Label73 = New System.Windows.Forms.Label()
-        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Audio_Opt_Pnl = New System.Windows.Forms.Panel()
+        Me.Button25 = New System.Windows.Forms.Button()
         Me.Label122 = New System.Windows.Forms.Label()
         Me.Label62 = New System.Windows.Forms.Label()
         Me.ComboBox15 = New System.Windows.Forms.ComboBox()
@@ -217,7 +226,8 @@ Partial Class MainMenu
         Me.CheckBox14 = New System.Windows.Forms.CheckBox()
         Me.CheckBox15 = New System.Windows.Forms.CheckBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.Panel15 = New System.Windows.Forms.Panel()
+        Me.Mux_Audio_Opt_Pnl = New System.Windows.Forms.Panel()
+        Me.Button29 = New System.Windows.Forms.Button()
         Me.Label130 = New System.Windows.Forms.Label()
         Me.CheckBox9 = New System.Windows.Forms.CheckBox()
         Me.CheckBox10 = New System.Windows.Forms.CheckBox()
@@ -231,7 +241,8 @@ Partial Class MainMenu
         Me.Button10 = New System.Windows.Forms.Button()
         Me.TextBox15 = New System.Windows.Forms.TextBox()
         Me.TextBox16 = New System.Windows.Forms.TextBox()
-        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.Mux_Opt_Pnl = New System.Windows.Forms.Panel()
+        Me.Button28 = New System.Windows.Forms.Button()
         Me.Label128 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label103 = New System.Windows.Forms.Label()
@@ -260,7 +271,7 @@ Partial Class MainMenu
         Me.TextBox9 = New System.Windows.Forms.TextBox()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.Panel16 = New System.Windows.Forms.Panel()
+        Me.Trim_Opt_Pnl = New System.Windows.Forms.Panel()
         Me.Label131 = New System.Windows.Forms.Label()
         Me.ComboBox27 = New System.Windows.Forms.ComboBox()
         Me.Label104 = New System.Windows.Forms.Label()
@@ -279,36 +290,37 @@ Partial Class MainMenu
         Me.Label77 = New System.Windows.Forms.Label()
         Me.ProgressBarAdv1 = New Syncfusion.Windows.Forms.Tools.ProgressBarAdv()
         Me.ComboBox36 = New System.Windows.Forms.ComboBox()
+        Me.Button30 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
-        Me.Panel7.SuspendLayout()
-        Me.Panel6.SuspendLayout()
-        Me.Panel5.SuspendLayout()
+        Me.Vid_Options_Pnl.SuspendLayout()
+        Me.Vid_Enc_Add_Pnl.SuspendLayout()
+        Me.Asp_Res_Pnl.SuspendLayout()
         CType(Me.Resolution_Height_UpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Resolution_Width_UpDown, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel4.SuspendLayout()
+        Me.Vid_Enc_QC_Pnl.SuspendLayout()
         CType(Me.CRF_VBR_UpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MaxBitRate_UpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BitRate_UpDown, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
-        Me.Panel2.SuspendLayout()
+        Me.Vid_Encoder_Opt_Pnl.SuspendLayout()
+        Me.AQ_Pnl.SuspendLayout()
         Me.TabPage3.SuspendLayout()
-        Me.Panel10.SuspendLayout()
-        Me.Panel9.SuspendLayout()
-        Me.Panel8.SuspendLayout()
+        Me.Audio_Enc_Ch_Pnl.SuspendLayout()
+        Me.Audio_Enc_QC_Pnl.SuspendLayout()
+        Me.Audio_Opt_Pnl.SuspendLayout()
         Me.TabPage6.SuspendLayout()
         Me.Panel12.SuspendLayout()
         Me.Panel11.SuspendLayout()
         Me.TabPage5.SuspendLayout()
-        Me.Panel15.SuspendLayout()
+        Me.Mux_Audio_Opt_Pnl.SuspendLayout()
         Me.Panel14.SuspendLayout()
-        Me.Panel13.SuspendLayout()
+        Me.Mux_Opt_Pnl.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.Panel17.SuspendLayout()
-        Me.Panel16.SuspendLayout()
+        Me.Trim_Opt_Pnl.SuspendLayout()
         CType(Me.ProgressBarAdv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -1168,12 +1180,12 @@ Partial Class MainMenu
         '
         Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.TabPage2.Controls.Add(Me.Label121)
-        Me.TabPage2.Controls.Add(Me.Panel7)
-        Me.TabPage2.Controls.Add(Me.Panel6)
-        Me.TabPage2.Controls.Add(Me.Panel5)
-        Me.TabPage2.Controls.Add(Me.Panel4)
-        Me.TabPage2.Controls.Add(Me.Panel3)
-        Me.TabPage2.Controls.Add(Me.Panel2)
+        Me.TabPage2.Controls.Add(Me.Vid_Options_Pnl)
+        Me.TabPage2.Controls.Add(Me.Vid_Enc_Add_Pnl)
+        Me.TabPage2.Controls.Add(Me.Asp_Res_Pnl)
+        Me.TabPage2.Controls.Add(Me.Vid_Enc_QC_Pnl)
+        Me.TabPage2.Controls.Add(Me.Vid_Encoder_Opt_Pnl)
+        Me.TabPage2.Controls.Add(Me.AQ_Pnl)
         Me.TabPage2.Controls.Add(Me.Button16)
         Me.TabPage2.Controls.Add(Me.Button15)
         Me.TabPage2.Controls.Add(Me.ComboBox29)
@@ -1202,19 +1214,37 @@ Partial Class MainMenu
         Me.Label121.TabIndex = 36
         Me.Label121.Text = "Video Codec Flags"
         '
-        'Panel7
+        'Vid_Options_Pnl
         '
-        Me.Panel7.Controls.Add(Me.Label120)
-        Me.Panel7.Controls.Add(Me.Label33)
-        Me.Panel7.Controls.Add(Me.ComboBox2)
-        Me.Panel7.Controls.Add(Me.ComboBox30)
-        Me.Panel7.Controls.Add(Me.Label58)
-        Me.Panel7.Controls.Add(Me.ComboBox3)
-        Me.Panel7.Controls.Add(Me.Label34)
-        Me.Panel7.Location = New System.Drawing.Point(10, 6)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(290, 147)
-        Me.Panel7.TabIndex = 87
+        Me.Vid_Options_Pnl.Controls.Add(Me.Button19)
+        Me.Vid_Options_Pnl.Controls.Add(Me.Label120)
+        Me.Vid_Options_Pnl.Controls.Add(Me.Label33)
+        Me.Vid_Options_Pnl.Controls.Add(Me.ComboBox2)
+        Me.Vid_Options_Pnl.Controls.Add(Me.ComboBox30)
+        Me.Vid_Options_Pnl.Controls.Add(Me.Label58)
+        Me.Vid_Options_Pnl.Controls.Add(Me.ComboBox3)
+        Me.Vid_Options_Pnl.Controls.Add(Me.Label34)
+        Me.Vid_Options_Pnl.Location = New System.Drawing.Point(10, 6)
+        Me.Vid_Options_Pnl.Name = "Vid_Options_Pnl"
+        Me.Vid_Options_Pnl.Size = New System.Drawing.Size(290, 47)
+        Me.Vid_Options_Pnl.TabIndex = 87
+        '
+        'Button19
+        '
+        Me.Button19.BackColor = System.Drawing.Color.Transparent
+        Me.Button19.BackgroundImage = CType(resources.GetObject("Button19.BackgroundImage"), System.Drawing.Image)
+        Me.Button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button19.FlatAppearance.BorderSize = 0
+        Me.Button19.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button19.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button19.Location = New System.Drawing.Point(210, 12)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(74, 28)
+        Me.Button19.TabIndex = 69
+        Me.Button19.UseVisualStyleBackColor = False
         '
         'Label120
         '
@@ -1303,17 +1333,35 @@ Partial Class MainMenu
         Me.Label34.TabIndex = 5
         Me.Label34.Text = "Pixel Format"
         '
-        'Panel6
+        'Vid_Enc_Add_Pnl
         '
-        Me.Panel6.Controls.Add(Me.Label119)
-        Me.Panel6.Controls.Add(Me.ComboBox21)
-        Me.Panel6.Controls.Add(Me.Label75)
-        Me.Panel6.Controls.Add(Me.ComboBox10)
-        Me.Panel6.Controls.Add(Me.Label53)
-        Me.Panel6.Location = New System.Drawing.Point(306, 6)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(313, 147)
-        Me.Panel6.TabIndex = 86
+        Me.Vid_Enc_Add_Pnl.Controls.Add(Me.Button21)
+        Me.Vid_Enc_Add_Pnl.Controls.Add(Me.Label119)
+        Me.Vid_Enc_Add_Pnl.Controls.Add(Me.ComboBox21)
+        Me.Vid_Enc_Add_Pnl.Controls.Add(Me.Label75)
+        Me.Vid_Enc_Add_Pnl.Controls.Add(Me.ComboBox10)
+        Me.Vid_Enc_Add_Pnl.Controls.Add(Me.Label53)
+        Me.Vid_Enc_Add_Pnl.Location = New System.Drawing.Point(306, 6)
+        Me.Vid_Enc_Add_Pnl.Name = "Vid_Enc_Add_Pnl"
+        Me.Vid_Enc_Add_Pnl.Size = New System.Drawing.Size(313, 47)
+        Me.Vid_Enc_Add_Pnl.TabIndex = 86
+        '
+        'Button21
+        '
+        Me.Button21.BackColor = System.Drawing.Color.Transparent
+        Me.Button21.BackgroundImage = CType(resources.GetObject("Button21.BackgroundImage"), System.Drawing.Image)
+        Me.Button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button21.FlatAppearance.BorderSize = 0
+        Me.Button21.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button21.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button21.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button21.Location = New System.Drawing.Point(238, 12)
+        Me.Button21.Name = "Button21"
+        Me.Button21.Size = New System.Drawing.Size(74, 28)
+        Me.Button21.TabIndex = 70
+        Me.Button21.UseVisualStyleBackColor = False
         '
         'Label119
         '
@@ -1377,22 +1425,40 @@ Partial Class MainMenu
         Me.Label53.TabIndex = 26
         Me.Label53.Text = "B-Ref Mode"
         '
-        'Panel5
+        'Asp_Res_Pnl
         '
-        Me.Panel5.Controls.Add(Me.ComboBox35)
-        Me.Panel5.Controls.Add(Me.Label133)
-        Me.Panel5.Controls.Add(Me.CheckBox12)
-        Me.Panel5.Controls.Add(Me.Resolution_Height_UpDown)
-        Me.Panel5.Controls.Add(Me.Resolution_Width_UpDown)
-        Me.Panel5.Controls.Add(Me.Label118)
-        Me.Panel5.Controls.Add(Me.ComboBox32)
-        Me.Panel5.Controls.Add(Me.Label108)
-        Me.Panel5.Controls.Add(Me.Label109)
-        Me.Panel5.Controls.Add(Me.Label110)
-        Me.Panel5.Location = New System.Drawing.Point(624, 6)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(316, 174)
-        Me.Panel5.TabIndex = 85
+        Me.Asp_Res_Pnl.Controls.Add(Me.Button23)
+        Me.Asp_Res_Pnl.Controls.Add(Me.ComboBox35)
+        Me.Asp_Res_Pnl.Controls.Add(Me.Label133)
+        Me.Asp_Res_Pnl.Controls.Add(Me.CheckBox12)
+        Me.Asp_Res_Pnl.Controls.Add(Me.Resolution_Height_UpDown)
+        Me.Asp_Res_Pnl.Controls.Add(Me.Resolution_Width_UpDown)
+        Me.Asp_Res_Pnl.Controls.Add(Me.Label118)
+        Me.Asp_Res_Pnl.Controls.Add(Me.ComboBox32)
+        Me.Asp_Res_Pnl.Controls.Add(Me.Label108)
+        Me.Asp_Res_Pnl.Controls.Add(Me.Label109)
+        Me.Asp_Res_Pnl.Controls.Add(Me.Label110)
+        Me.Asp_Res_Pnl.Location = New System.Drawing.Point(624, 6)
+        Me.Asp_Res_Pnl.Name = "Asp_Res_Pnl"
+        Me.Asp_Res_Pnl.Size = New System.Drawing.Size(316, 47)
+        Me.Asp_Res_Pnl.TabIndex = 85
+        '
+        'Button23
+        '
+        Me.Button23.BackColor = System.Drawing.Color.Transparent
+        Me.Button23.BackgroundImage = CType(resources.GetObject("Button23.BackgroundImage"), System.Drawing.Image)
+        Me.Button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button23.FlatAppearance.BorderSize = 0
+        Me.Button23.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button23.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button23.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button23.Location = New System.Drawing.Point(238, 12)
+        Me.Button23.Name = "Button23"
+        Me.Button23.Size = New System.Drawing.Size(74, 28)
+        Me.Button23.TabIndex = 87
+        Me.Button23.UseVisualStyleBackColor = False
         '
         'ComboBox35
         '
@@ -1517,26 +1583,44 @@ Partial Class MainMenu
         Me.Label110.TabIndex = 73
         Me.Label110.Text = "x"
         '
-        'Panel4
+        'Vid_Enc_QC_Pnl
         '
-        Me.Panel4.Controls.Add(Me.Label117)
-        Me.Panel4.Controls.Add(Me.Label116)
-        Me.Panel4.Controls.Add(Me.Label115)
-        Me.Panel4.Controls.Add(Me.CRF_VBR_UpDown)
-        Me.Panel4.Controls.Add(Me.MaxBitRate_UpDown)
-        Me.Panel4.Controls.Add(Me.Label114)
-        Me.Panel4.Controls.Add(Me.Label38)
-        Me.Panel4.Controls.Add(Me.ComboBox4)
-        Me.Panel4.Controls.Add(Me.BitRate_UpDown)
-        Me.Panel4.Controls.Add(Me.Label51)
-        Me.Panel4.Controls.Add(Me.Label52)
-        Me.Panel4.Controls.Add(Me.ComboBox14)
-        Me.Panel4.Controls.Add(Me.Label57)
-        Me.Panel4.Controls.Add(Me.Label43)
-        Me.Panel4.Location = New System.Drawing.Point(306, 157)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(313, 204)
-        Me.Panel4.TabIndex = 84
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Button22)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label117)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label116)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label115)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.CRF_VBR_UpDown)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.MaxBitRate_UpDown)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label114)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label38)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.ComboBox4)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.BitRate_UpDown)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label51)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label52)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.ComboBox14)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label57)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label43)
+        Me.Vid_Enc_QC_Pnl.Location = New System.Drawing.Point(306, 42)
+        Me.Vid_Enc_QC_Pnl.Name = "Vid_Enc_QC_Pnl"
+        Me.Vid_Enc_QC_Pnl.Size = New System.Drawing.Size(313, 48)
+        Me.Vid_Enc_QC_Pnl.TabIndex = 84
+        '
+        'Button22
+        '
+        Me.Button22.BackColor = System.Drawing.Color.Transparent
+        Me.Button22.BackgroundImage = CType(resources.GetObject("Button22.BackgroundImage"), System.Drawing.Image)
+        Me.Button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button22.FlatAppearance.BorderSize = 0
+        Me.Button22.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button22.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button22.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button22.Location = New System.Drawing.Point(238, 12)
+        Me.Button22.Name = "Button22"
+        Me.Button22.Size = New System.Drawing.Size(74, 28)
+        Me.Button22.TabIndex = 85
+        Me.Button22.UseVisualStyleBackColor = False
         '
         'Label117
         '
@@ -1699,23 +1783,41 @@ Partial Class MainMenu
         Me.Label43.TabIndex = 9
         Me.Label43.Text = "Constant Quality"
         '
-        'Panel3
+        'Vid_Encoder_Opt_Pnl
         '
-        Me.Panel3.Controls.Add(Me.Label113)
-        Me.Panel3.Controls.Add(Me.Label49)
-        Me.Panel3.Controls.Add(Me.ComboBox8)
-        Me.Panel3.Controls.Add(Me.Label50)
-        Me.Panel3.Controls.Add(Me.ComboBox5)
-        Me.Panel3.Controls.Add(Me.ComboBox6)
-        Me.Panel3.Controls.Add(Me.Label46)
-        Me.Panel3.Controls.Add(Me.Label47)
-        Me.Panel3.Controls.Add(Me.ComboBox7)
-        Me.Panel3.Controls.Add(Me.ComboBox9)
-        Me.Panel3.Controls.Add(Me.Label48)
-        Me.Panel3.Location = New System.Drawing.Point(10, 157)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(290, 204)
-        Me.Panel3.TabIndex = 83
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.Button20)
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.Label113)
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.Label49)
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.ComboBox8)
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.Label50)
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.ComboBox5)
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.ComboBox6)
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.Label46)
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.Label47)
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.ComboBox7)
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.ComboBox9)
+        Me.Vid_Encoder_Opt_Pnl.Controls.Add(Me.Label48)
+        Me.Vid_Encoder_Opt_Pnl.Location = New System.Drawing.Point(10, 42)
+        Me.Vid_Encoder_Opt_Pnl.Name = "Vid_Encoder_Opt_Pnl"
+        Me.Vid_Encoder_Opt_Pnl.Size = New System.Drawing.Size(290, 48)
+        Me.Vid_Encoder_Opt_Pnl.TabIndex = 83
+        '
+        'Button20
+        '
+        Me.Button20.BackColor = System.Drawing.Color.Transparent
+        Me.Button20.BackgroundImage = CType(resources.GetObject("Button20.BackgroundImage"), System.Drawing.Image)
+        Me.Button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button20.FlatAppearance.BorderSize = 0
+        Me.Button20.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button20.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button20.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button20.Location = New System.Drawing.Point(210, 12)
+        Me.Button20.Name = "Button20"
+        Me.Button20.Size = New System.Drawing.Size(74, 28)
+        Me.Button20.TabIndex = 70
+        Me.Button20.UseVisualStyleBackColor = False
         '
         'Label113
         '
@@ -1854,20 +1956,38 @@ Partial Class MainMenu
         Me.Label48.TabIndex = 15
         Me.Label48.Text = "Profile"
         '
-        'Panel2
+        'AQ_Pnl
         '
-        Me.Panel2.BackColor = System.Drawing.Color.Transparent
-        Me.Panel2.Controls.Add(Me.Label112)
-        Me.Panel2.Controls.Add(Me.Label54)
-        Me.Panel2.Controls.Add(Me.ComboBox11)
-        Me.Panel2.Controls.Add(Me.ComboBox13)
-        Me.Panel2.Controls.Add(Me.Label55)
-        Me.Panel2.Controls.Add(Me.Label56)
-        Me.Panel2.Controls.Add(Me.ComboBox12)
-        Me.Panel2.Location = New System.Drawing.Point(624, 181)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(316, 180)
-        Me.Panel2.TabIndex = 82
+        Me.AQ_Pnl.BackColor = System.Drawing.Color.Transparent
+        Me.AQ_Pnl.Controls.Add(Me.Button24)
+        Me.AQ_Pnl.Controls.Add(Me.Label112)
+        Me.AQ_Pnl.Controls.Add(Me.Label54)
+        Me.AQ_Pnl.Controls.Add(Me.ComboBox11)
+        Me.AQ_Pnl.Controls.Add(Me.ComboBox13)
+        Me.AQ_Pnl.Controls.Add(Me.Label55)
+        Me.AQ_Pnl.Controls.Add(Me.Label56)
+        Me.AQ_Pnl.Controls.Add(Me.ComboBox12)
+        Me.AQ_Pnl.Location = New System.Drawing.Point(624, 42)
+        Me.AQ_Pnl.Name = "AQ_Pnl"
+        Me.AQ_Pnl.Size = New System.Drawing.Size(316, 48)
+        Me.AQ_Pnl.TabIndex = 82
+        '
+        'Button24
+        '
+        Me.Button24.BackColor = System.Drawing.Color.Transparent
+        Me.Button24.BackgroundImage = CType(resources.GetObject("Button24.BackgroundImage"), System.Drawing.Image)
+        Me.Button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button24.FlatAppearance.BorderSize = 0
+        Me.Button24.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button24.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button24.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button24.Location = New System.Drawing.Point(238, 12)
+        Me.Button24.Name = "Button24"
+        Me.Button24.Size = New System.Drawing.Size(74, 28)
+        Me.Button24.TabIndex = 88
+        Me.Button24.UseVisualStyleBackColor = False
         '
         'Label112
         '
@@ -2057,9 +2177,9 @@ Partial Class MainMenu
         '
         Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.TabPage3.Controls.Add(Me.Label125)
-        Me.TabPage3.Controls.Add(Me.Panel10)
-        Me.TabPage3.Controls.Add(Me.Panel9)
-        Me.TabPage3.Controls.Add(Me.Panel8)
+        Me.TabPage3.Controls.Add(Me.Audio_Enc_Ch_Pnl)
+        Me.TabPage3.Controls.Add(Me.Audio_Enc_QC_Pnl)
+        Me.TabPage3.Controls.Add(Me.Audio_Opt_Pnl)
         Me.TabPage3.Controls.Add(Me.Button18)
         Me.TabPage3.Controls.Add(Me.Button17)
         Me.TabPage3.Controls.Add(Me.ComboBox22)
@@ -2087,17 +2207,35 @@ Partial Class MainMenu
         Me.Label125.TabIndex = 57
         Me.Label125.Text = "Audio Codec Flags"
         '
-        'Panel10
+        'Audio_Enc_Ch_Pnl
         '
-        Me.Panel10.Controls.Add(Me.Label124)
-        Me.Panel10.Controls.Add(Me.ComboBox33)
-        Me.Panel10.Controls.Add(Me.Label65)
-        Me.Panel10.Controls.Add(Me.ComboBox34)
-        Me.Panel10.Controls.Add(Me.Label111)
-        Me.Panel10.Location = New System.Drawing.Point(624, 6)
-        Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(316, 147)
-        Me.Panel10.TabIndex = 73
+        Me.Audio_Enc_Ch_Pnl.Controls.Add(Me.Button27)
+        Me.Audio_Enc_Ch_Pnl.Controls.Add(Me.Label124)
+        Me.Audio_Enc_Ch_Pnl.Controls.Add(Me.ComboBox33)
+        Me.Audio_Enc_Ch_Pnl.Controls.Add(Me.Label65)
+        Me.Audio_Enc_Ch_Pnl.Controls.Add(Me.ComboBox34)
+        Me.Audio_Enc_Ch_Pnl.Controls.Add(Me.Label111)
+        Me.Audio_Enc_Ch_Pnl.Location = New System.Drawing.Point(624, 6)
+        Me.Audio_Enc_Ch_Pnl.Name = "Audio_Enc_Ch_Pnl"
+        Me.Audio_Enc_Ch_Pnl.Size = New System.Drawing.Size(316, 47)
+        Me.Audio_Enc_Ch_Pnl.TabIndex = 73
+        '
+        'Button27
+        '
+        Me.Button27.BackColor = System.Drawing.Color.Transparent
+        Me.Button27.BackgroundImage = CType(resources.GetObject("Button27.BackgroundImage"), System.Drawing.Image)
+        Me.Button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button27.FlatAppearance.BorderSize = 0
+        Me.Button27.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button27.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button27.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button27.Location = New System.Drawing.Point(238, 12)
+        Me.Button27.Name = "Button27"
+        Me.Button27.Size = New System.Drawing.Size(74, 28)
+        Me.Button27.TabIndex = 72
+        Me.Button27.UseVisualStyleBackColor = False
         '
         'Label124
         '
@@ -2161,19 +2299,37 @@ Partial Class MainMenu
         Me.Label111.TabIndex = 68
         Me.Label111.Text = "Channels Layout"
         '
-        'Panel9
+        'Audio_Enc_QC_Pnl
         '
-        Me.Panel9.Controls.Add(Me.Label123)
-        Me.Panel9.Controls.Add(Me.ComboBox20)
-        Me.Panel9.Controls.Add(Me.Label66)
-        Me.Panel9.Controls.Add(Me.ComboBox17)
-        Me.Panel9.Controls.Add(Me.Label72)
-        Me.Panel9.Controls.Add(Me.ComboBox19)
-        Me.Panel9.Controls.Add(Me.Label73)
-        Me.Panel9.Location = New System.Drawing.Point(306, 6)
-        Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(313, 147)
-        Me.Panel9.TabIndex = 72
+        Me.Audio_Enc_QC_Pnl.Controls.Add(Me.Button26)
+        Me.Audio_Enc_QC_Pnl.Controls.Add(Me.Label123)
+        Me.Audio_Enc_QC_Pnl.Controls.Add(Me.ComboBox20)
+        Me.Audio_Enc_QC_Pnl.Controls.Add(Me.Label66)
+        Me.Audio_Enc_QC_Pnl.Controls.Add(Me.ComboBox17)
+        Me.Audio_Enc_QC_Pnl.Controls.Add(Me.Label72)
+        Me.Audio_Enc_QC_Pnl.Controls.Add(Me.ComboBox19)
+        Me.Audio_Enc_QC_Pnl.Controls.Add(Me.Label73)
+        Me.Audio_Enc_QC_Pnl.Location = New System.Drawing.Point(306, 6)
+        Me.Audio_Enc_QC_Pnl.Name = "Audio_Enc_QC_Pnl"
+        Me.Audio_Enc_QC_Pnl.Size = New System.Drawing.Size(313, 47)
+        Me.Audio_Enc_QC_Pnl.TabIndex = 72
+        '
+        'Button26
+        '
+        Me.Button26.BackColor = System.Drawing.Color.Transparent
+        Me.Button26.BackgroundImage = CType(resources.GetObject("Button26.BackgroundImage"), System.Drawing.Image)
+        Me.Button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button26.FlatAppearance.BorderSize = 0
+        Me.Button26.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button26.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button26.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button26.Location = New System.Drawing.Point(238, 12)
+        Me.Button26.Name = "Button26"
+        Me.Button26.Size = New System.Drawing.Size(74, 28)
+        Me.Button26.TabIndex = 71
+        Me.Button26.UseVisualStyleBackColor = False
         '
         'Label123
         '
@@ -2262,19 +2418,37 @@ Partial Class MainMenu
         Me.Label73.TabIndex = 59
         Me.Label73.Text = "Bit Rate Control"
         '
-        'Panel8
+        'Audio_Opt_Pnl
         '
-        Me.Panel8.Controls.Add(Me.Label122)
-        Me.Panel8.Controls.Add(Me.Label62)
-        Me.Panel8.Controls.Add(Me.ComboBox15)
-        Me.Panel8.Controls.Add(Me.ComboBox18)
-        Me.Panel8.Controls.Add(Me.Label68)
-        Me.Panel8.Controls.Add(Me.ComboBox16)
-        Me.Panel8.Controls.Add(Me.Label63)
-        Me.Panel8.Location = New System.Drawing.Point(10, 6)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(290, 147)
-        Me.Panel8.TabIndex = 71
+        Me.Audio_Opt_Pnl.Controls.Add(Me.Button25)
+        Me.Audio_Opt_Pnl.Controls.Add(Me.Label122)
+        Me.Audio_Opt_Pnl.Controls.Add(Me.Label62)
+        Me.Audio_Opt_Pnl.Controls.Add(Me.ComboBox15)
+        Me.Audio_Opt_Pnl.Controls.Add(Me.ComboBox18)
+        Me.Audio_Opt_Pnl.Controls.Add(Me.Label68)
+        Me.Audio_Opt_Pnl.Controls.Add(Me.ComboBox16)
+        Me.Audio_Opt_Pnl.Controls.Add(Me.Label63)
+        Me.Audio_Opt_Pnl.Location = New System.Drawing.Point(10, 6)
+        Me.Audio_Opt_Pnl.Name = "Audio_Opt_Pnl"
+        Me.Audio_Opt_Pnl.Size = New System.Drawing.Size(290, 47)
+        Me.Audio_Opt_Pnl.TabIndex = 71
+        '
+        'Button25
+        '
+        Me.Button25.BackColor = System.Drawing.Color.Transparent
+        Me.Button25.BackgroundImage = CType(resources.GetObject("Button25.BackgroundImage"), System.Drawing.Image)
+        Me.Button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button25.FlatAppearance.BorderSize = 0
+        Me.Button25.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button25.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button25.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button25.Location = New System.Drawing.Point(210, 12)
+        Me.Button25.Name = "Button25"
+        Me.Button25.Size = New System.Drawing.Size(74, 28)
+        Me.Button25.TabIndex = 70
+        Me.Button25.UseVisualStyleBackColor = False
         '
         'Label122
         '
@@ -2794,9 +2968,9 @@ Partial Class MainMenu
         'TabPage5
         '
         Me.TabPage5.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TabPage5.Controls.Add(Me.Panel15)
+        Me.TabPage5.Controls.Add(Me.Mux_Audio_Opt_Pnl)
         Me.TabPage5.Controls.Add(Me.Panel14)
-        Me.TabPage5.Controls.Add(Me.Panel13)
+        Me.TabPage5.Controls.Add(Me.Mux_Opt_Pnl)
         Me.TabPage5.Controls.Add(Me.Label102)
         Me.TabPage5.Controls.Add(Me.RichTextBox4)
         Me.TabPage5.Controls.Add(Me.CheckBox7)
@@ -2808,16 +2982,34 @@ Partial Class MainMenu
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Muxing"
         '
-        'Panel15
+        'Mux_Audio_Opt_Pnl
         '
-        Me.Panel15.Controls.Add(Me.Label130)
-        Me.Panel15.Controls.Add(Me.CheckBox9)
-        Me.Panel15.Controls.Add(Me.CheckBox10)
-        Me.Panel15.Controls.Add(Me.ComboBox25)
-        Me.Panel15.Location = New System.Drawing.Point(306, 188)
-        Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(451, 147)
-        Me.Panel15.TabIndex = 68
+        Me.Mux_Audio_Opt_Pnl.Controls.Add(Me.Button29)
+        Me.Mux_Audio_Opt_Pnl.Controls.Add(Me.Label130)
+        Me.Mux_Audio_Opt_Pnl.Controls.Add(Me.CheckBox9)
+        Me.Mux_Audio_Opt_Pnl.Controls.Add(Me.CheckBox10)
+        Me.Mux_Audio_Opt_Pnl.Controls.Add(Me.ComboBox25)
+        Me.Mux_Audio_Opt_Pnl.Location = New System.Drawing.Point(306, 188)
+        Me.Mux_Audio_Opt_Pnl.Name = "Mux_Audio_Opt_Pnl"
+        Me.Mux_Audio_Opt_Pnl.Size = New System.Drawing.Size(451, 47)
+        Me.Mux_Audio_Opt_Pnl.TabIndex = 68
+        '
+        'Button29
+        '
+        Me.Button29.BackColor = System.Drawing.Color.Transparent
+        Me.Button29.BackgroundImage = CType(resources.GetObject("Button29.BackgroundImage"), System.Drawing.Image)
+        Me.Button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button29.FlatAppearance.BorderSize = 0
+        Me.Button29.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button29.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button29.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button29.Location = New System.Drawing.Point(375, 13)
+        Me.Button29.Name = "Button29"
+        Me.Button29.Size = New System.Drawing.Size(74, 28)
+        Me.Button29.TabIndex = 72
+        Me.Button29.UseVisualStyleBackColor = False
         '
         'Label130
         '
@@ -2982,15 +3174,33 @@ Partial Class MainMenu
         Me.TextBox16.Size = New System.Drawing.Size(515, 23)
         Me.TextBox16.TabIndex = 49
         '
-        'Panel13
+        'Mux_Opt_Pnl
         '
-        Me.Panel13.Controls.Add(Me.Label128)
-        Me.Panel13.Controls.Add(Me.ComboBox1)
-        Me.Panel13.Controls.Add(Me.Label103)
-        Me.Panel13.Location = New System.Drawing.Point(10, 188)
-        Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(290, 147)
-        Me.Panel13.TabIndex = 66
+        Me.Mux_Opt_Pnl.Controls.Add(Me.Button28)
+        Me.Mux_Opt_Pnl.Controls.Add(Me.Label128)
+        Me.Mux_Opt_Pnl.Controls.Add(Me.ComboBox1)
+        Me.Mux_Opt_Pnl.Controls.Add(Me.Label103)
+        Me.Mux_Opt_Pnl.Location = New System.Drawing.Point(10, 188)
+        Me.Mux_Opt_Pnl.Name = "Mux_Opt_Pnl"
+        Me.Mux_Opt_Pnl.Size = New System.Drawing.Size(290, 47)
+        Me.Mux_Opt_Pnl.TabIndex = 66
+        '
+        'Button28
+        '
+        Me.Button28.BackColor = System.Drawing.Color.Transparent
+        Me.Button28.BackgroundImage = CType(resources.GetObject("Button28.BackgroundImage"), System.Drawing.Image)
+        Me.Button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button28.FlatAppearance.BorderSize = 0
+        Me.Button28.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button28.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button28.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button28.Location = New System.Drawing.Point(215, 13)
+        Me.Button28.Name = "Button28"
+        Me.Button28.Size = New System.Drawing.Size(74, 28)
+        Me.Button28.TabIndex = 71
+        Me.Button28.UseVisualStyleBackColor = False
         '
         'Label128
         '
@@ -3086,7 +3296,7 @@ Partial Class MainMenu
         '
         Me.TabPage4.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.TabPage4.Controls.Add(Me.Panel17)
-        Me.TabPage4.Controls.Add(Me.Panel16)
+        Me.TabPage4.Controls.Add(Me.Trim_Opt_Pnl)
         Me.TabPage4.Controls.Add(Me.Label78)
         Me.TabPage4.Controls.Add(Me.RichTextBox3)
         Me.TabPage4.Controls.Add(Me.CheckBox2)
@@ -3342,19 +3552,20 @@ Partial Class MainMenu
         Me.TextBox8.Size = New System.Drawing.Size(43, 23)
         Me.TextBox8.TabIndex = 65
         '
-        'Panel16
+        'Trim_Opt_Pnl
         '
-        Me.Panel16.Controls.Add(Me.Label131)
-        Me.Panel16.Controls.Add(Me.ComboBox27)
-        Me.Panel16.Controls.Add(Me.Label104)
-        Me.Panel16.Controls.Add(Me.ComboBox28)
-        Me.Panel16.Controls.Add(Me.Label105)
-        Me.Panel16.Controls.Add(Me.ComboBox26)
-        Me.Panel16.Controls.Add(Me.Label99)
-        Me.Panel16.Location = New System.Drawing.Point(8, 190)
-        Me.Panel16.Name = "Panel16"
-        Me.Panel16.Size = New System.Drawing.Size(423, 147)
-        Me.Panel16.TabIndex = 96
+        Me.Trim_Opt_Pnl.Controls.Add(Me.Button30)
+        Me.Trim_Opt_Pnl.Controls.Add(Me.Label131)
+        Me.Trim_Opt_Pnl.Controls.Add(Me.ComboBox27)
+        Me.Trim_Opt_Pnl.Controls.Add(Me.Label104)
+        Me.Trim_Opt_Pnl.Controls.Add(Me.ComboBox28)
+        Me.Trim_Opt_Pnl.Controls.Add(Me.Label105)
+        Me.Trim_Opt_Pnl.Controls.Add(Me.ComboBox26)
+        Me.Trim_Opt_Pnl.Controls.Add(Me.Label99)
+        Me.Trim_Opt_Pnl.Location = New System.Drawing.Point(8, 190)
+        Me.Trim_Opt_Pnl.Name = "Trim_Opt_Pnl"
+        Me.Trim_Opt_Pnl.Size = New System.Drawing.Size(423, 47)
+        Me.Trim_Opt_Pnl.TabIndex = 96
         '
         'Label131
         '
@@ -3608,6 +3819,23 @@ Partial Class MainMenu
         Me.ComboBox36.Size = New System.Drawing.Size(109, 25)
         Me.ComboBox36.TabIndex = 66
         '
+        'Button30
+        '
+        Me.Button30.BackColor = System.Drawing.Color.Transparent
+        Me.Button30.BackgroundImage = CType(resources.GetObject("Button30.BackgroundImage"), System.Drawing.Image)
+        Me.Button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button30.FlatAppearance.BorderSize = 0
+        Me.Button30.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button30.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button30.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button30.Location = New System.Drawing.Point(346, 13)
+        Me.Button30.Name = "Button30"
+        Me.Button30.Size = New System.Drawing.Size(74, 28)
+        Me.Button30.TabIndex = 96
+        Me.Button30.UseVisualStyleBackColor = False
+        '
         'MainMenu
         '
         Me.AllowRoundedCorners = True
@@ -3655,31 +3883,31 @@ Partial Class MainMenu
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
-        Me.Panel7.ResumeLayout(False)
-        Me.Panel7.PerformLayout()
-        Me.Panel6.ResumeLayout(False)
-        Me.Panel6.PerformLayout()
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
+        Me.Vid_Options_Pnl.ResumeLayout(False)
+        Me.Vid_Options_Pnl.PerformLayout()
+        Me.Vid_Enc_Add_Pnl.ResumeLayout(False)
+        Me.Vid_Enc_Add_Pnl.PerformLayout()
+        Me.Asp_Res_Pnl.ResumeLayout(False)
+        Me.Asp_Res_Pnl.PerformLayout()
         CType(Me.Resolution_Height_UpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Resolution_Width_UpDown, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
+        Me.Vid_Enc_QC_Pnl.ResumeLayout(False)
+        Me.Vid_Enc_QC_Pnl.PerformLayout()
         CType(Me.CRF_VBR_UpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MaxBitRate_UpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BitRate_UpDown, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
+        Me.Vid_Encoder_Opt_Pnl.ResumeLayout(False)
+        Me.Vid_Encoder_Opt_Pnl.PerformLayout()
+        Me.AQ_Pnl.ResumeLayout(False)
+        Me.AQ_Pnl.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
-        Me.Panel10.ResumeLayout(False)
-        Me.Panel10.PerformLayout()
-        Me.Panel9.ResumeLayout(False)
-        Me.Panel9.PerformLayout()
-        Me.Panel8.ResumeLayout(False)
-        Me.Panel8.PerformLayout()
+        Me.Audio_Enc_Ch_Pnl.ResumeLayout(False)
+        Me.Audio_Enc_Ch_Pnl.PerformLayout()
+        Me.Audio_Enc_QC_Pnl.ResumeLayout(False)
+        Me.Audio_Enc_QC_Pnl.PerformLayout()
+        Me.Audio_Opt_Pnl.ResumeLayout(False)
+        Me.Audio_Opt_Pnl.PerformLayout()
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage6.PerformLayout()
         Me.Panel12.ResumeLayout(False)
@@ -3688,18 +3916,18 @@ Partial Class MainMenu
         Me.Panel11.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
-        Me.Panel15.ResumeLayout(False)
-        Me.Panel15.PerformLayout()
+        Me.Mux_Audio_Opt_Pnl.ResumeLayout(False)
+        Me.Mux_Audio_Opt_Pnl.PerformLayout()
         Me.Panel14.ResumeLayout(False)
         Me.Panel14.PerformLayout()
-        Me.Panel13.ResumeLayout(False)
-        Me.Panel13.PerformLayout()
+        Me.Mux_Opt_Pnl.ResumeLayout(False)
+        Me.Mux_Opt_Pnl.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
         Me.Panel17.ResumeLayout(False)
         Me.Panel17.PerformLayout()
-        Me.Panel16.ResumeLayout(False)
-        Me.Panel16.PerformLayout()
+        Me.Trim_Opt_Pnl.ResumeLayout(False)
+        Me.Trim_Opt_Pnl.PerformLayout()
         CType(Me.ProgressBarAdv1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -3912,15 +4140,15 @@ Partial Class MainMenu
     Friend WithEvents Label111 As Label
     Friend WithEvents ComboBox33 As ComboBox
     Friend WithEvents ComboBox34 As ComboBox
-    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Vid_Enc_QC_Pnl As Panel
     Friend WithEvents MaxBitRate_UpDown As NumericUpDown
     Friend WithEvents Label114 As Label
     Friend WithEvents BitRate_UpDown As NumericUpDown
-    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Vid_Encoder_Opt_Pnl As Panel
     Friend WithEvents Label113 As Label
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents AQ_Pnl As Panel
     Friend WithEvents Label112 As Label
-    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Asp_Res_Pnl As Panel
     Friend WithEvents Resolution_Width_UpDown As NumericUpDown
     Friend WithEvents Label118 As Label
     Friend WithEvents Label117 As Label
@@ -3928,18 +4156,18 @@ Partial Class MainMenu
     Friend WithEvents Label115 As Label
     Friend WithEvents CRF_VBR_UpDown As NumericUpDown
     Friend WithEvents Resolution_Height_UpDown As NumericUpDown
-    Friend WithEvents Panel7 As Panel
+    Friend WithEvents Vid_Options_Pnl As Panel
     Friend WithEvents Label120 As Label
-    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Vid_Enc_Add_Pnl As Panel
     Friend WithEvents Label119 As Label
     Friend WithEvents CheckBox12 As CheckBox
     Friend WithEvents Label121 As Label
     Friend WithEvents Label125 As Label
-    Friend WithEvents Panel10 As Panel
+    Friend WithEvents Audio_Enc_Ch_Pnl As Panel
     Friend WithEvents Label124 As Label
-    Friend WithEvents Panel9 As Panel
+    Friend WithEvents Audio_Enc_QC_Pnl As Panel
     Friend WithEvents Label123 As Label
-    Friend WithEvents Panel8 As Panel
+    Friend WithEvents Audio_Opt_Pnl As Panel
     Friend WithEvents Label122 As Label
     Friend WithEvents Panel12 As Panel
     Friend WithEvents Label127 As Label
@@ -3948,18 +4176,30 @@ Partial Class MainMenu
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents TextBox17 As TextBox
     Friend WithEvents TextBox18 As TextBox
-    Friend WithEvents Panel15 As Panel
+    Friend WithEvents Mux_Audio_Opt_Pnl As Panel
     Friend WithEvents Label130 As Label
     Friend WithEvents Panel14 As Panel
     Friend WithEvents Label129 As Label
-    Friend WithEvents Panel13 As Panel
+    Friend WithEvents Mux_Opt_Pnl As Panel
     Friend WithEvents Label128 As Label
     Friend WithEvents Panel17 As Panel
     Friend WithEvents Label132 As Label
-    Friend WithEvents Panel16 As Panel
+    Friend WithEvents Trim_Opt_Pnl As Panel
     Friend WithEvents Label131 As Label
     Friend WithEvents ComboBox35 As ComboBox
     Friend WithEvents Label133 As Label
     Friend WithEvents Label134 As Label
     Friend WithEvents ComboBox36 As ComboBox
+    Friend WithEvents Button19 As Button
+    Friend WithEvents Button20 As Button
+    Friend WithEvents Button21 As Button
+    Friend WithEvents Button22 As Button
+    Friend WithEvents Button23 As Button
+    Friend WithEvents Button24 As Button
+    Friend WithEvents Button25 As Button
+    Friend WithEvents Button27 As Button
+    Friend WithEvents Button26 As Button
+    Friend WithEvents Button28 As Button
+    Friend WithEvents Button29 As Button
+    Friend WithEvents Button30 As Button
 End Class

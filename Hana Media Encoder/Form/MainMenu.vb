@@ -2144,6 +2144,102 @@ Public Class MainMenu
             Resolution_Height_UpDown.Maximum = videoRes(1)
         End If
     End Sub
+    Private Sub Expand_Hide_Btn_Video_Codec(sender As Object, e As EventArgs) Handles Button19.Click
+        If Button19.Text = "" Then
+            While Vid_Options_Pnl.Height <= 147
+                Button19.Text = " "
+                Vid_Options_Pnl.Height += 1
+            End While
+            Button19.BackgroundImage = Image.FromFile(UpBtnPath)
+            Vid_Encoder_Opt_Pnl.Location = New Point(10, 157)
+        ElseIf Button19.Text = " " Then
+            While Vid_Options_Pnl.Height >= 40
+                Button19.Text = ""
+                Vid_Options_Pnl.Height -= 1
+            End While
+            Button19.BackgroundImage = Image.FromFile(DownBtnPath)
+            Vid_Encoder_Opt_Pnl.Location = New Point(10, 40)
+        End If
+    End Sub
+    Private Sub Expand_Hide_Btn_Encoder_Opt_Codec(sender As Object, e As EventArgs) Handles Button20.Click
+        If Button20.Text = "" Then
+            While Vid_Encoder_Opt_Pnl.Height <= 204
+                Button20.Text = " "
+                Vid_Encoder_Opt_Pnl.Height += 1
+            End While
+            Button20.BackgroundImage = Image.FromFile(UpBtnPath)
+        ElseIf Button20.Text = " " Then
+            While Vid_Encoder_Opt_Pnl.Height >= 42
+                Button20.Text = ""
+                Vid_Encoder_Opt_Pnl.Height -= 1
+            End While
+            Button20.BackgroundImage = Image.FromFile(DownBtnPath)
+        End If
+    End Sub
+    Private Sub Expand_Hide_Btn_Encoder_Add_Codec(sender As Object, e As EventArgs) Handles Button21.Click
+        If Button21.Text = "" Then
+            While Vid_Enc_Add_Pnl.Height <= 147
+                Button21.Text = " "
+                Vid_Enc_Add_Pnl.Height += 1
+            End While
+            Button21.BackgroundImage = Image.FromFile(UpBtnPath)
+            Vid_Enc_QC_Pnl.Location = New Point(306, 157)
+        ElseIf Button21.Text = " " Then
+            While Vid_Enc_Add_Pnl.Height >= 47
+                Button21.Text = ""
+                Vid_Enc_Add_Pnl.Height -= 1
+            End While
+            Button21.BackgroundImage = Image.FromFile(DownBtnPath)
+            Vid_Enc_QC_Pnl.Location = New Point(306, 42)
+        End If
+    End Sub
+    Private Sub Expand_Hide_Btn_Encoder_QC_Codec(sender As Object, e As EventArgs) Handles Button22.Click
+        If Button22.Text = "" Then
+            While Vid_Enc_QC_Pnl.Height <= 204
+                Button22.Text = " "
+                Vid_Enc_QC_Pnl.Height += 1
+            End While
+            Button22.BackgroundImage = Image.FromFile(UpBtnPath)
+        ElseIf Button22.Text = " " Then
+            While Vid_Enc_QC_Pnl.Height >= 48
+                Button22.Text = ""
+                Vid_Enc_QC_Pnl.Height -= 1
+            End While
+            Button22.BackgroundImage = Image.FromFile(DownBtnPath)
+        End If
+    End Sub
+    Private Sub Expand_Hide_Btn_Asp_Ratio(sender As Object, e As EventArgs) Handles Button23.Click
+        If Button23.Text = "" Then
+            While Asp_Res_Pnl.Height <= 147
+                Button23.Text = " "
+                Asp_Res_Pnl.Height += 1
+            End While
+            AQ_Pnl.Location = New Point(624, 157)
+            Button23.BackgroundImage = Image.FromFile(UpBtnPath)
+        ElseIf Button23.Text = " " Then
+            While Asp_Res_Pnl.Height >= 47
+                Button23.Text = ""
+                Asp_Res_Pnl.Height -= 1
+            End While
+            AQ_Pnl.Location = New Point(624, 42)
+            Button23.BackgroundImage = Image.FromFile(DownBtnPath)
+        End If
+    End Sub
+    Private Sub Expand_Hide_Btn_AQ(sender As Object, e As EventArgs) Handles Button24.Click
+        If Button24.Text = "" Then
+            While AQ_Pnl.Height <= 180
+                Button24.Text = " "
+                AQ_Pnl.Height += 1
+            End While
+            Button24.BackgroundImage = Image.FromFile(UpBtnPath)
+        ElseIf Button24.Text = " " Then
+            While AQ_Pnl.Height >= 48
+                Button24.Text = ""
+                AQ_Pnl.Height -= 1
+            End While
+            Button24.BackgroundImage = Image.FromFile(DownBtnPath)
+        End If
+    End Sub
     Private Sub LockProfileVideoCheck(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
         If CheckBox3.Checked = True Then
             If TextBox1.Text = "" Then
@@ -2655,6 +2751,51 @@ Public Class MainMenu
             End If
         End If
     End Sub
+    Private Sub Expand_Hide_Audio_Opt_Btn(sender As Object, e As EventArgs) Handles Button25.Click
+        If Button25.Text = "" Then
+            While Audio_Opt_Pnl.Height <= 147
+                Button25.Text = " "
+                Audio_Opt_Pnl.Height += 1
+            End While
+            Button25.BackgroundImage = Image.FromFile(UpBtnPath)
+        ElseIf Button25.Text = " " Then
+            While Audio_Opt_Pnl.Height >= 47
+                Button25.Text = ""
+                Audio_Opt_Pnl.Height -= 1
+            End While
+            Button25.BackgroundImage = Image.FromFile(DownBtnPath)
+        End If
+    End Sub
+    Private Sub Expand_Hide_Audio_Enc_Opt_Btn(sender As Object, e As EventArgs) Handles Button26.Click
+        If Button26.Text = "" Then
+            While Audio_Enc_QC_Pnl.Height <= 147
+                Button26.Text = " "
+                Audio_Enc_QC_Pnl.Height += 1
+            End While
+            Button26.BackgroundImage = Image.FromFile(UpBtnPath)
+        ElseIf Button26.Text = " " Then
+            While Audio_Enc_QC_Pnl.Height >= 47
+                Button26.Text = ""
+                Audio_Enc_QC_Pnl.Height -= 1
+            End While
+            Button26.BackgroundImage = Image.FromFile(DownBtnPath)
+        End If
+    End Sub
+    Private Sub Expand_Hide_Audio_Ch_Opt_Btn(sender As Object, e As EventArgs) Handles Button27.Click
+        If Button27.Text = "" Then
+            While Audio_Enc_Ch_Pnl.Height <= 147
+                Button27.Text = " "
+                Audio_Enc_Ch_Pnl.Height += 1
+            End While
+            Button27.BackgroundImage = Image.FromFile(UpBtnPath)
+        ElseIf Button27.Text = " " Then
+            While Audio_Enc_Ch_Pnl.Height >= 47
+                Button27.Text = ""
+                Audio_Enc_Ch_Pnl.Height -= 1
+            End While
+            Button27.BackgroundImage = Image.FromFile(DownBtnPath)
+        End If
+    End Sub
     Private Sub LockProfileAudioCheck(sender As Object, e As EventArgs) Handles CheckBox5.CheckedChanged
         If CheckBox5.Checked = True Then
             If TextBox1.Text = "" Then
@@ -2980,6 +3121,21 @@ Public Class MainMenu
                 MessageBoxAdv.Show("Maximum value for seconds is 59 !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 TextBox12.Text = ""
             End If
+        End If
+    End Sub
+    Private Sub Expand_Hide_Trim_Opt_Btn(sender As Object, e As EventArgs) Handles Button30.Click
+        If Button30.Text = "" Then
+            While Trim_Opt_Pnl.Height <= 147
+                Button30.Text = " "
+                Trim_Opt_Pnl.Height += 1
+            End While
+            Button30.BackgroundImage = Image.FromFile(UpBtnPath)
+        ElseIf Button30.Text = " " Then
+            While Trim_Opt_Pnl.Height >= 47
+                Button30.Text = ""
+                Trim_Opt_Pnl.Height -= 1
+            End While
+            Button30.BackgroundImage = Image.FromFile(DownBtnPath)
         End If
     End Sub
     Private Sub LockProfile_Trim(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
@@ -3520,6 +3676,36 @@ Public Class MainMenu
             ComboBox25.SelectedIndex = -1
             CheckBox9.Checked = False
             CheckBox9.Enabled = True
+        End If
+    End Sub
+    Private Sub Expand_Hide_Mux_Opt_Btn(sender As Object, e As EventArgs) Handles Button28.Click
+        If Button28.Text = "" Then
+            While Mux_Opt_Pnl.Height <= 147
+                Button28.Text = " "
+                Mux_Opt_Pnl.Height += 1
+            End While
+            Button28.BackgroundImage = Image.FromFile(UpBtnPath)
+        ElseIf Button28.Text = " " Then
+            While Mux_Opt_Pnl.Height >= 47
+                Button28.Text = ""
+                Mux_Opt_Pnl.Height -= 1
+            End While
+            Button28.BackgroundImage = Image.FromFile(DownBtnPath)
+        End If
+    End Sub
+    Private Sub Expand_Hide_Audio_Mux_Opt_Btn(sender As Object, e As EventArgs) Handles Button29.Click
+        If Button29.Text = "" Then
+            While Mux_Audio_Opt_Pnl.Height <= 147
+                Button29.Text = " "
+                Mux_Audio_Opt_Pnl.Height += 1
+            End While
+            Button29.BackgroundImage = Image.FromFile(UpBtnPath)
+        ElseIf Button29.Text = " " Then
+            While Mux_Audio_Opt_Pnl.Height >= 47
+                Button29.Text = ""
+                Mux_Audio_Opt_Pnl.Height -= 1
+            End While
+            Button29.BackgroundImage = Image.FromFile(DownBtnPath)
         End If
     End Sub
     Private Sub LockProfile_Mux(sender As Object, e As EventArgs) Handles CheckBox7.CheckedChanged
