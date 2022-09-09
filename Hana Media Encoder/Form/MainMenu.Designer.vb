@@ -272,6 +272,7 @@ Partial Class MainMenu
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.Trim_Opt_Pnl = New System.Windows.Forms.Panel()
+        Me.Button30 = New System.Windows.Forms.Button()
         Me.Label131 = New System.Windows.Forms.Label()
         Me.ComboBox27 = New System.Windows.Forms.ComboBox()
         Me.Label104 = New System.Windows.Forms.Label()
@@ -290,7 +291,6 @@ Partial Class MainMenu
         Me.Label77 = New System.Windows.Forms.Label()
         Me.ProgressBarAdv1 = New Syncfusion.Windows.Forms.Tools.ProgressBarAdv()
         Me.ComboBox36 = New System.Windows.Forms.ComboBox()
-        Me.Button30 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -3567,6 +3567,23 @@ Partial Class MainMenu
         Me.Trim_Opt_Pnl.Size = New System.Drawing.Size(423, 47)
         Me.Trim_Opt_Pnl.TabIndex = 96
         '
+        'Button30
+        '
+        Me.Button30.BackColor = System.Drawing.Color.Transparent
+        Me.Button30.BackgroundImage = CType(resources.GetObject("Button30.BackgroundImage"), System.Drawing.Image)
+        Me.Button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button30.FlatAppearance.BorderSize = 0
+        Me.Button30.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button30.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button30.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button30.Location = New System.Drawing.Point(346, 13)
+        Me.Button30.Name = "Button30"
+        Me.Button30.Size = New System.Drawing.Size(74, 28)
+        Me.Button30.TabIndex = 96
+        Me.Button30.UseVisualStyleBackColor = False
+        '
         'Label131
         '
         Me.Label131.AutoSize = True
@@ -3818,23 +3835,6 @@ Partial Class MainMenu
         Me.ComboBox36.Name = "ComboBox36"
         Me.ComboBox36.Size = New System.Drawing.Size(109, 25)
         Me.ComboBox36.TabIndex = 66
-        '
-        'Button30
-        '
-        Me.Button30.BackColor = System.Drawing.Color.Transparent
-        Me.Button30.BackgroundImage = CType(resources.GetObject("Button30.BackgroundImage"), System.Drawing.Image)
-        Me.Button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button30.FlatAppearance.BorderSize = 0
-        Me.Button30.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.Button30.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.Button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button30.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Button30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button30.Location = New System.Drawing.Point(346, 13)
-        Me.Button30.Name = "Button30"
-        Me.Button30.Size = New System.Drawing.Size(74, 28)
-        Me.Button30.TabIndex = 96
-        Me.Button30.UseVisualStyleBackColor = False
         '
         'MainMenu
         '

@@ -59,6 +59,17 @@ Module MiscModule
         End If
         Return ""
     End Function
+    Public Sub NotifyIcon(NotifyTitle As String, NotifyText As String, NotifyTimeout As Integer, NotifyStatus As Boolean)
+        Dim NotifyIcon As New NotifyIcon With {
+           .Icon = New Icon(NotifyIcoPath),
+           .Visible = True
+        }
+        If NotifyStatus = True Then
+            NotifyIcon.ShowBalloonTip(NotifyTimeout, NotifyTitle, NotifyText, ToolTipIcon.[Info])
+        ElseIf NotifyStatus = False Then
+            NotifyIcon.ShowBalloonTip(NotifyTimeout, NotifyTitle, NotifyText, ToolTipIcon.[Error])
+        End If
+    End Sub
     Public Sub OnCompleted(cmbx As String)
         If cmbx = "Do Nothing" Then
 

@@ -895,8 +895,7 @@ Public Class MainMenu
                         HwAccelDev = Hwdefconfig.Remove(0, 11)
                     End If
                     If Newdebugmode = "True" Then
-                        MessageBoxAdv.Show("Warning: Debug mode was actived !" & vbCrLf & vbCrLf & "Progressbar will not working correctly while encoding" & vbCrLf & "Only use this mode to get some error log", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                        MessageBoxAdv.Show("To disable debug mode, go to options then uncheck 'Debug Mode'", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        NotifyIcon("Debug mode was actived !", "Progressbar will not working correctly while encoding", 1000, True)
                     End If
                     If CheckBox1.Checked = False And CheckBox4.Checked = False And CheckBox15.Checked = False And CheckBox8.Checked = False And CheckBox6.Checked = False Then
                         MessageBoxAdv.Show("Current configuration is not valid !" & vbCrLf & vbCrLf & "Please check current configuration", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1203,7 +1202,7 @@ Public Class MainMenu
                         Dim destFile As New FileInfo(TextBox1.Text)
                         If destFile.Length / 1024 / 1024 < 1.0 Then
                             If destFile.Length / 1024 < 1.0 Then
-                                MessageBoxAdv.Show("Encoding failed: " & FfmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error, FfmpegErr)
+                                NotifyIcon("Media File has failed to encoded !", "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), 1000, False)
                                 Label28.Text = "Error"
                                 ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
                             Else
@@ -1213,7 +1212,7 @@ Public Class MainMenu
                                 If Newdebugmode = "True" Then
                                     MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information, FfmpegErr)
                                 Else
-                                    MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    NotifyIcon("Media File has successfuly to encoded !", "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), 1000, True)
                                 End If
                                 Label70.Visible = True
                                 Label76.Visible = True
@@ -1221,10 +1220,6 @@ Public Class MainMenu
                                 Label77.Visible = True
                                 Label28.Text = "Completed"
                                 Label71.Text = "" & GetFileSize(TextBox1.Text)
-                                Dim previewResult As DialogResult = MessageBoxAdv.Show(Me, "Play " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                                If previewResult = DialogResult.Yes Then
-                                    previewMediaModule(TextBox1.Text, FfmpegConf & "ffplay.exe", Label5.Text)
-                                End If
                             End If
                         Else
                             If ProgressBarAdv1.Value <> ProgressBarAdv1.Maximum Then
@@ -1233,7 +1228,7 @@ Public Class MainMenu
                             If Newdebugmode = "True" Then
                                 MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information, FfmpegErr)
                             Else
-                                MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                NotifyIcon("Media File has successfuly to encoded !", "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), 1000, True)
                             End If
                             Label70.Visible = True
                             Label76.Visible = True
@@ -1241,13 +1236,9 @@ Public Class MainMenu
                             Label77.Visible = True
                             Label28.Text = "Completed"
                             Label71.Text = "" & GetFileSize(TextBox1.Text)
-                            Dim previewResult As DialogResult = MessageBoxAdv.Show(Me, "Play " & TextBox1.Text & " ? ", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                            If previewResult = DialogResult.Yes Then
-                                previewMediaModule(TextBox1.Text, FfmpegConf & "ffplay.exe", Label5.Text)
-                            End If
                         End If
                     Else
-                        MessageBoxAdv.Show("Encoding failed: " & FfmpegEncStats & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error, FfmpegErr)
+                        NotifyIcon("Media File has failed to encoded !", "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), 1000, False)
                         Label28.Text = "Error"
                         ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
                     End If
