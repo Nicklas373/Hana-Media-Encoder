@@ -5,10 +5,8 @@
 # Hana Media Encoder 
 Hana Media Encoder is the multimedia application that have feature to encode, decode, many other function to process media files using FFMPEG pre-build application (Windows Version),
 HME works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE, for now
-HME only focus to work with only hardware GPU accelerated codec that FFMPEG has support it, for now (H264 and H265) codec only, and it does not have any aim to support
-native or software or even CPU based encoding for media file in the future.
-
-For audio codec it only supported for MP3, FLAC and WAV, and it will add other codec later.
+HME only focus to work with only hardware GPU accelerated codec that FFMPEG has support it, for now (H264 and H265) codec only, and it does not have any aim to support native or
+software or even CPU based encoding for media file in the future.
 
 # Current Features:
 * Support multiple media file encoding with same or different profile for each stream
@@ -18,16 +16,15 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
 * Support preview media file by using FFPLAY
 
 # Current Supported Video Output Codec
-- H264 / H265 (AVC / HEVC)
-* H264 / HEVC (Native codec are not supported yet)
-* H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
-* H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
-* H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
+- H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
+- H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
+- H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
 
 # Current Supported Audio Output Codec
-* MP3 (libmp3lame)
-* FLAC (flac)
-* WAV (libpcm)
+- MP3 (libmp3lame)
+- FLAC (flac)
+- WAV (libpcm)
+- AAC (aac)
 
 # How to install
 * Download .NET Framework 6.0, Hana Media Encoder setup & FFMPEG Pre-build
