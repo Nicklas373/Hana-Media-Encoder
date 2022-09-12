@@ -57,8 +57,7 @@ Public Class OptionsMenu
         If CheckBox2.Checked Then
             ComboBox1.Enabled = True
             CheckBox1.Checked = False
-            MessageBoxAdv.Show("Warning: Override GPU Hardware Acceleration will provide other GPU Hardware Acceleration profile are selected !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            MessageBoxAdv.Show("Make sure to choose proper GPU Hardware Acceleration that may exists on your GPU!", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBoxAdv.Show("Please choose proper GPU Hardware Acceleration that exists on your systems !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             ComboBox1.Enabled = False
         End If
@@ -197,7 +196,7 @@ Public Class OptionsMenu
             writer.WriteLine("Debug Mode:" & CheckBox3.Checked)
             writer.Close()
         End If
-        ConfigState = True
+        ConfigState = False
     End Sub
     Private Sub FrameCountCheck(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
         If File.Exists("config.ini") Then
@@ -217,7 +216,7 @@ Public Class OptionsMenu
             writer.WriteLine("Frame Count:" & CheckBox4.Checked)
             writer.Close()
         End If
-        ConfigState = True
+        ConfigState = False
     End Sub
     Private Sub WebURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         Dim psi As New ProcessStartInfo With {
