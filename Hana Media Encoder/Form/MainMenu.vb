@@ -1129,8 +1129,11 @@ Public Class MainMenu
                     ProgressBarAdv1.Refresh()
                     ProgressBarAdv1.Value = 0
                     ProgressBarAdv1.Refresh()
-                    If FrameMode = "True" Or Label5.Text.Equals("Not Detected") = True Then
+                    If FrameMode = "True" Then
                         FrameCount = "0"
+                    ElseIf Label5.Text.Equals("Not Detected") = True Then
+                        Dim TimeFrame As String() = Label81.Text.Split(":")
+                        FrameCount = TimeConversion(TimeFrame(0), TimeFrame(1), TimeFrame(2))
                     Else
                         Dim loadInit = New Loading("Frame", Label2.Text)
                         loadInit.Show()
@@ -1156,7 +1159,7 @@ Public Class MainMenu
                     Label28.Text = "Encoding"
                     EncStartTime = DateTime.Now
                     ProgressBarAdv1.Minimum = 0
-                    If Label5.Text.Equals("Not Detected") = False Or TextBox15.Text IsNot "" Or FrameMode = "False" Or CheckBox1.Checked = True And CheckBox3.Checked = True Then
+                    If FrameMode = "False" Then
                         ProgressBarAdv1.Maximum = FrameCount
                     Else
                         ProgressBarAdv1.Maximum = 100
@@ -1168,53 +1171,48 @@ Public Class MainMenu
                         .WindowStyle = ProcessWindowStyle.Hidden,
                         .UseShellExecute = False
                     }
-                    If Label5.Text.Equals("Not Detected") = False Or TextBox15.Text IsNot "" Or CheckBox1.Checked = True And CheckBox3.Checked = True Then
-                        If Newdebugmode = "True" And FrameMode = "False" Then
-                            Dim new_process As Process = Process.Start(new_psi)
-                            Do
-                                Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
-                                Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
-                                If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
+                    If Newdebugmode = "True" And FrameMode = "False" Then
+                        Dim new_process As Process = Process.Start(new_psi)
+                        Do
+                            Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
+                            Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
+                            If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
+                                FfmpegEncStats = "Frame Error!"
+                            End If
+                            FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
+                        Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                        Await Task.Run(Sub() new_process.WaitForExit())
+                    ElseIf Newdebugmode = "True" And FrameMode = "True" Then
+                        Dim new_process As Process = Process.Start(new_psi)
+                        FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
+                        Await Task.Run(Sub() new_process.WaitForExit())
+                    ElseIf Newdebugmode = "False" And FrameMode = "True" Then
+                        Dim new_process As Process = Process.Start(new_psi)
+                        Await Task.Run(Sub() new_process.WaitForExit())
+                    ElseIf Newdebugmode = "False" And FrameMode = "False" Then
+                        Dim new_process As Process = Process.Start(new_psi)
+                        Do
+                            Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
+                            Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
+                            Dim encAudioFrame As String()
+                            If Label5.Text.Equals("Not Detected") = True Then
+                                If RemoveWhitespace(getBetween(line, "time=", " bitrate")).Equals("") = False Then
+                                    If RemoveWhitespace(getBetween(line, "time=", " bitrate")) <= FrameCount Then
+                                        encAudioFrame = RemoveWhitespace(getBetween(line, "time=", " bitrate")).Split(":")
+                                        ProgressBarAdv1.Value = CInt(TimeConversion(encAudioFrame(0), encAudioFrame(1), encAudioFrame(2)))
+                                    End If
+                                Else
                                     FfmpegEncStats = "Frame Error!"
                                 End If
-                                FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
-                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
-                            Await Task.Run(Sub() new_process.WaitForExit())
-                        ElseIf Newdebugmode = "True" And FrameMode = "True" Then
-                            Dim new_process As Process = Process.Start(new_psi)
-                            FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
-                            Await Task.Run(Sub() new_process.WaitForExit())
-                        ElseIf Newdebugmode = "False" And FrameMode = "True" Then
-                            Dim new_process As Process = Process.Start(new_psi)
-                            Await Task.Run(Sub() new_process.WaitForExit())
-                        ElseIf Newdebugmode = "False" And FrameMode = "False" Then
-                            Dim new_process As Process = Process.Start(new_psi)
-                            Do
-                                Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
-                                Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
+                            Else
                                 If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
                                     FfmpegEncStats = "Frame Error!"
                                 ElseIf RemoveWhitespace(getBetween(line, "frame= ", " fps")) <= FrameCount Then
                                     ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
                                 End If
-                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
-                            Await Task.Run(Sub() new_process.WaitForExit())
-                        End If
-                    Else
-                        If Newdebugmode = "True" And FrameMode = "True" Then
-                            Dim new_process As Process = Process.Start(new_psi)
-                            FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
-                            Await Task.Run(Sub() new_process.WaitForExit())
-                        ElseIf Newdebugmode = "True" And FrameMode = "False" Then
-                            Dim new_process As Process = Process.Start(new_psi)
-                            Do
-                                FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
-                            Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
-                            Await Task.Run(Sub() new_process.WaitForExit())
-                        Else
-                            Dim new_process As Process = Process.Start(new_psi)
-                            Await Task.Run(Sub() new_process.WaitForExit())
-                        End If
+                            End If
+                        Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                        Await Task.Run(Sub() new_process.WaitForExit())
                     End If
                     EncEndTime = DateTime.Now
                     If File.Exists(TextBox1.Text) Then
