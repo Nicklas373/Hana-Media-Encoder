@@ -70,6 +70,11 @@ Module MiscModule
             NotifyIcon.ShowBalloonTip(NotifyTimeout, NotifyTitle, NotifyText, ToolTipIcon.[Error])
         End If
     End Sub
+    Public Sub MassDelete(dirname As String, ext As String)
+        For Each deleteFile In Directory.GetFiles(dirname, "*." & ext, SearchOption.TopDirectoryOnly)
+            File.Delete(deleteFile)
+        Next
+    End Sub
     Public Sub OnCompleted(cmbx As String)
         If cmbx = "Do Nothing" Then
 
@@ -84,12 +89,20 @@ Module MiscModule
             Shell("Shutdown -s -t 5 -c " & Chr(34) & "Your computer will log out after 5 seconds" & Chr(34))
         End If
     End Sub
-    Public Sub MassDelete(dirname As String, ext As String)
-        For Each deleteFile In Directory.GetFiles(dirname, "*." & ext, SearchOption.TopDirectoryOnly)
-            File.Delete(deleteFile)
-        Next
-    End Sub
     Public Function RemoveWhitespace(fullString As String) As String
         Return New String(fullString.Where(Function(x) Not Char.IsWhiteSpace(x)).ToArray())
     End Function
+    Public Sub Tooltip(control As Control, subtitle As String)
+        Dim toolTip As New ToolTip With {
+            .AutoPopDelay = 5000,
+            .IsBalloon = True,
+            .InitialDelay = 1000,
+            .ReshowDelay = 500,
+            .ShowAlways = True,
+            .ToolTipTitle = "Information",
+            .UseFading = True,
+            .UseAnimation = True
+        }
+        toolTip.SetToolTip(control, subtitle)
+    End Sub
 End Module
