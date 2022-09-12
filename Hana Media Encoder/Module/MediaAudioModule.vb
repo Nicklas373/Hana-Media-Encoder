@@ -53,7 +53,7 @@
             If bdCmbx = "16 Bit" Then
                 value = " -sample_fmt:a:" & aStream & " s16"
             ElseIf bdCmbx = "24 Bit" Then
-                value = "-sample_fmt:a:" & aStream & " s32"
+                value = " -sample_fmt:a:" & aStream & " s32"
             Else
                 value = ""
             End If
