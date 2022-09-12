@@ -7,7 +7,24 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2022</Copyright>
-    <PackageReleaseNotes>v1.3.1 (20220904):
+    <PackageReleaseNotes>v1.3.4 (20220912):
+- Disable panel drag drop feature while FFMPEG are not load properly
+- Drop dependency for video and audio codec while value is empty (Default FFMPEG value will be used while empty)
+- Do not restart application while enabling debug mode or frame mode
+- Fixup AAC and MP3 value condition for codec configuration
+- Fixup issue with chapter read and refresh algorithm
+- Fixup issue with progressbar not work while encoding process
+- Fixup issue with snapshot algorithm for audio file
+- Introduce channel layout feature for audio codec
+- Introduce feature to do action after encoding completed
+- Introduce new button to change checkbox for save stream config per each stream
+- Introduce slide animation for each main configuration on video / audio codec after grouping
+- Introduce tooltip (Information tool) that will show minimal information about selected text from video codec configurations
+- Introduce video scale or interpolation algorithm
+- Misc fixes with audio decision algorithm
+- Re-design layout interface
+
+v1.3.1 (20220904):
 - Fixup debug mode are not show log while enable in some cases
 - Fixup encoding algorithm
 - Introduce MP4 and AAC media file extensions
@@ -139,15 +156,13 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2022</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.3.1</Version>
-    <AssemblyVersion>1.3.1</AssemblyVersion>
-    <FileVersion>1.3.1</FileVersion>
+    <Version>1.3.4</Version>
+    <AssemblyVersion>1.3.4</AssemblyVersion>
+    <FileVersion>1.3.4</FileVersion>
     <Description>     Hana Media Encoder is the multimedia application that have feature to encode, decode, many other function to process media files using FFMPEG pre-build application (Windows Version),
 HME works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE, for now
 HME only focus to work with only hardware GPU accelerated codec that FFMPEG has support it, for now (H264 and H265) codec only, and it does not have any aim to support native or
 software or even CPU based encoding for media file in the future.
-
-For audio codec it only supported for MP3, FLAC and WAV, and it will add other codec later.
 
 # Current Features:
 * Support multiple media file encoding with same or different profile for each stream
@@ -158,16 +173,16 @@ For audio codec it only supported for MP3, FLAC and WAV, and it will add other c
 
 # Current Supported Video Output Codec
 - H264 / H265 (AVC / HEVC)
-* H264 / HEVC (Native codec are not supported yet)
-* H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
-* H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
-* H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
+- H264 / HEVC (Native codec are not supported yet)
+- H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
+- H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
+- H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
 
 # Current Supported Audio Output Codec
-* MP3 (libmp3lame)
-* FLAC (flac)
-* WAV (libpcm)
-</Description>
+- MP3 (libmp3lame)
+- FLAC (flac)
+- WAV (libpcm)
+- AAC (aac)</Description>
     <PackageProjectUrl>https://github.com/Nicklas373/Hana-Media-Encoder</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Nicklas373/Hana-Media-Encoder</RepositoryUrl>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>

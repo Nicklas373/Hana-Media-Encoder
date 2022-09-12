@@ -1,10 +1,22 @@
 {
-	"release_date": "04 September 2022",
-	"version": "1.3.1.0",
+	"release_date": "12 September 2022",
+	"version": "1.3.4.0",
 	"changelog": [
-		"- Fixup debug mode are not show log while enable in some cases",
-		"- Fixup encoding decision algorithm",
-		"- Introduce MP4 and AAC media file extensions"
+	    "- Disable panel drag drop feature while FFMPEG are not load properly",
+		"- Drop dependency for video and audio codec while value is empty (Default FFMPEG value will be used while empty)",
+		"- Do not restart application while enabling debug mode or frame mode",
+		"- Fixup AAC and MP3 value condition for codec configuration",
+		"- Fixup issue with chapter read and refresh algorithm",
+		"- Fixup issue with progressbar not work while encoding process",
+		"- Fixup issue with snapshot algorithm for audio file",
+		"- Introduce channel layout feature for audio codec",
+		"- Introduce feature to do action after encoding completed",
+		"- Introduce new button to change checkbox for save stream config per each stream",
+		"- Introduce slide animation for each main configuration on video / audio codec after grouping",
+		"- Introduce tooltip (Information tool) that will show minimal information about selected text from video codec configurations",
+		"- Introduce video scale or interpolation algorithm",
+		"- Misc fixes with audio decision algorithm",
+		"- Re-design layout interface"
 	],
-	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.3.1/HME_Setup.msi"
+	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.3.4/HME_Setup.msi"
 }
