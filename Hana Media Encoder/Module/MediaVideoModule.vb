@@ -59,11 +59,11 @@
     Public Function multiPass(Cmbx As String) As String
         'Combobox14.text'
         Dim value As String
-        If Cmbx = "1-Pass" Then
+        If Cmbx = "1 Pass" Then
             value = " -multipass 0 "
-        ElseIf Cmbx = "2-Pass (1/4 Resolution)" Then
+        ElseIf Cmbx = "2 Pass (1/4 Resolution)" Then
             value = " -multipass 1 "
-        ElseIf Cmbx = "2-Pass (Full Resolution)" Then
+        ElseIf Cmbx = "2 Pass (Full Resolution)" Then
             value = " -multipass 2 "
         Else
             value = " "
