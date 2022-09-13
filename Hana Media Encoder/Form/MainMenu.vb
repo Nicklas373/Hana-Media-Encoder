@@ -1145,12 +1145,12 @@ Public Class MainMenu
                         Newffargs = "ffprobe -hide_banner -i " & Chr(34) & VideoFilePath & Chr(34) & " -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0"
                         HMEGenerate("HME_VF.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
                         Dim psi As New ProcessStartInfo("HME_VF.bat") With {
-                            .RedirectStandardError = False,
-                            .RedirectStandardOutput = True,
-                            .CreateNoWindow = True,
-                            .WindowStyle = ProcessWindowStyle.Hidden,
-                            .UseShellExecute = False
-                        }
+                                .RedirectStandardError = False,
+                                .RedirectStandardOutput = True,
+                                .CreateNoWindow = True,
+                                .WindowStyle = ProcessWindowStyle.Hidden,
+                                .UseShellExecute = False
+                            }
                         Dim process As Process = Process.Start(psi)
                         Do
                             Dim lineReader As StreamReader = process.StandardOutput
@@ -1169,12 +1169,12 @@ Public Class MainMenu
                         ProgressBarAdv1.Maximum = 100
                     End If
                     Dim new_psi As New ProcessStartInfo("HME.bat") With {
-                        .RedirectStandardError = True,
-                        .RedirectStandardOutput = False,
-                        .CreateNoWindow = True,
-                        .WindowStyle = ProcessWindowStyle.Hidden,
-                        .UseShellExecute = False
-                    }
+                            .RedirectStandardError = True,
+                            .RedirectStandardOutput = False,
+                            .CreateNoWindow = True,
+                            .WindowStyle = ProcessWindowStyle.Hidden,
+                            .UseShellExecute = False
+                       }
                     If Newdebugmode = "True" And FrameMode = "False" Then
                         Dim new_process As Process = Process.Start(new_psi)
                         Do
@@ -1223,7 +1223,11 @@ Public Class MainMenu
                         Dim destFile As New FileInfo(TextBox1.Text)
                         If destFile.Length / 1024 / 1024 < 1.0 Then
                             If destFile.Length / 1024 < 1.0 Then
-                                NotifyIcon("Media File has failed to encoded !", "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), 1000, False)
+                                If Newdebugmode = "True" Then
+                                    MessageBoxAdv.Show("Media File has failed to encoded !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error, FfmpegErr)
+                                Else
+                                    NotifyIcon("Media File has failed to encoded !", "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), 1000, False)
+                                End If
                                 Label28.Text = "Error"
                                 ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
                             Else
@@ -1231,7 +1235,7 @@ Public Class MainMenu
                                     ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
                                 End If
                                 If Newdebugmode = "True" Then
-                                    MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information, FfmpegErr)
+                                    MessageBoxAdv.Show("Media File has successfuly to encoded !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information, FfmpegErr)
                                 Else
                                     NotifyIcon("Media File has successfuly to encoded !", "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), 1000, True)
                                 End If
@@ -1247,7 +1251,7 @@ Public Class MainMenu
                                 ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
                             End If
                             If Newdebugmode = "True" Then
-                                MessageBoxAdv.Show("Encoding success !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information, FfmpegErr)
+                                MessageBoxAdv.Show("Media File has successfuly to encoded !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information, FfmpegErr)
                             Else
                                 NotifyIcon("Media File has successfuly to encoded !", "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), 1000, True)
                             End If
@@ -1259,7 +1263,11 @@ Public Class MainMenu
                             Label71.Text = "" & GetFileSize(TextBox1.Text)
                         End If
                     Else
-                        NotifyIcon("Media File has failed to encoded !", "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), 1000, False)
+                        If Newdebugmode = "True" Then
+                            MessageBoxAdv.Show("Media File has failed to encoded !" & vbCrLf & vbCrLf & "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error, FfmpegErr)
+                        Else
+                            NotifyIcon("Media File has failed to encoded !", "Encoding time: " & (EncEndTime - EncStartTime).ToString("hh':'mm':'ss"), 1000, False)
+                        End If
                         Label28.Text = "Error"
                         ProgressBarAdv1.Value = ProgressBarAdv1.Maximum
                     End If
