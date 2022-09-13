@@ -1131,9 +1131,13 @@ Public Class MainMenu
                     ProgressBarAdv1.Refresh()
                     If FrameMode = "True" Then
                         FrameCount = "0"
-                    ElseIf Label5.Text.Equals("Not Detected") = True Then
-                        Dim TimeFrame As String() = Label81.Text.Split(":")
-                        FrameCount = TimeConversion(TimeFrame(0), TimeFrame(1), TimeFrame(2))
+                    ElseIf Label5.Text.Equals("Not Detected") = True Or CheckBox1.Checked = False And CheckBox3.Checked = False Then
+                        If CheckBox2.Checked = True And CheckBox6.Checked = True Then
+                            FrameCount = TrimEndTime - TrimStartTime
+                        Else
+                            Dim TimeFrame As String() = Label81.Text.Split(":")
+                            FrameCount = TimeConversion(TimeFrame(0), TimeFrame(1), TimeFrame(2))
+                        End If
                     Else
                         Dim loadInit = New Loading("Frame", Label2.Text)
                         loadInit.Show()
@@ -1195,7 +1199,7 @@ Public Class MainMenu
                             Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
                             Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
                             Dim encAudioFrame As String()
-                            If Label5.Text.Equals("Not Detected") = True Then
+                            If Label5.Text.Equals("Not Detected") = True Or CheckBox1.Checked = False And CheckBox3.Checked = False Then
                                 If RemoveWhitespace(getBetween(line, "time=", " bitrate")).Equals("") = False Then
                                     If RemoveWhitespace(getBetween(line, "time=", " bitrate")) <= FrameCount Then
                                         encAudioFrame = RemoveWhitespace(getBetween(line, "time=", " bitrate")).Split(":")
