@@ -2615,17 +2615,13 @@ Public Class MainMenu
             ComboBox34.Items.Add("mono")
         ElseIf ComboBox33.Text = "2" Then
             ComboBox34.Items.Add("stereo")
-            ComboBox34.Items.Add("2.1")
         ElseIf ComboBox33.Text = "3" Then
             ComboBox34.Items.Add("3.0")
-            ComboBox34.Items.Add("3.1")
         ElseIf ComboBox33.Text = "4" Then
             ComboBox34.Items.Add("4.0")
-            ComboBox34.Items.Add("4.1")
             ComboBox34.Items.Add("quad")
         ElseIf ComboBox33.Text = "5" Then
             ComboBox34.Items.Add("5.0")
-            ComboBox34.Items.Add("5.1")
         Else
             ComboBox34.Items.Add("mono")
             ComboBox34.Items.Add("stereo")
