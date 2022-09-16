@@ -30,6 +30,8 @@ Module GlobalVariable
     Public DownloadURL As String
     Public EncStartTime As DateTime
     Public EncEndTime As DateTime
+    Public EncPass1 As Boolean
+    Public encpass2 As Boolean = True
     Public FfmpegConf As String
     Public FfmpegConfig As String
     Public FfmpegLetter As String
@@ -65,6 +67,7 @@ Module GlobalVariable
     Public MissedFlags(255) As Integer
     Public OpenFileDialog As New OpenFileDialog
     Public OpenFolderDialog As New FolderBrowserDialog
+    Public OldTitle As String
     Public ReturnAudioStats As Boolean
     Public ReturnVideoStats As Boolean
     Public SaveFileDialog As New SaveFileDialog
