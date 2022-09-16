@@ -8,16 +8,20 @@ Public Class InitScreen
         AllowRoundedCorners = True
         Height = 600
         Width = 960
-        Dim initDirRes As String
+        Dim EndResult As String
         Dim initFFMPEGRes As String
         Label2.Text = "Copyright (C) " & My.Application.Info.Copyright
         Label3.Text = "Created by Dicky Herlambang"
         Label4.Text = "v" & Strings.Left(My.Application.Info.Version.ToString, 5)
         Me.Refresh()
-        initDirRes = Strings.Mid(InitDir(), 6)
+        InitDir()
         Me.Refresh()
         initFFMPEGRes = Strings.Mid(InitFFMPEG(), 6)
-        Dim EndResult As String = "START: " & initDirRes & " | " & initFFMPEGRes & " :END"
+        If initFFMPEGRes.Equals("") = True Then
+            EndResult = ""
+        Else
+            EndResult = getBetween(initFFMPEGRes, "START1:", ":END1") & vbCrLf & vbCrLf & getBetween(initFFMPEGRes, "START2:", ":END2")
+        End If
         GC.Collect()
         GC.WaitForPendingFinalizers()
         File.Delete("Init_Res.txt")
@@ -27,7 +31,7 @@ Public Class InitScreen
         writer.Close()
         Me.Hide()
     End Sub
-    Private Function InitDir() As String
+    Private sub InitDir()
         Dim retReqDir As String() = {"audioConfig", "audioStream", "videoConfig", "videoStream", "thumbnail"}
         For Each req_dir As String In retReqDir
             Label1.Text = "Loading: " & req_dir
@@ -39,7 +43,7 @@ Public Class InitScreen
                 Directory.CreateDirectory(req_dir)
             End If
         Next
-    End Function
+    End sub
     Private Function InitFFMPEG() As String
         Dim retFFMPEGConf As String
         Dim retFFMPEGLetter As String
@@ -71,7 +75,7 @@ Public Class InitScreen
                 Next
                 If ffBinaryCount > 3 Then
                     retStats = "False"
-                    retMessage = "Failed to find FFMPEG Binary !" & vbCrLf & vbCrLf & "Missing FFMPEG Binary: " & String.Join(" , ", ffBinaryMissLoad)
+                    retMessage = "START1: Failed to find FFMPEG Binary ! :END1" & vbCrLf & vbCrLf & "START2: Missing FFMPEG Binary: " & String.Join(" , ", ffBinaryMissLoad) & " :END2"
                 Else
                     For Each ffres As String In ffBinaryValidityLoad
                         Newffargs = ffres & " -hide_banner -version 2>&1"
@@ -94,11 +98,11 @@ Public Class InitScreen
                     Next
                     If ffBinaryValidityCount > 3 Then
                         retStats = "False"
-                        retMessage = "Failed to initialize FFMPEG Binary !" & vbCrLf & vbCrLf & "Invalid FFMPEG Binary: " & String.Join(" , ", ffBinaryValidityMissLoad)
+                        retMessage = "START1: Failed to initialize FFMPEG Binary ! :END1" & vbCrLf & vbCrLf & "START2: Invalid FFMPEG Binary: " & String.Join(" , ", ffBinaryValidityMissLoad) & " :END2"
                     Else
                         If hwdefConfig = "GPU Engine:" Then
                             retStats = "False"
-                            retMessage = "GPU HW Encoder was not configured !" & vbCrLf & vbCrLf & "Please configure it on options menu, native encoding are not supported yet !"
+                            retMessage = "START1: GPU HW Encoder was not configured ! :END1" & vbCrLf & vbCrLf & "START2: Please configure it on options menu, native encoding are not supported yet !" & " :END2"
                         Else
                             retStats = True
                             retMessage = ""
@@ -108,7 +112,7 @@ Public Class InitScreen
             End If
         Else
             retStats = "False"
-            retMessage = "Config file was not found !" & vbCrLf & vbCrLf & "Please configure it on options menu !"
+            retMessage = "START1: Config file was not found ! :END1" & vbCrLf & vbCrLf & "START2: Please configure it on options menu ! :END2"
         End If
         Return retStats & retMessage
     End Function

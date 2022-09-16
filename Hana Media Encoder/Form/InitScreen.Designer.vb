@@ -41,7 +41,7 @@ Partial Class InitScreen
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(49, 23)
         Me.Label1.TabIndex = 10
-        Me.Label1.Text = "Label1"
+        Me.Label1.Text = ""
         '
         'PictureBox1
         '
