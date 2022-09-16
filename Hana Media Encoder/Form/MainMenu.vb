@@ -39,54 +39,46 @@ Public Class MainMenu
         Button8.Enabled = False
         ComboBox36.SelectedIndex = 0
         ResetInit()
-        Dim res1 As String = getBetween(File.ReadAllText("Init_Res.txt"), "START: ", " |")
-        Dim res2 As String = getBetween(File.ReadAllText("Init_Res.txt"), "| ", " :END")
-        If res1 = "" Then
-            If res2 = "" Then
-                DebugMode = FindConfig("config.ini", "Debug Mode:")
-                FfmpegConfig = FindConfig("config.ini", "FFMPEG Binary:")
-                Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
-                FrameConfig = FindConfig("config.ini", "Frame Count:")
-                FfmpegConf = FfmpegConfig.Remove(0, 14) & "\"
-                FfmpegLetter = FfmpegConf.Substring(0, 1) & ":"
-                Button1.Enabled = True
-                Button3.Enabled = True
-                Button4.Enabled = True
-                Dim ImgPrev1 As New FileStream(VideoPlaceholder, FileMode.Open, FileAccess.Read)
-                PictureBox1.Image = Image.FromStream(ImgPrev1)
-                ImgPrev1.Close()
-                If DebugMode IsNot "null" Then
-                    If DebugMode.Remove(0, 11) = "True" Then
-                        Text = My.Application.Info.Title.ToString & " (Debug Mode)"
-                    End If
+        Dim res1 As String = File.ReadAllText("Init_Res.txt")
+        If RemoveWhitespace(res1).Equals("") = True Then
+            DebugMode = FindConfig("config.ini", "Debug Mode:")
+            FfmpegConfig = FindConfig("config.ini", "FFMPEG Binary:")
+            Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
+            FrameConfig = FindConfig("config.ini", "Frame Count:")
+            FfmpegConf = FfmpegConfig.Remove(0, 14) & "\"
+            FfmpegLetter = FfmpegConf.Substring(0, 1) & ":"
+            Button1.Enabled = True
+            Button3.Enabled = True
+            Button4.Enabled = True
+            Dim ImgPrev1 As New FileStream(VideoPlaceholder, FileMode.Open, FileAccess.Read)
+            PictureBox1.Image = Image.FromStream(ImgPrev1)
+            ImgPrev1.Close()
+            If DebugMode IsNot "null" Then
+                If DebugMode.Remove(0, 11) = "True" Then
+                    Text = My.Application.Info.Title.ToString & " (Debug Mode)"
                 End If
-                Tooltip(Label33, "Configure video codec / encoder that will use for encoding video")
-                Tooltip(Label58, "Configure maximum video frame rate / second")
-                Tooltip(Label34, "Configure the output conversion for pixel format")
-                Tooltip(Label49, "Configure level of support within a profile specifies the maximum picture resolution, frame rate, and bit rate that a decoder may use")
-                Tooltip(Label50, "Configure the encoding tier")
-                Tooltip(Label46, "Configure the encoding preset (slow mean high, fast mean low) in term of compression")
-                Tooltip(Label47, "Configure settings based upon the specifics of your input")
-                Tooltip(Label48, "Configure the encoding profile")
-                Tooltip(Label38, "Configure the encoding bit rate mode")
-                Tooltip(Label43, "Configure the constant rate factor for encoder")
-                Tooltip(Label57, "Configure multipass encoding for encoder")
-                Tooltip(Label51, "Configure value for overall video bitrate in MB/s")
-                Tooltip(Label52, "Configure value for maximum video bitrate in MB/s")
-                Tooltip(Label54, "Configure Adaptive quantization for the encoder (Spatial AQ)")
-                Tooltip(Label55, "Configure strength value for Adaptive quantization")
-                Tooltip(Label56, "Configure temporal value for Adaptive quantization")
-                Tooltip(Label108, "Configure video aspect ratio for encoder")
-                Tooltip(Label109, "Configure video resolution for encoder")
-                Tooltip(Label133, "Configure video scale algorithm for re-scale or upscale video")
-                Tooltip(Label75, "Configure Blu-Ray compatibility for encoder")
-                Tooltip(Label53, "Configure B-Frames value for encoder")
-            Else
-                Button1.Enabled = False
-                Button3.Enabled = False
-                Button4.Enabled = False
-                MessageBoxAdv.Show(res2, "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
+            Tooltip(Label33, "Configure video codec / encoder that will use for encoding video")
+            Tooltip(Label58, "Configure maximum video frame rate / second")
+            Tooltip(Label34, "Configure the output conversion for pixel format")
+            Tooltip(Label49, "Configure level of support within a profile specifies the maximum picture resolution, frame rate, and bit rate that a decoder may use")
+            Tooltip(Label50, "Configure the encoding tier")
+            Tooltip(Label46, "Configure the encoding preset (slow mean high, fast mean low) in term of compression")
+            Tooltip(Label47, "Configure settings based upon the specifics of your input")
+            Tooltip(Label48, "Configure the encoding profile")
+            Tooltip(Label38, "Configure the encoding bit rate mode")
+            Tooltip(Label43, "Configure the constant rate factor for encoder")
+            Tooltip(Label57, "Configure multipass encoding for encoder")
+            Tooltip(Label51, "Configure value for overall video bitrate in MB/s")
+            Tooltip(Label52, "Configure value for maximum video bitrate in MB/s")
+            Tooltip(Label54, "Configure Adaptive quantization for the encoder (Spatial AQ)")
+            Tooltip(Label55, "Configure strength value for Adaptive quantization")
+            Tooltip(Label56, "Configure temporal value for Adaptive quantization")
+            Tooltip(Label108, "Configure video aspect ratio for encoder")
+            Tooltip(Label109, "Configure video resolution for encoder")
+            Tooltip(Label133, "Configure video scale algorithm for re-scale or upscale video")
+            Tooltip(Label75, "Configure Blu-Ray compatibility for encoder")
+            Tooltip(Label53, "Configure B-Frames value for encoder")
         Else
             Button1.Enabled = False
             Button3.Enabled = False
