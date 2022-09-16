@@ -73,8 +73,6 @@
                 value = " -b:a:" & aStream & " " & Cmbx & "k"
             ElseIf rateControl = "VBR" And aCodec = "MP3" Then
                 value = " -q:a:" & aStream & " " & Cmbx
-            ElseIf rateControl = "VBR" And aCodec = "AAC" Then
-                value = " -vbr:a:" & aStream & " " & Cmbx
             ElseIf rateControl = "" And aCodec = "FLAC" Then
                 value = " -compression_level:a:" & aStream & " " & Cmbx
             Else

@@ -896,11 +896,14 @@ Public Class MainMenu
                         Else
                             If CheckBox4.Checked = True And CheckBox5.Checked = True Then
                                 If getCurrentAudioCodec.Equals(OrigSaveExt) = False Then
-                                    TextBox1.Text = OrigSavePath & "\" & OrigSaveName & "." & getCurrentAudioCodec
+                                    If getCurrentAudioCodec.Equals("aac") = True Then
+                                        TextBox1.Text = OrigSavePath & "\" & OrigSaveName & ".m4a"
+                                    Else
+                                        TextBox1.Text = OrigSavePath & "\" & OrigSaveName & "." & getCurrentAudioCodec
+                                    End If
+                                    EncPass1 = True
                                 End If
                             End If
-                            EncPass1 = True
-                        End If
                         If EncPass1 = True Then
                             If CheckBox15.Checked = True And CheckBox14.Checked = True Then
                                 If File.Exists(My.Application.Info.DirectoryPath & "\FFMETADATAFILE") Then
@@ -2424,6 +2427,15 @@ Public Class MainMenu
             ComboBox18.Enabled = False
             ComboBox19.Enabled = False
             ComboBox20.Enabled = True
+            If ComboBox15.Text = "AAC" Then
+                If ComboBox20.Items.Contains("VBR") = True Then
+                    ComboBox20.Items.Remove("VBR")
+                End If
+            Else
+                If ComboBox20.Items.Contains("VBR") = False Then
+                    ComboBox20.Items.Add("VBR")
+                End If
+            End If
         ElseIf ComboBox15.Text = "FLAC" Then
             ComboBox16.Enabled = True
             ComboBox17.Enabled = True
@@ -2511,13 +2523,8 @@ Public Class MainMenu
                     HMEAudioStreamConfigGenerate(AudiostreamConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), "", "CBR", ComboBox19.Text, ComboBox33.Text, "", ComboBox16.Text, ComboBox34.Text)
                     ReturnAudioStats = True
                 ElseIf ComboBox20.Text = "VBR" Then
-                    If ComboBox15.Text = "MP3" Then
-                        HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
+                    HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
                                                          aBitRate(ComboBox17.Text, AudioStreamSourceList, "MP3", "VBR") & aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
-                    ElseIf ComboBox15.Text = "AAC" Then
-                        HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
-                                                         aBitRate(ComboBox17.Text, AudioStreamSourceList, "AAC", "VBR") & aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
-                    End If
                     HMEAudioStreamConfigGenerate(AudiostreamConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), "", "VBR", ComboBox19.Text, ComboBox33.Text, ComboBox17.Text, ComboBox16.Text, ComboBox34.Text)
                     ReturnAudioStats = True
                 Else
@@ -2612,10 +2619,13 @@ Public Class MainMenu
     Private Sub AudioFrequencyCheck()
         If ComboBox16.Items.Contains("64000") = True AndAlso ComboBox16.Items.Contains("88200") = True AndAlso ComboBox16.Items.Contains("96000") = True AndAlso
                ComboBox16.Items.Contains("176400") = True AndAlso ComboBox16.Items.Contains("192000") = True Then
-            If ComboBox15.Text.Equals("MP3") = True Or ComboBox15.Text.Equals("AAC") = True Then
+            If ComboBox15.Text.Equals("MP3") = True Then
                 ComboBox16.Items.Remove("64000")
                 ComboBox16.Items.Remove("88200")
                 ComboBox16.Items.Remove("96000")
+                ComboBox16.Items.Remove("176400")
+                ComboBox16.Items.Remove("192000")
+            ElseIf ComboBox15.text.Equals("AAC") = True Then
                 ComboBox16.Items.Remove("176400")
                 ComboBox16.Items.Remove("192000")
             End If
@@ -2623,10 +2633,13 @@ Public Class MainMenu
             If ComboBox16.Items.Contains("64000") = False AndAlso ComboBox16.Items.Contains("88200") = False AndAlso
                     ComboBox16.Items.Contains("96000") = False AndAlso ComboBox16.Items.Contains("176400") = False AndAlso
                     ComboBox16.Items.Contains("192000") = False Then
-                If ComboBox15.Text.Contains("MP3") = False Or ComboBox15.Text.Contains("AAC") = False Then
+                If ComboBox15.Text.Equals("MP3") = False Then
                     ComboBox16.Items.Add("64000")
                     ComboBox16.Items.Add("88200")
                     ComboBox16.Items.Add("96000")
+                    ComboBox16.Items.Add("176400")
+                    ComboBox16.Items.Add("192000")
+                ElseIf ComboBox15.Text.Equals("AAC") = False Then
                     ComboBox16.Items.Add("176400")
                     ComboBox16.Items.Add("192000")
                 End If
@@ -2651,44 +2664,19 @@ Public Class MainMenu
                 ComboBox19.Enabled = True
                 ComboBox17.Enabled = False
                 ComboBox17.SelectedIndex = -1
-                If ComboBox19.Items.Contains("320") Then
-                    If ComboBox15.Text.Contains("AAC") = True Then
-                        ComboBox19.Items.Remove("320")
-                    End If
-                Else
-                    If ComboBox15.Text.Contains("AAC") = False Then
-                        ComboBox19.Items.Clear()
-                        ComboBox19.Items.Add("320")
-                        ComboBox19.Items.Add("256")
-                        ComboBox19.Items.Add("192")
-                        ComboBox19.Items.Add("128")
-                    End If
-                End If
-            ElseIf ComboBox20.Text.Equals("VBR") = True Then
-                ComboBox19.Enabled = False
-                ComboBox19.SelectedIndex = -1
-                ComboBox17.Enabled = True
-                If ComboBox17.Items.Contains("0") = True AndAlso ComboBox17.Items.Contains("6") = True AndAlso ComboBox17.Items.Contains("7") = True AndAlso
-                        ComboBox17.Items.Contains("8") = True Then
-                    If ComboBox15.Text.Equals("AAC") = True Then
-                        ComboBox17.Items.Remove("0")
-                        ComboBox17.Items.Remove("6")
-                        ComboBox17.Items.Remove("7")
-                        ComboBox17.Items.Remove("8")
-                    End If
-                Else
-                    If ComboBox15.Text.Equals("AAC") = False Then
-                        ComboBox17.Items.Clear()
-                        ComboBox17.Items.Add("0")
-                        ComboBox17.Items.Add("1")
-                        ComboBox17.Items.Add("2")
-                        ComboBox17.Items.Add("3")
-                        ComboBox17.Items.Add("4")
-                        ComboBox17.Items.Add("5")
-                        ComboBox17.Items.Add("6")
-                        ComboBox17.Items.Add("7")
-                        ComboBox17.Items.Add("8")
-                    End If
+                If ComboBox15.Text.Equals("AAC") = True Then
+                    ComboBox19.Items.Clear()
+                    ComboBox19.Items.Add("512")
+                    ComboBox19.Items.Add("384")
+                    ComboBox19.Items.Add("256")
+                    ComboBox19.Items.Add("192")
+                    ComboBox19.Items.Add("128")
+                ElseIf ComboBox15.Text.Equals("MP3") = True Then
+                    ComboBox19.Items.Clear()
+                    ComboBox19.Items.Add("320")
+                    ComboBox19.Items.Add("256")
+                    ComboBox19.Items.Add("192")
+                    ComboBox19.Items.Add("128")
                 End If
             End If
         End If
