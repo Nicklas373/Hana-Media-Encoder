@@ -154,7 +154,7 @@ Public Class MainMenu
     Private Sub OpenMedia_Btn(sender As Object, e As EventArgs) Handles Button1.Click
         OpenFileDialog.DefaultExt = "*.*|.avi|.mp4|.mkv|.mp2|.m2ts|.ts|.wav|.flac|.aiff|.alac|.mp3"
         OpenFileDialog.FilterIndex = 1
-        OpenFileDialog.Filter = "All files (*.*)|*.*|AVI|*.avi|MPEG-4|*.mp4|Matroska Video|*.mkv|MPEG-2|*.m2v;*.m2ts;*.ts|FLAC|*.flac|WAV|*.wav|AIFF|*.aiff|ALAC|*.alac|AAC|*.aac|MP3|*.mp3"
+        OpenFileDialog.Filter = "All files (*.*)|*.*|AVI|*.avi|MPEG-4|*.mp4|Matroska Video|*.mkv|MPEG-2|*.m2v;*.m2ts;*.ts|FLAC|*.flac|WAV|*.wav|AIFF|*.aiff|ALAC|*.alac|AAC|*.m4a|MP3|*.mp3|MP2|*.mp2"
         OpenFileDialog.Title = "Choose Media File"
         OpenFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If OpenFileDialog.ShowDialog() = DialogResult.OK Then
@@ -251,7 +251,7 @@ Public Class MainMenu
     Private Sub SaveMedia_Btn(sender As Object, e As EventArgs) Handles Button6.Click
         SaveFileDialog.DefaultExt = ".mkv|.wav|.flac|.mp3"
         SaveFileDialog.FilterIndex = 1
-        SaveFileDialog.Filter = "MKV|*.mkv|MP4|*.mp4|AAC|*.m4a|FLAC|*.flac|WAV|*.wav|MP3|*.mp3"
+        SaveFileDialog.Filter = "MKV|*.mkv|MP4|*.mp4|AAC|*.m4a|FLAC|*.flac|WAV|*.wav|MP3|*.mp3|MP2|*.mp2"
         SaveFileDialog.Title = "Save Media File"
         SaveFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If SaveFileDialog.ShowDialog() = DialogResult.OK Then
@@ -873,12 +873,14 @@ Public Class MainMenu
                             If CheckBox4.Checked = True And CheckBox5.Checked = True Then
                                 If OrigSaveExt.Equals(".mp4") = True Then
                                     If getCurrentAudioCodec.Equals("copy") = True Then
-                                        If Label44.Text.ToString.Equals("aac") = False Then
+                                        If Label44.Text.ToString.Equals("aac") = False Or Label44.Text.ToString.Equals("mp3") = False Or
+                                            Label44.Text.ToString.Equals("mp2") = False Then
                                             EncPass1 = False
                                         Else
                                             EncPass1 = True
                                         End If
-                                    ElseIf getCurrentAudioCodec.Equals("aac") = True Then
+                                    ElseIf getCurrentAudioCodec.Equals("aac") = True Or Label44.Text.ToString.Equals("mp3") = True Or
+                                            Label44.Text.ToString.Equals("mp2") = True Then
                                         EncPass1 = True
                                     Else
                                         EncPass1 = False
@@ -896,14 +898,16 @@ Public Class MainMenu
                         Else
                             If CheckBox4.Checked = True And CheckBox5.Checked = True Then
                                 If getCurrentAudioCodec.Equals(OrigSaveExt) = False Then
-                                    If getCurrentAudioCodec.Equals("aac") = True Then
+                                    If getCurrentAudioCodec.Equals("aac") = True Or getCurrentAudioCodec.Equals("mp3") = True Or
+                                        getCurrentAudioCodec.Equals("mp3") = True Then
                                         TextBox1.Text = OrigSavePath & "\" & OrigSaveName & ".m4a"
                                     Else
                                         TextBox1.Text = OrigSavePath & "\" & OrigSaveName & "." & getCurrentAudioCodec
                                     End If
-                                    EncPass1 = True
                                 End If
+                                EncPass1 = True
                             End If
+                        End If
                         If EncPass1 = True Then
                             If CheckBox15.Checked = True And CheckBox14.Checked = True Then
                                 If File.Exists(My.Application.Info.DirectoryPath & "\FFMETADATAFILE") Then
@@ -2419,7 +2423,7 @@ Public Class MainMenu
             ComboBox20.Enabled = False
             ComboBox33.Enabled = False
             ComboBox34.Enabled = False
-        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
+        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Or ComboBox15.Text = "MP2" Then
             ComboBox16.Enabled = True
             ComboBox33.Enabled = True
             ComboBox34.Enabled = False
@@ -2516,7 +2520,7 @@ Public Class MainMenu
             Else
                 channel_layout = " -filter:a:" & AudioStreamSourceList & " aformat=channel_layouts=" & ComboBox34.Text
             End If
-            If ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
+            If ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Or ComboBox15.Text = "MP2" Then
                 If ComboBox20.Text = "CBR" Then
                     HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
                                                      aBitRate(ComboBox19.Text, AudioStreamSourceList, "MP3", "CBR") & aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
@@ -2572,7 +2576,7 @@ Public Class MainMenu
             ComboBox19.Enabled = False
             ComboBox20.Enabled = False
             ComboBox33.Enabled = False
-        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Then
+        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Or ComboBox15.Text = "MP2" Then
             ComboBox16.Enabled = True
             ComboBox33.Enabled = True
             ComboBox17.Enabled = False
@@ -2619,13 +2623,13 @@ Public Class MainMenu
     Private Sub AudioFrequencyCheck()
         If ComboBox16.Items.Contains("64000") = True AndAlso ComboBox16.Items.Contains("88200") = True AndAlso ComboBox16.Items.Contains("96000") = True AndAlso
                ComboBox16.Items.Contains("176400") = True AndAlso ComboBox16.Items.Contains("192000") = True Then
-            If ComboBox15.Text.Equals("MP3") = True Then
+            If ComboBox15.Text.Equals("MP3") = True Or ComboBox15.Text.Equals("MP2") = True Then
                 ComboBox16.Items.Remove("64000")
                 ComboBox16.Items.Remove("88200")
                 ComboBox16.Items.Remove("96000")
                 ComboBox16.Items.Remove("176400")
                 ComboBox16.Items.Remove("192000")
-            ElseIf ComboBox15.text.Equals("AAC") = True Then
+            ElseIf ComboBox15.Text.Equals("AAC") = True Then
                 ComboBox16.Items.Remove("176400")
                 ComboBox16.Items.Remove("192000")
             End If
@@ -2633,7 +2637,7 @@ Public Class MainMenu
             If ComboBox16.Items.Contains("64000") = False AndAlso ComboBox16.Items.Contains("88200") = False AndAlso
                     ComboBox16.Items.Contains("96000") = False AndAlso ComboBox16.Items.Contains("176400") = False AndAlso
                     ComboBox16.Items.Contains("192000") = False Then
-                If ComboBox15.Text.Equals("MP3") = False Then
+                If ComboBox15.Text.Equals("MP3") = False Or ComboBox15.Text.Equals("MP2") = False Then
                     ComboBox16.Items.Add("64000")
                     ComboBox16.Items.Add("88200")
                     ComboBox16.Items.Add("96000")
@@ -2659,14 +2663,16 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub AudioLossyBitRateCheck(sender As Object, e As EventArgs) Handles ComboBox20.SelectedIndexChanged
-        If ComboBox15.Text.Equals("MP3") = True Or ComboBox15.Text.Equals("AAC") = True Then
+        If ComboBox15.Text.Equals("MP3") = True Or ComboBox15.Text.Equals("AAC") = True Or ComboBox15.Text.Equals("MP2") = True Then
             If ComboBox20.Text.Equals("CBR") = True Then
                 ComboBox19.Enabled = True
                 ComboBox17.Enabled = False
                 ComboBox17.SelectedIndex = -1
-                If ComboBox15.Text.Equals("AAC") = True Then
+                If ComboBox15.Text.Equals("MP2") = True Then
                     ComboBox19.Items.Clear()
-                    ComboBox19.Items.Add("512")
+                    If ComboBox15.Text.Equals("AAC") = True Then
+                        ComboBox19.Items.Add("512")
+                    End If
                     ComboBox19.Items.Add("384")
                     ComboBox19.Items.Add("256")
                     ComboBox19.Items.Add("192")
@@ -3518,7 +3524,7 @@ Public Class MainMenu
     Private Sub BrowseAudio_Muxing(sender As Object, e As EventArgs) Handles Button10.Click
         OpenFileDialog.DefaultExt = "*.*|.flac|.aiff|.alac|.mp3"
         OpenFileDialog.FilterIndex = 1
-        OpenFileDialog.Filter = "All files (*.*)|*.*|FLAC|*.flac|WAV|*.wav|AIFF|*.aiff|ALAC|*.alac|MP3|*.mp3"
+        OpenFileDialog.Filter = "All files (*.*)|*.*|FLAC|*.flac|WAV|*.wav|AIFF|*.aiff|ALAC|*.alac|MP3|*.mp3|MP2|*.mp2"
         OpenFileDialog.Title = "Choose Media File"
         OpenFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If OpenFileDialog.ShowDialog() = DialogResult.OK Then

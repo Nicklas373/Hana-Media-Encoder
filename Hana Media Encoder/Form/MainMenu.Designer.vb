@@ -2604,7 +2604,7 @@ Partial Class MainMenu
         Me.ComboBox15.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ComboBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox15.FormattingEnabled = True
-        Me.ComboBox15.Items.AddRange(New Object() {"Copy", "AAC", "MP3", "FLAC", "WAV"})
+        Me.ComboBox15.Items.AddRange(New Object() {"Copy", "AAC", "MP3", "MP2", "FLAC", "WAV"})
         Me.ComboBox15.Location = New System.Drawing.Point(133, 45)
         Me.ComboBox15.Name = "ComboBox15"
         Me.ComboBox15.Size = New System.Drawing.Size(134, 23)

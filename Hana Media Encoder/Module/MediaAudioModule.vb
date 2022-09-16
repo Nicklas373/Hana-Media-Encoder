@@ -8,6 +8,8 @@
             value = " -c:a:" & aStream & " libmp3lame"
         ElseIf Cmbx = "AAC" Then
             value = " -c:a:" & aStream & " aac"
+        ElseIf Cmbx = "MP2" Then
+            value = " -c:a:" & aStream & " libtwolame"
         ElseIf Cmbx = "FLAC" Then
             value = " -c:a:" & aStream & " flac"
         ElseIf Cmbx = "WAV" Then
@@ -34,6 +36,8 @@
             reverse = "MP3"
         ElseIf codec = "aac" Then
             reverse = "AAC"
+        ElseIf codec = "mp2" Then
+            reverse = "MP2"
         ElseIf codec = "flac" Then
             reverse = "FLAC"
         ElseIf codec = "copy" Then
