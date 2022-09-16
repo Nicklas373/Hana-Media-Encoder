@@ -96,16 +96,12 @@ Public Class InformationMenu
                 Video_pnl_7.AutoScroll = True
                 Video_pnl_7.Visible = True
                 Label172.Text = CInt(Label172.Text) + 1
-            ElseIf Video_pnl_7.Visible = True Then
-                MessageBoxAdv.Show("Already on the last page !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         ElseIf vid_btn_state = False And aud_btn_state = True Then
             If Audio_pnl_2.Visible = False Then
                 Audio_pnl_1.AutoScroll = False
                 Audio_pnl_2.Visible = True
                 Label172.Text = CInt(Label172.Text) + 1
-            ElseIf Audio_pnl_2.Visible = True Then
-                MessageBoxAdv.Show("Already on the last page !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
     End Sub
@@ -136,8 +132,6 @@ Public Class InformationMenu
             ElseIf Video_pnl_2.Visible = True And Video_pnl_3.Visible = False Then
                 Video_pnl_2.Visible = False
                 Label172.Text = CInt(Label172.Text) - 1
-            ElseIf Video_pnl_2.Visible = False Then
-                MessageBoxAdv.Show("Already on the first page !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         ElseIf vid_btn_state = False And aud_btn_state = True Then
             If Audio_pnl_2.Visible = True Then
@@ -145,8 +139,6 @@ Public Class InformationMenu
                 Audio_pnl_2.AutoScroll = False
                 Audio_pnl_1.AutoScroll = True
                 Label172.Text = CInt(Label172.Text) - 1
-            ElseIf Audio_pnl_2.Visible = False Then
-                MessageBoxAdv.Show("Already on the first page !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
     End Sub
