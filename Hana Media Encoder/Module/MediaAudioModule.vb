@@ -10,6 +10,8 @@
             value = " -c:a:" & aStream & " aac"
         ElseIf Cmbx = "MP2" Then
             value = " -c:a:" & aStream & " libtwolame"
+        ElseIf Cmbx = "OPUS" Then
+            value = " -c:a:" & aStream & " libopus"
         ElseIf Cmbx = "FLAC" Then
             value = " -c:a:" & aStream & " flac"
         ElseIf Cmbx = "WAV" Then
@@ -38,6 +40,8 @@
             reverse = "AAC"
         ElseIf codec = "mp2" Then
             reverse = "MP2"
+        ElseIf codec = "opus" Then
+            reverse = "OPUS"
         ElseIf codec = "flac" Then
             reverse = "FLAC"
         ElseIf codec = "copy" Then
@@ -75,8 +79,12 @@
         Else
             If rateControl = "CBR" And aCodec = "MP3" Then
                 value = " -b:a:" & aStream & " " & Cmbx & "k"
+            ElseIf rateControl = "CBR" And aCodec = "OPUS" Then
+                value = " -b:a:" & aStream & " " & Cmbx & "k -vbr off -application audio"
             ElseIf rateControl = "VBR" And aCodec = "MP3" Then
                 value = " -q:a:" & aStream & " " & Cmbx
+            ElseIf rateControl = "VBR" And aCodec = "OPUS" Then
+                value = " -b:a:" & aStream & " " & Cmbx & "k -vbr on -application audio"
             ElseIf rateControl = "" And aCodec = "FLAC" Then
                 value = " -compression_level:a:" & aStream & " " & Cmbx
             Else

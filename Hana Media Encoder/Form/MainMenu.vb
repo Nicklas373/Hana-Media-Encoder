@@ -152,9 +152,9 @@ Public Class MainMenu
         menu_options.Show()
     End Sub
     Private Sub OpenMedia_Btn(sender As Object, e As EventArgs) Handles Button1.Click
-        OpenFileDialog.DefaultExt = "*.*|.avi|.mp4|.mkv|.mp2|.m2ts|.ts|.wav|.flac|.aiff|.alac|.mp3"
+        OpenFileDialog.DefaultExt = "*.*|.avi|.mp4|.mkv|.mp2|.m2ts|.ts|.wav|.flac|.aiff|.alac|.mp3|.opus"
         OpenFileDialog.FilterIndex = 1
-        OpenFileDialog.Filter = "All files (*.*)|*.*|AVI|*.avi|MPEG-4|*.mp4|Matroska Video|*.mkv|MPEG-2|*.m2v;*.m2ts;*.ts|FLAC|*.flac|WAV|*.wav|AIFF|*.aiff|ALAC|*.alac|AAC|*.m4a|MP3|*.mp3|MP2|*.mp2"
+        OpenFileDialog.Filter = "All files (*.*)|*.*|AVI|*.avi|MPEG-4|*.mp4|Matroska Video|*.mkv|MPEG-2|*.m2v;*.m2ts;*.ts|FLAC|*.flac|WAV|*.wav|AIFF|*.aiff|ALAC|*.alac|AAC|*.m4a|MP3|*.mp3|MP2|*.mp2|OPUS|*.opus"
         OpenFileDialog.Title = "Choose Media File"
         OpenFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If OpenFileDialog.ShowDialog() = DialogResult.OK Then
@@ -251,7 +251,7 @@ Public Class MainMenu
     Private Sub SaveMedia_Btn(sender As Object, e As EventArgs) Handles Button6.Click
         SaveFileDialog.DefaultExt = ".mkv|.wav|.flac|.mp3"
         SaveFileDialog.FilterIndex = 1
-        SaveFileDialog.Filter = "MKV|*.mkv|MP4|*.mp4|AAC|*.m4a|FLAC|*.flac|WAV|*.wav|MP3|*.mp3|MP2|*.mp2"
+        SaveFileDialog.Filter = "MKV|*.mkv|MP4|*.mp4|AAC|*.m4a|FLAC|*.flac|WAV|*.wav|MP3|*.mp3|MP2|*.mp2|OPUS|*.opus"
         SaveFileDialog.Title = "Save Media File"
         SaveFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If SaveFileDialog.ShowDialog() = DialogResult.OK Then
@@ -1698,7 +1698,6 @@ Public Class MainMenu
             ComboBox35.Enabled = True
         End If
         CheckBox12.Enabled = True
-        NotifyIcon("Video Profile", "Configuration has been set for selected video codec", 1000, True)
     End Sub
     Private Sub VideoStreamInitConfig()
         Dim forceDecision As Boolean = False
@@ -2423,7 +2422,8 @@ Public Class MainMenu
             ComboBox20.Enabled = False
             ComboBox33.Enabled = False
             ComboBox34.Enabled = False
-        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Or ComboBox15.Text = "MP2" Then
+        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Or
+            ComboBox15.Text = "MP2" Or ComboBox15.Text = "OPUS" Then
             ComboBox16.Enabled = True
             ComboBox33.Enabled = True
             ComboBox34.Enabled = False
@@ -2449,7 +2449,6 @@ Public Class MainMenu
             ComboBox33.Enabled = True
             ComboBox34.Enabled = False
         End If
-        NotifyIcon("Audio Profile", "Configuration has been set for selected audio codec", 1000, True)
     End Sub
     Private Sub SaveAudioStream_Btn(sender As Object, e As EventArgs) Handles Button17.Click
         If ComboBox22.SelectedIndex >= 0 Then
@@ -2520,15 +2519,27 @@ Public Class MainMenu
             Else
                 channel_layout = " -filter:a:" & AudioStreamSourceList & " aformat=channel_layouts=" & ComboBox34.Text
             End If
-            If ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Or ComboBox15.Text = "MP2" Then
+            If ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Or
+                ComboBox15.Text = "MP2" Or ComboBox15.Text = "OPUS" Then
+                Dim Lossy As String
+                If ComboBox15.Text = "OPUS" Then
+                    Lossy = "OPUS"
+                Else
+                    Lossy = "MP3"
+                End If
                 If ComboBox20.Text = "CBR" Then
                     HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
-                                                     aBitRate(ComboBox19.Text, AudioStreamSourceList, "MP3", "CBR") & aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
+                                                     aBitRate(ComboBox19.Text, AudioStreamSourceList, Lossy, "CBR") & aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
                     HMEAudioStreamConfigGenerate(AudiostreamConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), "", "CBR", ComboBox19.Text, ComboBox33.Text, "", ComboBox16.Text, ComboBox34.Text)
                     ReturnAudioStats = True
                 ElseIf ComboBox20.Text = "VBR" Then
-                    HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
-                                                         aBitRate(ComboBox17.Text, AudioStreamSourceList, "MP3", "VBR") & aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
+                    If ComboBox15.Text = "OPUS" Then
+                        HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
+                                                           aBitRate(ComboBox19.Text, AudioStreamSourceList, Lossy, "VBR") & aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
+                    Else
+                        HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
+                                                          aBitRate(ComboBox17.Text, AudioStreamSourceList, Lossy, "VBR") & aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
+                    End If
                     HMEAudioStreamConfigGenerate(AudiostreamConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), "", "VBR", ComboBox19.Text, ComboBox33.Text, ComboBox17.Text, ComboBox16.Text, ComboBox34.Text)
                     ReturnAudioStats = True
                 Else
@@ -2576,13 +2587,6 @@ Public Class MainMenu
             ComboBox19.Enabled = False
             ComboBox20.Enabled = False
             ComboBox33.Enabled = False
-        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "AAC" Or ComboBox15.Text = "MP2" Then
-            ComboBox16.Enabled = True
-            ComboBox33.Enabled = True
-            ComboBox17.Enabled = False
-            ComboBox18.Enabled = False
-            ComboBox19.Enabled = True
-            ComboBox20.Enabled = True
         ElseIf ComboBox15.Text = "FLAC" Then
             ComboBox16.Enabled = True
             ComboBox17.Enabled = True
@@ -2590,6 +2594,13 @@ Public Class MainMenu
             ComboBox19.Enabled = False
             ComboBox20.Enabled = False
             ComboBox33.Enabled = True
+        Else
+            ComboBox16.Enabled = True
+            ComboBox33.Enabled = True
+            ComboBox17.Enabled = False
+            ComboBox18.Enabled = False
+            ComboBox19.Enabled = True
+            ComboBox20.Enabled = True
         End If
         If CheckBox4.Checked = False Then
             RichTextBox2.Text = ""
@@ -2621,33 +2632,35 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub AudioFrequencyCheck()
-        If ComboBox16.Items.Contains("64000") = True AndAlso ComboBox16.Items.Contains("88200") = True AndAlso ComboBox16.Items.Contains("96000") = True AndAlso
-               ComboBox16.Items.Contains("176400") = True AndAlso ComboBox16.Items.Contains("192000") = True Then
-            If ComboBox15.Text.Equals("MP3") = True Or ComboBox15.Text.Equals("MP2") = True Then
-                ComboBox16.Items.Remove("64000")
-                ComboBox16.Items.Remove("88200")
-                ComboBox16.Items.Remove("96000")
-                ComboBox16.Items.Remove("176400")
-                ComboBox16.Items.Remove("192000")
-            ElseIf ComboBox15.Text.Equals("AAC") = True Then
-                ComboBox16.Items.Remove("176400")
-                ComboBox16.Items.Remove("192000")
-            End If
-        Else
-            If ComboBox16.Items.Contains("64000") = False AndAlso ComboBox16.Items.Contains("88200") = False AndAlso
-                    ComboBox16.Items.Contains("96000") = False AndAlso ComboBox16.Items.Contains("176400") = False AndAlso
-                    ComboBox16.Items.Contains("192000") = False Then
-                If ComboBox15.Text.Equals("MP3") = False Or ComboBox15.Text.Equals("MP2") = False Then
-                    ComboBox16.Items.Add("64000")
-                    ComboBox16.Items.Add("88200")
-                    ComboBox16.Items.Add("96000")
-                    ComboBox16.Items.Add("176400")
-                    ComboBox16.Items.Add("192000")
-                ElseIf ComboBox15.Text.Equals("AAC") = False Then
-                    ComboBox16.Items.Add("176400")
-                    ComboBox16.Items.Add("192000")
-                End If
-            End If
+        If ComboBox15.Text = "AAC" Then
+            ComboBox16.Items.Clear()
+            ComboBox16.Items.Add("8000")
+            ComboBox16.Items.Add("16000")
+            ComboBox16.Items.Add("32000")
+            ComboBox16.Items.Add("44100")
+            ComboBox16.Items.Add("48000")
+            ComboBox16.Items.Add("64000")
+            ComboBox16.Items.Add("88200")
+            ComboBox16.Items.Add("96000")
+        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "MP2" Or ComboBox15.Text = "OPUS" Then
+            ComboBox16.Items.Clear()
+            ComboBox16.Items.Add("8000")
+            ComboBox16.Items.Add("16000")
+            ComboBox16.Items.Add("32000")
+            ComboBox16.Items.Add("44100")
+            ComboBox16.Items.Add("48000")
+        ElseIf ComboBox15.Text = "WAV" Or ComboBox15.Text = "FLAC" Then
+            ComboBox16.Items.Clear()
+            ComboBox16.Items.Add("8000")
+            ComboBox16.Items.Add("16000")
+            ComboBox16.Items.Add("32000")
+            ComboBox16.Items.Add("44100")
+            ComboBox16.Items.Add("48000")
+            ComboBox16.Items.Add("64000")
+            ComboBox16.Items.Add("88200")
+            ComboBox16.Items.Add("96000")
+            ComboBox16.Items.Add("176400")
+            ComboBox16.Items.Add("192000")
         End If
     End Sub
     Private Sub AudioBitDepthCheck()
@@ -2663,27 +2676,45 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub AudioLossyBitRateCheck(sender As Object, e As EventArgs) Handles ComboBox20.SelectedIndexChanged
-        If ComboBox15.Text.Equals("MP3") = True Or ComboBox15.Text.Equals("AAC") = True Or ComboBox15.Text.Equals("MP2") = True Then
-            If ComboBox20.Text.Equals("CBR") = True Then
+        If ComboBox20.Text = "CBR" Then
+            ComboBox19.Enabled = True
+            ComboBox17.Enabled = False
+            ComboBox17.SelectedIndex = -1
+            If ComboBox15.Text = "MP2" Then
+                ComboBox19.Items.Clear()
+                ComboBox19.Items.Add("384")
+                ComboBox19.Items.Add("256")
+                ComboBox19.Items.Add("192")
+                ComboBox19.Items.Add("128")
+            ElseIf ComboBox15.Text = "MP3" Then
+                ComboBox19.Items.Clear()
+                ComboBox19.Items.Add("320")
+                ComboBox19.Items.Add("256")
+                ComboBox19.Items.Add("192")
+                ComboBox19.Items.Add("128")
+            ElseIf ComboBox15.Text = "AAC" Then
+                ComboBox19.Items.Clear()
+                ComboBox19.Items.Add("512")
+                ComboBox19.Items.Add("384")
+                ComboBox19.Items.Add("256")
+                ComboBox19.Items.Add("192")
+                ComboBox19.Items.Add("128")
+            ElseIf ComboBox15.Text = "OPUS" Then
+                ComboBox19.Items.Clear()
+                ComboBox19.Items.Add("510")
+                ComboBox19.Items.Add("192")
+                ComboBox19.Items.Add("160")
+                ComboBox19.Items.Add("128")
+                ComboBox19.Items.Add("96")
+                ComboBox19.Items.Add("64")
+            End If
+        ElseIf ComboBox20.Text = "VBR" Then
+            If ComboBox15.Text = "OPUS" Then
                 ComboBox19.Enabled = True
                 ComboBox17.Enabled = False
-                ComboBox17.SelectedIndex = -1
-                If ComboBox15.Text.Equals("MP2") = True Then
-                    ComboBox19.Items.Clear()
-                    If ComboBox15.Text.Equals("AAC") = True Then
-                        ComboBox19.Items.Add("512")
-                    End If
-                    ComboBox19.Items.Add("384")
-                    ComboBox19.Items.Add("256")
-                    ComboBox19.Items.Add("192")
-                    ComboBox19.Items.Add("128")
-                ElseIf ComboBox15.Text.Equals("MP3") = True Then
-                    ComboBox19.Items.Clear()
-                    ComboBox19.Items.Add("320")
-                    ComboBox19.Items.Add("256")
-                    ComboBox19.Items.Add("192")
-                    ComboBox19.Items.Add("128")
-                End If
+            Else
+                ComboBox19.Enabled = False
+                ComboBox17.Enabled = True
             End If
         End If
     End Sub
@@ -3522,9 +3553,9 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub BrowseAudio_Muxing(sender As Object, e As EventArgs) Handles Button10.Click
-        OpenFileDialog.DefaultExt = "*.*|.flac|.aiff|.alac|.mp3"
+        OpenFileDialog.DefaultExt = "*.*|.flac|.aiff|.alac|.mp3|.opus"
         OpenFileDialog.FilterIndex = 1
-        OpenFileDialog.Filter = "All files (*.*)|*.*|FLAC|*.flac|WAV|*.wav|AIFF|*.aiff|ALAC|*.alac|MP3|*.mp3|MP2|*.mp2"
+        OpenFileDialog.Filter = "All files (*.*)|*.*|FLAC|*.flac|WAV|*.wav|AIFF|*.aiff|ALAC|*.alac|MP3|*.mp3|MP2|*.mp2|OPUS|*.opus"
         OpenFileDialog.Title = "Choose Media File"
         OpenFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If OpenFileDialog.ShowDialog() = DialogResult.OK Then

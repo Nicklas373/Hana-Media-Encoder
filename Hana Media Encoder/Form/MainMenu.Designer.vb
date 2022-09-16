@@ -781,7 +781,7 @@ Partial Class MainMenu
         Me.Label98.AutoSize = True
         Me.Label98.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label98.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label98.Location = New System.Drawing.Point(1127, 322)
+        Me.Label98.Location = New System.Drawing.Point(1139, 322)
         Me.Label98.Name = "Label98"
         Me.Label98.Size = New System.Drawing.Size(19, 21)
         Me.Label98.TabIndex = 70
@@ -793,7 +793,7 @@ Partial Class MainMenu
         Me.Label97.AutoSize = True
         Me.Label97.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label97.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label97.Location = New System.Drawing.Point(1109, 322)
+        Me.Label97.Location = New System.Drawing.Point(1121, 322)
         Me.Label97.Name = "Label97"
         Me.Label97.Size = New System.Drawing.Size(17, 21)
         Me.Label97.TabIndex = 69
@@ -805,7 +805,7 @@ Partial Class MainMenu
         Me.Label96.AutoSize = True
         Me.Label96.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label96.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label96.Location = New System.Drawing.Point(1090, 322)
+        Me.Label96.Location = New System.Drawing.Point(1102, 322)
         Me.Label96.Name = "Label96"
         Me.Label96.Size = New System.Drawing.Size(19, 21)
         Me.Label96.TabIndex = 68
@@ -821,7 +821,7 @@ Partial Class MainMenu
         Me.ComboBox31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox31.FormattingEnabled = True
         Me.ComboBox31.Items.AddRange(New Object() {"Snapshots", "Spectrum"})
-        Me.ComboBox31.Location = New System.Drawing.Point(758, 322)
+        Me.ComboBox31.Location = New System.Drawing.Point(770, 322)
         Me.ComboBox31.Name = "ComboBox31"
         Me.ComboBox31.Size = New System.Drawing.Size(134, 23)
         Me.ComboBox31.TabIndex = 67
@@ -861,7 +861,7 @@ Partial Class MainMenu
         Me.Button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
-        Me.Button8.Location = New System.Drawing.Point(573, 146)
+        Me.Button8.Location = New System.Drawing.Point(585, 146)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(58, 39)
         Me.Button8.TabIndex = 45
@@ -876,7 +876,7 @@ Partial Class MainMenu
         Me.Button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
-        Me.Button7.Location = New System.Drawing.Point(1151, 146)
+        Me.Button7.Location = New System.Drawing.Point(1163, 146)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(58, 39)
         Me.Button7.TabIndex = 44
@@ -888,7 +888,7 @@ Partial Class MainMenu
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(637, 322)
+        Me.Label27.Location = New System.Drawing.Point(649, 322)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(118, 17)
         Me.Label27.TabIndex = 43
@@ -902,7 +902,7 @@ Partial Class MainMenu
         Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox1.InitialImage = Nothing
-        Me.PictureBox1.Location = New System.Drawing.Point(637, 28)
+        Me.PictureBox1.Location = New System.Drawing.Point(649, 28)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(508, 286)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -1324,7 +1324,7 @@ Partial Class MainMenu
         Me.Label121.BackColor = System.Drawing.Color.Transparent
         Me.Label121.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label121.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label121.Location = New System.Drawing.Point(895, 289)
+        Me.Label121.Location = New System.Drawing.Point(890, 289)
         Me.Label121.Name = "Label121"
         Me.Label121.Size = New System.Drawing.Size(161, 28)
         Me.Label121.TabIndex = 36
@@ -2204,7 +2204,7 @@ Partial Class MainMenu
         Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button16.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button16.Location = New System.Drawing.Point(1190, 287)
+        Me.Button16.Location = New System.Drawing.Point(1185, 287)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(70, 30)
         Me.Button16.TabIndex = 77
@@ -2219,7 +2219,7 @@ Partial Class MainMenu
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button15.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button15.Location = New System.Drawing.Point(1116, 287)
+        Me.Button15.Location = New System.Drawing.Point(1111, 287)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(68, 30)
         Me.Button15.TabIndex = 76
@@ -2235,7 +2235,7 @@ Partial Class MainMenu
         Me.ComboBox29.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ComboBox29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox29.FormattingEnabled = True
-        Me.ComboBox29.Location = New System.Drawing.Point(1142, 93)
+        Me.ComboBox29.Location = New System.Drawing.Point(1137, 93)
         Me.ComboBox29.Name = "ComboBox29"
         Me.ComboBox29.Size = New System.Drawing.Size(118, 23)
         Me.ComboBox29.TabIndex = 66
@@ -2248,7 +2248,7 @@ Partial Class MainMenu
         Me.CheckBox3.Enabled = False
         Me.CheckBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox3.Location = New System.Drawing.Point(1081, 11)
+        Me.CheckBox3.Location = New System.Drawing.Point(1076, 11)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox3.TabIndex = 42
@@ -2261,7 +2261,7 @@ Partial Class MainMenu
         Me.Label59.AutoSize = True
         Me.Label59.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label59.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label59.Location = New System.Drawing.Point(1047, 95)
+        Me.Label59.Location = New System.Drawing.Point(1042, 95)
         Me.Label59.Name = "Label59"
         Me.Label59.Size = New System.Drawing.Size(89, 17)
         Me.Label59.TabIndex = 39
@@ -2272,7 +2272,7 @@ Partial Class MainMenu
         Me.RichTextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.RichTextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.RichTextBox1.Location = New System.Drawing.Point(896, 126)
+        Me.RichTextBox1.Location = New System.Drawing.Point(891, 126)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(364, 152)
@@ -2286,7 +2286,7 @@ Partial Class MainMenu
         Me.CheckBox1.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox1.Location = New System.Drawing.Point(918, 11)
+        Me.CheckBox1.Location = New System.Drawing.Point(913, 11)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(156, 28)
         Me.CheckBox1.TabIndex = 0
@@ -2324,7 +2324,7 @@ Partial Class MainMenu
         Me.Label125.BackColor = System.Drawing.Color.Transparent
         Me.Label125.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label125.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label125.Location = New System.Drawing.Point(895, 289)
+        Me.Label125.Location = New System.Drawing.Point(890, 289)
         Me.Label125.Name = "Label125"
         Me.Label125.Size = New System.Drawing.Size(161, 28)
         Me.Label125.TabIndex = 57
@@ -2604,7 +2604,7 @@ Partial Class MainMenu
         Me.ComboBox15.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ComboBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox15.FormattingEnabled = True
-        Me.ComboBox15.Items.AddRange(New Object() {"Copy", "AAC", "MP3", "MP2", "FLAC", "WAV"})
+        Me.ComboBox15.Items.AddRange(New Object() {"Copy", "AAC", "MP3", "MP2", "OPUS", "FLAC", "WAV"})
         Me.ComboBox15.Location = New System.Drawing.Point(133, 45)
         Me.ComboBox15.Name = "ComboBox15"
         Me.ComboBox15.Size = New System.Drawing.Size(134, 23)
@@ -2668,7 +2668,7 @@ Partial Class MainMenu
         Me.Button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button18.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button18.Location = New System.Drawing.Point(1190, 287)
+        Me.Button18.Location = New System.Drawing.Point(1185, 287)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(70, 30)
         Me.Button18.TabIndex = 67
@@ -2683,7 +2683,7 @@ Partial Class MainMenu
         Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button17.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button17.Location = New System.Drawing.Point(1116, 287)
+        Me.Button17.Location = New System.Drawing.Point(1111, 287)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(68, 30)
         Me.Button17.TabIndex = 66
@@ -2699,7 +2699,7 @@ Partial Class MainMenu
         Me.ComboBox22.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ComboBox22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox22.FormattingEnabled = True
-        Me.ComboBox22.Location = New System.Drawing.Point(1142, 93)
+        Me.ComboBox22.Location = New System.Drawing.Point(1137, 93)
         Me.ComboBox22.Name = "ComboBox22"
         Me.ComboBox22.Size = New System.Drawing.Size(118, 23)
         Me.ComboBox22.TabIndex = 63
@@ -2710,7 +2710,7 @@ Partial Class MainMenu
         Me.Label67.AutoSize = True
         Me.Label67.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label67.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label67.Location = New System.Drawing.Point(1047, 95)
+        Me.Label67.Location = New System.Drawing.Point(1042, 95)
         Me.Label67.Name = "Label67"
         Me.Label67.Size = New System.Drawing.Size(91, 17)
         Me.Label67.TabIndex = 54
@@ -2721,7 +2721,7 @@ Partial Class MainMenu
         Me.RichTextBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.RichTextBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.RichTextBox2.Location = New System.Drawing.Point(896, 126)
+        Me.RichTextBox2.Location = New System.Drawing.Point(891, 126)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.ReadOnly = True
         Me.RichTextBox2.Size = New System.Drawing.Size(364, 152)
@@ -2736,7 +2736,7 @@ Partial Class MainMenu
         Me.CheckBox5.Enabled = False
         Me.CheckBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox5.Location = New System.Drawing.Point(1081, 11)
+        Me.CheckBox5.Location = New System.Drawing.Point(1076, 11)
         Me.CheckBox5.Name = "CheckBox5"
         Me.CheckBox5.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox5.TabIndex = 43
@@ -2750,7 +2750,7 @@ Partial Class MainMenu
         Me.CheckBox4.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox4.Location = New System.Drawing.Point(918, 11)
+        Me.CheckBox4.Location = New System.Drawing.Point(913, 11)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(156, 28)
         Me.CheckBox4.TabIndex = 1
@@ -3038,7 +3038,7 @@ Partial Class MainMenu
         Me.RichTextBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.RichTextBox5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.RichTextBox5.Location = New System.Drawing.Point(896, 126)
+        Me.RichTextBox5.Location = New System.Drawing.Point(891, 126)
         Me.RichTextBox5.Name = "RichTextBox5"
         Me.RichTextBox5.ReadOnly = True
         Me.RichTextBox5.Size = New System.Drawing.Size(364, 152)
@@ -3051,7 +3051,7 @@ Partial Class MainMenu
         Me.Label82.AutoSize = True
         Me.Label82.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label82.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label82.Location = New System.Drawing.Point(895, 289)
+        Me.Label82.Location = New System.Drawing.Point(890, 289)
         Me.Label82.Name = "Label82"
         Me.Label82.Size = New System.Drawing.Size(124, 28)
         Me.Label82.TabIndex = 69
@@ -3065,7 +3065,7 @@ Partial Class MainMenu
         Me.CheckBox14.Enabled = False
         Me.CheckBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox14.Location = New System.Drawing.Point(1081, 11)
+        Me.CheckBox14.Location = New System.Drawing.Point(1076, 11)
         Me.CheckBox14.Name = "CheckBox14"
         Me.CheckBox14.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox14.TabIndex = 67
@@ -3079,7 +3079,7 @@ Partial Class MainMenu
         Me.CheckBox15.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox15.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox15.Location = New System.Drawing.Point(903, 11)
+        Me.CheckBox15.Location = New System.Drawing.Point(898, 11)
         Me.CheckBox15.Name = "CheckBox15"
         Me.CheckBox15.Size = New System.Drawing.Size(174, 28)
         Me.CheckBox15.TabIndex = 66
@@ -3332,7 +3332,7 @@ Partial Class MainMenu
         Me.Label102.AutoSize = True
         Me.Label102.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label102.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label102.Location = New System.Drawing.Point(895, 289)
+        Me.Label102.Location = New System.Drawing.Point(890, 289)
         Me.Label102.Name = "Label102"
         Me.Label102.Size = New System.Drawing.Size(115, 28)
         Me.Label102.TabIndex = 58
@@ -3343,7 +3343,7 @@ Partial Class MainMenu
         Me.RichTextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.RichTextBox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.RichTextBox4.Location = New System.Drawing.Point(896, 126)
+        Me.RichTextBox4.Location = New System.Drawing.Point(891, 126)
         Me.RichTextBox4.Name = "RichTextBox4"
         Me.RichTextBox4.ReadOnly = True
         Me.RichTextBox4.Size = New System.Drawing.Size(364, 152)
@@ -3358,7 +3358,7 @@ Partial Class MainMenu
         Me.CheckBox7.Enabled = False
         Me.CheckBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox7.Location = New System.Drawing.Point(1081, 11)
+        Me.CheckBox7.Location = New System.Drawing.Point(1076, 11)
         Me.CheckBox7.Name = "CheckBox7"
         Me.CheckBox7.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox7.TabIndex = 44
@@ -3372,7 +3372,7 @@ Partial Class MainMenu
         Me.CheckBox8.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox8.Location = New System.Drawing.Point(903, 11)
+        Me.CheckBox8.Location = New System.Drawing.Point(898, 11)
         Me.CheckBox8.Name = "CheckBox8"
         Me.CheckBox8.Size = New System.Drawing.Size(170, 28)
         Me.CheckBox8.TabIndex = 43
@@ -3745,7 +3745,7 @@ Partial Class MainMenu
         Me.Label78.AutoSize = True
         Me.Label78.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label78.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label78.Location = New System.Drawing.Point(897, 289)
+        Me.Label78.Location = New System.Drawing.Point(890, 289)
         Me.Label78.Name = "Label78"
         Me.Label78.Size = New System.Drawing.Size(93, 28)
         Me.Label78.TabIndex = 56
@@ -3756,7 +3756,7 @@ Partial Class MainMenu
         Me.RichTextBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.RichTextBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.RichTextBox3.Location = New System.Drawing.Point(898, 126)
+        Me.RichTextBox3.Location = New System.Drawing.Point(891, 126)
         Me.RichTextBox3.Name = "RichTextBox3"
         Me.RichTextBox3.ReadOnly = True
         Me.RichTextBox3.Size = New System.Drawing.Size(364, 152)
@@ -3771,7 +3771,7 @@ Partial Class MainMenu
         Me.CheckBox2.Enabled = False
         Me.CheckBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox2.Location = New System.Drawing.Point(1066, 11)
+        Me.CheckBox2.Location = New System.Drawing.Point(1059, 11)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox2.TabIndex = 45
@@ -3785,7 +3785,7 @@ Partial Class MainMenu
         Me.CheckBox6.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox6.Location = New System.Drawing.Point(903, 11)
+        Me.CheckBox6.Location = New System.Drawing.Point(896, 11)
         Me.CheckBox6.Name = "CheckBox6"
         Me.CheckBox6.Size = New System.Drawing.Size(143, 28)
         Me.CheckBox6.TabIndex = 44
