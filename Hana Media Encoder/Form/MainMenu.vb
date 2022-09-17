@@ -123,7 +123,7 @@ Public Class MainMenu
                             Strings.Right(Label2.Text, 4) = ".ape" Or Strings.Right(Label2.Text, 4) = "alac" Or Strings.Right(Label2.Text, 4) = "aiff" Or
                             Strings.Right(Label2.Text, 4) = ".aif" Or Strings.Right(Label2.Text, 4) = ".m4a" Or Strings.Right(Label2.Text, 4) = ".tak" Or
                             Strings.Right(Label2.Text, 4) = ".tta" Or Strings.Right(Label2.Text, 4) = ".wma" Or Strings.Right(Label2.Text, 3) = ".wv" Or
-                            Strings.Right(Label2.Text, 4) = "webm" Then
+                            Strings.Right(Label2.Text, 4) = "webm" Or Strings.Right(Label2.Text, 4) = ".m2v" Then
             If ComboBox2.SelectedIndex >= 0 Then
                 ComboBox2.SelectedIndex = 0
                 ComboBox2.Text = ""
@@ -173,7 +173,7 @@ Public Class MainMenu
                             Strings.Right(OpenFileDialog.FileName, 4) = ".ape" Or Strings.Right(OpenFileDialog.FileName, 4) = "alac" Or Strings.Right(OpenFileDialog.FileName, 4) = "aiff" Or
                             Strings.Right(OpenFileDialog.FileName, 4) = ".aif" Or Strings.Right(OpenFileDialog.FileName, 4) = ".m4a" Or Strings.Right(OpenFileDialog.FileName, 4) = ".tak" Or
                             Strings.Right(OpenFileDialog.FileName, 4) = ".tta" Or Strings.Right(OpenFileDialog.FileName, 4) = ".wma" Or Strings.Right(OpenFileDialog.FileName, 3) = ".wv" Or
-                            Strings.Right(OpenFileDialog.FileName, 4) = "webm" Then
+                            Strings.Right(OpenFileDialog.FileName, 4) = "webm" Or Strings.Right(OpenFileDialog.FileName, 4) = ".m2v" Then
                 Label2.Text = OpenFileDialog.FileName
                 If ComboBox2.SelectedIndex >= 0 Then
                     ComboBox2.SelectedIndex = 0
@@ -842,6 +842,8 @@ Public Class MainMenu
     End Sub
     Private Async Sub StartEncode(sender As Object, e As EventArgs) Handles Button3.Click
         Button3.Enabled = False
+        DebugMode = FindConfig("config.ini", "Debug Mode:")
+        FrameConfig = FindConfig("config.ini", "Frame Count:")
         If Hwdefconfig IsNot "null" And Hwdefconfig.Remove(0, 11) IsNot "" Then
             If Label2.Text IsNot "" Then
                 If TextBox1.Text IsNot "" Then
@@ -873,14 +875,13 @@ Public Class MainMenu
                             If CheckBox4.Checked = True And CheckBox5.Checked = True Then
                                 If OrigSaveExt.Equals(".mp4") = True Then
                                     If getCurrentAudioCodec.Equals("copy") = True Then
-                                        If Label44.Text.ToString.Equals("aac") = False Or Label44.Text.ToString.Equals("mp3") = False Or
-                                            Label44.Text.ToString.Equals("mp2") = False Then
-                                            EncPass1 = False
-                                        Else
+                                        If Label44.Text.ToString.Equals("aac") = True Or Label44.Text.ToString.Equals("mp2") = True Then
                                             EncPass1 = True
+                                        Else
+                                            EncPass1 = False
                                         End If
-                                    ElseIf getCurrentAudioCodec.Equals("aac") = True Or Label44.Text.ToString.Equals("mp3") = True Or
-                                            Label44.Text.ToString.Equals("mp2") = True Then
+                                    ElseIf getCurrentAudioCodec.Equals("aac") = True And Label44.Text.ToString.Equals("aac") = True Or
+                                         getCurrentAudioCodec.Equals("aac") = True Or getCurrentAudioCodec.Equals("mp2") = True Then
                                         EncPass1 = True
                                     Else
                                         EncPass1 = False
@@ -894,17 +895,20 @@ Public Class MainMenu
                                 Else
                                     EncPass1 = False
                                 End If
+                            Else
+                                EncPass1 = True
                             End If
                         Else
                             If CheckBox4.Checked = True And CheckBox5.Checked = True Then
                                 If getCurrentAudioCodec.Equals(OrigSaveExt) = False Then
-                                    If getCurrentAudioCodec.Equals("aac") = True Or getCurrentAudioCodec.Equals("mp3") = True Or
-                                        getCurrentAudioCodec.Equals("mp3") = True Then
+                                    If getCurrentAudioCodec.Equals("aac") = True Then
                                         TextBox1.Text = OrigSavePath & "\" & OrigSaveName & ".m4a"
                                     Else
                                         TextBox1.Text = OrigSavePath & "\" & OrigSaveName & "." & getCurrentAudioCodec
                                     End If
                                 End If
+                                EncPass1 = True
+                            Else
                                 EncPass1 = True
                             End If
                         End If
@@ -923,24 +927,30 @@ Public Class MainMenu
                                                     Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox5.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                     HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                                 End If
+                                                encpass2 = True
                                             Else
                                                 NotifyIcon("Media file has failed to encode", "Video or audio codec stream configuration not found", 1000, False)
+                                                encpass2 = False
                                             End If
                                         ElseIf CheckBox4.Checked = False And CheckBox5.Checked = False Then
                                             Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox5.Text & " " & RichTextBox1.Text & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
                                             HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            encpass2 = True
                                         End If
                                     Else
                                         Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox5.Text & " -c copy " & RichTextBox1.Text & Chr(34) & TextBox1.Text & Chr(34)
                                         HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                        encpass2 = True
                                     End If
                                 Else
                                     NotifyIcon("Media file has failed to encode", "Please re-lock chapter profile", 1000, False)
+                                    encpass2 = False
                                 End If
                             ElseIf CheckBox7.Checked = True And CheckBox8.Checked = True Then
                                 If ComboBox1.Text = "Original Quality" Then
                                     Newffargs = "ffmpeg -hide_banner " & RichTextBox4.Text & " " & Chr(34) & TextBox1.Text & Chr(34)
                                     HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                    encpass2 = True
                                 ElseIf ComboBox1.Text = "Custom Quality" Then
                                     If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                                         StreamCount = ComboBox22.Items.Count
@@ -955,8 +965,10 @@ Public Class MainMenu
                                             Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox4.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
                                             HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                         End If
+                                        encpass2 = True
                                     Else
                                         NotifyIcon("Media file has failed to encode", "Video or audio codec stream configuration not found", 1000, False)
+                                        encpass2 = False
                                     End If
                                 End If
                             ElseIf CheckBox2.Checked = True And CheckBox6.Checked = True Then
@@ -977,10 +989,12 @@ Public Class MainMenu
                                         Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox3.Text & " -map 0 -c copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
                                     End If
                                     HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                    encpass2 = True
                                 ElseIf ComboBox26.Text = "Custom Quality" Then
                                     If ComboBox28.Text = "Video Only" Then
                                         Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 " & RichTextBox1.Text & " -an " & Chr(34) & TextBox1.Text & Chr(34)
                                         HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                        encpass2 = True
                                     ElseIf ComboBox28.Text = "Video + Audio (Specific source)" Then
                                         If File.Exists(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                                             FlagsCount = ComboBox22.Items.Count
@@ -990,8 +1004,10 @@ Public Class MainMenu
                                             Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
                                             Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
                                             HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            encpass2 = True
                                         Else
                                             NotifyIcon("Media file has failed to encode", "Video or audio codec stream configuration not found", 1000, False)
+                                            encpass2 = False
                                         End If
                                     ElseIf ComboBox28.Text = "Video + Audio (All source)" Then
                                         If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
@@ -1004,8 +1020,10 @@ Public Class MainMenu
                                                 Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox3.Text & " -map 0 " & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                 HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             End If
+                                            encpass2 = True
                                         Else
                                             NotifyIcon("Media file has failed to encode", "Video or audio codec stream configuration not found", 1000, False)
+                                            encpass2 = False
                                         End If
                                     ElseIf ComboBox28.Text = "Audio Only (Specific Source)" Then
                                         If File.Exists(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt") Then
@@ -1020,8 +1038,10 @@ Public Class MainMenu
                                                 Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox3.Text & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
                                             End If
                                             HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            encpass2 = True
                                         Else
                                             NotifyIcon("Media file has failed to encode", "Audio codec stream configuration not found", 1000, False)
+                                            encpass2 = False
                                         End If
                                     Else
                                         If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
@@ -1034,8 +1054,10 @@ Public Class MainMenu
                                                 Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & RichTextBox3.Text & " -map 0 " & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                 HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             End If
+                                            encpass2 = True
                                         Else
                                             NotifyIcon("Media file has failed to encode", "Video or audio codec stream configuration not found", 1000, False)
+                                            encpass2 = False
                                         End If
                                     End If
                                 End If
@@ -1051,12 +1073,15 @@ Public Class MainMenu
                                             Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
                                             HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                         End If
+                                        encpass2 = True
                                     Else
                                         NotifyIcon("Media file has failed to encode", "Video or audio codec stream configuration not found", 1000, False)
+                                        encpass2 = False
                                     End If
                                 ElseIf CheckBox4.Checked = False And CheckBox5.Checked = False Then
                                     Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox1.Text & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
                                     HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                    encpass2 = True
                                 End If
                             ElseIf CheckBox1.Checked = False And CheckBox3.Checked = False Then
                                 If CheckBox4.Checked = True And CheckBox5.Checked = True Then
@@ -1069,8 +1094,10 @@ Public Class MainMenu
                                             Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
                                             Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & VideoFilePath & Chr(34) & " -vn " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
                                             HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            encpass2 = True
                                         Else
                                             NotifyIcon("Media file has failed to encode", "Audio codec stream configuration is missing", 1000, False)
+                                            encpass2 = False
                                         End If
                                     End If
                                 End If
@@ -1181,7 +1208,7 @@ Public Class MainMenu
                                             If RemoveWhitespace(getBetween(line, "time=", " bitrate")).Equals("") = False Then
                                                 If RemoveWhitespace(getBetween(line, "time=", " bitrate")) <= FrameCount Then
                                                     encAudioFrame = RemoveWhitespace(getBetween(line, "time=", " bitrate")).Split(":")
-                                                    ProgressBarAdv1.Value = CInt(TimeConversion(encAudioFrame(0), encAudioFrame(1), encAudioFrame(2)))
+                                                    ProgressBarAdv1.Value = CInt(TimeConversion(encAudioFrame(0), encAudioFrame(1), Strings.Left(encAudioFrame(2), 2)))
                                                 End If
                                             Else
                                                 FfmpegEncStats = "Frame Error!"
@@ -1196,8 +1223,7 @@ Public Class MainMenu
                                     Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
                                     Await Task.Run(Sub() new_process.WaitForExit())
                                 Else
-                                    MsgBox("Out of somewhere")
-
+                                    NotifyIcon("Media file has failed to encode", "Unknown error", 1000, False)
                                 End If
                                 EncEndTime = DateTime.Now
                                 If File.Exists(TextBox1.Text) Then
@@ -1841,7 +1867,7 @@ Public Class MainMenu
             VideoStreamConfig = VideoStreamConfigPath & "HME_Video_Config_" & (CInt(Strings.Mid(ComboBox29.Text.ToString, 11)) - 1).ToString & ".txt"
             If File.Exists(VideoStreamFlags) And File.Exists(VideoStreamConfig) Then
                 Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Configuration for video profile with stream #0:" & CInt(Strings.Mid(ComboBox29.Text.ToString, 11)).ToString & " already exists !" & vbCrLf &
-                                                                      "Replace current video profile configuration with previous configuration ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                                                      "Overwrite previous configuration ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If configResult = DialogResult.Yes Then
                     GC.Collect()
                     GC.WaitForPendingFinalizers()
@@ -2455,8 +2481,8 @@ Public Class MainMenu
             AudiostreamFlags = AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox22.Text.ToString, 11)) - 1).ToString & ".txt"
             AudiostreamConfig = AudioStreamConfigPath & "HME_Audio_Config_" & (CInt(Strings.Mid(ComboBox22.Text.ToString, 11)) - 1).ToString & ".txt"
             If File.Exists(AudiostreamFlags) And File.Exists(AudiostreamConfig) Then
-                Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Configuration for audio profile with stream #0:" & CInt(Strings.Mid(ComboBox29.Text.ToString, 11)).ToString & "  already exists !" & vbCrLf & vbCrLf &
-                                                                      "Replace current audio profile configuration with previous configuration ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Configuration for audio profile with stream #0:" & CInt(Strings.Mid(ComboBox22.Text.ToString, 11)).ToString & " already exists !" & vbCrLf & vbCrLf &
+                                                                      "Overwrite previous configuration ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If configResult = DialogResult.Yes Then
                     GC.Collect()
                     GC.WaitForPendingFinalizers()
@@ -2638,12 +2664,17 @@ Public Class MainMenu
             ComboBox16.Items.Add("64000")
             ComboBox16.Items.Add("88200")
             ComboBox16.Items.Add("96000")
-        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "MP2" Or ComboBox15.Text = "OPUS" Then
+        ElseIf ComboBox15.Text = "MP3" Or ComboBox15.Text = "MP2" Then
             ComboBox16.Items.Clear()
             ComboBox16.Items.Add("8000")
             ComboBox16.Items.Add("16000")
             ComboBox16.Items.Add("32000")
             ComboBox16.Items.Add("44100")
+            ComboBox16.Items.Add("48000")
+        ElseIf ComboBox15.Text = "OPUS" Then
+            ComboBox16.Items.Clear()
+            ComboBox16.Items.Add("8000")
+            ComboBox16.Items.Add("16000")
             ComboBox16.Items.Add("48000")
         ElseIf ComboBox15.Text = "WAV" Or ComboBox15.Text = "FLAC" Then
             ComboBox16.Items.Clear()
@@ -3522,7 +3553,7 @@ Public Class MainMenu
     Private Sub SameMedia_Muxing_Check(sender As Object, e As EventArgs) Handles CheckBox11.CheckedChanged
         If CheckBox11.Checked = True Then
             If Label5.Text.ToString.Equals("Not Detected") = True Or Label5.Text.ToString.Equals("png") = True Then
-                MessageBoxAdv.Show("Loaded media file are not video file !" & vbCrLf & "Please load video file only", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBoxAdv.Show("Loaded media file are not video file !" & vbCrLf & vbCrLf & "Please load video file only", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 CheckBox11.Checked = False
             Else
                 TextBox15.Text = Label2.Text
@@ -3568,6 +3599,10 @@ Public Class MainMenu
             CheckBox10.Enabled = False
             ComboBox25.Enabled = True
             getStreamSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & TextBox15.Text & Chr(34), "Muxing")
+            If ComboBox25.Items.Count = 0 Then
+                MessageBoxAdv.Show("Loaded media file are not contains any audio file" & vbCrLf & vbCrLf & "Please use add as new audio instead", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ComboBox25.Enabled = False
+            End If
         Else
             CheckBox10.Checked = False
             CheckBox10.Enabled = True
@@ -3591,8 +3626,8 @@ Public Class MainMenu
     End Sub
     Private Sub LockProfile_Mux(sender As Object, e As EventArgs) Handles CheckBox7.CheckedChanged
         If CheckBox7.Checked = True Then
-            If TextBox15.Text IsNot "" Then
-                If TextBox16.Text IsNot "" Then
+            If TextBox15.Text IsNot "" And File.Exists(TextBox15.Text) Then
+                If TextBox16.Text IsNot "" And File.Exists(TextBox16.Text) Then
                     Button9.Enabled = False
                     Button10.Enabled = False
                     If ComboBox1.Text Is "" Then
@@ -3736,7 +3771,7 @@ Public Class MainMenu
                         RichTextBox4.Text = ""
                     End If
                 Else
-                    MessageBoxAdv.Show("Please select audio file for muxing !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBoxAdv.Show("Audio file for muxing are not selected or are not exists !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     CheckBox7.Checked = False
                     CheckBox8.Enabled = True
                     If CheckBox11.Checked Then
@@ -3766,7 +3801,7 @@ Public Class MainMenu
                     RichTextBox4.Text = ""
                 End If
             Else
-                MessageBoxAdv.Show("Please select video file for muxing !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBoxAdv.Show("Video file for muxing are not selected or are not exists !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 CheckBox7.Checked = False
                 CheckBox8.Enabled = True
                 If CheckBox11.Checked Then
