@@ -128,6 +128,12 @@ Partial Class MainMenu
         Me.Label109 = New System.Windows.Forms.Label()
         Me.Label110 = New System.Windows.Forms.Label()
         Me.Vid_Enc_QC_Pnl = New System.Windows.Forms.Panel()
+        Me.ComboBox39 = New System.Windows.Forms.ComboBox()
+        Me.Label137 = New System.Windows.Forms.Label()
+        Me.ComboBox38 = New System.Windows.Forms.ComboBox()
+        Me.Label136 = New System.Windows.Forms.Label()
+        Me.ComboBox37 = New System.Windows.Forms.ComboBox()
+        Me.Label135 = New System.Windows.Forms.Label()
         Me.Button22 = New System.Windows.Forms.Button()
         Me.Label117 = New System.Windows.Forms.Label()
         Me.Label116 = New System.Windows.Forms.Label()
@@ -1705,6 +1711,12 @@ Partial Class MainMenu
         'Vid_Enc_QC_Pnl
         '
         Me.Vid_Enc_QC_Pnl.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.ComboBox39)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label137)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.ComboBox38)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label136)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.ComboBox37)
+        Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label135)
         Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Button22)
         Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label117)
         Me.Vid_Enc_QC_Pnl.Controls.Add(Me.Label116)
@@ -1724,6 +1736,81 @@ Partial Class MainMenu
         Me.Vid_Enc_QC_Pnl.Name = "Vid_Enc_QC_Pnl"
         Me.Vid_Enc_QC_Pnl.Size = New System.Drawing.Size(815, 38)
         Me.Vid_Enc_QC_Pnl.TabIndex = 84
+        '
+        'ComboBox39
+        '
+        Me.ComboBox39.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.ComboBox39.Enabled = False
+        Me.ComboBox39.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox39.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ComboBox39.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.ComboBox39.FormattingEnabled = True
+        Me.ComboBox39.Items.AddRange(New Object() {"BT.2020 Constant", "BT.2020 Non Constant"})
+        Me.ComboBox39.Location = New System.Drawing.Point(400, 85)
+        Me.ComboBox39.Name = "ComboBox39"
+        Me.ComboBox39.Size = New System.Drawing.Size(134, 23)
+        Me.ComboBox39.TabIndex = 91
+        '
+        'Label137
+        '
+        Me.Label137.AutoSize = True
+        Me.Label137.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label137.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label137.Location = New System.Drawing.Point(298, 85)
+        Me.Label137.Name = "Label137"
+        Me.Label137.Size = New System.Drawing.Size(79, 17)
+        Me.Label137.TabIndex = 90
+        Me.Label137.Text = "Color Space"
+        '
+        'ComboBox38
+        '
+        Me.ComboBox38.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.ComboBox38.Enabled = False
+        Me.ComboBox38.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox38.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ComboBox38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.ComboBox38.FormattingEnabled = True
+        Me.ComboBox38.Items.AddRange(New Object() {"BT.709", "BT.2020"})
+        Me.ComboBox38.Location = New System.Drawing.Point(400, 45)
+        Me.ComboBox38.Name = "ComboBox38"
+        Me.ComboBox38.Size = New System.Drawing.Size(134, 23)
+        Me.ComboBox38.TabIndex = 89
+        '
+        'Label136
+        '
+        Me.Label136.AutoSize = True
+        Me.Label136.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label136.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label136.Location = New System.Drawing.Point(298, 45)
+        Me.Label136.Name = "Label136"
+        Me.Label136.Size = New System.Drawing.Size(92, 17)
+        Me.Label136.TabIndex = 88
+        Me.Label136.Text = "Color Primary"
+        '
+        'ComboBox37
+        '
+        Me.ComboBox37.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.ComboBox37.Enabled = False
+        Me.ComboBox37.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox37.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ComboBox37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.ComboBox37.FormattingEnabled = True
+        Me.ComboBox37.Items.AddRange(New Object() {"Full", "Limited"})
+        Me.ComboBox37.Location = New System.Drawing.Point(133, 125)
+        Me.ComboBox37.Name = "ComboBox37"
+        Me.ComboBox37.Size = New System.Drawing.Size(134, 23)
+        Me.ComboBox37.TabIndex = 87
+        '
+        'Label135
+        '
+        Me.Label135.AutoSize = True
+        Me.Label135.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label135.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label135.Location = New System.Drawing.Point(33, 125)
+        Me.Label135.Name = "Label135"
+        Me.Label135.Size = New System.Drawing.Size(82, 17)
+        Me.Label135.TabIndex = 86
+        Me.Label135.Text = "Color Range"
         '
         'Button22
         '
@@ -1747,7 +1834,7 @@ Partial Class MainMenu
         Me.Label117.AutoSize = True
         Me.Label117.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label117.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label117.Location = New System.Drawing.Point(475, 46)
+        Me.Label117.Location = New System.Drawing.Point(208, 86)
         Me.Label117.Name = "Label117"
         Me.Label117.Size = New System.Drawing.Size(23, 17)
         Me.Label117.TabIndex = 84
@@ -1781,7 +1868,7 @@ Partial Class MainMenu
         Me.CRF_VBR_UpDown.Enabled = False
         Me.CRF_VBR_UpDown.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.CRF_VBR_UpDown.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.CRF_VBR_UpDown.Location = New System.Drawing.Point(400, 45)
+        Me.CRF_VBR_UpDown.Location = New System.Drawing.Point(133, 85)
         Me.CRF_VBR_UpDown.Maximum = New Decimal(New Integer() {51, 0, 0, 0})
         Me.CRF_VBR_UpDown.Name = "CRF_VBR_UpDown"
         Me.CRF_VBR_UpDown.Size = New System.Drawing.Size(70, 23)
@@ -1876,7 +1963,7 @@ Partial Class MainMenu
         Me.ComboBox14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox14.FormattingEnabled = True
         Me.ComboBox14.Items.AddRange(New Object() {"1 Pass", "2 Pass (1/4 Resolution)", "2 Pass (Full Resolution)"})
-        Me.ComboBox14.Location = New System.Drawing.Point(400, 85)
+        Me.ComboBox14.Location = New System.Drawing.Point(400, 125)
         Me.ComboBox14.Name = "ComboBox14"
         Me.ComboBox14.Size = New System.Drawing.Size(134, 23)
         Me.ComboBox14.TabIndex = 35
@@ -1886,7 +1973,7 @@ Partial Class MainMenu
         Me.Label57.AutoSize = True
         Me.Label57.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label57.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label57.Location = New System.Drawing.Point(298, 85)
+        Me.Label57.Location = New System.Drawing.Point(298, 125)
         Me.Label57.Name = "Label57"
         Me.Label57.Size = New System.Drawing.Size(66, 17)
         Me.Label57.TabIndex = 34
@@ -1897,7 +1984,7 @@ Partial Class MainMenu
         Me.Label43.AutoSize = True
         Me.Label43.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label43.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label43.Location = New System.Drawing.Point(298, 45)
+        Me.Label43.Location = New System.Drawing.Point(33, 85)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(94, 17)
         Me.Label43.TabIndex = 9
@@ -4168,4 +4255,10 @@ Partial Class MainMenu
     Friend WithEvents Label134 As Label
     Friend WithEvents Label71 As Label
     Friend WithEvents Label70 As Label
+    Friend WithEvents ComboBox39 As ComboBox
+    Friend WithEvents Label137 As Label
+    Friend WithEvents ComboBox38 As ComboBox
+    Friend WithEvents Label136 As Label
+    Friend WithEvents ComboBox37 As ComboBox
+    Friend WithEvents Label135 As Label
 End Class

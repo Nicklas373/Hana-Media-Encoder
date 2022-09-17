@@ -234,4 +234,43 @@
 
         Return value
     End Function
+    Public Function vColorRange(cmbx As String) As String
+        'Combobox37.text'
+        Dim value As String
+        If cmbx = "Full" Then
+            value = "full"
+        ElseIf cmbx = "Limited" Then
+            value = "limited"
+        Else
+            value = ""
+        End If
+
+        Return value
+    End Function
+    Public Function vColorPrimary(cmbx As String) As String
+        'Combobox38.text'
+        Dim value As String
+        If cmbx = "BT.709" Then
+            value = " -color_primaries bt709"
+        ElseIf cmbx = "BT.2020" Then
+            value = " -color_primaries bt2020"
+        Else
+            value = ""
+        End If
+
+        Return value
+    End Function
+    Public Function vColorSpace(cmbx As String) As String
+        'Combobox39.text'
+        Dim value As String
+        If cmbx = "BT.2020 Constant" Then
+            value = " -colorspace bt2020c"
+        ElseIf cmbx = "BT.2020 Non Constant" Then
+            value = " -colorspace bt2020nc"
+        Else
+            value = ""
+        End If
+
+        Return value
+    End Function
 End Module
