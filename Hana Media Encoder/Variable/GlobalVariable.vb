@@ -25,6 +25,7 @@ Module GlobalVariable
     Public BitRate As String
     Public CurParsedVer As String()
     Public CurPos As Integer
+    Public ColorRange As String
     Public ConfigState As Boolean
     Public DebugMode As String
     Public DownloadURL As String
