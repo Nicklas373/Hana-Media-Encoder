@@ -38,7 +38,7 @@ Public Class MainMenu
         Button8.Visible = False
         Button8.Enabled = False
         ComboBox36.SelectedIndex = 0
-        ResetInit()
+        ResetInit("nothing")
         Dim res1 As String = File.ReadAllText("Init_Res.txt")
         If RemoveWhitespace(res1).Equals("") = True Then
             DebugMode = FindConfig("config.ini", "Debug Mode:")
@@ -128,7 +128,7 @@ Public Class MainMenu
                 ComboBox2.SelectedIndex = 0
                 ComboBox2.Text = ""
             End If
-            OpenMedia_Load()
+            OpenMedia_Load("nothing")
         Else
             OpenMedia_Reset()
             MessageBoxAdv.Show("Media file format are not supported !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -179,7 +179,7 @@ Public Class MainMenu
                     ComboBox2.SelectedIndex = 0
                     ComboBox2.Text = ""
                 End If
-                OpenMedia_Load()
+                OpenMedia_Load("nothing")
             Else
                 OpenMedia_Reset()
                 MessageBoxAdv.Show("Media file format are not supported !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -187,10 +187,14 @@ Public Class MainMenu
             End If
         End If
     End Sub
-    Private Sub OpenMedia_Load()
+    Private Sub OpenMedia_Load(state As String)
         Dim loadInit = New Loading("Media", Label2.Text)
         loadInit.Show()
-        ResetInit()
+        If state.Equals("muxing") Then
+            ResetInit("muxing")
+        Else
+            ResetInit("nothing")
+        End If
         CleanEnv("all")
         Button1.Enabled = False
         Button3.Enabled = False
@@ -1134,9 +1138,14 @@ Public Class MainMenu
                                 ProgressBarAdv1.Refresh()
                                 ProgressBarAdv1.Value = 0
                                 ProgressBarAdv1.Refresh()
-                                If FrameMode = "True" Then
-                                    FrameCount = "0"
-                                ElseIf Label5.Text.Equals("Not Detected") = True Or CheckBox1.Checked = False And CheckBox3.Checked = False Then
+                                If Label5.Text.Equals("Not Detected") = True Or CheckBox1.Checked = False And CheckBox3.Checked = False Then
+                                    If CheckBox2.Checked = True And CheckBox6.Checked = True Then
+                                        FrameCount = TrimEndTime - TrimStartTime
+                                    Else
+                                        Dim TimeFrame As String() = Label81.Text.Split(":")
+                                        FrameCount = TimeConversion(TimeFrame(0), TimeFrame(1), TimeFrame(2))
+                                    End If
+                                ElseIf FrameMode = "True" Then
                                     If CheckBox2.Checked = True And CheckBox6.Checked = True Then
                                         FrameCount = TrimEndTime - TrimStartTime
                                     Else
@@ -1168,11 +1177,7 @@ Public Class MainMenu
                                 Label28.Text = "Encoding"
                                 EncStartTime = DateTime.Now
                                 ProgressBarAdv1.Minimum = 0
-                                If FrameMode = "False" Then
-                                    ProgressBarAdv1.Maximum = FrameCount
-                                Else
-                                    ProgressBarAdv1.Maximum = 100
-                                End If
+                                ProgressBarAdv1.Maximum = FrameCount
                                 Dim new_psi As New ProcessStartInfo("HME.bat") With {
                                             .RedirectStandardError = True,
                                             .RedirectStandardOutput = False,
@@ -1180,7 +1185,7 @@ Public Class MainMenu
                                             .WindowStyle = ProcessWindowStyle.Hidden,
                                             .UseShellExecute = False
                                        }
-                                If Newdebugmode = "True" And FrameMode = "False" Then
+                                If Newdebugmode = "True" Then
                                     Dim new_process As Process = Process.Start(new_psi)
                                     Do
                                         Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
@@ -1191,14 +1196,7 @@ Public Class MainMenu
                                         FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
                                     Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
                                     Await Task.Run(Sub() new_process.WaitForExit())
-                                ElseIf Newdebugmode = "True" And FrameMode = "True" Then
-                                    Dim new_process As Process = Process.Start(new_psi)
-                                    FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
-                                    Await Task.Run(Sub() new_process.WaitForExit())
-                                ElseIf Newdebugmode = "False" And FrameMode = "True" Then
-                                    Dim new_process As Process = Process.Start(new_psi)
-                                    Await Task.Run(Sub() new_process.WaitForExit())
-                                ElseIf Newdebugmode = "False" And FrameMode = "False" Then
+                                ElseIf Newdebugmode = "False" Then
                                     Dim new_process As Process = Process.Start(new_psi)
                                     Do
                                         Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
@@ -1214,10 +1212,21 @@ Public Class MainMenu
                                                 FfmpegEncStats = "Frame Error!"
                                             End If
                                         Else
-                                            If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
-                                                FfmpegEncStats = "Frame Error!"
-                                            ElseIf RemoveWhitespace(getBetween(line, "frame= ", " fps")) <= FrameCount Then
-                                                ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
+                                            If FrameMode = "True" Then
+                                                If RemoveWhitespace(getBetween(line, "time=", " bitrate")).Equals("") = False Then
+                                                    If RemoveWhitespace(getBetween(line, "time=", " bitrate")) <= FrameCount Then
+                                                        encAudioFrame = RemoveWhitespace(getBetween(line, "time=", " bitrate")).Split(":")
+                                                        ProgressBarAdv1.Value = CInt(TimeConversion(encAudioFrame(0), encAudioFrame(1), Strings.Left(encAudioFrame(2), 2)))
+                                                    End If
+                                                Else
+                                                    FfmpegEncStats = "Frame Error!"
+                                                End If
+                                            Else
+                                                If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
+                                                    FfmpegEncStats = "Frame Error!"
+                                                ElseIf RemoveWhitespace(getBetween(line, "frame= ", " fps")) <= FrameCount Then
+                                                    ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
+                                                End If
                                             End If
                                         End If
                                     Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
@@ -1327,6 +1336,8 @@ Public Class MainMenu
                     Resolution_Height_UpDown.Minimum = 0
                     Resolution_Width_UpDown.Maximum = videoRes(0)
                     Resolution_Height_UpDown.Maximum = videoRes(1)
+                    Resolution_Width_UpDown.Value = videoRes(0)
+                    Resolution_Height_UpDown.Value = videoRes(1)
                 End If
             End If
         Else
@@ -1374,6 +1385,8 @@ Public Class MainMenu
             Button16.Enabled = False
             ComboBox32.SelectedIndex = -1
             ComboBox32.Enabled = False
+            ComboBox35.Enabled = False
+            ComboBox35.SelectedIndex = -1
             Resolution_Height_UpDown.Value = 0
             Resolution_Height_UpDown.Enabled = False
             Resolution_Width_UpDown.Value = 0
@@ -1750,7 +1763,7 @@ Public Class MainMenu
                     Else
                         AspectRatio = " -filter:v setdar=dar=" & vAspectRatio(ComboBox32.Text) & ","
                     End If
-                    If Resolution_Height_UpDown.Value = 0 Then
+                    If Resolution_Height_UpDown.Value = 0 Or CheckBox12.Checked = False And Resolution_Height_UpDown.Value = Resolution_Height_UpDown.Maximum Then
                         VideoWidth = ""
                     Else
                         If AspectRatio = "" Then
@@ -1759,7 +1772,7 @@ Public Class MainMenu
                             VideoWidth = "scale=" & Resolution_Width_UpDown.Value & "x"
                         End If
                     End If
-                    If Resolution_Width_UpDown.Value = 0 Then
+                    If Resolution_Width_UpDown.Value = 0 Or CheckBox12.Checked = False And Resolution_Width_UpDown.Value = Resolution_Width_UpDown.Maximum Then
                         VideoHeight = ""
                     Else
                         If VideoWidth = "" Then
@@ -1768,11 +1781,12 @@ Public Class MainMenu
                             VideoHeight = Resolution_Height_UpDown.Value
                         End If
                     End If
-                    If Resolution_Height_UpDown.Value = 0 And Resolution_Width_UpDown.Value = 0 Then
+                    If Resolution_Height_UpDown.Value = 0 And Resolution_Width_UpDown.Value = 0 Or CheckBox12.Checked = False And
+                        Resolution_Height_UpDown.Value = Resolution_Height_UpDown.Maximum And Resolution_Width_UpDown.Value = Resolution_Width_UpDown.Maximum Then
                         If ComboBox35.Text = "disabled" Or ComboBox35.Text = "" Then
                             ScaleAlgo = ""
                         Else
-                            ScaleAlgo = " -filter:v scale=flags=" & ComboBox35.Text
+                            ScaleAlgo = "scale=flags=" & ComboBox35.Text
                         End If
                     Else
                         If ComboBox35.Text = "disabled" Or ComboBox35.Text = "" Then
@@ -1787,8 +1801,12 @@ Public Class MainMenu
                         If AspectRatio = "" And VideoWidth = "" And ScaleAlgo = "" Then
                             FPS = " -filter:v fps=fps=" & ComboBox30.Text
                         Else
-                            If ScaleAlgo = "" Then
-                                FPS = "fps=fps=" & ComboBox30.Text
+                            If VideoWidth = "" Then
+                                If ScaleAlgo = "" Then
+                                    FPS = "fps=fps=" & ComboBox30.Text
+                                Else
+                                    FPS = ",fps=fps=" & ComboBox30.Text
+                                End If
                             Else
                                 FPS = ",fps=fps=" & ComboBox30.Text
                             End If
@@ -3553,10 +3571,14 @@ Public Class MainMenu
     Private Sub SameMedia_Muxing_Check(sender As Object, e As EventArgs) Handles CheckBox11.CheckedChanged
         If CheckBox11.Checked = True Then
             If Label5.Text.ToString.Equals("Not Detected") = True Or Label5.Text.ToString.Equals("png") = True Then
-                MessageBoxAdv.Show("Loaded media file are not video file !" & vbCrLf & vbCrLf & "Please load video file only", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                NotifyIcon("Unsupported media format", "Please load video file format only", 1000, False)
                 CheckBox11.Checked = False
             Else
-                TextBox15.Text = Label2.Text
+                If Label2.Text.ToString.Equals("") = False Then
+                    TextBox15.Text = Label2.Text
+                Else
+                    NotifyIcon("Media file are not loaded", "Please open media file before", 1000, False)
+                End If
                 Button9.Enabled = False
             End If
         Else
@@ -3570,13 +3592,13 @@ Public Class MainMenu
         OpenFileDialog.Title = "Choose Media File"
         OpenFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If OpenFileDialog.ShowDialog() = DialogResult.OK Then
-            If Label5.Text.ToString.Equals("Not Detected") = True Or Label5.Text.ToString.Equals("png") = True Then
-                MessageBoxAdv.Show("Media file format are not supported !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                TextBox15.Text = OpenFileDialog.FileName
-                ComboBox25.Items.Clear()
-                getStreamSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & TextBox15.Text & Chr(34), "Muxing")
+            TextBox15.Text = OpenFileDialog.FileName
+            If Label2.Text.ToString.Equals("") = True Then
+                Label2.Text = TextBox15.Text
+                OpenMedia_Load("muxing")
             End If
+            ComboBox25.Items.Clear()
+            getStreamSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & TextBox15.Text & Chr(34), "Muxing")
         End If
     End Sub
     Private Sub BrowseAudio_Muxing(sender As Object, e As EventArgs) Handles Button10.Click
@@ -3586,11 +3608,7 @@ Public Class MainMenu
         OpenFileDialog.Title = "Choose Media File"
         OpenFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If OpenFileDialog.ShowDialog() = DialogResult.OK Then
-            If Label44.Text.ToString.Equals("Not Detected") = True Then
-                MessageBoxAdv.Show("Media file format are not supported !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                TextBox16.Text = OpenFileDialog.FileName
-            End If
+            TextBox16.Text = OpenFileDialog.FileName
         End If
     End Sub
     Private Sub ReplaceExistingAudio_Check(sender As Object, e As EventArgs) Handles CheckBox9.CheckedChanged
@@ -3600,8 +3618,9 @@ Public Class MainMenu
             ComboBox25.Enabled = True
             getStreamSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & TextBox15.Text & Chr(34), "Muxing")
             If ComboBox25.Items.Count = 0 Then
-                MessageBoxAdv.Show("Loaded media file are not contains any audio file" & vbCrLf & vbCrLf & "Please use add as new audio instead", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBoxAdv.Show("Media file are not contains any audio file" & vbCrLf & vbCrLf & "Please select add as new audio instead", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 ComboBox25.Enabled = False
+                CheckBox9.Checked = False
             End If
         Else
             CheckBox10.Checked = False
@@ -4358,7 +4377,7 @@ Public Class MainMenu
             RichTextBox5.Enabled = True
         End If
     End Sub
-    Private Sub ResetInit()
+    Private Sub ResetInit(state As String)
         If Label2.Text.Equals("") = True Then
             CheckBox1.Checked = False
             CheckBox1.Enabled = False
@@ -4375,7 +4394,6 @@ Public Class MainMenu
             CheckBox7.Checked = False
             CheckBox7.Enabled = False
             CheckBox8.Checked = False
-            CheckBox8.Enabled = False
             CheckBox11.Enabled = False
             CheckBox11.Checked = False
             CheckBox14.Checked = False
@@ -4393,7 +4411,9 @@ Public Class MainMenu
             CheckBox6.Checked = False
             CheckBox6.Enabled = True
             CheckBox7.Checked = False
-            CheckBox8.Checked = False
+            If state.Equals("muxing") = False Then
+                CheckBox8.Checked = False
+            End If
             CheckBox8.Enabled = True
             CheckBox11.Enabled = False
             CheckBox14.Checked = False
