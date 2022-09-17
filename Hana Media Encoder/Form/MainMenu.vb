@@ -1791,7 +1791,8 @@ Public Class MainMenu
                     Else
                         AspectRatio = " -filter:v setdar=dar=" & vAspectRatio(ComboBox32.Text)
                     End If
-                    If Resolution_Height_UpDown.Value = 0 Or CheckBox12.Checked = False And Resolution_Height_UpDown.Value = Resolution_Height_UpDown.Maximum Then
+                    If Resolution_Width_UpDown.Value = 0 Or Resolution_Width_UpDown.Value = Resolution_Width_UpDown.Maximum And
+                        Resolution_Height_UpDown.Value = Resolution_Height_UpDown.Maximum Then
                         VideoWidth = ""
                     Else
                         If AspectRatio = "" Then
@@ -1800,22 +1801,19 @@ Public Class MainMenu
                             VideoWidth = ",scale=" & Resolution_Width_UpDown.Value & "x"
                         End If
                     End If
-                    If Resolution_Width_UpDown.Value = 0 Or CheckBox12.Checked = False And Resolution_Width_UpDown.Value = Resolution_Width_UpDown.Maximum Then
+                    If Resolution_Height_UpDown.Value = 0 Or Resolution_Height_UpDown.Value = Resolution_Height_UpDown.Maximum And
+                        Resolution_Width_UpDown.Value = Resolution_Width_UpDown.Maximum Then
                         VideoHeight = ""
                     Else
-                        If VideoWidth = "" Then
-                            VideoHeight = ""
-                        Else
-                            VideoHeight = Resolution_Height_UpDown.Value
-                        End If
+                        VideoHeight = Resolution_Height_UpDown.Value
                     End If
-                    If Resolution_Height_UpDown.Value = 0 And Resolution_Width_UpDown.Value = 0 Or CheckBox12.Checked = False And
-                        Resolution_Height_UpDown.Value = Resolution_Height_UpDown.Maximum And Resolution_Width_UpDown.Value = Resolution_Width_UpDown.Maximum Or
+                    If Resolution_Height_UpDown.Value = 0 And Resolution_Width_UpDown.Value = 0 Or Resolution_Height_UpDown.Value = Resolution_Height_UpDown.Maximum And
+                        Resolution_Width_UpDown.Value = Resolution_Width_UpDown.Maximum Or
                         AspectRatio Is "" Then
                         If ComboBox35.Text = "disabled" Or ComboBox35.Text = "" Then
                             ScaleAlgo = ""
                         Else
-                            ScaleAlgo = " -filter:v scale=flags=" & ComboBox35.Text
+                            ScaleAlgo = ":flags=" & ComboBox35.Text
                         End If
                     Else
                         If ComboBox35.Text = "disabled" Or ComboBox35.Text = "" Then
@@ -1865,7 +1863,7 @@ Public Class MainMenu
                                     FPS = "fps=fps=" & ComboBox30.Text
                                 End If
                             Else
-                                ColorRange = "=out_range=" & vColorRange(ComboBox37.Text)
+                                ColorRange = ":out_range=" & vColorRange(ComboBox37.Text)
                                 If ComboBox30.SelectedIndex < 0 Then
                                     FPS = ""
                                 Else
@@ -1888,7 +1886,7 @@ Public Class MainMenu
                         If ComboBox2.Text = "H264" Then
                             HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & vPixFmt(ComboBox3.Text) &
                                                          vPreset(ComboBox5.Text, HwAccelDev) & vProfile(ComboBox7.Text) & vLevel(ComboBox8.Text) & BitRate & MaxBitRate &
-                                                         vColorPrimary(ComboBox38.Text) & vColorSpace(ComboBox39.Text) & AspectRatio & VideoWidth & VideoHeight & ColorRange & ScaleAlgo & FPS)
+                                                         vColorPrimary(ComboBox38.Text) & vColorSpace(ComboBox39.Text) & AspectRatio & VideoWidth & VideoHeight & ColorRange & FPS & ScaleAlgo)
                             HMEVideoStreamConfigGenerate(VideoStreamConfig, "", BitRate, "", vCodec(ComboBox2.Text, HwAccelDev), FPS, vLevel(ComboBox8.Text), MaxBitRate, "",
                                                          vPreset(ComboBox5.Text, HwAccelDev), "yuv420p", vProfile(ComboBox7.Text), "", "", "", "", "", "", "", AspectRatio,
                                                          Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|", ComboBox35.Text, ComboBox37.Text, ComboBox38.Text, ComboBox39.Text)
@@ -1896,7 +1894,7 @@ Public Class MainMenu
                         Else
                             HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & vPixFmt(ComboBox3.Text) &
                                                          vPreset(ComboBox5.Text, HwAccelDev) & vProfile(ComboBox7.Text) & vLevel(ComboBox8.Text) & vTier(ComboBox9.Text, HwAccelDev) &
-                                                         BitRate & MaxBitRate & vColorPrimary(ComboBox38.Text) & vColorSpace(ComboBox39.Text) & AspectRatio & VideoWidth & VideoHeight & ColorRange & ScaleAlgo & FPS)
+                                                         BitRate & MaxBitRate & vColorPrimary(ComboBox38.Text) & vColorSpace(ComboBox39.Text) & AspectRatio & VideoWidth & VideoHeight & ColorRange & FPS & ScaleAlgo)
                             HMEVideoStreamConfigGenerate(VideoStreamConfig, "", BitRate, "", vCodec(ComboBox2.Text, HwAccelDev), FPS, vLevel(ComboBox8.Text), MaxBitRate, "",
                                                          vPreset(ComboBox5.Text, HwAccelDev), "yuv420p", "main", "", "", "", "", "", vTier(ComboBox9.Text, HwAccelDev), "",
                                                          AspectRatio, Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|", ComboBox35.Text, ComboBox37.Text,
@@ -1921,7 +1919,7 @@ Public Class MainMenu
                             HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & vPixFmt(ComboBox3.Text) &
                                                          vRateControl(ComboBox4.Text) & TargetQualityControl & vPreset(ComboBox5.Text, HwAccelDev) & vTune(ComboBox6.Text) & vProfile(ComboBox7.Text) &
                                                          vLevel(ComboBox8.Text) & vTier(ComboBox9.Text, HwAccelDev) & vBrcompat(ComboBox21.Text) & BitRate & MaxBitRate & bRefMode(ComboBox10.Text) &
-                                                         multiPass(ComboBox14.Text) & vColorPrimary(ComboBox38.Text) & vColorSpace(ComboBox39.Text) & VideoWidth & VideoHeight & ColorRange & ScaleAlgo & FPS)
+                                                         multiPass(ComboBox14.Text) & vColorPrimary(ComboBox38.Text) & vColorSpace(ComboBox39.Text) & VideoWidth & VideoHeight & ScaleAlgo & ColorRange & FPS)
                             HMEVideoStreamConfigGenerate(VideoStreamConfig, vBrcompat(ComboBox21.Text), BitRate, bRefMode(ComboBox10.Text), vCodec(ComboBox2.Text, HwAccelDev), FPS, vLevel(ComboBox8.Text),
                                                              MaxBitRate, multiPass(ComboBox14.Text), vPreset(ComboBox5.Text, HwAccelDev), vPixFmt(ComboBox3.Text), vProfile(ComboBox7.Text), vRateControl(ComboBox4.Text),
                                                              "", "", "", TargetQualityControl, vTier(ComboBox9.Text, HwAccelDev), vTune(ComboBox6.Text), AspectRatio, Resolution_Width_UpDown.Value & "x" & Resolution_Height_UpDown.Value & "|",
@@ -1931,7 +1929,7 @@ Public Class MainMenu
                             HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & vPixFmt(ComboBox3.Text) & vRateControl(ComboBox4.Text) &
                                                          TargetQualityControl & vPreset(ComboBox5.Text, HwAccelDev) & vTune(ComboBox6.Text) & vProfile(ComboBox7.Text) & vLevel(ComboBox8.Text) & vTier(ComboBox9.Text, HwAccelDev) &
                                                          vBrcompat(ComboBox21.Text) & BitRate & MaxBitRate & bRefMode(ComboBox10.Text) & vSpaTempAQ(ComboBox11.Text) & vAQStrength(ComboBox12.Text) & vTempAQ(ComboBox13.Text) &
-                                                         multiPass(ComboBox14.Text) & vColorPrimary(ComboBox38.Text) & vColorSpace(ComboBox39.Text) & AspectRatio & VideoWidth & VideoHeight & ColorRange & ScaleAlgo & FPS)
+                                                         multiPass(ComboBox14.Text) & vColorPrimary(ComboBox38.Text) & vColorSpace(ComboBox39.Text) & AspectRatio & VideoWidth & VideoHeight & ScaleAlgo & ColorRange & FPS)
                             HMEVideoStreamConfigGenerate(VideoStreamConfig, vBrcompat(ComboBox21.Text), BitRate, bRefMode(ComboBox10.Text), vCodec(ComboBox2.Text, HwAccelDev), FPS, vLevel(ComboBox8.Text), MaxBitRate,
                                                              multiPass(ComboBox14.Text), vPreset(ComboBox5.Text, HwAccelDev), vPixFmt(ComboBox3.Text), vProfile(ComboBox7.Text), vRateControl(ComboBox4.Text), vSpaTempAQ(ComboBox11.Text),
                                                              vAQStrength(ComboBox12.Text), vTempAQ(ComboBox13.Text), TargetQualityControl, vTier(ComboBox9.Text, HwAccelDev), vTune(ComboBox6.Text),
@@ -2069,7 +2067,11 @@ Public Class MainMenu
             ComboBox35.Enabled = True
             ComboBox37.Enabled = True
             ComboBox38.Enabled = True
-            ComboBox39.Enabled = True
+            If ComboBox38.SelectedIndex = 0 Then
+                ComboBox39.Enabled = False
+            Else
+                ComboBox39.Enabled = True
+            End If
         ElseIf HwAccelDev = "qsv" Then
             ComboBox21.Enabled = False
             ComboBox10.Enabled = False
@@ -2105,7 +2107,11 @@ Public Class MainMenu
             ComboBox35.Enabled = True
             ComboBox37.Enabled = True
             ComboBox38.Enabled = True
-            ComboBox39.Enabled = True
+            If ComboBox38.SelectedIndex = 0 Then
+                ComboBox39.Enabled = False
+            Else
+                ComboBox39.Enabled = True
+            End If
         ElseIf HwAccelDev = "cuda" Then
             BitRate_UpDown.Enabled = True
             ComboBox21.Enabled = True
@@ -2140,7 +2146,11 @@ Public Class MainMenu
             ComboBox35.Enabled = True
             ComboBox37.Enabled = True
             ComboBox38.Enabled = True
-            ComboBox39.Enabled = True
+            If ComboBox38.SelectedIndex = 0 Then
+                ComboBox39.Enabled = False
+            Else
+                ComboBox39.Enabled = True
+            End If
         End If
         If CheckBox1.Checked = False Then
             RichTextBox1.Text = ""
