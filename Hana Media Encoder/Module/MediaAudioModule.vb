@@ -22,7 +22,7 @@
             ElseIf bdCmbx = "32 Bit" Then
                 value = " -c:a:" & aStream & " pcm_s32le"
             Else
-                value = ""
+                value = " -c:a:" & aStream & " pcm_s16le"
             End If
         Else
             value = ""
