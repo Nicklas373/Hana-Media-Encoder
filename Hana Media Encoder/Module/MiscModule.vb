@@ -84,9 +84,9 @@ Module MiscModule
         ElseIf cmbx = "Log Out" Then
             Shell("Shutdown -l -t 5 -c " & Chr(34) & "Your computer will log out after 5 seconds" & Chr(34))
         ElseIf cmbx = "Restart" Then
-            Shell("Shutdown -r -t 5 -c " & Chr(34) & "Your computer will log out after 5 seconds" & Chr(34))
+            Shell("Shutdown -r -t 5 -c " & Chr(34) & "Your computer will restart out after 5 seconds" & Chr(34))
         ElseIf cmbx = "Shutdown" Then
-            Shell("Shutdown -s -t 5 -c " & Chr(34) & "Your computer will log out after 5 seconds" & Chr(34))
+            Shell("Shutdown -s -t 5 -c " & Chr(34) & "Your computer will shutdown out after 5 seconds" & Chr(34))
         End If
     End Sub
     Public Function RemoveWhitespace(fullString As String) As String

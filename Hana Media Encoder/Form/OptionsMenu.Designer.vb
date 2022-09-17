@@ -269,18 +269,6 @@ Partial Class OptionsMenu
     "his can help while encoding large file size that located on disk with slow read " &
     "/ write operation"
         '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label21.Location = New System.Drawing.Point(234, 158)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(761, 15)
-        Me.Label21.TabIndex = 31
-        Me.Label21.Text = "When this mode is enable, encode will not count any frame that use for progressba" &
-    "r, this will make progressbar are not working while encoding"
-        '
         'Label22
         '
         Me.Label22.AutoSize = True
@@ -312,18 +300,6 @@ Partial Class OptionsMenu
         Me.Label23.Size = New System.Drawing.Size(145, 17)
         Me.Label23.TabIndex = 28
         Me.Label23.Text = "Skip Frame Calculation"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label19.Location = New System.Drawing.Point(234, 63)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(443, 15)
-        Me.Label19.TabIndex = 26
-        Me.Label19.Text = "When this mode is enable, progressbar will not working correctly while encoding !" &
-    " "
         '
         'Label18
         '
