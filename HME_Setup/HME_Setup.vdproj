@@ -442,9 +442,9 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_D6B82C45758E485CA0C5AC04002D03AC"
             {
-            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:TARGETDIR"
@@ -480,7 +480,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Hana Media Encoder"
         "ProductCode" = "8:{7A12A120-FB8C-4BA1-B6F6-29EABB7A9C61}"
-        "PackageCode" = "8:{5424222B-0599-4A1A-A6AC-5541C93790D1}"
+        "PackageCode" = "8:{C884BCD5-0D11-479C-9298-928A623D5E93}"
         "UpgradeCode" = "8:{6119A0DC-89FC-44EF-A490-66E4E915E4DF}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -1015,7 +1015,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_253E5B8251864449844D3471D298269B"
             {
-            "SourcePath" = "8:..\\Hana Media Encoder\\obj\\Debug\\net6.0-windows10.0.22621.0\\apphost.exe"
+            "SourcePath" = "8:..\\Hana Media Encoder\\obj\\Release\\net6.0-windows10.0.22621.0\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D6B82C45758E485CA0C5AC04002D03AC"
