@@ -30,20 +30,20 @@ Public Class OptionsMenu
         If OpenFolderDialog.ShowDialog() = DialogResult.OK Then
             If File.Exists(OpenFolderDialog.SelectedPath & "\ffmpeg.exe") And File.Exists(OpenFolderDialog.SelectedPath & "\ffplay.exe") And File.Exists(OpenFolderDialog.SelectedPath & "\ffprobe.exe") Then
                 TextBox1.Text = OpenFolderDialog.SelectedPath
-                If File.Exists("config.ini") Then
-                    FfmpegConf = FindConfig("config.ini", "FFMPEG Binary:")
+                If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+                    FfmpegConf = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Binary:")
                     If FfmpegConf = "null" Then
-                        Dim writer As New StreamWriter("config.ini", True)
+                        Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
                         writer.WriteLine("FFMPEG Binary:" & TextBox1.Text)
                         writer.Close()
                     Else
-                        Dim FFMPEGReaderOldConf As String = File.ReadAllText("config.ini")
+                        Dim FFMPEGReaderOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                         FFMPEGReaderOldConf = FFMPEGReaderOldConf.Replace(FfmpegConf, "FFMPEG Binary:" & TextBox1.Text)
-                        File.WriteAllText("config.ini", FFMPEGReaderOldConf)
+                        File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", FFMPEGReaderOldConf)
                     End If
                 Else
-                    File.Create("config.ini").Dispose()
-                    Dim writer As New StreamWriter("config.ini", True)
+                    File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+                    Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
                     writer.WriteLine("FFMPEG Binary:" & TextBox1.Text)
                     writer.Close()
                 End If
@@ -88,11 +88,11 @@ Public Class OptionsMenu
         End If
     End Sub
     Private Sub GetBackPref()
-        If File.Exists("config.ini") Then
-            DebugMode = FindConfig("config.ini", "Debug Mode:")
-            FrameCount = FindConfig("config.ini", "Frame Count:")
-            FfmpegConfig = FindConfig("config.ini", "FFMPEG Binary:")
-            Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
+        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+            DebugMode = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Debug Mode:")
+            FrameCount = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Frame Count:")
+            FfmpegConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Binary:")
+            Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
             If DebugMode = "null" Then
                 CheckBox3.Checked = False
             Else
@@ -134,28 +134,28 @@ Public Class OptionsMenu
     End Sub
     Private Sub GPUHWEnable(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked Then
-            If File.Exists("config.ini") Then
-                Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
+            If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+                Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
                 If Hwdefconfig = "null" Then
                     If GetGraphicsHWEngine(ComboBox1.Text) = "null" Then
                     Else
-                        Dim writer As New StreamWriter("config.ini", True)
+                        Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
                         writer.WriteLine("GPU Engine:" & GetGraphicsHWEngine(ComboBox1.Text))
                         writer.Close()
                     End If
                 Else
                     If GetGraphicsHWEngine(ComboBox1.Text) = "null" Then
                     Else
-                        Dim HWDecOldConf As String = File.ReadAllText("config.ini")
+                        Dim HWDecOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                         HWDecOldConf = HWDecOldConf.Replace(Hwdefconfig, "GPU Engine:" & GetGraphicsHWEngine(ComboBox1.Text))
-                        File.WriteAllText("config.ini", HWDecOldConf)
+                        File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", HWDecOldConf)
                     End If
                 End If
             Else
                 If GetGraphicsHWEngine(ComboBox1.Text) = "null" Then
                 Else
-                    File.Create("config.ini").Dispose()
-                    Dim writer As New StreamWriter("config.ini", True)
+                    File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+                    Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
                     writer.WriteLine("GPU Engine:" & GetGraphicsHWEngine(ComboBox1.Text))
                     writer.Close()
                 End If
@@ -165,13 +165,13 @@ Public Class OptionsMenu
                 ComboBox1.Enabled = False
             End If
         Else
-            If File.Exists("config.ini") Then
-                Dim HWDecOldConf As String = File.ReadAllText("config.ini")
+            If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+                Dim HWDecOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                 HWDecOldConf = HWDecOldConf.Replace(Hwdefconfig, "GPU Engine:")
-                File.WriteAllText("config.ini", HWDecOldConf)
+                File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", HWDecOldConf)
             Else
-                File.Create("config.ini").Dispose()
-                Dim writer As New StreamWriter("config.ini", True)
+                File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
                 writer.WriteLine("GPU Engine:")
                 writer.Close()
             End If
@@ -179,40 +179,40 @@ Public Class OptionsMenu
         ConfigState = True
     End Sub
     Private Sub DebugModeCheck(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
-        If File.Exists("config.ini") Then
-            DebugMode = FindConfig("config.ini", "Debug Mode:")
+        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+            DebugMode = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Debug Mode:")
             If DebugMode = "null" Then
-                Dim writer As New StreamWriter("config.ini", True)
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
                 writer.WriteLine("Debug Mode:" & CheckBox3.Checked)
                 writer.Close()
             Else
-                Dim debugModeOldConf As String = File.ReadAllText("config.ini")
+                Dim debugModeOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                 debugModeOldConf = debugModeOldConf.Replace(DebugMode, "Debug Mode:" & CheckBox3.Checked)
-                File.WriteAllText("config.ini", debugModeOldConf)
+                File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", debugModeOldConf)
             End If
         Else
-            File.Create("config.ini").Dispose()
-            Dim writer As New StreamWriter("config.ini", True)
+            File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+            Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
             writer.WriteLine("Debug Mode:" & CheckBox3.Checked)
             writer.Close()
         End If
         ConfigState = False
     End Sub
     Private Sub FrameCountCheck(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
-        If File.Exists("config.ini") Then
-            FrameCount = FindConfig("config.ini", "Frame Count:")
+        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+            FrameCount = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Frame Count:")
             If FrameCount = "null" Then
-                Dim writer As New StreamWriter("config.ini", True)
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
                 writer.WriteLine("Frame Count:" & CheckBox4.Checked)
                 writer.Close()
             Else
-                Dim frameCountOldConf As String = File.ReadAllText("config.ini")
+                Dim frameCountOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                 frameCountOldConf = frameCountOldConf.Replace(FrameCount, "Frame Count:" & CheckBox4.Checked)
-                File.WriteAllText("config.ini", frameCountOldConf)
+                File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", frameCountOldConf)
             End If
         Else
-            File.Create("config.ini").Dispose()
-            Dim writer As New StreamWriter("config.ini", True)
+            File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+            Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
             writer.WriteLine("Frame Count:" & CheckBox4.Checked)
             writer.Close()
         End If

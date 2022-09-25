@@ -24,9 +24,9 @@ Public Class InitScreen
         End If
         GC.Collect()
         GC.WaitForPendingFinalizers()
-        File.Delete("Init_Res.txt")
-        File.Create("Init_Res.txt").Dispose()
-        Dim writer As New StreamWriter("Init_Res.txt", True)
+        File.Delete(My.Application.Info.DirectoryPath & "\Init_Res.txt")
+        File.Create(My.Application.Info.DirectoryPath & "\Init_Res.txt").Dispose()
+        Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\Init_Res.txt", True)
         writer.WriteLine(EndResult)
         writer.Close()
         Me.Hide()
@@ -37,10 +37,10 @@ Public Class InitScreen
             Label1.Text = "Loading: " & req_dir
             Thread.Sleep(200)
             Me.Refresh()
-            If Directory.Exists(req_dir) = False Then
+            If Directory.Exists(My.Application.Info.DirectoryPath & "\" & req_dir) = False Then
                 Thread.Sleep(200)
                 Me.Refresh()
-                Directory.CreateDirectory(req_dir)
+                Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\" & req_dir)
             End If
         Next
     End sub
@@ -55,9 +55,9 @@ Public Class InitScreen
         Dim ffBinaryValidityMissLoad As New List(Of String)()
         Dim ffBinaryCount As Integer = 3
         Dim ffBinaryValidityCount As Integer = 3
-        If File.Exists("config.ini") Then
-            FfmpegConfig = FindConfig("config.ini", "FFMPEG Binary:")
-            Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
+        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+            FfmpegConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Binary:")
+            Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
             If FfmpegConfig = "null" Then
                 retStats = "False"
                 retMessage = "FFMPEG configuration was not found !" & vbCrLf & vbCrLf & "Please configure it on options menu !"
@@ -79,8 +79,8 @@ Public Class InitScreen
                 Else
                     For Each ffres As String In ffBinaryValidityLoad
                         Newffargs = ffres & " -hide_banner -version 2>&1"
-                        HMEGenerateAlt("HME_FFMPEG_Init.bat", retFFMPEGLetter, Chr(34) & retFFMPEGConf & Chr(34), newffargs, "")
-                        Dim psi As New ProcessStartInfo("HME_FFMPEG_Init.bat") With {
+                        HMEGenerateAlt(My.Application.Info.DirectoryPath & "\HME_FFMPEG_Init.bat", retFFMPEGLetter, Chr(34) & retFFMPEGConf & Chr(34), Newffargs, "")
+                        Dim psi As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_FFMPEG_Init.bat") With {
                             .RedirectStandardError = False,
                             .RedirectStandardOutput = True,
                             .CreateNoWindow = True,
@@ -90,7 +90,7 @@ Public Class InitScreen
                         Dim process As Process = Process.Start(psi)
                         While Not process.StandardOutput.EndOfStream
                             Newffres = process.StandardOutput.ReadToEnd
-                            If Strings.Left(newffres, 2).Equals("ff") = False Then
+                            If Strings.Left(Newffres, 2).Equals("ff") = False Then
                                 ffBinaryValidityCount += 1
                                 ffBinaryValidityMissLoad.Add(ffres)
                             End If
@@ -100,7 +100,7 @@ Public Class InitScreen
                         retStats = "False"
                         retMessage = "START1: Failed to initialize FFMPEG Binary ! :END1" & vbCrLf & vbCrLf & "START2: Invalid FFMPEG Binary: " & String.Join(" , ", ffBinaryValidityMissLoad) & " :END2"
                     Else
-                        If hwdefConfig = "GPU Engine:" Then
+                        If Hwdefconfig = "GPU Engine:" Then
                             retStats = "False"
                             retMessage = "START1: GPU HW Encoder was not configured ! :END1" & vbCrLf & vbCrLf & "START2: Please configure it on options menu, native encoding are not supported yet !" & " :END2"
                         Else

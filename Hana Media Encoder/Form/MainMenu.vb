@@ -39,12 +39,12 @@ Public Class MainMenu
         Button8.Enabled = False
         ComboBox36.SelectedIndex = 0
         ResetInit("nothing")
-        Dim res1 As String = File.ReadAllText("Init_Res.txt")
+        Dim res1 As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\Init_Res.txt")
         If RemoveWhitespace(res1).Equals("") = True Then
-            DebugMode = FindConfig("config.ini", "Debug Mode:")
-            FfmpegConfig = FindConfig("config.ini", "FFMPEG Binary:")
-            Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
-            FrameConfig = FindConfig("config.ini", "Frame Count:")
+            DebugMode = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Debug Mode:")
+            FfmpegConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Binary:")
+            Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
+            FrameConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Frame Count:")
             FfmpegConf = FfmpegConfig.Remove(0, 14) & "\"
             FfmpegLetter = FfmpegConf.Substring(0, 1) & ":"
             Button1.Enabled = True
@@ -79,20 +79,26 @@ Public Class MainMenu
             Tooltip(Label133, "Configure video scale algorithm for re-scale or upscale video")
             Tooltip(Label75, "Configure Blu-Ray compatibility for encoder")
             Tooltip(Label53, "Configure B-Frames value for encoder")
+            InitMedia(Label2)
+            If Label2.Text.Equals("") = False Then
+                OpenMedia_Load("Nothing")
+            Else
+                CleanEnv("all")
+            End If
         Else
             Button1.Enabled = False
             Button3.Enabled = False
             Button4.Enabled = False
             MessageBoxAdv.Show(res1, "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            CleanEnv("all")
         End If
-        CleanEnv("all")
     End Sub
     Private Sub MainMenu_Close(sender As Object, e As EventArgs) Handles MyBase.FormClosed
         CleanEnv("all")
         InitExit()
     End Sub
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
-        If Label2.Text IsNot "" And TabPage1.Visible = True And File.Exists("thumbnail\1.jpg") Then
+        If Label2.Text IsNot "" And TabPage1.Visible = True And File.Exists(My.Application.Info.DirectoryPath & "\thumbnail\1.jpg") Then
             If keyData = Keys.Left Then
                 ImagePrev_Prev()
                 Return True
@@ -220,7 +226,6 @@ Public Class MainMenu
         If ComboBox24.Items.Count > 0 Then
             ComboBox24.SelectedIndex = 0
         End If
-        CleanEnv("all")
         PictureBox1.Image = Nothing
         PictureBox1.BackColor = Color.Empty
         PictureBox1.Invalidate()
@@ -230,7 +235,6 @@ Public Class MainMenu
         getSpectrumSummary_Async()
         ComboBox31.Enabled = True
         ComboBox31.SelectedIndex = 0
-        CleanEnv("minimal")
         If Label5.Text.Equals("Not Detected") = True Then
             ComboBox24.Text = ""
         End If
@@ -275,9 +279,9 @@ Public Class MainMenu
         CurPos = CInt(Label96.Text)
         MaxPos = CInt(Label98.Text)
         If ComboBox31.SelectedIndex = 0 Then
-            If File.Exists("thumbnail\1.jpg") Then
+            If File.Exists(My.Application.Info.DirectoryPath & "\thumbnail\1.jpg") Then
                 If CurPos < MaxPos Then
-                    Dim ImgPrev2 As New FileStream("thumbnail\" & CurPos + 1 & ".jpg", FileMode.Open, FileAccess.Read)
+                    Dim ImgPrev2 As New FileStream(My.Application.Info.DirectoryPath & "\thumbnail\" & CurPos + 1 & ".jpg", FileMode.Open, FileAccess.Read)
                     PictureBox1.Image = Image.FromStream(ImgPrev2)
                     ImgPrev2.Close()
                     Label96.Text = CurPos + 1
@@ -289,9 +293,9 @@ Public Class MainMenu
         CurPos = CInt(Label96.Text)
         MaxPos = CInt(Label98.Text)
         If ComboBox31.SelectedIndex = 0 Then
-            If File.Exists("thumbnail\1.jpg") Then
+            If File.Exists(My.Application.Info.DirectoryPath & "\thumbnail\1.jpg") Then
                 If CurPos > 1 Then
-                    Dim ImgPrev2 As New FileStream("thumbnail\" & CurPos - 1 & ".jpg", FileMode.Open, FileAccess.Read)
+                    Dim ImgPrev2 As New FileStream(My.Application.Info.DirectoryPath & "\thumbnail\" & CurPos - 1 & ".jpg", FileMode.Open, FileAccess.Read)
                     PictureBox1.Image = Image.FromStream(ImgPrev2)
                     ImgPrev2.Close()
                     Label96.Text = CurPos - 1
@@ -301,8 +305,8 @@ Public Class MainMenu
     End Sub
     Private Sub PreviewOptions(sender As Object, e As EventArgs) Handles ComboBox31.SelectedIndexChanged
         If ComboBox31.SelectedIndex = 0 Then
-            If File.Exists("thumbnail\1.jpg") Then
-                ImageDir = "thumbnail\1.jpg"
+            If File.Exists(My.Application.Info.DirectoryPath & "\thumbnail\1.jpg") Then
+                ImageDir = My.Application.Info.DirectoryPath & "\thumbnail\1.jpg"
                 Label96.Text = "1"
                 Label98.Text = TotalScreenshot.ToString
                 Button7.Visible = True
@@ -320,8 +324,8 @@ Public Class MainMenu
             End If
 
         ElseIf ComboBox31.SelectedIndex = 1 Then
-            If File.Exists("spectrum-temp.jpg") Then
-                ImageDir = "spectrum-temp.jpg"
+            If File.Exists(My.Application.Info.DirectoryPath & "\spectrum-temp.jpg") Then
+                ImageDir = My.Application.Info.DirectoryPath & "\spectrum-temp.jpg"
             Else
                 ImageDir = SpectrumErrorPlaceholder
             End If
@@ -345,14 +349,14 @@ Public Class MainMenu
     End Sub
     Private Sub PicturePreview(sender As Object, e As EventArgs) Handles PictureBox1.Click
         If ComboBox31.SelectedIndex = 0 Then
-            If File.Exists("thumbnail\1.jpg") Then
-                ImageDir = "thumbnail\" & CInt(Label96.Text) & ".jpg"
+            If File.Exists(My.Application.Info.DirectoryPath & "\thumbnail\1.jpg") Then
+                ImageDir = My.Application.Info.DirectoryPath & "\thumbnail\" & CInt(Label96.Text) & ".jpg"
             Else
                 ImageDir = "null"
             End If
         ElseIf ComboBox31.SelectedIndex = 1 Then
-            If File.Exists("spectrum-temp.jpg") Then
-                ImageDir = "spectrum-temp.jpg"
+            If File.Exists(My.Application.Info.DirectoryPath & "\spectrum-temp.jpg") Then
+                ImageDir = My.Application.Info.DirectoryPath & "\spectrum-temp.jpg"
                 Label96.Text = "1"
                 TotalSpectrum = 1
             Else
@@ -383,8 +387,8 @@ Public Class MainMenu
     End Sub
     Public Sub getVideoSummary(ffmpegletter As String, ffmpegbin As String, videoFile As String, videoStream As String)
         Newffargs = "ffprobe -hide_banner " & " -show_streams -select_streams v:" & videoStream & " " & videoFile & " 2>&1 "
-        HMEGenerate("HME_Video_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
-        Dim psi As New ProcessStartInfo("HME_Video_Summary.bat") With {
+        HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Video_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
+        Dim psi As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_Video_Summary.bat") With {
            .RedirectStandardError = False,
            .RedirectStandardOutput = True,
            .CreateNoWindow = True,
@@ -460,15 +464,15 @@ Public Class MainMenu
         process.WaitForExit()
         GC.Collect()
         GC.WaitForPendingFinalizers()
-        File.Delete("HME_Video_Summary.bat")
+        File.Delete(My.Application.Info.DirectoryPath & "\HME_Video_Summary.bat")
     End Sub
     Private Sub AudioStream_Info(sender As Object, e As EventArgs) Handles ComboBox23.SelectedIndexChanged
         getAudioSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Label2.Text & Chr(34), (CInt(Strings.Mid(ComboBox23.Text.ToString, 11)) - 1).ToString)
     End Sub
     Public Sub getAudioSummary(ffmpegletter As String, ffmpegbin As String, audioFile As String, audioStream As String)
         Newffargs = "ffprobe -hide_banner " & " -show_streams -select_streams a:" & audioStream & " " & audioFile & " 2>&1 "
-        HMEGenerate("HME_Audio_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
-        Dim psi As New ProcessStartInfo("HME_Audio_Summary.bat") With {
+        HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Audio_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
+        Dim psi As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_Audio_Summary.bat") With {
            .RedirectStandardError = False,
            .RedirectStandardOutput = True,
            .CreateNoWindow = True,
@@ -531,11 +535,11 @@ Public Class MainMenu
         process.WaitForExit()
         GC.Collect()
         GC.WaitForPendingFinalizers()
-        File.Delete("HME_Audio_Summary.bat")
+        File.Delete(My.Application.Info.DirectoryPath & "\HME_Audio_Summary.bat")
         If Label61.Text = "N/A" Then
             Newffargs = "ffprobe -hide_banner " & " -show_format -select_streams a:" & audioStream & " " & audioFile & " 2>&1 "
-            HMEGenerate("HME_Audio_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
-            Dim new_psi As New ProcessStartInfo("HME_Audio_Summary.bat") With {
+            HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Audio_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
+            Dim new_psi As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_Audio_Summary.bat") With {
                .RedirectStandardError = False,
                .RedirectStandardOutput = True,
                .CreateNoWindow = True,
@@ -560,12 +564,12 @@ Public Class MainMenu
         End If
         GC.Collect()
         GC.WaitForPendingFinalizers()
-        File.Delete("HME_Audio_Summary.bat")
+        File.Delete(My.Application.Info.DirectoryPath & "\HME_Audio_Summary.bat")
     End Sub
     Public Sub getDurationSummary(ffmpegletter As String, ffmpegbin As String, videoFile As String)
         Newffargs = "ffprobe -hide_banner -i " & videoFile & " 2>&1 "
-        HMEGenerate("HME_Duration_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
-        Dim psi As New ProcessStartInfo("HME_Duration_Summary.bat") With {
+        HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Duration_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
+        Dim psi As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_Duration_Summary.bat") With {
            .RedirectStandardError = False,
            .RedirectStandardOutput = True,
            .CreateNoWindow = True,
@@ -587,7 +591,7 @@ Public Class MainMenu
         process.WaitForExit()
         GC.Collect()
         GC.WaitForPendingFinalizers()
-        File.Delete("HME_Duration_Summary.bat")
+        File.Delete(My.Application.Info.DirectoryPath & "\HME_Duration_Summary.bat")
     End Sub
     Private Async Sub getSpectrumSummary_Async()
         Dim loadInit = New Loading("Spectrum", Label2.Text)
@@ -595,15 +599,15 @@ Public Class MainMenu
         Dim curMediaDur As String() = Label80.Text.Split(":")
         Dim curMediaTime As Integer = TimeConversion(curMediaDur(0), curMediaDur(1), Strings.Left(curMediaDur(2), 2))
         If curMediaTime < 1800 Then
-            If File.Exists("spectrum-temp.jpg") Then
+            If File.Exists(My.Application.Info.DirectoryPath & "\spectrum-temp.jpg") Then
                 GC.Collect()
                 GC.WaitForPendingFinalizers()
-                File.Delete("spectrum-temp.jpg")
+                File.Delete(My.Application.Info.DirectoryPath & "\spectrum-temp.jpg")
             End If
             Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & Label2.Text & Chr(34) & " -lavfi showspectrumpic=s=768x768:mode=separate " &
                                 Chr(34) & My.Application.Info.DirectoryPath & "\spectrum-temp.jpg" & Chr(34)
-            HMEGenerate("HME_Spectrum_Summary.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
-            Dim generateSpectrum As New ProcessStartInfo("HME_Spectrum_Summary.bat") With {
+            HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Spectrum_Summary.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+            Dim generateSpectrum As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_Spectrum_Summary.bat") With {
                 .RedirectStandardError = False,
                 .RedirectStandardOutput = False,
                 .CreateNoWindow = True,
@@ -615,7 +619,7 @@ Public Class MainMenu
             Await Task.Run(Sub() process.WaitForExit())
             GC.Collect()
             GC.WaitForPendingFinalizers()
-            File.Delete("HME_Spectrum_Summary.bat")
+            File.Delete(My.Application.Info.DirectoryPath & "\HME_Spectrum_Summary.bat")
         End If
         loadInit.Close()
     End Sub
@@ -627,19 +631,19 @@ Public Class MainMenu
         If Label5.Text.Equals("Not Detected") = False Then
             If RemoveWhitespace(Label5.Text).Equals("png") = True Then
                 videoFile = Chr(34) & Label2.Text & Chr(34)
-                Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -an -vcodec copy " & Chr(34) & My.Application.Info.DirectoryPath & "\" & "thumbnail\1.jpg"
+                Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -an -vcodec copy " & Chr(34) & My.Application.Info.DirectoryPath & "\thumbnail\1.jpg"
                 TotalScreenshot = 1
-                HMEGenerate("HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, Newffargs, "")
+                HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, Newffargs, "")
             Else
                 If curMediaTime > 1800 Then
                     Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -f image2 -vf " & Chr(34) & "select='not(mod(n,250))'" & Chr(34) & " -vframes 5 -vsync vfr " & Chr(34) & My.Application.Info.DirectoryPath & "\thumbnail\%%d.jpg" & Chr(34)
                     TotalScreenshot = 5
-                    HMEGenerate("HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, Newffargs, "")
+                    HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, Newffargs, "")
                 Else
                     Newffargs = "ffprobe -hide_banner -i " & videoFile & " -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0"
-                    HMEGenerate("HME_VF.bat", ffmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
+                    HMEGenerate(My.Application.Info.DirectoryPath & "\HME_VF.bat", ffmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
                     FrameCount = "0"
-                    Dim generateFrame As New ProcessStartInfo("HME_VF.bat") With {
+                    Dim generateFrame As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_VF.bat") With {
                                         .RedirectStandardError = False,
                                         .RedirectStandardOutput = True,
                                         .CreateNoWindow = True,
@@ -660,12 +664,12 @@ Public Class MainMenu
                     If FrameCount >= 50 Then
                         Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -f image2 -vf " & Chr(34) & "select='not(mod(n," & CInt(FrameCount / 50) & "))'" & Chr(34) & " -vframes 5 -vsync vfr " & Chr(34) & My.Application.Info.DirectoryPath & "\thumbnail\%%d.jpg" & Chr(34)
                         TotalScreenshot = 5
-                        HMEGenerate("HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, Newffargs, "")
+                        HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, Newffargs, "")
                     ElseIf FrameCount < 50 Then
                         Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -ss 00:00:00.000 -vframes 1 -f image2 " & Chr(34) & My.Application.Info.DirectoryPath & "\thumbnail\1.jpg" & Chr(34)
                         Newffargs2 = "ffmpeg -hide_banner -i " & videoFile & " -ss 00:00:01.000 -vframes 1 -f image2 " & Chr(34) & My.Application.Info.DirectoryPath & "\thumbnail\2.jpg" & Chr(34)
                         TotalScreenshot = 2
-                        HMEGenerate("HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, Newffargs, Newffargs2)
+                        HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Image_Preview_Summary.bat", ffmpegLetter, ffmpegBin, Newffargs, Newffargs2)
                     Else
                         TotalScreenshot = 0
                     End If
@@ -674,7 +678,7 @@ Public Class MainMenu
             Label96.Text = 1
             Label98.Text = 0
             If Newffargs IsNot "" Then
-                Dim generateSnapshots As New ProcessStartInfo("HME_Image_Preview_Summary.bat") With {
+                Dim generateSnapshots As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_Image_Preview_Summary.bat") With {
                                         .RedirectStandardError = False,
                                         .RedirectStandardOutput = False,
                                         .CreateNoWindow = True,
@@ -684,8 +688,8 @@ Public Class MainMenu
                 Dim new_process As Process = Process.Start(generateSnapshots)
                 Await Task.Delay(1500)
                 Await Task.Run(Sub() new_process.WaitForExit())
-                If File.Exists("thumbnail\1.jpg") Then
-                    Dim ImgPrev1 As New FileStream("thumbnail\1.jpg", FileMode.Open, FileAccess.Read)
+                If File.Exists(My.Application.Info.DirectoryPath & "\thumbnail\1.jpg") Then
+                    Dim ImgPrev1 As New FileStream(My.Application.Info.DirectoryPath & "\thumbnail\1.jpg", FileMode.Open, FileAccess.Read)
                     PictureBox1.Image = Image.FromStream(ImgPrev1)
                     ImgPrev1.Close()
                     If RemoveWhitespace(Label5.Text).Equals("png") = True Then
@@ -717,11 +721,11 @@ Public Class MainMenu
             End If
         Else
             videoFile = Chr(34) & Label2.Text & Chr(34)
-            Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -an -vcodec copy " & Chr(34) & My.Application.Info.DirectoryPath & "\" & "thumbnail\1.jpg"
-            HMEGenerate("HME_Audio_Only_Summary.bat", ffmpegLetter, FfmpegConf, Newffargs, "")
-            RunProcAsync("HME_Audio_Only_Summary.bat")
-            If File.Exists("thumbnail\1.jpg") Then
-                Dim ImgPrev1 As New FileStream("thumbnail\1.jpg", FileMode.Open, FileAccess.Read)
+            Newffargs = "ffmpeg -hide_banner -i " & videoFile & " -an -vcodec copy " & Chr(34) & My.Application.Info.DirectoryPath & "\thumbnail\1.jpg"
+            HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Audio_Only_Summary.bat", ffmpegLetter, FfmpegConf, Newffargs, "")
+            RunProcAsync(My.Application.Info.DirectoryPath & "\HME_Audio_Only_Summary.bat")
+            If File.Exists(My.Application.Info.DirectoryPath & "\thumbnail\1.jpg") Then
+                Dim ImgPrev1 As New FileStream(My.Application.Info.DirectoryPath & "\thumbnail\1.jpg", FileMode.Open, FileAccess.Read)
                 PictureBox1.Image = Image.FromStream(ImgPrev1)
                 ImgPrev1.Close()
                 Label96.Text = 1
@@ -744,9 +748,9 @@ Public Class MainMenu
         End If
         GC.Collect()
         GC.WaitForPendingFinalizers()
-        File.Delete("HME_Audio_Only_Summary.bat")
-        File.Delete("HME_Image_Preview_Summary.bat")
-        File.Delete("HME_VF.bat")
+        File.Delete(My.Application.Info.DirectoryPath & "\HME_Audio_Only_Summary.bat")
+        File.Delete(My.Application.Info.DirectoryPath & "\HME_Image_Preview_Summary.bat")
+        File.Delete(My.Application.Info.DirectoryPath & "\HME_VF.bat")
         Button1.Enabled = True
         Button3.Enabled = True
         Button4.Enabled = True
@@ -754,8 +758,8 @@ Public Class MainMenu
     End Sub
     Public Sub getStreamSummary(ffmpegletter As String, ffmpegbin As String, videoFile As String, ffmpegMode As String)
         Newffargs = "ffmpeg -hide_banner -i " & videoFile & " 2>&1 "
-        HMEGenerate("HME_Stream_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
-        Dim psi As New ProcessStartInfo("HME_Stream_Summary.bat") With {
+        HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Stream_Summary.bat", ffmpegletter, ffmpegbin, Newffargs, "")
+        Dim psi As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_Stream_Summary.bat") With {
            .RedirectStandardError = False,
            .RedirectStandardOutput = True,
            .CreateNoWindow = True,
@@ -771,7 +775,7 @@ Public Class MainMenu
         process.WaitForExit()
         GC.Collect()
         GC.WaitForPendingFinalizers()
-        File.Delete("HME_Stream_Summary.bat")
+        File.Delete(My.Application.Info.DirectoryPath & "\HME_Stream_Summary.bat")
         Dim start As Integer
         Dim videoRegex As New Regex(": Video:", RegexOptions.IgnoreCase Or RegexOptions.Singleline)
         Dim audioRegex As New Regex(": Audio:", RegexOptions.IgnoreCase Or RegexOptions.Singleline)
@@ -846,8 +850,8 @@ Public Class MainMenu
     End Sub
     Private Async Sub StartEncode(sender As Object, e As EventArgs) Handles Button3.Click
         Button3.Enabled = False
-        DebugMode = FindConfig("config.ini", "Debug Mode:")
-        FrameConfig = FindConfig("config.ini", "Frame Count:")
+        DebugMode = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Debug Mode:")
+        FrameConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Frame Count:")
         If Hwdefconfig IsNot "null" And Hwdefconfig.Remove(0, 11) IsNot "" Then
             If Label2.Text IsNot "" Then
                 If TextBox1.Text IsNot "" Then
@@ -924,12 +928,12 @@ Public Class MainMenu
                                             If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                                                 FlagsCount = ComboBox22.Items.Count
                                                 For FlagsStart = 1 To FlagsCount
-                                                    My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (FlagsStart - 1).ToString & ".txt")), True)
+                                                    My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "\HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (FlagsStart - 1).ToString & ".txt")), True)
                                                 Next
-                                                If File.Exists("HME_Audio_Flags.txt") Then
-                                                    Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
+                                                If File.Exists(My.Application.Info.DirectoryPath & "\HME_Audio_Flags.txt") Then
+                                                    Dim joinAudio As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\HME_Audio_Flags.txt")
                                                     Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox5.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                                    HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                                    HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                                 End If
                                                 encpass2 = True
                                             Else
@@ -938,12 +942,12 @@ Public Class MainMenu
                                             End If
                                         ElseIf CheckBox4.Checked = False And CheckBox5.Checked = False Then
                                             Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox5.Text & " " & RichTextBox1.Text & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
-                                            HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             encpass2 = True
                                         End If
                                     Else
                                         Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox5.Text & " -c copy " & RichTextBox1.Text & Chr(34) & TextBox1.Text & Chr(34)
-                                        HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                        HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                         encpass2 = True
                                     End If
                                 Else
@@ -953,21 +957,21 @@ Public Class MainMenu
                             ElseIf CheckBox7.Checked = True And CheckBox8.Checked = True Then
                                 If ComboBox1.Text = "Original Quality" Then
                                     Newffargs = "ffmpeg -hide_banner " & RichTextBox4.Text & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                    HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                    HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                     encpass2 = True
                                 ElseIf ComboBox1.Text = "Custom Quality" Then
                                     If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                                         StreamCount = ComboBox22.Items.Count
                                         For StreamStart = 1 To StreamCount
-                                            My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (StreamStart - 1).ToString & ".txt")), True)
+                                            My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "\HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (StreamStart - 1).ToString & ".txt")), True)
                                         Next
-                                        Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
+                                        Dim joinAudio As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\HME_Audio_Flags.txt")
                                         If CheckBox4.Checked = True And CheckBox5.Checked = True And CheckBox2.Checked = False Then
                                             Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox4.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                            HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                         ElseIf CheckBox4.Checked = True And CheckBox5.Checked = False And CheckBox2.Checked = False Then
                                             Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox4.Text & " " & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                            HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                         End If
                                         encpass2 = True
                                     Else
@@ -992,22 +996,22 @@ Public Class MainMenu
                                     Else
                                         Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox3.Text & " -map 0 -c copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
                                     End If
-                                    HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                    HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                     encpass2 = True
                                 ElseIf ComboBox26.Text = "Custom Quality" Then
                                     If ComboBox28.Text = "Video Only" Then
                                         Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 " & RichTextBox1.Text & " -an " & Chr(34) & TextBox1.Text & Chr(34)
-                                        HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                        HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                         encpass2 = True
                                     ElseIf ComboBox28.Text = "Video + Audio (Specific source)" Then
                                         If File.Exists(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                                             FlagsCount = ComboBox22.Items.Count
                                             For FlagsStart = 1 To FlagsCount
-                                                My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt")), True)
+                                                My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "\HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt")), True)
                                             Next
                                             Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
                                             Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox3.Text & " -map 0:0 -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                            HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             encpass2 = True
                                         Else
                                             NotifyIcon("Media file has failed to encode", "Video or audio codec stream configuration not found", 1000, False)
@@ -1017,12 +1021,12 @@ Public Class MainMenu
                                         If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                                             FlagsCount = ComboBox22.Items.Count
                                             For FlagsStart = 1 To FlagsCount
-                                                My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (FlagsStart - 1).ToString & ".txt")), True)
+                                                My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "\HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (FlagsStart - 1).ToString & ".txt")), True)
                                             Next
                                             If File.Exists("HME_Audio_Flags.txt") Then
                                                 Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
                                                 Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox3.Text & " -map 0 " & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                                HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                                HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             End If
                                             encpass2 = True
                                         Else
@@ -1033,7 +1037,7 @@ Public Class MainMenu
                                         If File.Exists(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt") Then
                                             FlagsCount = ComboBox22.Items.Count
                                             For FlagsStart = 1 To FlagsCount
-                                                My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt")), True)
+                                                My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "\HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & ".txt")), True)
                                             Next
                                             Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
                                             If Label5.Text.Equals("Not Detected") = False Then
@@ -1041,7 +1045,7 @@ Public Class MainMenu
                                             Else
                                                 Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & RichTextBox3.Text & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
                                             End If
-                                            HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             encpass2 = True
                                         Else
                                             NotifyIcon("Media file has failed to encode", "Audio codec stream configuration not found", 1000, False)
@@ -1056,7 +1060,7 @@ Public Class MainMenu
                                             If File.Exists("HME_Audio_Flags.txt") Then
                                                 Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
                                                 Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & RichTextBox3.Text & " -map 0 " & RichTextBox1.Text & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                                HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                                HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             End If
                                             encpass2 = True
                                         Else
@@ -1070,12 +1074,12 @@ Public Class MainMenu
                                     If File.Exists(AudioStreamFlagsPath & "HME_Audio_0.txt") And File.Exists(VideoStreamFlagsPath & "HME_Video_0.txt") Then
                                         FlagsCount = ComboBox22.Items.Count
                                         For FlagsStart = 1 To FlagsCount
-                                            My.Computer.FileSystem.WriteAllText("HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (FlagsStart - 1).ToString & ".txt")), True)
+                                            My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "\HME_Audio_Flags.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & "HME_Audio_" & (FlagsStart - 1).ToString & ".txt")), True)
                                         Next
                                         If File.Exists("HME_Audio_Flags.txt") Then
                                             Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
                                             Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox1.Text & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                            HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                         End If
                                         encpass2 = True
                                     Else
@@ -1084,7 +1088,7 @@ Public Class MainMenu
                                     End If
                                 ElseIf CheckBox4.Checked = False And CheckBox5.Checked = False Then
                                     Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & RichTextBox1.Text & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
-                                    HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                    HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                     encpass2 = True
                                 End If
                             ElseIf CheckBox1.Checked = False And CheckBox3.Checked = False Then
@@ -1097,7 +1101,7 @@ Public Class MainMenu
                                         If File.Exists("HME_Audio_Flags.txt") Then
                                             Dim joinAudio As String = File.ReadAllText("HME_Audio_Flags.txt")
                                             Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & VideoFilePath & Chr(34) & " -vn " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
-                                            HMEGenerate("HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
+                                            HMEGenerate(My.Application.Info.DirectoryPath & "\HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             encpass2 = True
                                         Else
                                             NotifyIcon("Media file has failed to encode", "Audio codec stream configuration is missing", 1000, False)
@@ -1115,7 +1119,7 @@ Public Class MainMenu
                         End If
                     End If
                     If encpass2 = True Then
-                        If File.Exists("HME.bat") Then
+                        If File.Exists(My.Application.Info.DirectoryPath & "\HME.bat") Then
                             If File.Exists(TextBox1.Text) Then
                                 Dim duplicateFile As DialogResult = MessageBoxAdv.Show(Me, "Selected file location to save as new media file already exists" & vbCrLf &
                                                                                        vbCrLf & "Replace that file ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -1157,7 +1161,7 @@ Public Class MainMenu
                                     loadInit.Show()
                                     FrameCount = "0"
                                     Newffargs = "ffprobe -hide_banner -i " & Chr(34) & VideoFilePath & Chr(34) & " -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0"
-                                    HMEGenerate("HME_VF.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
+                                    HMEGenerate(My.Application.Info.DirectoryPath & "\HME_VF.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
                                     Dim psi As New ProcessStartInfo("HME_VF.bat") With {
                                                 .RedirectStandardError = False,
                                                 .RedirectStandardOutput = True,
@@ -3822,24 +3826,24 @@ Public Class MainMenu
                                 For FlagsStart = 1 To ComboBox25.Items.Count
                                     numbers(FlagsStart) = FlagsStart
                                 Next
-                                If File.Exists("HME_Stream_Replace.txt") Then
+                                If File.Exists(My.Application.Info.DirectoryPath & "\HME_Stream_Replace.txt") Then
                                     GC.Collect()
                                     GC.WaitForPendingFinalizers()
-                                    File.Delete("HME_Stream_Replace.txt")
-                                    File.Create("HME_Stream_Replace.txt").Dispose()
+                                    File.Delete(My.Application.Info.DirectoryPath & "\HME_Stream_Replace.txt")
+                                    File.Create(My.Application.Info.DirectoryPath & "\HME_Stream_Replace.txt").Dispose()
                                 End If
                                 For FlagsStart = 1 To ComboBox25.Items.Count
-                                    File.AppendAllText("HME_Stream_Replace.txt", " -map 0:" & numbers(FlagsStart))
+                                    File.AppendAllText(My.Application.Info.DirectoryPath & "\HME_Stream_Replace.txt", " -map 0:" & numbers(FlagsStart))
                                 Next
-                                If FindConfig("HME_Stream_Replace.txt", "-map 0:" & AudioStreamArray) IsNot "" Then
-                                    Dim ReplaceStream As String = File.ReadAllText("HME_Stream_Replace.txt")
+                                If FindConfig(My.Application.Info.DirectoryPath & "\HME_Stream_Replace.txt", "-map 0:" & AudioStreamArray) IsNot "" Then
+                                    Dim ReplaceStream As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\HME_Stream_Replace.txt")
                                     ReplaceStream = ReplaceStream.Replace(" -map 0:" & AudioStreamArray, " -map 1:0 ")
-                                    File.WriteAllText("HME_Stream_Replace.txt", ReplaceStream)
+                                    File.WriteAllText(My.Application.Info.DirectoryPath & "\HME_Stream_Replace.txt", ReplaceStream)
                                 End If
                                 If ComboBox1.Text = "Original Quality" Then
-                                    RichTextBox4.Text = " -i " & Chr(34) & VideoFilePath & Chr(34) & " -i " & Chr(34) & TextBox16.Text & Chr(34) & " -map 0:0 " & File.ReadAllText("HME_Stream_Replace.txt") & " -c copy "
+                                    RichTextBox4.Text = " -i " & Chr(34) & VideoFilePath & Chr(34) & " -i " & Chr(34) & TextBox16.Text & Chr(34) & " -map 0:0 " & File.ReadAllText(My.Application.Info.DirectoryPath & "\HME_Stream_Replace.txt") & " -c copy "
                                 ElseIf ComboBox1.Text = "Custom Quality" Then
-                                    RichTextBox4.Text = " -i " & Chr(34) & VideoFilePath & Chr(34) & " -i " & Chr(34) & TextBox16.Text & Chr(34) & " -map 0:0 " & File.ReadAllText("HME_Stream_Replace.txt") & ""
+                                    RichTextBox4.Text = " -i " & Chr(34) & VideoFilePath & Chr(34) & " -i " & Chr(34) & TextBox16.Text & Chr(34) & " -map 0:0 " & File.ReadAllText(My.Application.Info.DirectoryPath & "\HME_Stream_Replace.txt") & ""
                                 End If
                             End If
                         ElseIf CheckBox9.Checked = False And CheckBox10.Checked = True Then
@@ -4011,17 +4015,17 @@ Public Class MainMenu
     End Sub
     Private Sub GetChapter()
         Newffargs = "ffmpeg -i " & Chr(34) & Label2.Text & Chr(34) & " -f ffmetadata " & Chr(34) & My.Application.Info.DirectoryPath & "\FFMETADATAFILE" & Chr(34)
-        HMEGenerate("HME_Chapters.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
-        RunProc("HME_Chapters.bat")
-        If File.Exists("FFMETADATAFILE") = True Then
+        HMEGenerate(My.Application.Info.DirectoryPath & "\HME_Chapters.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs, "")
+        RunProc(My.Application.Info.DirectoryPath & "\HME_Chapters.bat")
+        If File.Exists(My.Application.Info.DirectoryPath & "\FFMETADATAFILE") = True Then
             Dim chapterStatus As Boolean
             Dim curLoop As Integer = 1
             Dim cnvTime As String
             Dim count As Integer = 0
             Dim selectedTime As New List(Of String)()
             Dim selectedTitle As New List(Of String)()
-            Dim readMetadataLines() As String = File.ReadAllLines("FFMETADATAFILE")
-            If File.ReadAllText("FFMETADATAFILE").Contains("START=") = True Then
+            Dim readMetadataLines() As String = File.ReadAllLines(My.Application.Info.DirectoryPath & "\FFMETADATAFILE")
+            If File.ReadAllText(My.Application.Info.DirectoryPath & "\FFMETADATAFILE").Contains("START=") = True Then
                 Do
                     If readMetadataLines(count).Contains("START=") Then
                         Dim curLines As String = RemoveWhitespace(Strings.Mid(readMetadataLines(count), 7))
@@ -4035,13 +4039,13 @@ Public Class MainMenu
                         selectedTime.Add(cnvTime)
                     End If
                     count += 1
-                Loop While count < File.ReadAllLines("FFMETADATAFILE").Length
+                Loop While count < File.ReadAllLines(My.Application.Info.DirectoryPath & "\FFMETADATAFILE").Length
                 chapterStatus = True
             Else
                 chapterStatus = False
             End If
             count = 0
-            If File.ReadAllText("FFMETADATAFILE").Contains("title=") = True Then
+            If File.ReadAllText(My.Application.Info.DirectoryPath & "\FFMETADATAFILE").Contains("title=") = True Then
                 Do
                     If readMetadataLines(count).Contains("title=") Then
                         Dim curLines As String = Strings.Mid(readMetadataLines(count), 7)
@@ -4049,7 +4053,7 @@ Public Class MainMenu
                         curLoop += 1
                     End If
                     count += 1
-                Loop While count < File.ReadAllLines("FFMETADATAFILE").Length
+                Loop While count < File.ReadAllLines(My.Application.Info.DirectoryPath & "\FFMETADATAFILE").Length
                 chapterStatus = True
             Else
                 chapterStatus = False
@@ -4066,7 +4070,7 @@ Public Class MainMenu
             End If
             GC.Collect()
             GC.WaitForPendingFinalizers()
-            File.Delete("FFMETADATAFILE")
+            File.Delete(My.Application.Info.DirectoryPath & "\FFMETADATAFILE")
         End If
     End Sub
     Private Sub AddChapter(sender As Object, e As EventArgs) Handles Button11.Click
@@ -4407,13 +4411,13 @@ Public Class MainMenu
     Private Sub ChapterLock(sender As Object, e As EventArgs) Handles CheckBox14.CheckedChanged
         If CheckBox14.Checked = True Then
             If ListView1.Items.Count > 0 Then
-                If File.Exists("FFMETADATAFILE") Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\FFMETADATAFILE") Then
                     GC.Collect()
                     GC.WaitForPendingFinalizers()
-                    File.Delete("FFMETADATAFILE")
+                    File.Delete(My.Application.Info.DirectoryPath & "\FFMETADATAFILE")
                 End If
-                File.Create("FFMETADATAFILE").Dispose()
-                Dim writer As New StreamWriter("FFMETADATAFILE", True)
+                File.Create(My.Application.Info.DirectoryPath & "\FFMETADATAFILE").Dispose()
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\FFMETADATAFILE", True)
                 writer.WriteLine(";FFMETADATAFILE1" & vbCrLf)
                 For cm = 0 To ListView1.Items.Count - 1
                     Dim nextdur As String()
@@ -4443,13 +4447,13 @@ Public Class MainMenu
                 Button13.Enabled = False
                 Button14.Enabled = False
             Else
-                If File.Exists("FFMETADATAFILE") Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\FMETADATAFILE") Then
                     GC.Collect()
                     GC.WaitForPendingFinalizers()
-                    File.Delete("FFMETADATAFILE")
+                    File.Delete(My.Application.Info.DirectoryPath & "\FFMETADATAFILE")
                 End If
-                File.Create("FFMETADATAFILE").Dispose()
-                Dim writer As New StreamWriter("FFMETADATAFILE", True)
+                File.Create(My.Application.Info.DirectoryPath & "\FFMETADATAFILE").Dispose()
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\FFMETADATAFILE", True)
                 writer.WriteLine(";FFMETADATAFILE1" & vbCrLf & vbCrLf)
                 writer.Close()
                 RichTextBox5.Text = " -i " & Chr(34) & My.Application.Info.DirectoryPath & "\FFMETADATAFILE" & Chr(34) & " -map_chapters 1 "

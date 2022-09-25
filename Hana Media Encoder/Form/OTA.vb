@@ -33,13 +33,13 @@ Public Class OTAMenu
     End Sub
     Private Sub UpdateNow(sender As Object, e As EventArgs) Handles Button1.Click
         If installStats = True Then
-            If File.Exists("OTA.bat") Then
+            If File.Exists(My.Application.Info.DirectoryPath & "\OTA.bat") Then
                 GC.Collect()
                 GC.WaitForPendingFinalizers()
-                File.Delete("OTA.bat")
+                File.Delete(My.Application.Info.DirectoryPath & "\OTA.bat")
             End If
-            HMEGenerate("OTA.bat", "C:", My.Application.Info.DirectoryPath, "HME.msi", "")
-            RunProcAlt("OTA.bat")
+            HMEGenerate(My.Application.Info.DirectoryPath & "\OTA.bat", "C:", My.Application.Info.DirectoryPath, "HME.msi", "")
+            RunProcAlt(My.Application.Info.DirectoryPath & "\OTA.bat")
             End
         Else
             If downloadStats = False Then

@@ -2,17 +2,17 @@
 Imports System.Net
 Module GlobalVariable
     ' Readonly variable
-    Public ReadOnly AudioStreamFlagsPath As String = "audioStream\"
-    Public ReadOnly AudioStreamConfigPath As String = "audioConfig\"
-    Public ReadOnly DownBtnPath As String = "..\..\..\Assets\arrow_down.png"
-    Public ReadOnly NotifyIcoPath As String = "..\..\..\Assets\HME_256.ico"
-    Public ReadOnly SpectrumPlaceholder As String = "..\..\..\Assets\Spectrum_Placeholder.png"
-    Public ReadOnly SpectrumErrorPlaceholder As String = "..\..\..\Assets\Spectrum_Error_Placeholder.png"
-    Public ReadOnly UpBtnPath As String = "..\..\..\Assets\arrow_up.png"
-    Public ReadOnly VideoStreamFlagsPath As String = "videoStream\"
-    Public ReadOnly VideoStreamConfigPath As String = "videoConfig\"
-    Public ReadOnly VideoPlaceholder As String = "..\..\..\Assets\Snapshot_Placeholder.png"
-    Public ReadOnly VideoErrorPlaceholder As String = "..\..\..\Assets\Snapshot_Error_Placeholder.png"
+    Public ReadOnly AudioStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\audioStream\"
+    Public ReadOnly AudioStreamConfigPath As String = My.Application.Info.DirectoryPath & "\audioConfig\"
+    Public ReadOnly DownBtnPath As String = My.Application.Info.DirectoryPath & "\Assets\arrow_down.png"
+    Public ReadOnly NotifyIcoPath As String = My.Application.Info.DirectoryPath & "\Assets\HME_256.ico"
+    Public ReadOnly SpectrumPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Spectrum_Placeholder.png"
+    Public ReadOnly SpectrumErrorPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Spectrum_Error_Placeholder.png"
+    Public ReadOnly UpBtnPath As String = My.Application.Info.DirectoryPath & "\Assets\arrow_up.png"
+    Public ReadOnly VideoStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\videoStream\"
+    Public ReadOnly VideoStreamConfigPath As String = My.Application.Info.DirectoryPath & "\videoConfig\"
+    Public ReadOnly VideoPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Placeholder.png"
+    Public ReadOnly VideoErrorPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Error_Placeholder.png"
 
     ' Global variable
     Public AppChangelog

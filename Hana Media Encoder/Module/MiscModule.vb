@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Reflection.Emit
 Module MiscModule
     Public Function FindConfig(confpath As String, contains As String) As String
         Dim value As String
@@ -59,6 +60,14 @@ Module MiscModule
         End If
         Return ""
     End Function
+    Public Sub InitMedia(mediaFile As Control)
+        Dim sCmdLine As String = Environment.CommandLine()
+        If sCmdLine.Equals("") = False Then
+            Dim iPos = sCmdLine.IndexOf("""", 2)
+            Dim sCmdLineArgs = sCmdLine.Substring(iPos + 1).Trim()
+            mediaFile.Text = sCmdLineArgs.Replace(Chr(34), "")
+        End If
+    End Sub
     Public Sub NotifyIcon(NotifyTitle As String, NotifyText As String, NotifyTimeout As Integer, NotifyStatus As Boolean)
         Dim NotifyIcon As New NotifyIcon With {
            .Icon = New Icon(NotifyIcoPath),
