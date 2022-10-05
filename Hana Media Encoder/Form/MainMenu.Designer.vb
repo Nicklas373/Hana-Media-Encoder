@@ -43,7 +43,7 @@ Partial Class MainMenu
         Me.Label134 = New System.Windows.Forms.Label()
         Me.Label71 = New System.Windows.Forms.Label()
         Me.Label70 = New System.Windows.Forms.Label()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.MetroSetTabControl1 = New MetroSet_UI.Controls.MetroSetTabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label106 = New System.Windows.Forms.Label()
         Me.Label107 = New System.Windows.Forms.Label()
@@ -212,7 +212,7 @@ Partial Class MainMenu
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.CheckBox5 = New System.Windows.Forms.CheckBox()
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.Label127 = New System.Windows.Forms.Label()
         Me.ListView1 = New System.Windows.Forms.ListView()
@@ -261,7 +261,7 @@ Partial Class MainMenu
         Me.RichTextBox4 = New System.Windows.Forms.RichTextBox()
         Me.CheckBox7 = New System.Windows.Forms.CheckBox()
         Me.CheckBox8 = New System.Windows.Forms.CheckBox()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.Panel17 = New System.Windows.Forms.Panel()
         Me.Label132 = New System.Windows.Forms.Label()
         Me.Label83 = New System.Windows.Forms.Label()
@@ -294,11 +294,12 @@ Partial Class MainMenu
         Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox6 = New System.Windows.Forms.CheckBox()
+        Me.StyleManager1 = New MetroSet_UI.Components.StyleManager()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.BottomPnl.SuspendLayout()
         CType(Me.ProgressBarAdv1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabControl1.SuspendLayout()
+        Me.MetroSetTabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
@@ -317,14 +318,14 @@ Partial Class MainMenu
         Me.Audio_Enc_Ch_Pnl.SuspendLayout()
         Me.Audio_Enc_QC_Pnl.SuspendLayout()
         Me.Audio_Opt_Pnl.SuspendLayout()
-        Me.TabPage6.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
         Me.Panel12.SuspendLayout()
         Me.Panel11.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.Mux_Audio_Opt_Pnl.SuspendLayout()
         Me.Panel14.SuspendLayout()
         Me.Mux_Opt_Pnl.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
+        Me.TabPage6.SuspendLayout()
         Me.Panel17.SuspendLayout()
         Me.Trim_Opt_Pnl.SuspendLayout()
         Me.SuspendLayout()
@@ -435,7 +436,7 @@ Partial Class MainMenu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.Panel1.Controls.Add(Me.BottomPnl)
-        Me.Panel1.Controls.Add(Me.TabControl1)
+        Me.Panel1.Controls.Add(Me.MetroSetTabControl1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(-5, 67)
@@ -636,23 +637,37 @@ Partial Class MainMenu
         Me.Label70.Text = "ORIG_SIZE"
         Me.Label70.Visible = False
         '
-        'TabControl1
+        'MetroSetTabControl1
         '
-        Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.MetroSetTabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Controls.Add(Me.TabPage6)
-        Me.TabControl1.Controls.Add(Me.TabPage5)
-        Me.TabControl1.Controls.Add(Me.TabPage4)
-        Me.TabControl1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.TabControl1.Location = New System.Drawing.Point(0, 46)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1920, 1080)
-        Me.TabControl1.TabIndex = 12
+        Me.MetroSetTabControl1.AnimateEasingType = MetroSet_UI.Enums.EasingType.CubeOut
+        Me.MetroSetTabControl1.AnimateTime = 200
+        Me.MetroSetTabControl1.BackgroundColor = System.Drawing.Color.White
+        Me.MetroSetTabControl1.Controls.Add(Me.TabPage1)
+        Me.MetroSetTabControl1.Controls.Add(Me.TabPage2)
+        Me.MetroSetTabControl1.Controls.Add(Me.TabPage3)
+        Me.MetroSetTabControl1.Controls.Add(Me.TabPage4)
+        Me.MetroSetTabControl1.Controls.Add(Me.TabPage5)
+        Me.MetroSetTabControl1.Controls.Add(Me.TabPage6)
+        Me.MetroSetTabControl1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.MetroSetTabControl1.IsDerivedStyle = True
+        Me.MetroSetTabControl1.ItemSize = New System.Drawing.Size(100, 38)
+        Me.MetroSetTabControl1.Location = New System.Drawing.Point(0, 46)
+        Me.MetroSetTabControl1.Name = "MetroSetTabControl1"
+        Me.MetroSetTabControl1.SelectedIndex = 0
+        Me.MetroSetTabControl1.SelectedTextColor = System.Drawing.Color.White
+        Me.MetroSetTabControl1.Size = New System.Drawing.Size(1912, 1050)
+        Me.MetroSetTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
+        Me.MetroSetTabControl1.Speed = 100
+        Me.MetroSetTabControl1.Style = MetroSet_UI.Enums.Style.Custom
+        Me.MetroSetTabControl1.StyleManager = Me.StyleManager1
+        Me.MetroSetTabControl1.TabIndex = 3
+        Me.MetroSetTabControl1.TabStyle = MetroSet_UI.Enums.TabStyle.Style2
+        Me.MetroSetTabControl1.ThemeAuthor = Nothing
+        Me.MetroSetTabControl1.ThemeName = Nothing
+        Me.MetroSetTabControl1.UnselectedTextColor = System.Drawing.Color.Gray
         '
         'TabPage1
         '
@@ -709,14 +724,14 @@ Partial Class MainMenu
         Me.TabPage1.Controls.Add(Me.Label6)
         Me.TabPage1.Controls.Add(Me.Label5)
         Me.TabPage1.Controls.Add(Me.Label4)
-        Me.TabPage1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.TabPage1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TabPage1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TabPage1.Location = New System.Drawing.Point(4, 26)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 42)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1912, 1050)
+        Me.TabPage1.Size = New System.Drawing.Size(1904, 1004)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Source Info"
+        Me.TabPage1.Text = "Media Summary"
         '
         'Label106
         '
@@ -787,7 +802,7 @@ Partial Class MainMenu
         Me.Label98.AutoSize = True
         Me.Label98.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label98.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label98.Location = New System.Drawing.Point(1139, 322)
+        Me.Label98.Location = New System.Drawing.Point(1152, 322)
         Me.Label98.Name = "Label98"
         Me.Label98.Size = New System.Drawing.Size(19, 21)
         Me.Label98.TabIndex = 70
@@ -799,7 +814,7 @@ Partial Class MainMenu
         Me.Label97.AutoSize = True
         Me.Label97.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label97.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label97.Location = New System.Drawing.Point(1121, 322)
+        Me.Label97.Location = New System.Drawing.Point(1134, 322)
         Me.Label97.Name = "Label97"
         Me.Label97.Size = New System.Drawing.Size(17, 21)
         Me.Label97.TabIndex = 69
@@ -811,7 +826,7 @@ Partial Class MainMenu
         Me.Label96.AutoSize = True
         Me.Label96.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label96.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label96.Location = New System.Drawing.Point(1102, 322)
+        Me.Label96.Location = New System.Drawing.Point(1115, 322)
         Me.Label96.Name = "Label96"
         Me.Label96.Size = New System.Drawing.Size(19, 21)
         Me.Label96.TabIndex = 68
@@ -827,7 +842,7 @@ Partial Class MainMenu
         Me.ComboBox31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox31.FormattingEnabled = True
         Me.ComboBox31.Items.AddRange(New Object() {"Snapshots", "Spectrum"})
-        Me.ComboBox31.Location = New System.Drawing.Point(770, 322)
+        Me.ComboBox31.Location = New System.Drawing.Point(783, 322)
         Me.ComboBox31.Name = "ComboBox31"
         Me.ComboBox31.Size = New System.Drawing.Size(134, 23)
         Me.ComboBox31.TabIndex = 67
@@ -867,7 +882,7 @@ Partial Class MainMenu
         Me.Button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
-        Me.Button8.Location = New System.Drawing.Point(585, 146)
+        Me.Button8.Location = New System.Drawing.Point(598, 146)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(58, 39)
         Me.Button8.TabIndex = 45
@@ -882,7 +897,7 @@ Partial Class MainMenu
         Me.Button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
-        Me.Button7.Location = New System.Drawing.Point(1163, 146)
+        Me.Button7.Location = New System.Drawing.Point(1176, 146)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(58, 39)
         Me.Button7.TabIndex = 44
@@ -894,7 +909,7 @@ Partial Class MainMenu
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(649, 322)
+        Me.Label27.Location = New System.Drawing.Point(662, 322)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(118, 17)
         Me.Label27.TabIndex = 43
@@ -908,7 +923,7 @@ Partial Class MainMenu
         Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox1.InitialImage = Nothing
-        Me.PictureBox1.Location = New System.Drawing.Point(649, 28)
+        Me.PictureBox1.Location = New System.Drawing.Point(662, 28)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(508, 286)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -1315,13 +1330,14 @@ Partial Class MainMenu
         Me.TabPage2.Controls.Add(Me.Label59)
         Me.TabPage2.Controls.Add(Me.RichTextBox1)
         Me.TabPage2.Controls.Add(Me.CheckBox1)
+        Me.TabPage2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TabPage2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TabPage2.Location = New System.Drawing.Point(4, 26)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 42)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1912, 1050)
+        Me.TabPage2.Size = New System.Drawing.Size(1904, 1004)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Video"
+        Me.TabPage2.Text = "Video Profile"
         '
         'Label121
         '
@@ -1618,7 +1634,7 @@ Partial Class MainMenu
         Me.CheckBox12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox12.Location = New System.Drawing.Point(298, 85)
         Me.CheckBox12.Name = "CheckBox12"
-        Me.CheckBox12.Size = New System.Drawing.Size(121, 21)
+        Me.CheckBox12.Size = New System.Drawing.Size(138, 25)
         Me.CheckBox12.TabIndex = 84
         Me.CheckBox12.Text = "Allow upscaling"
         Me.CheckBox12.UseVisualStyleBackColor = False
@@ -2397,10 +2413,11 @@ Partial Class MainMenu
         Me.TabPage3.Controls.Add(Me.RichTextBox2)
         Me.TabPage3.Controls.Add(Me.CheckBox5)
         Me.TabPage3.Controls.Add(Me.CheckBox4)
+        Me.TabPage3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TabPage3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TabPage3.Location = New System.Drawing.Point(4, 26)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 42)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(1912, 1050)
+        Me.TabPage3.Size = New System.Drawing.Size(1904, 1004)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Audio"
         '
@@ -2844,24 +2861,25 @@ Partial Class MainMenu
         Me.CheckBox4.Text = "Enable Audio"
         Me.CheckBox4.UseVisualStyleBackColor = False
         '
-        'TabPage6
+        'TabPage4
         '
-        Me.TabPage6.AutoScroll = True
-        Me.TabPage6.AutoScrollMargin = New System.Drawing.Size(0, 720)
-        Me.TabPage6.AutoScrollMinSize = New System.Drawing.Size(0, 720)
-        Me.TabPage6.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TabPage6.Controls.Add(Me.Panel12)
-        Me.TabPage6.Controls.Add(Me.Panel11)
-        Me.TabPage6.Controls.Add(Me.RichTextBox5)
-        Me.TabPage6.Controls.Add(Me.Label82)
-        Me.TabPage6.Controls.Add(Me.CheckBox14)
-        Me.TabPage6.Controls.Add(Me.CheckBox15)
-        Me.TabPage6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TabPage6.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(1912, 1050)
-        Me.TabPage6.TabIndex = 5
-        Me.TabPage6.Text = "Chapter"
+        Me.TabPage4.AutoScroll = True
+        Me.TabPage4.AutoScrollMargin = New System.Drawing.Size(0, 720)
+        Me.TabPage4.AutoScrollMinSize = New System.Drawing.Size(0, 720)
+        Me.TabPage4.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.TabPage4.Controls.Add(Me.Panel12)
+        Me.TabPage4.Controls.Add(Me.Panel11)
+        Me.TabPage4.Controls.Add(Me.RichTextBox5)
+        Me.TabPage4.Controls.Add(Me.Label82)
+        Me.TabPage4.Controls.Add(Me.CheckBox14)
+        Me.TabPage4.Controls.Add(Me.CheckBox15)
+        Me.TabPage4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.TabPage4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.TabPage4.Location = New System.Drawing.Point(4, 42)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Size = New System.Drawing.Size(1904, 1004)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Media Chapter"
         '
         'Panel12
         '
@@ -3186,12 +3204,13 @@ Partial Class MainMenu
         Me.TabPage5.Controls.Add(Me.RichTextBox4)
         Me.TabPage5.Controls.Add(Me.CheckBox7)
         Me.TabPage5.Controls.Add(Me.CheckBox8)
+        Me.TabPage5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TabPage5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.TabPage5.Location = New System.Drawing.Point(4, 26)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 42)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(1912, 1050)
+        Me.TabPage5.Size = New System.Drawing.Size(1904, 1004)
         Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "Muxing"
+        Me.TabPage5.Text = "Media Muxing"
         '
         'Mux_Audio_Opt_Pnl
         '
@@ -3224,7 +3243,7 @@ Partial Class MainMenu
         Me.CheckBox9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox9.Location = New System.Drawing.Point(10, 55)
         Me.CheckBox9.Name = "CheckBox9"
-        Me.CheckBox9.Size = New System.Drawing.Size(208, 21)
+        Me.CheckBox9.Size = New System.Drawing.Size(235, 25)
         Me.CheckBox9.TabIndex = 59
         Me.CheckBox9.Text = "Replace existing audio stream"
         Me.CheckBox9.UseVisualStyleBackColor = False
@@ -3237,7 +3256,7 @@ Partial Class MainMenu
         Me.CheckBox10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox10.Location = New System.Drawing.Point(10, 85)
         Me.CheckBox10.Name = "CheckBox10"
-        Me.CheckBox10.Size = New System.Drawing.Size(182, 21)
+        Me.CheckBox10.Size = New System.Drawing.Size(204, 25)
         Me.CheckBox10.TabIndex = 60
         Me.CheckBox10.Text = "Add as new audio stream"
         Me.CheckBox10.UseVisualStyleBackColor = False
@@ -3314,7 +3333,7 @@ Partial Class MainMenu
         Me.CheckBox11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.CheckBox11.Location = New System.Drawing.Point(120, 90)
         Me.CheckBox11.Name = "CheckBox11"
-        Me.CheckBox11.Size = New System.Drawing.Size(260, 21)
+        Me.CheckBox11.Size = New System.Drawing.Size(298, 25)
         Me.CheckBox11.TabIndex = 63
         Me.CheckBox11.Text = "Use same video file from 'Open Media'"
         Me.CheckBox11.UseVisualStyleBackColor = False
@@ -3456,6 +3475,7 @@ Partial Class MainMenu
         '
         Me.CheckBox8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CheckBox8.AutoSize = True
+        Me.CheckBox8.Enabled = False
         Me.CheckBox8.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
@@ -3466,25 +3486,26 @@ Partial Class MainMenu
         Me.CheckBox8.Text = "Enable Muxing"
         Me.CheckBox8.UseVisualStyleBackColor = False
         '
-        'TabPage4
+        'TabPage6
         '
-        Me.TabPage4.AutoScroll = True
-        Me.TabPage4.AutoScrollMargin = New System.Drawing.Size(0, 720)
-        Me.TabPage4.AutoScrollMinSize = New System.Drawing.Size(0, 720)
-        Me.TabPage4.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TabPage4.Controls.Add(Me.Panel17)
-        Me.TabPage4.Controls.Add(Me.Trim_Opt_Pnl)
-        Me.TabPage4.Controls.Add(Me.Label78)
-        Me.TabPage4.Controls.Add(Me.RichTextBox3)
-        Me.TabPage4.Controls.Add(Me.CheckBox2)
-        Me.TabPage4.Controls.Add(Me.CheckBox6)
-        Me.TabPage4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.TabPage4.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(1912, 1050)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Trim"
+        Me.TabPage6.AutoScroll = True
+        Me.TabPage6.AutoScrollMargin = New System.Drawing.Size(0, 720)
+        Me.TabPage6.AutoScrollMinSize = New System.Drawing.Size(0, 720)
+        Me.TabPage6.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.TabPage6.Controls.Add(Me.Panel17)
+        Me.TabPage6.Controls.Add(Me.Trim_Opt_Pnl)
+        Me.TabPage6.Controls.Add(Me.Label78)
+        Me.TabPage6.Controls.Add(Me.RichTextBox3)
+        Me.TabPage6.Controls.Add(Me.CheckBox2)
+        Me.TabPage6.Controls.Add(Me.CheckBox6)
+        Me.TabPage6.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.TabPage6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.TabPage6.Location = New System.Drawing.Point(4, 42)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage6.Size = New System.Drawing.Size(1904, 1004)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "Media Trim"
         '
         'Panel17
         '
@@ -3879,6 +3900,14 @@ Partial Class MainMenu
         Me.CheckBox6.Text = "Enable Trim"
         Me.CheckBox6.UseVisualStyleBackColor = False
         '
+        'StyleManager1
+        '
+        Me.StyleManager1.CustomTheme = "C:\Users\Lenovo\AppData\Roaming\Microsoft\Windows\Templates\ThemeFile.xml"
+        Me.StyleManager1.MetroForm = Me
+        Me.StyleManager1.Style = MetroSet_UI.Enums.Style.Custom
+        Me.StyleManager1.ThemeAuthor = Nothing
+        Me.StyleManager1.ThemeName = Nothing
+        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Transparent
@@ -3934,7 +3963,7 @@ Partial Class MainMenu
         Me.BottomPnl.ResumeLayout(False)
         Me.BottomPnl.PerformLayout()
         CType(Me.ProgressBarAdv1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabControl1.ResumeLayout(False)
+        Me.MetroSetTabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3965,8 +3994,8 @@ Partial Class MainMenu
         Me.Audio_Enc_QC_Pnl.PerformLayout()
         Me.Audio_Opt_Pnl.ResumeLayout(False)
         Me.Audio_Opt_Pnl.PerformLayout()
-        Me.TabPage6.ResumeLayout(False)
-        Me.TabPage6.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
         Me.Panel12.ResumeLayout(False)
         Me.Panel12.PerformLayout()
         Me.Panel11.ResumeLayout(False)
@@ -3979,8 +4008,8 @@ Partial Class MainMenu
         Me.Panel14.PerformLayout()
         Me.Mux_Opt_Pnl.ResumeLayout(False)
         Me.Mux_Opt_Pnl.PerformLayout()
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage4.PerformLayout()
+        Me.TabPage6.ResumeLayout(False)
+        Me.TabPage6.PerformLayout()
         Me.Panel17.ResumeLayout(False)
         Me.Panel17.PerformLayout()
         Me.Trim_Opt_Pnl.ResumeLayout(False)
@@ -3997,7 +4026,7 @@ Partial Class MainMenu
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
-    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents MetroSetTabControl1 As MetroSet_UI.Controls.MetroSetTabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents Label106 As Label
     Friend WithEvents Label107 As Label
@@ -4082,6 +4111,12 @@ Partial Class MainMenu
     Friend WithEvents Label109 As Label
     Friend WithEvents Label110 As Label
     Friend WithEvents Vid_Enc_QC_Pnl As Panel
+    Friend WithEvents ComboBox39 As ComboBox
+    Friend WithEvents Label137 As Label
+    Friend WithEvents ComboBox38 As ComboBox
+    Friend WithEvents Label136 As Label
+    Friend WithEvents ComboBox37 As ComboBox
+    Friend WithEvents Label135 As Label
     Friend WithEvents Button22 As Button
     Friend WithEvents Label117 As Label
     Friend WithEvents Label116 As Label
@@ -4160,7 +4195,7 @@ Partial Class MainMenu
     Friend WithEvents RichTextBox2 As RichTextBox
     Friend WithEvents CheckBox5 As CheckBox
     Friend WithEvents CheckBox4 As CheckBox
-    Friend WithEvents TabPage6 As TabPage
+    Friend WithEvents TabPage4 As TabPage
     Friend WithEvents Panel12 As Panel
     Friend WithEvents Label127 As Label
     Friend WithEvents ListView1 As ListView
@@ -4209,7 +4244,7 @@ Partial Class MainMenu
     Friend WithEvents RichTextBox4 As RichTextBox
     Friend WithEvents CheckBox7 As CheckBox
     Friend WithEvents CheckBox8 As CheckBox
-    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents TabPage6 As TabPage
     Friend WithEvents Panel17 As Panel
     Friend WithEvents Label132 As Label
     Friend WithEvents Label83 As Label
@@ -4255,10 +4290,5 @@ Partial Class MainMenu
     Friend WithEvents Label134 As Label
     Friend WithEvents Label71 As Label
     Friend WithEvents Label70 As Label
-    Friend WithEvents ComboBox39 As ComboBox
-    Friend WithEvents Label137 As Label
-    Friend WithEvents ComboBox38 As ComboBox
-    Friend WithEvents Label136 As Label
-    Friend WithEvents ComboBox37 As ComboBox
-    Friend WithEvents Label135 As Label
+    Friend WithEvents StyleManager1 As MetroSet_UI.Components.StyleManager
 End Class
