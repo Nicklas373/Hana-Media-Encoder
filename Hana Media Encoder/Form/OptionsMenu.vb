@@ -13,8 +13,8 @@ Public Class OptionsMenu
         GetGPUInformation()
         GetBackPref()
         CheckBox4.Enabled = True
-        Label4.Text = My.Application.Info.Title
-        Label20.Text = My.Application.Info.Version.ToString
+        Label30.Text = My.Application.Info.Title
+        Label29.Text = My.Application.Info.Version.ToString
         Label25.Text = My.Application.Info.Copyright
         Label26.Text = My.Application.Info.Description
     End Sub
@@ -90,6 +90,7 @@ Public Class OptionsMenu
     Private Sub GetBackPref()
         If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
             DebugMode = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Debug Mode:")
+            FFMPEGDebugMode = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Mode:")
             FrameCount = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Frame Count:")
             FfmpegConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Binary:")
             Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
@@ -109,6 +110,12 @@ Public Class OptionsMenu
             Else
                 Newframestate = FrameCount.Remove(0, 12)
                 CheckBox4.Checked = Newframestate
+            End If
+            If FFMPEGDebugMode = "null" Then
+                CheckBox5.Checked = False
+            Else
+                Newffmpegdebugstate = FFMPEGDebugMode.Remove(0, 12)
+                CheckBox5.Checked = Newffmpegdebugstate
             End If
             If Hwdefconfig = "GPU Engine:cuda" Or Hwdefconfig = "GPU Engine:opencl" Or Hwdefconfig = "GPU Engine:qsv" Then
                 CheckBox1.Checked = True
@@ -196,6 +203,47 @@ Public Class OptionsMenu
             writer.WriteLine("Debug Mode:" & CheckBox3.Checked)
             writer.Close()
         End If
+        If CheckBox3.Checked = True Then
+            MainMenu.Text = My.Application.Info.Title.ToString & " (Debug Mode)"
+            CheckBox5.Checked = False
+            CheckBox5.Enabled = False
+        Else
+            MainMenu.Text = My.Application.Info.Title.ToString
+            CheckBox5.Enabled = True
+        End If
+        MainMenu.Refresh()
+        ConfigState = False
+    End Sub
+    Private Sub FFMPEGDebugModeCheck(sender As Object, e As EventArgs) Handles CheckBox5.CheckedChanged
+        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+            FFMPEGDebugMode = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Mode:")
+            If FFMPEGDebugMode = "null" Then
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+                writer.WriteLine("FFMPEG Mode:" & CheckBox5.Checked)
+                writer.Close()
+            Else
+                Dim debugModeOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                debugModeOldConf = debugModeOldConf.Replace(FFMPEGDebugMode, "FFMPEG Mode:" & CheckBox5.Checked)
+                File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", debugModeOldConf)
+            End If
+        Else
+            File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+            Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+            writer.WriteLine("FFMPEG Mode:" & CheckBox5.Checked)
+            writer.Close()
+        End If
+        If CheckBox5.Checked = True Then
+            CheckBox3.Checked = False
+            CheckBox4.Checked = False
+            CheckBox3.Enabled = False
+            CheckBox4.Enabled = False
+            MainMenu.Text = My.Application.Info.Title.ToString & " (FFMPEG Window Debug Mode)"
+        Else
+            CheckBox3.Enabled = True
+            CheckBox4.Enabled = True
+            MainMenu.Text = My.Application.Info.Title.ToString
+        End If
+        MainMenu.Refresh()
         ConfigState = False
     End Sub
     Private Sub FrameCountCheck(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
@@ -216,6 +264,13 @@ Public Class OptionsMenu
             writer.WriteLine("Frame Count:" & CheckBox4.Checked)
             writer.Close()
         End If
+        If CheckBox4.Checked = True Then
+            CheckBox5.Checked = False
+            CheckBox5.Enabled = False
+        Else
+            CheckBox5.Enabled = True
+        End If
+        CheckBox5.Checked = False
         ConfigState = False
     End Sub
     Private Sub WebURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
