@@ -41,6 +41,7 @@ Module GlobalVariable
     Public FlagsAudioCount As Integer
     Public FlagsAudioValue As Integer
     Public FlagsCount As Integer
+    Public FFMPEGDebugMode As String
     Public FlagsResult As Integer
     Public FlagsStart As Integer
     Public FlagsValue As Integer
@@ -56,6 +57,8 @@ Module GlobalVariable
     Public ImageDir As String
     Public Newdebugmode As String
     Public Newdebugstate As String
+    Public Newffmpegdebugmode As String
+    Public Newffmpegdebugstate As String
     Public Newffargs As String
     Public Newffargs2 As String
     Public Newffres As String

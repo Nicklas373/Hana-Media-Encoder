@@ -38,7 +38,7 @@ Public Class OTAMenu
                 GC.WaitForPendingFinalizers()
                 File.Delete(My.Application.Info.DirectoryPath & "\OTA.bat")
             End If
-            HMEGenerate(My.Application.Info.DirectoryPath & "\OTA.bat", "C:", My.Application.Info.DirectoryPath, "HME.msi", "")
+            HMEGenerate(My.Application.Info.DirectoryPath & "\OTA.bat", "C:", My.Application.Info.DirectoryPath, "HME.msi", "", "no encode", False)
             RunProcAlt(My.Application.Info.DirectoryPath & "\OTA.bat")
             End
         Else

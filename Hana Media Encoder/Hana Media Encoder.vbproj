@@ -266,6 +266,7 @@ software or even CPU based encoding for media file in the future.
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MetroSet_UI" Version="2.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Syncfusion.Core.WinForms" Version="20.2.0.44" />
     <PackageReference Include="Syncfusion.Shared.Base" Version="20.2.0.44" />
