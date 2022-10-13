@@ -86,6 +86,7 @@ Public Class OptionsMenu
         Else
             Label11.Text = Format(GetGraphicsCardName("AdapterRAM") / 1024 / 1024 / 1024, "###.##").ToString & " GB"
         End If
+        ConfigState = False
     End Sub
     Private Sub GetBackPref()
         If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
@@ -130,6 +131,7 @@ Public Class OptionsMenu
                 End If
             End If
         End If
+        ConfigState = False
     End Sub
     Private Sub GPUHWEnable(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked Then
@@ -197,13 +199,11 @@ Public Class OptionsMenu
         End If
         If CheckBox3.Checked = True Then
             MainMenu.Text = My.Application.Info.Title.ToString & " (Debug Mode)"
-            CheckBox5.Checked = False
-            CheckBox5.Enabled = False
         Else
             MainMenu.Text = My.Application.Info.Title.ToString
-            CheckBox5.Enabled = True
         End If
         MainMenu.Refresh()
+        ConfigState = False
     End Sub
     Private Sub FrameCountCheck(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
         If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
@@ -223,6 +223,7 @@ Public Class OptionsMenu
             writer.WriteLine("Frame Count:" & CheckBox4.Checked)
             writer.Close()
         End If
+        ConfigState = False
     End Sub
     Private Sub WebURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         Dim psi As New ProcessStartInfo With {
