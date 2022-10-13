@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Text.RegularExpressions
 Imports Syncfusion.Windows.Forms
+Imports Syncfusion.Windows.Forms.Tools
 Imports Syncfusion.WinForms.Controls
 Public Class MainMenu
     Inherits SfForm
@@ -25,6 +26,9 @@ Public Class MainMenu
         MessageBoxAdv.MetroColorTable.BorderColor = ColorTranslator.FromHtml("#F4A950")
         MessageBoxAdv.CanResize = True
         MessageBoxAdv.MaximumSize = New Size(520, Screen.PrimaryScreen.WorkingArea.Size.Height)
+        Me.ProgressBarAdv1.TextOrientation = Orientation.Horizontal
+        Me.ProgressBarAdv1.TextAlignment = TextAlignment.Right
+        Me.ProgressBarAdv1.TextShadow = False
         MetroSetTabControl1.Font = New Font("Segoe UI Semibold", 9.75, FontStyle.Regular)
         StyleManager1.SetTheme(HMESetTheme.ToString)
         Label69.Visible = True
@@ -1204,6 +1208,7 @@ Public Class MainMenu
                                     Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
                                     Await Task.Run(Sub() new_process.WaitForExit())
                                 ElseIf Newdebugmode = "False" Then
+                                    ProgressBarAdv1.TextVisible = True
                                     Dim new_process As Process = Process.Start(new_psi)
                                     Do
                                         Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
@@ -1213,6 +1218,9 @@ Public Class MainMenu
                                             If RemoveWhitespace(getBetween(line, "time=", " bitrate")).Equals("") = False Then
                                                 If RemoveWhitespace(getBetween(line, "time=", " bitrate")) <= FrameCount Then
                                                     encAudioFrame = RemoveWhitespace(getBetween(line, "time=", " bitrate")).Split(":")
+                                                    ProgressBarAdv1.CustomText = "Frame time: " + getBetween(line.ToString(), "time=", "bitrate") + "Encoding speed: " +
+                                                                                 getBetween(line, "speed=", "x") + "x" + " Estimated size: " + getBetween(line, "size=", "kB") + "kB" + " "
+                                                    ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Custom
                                                     ProgressBarAdv1.Value = CInt(TimeConversion(encAudioFrame(0), encAudioFrame(1), Strings.Left(encAudioFrame(2), 2)))
                                                 End If
                                             Else
@@ -1223,6 +1231,9 @@ Public Class MainMenu
                                                 If RemoveWhitespace(getBetween(line, "time=", " bitrate")).Equals("") = False Then
                                                     If RemoveWhitespace(getBetween(line, "time=", " bitrate")) <= FrameCount Then
                                                         encAudioFrame = RemoveWhitespace(getBetween(line, "time=", " bitrate")).Split(":")
+                                                        ProgressBarAdv1.CustomText = "Frame time: " + getBetween(line, "time=", "bitrate") + " Encoding speed: " +
+                                                                                 getBetween(line, "speed=", "x") + "x" + " Estimated size: " + getBetween(line, "size=", "kB") + "kB" + " "
+                                                        ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Custom
                                                         ProgressBarAdv1.Value = CInt(TimeConversion(encAudioFrame(0), encAudioFrame(1), Strings.Left(encAudioFrame(2), 2)))
                                                     End If
                                                 Else
@@ -1232,6 +1243,9 @@ Public Class MainMenu
                                                 If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
                                                     FfmpegEncStats = "Frame Error!"
                                                 ElseIf RemoveWhitespace(getBetween(line, "frame= ", " fps")) <= FrameCount Then
+                                                    ProgressBarAdv1.CustomText = "Frame time: " + getBetween(line.ToString(), "time=", "bitrate") + "Encoding speed: " +
+                                                                                 getBetween(line, "speed=", "x") + "x" + " Estimated size: " + getBetween(line, "size=", "kB") + "kB" + " "
+                                                    ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Custom
                                                     ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
                                                 End If
                                             End If
@@ -1241,6 +1255,7 @@ Public Class MainMenu
                                 Else
                                     NotifyIcon("Media file has failed to encode", "Unknown error", 1000, False)
                                 End If
+                                ProgressBarAdv1.TextVisible = False
                                 EncEndTime = DateTime.Now
                                 If File.Exists(TextBox1.Text) Then
                                     Dim destFile As New FileInfo(TextBox1.Text)
@@ -1331,8 +1346,6 @@ Public Class MainMenu
                 Else
                     HwAccelFormat = "-hwaccel_output_format " & Hwdefconfig.Remove(0, 11)
                     HwAccelDev = Hwdefconfig.Remove(0, 11)
-                    Dim videoRes As String()
-                    videoRes = Label6.Text.Split("x")
                     ComboBox2.Enabled = True
                     CheckBox3.Enabled = True
                     ComboBox29.Enabled = True
@@ -1653,6 +1666,29 @@ Public Class MainMenu
             ComboBox40.Items.AddRange(res21to9)
         End If
     End Sub
+    Private Sub VideoScaleTypeAdapt(sender As Object, e As EventArgs) Handles ComboBox40.SelectedIndexChanged
+        Dim scaleTypeArr = {"Crop", "Pad", "disable"}
+        If ComboBox40.Text IsNot "" Then
+            Dim videoRes As String()
+            videoRes = Label6.Text.Split("x")
+            Dim sourceResHeight As Integer = CInt(videoRes(0))
+            Dim sourceResWidth As Integer = CInt(videoRes(1))
+            Dim selectedResHeight As Integer = CInt(getBetween(ComboBox40.Text, "(", "x"))
+            Dim selectedResWidth As Integer = CInt(getBetween(ComboBox40.Text, "x", ")"))
+            If selectedResHeight <= sourceResHeight Then
+                If selectedResWidth <= sourceResWidth Then
+                    ComboBox41.Items.Clear()
+                    ComboBox41.Items.AddRange(scaleTypeArr)
+                Else
+                    ComboBox41.Items.Clear()
+                    ComboBox41.Items.Add("disable")
+                End If
+            Else
+                ComboBox41.Items.Clear()
+                ComboBox41.Items.Add("disable")
+            End If
+        End If
+    End Sub
     Private Sub VideoCodecCheck(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
         If ComboBox2.Text = "Copy" Then
             BitRate_UpDown.Enabled = False
@@ -1819,7 +1855,7 @@ Public Class MainMenu
                                 VideoRes = ",scale=" & getBetween(vResTranslate(ComboBox40.Text), "", "x") & ":-1"
                                 VideoScaleType = ",pad=" & getBetween(vResTranslate(ComboBox40.Text), "", "x") & ":" & getBetween(vResTranslate(ComboBox40.Text), "x", "y")
                             Else
-                                VideoRes = " -filter:v scale=" & vResTranslate(ComboBox40.Text)
+                                VideoRes = " -filter:v scale=" & getBetween(vResTranslate(ComboBox40.Text), "", "x") & ":" & getBetween(vResTranslate(ComboBox40.Text), "x", "y")
                                 VideoScaleType = ""
                             End If
                         End If
@@ -1836,12 +1872,12 @@ Public Class MainMenu
                                 VideoRes = ",scale=" & getBetween(vResTranslate(ComboBox40.Text), "", "x") & ":-1"
                                 VideoScaleType = ",pad=" & getBetween(vResTranslate(ComboBox40.Text), "", "x") & ":" & getBetween(vResTranslate(ComboBox40.Text), "x", "y")
                             Else
-                                VideoRes = ",scale=" & vResTranslate(ComboBox40.Text)
+                                VideoRes = ",scale=" & getBetween(vResTranslate(ComboBox40.Text), "", "x") & ":" & getBetween(vResTranslate(ComboBox40.Text), "x", "y")
                                 VideoScaleType = ""
                             End If
                         End If
                     ElseIf ComboBox32.SelectedIndex = 5 Then
-                        AspectRatio = " -filter:v setdar=dar=" & vAspectRatio(ComboBox32.Text)
+                        AspectRatio = " -filter:v setdar=dar=" & getBetween(vResTranslate(ComboBox40.Text), "", "x") & ":" & getBetween(vResTranslate(ComboBox40.Text), "x", "y")
                         VideoAutoAsp = True
                         If ComboBox40.SelectedIndex < 0 Then
                             VideoRes = ""
@@ -1853,7 +1889,7 @@ Public Class MainMenu
                                 VideoRes = ",scale=" & getBetween(vResTranslate(ComboBox40.Text), "", "x") & ":-1"
                                 VideoScaleType = ",pad=" & getBetween(vResTranslate(ComboBox40.Text), "", "x") & ":" & getBetween(vResTranslate(ComboBox40.Text), "x", "y")
                             Else
-                                VideoRes = ",scale=" & vResTranslate(ComboBox40.Text)
+                                VideoRes = ",scale=" & getBetween(vResTranslate(ComboBox40.Text), "", "x") & ":" & getBetween(vResTranslate(ComboBox40.Text), "x", "y")
                                 VideoScaleType = ""
                             End If
                         End If
