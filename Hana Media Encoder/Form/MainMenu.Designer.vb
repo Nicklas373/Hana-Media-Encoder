@@ -116,17 +116,16 @@ Partial Class MainMenu
         Me.ComboBox10 = New System.Windows.Forms.ComboBox()
         Me.Label53 = New System.Windows.Forms.Label()
         Me.Asp_Res_Pnl = New System.Windows.Forms.Panel()
+        Me.ComboBox41 = New System.Windows.Forms.ComboBox()
+        Me.Label110 = New System.Windows.Forms.Label()
+        Me.ComboBox40 = New System.Windows.Forms.ComboBox()
         Me.Button23 = New System.Windows.Forms.Button()
         Me.ComboBox35 = New System.Windows.Forms.ComboBox()
         Me.Label133 = New System.Windows.Forms.Label()
-        Me.CheckBox12 = New System.Windows.Forms.CheckBox()
-        Me.Resolution_Height_UpDown = New System.Windows.Forms.NumericUpDown()
-        Me.Resolution_Width_UpDown = New System.Windows.Forms.NumericUpDown()
         Me.Label118 = New System.Windows.Forms.Label()
         Me.ComboBox32 = New System.Windows.Forms.ComboBox()
         Me.Label108 = New System.Windows.Forms.Label()
         Me.Label109 = New System.Windows.Forms.Label()
-        Me.Label110 = New System.Windows.Forms.Label()
         Me.Vid_Enc_QC_Pnl = New System.Windows.Forms.Panel()
         Me.ComboBox39 = New System.Windows.Forms.ComboBox()
         Me.Label137 = New System.Windows.Forms.Label()
@@ -306,8 +305,6 @@ Partial Class MainMenu
         Me.Vid_Options_Pnl.SuspendLayout()
         Me.Vid_Enc_Add_Pnl.SuspendLayout()
         Me.Asp_Res_Pnl.SuspendLayout()
-        CType(Me.Resolution_Height_UpDown, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Resolution_Width_UpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Vid_Enc_QC_Pnl.SuspendLayout()
         CType(Me.CRF_VBR_UpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MaxBitRate_UpDown, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -644,7 +641,7 @@ Partial Class MainMenu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MetroSetTabControl1.AnimateEasingType = MetroSet_UI.Enums.EasingType.CubeOut
         Me.MetroSetTabControl1.AnimateTime = 200
-        Me.MetroSetTabControl1.BackgroundColor = System.Drawing.Color.White
+        Me.MetroSetTabControl1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.MetroSetTabControl1.Controls.Add(Me.TabPage1)
         Me.MetroSetTabControl1.Controls.Add(Me.TabPage2)
         Me.MetroSetTabControl1.Controls.Add(Me.TabPage3)
@@ -657,7 +654,7 @@ Partial Class MainMenu
         Me.MetroSetTabControl1.Location = New System.Drawing.Point(0, 46)
         Me.MetroSetTabControl1.Name = "MetroSetTabControl1"
         Me.MetroSetTabControl1.SelectedIndex = 0
-        Me.MetroSetTabControl1.SelectedTextColor = System.Drawing.Color.White
+        Me.MetroSetTabControl1.SelectedTextColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.MetroSetTabControl1.Size = New System.Drawing.Size(1912, 1050)
         Me.MetroSetTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.MetroSetTabControl1.Speed = 100
@@ -667,7 +664,8 @@ Partial Class MainMenu
         Me.MetroSetTabControl1.TabStyle = MetroSet_UI.Enums.TabStyle.Style2
         Me.MetroSetTabControl1.ThemeAuthor = Nothing
         Me.MetroSetTabControl1.ThemeName = Nothing
-        Me.MetroSetTabControl1.UnselectedTextColor = System.Drawing.Color.Gray
+        Me.MetroSetTabControl1.UnselectedTextColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.MetroSetTabControl1.UseAnimation = False
         '
         'TabPage1
         '
@@ -1568,21 +1566,59 @@ Partial Class MainMenu
         'Asp_Res_Pnl
         '
         Me.Asp_Res_Pnl.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Asp_Res_Pnl.Controls.Add(Me.ComboBox41)
+        Me.Asp_Res_Pnl.Controls.Add(Me.Label110)
+        Me.Asp_Res_Pnl.Controls.Add(Me.ComboBox40)
         Me.Asp_Res_Pnl.Controls.Add(Me.Button23)
         Me.Asp_Res_Pnl.Controls.Add(Me.ComboBox35)
         Me.Asp_Res_Pnl.Controls.Add(Me.Label133)
-        Me.Asp_Res_Pnl.Controls.Add(Me.CheckBox12)
-        Me.Asp_Res_Pnl.Controls.Add(Me.Resolution_Height_UpDown)
-        Me.Asp_Res_Pnl.Controls.Add(Me.Resolution_Width_UpDown)
         Me.Asp_Res_Pnl.Controls.Add(Me.Label118)
         Me.Asp_Res_Pnl.Controls.Add(Me.ComboBox32)
         Me.Asp_Res_Pnl.Controls.Add(Me.Label108)
         Me.Asp_Res_Pnl.Controls.Add(Me.Label109)
-        Me.Asp_Res_Pnl.Controls.Add(Me.Label110)
         Me.Asp_Res_Pnl.Location = New System.Drawing.Point(10, 168)
         Me.Asp_Res_Pnl.Name = "Asp_Res_Pnl"
         Me.Asp_Res_Pnl.Size = New System.Drawing.Size(815, 38)
         Me.Asp_Res_Pnl.TabIndex = 85
+        '
+        'ComboBox41
+        '
+        Me.ComboBox41.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.ComboBox41.Enabled = False
+        Me.ComboBox41.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox41.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ComboBox41.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.ComboBox41.FormattingEnabled = True
+        Me.ComboBox41.Items.AddRange(New Object() {"Crop", "Pad", "disable"})
+        Me.ComboBox41.Location = New System.Drawing.Point(400, 85)
+        Me.ComboBox41.Name = "ComboBox41"
+        Me.ComboBox41.Size = New System.Drawing.Size(134, 23)
+        Me.ComboBox41.TabIndex = 90
+        '
+        'Label110
+        '
+        Me.Label110.AutoSize = True
+        Me.Label110.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label110.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label110.Location = New System.Drawing.Point(298, 85)
+        Me.Label110.Name = "Label110"
+        Me.Label110.Size = New System.Drawing.Size(70, 17)
+        Me.Label110.TabIndex = 89
+        Me.Label110.Text = "Scale Type"
+        '
+        'ComboBox40
+        '
+        Me.ComboBox40.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.ComboBox40.Enabled = False
+        Me.ComboBox40.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox40.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ComboBox40.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.ComboBox40.FormattingEnabled = True
+        Me.ComboBox40.Items.AddRange(New Object() {""})
+        Me.ComboBox40.Location = New System.Drawing.Point(133, 85)
+        Me.ComboBox40.Name = "ComboBox40"
+        Me.ComboBox40.Size = New System.Drawing.Size(134, 23)
+        Me.ComboBox40.TabIndex = 88
         '
         'Button23
         '
@@ -1610,7 +1646,7 @@ Partial Class MainMenu
         Me.ComboBox35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox35.FormattingEnabled = True
         Me.ComboBox35.Items.AddRange(New Object() {"bilinear", "bicubic", "lanczos", "disabled"})
-        Me.ComboBox35.Location = New System.Drawing.Point(667, 45)
+        Me.ComboBox35.Location = New System.Drawing.Point(400, 45)
         Me.ComboBox35.Name = "ComboBox35"
         Me.ComboBox35.Size = New System.Drawing.Size(134, 23)
         Me.ComboBox35.TabIndex = 86
@@ -1620,50 +1656,11 @@ Partial Class MainMenu
         Me.Label133.AutoSize = True
         Me.Label133.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label133.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label133.Location = New System.Drawing.Point(565, 45)
+        Me.Label133.Location = New System.Drawing.Point(298, 45)
         Me.Label133.Name = "Label133"
-        Me.Label133.Size = New System.Drawing.Size(103, 17)
+        Me.Label133.Size = New System.Drawing.Size(90, 17)
         Me.Label133.TabIndex = 85
-        Me.Label133.Text = "Scale Algorithm"
-        '
-        'CheckBox12
-        '
-        Me.CheckBox12.AutoSize = True
-        Me.CheckBox12.BackColor = System.Drawing.Color.Transparent
-        Me.CheckBox12.Enabled = False
-        Me.CheckBox12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.CheckBox12.Location = New System.Drawing.Point(298, 85)
-        Me.CheckBox12.Name = "CheckBox12"
-        Me.CheckBox12.Size = New System.Drawing.Size(138, 25)
-        Me.CheckBox12.TabIndex = 84
-        Me.CheckBox12.Text = "Allow upscaling"
-        Me.CheckBox12.UseVisualStyleBackColor = False
-        '
-        'Resolution_Height_UpDown
-        '
-        Me.Resolution_Height_UpDown.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Resolution_Height_UpDown.Enabled = False
-        Me.Resolution_Height_UpDown.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Resolution_Height_UpDown.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Resolution_Height_UpDown.Increment = New Decimal(New Integer() {2, 0, 0, 0})
-        Me.Resolution_Height_UpDown.Location = New System.Drawing.Point(485, 45)
-        Me.Resolution_Height_UpDown.Maximum = New Decimal(New Integer() {4320, 0, 0, 0})
-        Me.Resolution_Height_UpDown.Name = "Resolution_Height_UpDown"
-        Me.Resolution_Height_UpDown.Size = New System.Drawing.Size(60, 23)
-        Me.Resolution_Height_UpDown.TabIndex = 83
-        '
-        'Resolution_Width_UpDown
-        '
-        Me.Resolution_Width_UpDown.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Resolution_Width_UpDown.Enabled = False
-        Me.Resolution_Width_UpDown.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Resolution_Width_UpDown.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Resolution_Width_UpDown.Increment = New Decimal(New Integer() {2, 0, 0, 0})
-        Me.Resolution_Width_UpDown.Location = New System.Drawing.Point(400, 45)
-        Me.Resolution_Width_UpDown.Maximum = New Decimal(New Integer() {7680, 0, 0, 0})
-        Me.Resolution_Width_UpDown.Name = "Resolution_Width_UpDown"
-        Me.Resolution_Width_UpDown.Size = New System.Drawing.Size(60, 23)
-        Me.Resolution_Width_UpDown.TabIndex = 82
+        Me.Label133.Text = "Scale Method"
         '
         'Label118
         '
@@ -1685,7 +1682,7 @@ Partial Class MainMenu
         Me.ComboBox32.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ComboBox32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox32.FormattingEnabled = True
-        Me.ComboBox32.Items.AddRange(New Object() {"3:2", "4:3", "16:9", "16:10", "21:9", "disabled"})
+        Me.ComboBox32.Items.AddRange(New Object() {"4:3", "16:9", "21:9", "disabled"})
         Me.ComboBox32.Location = New System.Drawing.Point(133, 45)
         Me.ComboBox32.Name = "ComboBox32"
         Me.ComboBox32.Size = New System.Drawing.Size(134, 23)
@@ -1707,22 +1704,11 @@ Partial Class MainMenu
         Me.Label109.AutoSize = True
         Me.Label109.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label109.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label109.Location = New System.Drawing.Point(298, 45)
+        Me.Label109.Location = New System.Drawing.Point(33, 85)
         Me.Label109.Name = "Label109"
-        Me.Label109.Size = New System.Drawing.Size(101, 17)
+        Me.Label109.Size = New System.Drawing.Size(72, 17)
         Me.Label109.TabIndex = 71
-        Me.Label109.Text = "Resolution (x,y)"
-        '
-        'Label110
-        '
-        Me.Label110.AutoSize = True
-        Me.Label110.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label110.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label110.Location = New System.Drawing.Point(465, 46)
-        Me.Label110.Name = "Label110"
-        Me.Label110.Size = New System.Drawing.Size(15, 17)
-        Me.Label110.TabIndex = 73
-        Me.Label110.Text = "x"
+        Me.Label109.Text = "Resolution"
         '
         'Vid_Enc_QC_Pnl
         '
@@ -2419,7 +2405,7 @@ Partial Class MainMenu
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Size = New System.Drawing.Size(1904, 1004)
         Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Audio"
+        Me.TabPage3.Text = "Audio Profile"
         '
         'Label125
         '
@@ -3143,7 +3129,7 @@ Partial Class MainMenu
         Me.RichTextBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.RichTextBox5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.RichTextBox5.Location = New System.Drawing.Point(891, 126)
+        Me.RichTextBox5.Location = New System.Drawing.Point(890, 126)
         Me.RichTextBox5.Name = "RichTextBox5"
         Me.RichTextBox5.ReadOnly = True
         Me.RichTextBox5.Size = New System.Drawing.Size(364, 152)
@@ -3156,7 +3142,7 @@ Partial Class MainMenu
         Me.Label82.AutoSize = True
         Me.Label82.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label82.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label82.Location = New System.Drawing.Point(890, 289)
+        Me.Label82.Location = New System.Drawing.Point(889, 289)
         Me.Label82.Name = "Label82"
         Me.Label82.Size = New System.Drawing.Size(124, 28)
         Me.Label82.TabIndex = 69
@@ -3170,7 +3156,7 @@ Partial Class MainMenu
         Me.CheckBox14.Enabled = False
         Me.CheckBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox14.Location = New System.Drawing.Point(1076, 11)
+        Me.CheckBox14.Location = New System.Drawing.Point(1075, 11)
         Me.CheckBox14.Name = "CheckBox14"
         Me.CheckBox14.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox14.TabIndex = 67
@@ -3184,7 +3170,7 @@ Partial Class MainMenu
         Me.CheckBox15.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox15.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox15.Location = New System.Drawing.Point(898, 11)
+        Me.CheckBox15.Location = New System.Drawing.Point(897, 11)
         Me.CheckBox15.Name = "CheckBox15"
         Me.CheckBox15.Size = New System.Drawing.Size(174, 28)
         Me.CheckBox15.TabIndex = 66
@@ -3475,8 +3461,8 @@ Partial Class MainMenu
         '
         Me.CheckBox8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CheckBox8.AutoSize = True
-        Me.CheckBox8.Enabled = False
         Me.CheckBox8.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBox8.Enabled = False
         Me.CheckBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.CheckBox8.Location = New System.Drawing.Point(898, 11)
@@ -3975,8 +3961,6 @@ Partial Class MainMenu
         Me.Vid_Enc_Add_Pnl.PerformLayout()
         Me.Asp_Res_Pnl.ResumeLayout(False)
         Me.Asp_Res_Pnl.PerformLayout()
-        CType(Me.Resolution_Height_UpDown, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Resolution_Width_UpDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Vid_Enc_QC_Pnl.ResumeLayout(False)
         Me.Vid_Enc_QC_Pnl.PerformLayout()
         CType(Me.CRF_VBR_UpDown, System.ComponentModel.ISupportInitialize).EndInit()
@@ -4102,14 +4086,10 @@ Partial Class MainMenu
     Friend WithEvents Button23 As Button
     Friend WithEvents ComboBox35 As ComboBox
     Friend WithEvents Label133 As Label
-    Friend WithEvents CheckBox12 As CheckBox
-    Friend WithEvents Resolution_Height_UpDown As NumericUpDown
-    Friend WithEvents Resolution_Width_UpDown As NumericUpDown
     Friend WithEvents Label118 As Label
     Friend WithEvents ComboBox32 As ComboBox
     Friend WithEvents Label108 As Label
     Friend WithEvents Label109 As Label
-    Friend WithEvents Label110 As Label
     Friend WithEvents Vid_Enc_QC_Pnl As Panel
     Friend WithEvents ComboBox39 As ComboBox
     Friend WithEvents Label137 As Label
@@ -4291,4 +4271,7 @@ Partial Class MainMenu
     Friend WithEvents Label71 As Label
     Friend WithEvents Label70 As Label
     Friend WithEvents StyleManager1 As MetroSet_UI.Components.StyleManager
+    Friend WithEvents ComboBox41 As ComboBox
+    Friend WithEvents Label110 As Label
+    Friend WithEvents ComboBox40 As ComboBox
 End Class
