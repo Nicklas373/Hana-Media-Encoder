@@ -5,6 +5,7 @@ Module GlobalVariable
     Public ReadOnly AudioStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\audioStream\"
     Public ReadOnly AudioStreamConfigPath As String = My.Application.Info.DirectoryPath & "\audioConfig\"
     Public ReadOnly DownBtnPath As String = My.Application.Info.DirectoryPath & "\Assets\arrow_down.png"
+    Public ReadOnly HMESetTheme As String = My.Application.Info.DirectoryPath & "\Assets\theme.xml"
     Public ReadOnly NotifyIcoPath As String = My.Application.Info.DirectoryPath & "\Assets\HME_256.ico"
     Public ReadOnly SpectrumPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Spectrum_Placeholder.png"
     Public ReadOnly SpectrumErrorPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Spectrum_Error_Placeholder.png"
@@ -41,7 +42,6 @@ Module GlobalVariable
     Public FlagsAudioCount As Integer
     Public FlagsAudioValue As Integer
     Public FlagsCount As Integer
-    Public FFMPEGDebugMode As String
     Public FlagsResult As Integer
     Public FlagsStart As Integer
     Public FlagsValue As Integer
@@ -57,8 +57,6 @@ Module GlobalVariable
     Public ImageDir As String
     Public Newdebugmode As String
     Public Newdebugstate As String
-    Public Newffmpegdebugmode As String
-    Public Newffmpegdebugstate As String
     Public Newffargs As String
     Public Newffargs2 As String
     Public Newffres As String
@@ -100,8 +98,10 @@ Module GlobalVariable
     Public TotalSpectrum As Integer
     Public Videofile As String
     Public VideoFilePath As String
-    Public VideoHeight As String
-    Public VideoWidth As String
+    Public VideoAutoAsp As Boolean
+    Public VideoAspValue As String
+    Public VideoRes As String
+    Public VideoScaleType As String
     Public VideoStreamConfig As String
     Public VideoStreamFlags As String
     Public VideoStreamSourceList As String

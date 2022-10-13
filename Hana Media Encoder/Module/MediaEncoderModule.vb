@@ -21,7 +21,7 @@ Module MediaEncoderModule
         End If
     End Sub
     Public Function GetGraphicsCardName(gpuProperty As String) As String
-        Dim searcher As ManagementObjectSearcher = New ManagementObjectSearcher("SELECT * FROM Win32_VideoController")
+        Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_VideoController")
         Dim graphicsCard As String = String.Empty
         For Each mo As ManagementObject In searcher.[Get]()
             For Each [property] As PropertyData In mo.Properties
@@ -69,7 +69,7 @@ Module MediaEncoderModule
         writer.WriteLine("Frequency=" & afreq)
         writer.Close()
     End Sub
-    Public Sub HMEGenerate(HMEName As String, ffmpegletter As String, ffmpegbin As String, ffargs As String, ffargs2 As String, ffencStats As String, ffdebugstats As Boolean)
+    Public Sub HMEGenerate(HMEName As String, ffmpegletter As String, ffmpegbin As String, ffargs As String, ffargs2 As String)
         If File.Exists(HMEName) Then
             GC.Collect()
             GC.WaitForPendingFinalizers()
@@ -85,15 +85,6 @@ Module MediaEncoderModule
         writer.WriteLine("cd " & ffmpegbin)
         writer.WriteLine(ffargs)
         writer.WriteLine(ffargs2)
-        If ffdebugstats = True Then
-            If ffencStats.Equals("encode") Then
-                writer.WriteLine("pause")
-            Else
-                writer.WriteLine("exit")
-            End If
-        Else
-            writer.WriteLine("exit")
-        End If
         writer.Close()
     End Sub
     Public Sub HMEGenerateAlt(HMEName As String, ffmpegletter As String, ffmpegbin As String, ffargs As String, ffargs2 As String)

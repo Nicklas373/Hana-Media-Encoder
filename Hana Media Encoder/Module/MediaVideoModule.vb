@@ -218,14 +218,10 @@
     Public Function vAspectRatio(cmbx As String) As String
         'ComboBox31.text'
         Dim value As String
-        If cmbx = "3:2" Then
-            value = "3/2"
-        ElseIf cmbx = "4:3" Then
+        If cmbx = "4:3" Then
             value = "4/3"
         ElseIf cmbx = "16:9" Then
             value = "16/9"
-        ElseIf cmbx = "16:10" Then
-            value = "16/10"
         ElseIf cmbx = "21:9" Then
             value = "21/9"
         Else
@@ -267,6 +263,69 @@
             value = " -colorspace bt2020c"
         ElseIf cmbx = "BT.2020 Non Constant" Then
             value = " -colorspace bt2020nc"
+        Else
+            value = ""
+        End If
+
+        Return value
+    End Function
+    Public Function vResTranslate(cmbx As String) As String
+        'Combobox40.text'
+        Dim value As String
+        If cmbx = "" Then
+            value = ""
+        Else
+            value = getBetween(cmbx, "(", ")") & "y"
+        End If
+
+        Return value
+    End Function
+    Public Function vResTranslateReverse(asp As String, res As String) As String
+        Dim value As String
+        If asp = "" Then
+            value = ""
+        ElseIf asp = "4:3" Then
+            If getBetween(res, "(", "x") = "960" Then
+                value = "720p (960x720)"
+            ElseIf getBetween(res, "(", "x") = "1920" Then
+                value = "1080p (1920x1080)"
+            ElseIf getBetween(res, "(", "x") = "1536" Then
+                value = "2K (1536x1152)"
+            ElseIf getBetween(res, "(", "x") = "2160" Then
+                value = "3K UHD (2160x1620)"
+            ElseIf getBetween(res, "(", "x") = "2880" Then
+                value = "4K UHD (2880x2160)"
+            Else
+                value = ""
+            End If
+        ElseIf asp = "16:9" Then
+            If getBetween(res, "(", "x") = "720" Then
+                value = "720p (1280x720)"
+            ElseIf getBetween(res, "(", "x") = "1920" Then
+                value = "1080p (1920x1080)"
+            ElseIf getBetween(res, "(", "x") = "2048" Then
+                value = "2K (2048x1152)"
+            ElseIf getBetween(res, "(", "x") = "2880" Then
+                value = "3K UHD (2880x1620)"
+            ElseIf getBetween(res, "(", "x") = "3840" Then
+                value = "4K UHD (3840x2160)"
+            Else
+                value = ""
+            End If
+        ElseIf asp = "21:9" Then
+            If getBetween(res, "(", "x") = "2560" Then
+                value = "WFHD (2560x1080)"
+            ElseIf getBetween(res, "(", "x") = "2880" Then
+                value = "WFHD+ (2880x1200)"
+            ElseIf getBetween(res, "(", "x") = "3440" Then
+                value = "WQHD (3440x1440)"
+            ElseIf getBetween(res, "(", "x") = "3840" Then
+                value = "WQHD+ (3840x1600)"
+            ElseIf getBetween(res, "(", "x") = "4320" Then
+                value = "UW4K (4320x1800)"
+            Else
+                value = ""
+            End If
         Else
             value = ""
         End If
