@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports System.Reflection.Emit
 Module MiscModule
     Public Function FindConfig(confpath As String, contains As String) As String
         Dim value As String
