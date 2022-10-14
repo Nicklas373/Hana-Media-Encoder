@@ -16,6 +16,13 @@ Module GlobalVariable
     Public ReadOnly VideoErrorPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Error_Placeholder.png"
 
     ' Global variable
+    Public AdditionalEncodeStats As String
+    Public AddEncConf As String
+    Public AddEncTrimConf As String
+    Public AddEncPassConf As String
+    Public AltEncodeStats As String
+    Public AltEncodeConf As String
+    Public AltEncodeTrimConf As String
     Public AppChangelog
     Public AppRel As String
     Public AppVer As String
@@ -27,7 +34,6 @@ Module GlobalVariable
     Public CurParsedVer As String()
     Public CurPos As Integer
     Public ColorRange As String
-    Public ConfigState As Boolean
     Public DebugMode As String
     Public DownloadURL As String
     Public EncStartTime As DateTime

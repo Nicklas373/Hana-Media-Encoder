@@ -27,7 +27,7 @@ Public Class MainMenu
         MessageBoxAdv.CanResize = True
         MessageBoxAdv.MaximumSize = New Size(520, Screen.PrimaryScreen.WorkingArea.Size.Height)
         Me.ProgressBarAdv1.TextOrientation = Orientation.Horizontal
-        Me.ProgressBarAdv1.TextAlignment = TextAlignment.Right
+        Me.ProgressBarAdv1.TextAlignment = TextAlignment.Center
         Me.ProgressBarAdv1.TextShadow = False
         MetroSetTabControl1.Font = New Font("Segoe UI Semibold", 9.75, FontStyle.Regular)
         StyleManager1.SetTheme(HMESetTheme.ToString)
@@ -68,7 +68,7 @@ Public Class MainMenu
             Tooltip(Label34, "Configure the output conversion for pixel format")
             Tooltip(Label49, "Configure level of support within a profile specifies the maximum picture resolution, frame rate, and bit rate that a decoder may use")
             Tooltip(Label50, "Configure the encoding tier")
-            Tooltip(Label46, "Configure the encoding preset (slow mean high, fast mean low) in term of compression")
+            Tooltip(Label46, "Configure the encoding preset (slow for highest compression, fast for lowest compression)")
             Tooltip(Label47, "Configure settings based upon the specifics of your input")
             Tooltip(Label48, "Configure the encoding profile")
             Tooltip(Label38, "Configure the encoding bit rate mode")
@@ -855,6 +855,8 @@ Public Class MainMenu
     End Sub
     Private Async Sub StartEncode(sender As Object, e As EventArgs) Handles Button3.Click
         Button3.Enabled = False
+        AddEncConf = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Encode Info:")
+        AltEncodeConf = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Alt Encode:")
         DebugMode = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Debug Mode:")
         FrameConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Frame Count:")
         If Hwdefconfig IsNot "null" And Hwdefconfig.Remove(0, 11) IsNot "" Then
@@ -888,12 +890,12 @@ Public Class MainMenu
                             If CheckBox4.Checked = True And CheckBox5.Checked = True Then
                                 If OrigSaveExt.Equals(".mp4") = True Then
                                     If getCurrentAudioCodec.Equals("copy") = True Then
-                                        If Label44.Text.ToString.Equals("aac") = True Or Label44.Text.ToString.Equals("mp2") = True Then
+                                        If Label44.Text.ToString.ToLower().Equals("aac") = True Or Label44.Text.ToString.ToLower().Equals("mp2") = True Then
                                             EncPass1 = True
                                         Else
                                             EncPass1 = False
                                         End If
-                                    ElseIf getCurrentAudioCodec.Equals("aac") = True And Label44.Text.ToString.Equals("aac") = True Or
+                                    ElseIf getCurrentAudioCodec.Equals("aac") = True And Label44.Text.ToString.ToLower().Equals("aac") = True Or
                                          getCurrentAudioCodec.Equals("aac") = True Or getCurrentAudioCodec.Equals("mp2") = True Then
                                         EncPass1 = True
                                     Else
@@ -1148,12 +1150,7 @@ Public Class MainMenu
                                 ProgressBarAdv1.Value = 0
                                 ProgressBarAdv1.Refresh()
                                 If FrameMode = "True" Then
-                                    If CheckBox2.Checked = True And CheckBox6.Checked = True Then
-                                        FrameCount = TrimEndTime - TrimStartTime
-                                    Else
-                                        Dim TimeFrame As String() = Label81.Text.Split(":")
-                                        FrameCount = TimeConversion(TimeFrame(0), TimeFrame(1), TimeFrame(2))
-                                    End If
+                                    FrameCount = 0
                                 Else
                                     If Label5.Text.Equals("Not Detected") = True Or CheckBox1.Checked = False And CheckBox3.Checked = False Then
                                         If CheckBox2.Checked = True And CheckBox6.Checked = True Then
@@ -1195,7 +1192,31 @@ Public Class MainMenu
                                                 .CreateNoWindow = True,
                                                 .WindowStyle = ProcessWindowStyle.Hidden,
                                                 .UseShellExecute = False
-                                           }
+                                }
+                                If AddEncConf IsNot "null" Then
+                                    AddEncTrimConf = AddEncConf.Remove(0, 12)
+                                    If RemoveWhitespace(AddEncTrimConf) = "none" Then
+                                        AddEncPassConf = "False"
+                                        ProgressBarAdv1.TextVisible = False
+                                    ElseIf RemoveWhitespace(AddEncTrimConf) = "advanced" Then
+                                        AddEncPassConf = "adv"
+                                        ProgressBarAdv1.TextVisible = True
+                                    ElseIf RemoveWhitespace(AddEncTrimConf) = "percentage" Then
+                                        AddEncPassConf = "per"
+                                        ProgressBarAdv1.TextVisible = True
+                                    Else
+                                        AddEncPassConf = "False"
+                                        ProgressBarAdv1.TextVisible = False
+                                    End If
+                                Else
+                                    AddEncPassConf = "False"
+                                    ProgressBarAdv1.TextVisible = False
+                                End If
+                                If AltEncodeConf IsNot "null" Then
+                                    AltEncodeTrimConf = AltEncodeConf.Remove(0, 11)
+                                Else
+                                    AltEncodeTrimConf = "False"
+                                End If
                                 If Newdebugmode = "True" Then
                                     Dim new_process As Process = Process.Start(new_psi)
                                     Do
@@ -1208,7 +1229,6 @@ Public Class MainMenu
                                     Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
                                     Await Task.Run(Sub() new_process.WaitForExit())
                                 ElseIf Newdebugmode = "False" Then
-                                    ProgressBarAdv1.TextVisible = True
                                     Dim new_process As Process = Process.Start(new_psi)
                                     Do
                                         Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
@@ -1218,22 +1238,30 @@ Public Class MainMenu
                                             If RemoveWhitespace(getBetween(line, "time=", " bitrate")).Equals("") = False Then
                                                 If RemoveWhitespace(getBetween(line, "time=", " bitrate")) <= FrameCount Then
                                                     encAudioFrame = RemoveWhitespace(getBetween(line, "time=", " bitrate")).Split(":")
-                                                    ProgressBarAdv1.CustomText = "Frame time: " + getBetween(line.ToString(), "time=", "bitrate") + "Encoding speed: " +
-                                                                                 getBetween(line, "speed=", "x") + "x" + " Estimated size: " + getBetween(line, "size=", "kB") + "kB" + " "
-                                                    ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Custom
+                                                    If AddEncPassConf = "adv" Then
+                                                        ProgressBarAdv1.CustomText = "Encoding speed: " + getBetween(line, "speed=", "x") + "x" + " Estimated size: " +
+                                                                                       getBetween(line, "size=", "kB") + "kB" + " "
+                                                        ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Custom
+                                                    ElseIf AddEncPassConf = "per" Then
+                                                        ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Percentage
+                                                    End If
                                                     ProgressBarAdv1.Value = CInt(TimeConversion(encAudioFrame(0), encAudioFrame(1), Strings.Left(encAudioFrame(2), 2)))
                                                 End If
                                             Else
                                                 FfmpegEncStats = "Frame Error!"
                                             End If
                                         Else
-                                            If FrameMode = "True" Then
+                                            If AltEncodeTrimConf = "True" Then
                                                 If RemoveWhitespace(getBetween(line, "time=", " bitrate")).Equals("") = False Then
                                                     If RemoveWhitespace(getBetween(line, "time=", " bitrate")) <= FrameCount Then
                                                         encAudioFrame = RemoveWhitespace(getBetween(line, "time=", " bitrate")).Split(":")
-                                                        ProgressBarAdv1.CustomText = "Frame time: " + getBetween(line, "time=", "bitrate") + " Encoding speed: " +
+                                                        If AddEncPassConf = "adv" Then
+                                                            ProgressBarAdv1.CustomText = "Frame time: " + getBetween(line.ToString(), "time=", "bitrate") + "Encoding speed: " +
                                                                                  getBetween(line, "speed=", "x") + "x" + " Estimated size: " + getBetween(line, "size=", "kB") + "kB" + " "
-                                                        ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Custom
+                                                            ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Custom
+                                                        ElseIf AddEncPassConf = "per" Then
+                                                            ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Percentage
+                                                        End If
                                                         ProgressBarAdv1.Value = CInt(TimeConversion(encAudioFrame(0), encAudioFrame(1), Strings.Left(encAudioFrame(2), 2)))
                                                     End If
                                                 Else
@@ -1243,9 +1271,13 @@ Public Class MainMenu
                                                 If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
                                                     FfmpegEncStats = "Frame Error!"
                                                 ElseIf RemoveWhitespace(getBetween(line, "frame= ", " fps")) <= FrameCount Then
-                                                    ProgressBarAdv1.CustomText = "Frame time: " + getBetween(line.ToString(), "time=", "bitrate") + "Encoding speed: " +
+                                                    If AddEncPassConf = "adv" Then
+                                                        ProgressBarAdv1.CustomText = "Frame time: " + getBetween(line.ToString(), "time=", "bitrate") + "Encoding speed: " +
                                                                                  getBetween(line, "speed=", "x") + "x" + " Estimated size: " + getBetween(line, "size=", "kB") + "kB" + " "
-                                                    ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Custom
+                                                        ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Custom
+                                                    ElseIf AddEncPassConf = "per" Then
+                                                        ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Percentage
+                                                    End If
                                                     ProgressBarAdv1.Value = CInt(RemoveWhitespace(getBetween(line, "frame=", " fps")))
                                                 End If
                                             End If

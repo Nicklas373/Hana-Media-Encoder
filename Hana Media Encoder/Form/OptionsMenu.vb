@@ -10,7 +10,6 @@ Public Class OptionsMenu
         MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro
         General_pnl.Visible = True
         about_pnl.Visible = False
-        GetGPUInformation()
         GetBackPref()
         CheckBox4.Enabled = True
         Label30.Text = My.Application.Info.Title
@@ -47,7 +46,6 @@ Public Class OptionsMenu
                     writer.WriteLine("FFMPEG Binary:" & TextBox1.Text)
                     writer.Close()
                 End If
-                ConfigState = True
             Else
                 MessageBoxAdv.Show("Make sure that folder have required FFMPEG Files !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -63,33 +61,12 @@ Public Class OptionsMenu
         End If
     End Sub
     Private Sub Options_Close(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If ConfigState = True Then
-            MessageBoxAdv.Show("Application need restart after change some options !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.Hide()
-            Me.Dispose()
-            Application.Restart()
-        Else
-            MainMenu.Show()
-        End If
-    End Sub
-    Private Sub GetGPUInformation()
-        Label7.Text = GetGraphicsCardName("Name")
-        Label9.Text = GetGraphicsCardName("Status")
-        Label15.Text = GetGraphicsCardName("DriverVersion")
-        Label13.Text = GetGraphicsCardName("AdapterDACType")
-        If GetGraphicsCardName("AdapterRAM") / 1024 / 1024 / 1024 < 1 Then
-            If GetGraphicsCardName("AdapterRAM") / 1024 / 1024 < 1 Then
-                Label11.Text = Format(GetGraphicsCardName("AdapterRAM") / 1024, "###.##").ToString & " KB"
-            Else
-                Label11.Text = Format(GetGraphicsCardName("AdapterRAM") / 1024 / 1024, "###.##").ToString & " MB"
-            End If
-        Else
-            Label11.Text = Format(GetGraphicsCardName("AdapterRAM") / 1024 / 1024 / 1024, "###.##").ToString & " GB"
-        End If
-        ConfigState = False
+        MainMenu.Show()
     End Sub
     Private Sub GetBackPref()
         If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+            AddEncConf = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Encode Info:")
+            AltEncodeConf = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Alt Encode:")
             DebugMode = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Debug Mode:")
             FrameCount = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Frame Count:")
             FfmpegConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Binary:")
@@ -106,10 +83,10 @@ Public Class OptionsMenu
                 TextBox1.Text = FfmpegConfig.Remove(0, 14)
             End If
             If FrameCount = "null" Then
-                CheckBox4.Checked = False
+                CheckBox5.Checked = False
             Else
                 Newframestate = FrameCount.Remove(0, 12)
-                CheckBox4.Checked = Newframestate
+                CheckBox5.Checked = Newframestate
             End If
             If Hwdefconfig = "GPU Engine:cuda" Or Hwdefconfig = "GPU Engine:opencl" Or Hwdefconfig = "GPU Engine:qsv" Then
                 CheckBox1.Checked = True
@@ -130,8 +107,19 @@ Public Class OptionsMenu
                     ComboBox1.SelectedText = "NVIDIA (NVENC / NVDEC)"
                 End If
             End If
+            If AddEncConf = "null" Then
+                ComboBox2.Text = ""
+            Else
+                AddEncTrimConf = AddEncConf.Remove(0, 12)
+                ComboBox2.Text = AddEncTrimConf
+            End If
+            If AltEncodeConf = "null" Then
+                CheckBox4.Checked = False
+            Else
+                AltEncodeTrimConf = AltEncodeConf.Remove(0, 11)
+                CheckBox4.Checked = AltEncodeTrimConf
+            End If
         End If
-        ConfigState = False
     End Sub
     Private Sub GPUHWEnable(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked Then
@@ -177,7 +165,6 @@ Public Class OptionsMenu
                 writer.Close()
             End If
         End If
-        ConfigState = True
     End Sub
     Private Sub DebugModeCheck(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
         If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
@@ -203,27 +190,78 @@ Public Class OptionsMenu
             MainMenu.Text = My.Application.Info.Title.ToString
         End If
         MainMenu.Refresh()
-        ConfigState = False
     End Sub
-    Private Sub FrameCountCheck(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
+    Private Sub FrameCountCheck(sender As Object, e As EventArgs) Handles CheckBox5.CheckedChanged
         If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
             FrameCount = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Frame Count:")
             If FrameCount = "null" Then
                 Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
-                writer.WriteLine("Frame Count:" & CheckBox4.Checked)
+                writer.WriteLine("Frame Count:" & CheckBox5.Checked)
                 writer.Close()
             Else
                 Dim frameCountOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
-                frameCountOldConf = frameCountOldConf.Replace(FrameCount, "Frame Count:" & CheckBox4.Checked)
+                frameCountOldConf = frameCountOldConf.Replace(FrameCount, "Frame Count:" & CheckBox5.Checked)
                 File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", frameCountOldConf)
             End If
         Else
             File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
             Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
-            writer.WriteLine("Frame Count:" & CheckBox4.Checked)
+            writer.WriteLine("Frame Count:" & CheckBox5.Checked)
             writer.Close()
         End If
-        ConfigState = False
+    End Sub
+    Private Sub AlternateEncodeProg(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
+        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+            AltEncodeStats = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Alt Encode:")
+            If AltEncodeStats = "null" Then
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+                writer.WriteLine("Alt Encode:" & CheckBox4.Checked)
+                writer.Close()
+            Else
+                Dim AltEncodeStatsOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                AltEncodeStatsOldConf = AltEncodeStatsOldConf.Replace(AltEncodeStats, "Alt Encode:" & CheckBox4.Checked)
+                File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", AltEncodeStatsOldConf)
+            End If
+        Else
+            File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+            Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+            writer.WriteLine("Alt Encode:" & CheckBox4.Checked)
+            writer.Close()
+        End If
+    End Sub
+    Private Sub AdditionalEncodeInfo(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        Dim tempEncodeInfo As String
+        If ComboBox2.SelectedIndex = 0 Then
+            tempEncodeInfo = "advanced"
+        ElseIf ComboBox2.SelectedIndex = 1 Then
+            tempEncodeInfo = "percentage"
+        Else
+            tempEncodeInfo = "none"
+        End If
+        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+            AdditionalEncodeStats = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Encode Info:")
+            If AdditionalEncodeStats = "null" Then
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+                writer.WriteLine("Encode Info:" & tempEncodeInfo)
+                writer.Close()
+            Else
+                Dim encodeInfoOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                encodeInfoOldConf = encodeInfoOldConf.Replace(AdditionalEncodeStats, "Encode Info:" & tempEncodeInfo)
+                File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", encodeInfoOldConf)
+            End If
+        Else
+            File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+            Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+            writer.WriteLine("Encode Info:" & tempEncodeInfo)
+            writer.Close()
+        End If
+    End Sub
+    Private Sub FFMPEGURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel4.LinkClicked
+        Dim psi As New ProcessStartInfo With {
+               .FileName = "https://ffmpeg.org/download.html#build-windows",
+               .UseShellExecute = True
+           }
+        Process.Start(psi)
     End Sub
     Private Sub WebURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         Dim psi As New ProcessStartInfo With {
