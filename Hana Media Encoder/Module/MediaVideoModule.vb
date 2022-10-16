@@ -218,14 +218,73 @@
     Public Function vAspectRatio(cmbx As String) As String
         'ComboBox31.text'
         Dim value As String
-        If cmbx = "4:3" Then
-            value = "4/3"
-        ElseIf cmbx = "16:9" Then
-            value = "16/9"
-        ElseIf cmbx = "21:9" Then
-            value = "21/9"
+        If cmbx = "1.33 (4:3)" Then
+            value = "1.33"
+        ElseIf cmbx = "1.78 (16:9)" Then
+            value = "1.78"
+        ElseIf cmbx = "2.33 (21:9)" Then
+            value = "2.33"
         Else
             value = "null"
+        End If
+
+        Return value
+    End Function
+    Public Function vAspectRatioCmp(intAsp As Integer, tarAsp As Integer)
+        Dim value As String
+        If vAspectRatioTrX(intAsp) > tarAsp Then
+            value = "down"
+        ElseIf vAspectRatioTrX(intAsp) < tarAsp Then
+            value = "up"
+        Else
+            value = "err"
+        End If
+        Return value
+    End Function
+    Public Function vAspectRatioTrX(intAspX As Integer) As Integer
+        Dim value As Integer
+        Dim intAspNew As Double
+        If intAspX.ToString.Length = 3 Then
+            intAspNew = (intAspX / 100)
+            If intAspNew = 1.33 Then
+                value = 4
+            ElseIf intAspNew = 1.78 Then
+                value = 16
+            ElseIf intAspNew = 2.33 Then
+                value = 21
+            ElseIf intAspNew = 1 Then
+                value = intAspNew
+            End If
+        Else
+            value = intAspX
+        End If
+
+        Return value
+    End Function
+    Public Function vAspectRatioTrY(intAspX As Integer, intAspY As Integer) As Integer
+        Dim value As Integer
+        Dim intAspNew As Double
+        If intAspY.ToString.Length = 3 Then
+            intAspNew = (intAspY / 100)
+            If intAspNew = 1 Then
+                If intAspX = 4 Then
+                    value = 3
+                ElseIf intAspX = 16 Then
+                    value = 9
+                ElseIf intAspX = 21 Then
+                    value = 9
+                Else
+                    value = 9
+                End If
+            ElseIf intAspNew = 2 Then
+                If intAspX = 21 Then
+                    value = 9
+                Else
+                    value = 9
+                End If
+            End If
+        Else
+            value = intAspY
         End If
 
         Return value
@@ -234,9 +293,9 @@
         'Combobox37.text'
         Dim value As String
         If cmbx = "Full" Then
-            value = "full"
+            value = " -color_range 2"
         ElseIf cmbx = "Limited" Then
-            value = "limited"
+            value = " -color_range 1"
         Else
             value = ""
         End If
@@ -260,12 +319,42 @@
         'Combobox39.text'
         Dim value As String
         If cmbx = "BT.2020 Constant" Then
-            value = " -colorspace bt2020c"
+            value = " -colorspace bt2020c -color_trc bt2020-10"
         ElseIf cmbx = "BT.2020 Non Constant" Then
-            value = " -colorspace bt2020nc"
+            value = " -colorspace bt2020nc -color_trc bt2020-10"
+        ElseIf cmbx = "BT.709" Then
+            value = " -colorspace bt709 -color_trc bt709"
         Else
             value = ""
         End If
+
+        Return value
+    End Function
+    Public Function vCropAspDown(tarHeigth As Integer, tarWidth As Integer, inpAspX As Integer, inpAspY As Integer, scaleAlgo As String) As String
+        Dim value As String
+        Dim xScale As Integer = (tarHeigth / vAspectRatioTrY(vAspectRatioTrX(inpAspX), inpAspY)) * vAspectRatioTrX(inpAspX)
+        value = "scale=" & xScale & ":" & tarHeigth & scaleAlgo & ",crop=" & tarWidth & ":" & tarHeigth & ":(" & xScale & "-" & tarHeigth & ")/2:0"
+
+        Return value
+    End Function
+    Public Function vCropAspUp(tarHeigth As Integer, tarWidth As Integer, inpAspX As Integer, inpAspY As Integer, scaleAlgo As String) As String
+        Dim value As String
+        Dim yScale As Integer = (tarWidth / vAspectRatioTrX(inpAspX)) * vAspectRatioTrY(vAspectRatioTrX(inpAspX), inpAspY)
+        value = "scale=" & tarWidth & ":" & yScale & scaleAlgo & ",crop=" & tarWidth & ":" & tarHeigth & ":0:(" & yScale & "-" & tarHeigth & ")/2"
+
+        Return value
+    End Function
+    Public Function vPadAspDown(tarHeigth As Integer, tarWidth As Integer, inpAspX As Integer, inpAspY As Integer, scaleAlgo As String) As String
+        Dim value As String
+        Dim yScale As Integer = (tarWidth / vAspectRatioTrX(inpAspX)) * vAspectRatioTrY(vAspectRatioTrX(inpAspX), inpAspY)
+        value = "scale=" & tarWidth & ":" & yScale & scaleAlgo & ",pad=" & tarWidth & ":" & tarHeigth & ":0:(" & tarHeigth & "-" & yScale & ")/2"
+
+        Return value
+    End Function
+    Public Function vPadAspUp(tarHeigth As Integer, tarWidth As Integer, inpAspX As Integer, inpAspY As Integer, scaleAlgo As String) As String
+        Dim value As String
+        Dim xScale As Integer = (tarHeigth / vAspectRatioTrY(vAspectRatioTrX(inpAspX), inpAspY)) * vAspectRatioTrX(inpAspX)
+        value = "scale=" & xScale & ":" & tarHeigth & scaleAlgo & ",pad=" & tarWidth & ":" & tarHeigth & ":(" & tarWidth & "-" & xScale & ")/2:0"
 
         Return value
     End Function
@@ -284,44 +373,44 @@
         Dim value As String
         If asp = "" Then
             value = ""
-        ElseIf asp = "4:3" Then
-            If getBetween(res, "(", "x") = "960" Then
+        ElseIf asp = "1.33 (4:3)" Then
+            If getBetween(res, "=", "x") = "960" Then
                 value = "720p (960x720)"
-            ElseIf getBetween(res, "(", "x") = "1920" Then
-                value = "1080p (1920x1080)"
-            ElseIf getBetween(res, "(", "x") = "1536" Then
+            ElseIf getBetween(res, "=", "x") = "1440" Then
+                value = "1080p (1440x1080)"
+            ElseIf getBetween(res, "=", "x") = "1536" Then
                 value = "2K (1536x1152)"
-            ElseIf getBetween(res, "(", "x") = "2160" Then
+            ElseIf getBetween(res, "=", "x") = "2160" Then
                 value = "3K UHD (2160x1620)"
-            ElseIf getBetween(res, "(", "x") = "2880" Then
+            ElseIf getBetween(res, "=", "x") = "2880" Then
                 value = "4K UHD (2880x2160)"
             Else
                 value = ""
             End If
-        ElseIf asp = "16:9" Then
-            If getBetween(res, "(", "x") = "720" Then
+        ElseIf asp = "1.78 (16:9)" Then
+            If getBetween(res, "=", "x") = "720" Then
                 value = "720p (1280x720)"
-            ElseIf getBetween(res, "(", "x") = "1920" Then
+            ElseIf getBetween(res, "=", "x") = "1920" Then
                 value = "1080p (1920x1080)"
-            ElseIf getBetween(res, "(", "x") = "2048" Then
+            ElseIf getBetween(res, "=", "x") = "2048" Then
                 value = "2K (2048x1152)"
-            ElseIf getBetween(res, "(", "x") = "2880" Then
+            ElseIf getBetween(res, "=", "x") = "2880" Then
                 value = "3K UHD (2880x1620)"
-            ElseIf getBetween(res, "(", "x") = "3840" Then
+            ElseIf getBetween(res, "=", "x") = "3840" Then
                 value = "4K UHD (3840x2160)"
             Else
                 value = ""
             End If
-        ElseIf asp = "21:9" Then
-            If getBetween(res, "(", "x") = "2560" Then
+        ElseIf asp = "2.33 (21:9)" Then
+            If getBetween(res, "=", "x") = "2560" Then
                 value = "WFHD (2560x1080)"
-            ElseIf getBetween(res, "(", "x") = "2880" Then
+            ElseIf getBetween(res, "=", "x") = "2880" Then
                 value = "WFHD+ (2880x1200)"
-            ElseIf getBetween(res, "(", "x") = "3440" Then
+            ElseIf getBetween(res, "=", "x") = "3440" Then
                 value = "WQHD (3440x1440)"
-            ElseIf getBetween(res, "(", "x") = "3840" Then
+            ElseIf getBetween(res, "=", "x") = "3840" Then
                 value = "WQHD+ (3840x1600)"
-            ElseIf getBetween(res, "(", "x") = "4320" Then
+            ElseIf getBetween(res, "=", "x") = "4320" Then
                 value = "UW4K (4320x1800)"
             Else
                 value = ""

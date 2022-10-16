@@ -20,18 +20,6 @@ Module MediaEncoderModule
             MassDelete(My.Application.Info.DirectoryPath & "\thumbnail", "jpg")
         End If
     End Sub
-    Public Function GetGraphicsCardName(gpuProperty As String) As String
-        Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_VideoController")
-        Dim graphicsCard As String = String.Empty
-        For Each mo As ManagementObject In searcher.[Get]()
-            For Each [property] As PropertyData In mo.Properties
-                If [property].Name = gpuProperty Then
-                    graphicsCard = [property].Value.ToString()
-                End If
-            Next
-        Next
-        Return graphicsCard
-    End Function
     Public Function GetGraphicsHWEngine(HWDec As String) As String
         Dim HWDecName As String
         If HWDec = "" Then
@@ -125,7 +113,7 @@ Module MediaEncoderModule
                                             level As String, maxbitrate As String, multipass As String, preset As String, pixfmt As String, profile As String,
                                             ratectr As String, spatialaq As String, aqstrength As String, temporalaq As String, targetql As String,
                                             tier As String, tune As String, ar As String, res As String, algo As String, colorrange As String,
-                                            colorprimary As String, colorspace As String)
+                                            colorprimary As String, colorspace As String, scaleType As String)
         If File.Exists(HMEName) Then
             GC.Collect()
             GC.WaitForPendingFinalizers()
@@ -159,6 +147,7 @@ Module MediaEncoderModule
         writer.WriteLine("ColorRange=" & colorrange)
         writer.WriteLine("ColorPrimary=" & colorprimary)
         writer.WriteLine("ColorSpace=" & colorspace)
+        writer.WriteLine("ScaleType=" & scaleType)
         writer.Close()
     End Sub
     Public Sub InitExit()
