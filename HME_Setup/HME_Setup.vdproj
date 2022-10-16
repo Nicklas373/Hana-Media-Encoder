@@ -81,6 +81,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E3B61B46F28A4164AECE56852B6B3804"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_EACC46E79B044240A8C5607016DB45AD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -392,6 +398,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E3B61B46F28A4164AECE56852B6B3804"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\theme.xml"
+            "TargetName" = "8:theme.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EACC46E79B044240A8C5607016DB45AD"
             {
             "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Spectrum_Error_Placeholder.png"
@@ -479,15 +505,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Hana Media Encoder"
-        "ProductCode" = "8:{7A12A120-FB8C-4BA1-B6F6-29EABB7A9C61}"
-        "PackageCode" = "8:{C884BCD5-0D11-479C-9298-928A623D5E93}"
+        "ProductCode" = "8:{1C755783-C9EE-4233-B2C0-9C872D5076F5}"
+        "PackageCode" = "8:{E8DE62BA-589E-41C7-B6A6-CB3424062C21}"
         "UpgradeCode" = "8:{6119A0DC-89FC-44EF-A490-66E4E915E4DF}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.3.6"
+        "ProductVersion" = "8:1.3.8"
         "Manufacturer" = "8:HANA-CI Build Project"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/Nicklas373/Hana-Media-Encoder"

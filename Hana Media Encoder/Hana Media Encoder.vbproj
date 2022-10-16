@@ -7,7 +7,19 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2022</Copyright>
-    <PackageReleaseNotes>v1.3.6 (20220917):
+    <PackageReleaseNotes>v1.3.8 (20221016):
+- Fixup application crash while try tunning on administration mode
+- Fixup some of file that should be supported but are detect as not supported while load media
+- Include MPEG-TS (MTS) as supported video file
+- Integrated with "OpenWith" feature from windows explorer
+- Introduce more Windows API notification message instead of default one
+- Misc fixes with encoding algorithm
+- Properly refresh MainMenu form after configure enable debug mode on options
+- Re-design main tab menu to using MetroSet UI
+- Re-design options menu (Introduce new options to add more detail on encoding progress)
+- Re-written video aspect ratio, scaling type (Crop and Pad) and resolution encoding algorithm
+
+v1.3.6 (20220917):
 - Automatically rename file container if incompatibility found with file container and selected audio codec
 - Automatically write video resolution into video profile after enable it
 - Configure default value for WAV codec as PCM_S16LE while bit depth are not selected
@@ -181,9 +193,9 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2022</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.3.6</Version>
-    <AssemblyVersion>1.3.6</AssemblyVersion>
-    <FileVersion>1.3.6</FileVersion>
+    <Version>1.3.8</Version>
+    <AssemblyVersion>1.3.8</AssemblyVersion>
+    <FileVersion>1.3.8</FileVersion>
     <Description>     Hana Media Encoder is the multimedia application that have feature to encode, decode, many other function to process media files using FFMPEG pre-build application (Windows Version),
 HME works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE, for now
 HME only focus to work with only hardware GPU accelerated codec that FFMPEG has support it, for now (H264 and H265) codec only, and it does not have any aim to support native or

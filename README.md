@@ -25,6 +25,8 @@ software or even CPU based encoding for media file in the future.
 - FLAC (flac)
 - WAV (libpcm)
 - AAC (aac)
+- MP2 (libmpeg2lame)
+- OPUS (libopus)
 
 # How to install
 * Download .NET Framework 6.0, Hana Media Encoder setup & FFMPEG Pre-build

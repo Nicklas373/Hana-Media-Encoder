@@ -104,6 +104,33 @@
         rkJggg==
 </value>
   </data>
+  <metadata name="StyleManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAIRsWUCEbFt8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEb
+        Fv8hGxb/IRsWYCEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEb
+        Fv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv9QqfT/IRsW/1Cp9P8hGxb/IRsW/yEbFv9QqfT/UKn0/yEb
+        Fv9QqfT/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/UKn0/1Cp9P8hGxb/UKn0/yEbFv8hGxb/IRsW/yEb
+        Fv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/1Cp9P9QqfT/UKn0/yEbFv8hGxb/IRsW/yEb
+        Fv8hGxb/UKn0/1Cp9P8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv9QqfT/UKn0/1Cp9P9QqfT/IRsW/yEb
+        Fv9QqfT/UKn0/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/UKn0/1Cp9P9QqfT/UKn0/1Cp
+        9P9QqfT/UKn0/1Cp9P9QqfT/UKn0/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/1Cp9P9QqfT/UKn0/1Cp
+        9P9QqfT/UKn0/1Cp9P9QqfT/UKn0/1Cp9P8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv9QqfT/UKn0/1Cp
+        9P9QqfT/IRsW/yEbFv9QqfT/UKn0/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/UKn0/1Cp
+        9P9QqfT/IRsW/yEbFv8hGxb/IRsW/yEbFv9QqfT/UKn0/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/1Cp
+        9P9QqfT/IRsW/1Cp9P8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEb
+        Fv9QqfT/IRsW/1Cp9P8hGxb/IRsW/yEbFv9QqfT/UKn0/yEbFv9QqfT/IRsW/yEbFv8hGxb/IRsW/yEb
+        Fv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEb
+        FoAhGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW3yEb
+        FlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAA==
+</value>
+  </data>
   <data name="Button8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -274,9 +301,6 @@
         MPBpbDa/YkpUvRwRC2cAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="StyleManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -288,30 +312,6 @@
         T8n5tILJM9tFi1cMKBA/QrdlP0o8PsFkleIVAwrEUwu4H1waJOZDAe2iJy+nFfCc20Lpqz2S8loaPxcD
         iojzvlLEj4MrBTrVOHlfeY0+rg0p0MnzySuv9yzo5PXkfT64LNCxaPFu0PraEARBEAQrmuYPbS7ndhTA
         lIgAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAIRsWUCEbFt8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEb
-        Fv8hGxb/IRsWYCEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEb
-        Fv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv9QqfT/IRsW/1Cp9P8hGxb/IRsW/yEbFv9QqfT/UKn0/yEb
-        Fv9QqfT/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/UKn0/1Cp9P8hGxb/UKn0/yEbFv8hGxb/IRsW/yEb
-        Fv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/1Cp9P9QqfT/UKn0/yEbFv8hGxb/IRsW/yEb
-        Fv8hGxb/UKn0/1Cp9P8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv9QqfT/UKn0/1Cp9P9QqfT/IRsW/yEb
-        Fv9QqfT/UKn0/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/UKn0/1Cp9P9QqfT/UKn0/1Cp
-        9P9QqfT/UKn0/1Cp9P9QqfT/UKn0/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/1Cp9P9QqfT/UKn0/1Cp
-        9P9QqfT/UKn0/1Cp9P9QqfT/UKn0/1Cp9P8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv9QqfT/UKn0/1Cp
-        9P9QqfT/IRsW/yEbFv9QqfT/UKn0/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/UKn0/1Cp
-        9P9QqfT/IRsW/yEbFv8hGxb/IRsW/yEbFv9QqfT/UKn0/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/1Cp
-        9P9QqfT/IRsW/1Cp9P8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEb
-        Fv9QqfT/IRsW/1Cp9P8hGxb/IRsW/yEbFv9QqfT/UKn0/yEbFv9QqfT/IRsW/yEbFv8hGxb/IRsW/yEb
-        Fv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEb
-        FoAhGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW/yEbFv8hGxb/IRsW3yEb
-        FlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAA//8AAA==
 </value>
   </data>
 </root>

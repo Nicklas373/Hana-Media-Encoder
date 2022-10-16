@@ -1,30 +1,17 @@
 {
-	"release_date": "17 September 2022",
-	"version": "1.3.6.0",
+	"release_date": "16 October 2022",
+	"version": "1.3.8.0",
 	"changelog": [
-	    "- Automatically rename file container if incompatibility found with file container and selected audio codec",
-		"- Automatically write video resolution into video profile after enable it",
-		"- Configure default value for WAV codec as PCM_S16LE while bit depth are not selected",
-		"- Configure muxing profile to enable while media are not loaded with some condition",
-		"- Detect .m2v file as supported media file",
-		"- Do not reset profile configuration while user are trying to switching codec",
-		"- Do not reset previous loaded media file name if user abort to load new media file",
-		"- Do not set minimum image resolution for image snapshots",
-		"- Fixup AAC encoding algorithm",
-		"- Fixup crash while load new media file continously after complete load first media file",
-		"- Fixup chapter add and read algorithm",
-		"- Fixup frame mode value that always empty",
-		"- Fixup issue with progressbar are not working while encoding audio file only or while enabling debug mode or frame skip from options menu",
-		"- Fixup issue with wrong value that was restored from config for max and overal video bitrate",
-		"- Introduce Color range, primary and space based from FFMPEG video filter (BT.709 & BT.2020) for video configuration",
-		"- Introduce MP2 and OPUS audio codec",
-		"- Lock all codec and menu configuration while media file are not loaded",
-		"- Reduce almost all unnecessary messagebox notification",
-		"- Remove duplicate variable call in other function",
-		"- Simplify all process by remove depend with lock profile while want to load, save media and enable some of codec configuration",
-		"- Simplify all file container check on all function",
-		"- Switch some of notification to using windows native notification UI",
-		"- Update some of codec information"
+	    "- Fixup application crash while try tunning on administration mode",
+		"- Fixup some of file that should be supported but are detect as not supported while load media",
+		"- Include MPEG-TS (MTS) as supported video file",
+		"- Integrated with OpenWith feature from windows explorer",
+		"- Introduce more Windows API notification message instead of default one",
+		"- Misc fixes with encoding algorithm",
+		"- Properly refresh MainMenu form after configure enable debug mode on options",
+		"- Re-design main tab menu to using MetroSet UI",
+		"- Re-design options menu (Introduce new options to add more detail on encoding progress)",
+		"- Re-written video aspect ratio, scaling type (Crop and Pad) and resolution encoding algorithm"
 	],
-	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.3.6/HME_Setup.msi"
+	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.3.8/HME_Setup.msi"
 }
