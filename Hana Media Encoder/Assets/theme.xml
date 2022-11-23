@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MetroSetTheme>
+  <Theme>
+    <Name>Hana Media Encoder MetroSetTheme</Name>
+    <Author>Hana-CI Build Project</Author>
+  </Theme>
+  <Form>
+	  <SmallLineColor1>#dbdbdb</SmallLineColor1>
+    <SmallLineColor2>#dbdbdb</SmallLineColor2>
+  </Form>
+  <Divider>
+    <Orientation>Horizontal</Orientation>
+    <!--Horizontal, Vertical-->
+    <Thickness>1</Thickness>
+    <ForeColor>#F4A950</ForeColor>
+  </Divider>
+  <TabControl>
+    <BackColor>#161B21</BackColor>
+    <ForeColor>#F4A950</ForeColor>
+	  <UnselectedTextColor>#F4A950</UnselectedTextColor>
+    <SelectedTextColor>#dbdbdb</SelectedTextColor>
+  </TabControl>
+</MetroSetTheme>
