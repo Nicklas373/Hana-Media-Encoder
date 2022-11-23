@@ -918,6 +918,8 @@ Public Class MainMenu
                                 If getCurrentAudioCodec.Equals(OrigSaveExt) = False Then
                                     If getCurrentAudioCodec.Equals("aac") = True Then
                                         TextBox1.Text = OrigSavePath & "\" & OrigSaveName & ".m4a"
+                                    ElseIf getCurrentAudioCodec.Equals("copy") = True Then
+                                        TextBox1.Text = OrigSavePath & "\" & OrigSaveName & "." & OrigSaveExt
                                     Else
                                         TextBox1.Text = OrigSavePath & "\" & OrigSaveName & "." & getCurrentAudioCodec
                                     End If
