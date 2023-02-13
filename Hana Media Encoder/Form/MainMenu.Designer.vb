@@ -44,6 +44,26 @@ Partial Class MainMenu
         Me.Label71 = New System.Windows.Forms.Label()
         Me.Label70 = New System.Windows.Forms.Label()
         Me.MetroSetTabControl1 = New MetroSet_UI.Controls.MetroSetTabControl()
+        Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button32 = New System.Windows.Forms.Button()
+        Me.ComboBox43 = New System.Windows.Forms.ComboBox()
+        Me.Label139 = New System.Windows.Forms.Label()
+        Me.Button28 = New System.Windows.Forms.Button()
+        Me.ComboBox42 = New System.Windows.Forms.ComboBox()
+        Me.Button29 = New System.Windows.Forms.Button()
+        Me.Label138 = New System.Windows.Forms.Label()
+        Me.Button30 = New System.Windows.Forms.Button()
+        Me.Button31 = New System.Windows.Forms.Button()
+        Me.Label140 = New System.Windows.Forms.Label()
+        Me.CheckBox13 = New System.Windows.Forms.CheckBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader5 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader6 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader7 = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnHeader8 = New System.Windows.Forms.ColumnHeader()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label106 = New System.Windows.Forms.Label()
         Me.Label107 = New System.Windows.Forms.Label()
@@ -299,6 +319,9 @@ Partial Class MainMenu
         Me.BottomPnl.SuspendLayout()
         CType(Me.ProgressBarAdv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MetroSetTabControl1.SuspendLayout()
+        Me.TabPage7.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
@@ -647,6 +670,7 @@ Partial Class MainMenu
         Me.MetroSetTabControl1.AnimateEasingType = MetroSet_UI.Enums.EasingType.CubeOut
         Me.MetroSetTabControl1.AnimateTime = 200
         Me.MetroSetTabControl1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.MetroSetTabControl1.Controls.Add(Me.TabPage7)
         Me.MetroSetTabControl1.Controls.Add(Me.TabPage1)
         Me.MetroSetTabControl1.Controls.Add(Me.TabPage2)
         Me.MetroSetTabControl1.Controls.Add(Me.TabPage3)
@@ -671,6 +695,252 @@ Partial Class MainMenu
         Me.MetroSetTabControl1.ThemeName = Nothing
         Me.MetroSetTabControl1.UnselectedTextColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.MetroSetTabControl1.UseAnimation = False
+        '
+        'TabPage7
+        '
+        Me.TabPage7.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.TabPage7.Controls.Add(Me.Panel2)
+        Me.TabPage7.Location = New System.Drawing.Point(4, 42)
+        Me.TabPage7.Name = "TabPage7"
+        Me.TabPage7.Size = New System.Drawing.Size(1904, 1004)
+        Me.TabPage7.TabIndex = 6
+        Me.TabPage7.Text = "Media Queue"
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Panel3)
+        Me.Panel2.Controls.Add(Me.CheckBox13)
+        Me.Panel2.Controls.Add(Me.Label2)
+        Me.Panel2.Controls.Add(Me.ListView2)
+        Me.Panel2.Location = New System.Drawing.Point(10, 6)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1250, 413)
+        Me.Panel2.TabIndex = 87
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.Button32)
+        Me.Panel3.Controls.Add(Me.ComboBox43)
+        Me.Panel3.Controls.Add(Me.Label139)
+        Me.Panel3.Controls.Add(Me.Button28)
+        Me.Panel3.Controls.Add(Me.ComboBox42)
+        Me.Panel3.Controls.Add(Me.Button29)
+        Me.Panel3.Controls.Add(Me.Label138)
+        Me.Panel3.Controls.Add(Me.Button30)
+        Me.Panel3.Controls.Add(Me.Button31)
+        Me.Panel3.Controls.Add(Me.Label140)
+        Me.Panel3.Location = New System.Drawing.Point(703, 61)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(540, 349)
+        Me.Panel3.TabIndex = 89
+        '
+        'Button32
+        '
+        Me.Button32.BackColor = System.Drawing.Color.Transparent
+        Me.Button32.Enabled = False
+        Me.Button32.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button32.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button32.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button32.Location = New System.Drawing.Point(10, 144)
+        Me.Button32.Name = "Button32"
+        Me.Button32.Size = New System.Drawing.Size(251, 28)
+        Me.Button32.TabIndex = 87
+        Me.Button32.Text = "Configure Quick Profile"
+        Me.Button32.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button32.UseVisualStyleBackColor = False
+        '
+        'ComboBox43
+        '
+        Me.ComboBox43.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.ComboBox43.Enabled = False
+        Me.ComboBox43.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox43.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ComboBox43.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.ComboBox43.Items.AddRange(New Object() {"Quick Profile", "Custom Profile"})
+        Me.ComboBox43.Location = New System.Drawing.Point(140, 104)
+        Me.ComboBox43.Name = "ComboBox43"
+        Me.ComboBox43.Size = New System.Drawing.Size(121, 23)
+        Me.ComboBox43.TabIndex = 68
+        '
+        'Label139
+        '
+        Me.Label139.AutoSize = True
+        Me.Label139.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label139.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label139.Location = New System.Drawing.Point(10, 104)
+        Me.Label139.Name = "Label139"
+        Me.Label139.Size = New System.Drawing.Size(87, 17)
+        Me.Label139.TabIndex = 67
+        Me.Label139.Text = "Media Profile"
+        '
+        'Button28
+        '
+        Me.Button28.BackColor = System.Drawing.Color.Transparent
+        Me.Button28.BackgroundImage = CType(resources.GetObject("Button28.BackgroundImage"), System.Drawing.Image)
+        Me.Button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button28.Enabled = False
+        Me.Button28.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Button28.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Button28.Location = New System.Drawing.Point(4, 310)
+        Me.Button28.Name = "Button28"
+        Me.Button28.Size = New System.Drawing.Size(32, 32)
+        Me.Button28.TabIndex = 83
+        Me.Button28.UseVisualStyleBackColor = False
+        '
+        'ComboBox42
+        '
+        Me.ComboBox42.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.ComboBox42.Enabled = False
+        Me.ComboBox42.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox42.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ComboBox42.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.ComboBox42.Items.AddRange(New Object() {"Audio File", "Video File"})
+        Me.ComboBox42.Location = New System.Drawing.Point(140, 64)
+        Me.ComboBox42.Name = "ComboBox42"
+        Me.ComboBox42.Size = New System.Drawing.Size(121, 23)
+        Me.ComboBox42.TabIndex = 65
+        '
+        'Button29
+        '
+        Me.Button29.BackColor = System.Drawing.Color.Transparent
+        Me.Button29.BackgroundImage = CType(resources.GetObject("Button29.BackgroundImage"), System.Drawing.Image)
+        Me.Button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button29.Enabled = False
+        Me.Button29.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Button29.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Button29.Location = New System.Drawing.Point(42, 310)
+        Me.Button29.Name = "Button29"
+        Me.Button29.Size = New System.Drawing.Size(32, 32)
+        Me.Button29.TabIndex = 84
+        Me.Button29.UseVisualStyleBackColor = False
+        '
+        'Label138
+        '
+        Me.Label138.AutoSize = True
+        Me.Label138.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label138.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Label138.Location = New System.Drawing.Point(10, 64)
+        Me.Label138.Name = "Label138"
+        Me.Label138.Size = New System.Drawing.Size(90, 17)
+        Me.Label138.TabIndex = 66
+        Me.Label138.Text = "Media Source"
+        '
+        'Button30
+        '
+        Me.Button30.BackColor = System.Drawing.Color.Transparent
+        Me.Button30.BackgroundImage = CType(resources.GetObject("Button30.BackgroundImage"), System.Drawing.Image)
+        Me.Button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button30.Enabled = False
+        Me.Button30.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Button30.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Button30.Location = New System.Drawing.Point(118, 310)
+        Me.Button30.Name = "Button30"
+        Me.Button30.Size = New System.Drawing.Size(32, 32)
+        Me.Button30.TabIndex = 86
+        Me.Button30.UseVisualStyleBackColor = False
+        '
+        'Button31
+        '
+        Me.Button31.BackColor = System.Drawing.Color.Transparent
+        Me.Button31.BackgroundImage = CType(resources.GetObject("Button31.BackgroundImage"), System.Drawing.Image)
+        Me.Button31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button31.Enabled = False
+        Me.Button31.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Button31.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Button31.Location = New System.Drawing.Point(80, 310)
+        Me.Button31.Name = "Button31"
+        Me.Button31.Size = New System.Drawing.Size(32, 32)
+        Me.Button31.TabIndex = 85
+        Me.Button31.UseVisualStyleBackColor = False
+        '
+        'Label140
+        '
+        Me.Label140.AutoSize = True
+        Me.Label140.BackColor = System.Drawing.Color.Transparent
+        Me.Label140.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label140.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label140.Location = New System.Drawing.Point(10, 15)
+        Me.Label140.Name = "Label140"
+        Me.Label140.Size = New System.Drawing.Size(131, 28)
+        Me.Label140.TabIndex = 40
+        Me.Label140.Text = "Queue Options"
+        '
+        'CheckBox13
+        '
+        Me.CheckBox13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CheckBox13.AutoSize = True
+        Me.CheckBox13.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CheckBox13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.CheckBox13.Location = New System.Drawing.Point(1015, 15)
+        Me.CheckBox13.Name = "CheckBox13"
+        Me.CheckBox13.Size = New System.Drawing.Size(228, 28)
+        Me.CheckBox13.TabIndex = 87
+        Me.CheckBox13.Text = "Enable Media Queue"
+        Me.CheckBox13.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(2, 17)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(119, 28)
+        Me.Label2.TabIndex = 41
+        Me.Label2.Text = "Media Queue"
+        '
+        'ListView2
+        '
+        Me.ListView2.Activation = System.Windows.Forms.ItemActivation.OneClick
+        Me.ListView2.AllowColumnReorder = True
+        Me.ListView2.AllowDrop = True
+        Me.ListView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ListView2.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8})
+        Me.ListView2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.ListView2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.ListView2.FullRowSelect = True
+        Me.ListView2.GridLines = True
+        Me.ListView2.Location = New System.Drawing.Point(2, 61)
+        Me.ListView2.Name = "ListView2"
+        Me.ListView2.Size = New System.Drawing.Size(695, 349)
+        Me.ListView2.TabIndex = 0
+        Me.ListView2.UseCompatibleStateImageBehavior = False
+        Me.ListView2.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Name"
+        Me.ColumnHeader5.Width = 120
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Codec Information"
+        Me.ColumnHeader6.Width = 150
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Media Type"
+        Me.ColumnHeader7.Width = 120
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "Encoding Flags"
+        Me.ColumnHeader8.Width = 300
         '
         'TabPage1
         '
@@ -1349,7 +1619,7 @@ Partial Class MainMenu
         Me.Label121.BackColor = System.Drawing.Color.Transparent
         Me.Label121.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label121.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label121.Location = New System.Drawing.Point(875, 289)
+        Me.Label121.Location = New System.Drawing.Point(705, 289)
         Me.Label121.Name = "Label121"
         Me.Label121.Size = New System.Drawing.Size(161, 28)
         Me.Label121.TabIndex = 36
@@ -2297,7 +2567,7 @@ Partial Class MainMenu
         Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button16.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button16.Location = New System.Drawing.Point(1170, 287)
+        Me.Button16.Location = New System.Drawing.Point(1000, 287)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(70, 30)
         Me.Button16.TabIndex = 77
@@ -2312,7 +2582,7 @@ Partial Class MainMenu
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button15.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button15.Location = New System.Drawing.Point(1096, 287)
+        Me.Button15.Location = New System.Drawing.Point(926, 287)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(68, 30)
         Me.Button15.TabIndex = 76
@@ -2328,7 +2598,7 @@ Partial Class MainMenu
         Me.ComboBox29.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ComboBox29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox29.FormattingEnabled = True
-        Me.ComboBox29.Location = New System.Drawing.Point(1122, 93)
+        Me.ComboBox29.Location = New System.Drawing.Point(952, 93)
         Me.ComboBox29.Name = "ComboBox29"
         Me.ComboBox29.Size = New System.Drawing.Size(118, 23)
         Me.ComboBox29.TabIndex = 66
@@ -2341,7 +2611,7 @@ Partial Class MainMenu
         Me.CheckBox3.Enabled = False
         Me.CheckBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox3.Location = New System.Drawing.Point(1061, 11)
+        Me.CheckBox3.Location = New System.Drawing.Point(891, 11)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox3.TabIndex = 42
@@ -2354,7 +2624,7 @@ Partial Class MainMenu
         Me.Label59.AutoSize = True
         Me.Label59.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label59.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label59.Location = New System.Drawing.Point(1027, 95)
+        Me.Label59.Location = New System.Drawing.Point(857, 95)
         Me.Label59.Name = "Label59"
         Me.Label59.Size = New System.Drawing.Size(89, 17)
         Me.Label59.TabIndex = 39
@@ -2365,7 +2635,7 @@ Partial Class MainMenu
         Me.RichTextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.RichTextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.RichTextBox1.Location = New System.Drawing.Point(876, 126)
+        Me.RichTextBox1.Location = New System.Drawing.Point(706, 126)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(364, 152)
@@ -2379,7 +2649,7 @@ Partial Class MainMenu
         Me.CheckBox1.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox1.Location = New System.Drawing.Point(898, 11)
+        Me.CheckBox1.Location = New System.Drawing.Point(728, 11)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(156, 28)
         Me.CheckBox1.TabIndex = 0
@@ -2418,7 +2688,7 @@ Partial Class MainMenu
         Me.Label125.BackColor = System.Drawing.Color.Transparent
         Me.Label125.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label125.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label125.Location = New System.Drawing.Point(875, 289)
+        Me.Label125.Location = New System.Drawing.Point(705, 289)
         Me.Label125.Name = "Label125"
         Me.Label125.Size = New System.Drawing.Size(161, 28)
         Me.Label125.TabIndex = 57
@@ -2762,7 +3032,7 @@ Partial Class MainMenu
         Me.Button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button18.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button18.Location = New System.Drawing.Point(1170, 287)
+        Me.Button18.Location = New System.Drawing.Point(1000, 287)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(70, 30)
         Me.Button18.TabIndex = 67
@@ -2777,7 +3047,7 @@ Partial Class MainMenu
         Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button17.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button17.Location = New System.Drawing.Point(1096, 287)
+        Me.Button17.Location = New System.Drawing.Point(926, 287)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(68, 30)
         Me.Button17.TabIndex = 66
@@ -2793,7 +3063,7 @@ Partial Class MainMenu
         Me.ComboBox22.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ComboBox22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ComboBox22.FormattingEnabled = True
-        Me.ComboBox22.Location = New System.Drawing.Point(1122, 93)
+        Me.ComboBox22.Location = New System.Drawing.Point(952, 93)
         Me.ComboBox22.Name = "ComboBox22"
         Me.ComboBox22.Size = New System.Drawing.Size(118, 23)
         Me.ComboBox22.TabIndex = 63
@@ -2804,7 +3074,7 @@ Partial Class MainMenu
         Me.Label67.AutoSize = True
         Me.Label67.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label67.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label67.Location = New System.Drawing.Point(1027, 95)
+        Me.Label67.Location = New System.Drawing.Point(857, 95)
         Me.Label67.Name = "Label67"
         Me.Label67.Size = New System.Drawing.Size(91, 17)
         Me.Label67.TabIndex = 54
@@ -2815,7 +3085,7 @@ Partial Class MainMenu
         Me.RichTextBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.RichTextBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.RichTextBox2.Location = New System.Drawing.Point(876, 126)
+        Me.RichTextBox2.Location = New System.Drawing.Point(706, 126)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.ReadOnly = True
         Me.RichTextBox2.Size = New System.Drawing.Size(364, 152)
@@ -2830,7 +3100,7 @@ Partial Class MainMenu
         Me.CheckBox5.Enabled = False
         Me.CheckBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox5.Location = New System.Drawing.Point(1061, 11)
+        Me.CheckBox5.Location = New System.Drawing.Point(891, 11)
         Me.CheckBox5.Name = "CheckBox5"
         Me.CheckBox5.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox5.TabIndex = 43
@@ -2844,7 +3114,7 @@ Partial Class MainMenu
         Me.CheckBox4.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox4.Location = New System.Drawing.Point(898, 11)
+        Me.CheckBox4.Location = New System.Drawing.Point(728, 11)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(156, 28)
         Me.CheckBox4.TabIndex = 1
@@ -3133,7 +3403,7 @@ Partial Class MainMenu
         Me.RichTextBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.RichTextBox5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.RichTextBox5.Location = New System.Drawing.Point(876, 126)
+        Me.RichTextBox5.Location = New System.Drawing.Point(706, 126)
         Me.RichTextBox5.Name = "RichTextBox5"
         Me.RichTextBox5.ReadOnly = True
         Me.RichTextBox5.Size = New System.Drawing.Size(364, 152)
@@ -3146,7 +3416,7 @@ Partial Class MainMenu
         Me.Label82.AutoSize = True
         Me.Label82.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label82.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label82.Location = New System.Drawing.Point(875, 289)
+        Me.Label82.Location = New System.Drawing.Point(705, 289)
         Me.Label82.Name = "Label82"
         Me.Label82.Size = New System.Drawing.Size(124, 28)
         Me.Label82.TabIndex = 69
@@ -3160,7 +3430,7 @@ Partial Class MainMenu
         Me.CheckBox14.Enabled = False
         Me.CheckBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox14.Location = New System.Drawing.Point(1061, 11)
+        Me.CheckBox14.Location = New System.Drawing.Point(891, 11)
         Me.CheckBox14.Name = "CheckBox14"
         Me.CheckBox14.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox14.TabIndex = 67
@@ -3174,7 +3444,7 @@ Partial Class MainMenu
         Me.CheckBox15.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox15.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox15.Location = New System.Drawing.Point(883, 11)
+        Me.CheckBox15.Location = New System.Drawing.Point(713, 11)
         Me.CheckBox15.Name = "CheckBox15"
         Me.CheckBox15.Size = New System.Drawing.Size(174, 28)
         Me.CheckBox15.TabIndex = 66
@@ -3431,7 +3701,7 @@ Partial Class MainMenu
         Me.Label102.AutoSize = True
         Me.Label102.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label102.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label102.Location = New System.Drawing.Point(875, 289)
+        Me.Label102.Location = New System.Drawing.Point(705, 289)
         Me.Label102.Name = "Label102"
         Me.Label102.Size = New System.Drawing.Size(115, 28)
         Me.Label102.TabIndex = 58
@@ -3442,7 +3712,7 @@ Partial Class MainMenu
         Me.RichTextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.RichTextBox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.RichTextBox4.Location = New System.Drawing.Point(876, 126)
+        Me.RichTextBox4.Location = New System.Drawing.Point(706, 126)
         Me.RichTextBox4.Name = "RichTextBox4"
         Me.RichTextBox4.ReadOnly = True
         Me.RichTextBox4.Size = New System.Drawing.Size(364, 152)
@@ -3457,7 +3727,7 @@ Partial Class MainMenu
         Me.CheckBox7.Enabled = False
         Me.CheckBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox7.Location = New System.Drawing.Point(1061, 11)
+        Me.CheckBox7.Location = New System.Drawing.Point(891, 11)
         Me.CheckBox7.Name = "CheckBox7"
         Me.CheckBox7.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox7.TabIndex = 44
@@ -3472,7 +3742,7 @@ Partial Class MainMenu
         Me.CheckBox8.Enabled = False
         Me.CheckBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox8.Location = New System.Drawing.Point(883, 11)
+        Me.CheckBox8.Location = New System.Drawing.Point(713, 11)
         Me.CheckBox8.Name = "CheckBox8"
         Me.CheckBox8.Size = New System.Drawing.Size(170, 28)
         Me.CheckBox8.TabIndex = 43
@@ -3846,7 +4116,7 @@ Partial Class MainMenu
         Me.Label78.AutoSize = True
         Me.Label78.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label78.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label78.Location = New System.Drawing.Point(875, 289)
+        Me.Label78.Location = New System.Drawing.Point(705, 289)
         Me.Label78.Name = "Label78"
         Me.Label78.Size = New System.Drawing.Size(93, 28)
         Me.Label78.TabIndex = 56
@@ -3857,7 +4127,7 @@ Partial Class MainMenu
         Me.RichTextBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.RichTextBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.RichTextBox3.Location = New System.Drawing.Point(876, 126)
+        Me.RichTextBox3.Location = New System.Drawing.Point(706, 126)
         Me.RichTextBox3.Name = "RichTextBox3"
         Me.RichTextBox3.ReadOnly = True
         Me.RichTextBox3.Size = New System.Drawing.Size(364, 152)
@@ -3872,7 +4142,7 @@ Partial Class MainMenu
         Me.CheckBox2.Enabled = False
         Me.CheckBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox2.Location = New System.Drawing.Point(1044, 11)
+        Me.CheckBox2.Location = New System.Drawing.Point(874, 11)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(138, 28)
         Me.CheckBox2.TabIndex = 45
@@ -3886,7 +4156,7 @@ Partial Class MainMenu
         Me.CheckBox6.BackColor = System.Drawing.Color.Transparent
         Me.CheckBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.CheckBox6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.CheckBox6.Location = New System.Drawing.Point(881, 11)
+        Me.CheckBox6.Location = New System.Drawing.Point(711, 11)
         Me.CheckBox6.Name = "CheckBox6"
         Me.CheckBox6.Size = New System.Drawing.Size(143, 28)
         Me.CheckBox6.TabIndex = 44
@@ -3957,6 +4227,11 @@ Partial Class MainMenu
         Me.BottomPnl.PerformLayout()
         CType(Me.ProgressBarAdv1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MetroSetTabControl1.ResumeLayout(False)
+        Me.TabPage7.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -4281,4 +4556,24 @@ Partial Class MainMenu
     Friend WithEvents Label110 As Label
     Friend WithEvents ComboBox40 As ComboBox
     Friend WithEvents Textbox77 As TextBox
+    Friend WithEvents TabPage7 As TabPage
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents ListView2 As ListView
+    Friend WithEvents ColumnHeader5 As ColumnHeader
+    Friend WithEvents ColumnHeader6 As ColumnHeader
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Button32 As Button
+    Friend WithEvents ComboBox43 As ComboBox
+    Friend WithEvents Label139 As Label
+    Friend WithEvents Button28 As Button
+    Friend WithEvents ComboBox42 As ComboBox
+    Friend WithEvents Button29 As Button
+    Friend WithEvents Label138 As Label
+    Friend WithEvents Button30 As Button
+    Friend WithEvents Button31 As Button
+    Friend WithEvents Label140 As Label
+    Friend WithEvents CheckBox13 As CheckBox
+    Friend WithEvents ColumnHeader7 As ColumnHeader
+    Friend WithEvents ColumnHeader8 As ColumnHeader
 End Class

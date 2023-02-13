@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports System.Management
 Module MediaEncoderModule
     Public Sub CleanEnv(cleanStats As String)
         GC.Collect()

@@ -4,17 +4,17 @@
         Dim value As String
         If Cmbx = "Copy" Then
             value = " -c:a:" & aStream & " copy"
-        ElseIf Cmbx = "MP3" Then
+        ElseIf Cmbx = "MP3" Or Cmbx = "MP3 Audio (*.mp3)" Then
             value = " -c:a:" & aStream & " libmp3lame"
-        ElseIf Cmbx = "AAC" Then
+        ElseIf Cmbx = "AAC" Or Cmbx = "Advanced Audio Coding (*.aac)" Then
             value = " -c:a:" & aStream & " aac"
-        ElseIf Cmbx = "MP2" Then
+        ElseIf Cmbx = "MP2" Or Cmbx = "MP2 Audio (*.mp2)" Then
             value = " -c:a:" & aStream & " libtwolame"
-        ElseIf Cmbx = "OPUS" Then
+        ElseIf Cmbx = "OPUS" Or Cmbx = "Opus Audio (*.opus)" Then
             value = " -c:a:" & aStream & " libopus"
-        ElseIf Cmbx = "FLAC" Then
+        ElseIf Cmbx = "FLAC" Or Cmbx = "Free Lossless Audio Codec (*.flac)" Then
             value = " -c:a:" & aStream & " flac"
-        ElseIf Cmbx = "WAV" Then
+        ElseIf Cmbx = "WAV" Or Cmbx = "Wave PCM (*.wav)" Then
             If bdCmbx = "16 Bit" Then
                 value = " -c:a:" & aStream & " pcm_s16le"
             ElseIf bdCmbx = "24 Bit" Then
@@ -55,9 +55,9 @@
     Public Function aBitDepth(Cmbx As String, aStream As String, bdCmbx As String) As String
         'Combobox15.text & Combobox18.text'
         Dim value As String
-        If Cmbx = "Original Source" Or Cmbx = "MP3" Or Cmbx = "WAV" Then
+        If Cmbx = "Original Source" Or Cmbx = "MP3" Or Cmbx = "MP3 Audio (*.mp3)" Or Cmbx = "WAV" Or Cmbx = "Wave PCM (*.wav)" Then
             value = ""
-        ElseIf Cmbx = "FLAC" Then
+        ElseIf Cmbx = "FLAC" Or Cmbx = "Free Lossless Audio Codec (*.flac)" Then
             If bdCmbx = "16 Bit" Then
                 value = " -sample_fmt:a:" & aStream & " s16"
             ElseIf bdCmbx = "24 Bit" Then
@@ -77,15 +77,15 @@
         If Cmbx = "" Then
             value = ""
         Else
-            If rateControl = "CBR" And aCodec = "MP3" Then
+            If rateControl = "CBR" And aCodec = "MP3" Or aCodec = "MP3 Audio (*.mp3)" Then
                 value = " -b:a:" & aStream & " " & Cmbx & "k"
-            ElseIf rateControl = "CBR" And aCodec = "OPUS" Then
+            ElseIf rateControl = "CBR" And aCodec = "OPUS" Or aCodec = "Opus Audio (*.opus)" Then
                 value = " -b:a:" & aStream & " " & Cmbx & "k -vbr off -application audio"
-            ElseIf rateControl = "VBR" And aCodec = "MP3" Then
+            ElseIf rateControl = "VBR" And aCodec = "MP3" Or aCodec = "MP3 Audio (*.mp3)" Then
                 value = " -q:a:" & aStream & " " & Cmbx
-            ElseIf rateControl = "VBR" And aCodec = "OPUS" Then
+            ElseIf rateControl = "VBR" And aCodec = "OPUS" Or aCodec = "Opus Audio (*.opus)" Then
                 value = " -b:a:" & aStream & " " & Cmbx & "k -vbr on -application audio"
-            ElseIf rateControl = "" And aCodec = "FLAC" Then
+            ElseIf rateControl = "" And aCodec = "FLAC" Or aCodec = "Free Lossless Audio Codec (*.flac)" Then
                 value = " -compression_level:a:" & aStream & " " & Cmbx
             Else
                 value = ""
