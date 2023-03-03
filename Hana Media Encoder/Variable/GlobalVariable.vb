@@ -4,6 +4,7 @@ Module GlobalVariable
     ' Readonly variable
     Public ReadOnly AudioStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\audioStream\"
     Public ReadOnly AudioStreamConfigPath As String = My.Application.Info.DirectoryPath & "\audioConfig\"
+    Public ReadOnly AudioQueuePath As String = My.Application.Info.DirectoryPath & "\queue\audio"
     Public ReadOnly DownBtnPath As String = My.Application.Info.DirectoryPath & "\Assets\arrow_down.png"
     Public ReadOnly HMESetTheme As String = My.Application.Info.DirectoryPath & "\Assets\theme.xml"
     Public ReadOnly NotifyIcoPath As String = My.Application.Info.DirectoryPath & "\Assets\HME_256.ico"
@@ -12,6 +13,7 @@ Module GlobalVariable
     Public ReadOnly UpBtnPath As String = My.Application.Info.DirectoryPath & "\Assets\arrow_up.png"
     Public ReadOnly VideoStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\videoStream\"
     Public ReadOnly VideoStreamConfigPath As String = My.Application.Info.DirectoryPath & "\videoConfig\"
+    Public ReadOnly VideoQueuePath As String = My.Application.Info.DirectoryPath & "\queue\video"
     Public ReadOnly VideoPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Placeholder.png"
     Public ReadOnly VideoErrorPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Error_Placeholder.png"
 
@@ -29,6 +31,22 @@ Module GlobalVariable
     Public AudiostreamConfig As String
     Public AudiostreamFlags As String
     Public AudioStreamSourceList As String
+    Public AudioQueue As Boolean
+    Public AudioQueueCodecInf As String
+    Public AudioQueueFlags As String
+    Public AudioTEMPFileNameOpt As String
+    Public AudioTEMPPreValue As String
+    Public AudioTEMPPostValue As String
+    Public AudioTEMPFormatOpt As String
+    Public AudioTEMPSmpRate As String
+    Public AudioTEMPCnvRatio As String
+    Public AudioTEMPChn As String
+    Public AudioTEMPChnMapping As String
+    Public AudioTEMPBitDepth As String
+    Public AudioTEMPQuickFlags As String
+    Public AudioTEMPChkDir As String
+    Public AudioTEMPNewSmpType As String
+    Public audioTEMPProfile As String
     Public AspectRatio As String
     Public BitRate As String
     Public CurParsedVer As String()
@@ -57,10 +75,13 @@ Module GlobalVariable
     Public FrameCount As String
     Public FrameMode As String
     Public FPS As String
+    Public HitReset As Boolean
     Public HwAccelFormat As String
     Public HwAccelDev As String
     Public Hwdefconfig As String
     Public ImageDir As String
+    Public LastValue As Integer
+    Public LastPBValue As Integer
     Public Newdebugmode As String
     Public Newdebugstate As String
     Public Newffargs As String
@@ -70,6 +91,8 @@ Module GlobalVariable
     Public NewParsedVer As String()
     Public MaxPos As Integer
     Public MaxBitRate As String
+    Public MediaTEMPFolderLocation As String
+    Public MediaQueueOrigDir As New List(Of String)
     Public MergedCurVer As Integer
     Public MergedNewVer As Integer
     Public MissedFlags(255) As Integer
@@ -111,5 +134,12 @@ Module GlobalVariable
     Public VideoStreamConfig As String
     Public VideoStreamFlags As String
     Public VideoStreamSourceList As String
+    Public VideoTEMPFileNameOpt As String
+    Public VideoTEMPPreValue As String
+    Public VideoTEMPPostValue As String
+    Public VideoTEMPFormatOpt As String
+    Public VideoQueue As Boolean
+    Public VideoQueueFlags As String
+    Public VideoQueueCodecInf As String
     Public WC As New WebClient
 End Module

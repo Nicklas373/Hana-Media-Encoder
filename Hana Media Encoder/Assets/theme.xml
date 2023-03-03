@@ -20,4 +20,31 @@
 	  <UnselectedTextColor>#F4A950</UnselectedTextColor>
     <SelectedTextColor>#dbdbdb</SelectedTextColor>
   </TabControl>
+  <RadioButton>
+	<ForeColor>#F4A950</ForeColor>
+	<CheckColor>#F4A950</CheckColor>
+	<BackColor>#161B21</BackColor>
+	<BordeColor>#dbdbdb</BordeColor>
+	<DisabledBorderColor>#dbdbdb</DisabledBorderColor>
+  </RadioButton>
+  <CheckBox>
+	<ForeColor>#F4A950</ForeColor>
+	<CheckColor>#F4A950</CheckColor>
+	<BackColor>#161B21</BackColor>
+	<BordeColor>#F4A950</BordeColor>
+	<DisabledBorderColor>#dbdbdb</DisabledBorderColor>
+	<CheckedStyle>Sign</CheckedStyle>
+	<!--Sign, Shape-->
+  </CheckBox>
+  <ComboBox>
+	<ForeColor>#F4A950</ForeColor>
+	<BackColor>#161B21</BackColor>
+	<BorderColor>#F4A950</BorderColor>
+	<ArrowColor>#F4A950</ArrowColor>
+	<SelectedItemBackColor>#dbdbdb</SelectedItemBackColor>
+	<SelectedItemForeColor>#dbdbdb</SelectedItemForeColor>
+	<DisabledBackColor>#dbdbdb</DisabledBackColor>
+	<DisabledBorderColor>#dbdbdb</DisabledBorderColor>
+	<DisabledForeColor>#dbdbdb</DisabledForeColor>
+  </ComboBox>
 </MetroSetTheme>
