@@ -22,435 +22,478 @@ Partial Class AudioProfile
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AudioProfile))
-        Me.Label138 = New System.Windows.Forms.Label()
-        Me.Label140 = New System.Windows.Forms.Label()
-        Me.MetroSetRadioButton1 = New MetroSet_UI.Controls.MetroSetRadioButton()
-        Me.StyleManager1 = New MetroSet_UI.Components.StyleManager()
-        Me.MetroSetRadioButton2 = New MetroSet_UI.Controls.MetroSetRadioButton()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBoxExt1 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBoxExt2 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBoxExt3 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.MetroSetCheckBox1 = New MetroSet_UI.Controls.MetroSetCheckBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBoxExt4 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBoxExt5 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        CType(Me.TextBoxExt1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextBoxExt2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextBoxExt3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextBoxExt4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextBoxExt5, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
-        '
-        'Label138
-        '
-        Me.Label138.AutoSize = True
-        Me.Label138.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label138.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label138.Location = New System.Drawing.Point(5, 60)
-        Me.Label138.Name = "Label138"
-        Me.Label138.Size = New System.Drawing.Size(68, 17)
-        Me.Label138.TabIndex = 67
-        Me.Label138.Text = "File Name"
-        '
-        'Label140
-        '
-        Me.Label140.AutoSize = True
-        Me.Label140.BackColor = System.Drawing.Color.Transparent
-        Me.Label140.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label140.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label140.Location = New System.Drawing.Point(3, 20)
-        Me.Label140.Name = "Label140"
-        Me.Label140.Size = New System.Drawing.Size(159, 28)
-        Me.Label140.TabIndex = 68
-        Me.Label140.Text = "File Name Scheme"
-        '
-        'MetroSetRadioButton1
-        '
-        Me.MetroSetRadioButton1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.MetroSetRadioButton1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.MetroSetRadioButton1.Checked = False
-        Me.MetroSetRadioButton1.CheckSignColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.MetroSetRadioButton1.CheckState = MetroSet_UI.Enums.CheckState.Unchecked
-        Me.MetroSetRadioButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.MetroSetRadioButton1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.MetroSetRadioButton1.Group = 0
-        Me.MetroSetRadioButton1.IsDerivedStyle = True
-        Me.MetroSetRadioButton1.Location = New System.Drawing.Point(100, 60)
-        Me.MetroSetRadioButton1.Name = "MetroSetRadioButton1"
-        Me.MetroSetRadioButton1.Size = New System.Drawing.Size(116, 17)
-        Me.MetroSetRadioButton1.Style = MetroSet_UI.Enums.Style.Custom
-        Me.MetroSetRadioButton1.StyleManager = Me.StyleManager1
-        Me.MetroSetRadioButton1.TabIndex = 69
-        Me.MetroSetRadioButton1.Text = " Prefix / Suffix"
-        Me.MetroSetRadioButton1.ThemeAuthor = "Hana-CI Build Project"
-        Me.MetroSetRadioButton1.ThemeName = "Hana Media Encoder MetroSetTheme"
-        '
-        'StyleManager1
-        '
-        Me.StyleManager1.CustomTheme = "C:\Users\Lenovo\Documents\GitHub\Hana-Media-Encoder\Hana Media Encoder\Assets\the" &
-    "me.xml"
-        Me.StyleManager1.MetroForm = Me
-        Me.StyleManager1.Style = MetroSet_UI.Enums.Style.Custom
-        Me.StyleManager1.ThemeAuthor = "Hana-CI Build Project"
-        Me.StyleManager1.ThemeName = "Hana Media Encoder MetroSetTheme"
-        '
-        'MetroSetRadioButton2
-        '
-        Me.MetroSetRadioButton2.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.MetroSetRadioButton2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.MetroSetRadioButton2.Checked = False
-        Me.MetroSetRadioButton2.CheckSignColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.MetroSetRadioButton2.CheckState = MetroSet_UI.Enums.CheckState.Unchecked
-        Me.MetroSetRadioButton2.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.MetroSetRadioButton2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.MetroSetRadioButton2.Group = 0
-        Me.MetroSetRadioButton2.IsDerivedStyle = True
-        Me.MetroSetRadioButton2.Location = New System.Drawing.Point(250, 60)
-        Me.MetroSetRadioButton2.Name = "MetroSetRadioButton2"
-        Me.MetroSetRadioButton2.Size = New System.Drawing.Size(175, 17)
-        Me.MetroSetRadioButton2.Style = MetroSet_UI.Enums.Style.Custom
-        Me.MetroSetRadioButton2.StyleManager = Me.StyleManager1
-        Me.MetroSetRadioButton2.TabIndex = 70
-        Me.MetroSetRadioButton2.Text = " Original File Name"
-        Me.MetroSetRadioButton2.ThemeAuthor = "Hana-CI Build Project"
-        Me.MetroSetRadioButton2.ThemeName = "Hana Media Encoder MetroSetTheme"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(31, 100)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(42, 17)
-        Me.Label1.TabIndex = 71
-        Me.Label1.Text = "Prefix"
-        '
-        'TextBoxExt1
-        '
-        Me.TextBoxExt1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TextBoxExt1.BeforeTouchSize = New System.Drawing.Size(301, 23)
-        Me.TextBoxExt1.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat
-        Me.TextBoxExt1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt1.BorderSides = System.Windows.Forms.Border3DSide.Bottom
-        Me.TextBoxExt1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxExt1.CanOverrideStyle = True
-        Me.TextBoxExt1.Enabled = False
-        Me.TextBoxExt1.FocusBorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt1.Location = New System.Drawing.Point(100, 100)
-        Me.TextBoxExt1.Metrocolor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TextBoxExt1.Name = "TextBoxExt1"
-        Me.TextBoxExt1.Size = New System.Drawing.Size(129, 23)
-        Me.TextBoxExt1.TabIndex = 72
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(250, 100)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(41, 17)
-        Me.Label2.TabIndex = 73
-        Me.Label2.Text = "Suffix"
-        '
-        'TextBoxExt2
-        '
-        Me.TextBoxExt2.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TextBoxExt2.BeforeTouchSize = New System.Drawing.Size(301, 23)
-        Me.TextBoxExt2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt2.BorderSides = System.Windows.Forms.Border3DSide.Bottom
-        Me.TextBoxExt2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxExt2.Enabled = False
-        Me.TextBoxExt2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt2.Location = New System.Drawing.Point(319, 100)
-        Me.TextBoxExt2.Name = "TextBoxExt2"
-        Me.TextBoxExt2.Size = New System.Drawing.Size(129, 23)
-        Me.TextBoxExt2.TabIndex = 74
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(3, 150)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(133, 28)
-        Me.Label3.TabIndex = 75
-        Me.Label3.Text = "Export Location"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(5, 190)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(59, 17)
-        Me.Label4.TabIndex = 76
-        Me.Label4.Text = "Location"
-        '
-        'TextBoxExt3
-        '
-        Me.TextBoxExt3.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TextBoxExt3.BeforeTouchSize = New System.Drawing.Size(301, 23)
-        Me.TextBoxExt3.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat
-        Me.TextBoxExt3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt3.BorderSides = System.Windows.Forms.Border3DSide.Bottom
-        Me.TextBoxExt3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxExt3.CanOverrideStyle = True
-        Me.TextBoxExt3.FocusBorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt3.Location = New System.Drawing.Point(100, 190)
-        Me.TextBoxExt3.Metrocolor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TextBoxExt3.Name = "TextBoxExt3"
-        Me.TextBoxExt3.ReadOnly = True
-        Me.TextBoxExt3.Size = New System.Drawing.Size(348, 23)
-        Me.TextBoxExt3.TabIndex = 77
-        Me.TextBoxExt3.ThemeName = "Default"
-        '
-        'Button6
-        '
-        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button6.BackColor = System.Drawing.Color.Transparent
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button6.Location = New System.Drawing.Point(476, 184)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(90, 35)
-        Me.Button6.TabIndex = 90
-        Me.Button6.Text = "Browse"
-        Me.Button6.UseVisualStyleBackColor = False
-        '
-        'MetroSetCheckBox1
-        '
-        Me.MetroSetCheckBox1.BackColor = System.Drawing.Color.Transparent
-        Me.MetroSetCheckBox1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.MetroSetCheckBox1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.MetroSetCheckBox1.Checked = False
-        Me.MetroSetCheckBox1.CheckSignColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.MetroSetCheckBox1.CheckState = MetroSet_UI.Enums.CheckState.Unchecked
-        Me.MetroSetCheckBox1.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.MetroSetCheckBox1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.MetroSetCheckBox1.IsDerivedStyle = True
-        Me.MetroSetCheckBox1.Location = New System.Drawing.Point(100, 230)
-        Me.MetroSetCheckBox1.Name = "MetroSetCheckBox1"
-        Me.MetroSetCheckBox1.SignStyle = MetroSet_UI.Enums.SignStyle.Sign
-        Me.MetroSetCheckBox1.Size = New System.Drawing.Size(219, 16)
-        Me.MetroSetCheckBox1.Style = MetroSet_UI.Enums.Style.Custom
-        Me.MetroSetCheckBox1.StyleManager = Me.StyleManager1
-        Me.MetroSetCheckBox1.TabIndex = 91
-        Me.MetroSetCheckBox1.Text = " Same as source file location"
-        Me.MetroSetCheckBox1.ThemeAuthor = "Hana-CI Build Project"
-        Me.MetroSetCheckBox1.ThemeName = "Hana Media Encoder MetroSetTheme"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(3, 280)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(178, 28)
-        Me.Label5.TabIndex = 92
-        Me.Label5.Text = "Codec Configuration"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(5, 320)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(52, 17)
-        Me.Label6.TabIndex = 93
-        Me.Label6.Text = "Format"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(5, 360)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(84, 17)
-        Me.Label7.TabIndex = 95
-        Me.Label7.Text = "Sample Type"
-        '
-        'TextBoxExt4
-        '
-        Me.TextBoxExt4.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TextBoxExt4.BeforeTouchSize = New System.Drawing.Size(301, 23)
-        Me.TextBoxExt4.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat
-        Me.TextBoxExt4.BorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt4.BorderSides = System.Windows.Forms.Border3DSide.Bottom
-        Me.TextBoxExt4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxExt4.CanOverrideStyle = True
-        Me.TextBoxExt4.FocusBorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt4.Location = New System.Drawing.Point(147, 360)
-        Me.TextBoxExt4.Metrocolor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TextBoxExt4.Name = "TextBoxExt4"
-        Me.TextBoxExt4.ReadOnly = True
-        Me.TextBoxExt4.Size = New System.Drawing.Size(301, 23)
-        Me.TextBoxExt4.TabIndex = 96
-        Me.TextBoxExt4.ThemeName = "Default"
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button1.Location = New System.Drawing.Point(476, 354)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(90, 35)
-        Me.Button1.TabIndex = 97
-        Me.Button1.Text = "Configure"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Advanced Audio Coding (*.aac)", "Free Lossless Audio Codec (*.flac)", "MP2 Audio (*.mp2)", "MP3 Audio (*.mp3)", "Opus Audio (*.opus)", "Wave PCM (*.wav)"})
-        Me.ComboBox1.Location = New System.Drawing.Point(147, 320)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(301, 25)
-        Me.ComboBox1.TabIndex = 100
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(5, 400)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(115, 17)
-        Me.Label8.TabIndex = 101
-        Me.Label8.Text = "New Sample Type"
-        '
-        'TextBoxExt5
-        '
-        Me.TextBoxExt5.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(37, Byte), Integer))
-        Me.TextBoxExt5.BeforeTouchSize = New System.Drawing.Size(301, 23)
-        Me.TextBoxExt5.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat
-        Me.TextBoxExt5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt5.BorderSides = System.Windows.Forms.Border3DSide.Bottom
-        Me.TextBoxExt5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxExt5.CanOverrideStyle = True
-        Me.TextBoxExt5.FocusBorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.TextBoxExt5.Location = New System.Drawing.Point(147, 400)
-        Me.TextBoxExt5.Metrocolor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TextBoxExt5.Name = "TextBoxExt5"
-        Me.TextBoxExt5.ReadOnly = True
-        Me.TextBoxExt5.Size = New System.Drawing.Size(301, 23)
-        Me.TextBoxExt5.TabIndex = 102
-        Me.TextBoxExt5.ThemeName = "Default"
-        '
-        'Button2
-        '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button2.Location = New System.Drawing.Point(489, 512)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(90, 35)
-        Me.Button2.TabIndex = 103
-        Me.Button2.Text = "Save"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.BackColor = System.Drawing.Color.Transparent
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button3.Location = New System.Drawing.Point(393, 512)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(90, 35)
-        Me.Button3.TabIndex = 104
-        Me.Button3.Text = "Cancel"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'AudioProfile
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(584, 561)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.TextBoxExt5)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBoxExt4)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.MetroSetCheckBox1)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.TextBoxExt3)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBoxExt2)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBoxExt1)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.MetroSetRadioButton2)
-        Me.Controls.Add(Me.MetroSetRadioButton1)
-        Me.Controls.Add(Me.Label140)
-        Me.Controls.Add(Me.Label138)
-        Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(600, 600)
-        Me.MinimumSize = New System.Drawing.Size(600, 600)
-        Me.Name = "AudioProfile"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Style.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Style.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Style.MdiChild.IconHorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Center
-        Me.Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center
-        Me.Style.TitleBar.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Style.TitleBar.BottomBorderColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Style.TitleBar.CloseButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Style.TitleBar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Style.TitleBar.MinimizeButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Text = "Audio Export"
-        CType(Me.TextBoxExt1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextBoxExt2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextBoxExt3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextBoxExt4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextBoxExt5, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
-
+        components = New ComponentModel.Container()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(AudioProfile))
+        Label138 = New Label()
+        Label140 = New Label()
+        MetroSetRadioButton1 = New MetroSet_UI.Controls.MetroSetRadioButton()
+        StyleManager1 = New MetroSet_UI.Components.StyleManager()
+        MetroSetRadioButton2 = New MetroSet_UI.Controls.MetroSetRadioButton()
+        Label1 = New Label()
+        TextBoxExt1 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
+        Label2 = New Label()
+        TextBoxExt2 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
+        Label3 = New Label()
+        Label4 = New Label()
+        TextBoxExt3 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
+        Button6 = New Button()
+        MetroSetCheckBox1 = New MetroSet_UI.Controls.MetroSetCheckBox()
+        Label5 = New Label()
+        Label6 = New Label()
+        Label7 = New Label()
+        TextBoxExt4 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
+        Button1 = New Button()
+        ComboBox1 = New ComboBox()
+        Label8 = New Label()
+        TextBoxExt5 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
+        Button2 = New Button()
+        Button3 = New Button()
+        Label9 = New Label()
+        TextBoxExt6 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
+        ContextMenuStrip1 = New ContextMenuStrip(components)
+        SelectedFilesToolStripMenuItem = New ToolStripMenuItem()
+        AllFilesToolStripMenuItem = New ToolStripMenuItem()
+        CType(TextBoxExt1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(TextBoxExt2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(TextBoxExt3, ComponentModel.ISupportInitialize).BeginInit()
+        CType(TextBoxExt4, ComponentModel.ISupportInitialize).BeginInit()
+        CType(TextBoxExt5, ComponentModel.ISupportInitialize).BeginInit()
+        CType(TextBoxExt6, ComponentModel.ISupportInitialize).BeginInit()
+        ContextMenuStrip1.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' Label138
+        ' 
+        Label138.AutoSize = True
+        Label138.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label138.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label138.Location = New Point(5, 60)
+        Label138.Name = "Label138"
+        Label138.Size = New Size(68, 17)
+        Label138.TabIndex = 67
+        Label138.Text = "File Name"' 
+        ' Label140
+        ' 
+        Label140.AutoSize = True
+        Label140.BackColor = Color.Transparent
+        Label140.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label140.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label140.Location = New Point(3, 20)
+        Label140.Name = "Label140"
+        Label140.Size = New Size(159, 28)
+        Label140.TabIndex = 68
+        Label140.Text = "File Name Scheme"' 
+        ' MetroSetRadioButton1
+        ' 
+        MetroSetRadioButton1.BackgroundColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetRadioButton1.BorderColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        MetroSetRadioButton1.Checked = False
+        MetroSetRadioButton1.CheckSignColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        MetroSetRadioButton1.CheckState = MetroSet_UI.Enums.CheckState.Unchecked
+        MetroSetRadioButton1.DisabledBorderColor = Color.FromArgb(CByte(85), CByte(85), CByte(85))
+        MetroSetRadioButton1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        MetroSetRadioButton1.Group = 0
+        MetroSetRadioButton1.IsDerivedStyle = True
+        MetroSetRadioButton1.Location = New Point(100, 60)
+        MetroSetRadioButton1.Name = "MetroSetRadioButton1"
+        MetroSetRadioButton1.Size = New Size(116, 17)
+        MetroSetRadioButton1.Style = MetroSet_UI.Enums.Style.Custom
+        MetroSetRadioButton1.StyleManager = StyleManager1
+        MetroSetRadioButton1.TabIndex = 69
+        MetroSetRadioButton1.Text = " Prefix / Suffix"
+        MetroSetRadioButton1.ThemeAuthor = "Hana-CI Build Project"
+        MetroSetRadioButton1.ThemeName = "Hana Media Encoder MetroSetTheme"' 
+        ' StyleManager1
+        ' 
+        StyleManager1.CustomTheme = "C:\Users\Lenovo\Documents\GitHub\Hana-Media-Encoder\Hana Media Encoder\Assets\theme.xml"
+        StyleManager1.MetroForm = Me
+        StyleManager1.Style = MetroSet_UI.Enums.Style.Custom
+        StyleManager1.ThemeAuthor = "Hana-CI Build Project"
+        StyleManager1.ThemeName = "Hana Media Encoder MetroSetTheme"' 
+        ' MetroSetRadioButton2
+        ' 
+        MetroSetRadioButton2.BackgroundColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetRadioButton2.BorderColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        MetroSetRadioButton2.Checked = False
+        MetroSetRadioButton2.CheckSignColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        MetroSetRadioButton2.CheckState = MetroSet_UI.Enums.CheckState.Unchecked
+        MetroSetRadioButton2.DisabledBorderColor = Color.FromArgb(CByte(85), CByte(85), CByte(85))
+        MetroSetRadioButton2.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        MetroSetRadioButton2.Group = 0
+        MetroSetRadioButton2.IsDerivedStyle = True
+        MetroSetRadioButton2.Location = New Point(250, 60)
+        MetroSetRadioButton2.Name = "MetroSetRadioButton2"
+        MetroSetRadioButton2.Size = New Size(175, 17)
+        MetroSetRadioButton2.Style = MetroSet_UI.Enums.Style.Custom
+        MetroSetRadioButton2.StyleManager = StyleManager1
+        MetroSetRadioButton2.TabIndex = 70
+        MetroSetRadioButton2.Text = " Original File Name"
+        MetroSetRadioButton2.ThemeAuthor = "Hana-CI Build Project"
+        MetroSetRadioButton2.ThemeName = "Hana Media Encoder MetroSetTheme"' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label1.Location = New Point(31, 100)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(42, 17)
+        Label1.TabIndex = 71
+        Label1.Text = "Prefix"' 
+        ' TextBoxExt1
+        ' 
+        TextBoxExt1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBoxExt1.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt1.Border3DStyle = Border3DStyle.Flat
+        TextBoxExt1.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt1.BorderSides = Border3DSide.Bottom
+        TextBoxExt1.BorderStyle = BorderStyle.FixedSingle
+        TextBoxExt1.CanOverrideStyle = True
+        TextBoxExt1.Enabled = False
+        TextBoxExt1.FocusBorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt1.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt1.Location = New Point(100, 100)
+        TextBoxExt1.Metrocolor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBoxExt1.Name = "TextBoxExt1"
+        TextBoxExt1.Size = New Size(129, 23)
+        TextBoxExt1.TabIndex = 72
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label2.Location = New Point(250, 100)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(41, 17)
+        Label2.TabIndex = 73
+        Label2.Text = "Suffix"' 
+        ' TextBoxExt2
+        ' 
+        TextBoxExt2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBoxExt2.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt2.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt2.BorderSides = Border3DSide.Bottom
+        TextBoxExt2.BorderStyle = BorderStyle.FixedSingle
+        TextBoxExt2.Enabled = False
+        TextBoxExt2.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt2.Location = New Point(319, 100)
+        TextBoxExt2.Name = "TextBoxExt2"
+        TextBoxExt2.Size = New Size(129, 23)
+        TextBoxExt2.TabIndex = 74
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.BackColor = Color.Transparent
+        Label3.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label3.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label3.Location = New Point(3, 150)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(133, 28)
+        Label3.TabIndex = 75
+        Label3.Text = "Export Location"' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label4.Location = New Point(5, 190)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(59, 17)
+        Label4.TabIndex = 76
+        Label4.Text = "Location"' 
+        ' TextBoxExt3
+        ' 
+        TextBoxExt3.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBoxExt3.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt3.Border3DStyle = Border3DStyle.Flat
+        TextBoxExt3.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt3.BorderSides = Border3DSide.Bottom
+        TextBoxExt3.BorderStyle = BorderStyle.FixedSingle
+        TextBoxExt3.CanOverrideStyle = True
+        TextBoxExt3.FocusBorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt3.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt3.Location = New Point(100, 190)
+        TextBoxExt3.Metrocolor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBoxExt3.Name = "TextBoxExt3"
+        TextBoxExt3.ReadOnly = True
+        TextBoxExt3.Size = New Size(348, 23)
+        TextBoxExt3.TabIndex = 77
+        TextBoxExt3.ThemeName = "Default"' 
+        ' Button6
+        ' 
+        Button6.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button6.BackColor = Color.Transparent
+        Button6.FlatStyle = FlatStyle.Flat
+        Button6.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button6.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button6.Location = New Point(476, 181)
+        Button6.Name = "Button6"
+        Button6.Size = New Size(90, 35)
+        Button6.TabIndex = 90
+        Button6.Text = "Browse"
+        Button6.UseVisualStyleBackColor = False
+        ' 
+        ' MetroSetCheckBox1
+        ' 
+        MetroSetCheckBox1.BackColor = Color.Transparent
+        MetroSetCheckBox1.BackgroundColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetCheckBox1.BorderColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        MetroSetCheckBox1.Checked = False
+        MetroSetCheckBox1.CheckSignColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        MetroSetCheckBox1.CheckState = MetroSet_UI.Enums.CheckState.Unchecked
+        MetroSetCheckBox1.DisabledBorderColor = Color.FromArgb(CByte(85), CByte(85), CByte(85))
+        MetroSetCheckBox1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        MetroSetCheckBox1.IsDerivedStyle = True
+        MetroSetCheckBox1.Location = New Point(100, 230)
+        MetroSetCheckBox1.Name = "MetroSetCheckBox1"
+        MetroSetCheckBox1.SignStyle = MetroSet_UI.Enums.SignStyle.Sign
+        MetroSetCheckBox1.Size = New Size(219, 16)
+        MetroSetCheckBox1.Style = MetroSet_UI.Enums.Style.Custom
+        MetroSetCheckBox1.StyleManager = StyleManager1
+        MetroSetCheckBox1.TabIndex = 91
+        MetroSetCheckBox1.Text = " Same as source file location"
+        MetroSetCheckBox1.ThemeAuthor = "Hana-CI Build Project"
+        MetroSetCheckBox1.ThemeName = "Hana Media Encoder MetroSetTheme"' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.BackColor = Color.Transparent
+        Label5.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label5.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label5.Location = New Point(3, 280)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(178, 28)
+        Label5.TabIndex = 92
+        Label5.Text = "Codec Configuration"' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label6.Location = New Point(5, 320)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(52, 17)
+        Label6.TabIndex = 93
+        Label6.Text = "Format"' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label7.Location = New Point(5, 360)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(84, 17)
+        Label7.TabIndex = 95
+        Label7.Text = "Sample Type"' 
+        ' TextBoxExt4
+        ' 
+        TextBoxExt4.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBoxExt4.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt4.Border3DStyle = Border3DStyle.Flat
+        TextBoxExt4.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt4.BorderSides = Border3DSide.Bottom
+        TextBoxExt4.BorderStyle = BorderStyle.FixedSingle
+        TextBoxExt4.CanOverrideStyle = True
+        TextBoxExt4.FocusBorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt4.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt4.Location = New Point(147, 360)
+        TextBoxExt4.Metrocolor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBoxExt4.Name = "TextBoxExt4"
+        TextBoxExt4.ReadOnly = True
+        TextBoxExt4.Size = New Size(301, 23)
+        TextBoxExt4.TabIndex = 96
+        TextBoxExt4.ThemeName = "Default"' 
+        ' Button1
+        ' 
+        Button1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button1.BackColor = Color.Transparent
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button1.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button1.Location = New Point(476, 314)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(90, 35)
+        Button1.TabIndex = 97
+        Button1.Text = "Configure"
+        Button1.UseVisualStyleBackColor = False
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ComboBox1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        ComboBox1.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Items.AddRange(New Object() {"Advanced Audio Coding (*.aac)", "Free Lossless Audio Codec (*.flac)", "MP2 Audio (*.mp2)", "MP3 Audio (*.mp3)", "Opus Audio (*.opus)", "Wave PCM (*.wav)"})
+        ComboBox1.Location = New Point(147, 320)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(301, 25)
+        ComboBox1.TabIndex = 100
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label8.Location = New Point(5, 400)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(115, 17)
+        Label8.TabIndex = 101
+        Label8.Text = "New Sample Type"' 
+        ' TextBoxExt5
+        ' 
+        TextBoxExt5.BackColor = Color.FromArgb(CByte(22), CByte(23), CByte(37))
+        TextBoxExt5.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt5.Border3DStyle = Border3DStyle.Flat
+        TextBoxExt5.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt5.BorderSides = Border3DSide.Bottom
+        TextBoxExt5.BorderStyle = BorderStyle.FixedSingle
+        TextBoxExt5.CanOverrideStyle = True
+        TextBoxExt5.FocusBorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt5.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt5.Location = New Point(147, 400)
+        TextBoxExt5.Metrocolor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBoxExt5.Name = "TextBoxExt5"
+        TextBoxExt5.ReadOnly = True
+        TextBoxExt5.Size = New Size(301, 23)
+        TextBoxExt5.TabIndex = 102
+        TextBoxExt5.ThemeName = "Default"' 
+        ' Button2
+        ' 
+        Button2.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button2.BackColor = Color.Transparent
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button2.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button2.Location = New Point(489, 646)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(90, 35)
+        Button2.TabIndex = 103
+        Button2.Text = "Save"
+        Button2.UseVisualStyleBackColor = False
+        ' 
+        ' Button3
+        ' 
+        Button3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button3.BackColor = Color.Transparent
+        Button3.FlatStyle = FlatStyle.Flat
+        Button3.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button3.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button3.Location = New Point(393, 646)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(90, 35)
+        Button3.TabIndex = 104
+        Button3.Text = "Cancel"
+        Button3.UseVisualStyleBackColor = False
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label9.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label9.Location = New Point(5, 440)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(105, 17)
+        Label9.TabIndex = 105
+        Label9.Text = "Format Settings"' 
+        ' TextBoxExt6
+        ' 
+        TextBoxExt6.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBoxExt6.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt6.Border3DStyle = Border3DStyle.Flat
+        TextBoxExt6.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt6.BorderSides = Border3DSide.Bottom
+        TextBoxExt6.BorderStyle = BorderStyle.FixedSingle
+        TextBoxExt6.CanOverrideStyle = True
+        TextBoxExt6.FocusBorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt6.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBoxExt6.Location = New Point(147, 440)
+        TextBoxExt6.Metrocolor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBoxExt6.Multiline = True
+        TextBoxExt6.Name = "TextBoxExt6"
+        TextBoxExt6.ReadOnly = True
+        TextBoxExt6.ShowOverflowIndicator = True
+        TextBoxExt6.Size = New Size(301, 122)
+        TextBoxExt6.TabIndex = 107
+        TextBoxExt6.ThemeName = "Default"' 
+        ' ContextMenuStrip1
+        ' 
+        ContextMenuStrip1.Items.AddRange(New ToolStripItem() {SelectedFilesToolStripMenuItem, AllFilesToolStripMenuItem})
+        ContextMenuStrip1.Name = "ContextMenuStrip1"
+        ContextMenuStrip1.Size = New Size(145, 48)
+        ' 
+        ' SelectedFilesToolStripMenuItem
+        ' 
+        SelectedFilesToolStripMenuItem.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        SelectedFilesToolStripMenuItem.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        SelectedFilesToolStripMenuItem.Name = "SelectedFilesToolStripMenuItem"
+        SelectedFilesToolStripMenuItem.Size = New Size(144, 22)
+        SelectedFilesToolStripMenuItem.Text = "Selected Files"' 
+        ' AllFilesToolStripMenuItem
+        ' 
+        AllFilesToolStripMenuItem.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        AllFilesToolStripMenuItem.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        AllFilesToolStripMenuItem.Name = "AllFilesToolStripMenuItem"
+        AllFilesToolStripMenuItem.Size = New Size(144, 22)
+        AllFilesToolStripMenuItem.Text = "All Files"' 
+        ' AudioProfile
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ClientSize = New Size(584, 695)
+        Controls.Add(TextBoxExt6)
+        Controls.Add(Label9)
+        Controls.Add(Button3)
+        Controls.Add(Button2)
+        Controls.Add(TextBoxExt5)
+        Controls.Add(Label8)
+        Controls.Add(ComboBox1)
+        Controls.Add(Button1)
+        Controls.Add(TextBoxExt4)
+        Controls.Add(Label7)
+        Controls.Add(Label6)
+        Controls.Add(Label5)
+        Controls.Add(MetroSetCheckBox1)
+        Controls.Add(Button6)
+        Controls.Add(TextBoxExt3)
+        Controls.Add(Label4)
+        Controls.Add(Label3)
+        Controls.Add(TextBoxExt2)
+        Controls.Add(Label2)
+        Controls.Add(TextBoxExt1)
+        Controls.Add(Label1)
+        Controls.Add(MetroSetRadioButton2)
+        Controls.Add(MetroSetRadioButton1)
+        Controls.Add(Label140)
+        Controls.Add(Label138)
+        ForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        MaximizeBox = False
+        MaximumSize = New Size(600, 900)
+        MinimumSize = New Size(600, 600)
+        Name = "AudioProfile"
+        StartPosition = FormStartPosition.CenterScreen
+        Style.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Style.ForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Style.MdiChild.IconHorizontalAlignment = HorizontalAlignment.Center
+        Style.MdiChild.IconVerticalAlignment = VisualStyles.VerticalAlignment.Center
+        Style.TitleBar.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Style.TitleBar.BottomBorderColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Style.TitleBar.CloseButtonForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Style.TitleBar.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Style.TitleBar.MinimizeButtonForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Text = "Audio Export"
+        CType(TextBoxExt1, ComponentModel.ISupportInitialize).EndInit()
+        CType(TextBoxExt2, ComponentModel.ISupportInitialize).EndInit()
+        CType(TextBoxExt3, ComponentModel.ISupportInitialize).EndInit()
+        CType(TextBoxExt4, ComponentModel.ISupportInitialize).EndInit()
+        CType(TextBoxExt5, ComponentModel.ISupportInitialize).EndInit()
+        CType(TextBoxExt6, ComponentModel.ISupportInitialize).EndInit()
+        ContextMenuStrip1.ResumeLayout(False)
+        ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents Label138 As Label
@@ -477,4 +520,9 @@ Partial Class AudioProfile
     Friend WithEvents Button2 As Button
     Friend WithEvents TextBoxExt5 As Syncfusion.Windows.Forms.Tools.TextBoxExt
     Friend WithEvents Label8 As Label
+    Friend WithEvents TextBoxExt6 As Syncfusion.Windows.Forms.Tools.TextBoxExt
+    Friend WithEvents Label9 As Label
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents SelectedFilesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AllFilesToolStripMenuItem As ToolStripMenuItem
 End Class
