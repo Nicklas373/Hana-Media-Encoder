@@ -80,7 +80,9 @@ Module MiscModule
     End Sub
     Public Sub MassDelete(dirname As String, ext As String)
         For Each deleteFile In Directory.GetFiles(dirname, "*." & ext, SearchOption.TopDirectoryOnly)
-            File.Delete(deleteFile)
+            If File.Exists(deleteFile) Then
+                File.Delete(deleteFile)
+            End If
         Next
     End Sub
     Public Sub OnCompleted(cmbx As String)
