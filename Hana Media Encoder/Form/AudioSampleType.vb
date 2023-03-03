@@ -5,22 +5,22 @@ Public Class AudioSampleType
 
     Private Sub AudioSampleType_load(sender As Object, e As EventArgs) Handles MyBase.Load
         AllowTransparency = False
-        If AudioTEMPSmpRate IsNot "" Then
+        If AudioTEMPSmpRate IsNot "null" Then
             ComboBox1.Text = AudioTEMPSmpRate
         Else
             ComboBox1.SelectedIndex = -1
         End If
-        If AudioTEMPChn IsNot "" Then
+        If AudioTEMPChn IsNot "null" Then
             ComboBox33.Text = AudioTEMPChn
         Else
             ComboBox33.SelectedIndex = -1
         End If
-        If AudioTEMPChnMapping IsNot "" Then
+        If AudioTEMPChnMapping IsNot "null" Then
             ComboBox34.Text = AudioTEMPChnMapping
         Else
             ComboBox34.SelectedIndex = -1
         End If
-        If AudioTEMPBitDepth IsNot "" Then
+        If AudioTEMPBitDepth IsNot "null" Then
             ComboBox18.Text = AudioTEMPBitDepth
         Else
             ComboBox18.SelectedIndex = -1
@@ -29,10 +29,17 @@ Public Class AudioSampleType
             If AudioTEMPFormatOpt = "Wave PCM (*.wav)" Then
                 TrackBar1.Enabled = False
                 Label3.Text = "0%"
+                ComboBox2.Items.Clear()
+                ComboBox2.Items.Add("None")
+                ComboBox2.Items.Add("CD Quality")
+                ComboBox2.Items.Add("DVD Quality")
+                ComboBox2.Items.Add("Hi-Fi Quality")
+                ComboBox2.Items.Add("Hi-Res Quality")
             ElseIf AudioTEMPFormatOpt = "Free Lossless Audio Codec (*.flac)" Then
                 TrackBar1.Enabled = True
                 TrackBar1.Maximum = 10
                 If AudioTEMPCnvRatio IsNot "" Then
+                    TrackBar1.Value = AudioTEMPCnvRatio
                     If AudioTEMPCnvRatio = 0 Then
                         Label3.Text = "0%"
                     ElseIf AudioTEMPCnvRatio = 1 Then
@@ -57,10 +64,23 @@ Public Class AudioSampleType
                         Label3.Text = "100%"
                     End If
                 End If
+                ComboBox2.Items.Clear()
+                ComboBox2.Items.Add("None")
+                ComboBox2.Items.Add("Low Quality")
+                ComboBox2.Items.Add("Medium Quality")
+                ComboBox2.Items.Add("High Quality")
+                ComboBox2.Items.Add("Hi-Fi Quality")
+                ComboBox2.Items.Add("Hi-Res Quality")
             Else
+                ComboBox2.Items.Clear()
+                ComboBox2.Items.Add("None")
+                ComboBox2.Items.Add("Low Quality")
+                ComboBox2.Items.Add("Medium Quality")
+                ComboBox2.Items.Add("High Quality")
                 TrackBar1.Enabled = True
                 TrackBar1.Maximum = 5
                 If AudioTEMPCnvRatio IsNot "" Then
+                    TrackBar1.Value = AudioTEMPCnvRatio
                     If AudioTEMPCnvRatio = 0 Then
                         Label3.Text = "0%"
                     ElseIf AudioTEMPCnvRatio = 1 Then
@@ -77,8 +97,122 @@ Public Class AudioSampleType
                 End If
             End If
         End If
+        If audioTEMPProfile IsNot "null" Then
+            ComboBox2.Text = audioTEMPProfile
+        End If
         AudioFrequencyCheck()
         AudioBitDepthCheck()
+    End Sub
+    Private Sub ProfileBtn(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        If AudioTEMPFormatOpt = "Wave PCM (*.wav)" Then
+            If ComboBox2.Text.ToString = "CD Quality" Then
+                ComboBox1.SelectedIndex = 3
+                TrackBar1.Value = 0
+                ComboBox18.SelectedIndex = 0
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+            ElseIf ComboBox2.Text.ToString = "DVD Quality" Then
+                ComboBox1.SelectedIndex = 4
+                TrackBar1.Value = 0
+                ComboBox18.SelectedIndex = 0
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+            ElseIf ComboBox2.Text.ToString = "Hi-Fi Quality" Then
+                ComboBox1.SelectedIndex = 4
+                TrackBar1.Value = 0
+                ComboBox18.SelectedIndex = 1
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+            ElseIf ComboBox2.Text.ToString = "Hi-Res Quality" Then
+                ComboBox1.SelectedIndex = 7
+                TrackBar1.Value = 0
+                ComboBox18.SelectedIndex = 1
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+            Else
+                ComboBox1.SelectedIndex = -1
+                TrackBar1.Value = 0
+                ComboBox18.SelectedIndex = -1
+                ComboBox33.SelectedIndex = -1
+                ComboBox34.SelectedIndex = -1
+            End If
+            Label3.Text = "0%"
+        ElseIf AudioTEMPFormatOpt = "Free Lossless Audio Codec (*.flac)" Then
+            If ComboBox2.Text.ToString = "Low Quality" Then
+                ComboBox1.SelectedIndex = 3
+                TrackBar1.Value = 8
+                ComboBox18.SelectedIndex = 0
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+                Label3.Text = "80%"
+            ElseIf ComboBox2.Text.ToString = "Medium Quality" Then
+                ComboBox1.SelectedIndex = 3
+                TrackBar1.Value = 5
+                ComboBox18.SelectedIndex = 0
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+                Label3.Text = "50%"
+            ElseIf ComboBox2.Text = "High Quality" Then
+                ComboBox1.SelectedIndex = 3
+                TrackBar1.Value = 0
+                ComboBox18.SelectedIndex = 0
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+                Label3.Text = "0%"
+            ElseIf ComboBox2.Text.ToString = "Hi-Fi Quality" Then
+                ComboBox1.SelectedIndex = 4
+                TrackBar1.Value = 0
+                ComboBox18.SelectedIndex = 1
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+                Label3.Text = "0%"
+            ElseIf ComboBox2.Text.ToString = "Hi-Res Quality" Then
+                ComboBox1.SelectedIndex = 7
+                TrackBar1.Value = 0
+                ComboBox18.SelectedIndex = 1
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+                Label3.Text = "0%"
+            Else
+                ComboBox1.SelectedIndex = -1
+                TrackBar1.Value = 0
+                ComboBox18.SelectedIndex = -1
+                ComboBox33.SelectedIndex = -1
+                ComboBox34.SelectedIndex = -1
+                Label3.Text = "0%"
+            End If
+        Else
+            If ComboBox2.Text.ToString = "Low Quality" Then
+                ComboBox1.SelectedIndex = 3
+                TrackBar1.Value = 4
+                ComboBox18.SelectedIndex = 0
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+                Label3.Text = "80%"
+            ElseIf ComboBox2.Text.ToString = "Medium Quality" Then
+                ComboBox1.SelectedIndex = 3
+                TrackBar1.Value = 2
+                ComboBox18.SelectedIndex = 0
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+                Label3.Text = "40%"
+            ElseIf ComboBox2.Text.ToString = "High Quality" Then
+                ComboBox1.SelectedIndex = 3
+                TrackBar1.Value = 0
+                ComboBox18.SelectedIndex = 0
+                ComboBox33.SelectedIndex = 1
+                ComboBox34.SelectedIndex = 0
+                Label3.Text = "0%"
+            Else
+                ComboBox1.SelectedIndex = -1
+                TrackBar1.Value = 0
+                ComboBox18.SelectedIndex = -1
+                ComboBox33.SelectedIndex = -1
+                ComboBox34.SelectedIndex = -1
+                Label3.Text = "0%"
+            End If
+        End If
+        audioTEMPProfile = ComboBox2.Text.ToString
     End Sub
     Private Sub SaveBtn(sender As Object, e As EventArgs) Handles Button2.Click
         If ComboBox1.SelectedIndex >= 0 Then
@@ -95,8 +229,13 @@ Public Class AudioSampleType
             AudioTEMPBitDepth = ComboBox18.Text.ToString
         End If
         Dim audioProfile = New AudioProfile
-        audioProfile.TextBoxExt4.Text = ComboBox1.Text.ToString + " Hz, " + ComboBox34.Text.ToString + " channels, " + ComboBox18.Text.ToString
-        audioProfile.TextBoxExt5.Text = ComboBox1.Text.ToString + " Hz, " + ComboBox34.Text.ToString + " channels, " + ComboBox18.Text.ToString
+        audioProfile.TextBoxExt4.Text = aLibraryTrs(AudioTEMPFormatOpt, ComboBox18.Text.ToString) + ", " + ComboBox1.Text.ToString + " Hz, " + ComboBox18.Text.ToString + ", " + ComboBox34.Text.ToString + " channels"
+        audioProfile.TextBoxExt5.Text = aLibraryTrs(AudioTEMPFormatOpt, ComboBox18.Text.ToString) + ", " + ComboBox1.Text.ToString + " Hz, " + ComboBox18.Text.ToString + ", " + ComboBox34.Text.ToString + " channels"
+        audioProfile.TextBoxExt6.Text = "Container File Format   : " + AudioTEMPFormatOpt & vbCrLf +
+                                        "Encoding Format" & vbTab + "    : " + aLibraryTrs(AudioTEMPFormatOpt, ComboBox18.Text.ToString) & vbCrLf +
+                                        "Bitrate Mode" & vbTab + "    : " + AudioBitrateInfo(TrackBar1.Value) & vbCrLf +
+                                        "Bitrate" & vbTab & vbTab + "    : " + AudioBitrateVal(AudioBitrateCalc(AudioTEMPFormatOpt, AudioTEMPCnvRatio), AudioTEMPFormatOpt) & vbCrLf +
+                                        "Sample Rate" & vbTab + "    : " + ComboBox1.Text.ToString + " Hz"
         audioProfile.Show()
         Me.Close()
     End Sub
