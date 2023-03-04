@@ -14,7 +14,7 @@ Public Class MainMenu
         AllowRoundedCorners = True
         Panel1.AllowDrop = True
         LoadQueueTable()
-        Me.KeyPreview = True
+        KeyPreview = True
         MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro
         MessageBoxAdv.MetroColorTable.DetailsButtonBackColor = ColorTranslator.FromHtml("#F4A950")
         MessageBoxAdv.MetroColorTable.DetailsButtonForeColor = ColorTranslator.FromHtml("#161B21")
@@ -63,9 +63,10 @@ Public Class MainMenu
             Dim ImgPrev1 As New FileStream(VideoPlaceholder, FileMode.Open, FileAccess.Read)
             PictureBox1.Image = Image.FromStream(ImgPrev1)
             ImgPrev1.Close()
+            Text = My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString
             If DebugMode IsNot "null" Then
                 If DebugMode.Remove(0, 11) = "True" Then
-                    Text = My.Application.Info.Title.ToString & " (Debug Mode)"
+                    Text = My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString + " (Debug Mode)"
                 End If
             End If
             Tooltip(Label33, "Configure video codec / encoder that will use for encoding video")
@@ -1352,7 +1353,6 @@ Public Class MainMenu
                             Else
                                 newMediaTEMPFormatOpt = aCodecReverse(getBetween(DataGridView1.Rows(i).Cells(8).Value.ToString, "Audio: ", ", ").ToLower).ToLower
                             End If
-                            MsgBox(newMediaTEMPFormatOpt)
                             If DataGridView1.Rows(i).Cells(8).Value.ToString IsNot "" And DataGridView1.Rows(i).Cells(10).Value.ToString IsNot "" Then
                                 If File.Exists(TextBox1.Text + "\" + mediaTEMPPreValue + Path.GetFileNameWithoutExtension(MediaQueueOrigDir(num) + "\" +
                                     DataGridView1.Rows(i).Cells(2).Value.ToString) + mediaTEMPPostValue + "." + newMediaTEMPFormatOpt) Then
@@ -1412,108 +1412,79 @@ Public Class MainMenu
                                     If RemoveWhitespace(AddEncTrimConf) = "none" Then
                                         AddEncPassConf = "False"
                                         ProgressBarAdv1.TextVisible = False
-                                    ElseIf RemoveWhitespace(AddEncTrimConf) = "advanced" Then
+                                    Else
                                         AddEncPassConf = "adv"
                                         ProgressBarAdv1.TextVisible = True
-                                    ElseIf RemoveWhitespace(AddEncTrimConf) = "percentage" Then
-                                        AddEncPassConf = "per"
-                                        ProgressBarAdv1.TextVisible = True
-                                    Else
-                                        AddEncPassConf = "False"
-                                        ProgressBarAdv1.TextVisible = False
                                     End If
                                 Else
                                     AddEncPassConf = "False"
                                     ProgressBarAdv1.TextVisible = False
                                 End If
-                                If AltEncodeConf IsNot "null" Then
-                                    AltEncodeTrimConf = AltEncodeConf.Remove(0, 11)
-                                Else
-                                    AltEncodeTrimConf = "False"
-                                End If
-                                If Newdebugmode = "True" Then
-                                    Dim new_process As Process = Process.Start(new_psi)
-                                    Do
-                                        Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
-                                        Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
-                                        If RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "" Or RemoveWhitespace(getBetween(line, "frame= ", " fps")) = "0" Then
-                                            FfmpegEncStats = "Frame Error!"
-                                            DataGridView1.Rows(i).Cells(3).Value = "Encoding %NaN%"
-                                        End If
-                                        FfmpegErr = Await Task.Run(Function() new_process.StandardError.ReadToEndAsync)
-                                    Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
-                                    Await Task.Run(Sub() new_process.WaitForExit())
-                                ElseIf Newdebugmode = "False" Then
-                                    Dim new_process As Process = Process.Start(new_psi)
-                                    Do
-                                        Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
-                                        Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
-                                        If RemoveWhitespace(getBetween(line, "time=", " bitrate")).Equals("") = False Then
-                                            If RemoveWhitespace(getBetween(line, "time=", " bitrate")) <= FrameCount Then
-                                                encMediaFrame = RemoveWhitespace(getBetween(line, "time=", " bitrate")).Split(":")
-                                                encMediaDur = TimeConversion(encMediaFrame(0), encMediaFrame(1), Strings.Left(encMediaFrame(2), 2))
-                                                If AddEncPassConf = "adv" Then
-                                                    ProgressBarAdv1.CustomText = "Encoding speed: " + getBetween(line, "speed=", "x") + "x" + " Estimated size: " +
+                                Dim new_process As Process = Process.Start(new_psi)
+                                Do
+                                    Dim lineReader As StreamReader = Await Task.Run(Function() new_process.StandardError)
+                                    Dim line As String = Await Task.Run(Function() lineReader.ReadLineAsync)
+                                    If RemoveWhitespace(getBetween(line, "time=", " bitrate")).Equals("") = False Then
+                                        If RemoveWhitespace(getBetween(line, "time=", " bitrate")) <= FrameCount Then
+                                            encMediaFrame = RemoveWhitespace(getBetween(line, "time=", " bitrate")).Split(":")
+                                            encMediaDur = TimeConversion(encMediaFrame(0), encMediaFrame(1), Strings.Left(encMediaFrame(2), 2))
+                                            If AddEncPassConf = "adv" Then
+                                                ProgressBarAdv1.CustomText = "Encoding speed: " + getBetween(line, "speed=", "x") + "x" + " Estimated size: " +
                                                                                                getBetween(line, "size=", "kB") + "kB" + " "
-                                                    ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Custom
-                                                ElseIf AddEncPassConf = "per" Then
-                                                    ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Percentage
-                                                End If
-                                                If Math.Round(encMediaDur / FrameCount * 100, 2) <= 0 Then
-                                                    DataGridView1.Rows(i).Cells(3).Value = "Encoding 0%"
+                                                ProgressBarAdv1.TextStyle = ProgressBarTextStyles.Custom
+                                            End If
+                                            If Math.Round(encMediaDur / FrameCount * 100, 2) <= 0 Then
+                                                DataGridView1.Rows(i).Cells(3).Value = "Encoding 0%"
+                                            Else
+                                                DataGridView1.Rows(i).Cells(3).Value = "Encoding " + Math.Round((encMediaDur / mediaDur) * 100, 2).ToString + "%"
+                                            End If
+                                            If encMediaDur = mediaDur Then
+                                                resetStatus = False
+                                                If encMediaDur <= 0 Then
+                                                    ProgressBarAdv1.Value = ProgressBarAdv1.Value
                                                 Else
-                                                    DataGridView1.Rows(i).Cells(3).Value = "Encoding " + Math.Round((encMediaDur / mediaDur) * 100, 2).ToString + "%"
-                                                End If
-                                                If encMediaDur = mediaDur Then
-                                                    resetStatus = False
-                                                    If encMediaDur <= 0 Then
-                                                        ProgressBarAdv1.Value = ProgressBarAdv1.Value
+                                                    If ProgressBarAdv1.Value >= mediaDur Then
+                                                        ProgressBarAdv1.Value = LastPBValue + encMediaDur
                                                     Else
-                                                        If ProgressBarAdv1.Value >= mediaDur Then
-                                                            ProgressBarAdv1.Value = LastPBValue + encMediaDur
-                                                        Else
-                                                            ProgressBarAdv1.Value = encMediaDur
-                                                        End If
+                                                        ProgressBarAdv1.Value = encMediaDur
                                                     End If
-                                                    LastValue = ProgressBarAdv1.Value
-                                                Else
-                                                    resetStatus = True
                                                 End If
-                                                If resetStatus Then
+                                                LastValue = ProgressBarAdv1.Value
+                                            Else
+                                                resetStatus = True
+                                            End If
+                                            If resetStatus Then
+                                                If encMediaDur <= 0 Then
+                                                    ProgressBarAdv1.Value = LastPBValue + 0
+                                                    LastValue = 0
+                                                Else
+                                                    ProgressBarAdv1.Value = LastPBValue + encMediaDur
+                                                    LastValue = encMediaDur
+                                                End If
+                                            Else
+                                                If LastValue > 0 Then
                                                     If encMediaDur <= 0 Then
-                                                        ProgressBarAdv1.Value = LastPBValue + 0
+                                                        ProgressBarAdv1.Value = ProgressBarAdv1.Value + LastValue
                                                         LastValue = 0
                                                     Else
-                                                        ProgressBarAdv1.Value = LastPBValue + encMediaDur
+                                                        If encMediaDur = mediaDur Then
+                                                            ProgressBarAdv1.Value = LastValue
+                                                        Else
+                                                            ProgressBarAdv1.Value = ProgressBarAdv1.Value + (LastValue - encMediaDur)
+                                                        End If
                                                         LastValue = encMediaDur
                                                     End If
                                                 Else
-                                                    If LastValue > 0 Then
-                                                        If encMediaDur <= 0 Then
-                                                            ProgressBarAdv1.Value = ProgressBarAdv1.Value + LastValue
-                                                            LastValue = 0
-                                                        Else
-                                                            If encMediaDur = mediaDur Then
-                                                                ProgressBarAdv1.Value = LastValue
-                                                            Else
-                                                                ProgressBarAdv1.Value = ProgressBarAdv1.Value + (LastValue - encMediaDur)
-                                                            End If
-                                                            LastValue = encMediaDur
-                                                        End If
-                                                    Else
-                                                        ProgressBarAdv1.Value = ProgressBarAdv1.Value + 0
-                                                    End If
-                                                    LastPBValue = ProgressBarAdv1.Value
+                                                    ProgressBarAdv1.Value = ProgressBarAdv1.Value + 0
                                                 End If
-                                            Else
-                                                FfmpegEncStats = "Frame Error!"
+                                                LastPBValue = ProgressBarAdv1.Value
                                             End If
+                                        Else
+                                            FfmpegEncStats = "Frame Error!"
                                         End If
-                                    Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
-                                    Await Task.Run(Sub() new_process.WaitForExit())
-                                Else
-                                    DataGridView1.Rows(i).Cells(3).Value = "Media file has failed to encode with Unknown Error"
-                                End If
+                                    End If
+                                Loop Until Await Task.Run(Function() new_process.StandardError.EndOfStream)
+                                Await Task.Run(Sub() new_process.WaitForExit())
                             Else
                                 DataGridView1.Rows(i).Cells(3).Value = "Encoding flags empty"
                             End If
@@ -5420,7 +5391,7 @@ Public Class MainMenu
                         End If
                     End If
                     If DataGridView1.Rows.Count > 0 Then
-                        mediaQueueTable.Rows.Add(order + 1, Path.GetFileName(audioPath), "", ", Audio: " + AudioQueueCodecInf, "Audio File",
+                        mediaQueueTable.Rows.Add(order + 1, Path.GetFileName(audioPath), "", "Audio: " + AudioQueueCodecInf, "Audio File",
                                              getDurationSummaryAlt(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & audioPath & Chr(34)),
                                              GetFileSize(audioPath), "", "", "")
                         For i As Integer = 0 To DataGridView1.Rows.Count - 1
@@ -5437,7 +5408,7 @@ Public Class MainMenu
                             duplicateData.Clear()
                         End If
                     Else
-                        mediaQueueTable.Rows.Add(order + 1, Path.GetFileName(audioPath), "", ", Audio: " + AudioQueueCodecInf, "Audio File",
+                        mediaQueueTable.Rows.Add(order + 1, Path.GetFileName(audioPath), "", "Audio: " + AudioQueueCodecInf, "Audio File",
                                              getDurationSummaryAlt(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & audioPath & Chr(34)),
                                              GetFileSize(audioPath), "", "", "")
                     End If
@@ -5559,7 +5530,7 @@ Public Class MainMenu
                     getAudioSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & OpenFileDialog.FileName & Chr(34), "0")
                     MediaQueueOrigDir.Add(Path.GetDirectoryName(OpenFileDialog.FileName))
                     If DataGridView1.Rows.Count > 0 Then
-                        mediaQueueTable.Rows.Add(DataGridView1.Rows.Count + 1, Path.GetFileName(OpenFileDialog.FileName), "", ", Audio: " + AudioQueueCodecInf, "Audio File",
+                        mediaQueueTable.Rows.Add(DataGridView1.Rows.Count + 1, Path.GetFileName(OpenFileDialog.FileName), "", "Audio: " + AudioQueueCodecInf, "Audio File",
                                              getDurationSummaryAlt(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & OpenFileDialog.FileName & Chr(34)),
                                              GetFileSize(OpenFileDialog.FileName), "", "", "")
                         For i As Integer = 0 To DataGridView1.Rows.Count - 1
@@ -5576,7 +5547,7 @@ Public Class MainMenu
                             duplicateData.Clear()
                         End If
                     Else
-                        mediaQueueTable.Rows.Add(DataGridView1.Rows.Count + 1, Path.GetFileName(OpenFileDialog.FileName), "", ", Audio: " + AudioQueueCodecInf, "Audio File",
+                        mediaQueueTable.Rows.Add(DataGridView1.Rows.Count + 1, Path.GetFileName(OpenFileDialog.FileName), "", "Audio: " + AudioQueueCodecInf, "Audio File",
                                              getDurationSummaryAlt(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & OpenFileDialog.FileName & Chr(34)),
                                              GetFileSize(OpenFileDialog.FileName), "", "", "")
                     End If
@@ -5640,10 +5611,26 @@ Public Class MainMenu
             NotifyIcon("Hana Media Encoder", "Media file format are not supported !", 1000, False)
         End If
     End Sub
-    Private Sub DataGridView1_RemoveData(sender As Object, e As EventArgs) Handles RemoveToolStripMenuItem.Click
-        If DataGridView1.SelectedRows.Count > 0 Then
-            Dim i As Integer = DataGridView1.SelectedRows(0).Index
-            DataGridView1.Rows.RemoveAt(i)
+    Private Sub DataGridView1_RemoveSelectedData(sender As Object, e As EventArgs) Handles RemoveSelectedToolStripMenuItem1.Click
+        If DataGridView1.Rows.Count > 0 Then
+            If DataGridView1.SelectedRows.Count > 0 Then
+                For Each row As DataGridViewRow In DataGridView1.SelectedRows
+                    DataGridView1.Rows.Remove(row)
+                Next
+            Else
+                For Each row As DataGridViewRow In DataGridView1.Rows
+                    If row.Cells(0).Value = True Then
+                        DataGridView1.Rows.Remove(row)
+                    End If
+                Next
+            End If
+        Else
+            NotifyIcon("Hana Media Encoder", "Please select or checklist which file to remove!", 1000, False)
+        End If
+    End Sub
+    Private Sub DataGridView1_RemoveAllData(sender As Object, e As EventArgs) Handles RemoveAllToolStripMenuItem1.Click
+        If DataGridView1.Rows.Count > 0 Then
+            mediaQueueTable.Clear()
         End If
     End Sub
     Private Sub LoadQueueTable()

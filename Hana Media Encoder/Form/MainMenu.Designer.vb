@@ -314,6 +314,8 @@ Partial Class MainMenu
         Label2 = New Label()
         StyleManager1 = New MetroSet_UI.Components.StyleManager()
         Button1 = New Button()
+        RemoveAllToolStripMenuItem1 = New ToolStripMenuItem()
+        RemoveSelectedToolStripMenuItem1 = New ToolStripMenuItem()
         Panel1.SuspendLayout()
         BottomPnl.SuspendLayout()
         CType(ProgressBarAdv1, ComponentModel.ISupportInitialize).BeginInit()
@@ -618,7 +620,8 @@ Partial Class MainMenu
         Label69.Name = "Label69"
         Label69.Size = New Size(42, 15)
         Label69.TabIndex = 92
-        Label69.Text = "Status:" ' 
+        Label69.Text = "Status:"
+        ' 
         ' Label134
         ' 
         Label134.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
@@ -629,7 +632,8 @@ Partial Class MainMenu
         Label134.Name = "Label134"
         Label134.Size = New Size(87, 15)
         Label134.TabIndex = 100
-        Label134.Text = "On Completed:" ' 
+        Label134.Text = "On Completed:"
+        ' 
         ' Label71
         ' 
         Label71.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
@@ -750,7 +754,8 @@ Partial Class MainMenu
         TabPage1.Padding = New Padding(3)
         TabPage1.Size = New Size(1904, 1004)
         TabPage1.TabIndex = 0
-        TabPage1.Text = "Media Summary" ' 
+        TabPage1.Text = "Media Summary"
+        ' 
         ' Label106
         ' 
         Label106.AutoSize = True
@@ -760,7 +765,8 @@ Partial Class MainMenu
         Label106.Name = "Label106"
         Label106.Size = New Size(46, 17)
         Label106.TabIndex = 76
-        Label106.Text = "Profile" ' 
+        Label106.Text = "Profile"
+        ' 
         ' Label107
         ' 
         Label107.AutoSize = True
@@ -780,7 +786,8 @@ Partial Class MainMenu
         Label64.Name = "Label64"
         Label64.Size = New Size(46, 17)
         Label64.TabIndex = 74
-        Label64.Text = "Profile" ' 
+        Label64.Text = "Profile"
+        ' 
         ' Label74
         ' 
         Label74.AutoSize = True
@@ -800,7 +807,8 @@ Partial Class MainMenu
         Label60.Name = "Label60"
         Label60.Size = New Size(48, 17)
         Label60.TabIndex = 72
-        Label60.Text = "Bitrate" ' 
+        Label60.Text = "Bitrate"
+        ' 
         ' Label61
         ' 
         Label61.AutoSize = True
@@ -821,7 +829,8 @@ Partial Class MainMenu
         Label98.Name = "Label98"
         Label98.Size = New Size(19, 21)
         Label98.TabIndex = 70
-        Label98.Text = "0" ' 
+        Label98.Text = "0"
+        ' 
         ' Label97
         ' 
         Label97.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
@@ -832,7 +841,8 @@ Partial Class MainMenu
         Label97.Name = "Label97"
         Label97.Size = New Size(17, 21)
         Label97.TabIndex = 69
-        Label97.Text = "/" ' 
+        Label97.Text = "/"
+        ' 
         ' Label96
         ' 
         Label96.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
@@ -843,7 +853,8 @@ Partial Class MainMenu
         Label96.Name = "Label96"
         Label96.Size = New Size(19, 21)
         Label96.TabIndex = 68
-        Label96.Text = "0" ' 
+        Label96.Text = "0"
+        ' 
         ' ComboBox31
         ' 
         ComboBox31.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
@@ -923,7 +934,8 @@ Partial Class MainMenu
         Label27.Name = "Label27"
         Label27.Size = New Size(118, 17)
         Label27.TabIndex = 43
-        Label27.Text = "Preview Summary" ' 
+        Label27.Text = "Preview Summary"
+        ' 
         ' PictureBox1
         ' 
         PictureBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
@@ -947,7 +959,8 @@ Partial Class MainMenu
         Label25.Name = "Label25"
         Label25.Size = New Size(63, 17)
         Label25.TabIndex = 41
-        Label25.Text = "Channels" ' 
+        Label25.Text = "Channels"
+        ' 
         ' Label26
         ' 
         Label26.AutoSize = True
@@ -967,7 +980,8 @@ Partial Class MainMenu
         Label29.Name = "Label29"
         Label29.Size = New Size(102, 17)
         Label29.TabIndex = 37
-        Label29.Text = "Bits Per Sample" ' 
+        Label29.Text = "Bits Per Sample"
+        ' 
         ' Label30
         ' 
         Label30.AutoSize = True
@@ -987,7 +1001,8 @@ Partial Class MainMenu
         Label31.Name = "Label31"
         Label31.Size = New Size(108, 17)
         Label31.TabIndex = 35
-        Label31.Text = "Channels Layout" ' 
+        Label31.Text = "Channels Layout"
+        ' 
         ' Label32
         ' 
         Label32.AutoSize = True
@@ -1017,7 +1032,8 @@ Partial Class MainMenu
         Label36.Name = "Label36"
         Label36.Size = New Size(83, 17)
         Label36.TabIndex = 30
-        Label36.Text = "Sample Rate" ' 
+        Label36.Text = "Sample Rate"
+        ' 
         ' Label37
         ' 
         Label37.AutoSize = True
@@ -1027,7 +1043,8 @@ Partial Class MainMenu
         Label37.Name = "Label37"
         Label37.Size = New Size(100, 17)
         Label37.TabIndex = 29
-        Label37.Text = "Sample Format" ' 
+        Label37.Text = "Sample Format"
+        ' 
         ' Label39
         ' 
         Label39.AutoSize = True
@@ -1047,7 +1064,8 @@ Partial Class MainMenu
         Label40.Name = "Label40"
         Label40.Size = New Size(77, 17)
         Label40.TabIndex = 26
-        Label40.Text = "Codec Type" ' 
+        Label40.Text = "Codec Type"
+        ' 
         ' Label41
         ' 
         Label41.AutoSize = True
@@ -1057,7 +1075,8 @@ Partial Class MainMenu
         Label41.Name = "Label41"
         Label41.Size = New Size(85, 17)
         Label41.TabIndex = 25
-        Label41.Text = "Codec Name" ' 
+        Label41.Text = "Codec Name"
+        ' 
         ' Label42
         ' 
         Label42.AutoSize = True
@@ -1087,7 +1106,8 @@ Partial Class MainMenu
         Label45.Name = "Label45"
         Label45.Size = New Size(72, 17)
         Label45.TabIndex = 21
-        Label45.Text = "Audio Info" ' 
+        Label45.Text = "Audio Info"
+        ' 
         ' Label23
         ' 
         Label23.AutoSize = True
@@ -1097,7 +1117,8 @@ Partial Class MainMenu
         Label23.Name = "Label23"
         Label23.Size = New Size(55, 17)
         Label23.TabIndex = 20
-        Label23.Text = "Bit Rate" ' 
+        Label23.Text = "Bit Rate"
+        ' 
         ' Label24
         ' 
         Label24.AutoSize = True
@@ -1117,7 +1138,8 @@ Partial Class MainMenu
         Label21.Name = "Label21"
         Label21.Size = New Size(77, 17)
         Label21.TabIndex = 18
-        Label21.Text = "Frame Rate" ' 
+        Label21.Text = "Frame Rate"
+        ' 
         ' Label22
         ' 
         Label22.AutoSize = True
@@ -1137,7 +1159,8 @@ Partial Class MainMenu
         Label19.Name = "Label19"
         Label19.Size = New Size(79, 17)
         Label19.TabIndex = 16
-        Label19.Text = "Color Space" ' 
+        Label19.Text = "Color Space"
+        ' 
         ' Label20
         ' 
         Label20.AutoSize = True
@@ -1157,7 +1180,8 @@ Partial Class MainMenu
         Label17.Name = "Label17"
         Label17.Size = New Size(82, 17)
         Label17.TabIndex = 14
-        Label17.Text = "Color Range" ' 
+        Label17.Text = "Color Range"
+        ' 
         ' Label18
         ' 
         Label18.AutoSize = True
@@ -1177,7 +1201,8 @@ Partial Class MainMenu
         Label15.Name = "Label15"
         Label15.Size = New Size(84, 17)
         Label15.TabIndex = 12
-        Label15.Text = "Pixel Format" ' 
+        Label15.Text = "Pixel Format"
+        ' 
         ' Label16
         ' 
         Label16.AutoSize = True
@@ -1207,7 +1232,8 @@ Partial Class MainMenu
         Label13.Name = "Label13"
         Label13.Size = New Size(65, 17)
         Label13.TabIndex = 9
-        Label13.Text = "B-Frames" ' 
+        Label13.Text = "B-Frames"
+        ' 
         ' Label12
         ' 
         Label12.AutoSize = True
@@ -1217,7 +1243,8 @@ Partial Class MainMenu
         Label12.Name = "Label12"
         Label12.Size = New Size(84, 17)
         Label12.TabIndex = 8
-        Label12.Text = "Aspect Ratio" ' 
+        Label12.Text = "Aspect Ratio"
+        ' 
         ' Label11
         ' 
         Label11.AutoSize = True
@@ -1227,7 +1254,8 @@ Partial Class MainMenu
         Label11.Name = "Label11"
         Label11.Size = New Size(72, 17)
         Label11.TabIndex = 7
-        Label11.Text = "Resolution" ' 
+        Label11.Text = "Resolution"
+        ' 
         ' Label10
         ' 
         Label10.AutoSize = True
@@ -1247,7 +1275,8 @@ Partial Class MainMenu
         Label9.Name = "Label9"
         Label9.Size = New Size(77, 17)
         Label9.TabIndex = 5
-        Label9.Text = "Codec Type" ' 
+        Label9.Text = "Codec Type"
+        ' 
         ' Label8
         ' 
         Label8.AutoSize = True
@@ -1257,7 +1286,8 @@ Partial Class MainMenu
         Label8.Name = "Label8"
         Label8.Size = New Size(85, 17)
         Label8.TabIndex = 4
-        Label8.Text = "Codec Name" ' 
+        Label8.Text = "Codec Name"
+        ' 
         ' Label7
         ' 
         Label7.AutoSize = True
@@ -1297,7 +1327,8 @@ Partial Class MainMenu
         Label4.Name = "Label4"
         Label4.Size = New Size(70, 17)
         Label4.TabIndex = 0
-        Label4.Text = "Video Info" ' 
+        Label4.Text = "Video Info"
+        ' 
         ' TabPage2
         ' 
         TabPage2.AutoScroll = True
@@ -1324,7 +1355,8 @@ Partial Class MainMenu
         TabPage2.Padding = New Padding(3)
         TabPage2.Size = New Size(1904, 1004)
         TabPage2.TabIndex = 1
-        TabPage2.Text = "Video Profile" ' 
+        TabPage2.Text = "Video Profile"
+        ' 
         ' Label121
         ' 
         Label121.Anchor = AnchorStyles.Top Or AnchorStyles.Right
@@ -1336,7 +1368,8 @@ Partial Class MainMenu
         Label121.Name = "Label121"
         Label121.Size = New Size(161, 28)
         Label121.TabIndex = 36
-        Label121.Text = "Video Codec Flags" ' 
+        Label121.Text = "Video Codec Flags"
+        ' 
         ' Vid_Options_Pnl
         ' 
         Vid_Options_Pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1380,7 +1413,8 @@ Partial Class MainMenu
         Label120.Name = "Label120"
         Label120.Size = New Size(124, 28)
         Label120.TabIndex = 38
-        Label120.Text = "Video Options" ' 
+        Label120.Text = "Video Options"
+        ' 
         ' Label33
         ' 
         Label33.AutoSize = True
@@ -1390,7 +1424,8 @@ Partial Class MainMenu
         Label33.Name = "Label33"
         Label33.Size = New Size(83, 17)
         Label33.TabIndex = 3
-        Label33.Text = "Video Codec" ' 
+        Label33.Text = "Video Codec"
+        ' 
         ' ComboBox2
         ' 
         ComboBox2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1428,7 +1463,8 @@ Partial Class MainMenu
         Label58.Name = "Label58"
         Label58.Size = New Size(77, 17)
         Label58.TabIndex = 36
-        Label58.Text = "Frame Rate" ' 
+        Label58.Text = "Frame Rate"
+        ' 
         ' ComboBox3
         ' 
         ComboBox3.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1452,7 +1488,8 @@ Partial Class MainMenu
         Label34.Name = "Label34"
         Label34.Size = New Size(84, 17)
         Label34.TabIndex = 5
-        Label34.Text = "Pixel Format" ' 
+        Label34.Text = "Pixel Format"
+        ' 
         ' Vid_Enc_Add_Pnl
         ' 
         Vid_Enc_Add_Pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1494,7 +1531,8 @@ Partial Class MainMenu
         Label119.Name = "Label119"
         Label119.Size = New Size(229, 28)
         Label119.TabIndex = 37
-        Label119.Text = "Encoder Additional Options" ' 
+        Label119.Text = "Encoder Additional Options"
+        ' 
         ' ComboBox21
         ' 
         ComboBox21.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1518,7 +1556,8 @@ Partial Class MainMenu
         Label75.Name = "Label75"
         Label75.Size = New Size(97, 17)
         Label75.TabIndex = 43
-        Label75.Text = "BR Compatible" ' 
+        Label75.Text = "BR Compatible"
+        ' 
         ' ComboBox10
         ' 
         ComboBox10.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1542,7 +1581,8 @@ Partial Class MainMenu
         Label53.Name = "Label53"
         Label53.Size = New Size(79, 17)
         Label53.TabIndex = 26
-        Label53.Text = "B-Ref Mode" ' 
+        Label53.Text = "B-Ref Mode"
+        ' 
         ' Asp_Res_Pnl
         ' 
         Asp_Res_Pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1584,7 +1624,8 @@ Partial Class MainMenu
         Label110.Name = "Label110"
         Label110.Size = New Size(70, 17)
         Label110.TabIndex = 89
-        Label110.Text = "Scale Type" ' 
+        Label110.Text = "Scale Type"
+        ' 
         ' ComboBox40
         ' 
         ComboBox40.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1639,7 +1680,8 @@ Partial Class MainMenu
         Label133.Name = "Label133"
         Label133.Size = New Size(90, 17)
         Label133.TabIndex = 85
-        Label133.Text = "Scale Method" ' 
+        Label133.Text = "Scale Method"
+        ' 
         ' Label118
         ' 
         Label118.AutoSize = True
@@ -1650,7 +1692,8 @@ Partial Class MainMenu
         Label118.Name = "Label118"
         Label118.Size = New Size(235, 28)
         Label118.TabIndex = 36
-        Label118.Text = "Aspect Ratio and Resolution" ' 
+        Label118.Text = "Aspect Ratio and Resolution"
+        ' 
         ' ComboBox32
         ' 
         ComboBox32.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1674,7 +1717,8 @@ Partial Class MainMenu
         Label108.Name = "Label108"
         Label108.Size = New Size(84, 17)
         Label108.TabIndex = 69
-        Label108.Text = "Aspect Ratio" ' 
+        Label108.Text = "Aspect Ratio"
+        ' 
         ' Label109
         ' 
         Label109.AutoSize = True
@@ -1684,7 +1728,8 @@ Partial Class MainMenu
         Label109.Name = "Label109"
         Label109.Size = New Size(72, 17)
         Label109.TabIndex = 71
-        Label109.Text = "Resolution" ' 
+        Label109.Text = "Resolution"
+        ' 
         ' Vid_Enc_QC_Pnl
         ' 
         Vid_Enc_QC_Pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1736,7 +1781,8 @@ Partial Class MainMenu
         Label137.Name = "Label137"
         Label137.Size = New Size(79, 17)
         Label137.TabIndex = 90
-        Label137.Text = "Color Space" ' 
+        Label137.Text = "Color Space"
+        ' 
         ' ComboBox38
         ' 
         ComboBox38.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1760,7 +1806,8 @@ Partial Class MainMenu
         Label136.Name = "Label136"
         Label136.Size = New Size(92, 17)
         Label136.TabIndex = 88
-        Label136.Text = "Color Primary" ' 
+        Label136.Text = "Color Primary"
+        ' 
         ' ComboBox37
         ' 
         ComboBox37.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1784,7 +1831,8 @@ Partial Class MainMenu
         Label135.Name = "Label135"
         Label135.Size = New Size(82, 17)
         Label135.TabIndex = 86
-        Label135.Text = "Color Range" ' 
+        Label135.Text = "Color Range"
+        ' 
         ' Button22
         ' 
         Button22.BackColor = Color.Transparent
@@ -1811,7 +1859,8 @@ Partial Class MainMenu
         Label117.Name = "Label117"
         Label117.Size = New Size(23, 17)
         Label117.TabIndex = 84
-        Label117.Text = "RF" ' 
+        Label117.Text = "RF"
+        ' 
         ' Label116
         ' 
         Label116.AutoSize = True
@@ -1831,7 +1880,8 @@ Partial Class MainMenu
         Label115.Name = "Label115"
         Label115.Size = New Size(39, 17)
         Label115.TabIndex = 82
-        Label115.Text = "MB/s" ' 
+        Label115.Text = "MB/s"
+        ' 
         ' CRF_VBR_UpDown
         ' 
         CRF_VBR_UpDown.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1864,7 +1914,8 @@ Partial Class MainMenu
         Label114.Name = "Label114"
         Label114.Size = New Size(200, 28)
         Label114.TabIndex = 35
-        Label114.Text = "Encoder Quality Control" ' 
+        Label114.Text = "Encoder Quality Control"
+        ' 
         ' Label38
         ' 
         Label38.AutoSize = True
@@ -1874,7 +1925,8 @@ Partial Class MainMenu
         Label38.Name = "Label38"
         Label38.Size = New Size(97, 17)
         Label38.TabIndex = 7
-        Label38.Text = "Bitrate Control" ' 
+        Label38.Text = "Bitrate Control"
+        ' 
         ' ComboBox4
         ' 
         ComboBox4.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1909,7 +1961,8 @@ Partial Class MainMenu
         Label51.Name = "Label51"
         Label51.Size = New Size(48, 17)
         Label51.TabIndex = 22
-        Label51.Text = "Bitrate" ' 
+        Label51.Text = "Bitrate"
+        ' 
         ' Label52
         ' 
         Label52.AutoSize = True
@@ -1919,7 +1972,8 @@ Partial Class MainMenu
         Label52.Name = "Label52"
         Label52.Size = New Size(78, 17)
         Label52.TabIndex = 24
-        Label52.Text = "Max Bitrate" ' 
+        Label52.Text = "Max Bitrate"
+        ' 
         ' ComboBox14
         ' 
         ComboBox14.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -1943,7 +1997,8 @@ Partial Class MainMenu
         Label57.Name = "Label57"
         Label57.Size = New Size(66, 17)
         Label57.TabIndex = 34
-        Label57.Text = "Multipass" ' 
+        Label57.Text = "Multipass"
+        ' 
         ' Label43
         ' 
         Label43.AutoSize = True
@@ -1953,7 +2008,8 @@ Partial Class MainMenu
         Label43.Name = "Label43"
         Label43.Size = New Size(94, 17)
         Label43.TabIndex = 9
-        Label43.Text = "Constant Rate" ' 
+        Label43.Text = "Constant Rate"
+        ' 
         ' Vid_Encoder_Opt_Pnl
         ' 
         Vid_Encoder_Opt_Pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -2001,7 +2057,8 @@ Partial Class MainMenu
         Label113.Name = "Label113"
         Label113.Size = New Size(143, 28)
         Label113.TabIndex = 35
-        Label113.Text = "Encoder Options" ' 
+        Label113.Text = "Encoder Options"
+        ' 
         ' Label49
         ' 
         Label49.AutoSize = True
@@ -2011,7 +2068,8 @@ Partial Class MainMenu
         Label49.Name = "Label49"
         Label49.Size = New Size(38, 17)
         Label49.TabIndex = 17
-        Label49.Text = "Level" ' 
+        Label49.Text = "Level"
+        ' 
         ' ComboBox8
         ' 
         ComboBox8.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -2035,7 +2093,8 @@ Partial Class MainMenu
         Label50.Name = "Label50"
         Label50.Size = New Size(30, 17)
         Label50.TabIndex = 19
-        Label50.Text = "Tier" ' 
+        Label50.Text = "Tier"
+        ' 
         ' ComboBox5
         ' 
         ComboBox5.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -3323,7 +3382,8 @@ Partial Class MainMenu
         Label102.Name = "Label102"
         Label102.Size = New Size(115, 28)
         Label102.TabIndex = 58
-        Label102.Text = "Muxing Flags" ' 
+        Label102.Text = "Muxing Flags"
+        ' 
         ' RichTextBox4
         ' 
         RichTextBox4.Anchor = AnchorStyles.Top Or AnchorStyles.Right
@@ -3755,9 +3815,9 @@ Partial Class MainMenu
         ' 
         ' DataGridView1
         ' 
-        DataGridView1.AllowUserToOrderColumns = True
         DataGridView1.AllowUserToAddRows = False
         DataGridView1.AllowUserToDeleteRows = False
+        DataGridView1.AllowUserToOrderColumns = True
         DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
         DataGridViewCellStyle1.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
@@ -3820,15 +3880,18 @@ Partial Class MainMenu
         AddToolStripMenuItem.Image = My.Resources.Resources.Add
         AddToolStripMenuItem.Name = "AddToolStripMenuItem"
         AddToolStripMenuItem.Size = New Size(117, 22)
-        AddToolStripMenuItem.Text = "Add" ' 
+        AddToolStripMenuItem.Text = "Add"
+        ' 
         ' RemoveToolStripMenuItem
         ' 
         RemoveToolStripMenuItem.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        RemoveToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {RemoveAllToolStripMenuItem1, RemoveSelectedToolStripMenuItem1})
         RemoveToolStripMenuItem.ForeColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
         RemoveToolStripMenuItem.Image = My.Resources.Resources.Remove
         RemoveToolStripMenuItem.Name = "RemoveToolStripMenuItem"
         RemoveToolStripMenuItem.Size = New Size(117, 22)
-        RemoveToolStripMenuItem.Text = "Remove" ' 
+        RemoveToolStripMenuItem.Text = "Remove"
+        ' 
         ' Panel3
         ' 
         Panel3.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Right
@@ -3883,7 +3946,8 @@ Partial Class MainMenu
         Label139.Name = "Label139"
         Label139.Size = New Size(87, 17)
         Label139.TabIndex = 67
-        Label139.Text = "Media Profile" ' 
+        Label139.Text = "Media Profile"
+        ' 
         ' ComboBox42
         ' 
         ComboBox42.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -3906,7 +3970,8 @@ Partial Class MainMenu
         Label138.Name = "Label138"
         Label138.Size = New Size(90, 17)
         Label138.TabIndex = 66
-        Label138.Text = "Media Source" ' 
+        Label138.Text = "Media Source"
+        ' 
         ' Label140
         ' 
         Label140.AutoSize = True
@@ -3917,7 +3982,8 @@ Partial Class MainMenu
         Label140.Name = "Label140"
         Label140.Size = New Size(131, 28)
         Label140.TabIndex = 40
-        Label140.Text = "Queue Options" ' 
+        Label140.Text = "Queue Options"
+        ' 
         ' CheckBox13
         ' 
         CheckBox13.Anchor = AnchorStyles.Top Or AnchorStyles.Right
@@ -3941,7 +4007,8 @@ Partial Class MainMenu
         Label2.Name = "Label2"
         Label2.Size = New Size(119, 28)
         Label2.TabIndex = 41
-        Label2.Text = "Media Queue" ' 
+        Label2.Text = "Media Queue"
+        ' 
         ' StyleManager1
         ' 
         StyleManager1.CustomTheme = "C:\Users\Lenovo\AppData\Roaming\Microsoft\Windows\Templates\ThemeFile.xml"
@@ -3969,6 +4036,22 @@ Partial Class MainMenu
         Button1.Text = "Open Media"
         Button1.TextAlign = ContentAlignment.MiddleRight
         Button1.UseVisualStyleBackColor = False
+        '
+        ' RemoveAllToolStripMenuItem1
+        ' 
+        RemoveAllToolStripMenuItem1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        RemoveAllToolStripMenuItem1.ForeColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        RemoveAllToolStripMenuItem1.Name = "RemoveAllToolStripMenuItem1"
+        RemoveAllToolStripMenuItem1.Size = New Size(180, 22)
+        RemoveAllToolStripMenuItem1.Text = "Remove All"
+        ' 
+        ' RemoveSelectedToolStripMenuItem1
+        ' 
+        RemoveSelectedToolStripMenuItem1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        RemoveSelectedToolStripMenuItem1.ForeColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        RemoveSelectedToolStripMenuItem1.Name = "RemoveSelectedToolStripMenuItem1"
+        RemoveSelectedToolStripMenuItem1.Size = New Size(180, 22)
+        RemoveSelectedToolStripMenuItem1.Text = "Remove Selected"
         ' 
         ' MainMenu
         ' 
@@ -4350,4 +4433,6 @@ Partial Class MainMenu
     Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
     Friend WithEvents AddToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RemoveToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RemoveAllToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents RemoveSelectedToolStripMenuItem1 As ToolStripMenuItem
 End Class
