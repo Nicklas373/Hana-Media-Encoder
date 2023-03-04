@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Hana_Media_Encoder.Form1
+            Me.MainForm = Global.Hana_Media_Encoder.MainMenu
         End Sub
     End Class
 End Namespace
