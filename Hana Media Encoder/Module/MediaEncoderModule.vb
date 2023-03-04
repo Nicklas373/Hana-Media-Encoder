@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports System.Runtime.CompilerServices
 
 Module MediaEncoderModule
     Public Sub CleanEnv(cleanStats As String)
@@ -18,6 +17,8 @@ Module MediaEncoderModule
             MassDelete(My.Application.Info.DirectoryPath & "\audioConfig", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\videoStream", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\videoConfig", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\queue\audio", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\queue\video", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\thumbnail", "jpg")
         End If
     End Sub
