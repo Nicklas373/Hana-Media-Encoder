@@ -237,7 +237,7 @@ Public Class AudioSampleType
                                         "Bitrate" & vbTab & vbTab + "    : " + AudioBitrateVal(AudioBitrateCalc(AudioTEMPFormatOpt, AudioTEMPCnvRatio), AudioTEMPFormatOpt) & vbCrLf +
                                         "Sample Rate" & vbTab + "    : " + ComboBox1.Text.ToString + " Hz"
         audioProfile.Show()
-        Me.Close()
+        Close()
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         If ComboBox1.SelectedIndex >= 0 Then
@@ -255,7 +255,7 @@ Public Class AudioSampleType
         End If
         Dim audioProfile = New AudioProfile
         audioProfile.Show()
-        Me.Close()
+        Close()
     End Sub
     Private Sub ConversionRatioTBR(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
         If AudioTEMPFormatOpt = "Free Lossless Audio Codec (*.flac)" Then

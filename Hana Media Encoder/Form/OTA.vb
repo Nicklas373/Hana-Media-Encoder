@@ -40,7 +40,6 @@ Public Class OTAMenu
             End If
             HMEGenerate(My.Application.Info.DirectoryPath & "\OTA.bat", "C:", My.Application.Info.DirectoryPath, "HME.msi", "")
             RunProcAlt(My.Application.Info.DirectoryPath & "\OTA.bat")
-            End
         Else
             If downloadStats = False Then
                 MessageBoxAdv.Show("Download still on progress, please wait !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -54,7 +53,7 @@ Public Class OTAMenu
             End If
         End If
     End Sub
-    Private Sub WC_DownloadProgressChanged(ByVal sender As Object, ByVal e As DownloadProgressChangedEventArgs) Handles WC_Events.DownloadProgressChanged
+    Private Sub WC_DownloadProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs) Handles WC_Events.DownloadProgressChanged
         downloadStats = False
         Button1.Text = "Downloading... " & e.ProgressPercentage & "%"
         If e.ProgressPercentage = 100 Then

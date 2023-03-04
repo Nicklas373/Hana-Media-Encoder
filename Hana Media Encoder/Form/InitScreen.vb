@@ -13,9 +13,9 @@ Public Class InitScreen
         Label2.Text = "Copyright (C) " & My.Application.Info.Copyright
         Label3.Text = "Created by Dicky Herlambang"
         Label4.Text = "v" & Strings.Left(My.Application.Info.Version.ToString, 5)
-        Me.Refresh()
+        Refresh()
         InitDir()
-        Me.Refresh()
+        Refresh()
         initFFMPEGRes = Strings.Mid(InitFFMPEG(), 6)
         If initFFMPEGRes.Equals("") = True Then
             EndResult = ""
@@ -29,17 +29,17 @@ Public Class InitScreen
         Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\Init_Res.txt", True)
         writer.WriteLine(EndResult)
         writer.Close()
-        Me.Hide()
+        Hide()
     End Sub
     Private sub InitDir()
         Dim retReqDir As String() = {"audioConfig", "audioStream", "videoConfig", "videoStream", "thumbnail", "queue", "queue\audio", "queue\video"}
         For Each req_dir As String In retReqDir
             Label1.Text = "Loading: " & req_dir
             Thread.Sleep(200)
-            Me.Refresh()
+            Refresh()
             If Directory.Exists(My.Application.Info.DirectoryPath & "\" & req_dir) = False Then
                 Thread.Sleep(200)
-                Me.Refresh()
+                Refresh()
                 Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\" & req_dir)
             End If
         Next
@@ -67,7 +67,7 @@ Public Class InitScreen
                 For Each ffBin As String In ffBinaryLoad
                     Label1.Text = "Loading: " & ffBin
                     Thread.Sleep(200)
-                    Me.Refresh()
+                    Refresh()
                     If File.Exists(retFFMPEGConf & ffBin) = False Then
                         ffBinaryCount += 1
                         ffBinaryMissLoad.Add(ffBin)

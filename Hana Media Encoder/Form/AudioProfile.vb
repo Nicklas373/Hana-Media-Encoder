@@ -2,7 +2,7 @@
 
 Public Class AudioProfile
     Inherits SfForm
-    Dim audioSavePath As New FolderBrowserDialog
+    ReadOnly audioSavePath As New FolderBrowserDialog
     Dim allowSave As Boolean = True
     Private Sub AudioProfile_load(sender As Object, e As EventArgs) Handles MyBase.Load
         AllowTransparency = False
@@ -69,7 +69,7 @@ Public Class AudioProfile
         End If
         Dim audioSampleType = New AudioSampleType
         audioSampleType.Show()
-        Me.Close()
+        Close()
     End Sub
     Private Sub PreorPostFileNameRB(sender As Object) Handles MetroSetRadioButton1.CheckedChanged
         If MetroSetRadioButton1.Checked = True Then
@@ -158,7 +158,7 @@ Public Class AudioProfile
             NotifyIcon("Hana Media Encoder", "Please fill all option before save quick profile !", 1000, False)
         End If
     End Sub
-    Private Sub contextmenustrip_submenu1_onclick(sender As Object, e As EventArgs) Handles SelectedFilesToolStripMenuItem.Click
+    Private Sub Contextmenustrip_submenu1_onclick(sender As Object, e As EventArgs) Handles SelectedFilesToolStripMenuItem.Click
         For i As Integer = 0 To MainMenu.DataGridView1.Rows.Count - 1
             If MainMenu.DataGridView1.Rows(i).Cells(0).Value = True Then
                 If MainMenu.DataGridView1.Rows(i).Cells(0).Value = True And MainMenu.DataGridView1.Rows(i).Cells(5).Value.ToString = "Audio File" Then
@@ -187,9 +187,9 @@ Public Class AudioProfile
         MainMenu.TextBox1.Text = TextBoxExt3.Text
         MainMenu.Update()
         MainMenu.Refresh()
-        Me.Close()
+        Close()
     End Sub
-    Private Sub contextmenustrip_submenu2_onclick(sender As Object, e As EventArgs) Handles AllFilesToolStripMenuItem.Click
+    Private Sub Contextmenustrip_submenu2_onclick(sender As Object, e As EventArgs) Handles AllFilesToolStripMenuItem.Click
         For i As Integer = 0 To MainMenu.DataGridView1.Rows.Count - 1
             If MainMenu.DataGridView1.Rows(i).Cells(5).Value.ToString = "Audio File" Then
                 If MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Video") = True Then
@@ -216,9 +216,9 @@ Public Class AudioProfile
         MainMenu.TextBox1.Text = TextBoxExt3.Text
         MainMenu.Update()
         MainMenu.Refresh()
-        Me.Close()
+        Close()
     End Sub
     Private Sub Cancel_Btn(sender As Object, e As EventArgs) Handles Button3.Click
-        Me.Close()
+        Close()
     End Sub
 End Class
