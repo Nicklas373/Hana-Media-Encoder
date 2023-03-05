@@ -67,9 +67,13 @@ Public Class AudioProfile
         Else
             allowSave = False
         End If
-        Dim audioSampleType = New AudioSampleType
-        audioSampleType.Show()
-        Close()
+        If ComboBox1.Text.ToString IsNot "" Then
+            Dim audioSampleType = New AudioSampleType
+            audioSampleType.Show()
+            Close()
+        Else
+            NotifyIcon("Hana Media Encoder", "Please select audio format !", 1000, False)
+        End If
     End Sub
     Private Sub PreorPostFileNameRB(sender As Object) Handles MetroSetRadioButton1.CheckedChanged
         If MetroSetRadioButton1.Checked = True Then
@@ -159,64 +163,78 @@ Public Class AudioProfile
         End If
     End Sub
     Private Sub Contextmenustrip_submenu1_onclick(sender As Object, e As EventArgs) Handles SelectedFilesToolStripMenuItem.Click
-        For i As Integer = 0 To MainMenu.DataGridView1.Rows.Count - 1
-            If MainMenu.DataGridView1.Rows(i).Cells(0).Value = True Then
-                If MainMenu.DataGridView1.Rows(i).Cells(0).Value = True And MainMenu.DataGridView1.Rows(i).Cells(5).Value.ToString = "Audio File" Then
-                    If MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Video") = True Then
-                        Dim tempVal As String = MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString
-                        Dim tempVal2 As String = MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString
-                        If getBetween(MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString, "Video:", "Audio:") = "" Then
-                            MainMenu.DataGridView1.Rows(i).Cells(8).Value = tempVal + ", Audio: " + TextBoxExt5.Text
+        If TextBoxExt4.Text.ToString IsNot "" And TextBoxExt5.Text.ToString IsNot "" And TextBoxExt6.Text.ToString IsNot "" Then
+            If MainMenu.DataGridView1.Rows.Count > 0 Then
+                For i As Integer = 0 To MainMenu.DataGridView1.Rows.Count - 1
+                    If MainMenu.DataGridView1.Rows(i).Cells(0).Value = True And MainMenu.DataGridView1.Rows(i).Cells(5).Value.ToString = "Audio File" Then
+                        If MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Video") = True Then
+                            Dim tempVal As String = MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString
+                            Dim tempVal2 As String = MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString
+                            If getBetween(MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString, "Video:", "Audio:") = "" Then
+                                MainMenu.DataGridView1.Rows(i).Cells(8).Value = tempVal + ", Audio: " + TextBoxExt5.Text
+                            Else
+                                MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Video: " + getBetween(tempVal, "Video:", "Audio:") + ", Audio:" + TextBoxExt5.Text
+                            End If
+                            If getBetween(MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString, "-c:v", "-c:a") = "" Then
+                                MainMenu.DataGridView1.Rows(i).Cells(10).Value = tempVal2 + " " + AudioTEMPQuickFlags
+                            Else
+                                MainMenu.DataGridView1.Rows(i).Cells(10).Value = "-c:v" + getBetween(tempVal2, "-c:v", "-c:a") + " " + AudioTEMPQuickFlags
+                            End If
                         Else
-                            MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Video: " + getBetween(tempVal, "Video:", "Audio:") + ", Audio:" + TextBoxExt5.Text
+                            MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Audio: " + TextBoxExt5.Text
+                            MainMenu.DataGridView1.Rows(i).Cells(10).Value = AudioTEMPQuickFlags
                         End If
-                        If getBetween(MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString, "-c:v", "-c:a") = "" Then
-                            MainMenu.DataGridView1.Rows(i).Cells(10).Value = tempVal2 + " " + AudioTEMPQuickFlags
-                        Else
-                            MainMenu.DataGridView1.Rows(i).Cells(10).Value = "-c:v" + getBetween(tempVal2, "-c:v", "-c:a") + " " + AudioTEMPQuickFlags
-                        End If
-                    Else
-                        MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Audio: " + TextBoxExt5.Text
-                        MainMenu.DataGridView1.Rows(i).Cells(10).Value = AudioTEMPQuickFlags
                     End If
-                End If
+                Next
+                MainMenu.DataGridView1.Update()
+                MainMenu.DataGridView1.Refresh()
+                MainMenu.TextBox1.Text = TextBoxExt3.Text
+                MainMenu.Update()
+                MainMenu.Refresh()
+                Close()
+            Else
+                NotifyIcon("Hana Media Encoder", "Media queue is empty !", 1000, False)
             End If
-        Next
-        MainMenu.DataGridView1.Update()
-        MainMenu.DataGridView1.Refresh()
-        MainMenu.TextBox1.Text = TextBoxExt3.Text
-        MainMenu.Update()
-        MainMenu.Refresh()
-        Close()
+        Else
+            NotifyIcon("Hana Media Encoder", "Please configure media format !", 1000, False)
+        End If
     End Sub
     Private Sub Contextmenustrip_submenu2_onclick(sender As Object, e As EventArgs) Handles AllFilesToolStripMenuItem.Click
-        For i As Integer = 0 To MainMenu.DataGridView1.Rows.Count - 1
-            If MainMenu.DataGridView1.Rows(i).Cells(5).Value.ToString = "Audio File" Then
-                If MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Video") = True Then
-                    Dim tempVal As String = MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString
-                    Dim tempVal2 As String = MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString
-                    If getBetween(MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString, "Video:", "Audio:") = "" Then
-                        MainMenu.DataGridView1.Rows(i).Cells(8).Value = tempVal + ", Audio: " + TextBoxExt5.ToString
-                    Else
-                        MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Video: " + getBetween(tempVal, "Video:", "Audio:") + ", Audio: " + TextBoxExt5.Text
+        If TextBoxExt4.Text.ToString IsNot "" And TextBoxExt5.Text.ToString IsNot "" And TextBoxExt6.Text.ToString IsNot "" Then
+            If MainMenu.DataGridView1.Rows.Count > 0 Then
+                For i As Integer = 0 To MainMenu.DataGridView1.Rows.Count - 1
+                    If MainMenu.DataGridView1.Rows(i).Cells(5).Value.ToString = "Audio File" Then
+                        If MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Video") = True Then
+                            Dim tempVal As String = MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString
+                            Dim tempVal2 As String = MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString
+                            If getBetween(MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString, "Video:", "Audio:") = "" Then
+                                MainMenu.DataGridView1.Rows(i).Cells(8).Value = tempVal + ", Audio: " + TextBoxExt5.ToString
+                            Else
+                                MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Video: " + getBetween(tempVal, "Video:", "Audio:") + ", Audio: " + TextBoxExt5.Text
+                            End If
+                            If getBetween(MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString, "-c:v", "-c:a") = "" Then
+                                MainMenu.DataGridView1.Rows(i).Cells(10).Value = tempVal2 + " " + AudioTEMPQuickFlags
+                            Else
+                                MainMenu.DataGridView1.Rows(i).Cells(10).Value = "-c:v" + getBetween(tempVal2, "-c:v", "-c:a") + " " + AudioTEMPQuickFlags
+                            End If
+                        Else
+                            MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Audio: " + TextBoxExt5.Text
+                            MainMenu.DataGridView1.Rows(i).Cells(10).Value = AudioTEMPQuickFlags
+                        End If
                     End If
-                    If getBetween(MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString, "-c:v", "-c:a") = "" Then
-                        MainMenu.DataGridView1.Rows(i).Cells(10).Value = tempVal2 + " " + AudioTEMPQuickFlags
-                    Else
-                        MainMenu.DataGridView1.Rows(i).Cells(10).Value = "-c:v" + getBetween(tempVal2, "-c:v", "-c:a") + " " + AudioTEMPQuickFlags
-                    End If
-                Else
-                    MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Audio: " + TextBoxExt5.Text
-                    MainMenu.DataGridView1.Rows(i).Cells(10).Value = AudioTEMPQuickFlags
-                End If
+                Next
+                MainMenu.DataGridView1.Update()
+                MainMenu.DataGridView1.Refresh()
+                MainMenu.TextBox1.Text = TextBoxExt3.Text
+                MainMenu.Update()
+                MainMenu.Refresh()
+                Close()
+            Else
+                NotifyIcon("Hana Media Encoder", "Media queue is empty !", 1000, False)
             End If
-        Next
-        MainMenu.DataGridView1.Update()
-        MainMenu.DataGridView1.Refresh()
-        MainMenu.TextBox1.Text = TextBoxExt3.Text
-        MainMenu.Update()
-        MainMenu.Refresh()
-        Close()
+        Else
+            NotifyIcon("Hana Media Encoder", "Please configure media format !", 1000, False)
+        End If
     End Sub
     Private Sub Cancel_Btn(sender As Object, e As EventArgs) Handles Button3.Click
         Close()
