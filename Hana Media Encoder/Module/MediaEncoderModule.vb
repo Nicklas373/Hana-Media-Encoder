@@ -17,21 +17,9 @@ Module MediaEncoderModule
             MassDelete(My.Application.Info.DirectoryPath & "\audioConfig", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\videoStream", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\videoConfig", "txt")
-            MassDelete(My.Application.Info.DirectoryPath & "\queue\audio", "txt")
-            MassDelete(My.Application.Info.DirectoryPath & "\queue\video", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\thumbnail", "jpg")
         End If
     End Sub
-    Public Function CountTotalDur() As Integer
-        Dim totalDur As Integer
-        Dim curDur As String()
-        For i As Integer = 0 To MainMenu.DataGridView1.Rows.Count - 1
-            curDur = MainMenu.DataGridView1.Rows(i).Cells(6).Value.ToString.Split(":")
-            totalDur += TimeConversion(curDur(0), curDur(1), Strings.Left(curDur(2), 2))
-        Next
-
-        Return totalDur
-    End Function
     Public Function GetGraphicsHWEngine(HWDec As String) As String
         Dim HWDecName As String
         If HWDec = "" Then
