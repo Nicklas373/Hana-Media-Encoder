@@ -229,13 +229,13 @@ Public Class AudioSampleType
             AudioTEMPBitDepth = ComboBox18.Text.ToString
         End If
         Dim audioProfile = New AudioProfile
-        audioProfile.TextBoxExt4.Text = aLibraryTrs(AudioTEMPFormatOpt, ComboBox18.Text.ToString) + ", " + ComboBox1.Text.ToString + " Hz, " + ComboBox18.Text.ToString + ", " + ComboBox34.Text.ToString + " channels"
-        audioProfile.TextBoxExt5.Text = aLibraryTrs(AudioTEMPFormatOpt, ComboBox18.Text.ToString) + ", " + ComboBox1.Text.ToString + " Hz, " + ComboBox18.Text.ToString + ", " + ComboBox34.Text.ToString + " channels"
+        audioProfile.TextBoxExt4.Text = aLibraryTrs(AudioTEMPFormatOpt, ComboBox18.Text.ToString) + ", " + (CInt(ComboBox1.Text.ToString) / 1000).ToString + " KHz, " + ComboBox18.Text.ToString + ", " + ComboBox34.Text.ToString + " channels"
+        audioProfile.TextBoxExt5.Text = aLibraryTrs(AudioTEMPFormatOpt, ComboBox18.Text.ToString) + ", " + (CInt(ComboBox1.Text.ToString) / 1000).ToString + " KHz, " + ComboBox18.Text.ToString + ", " + ComboBox34.Text.ToString + " channels"
         audioProfile.TextBoxExt6.Text = "Container File Format   : " + AudioTEMPFormatOpt & vbCrLf +
                                         "Encoding Format" & vbTab + "    : " + aLibraryTrs(AudioTEMPFormatOpt, ComboBox18.Text.ToString) & vbCrLf +
                                         "Bitrate Mode" & vbTab + "    : " + AudioBitrateInfo(TrackBar1.Value) & vbCrLf +
                                         "Bitrate" & vbTab & vbTab + "    : " + AudioBitrateVal(AudioBitrateCalc(AudioTEMPFormatOpt, AudioTEMPCnvRatio), AudioTEMPFormatOpt) & vbCrLf +
-                                        "Sample Rate" & vbTab + "    : " + ComboBox1.Text.ToString + " Hz"
+                                        "Sample Rate" & vbTab + "    : " + (CInt(ComboBox1.Text.ToString) / 1000).ToString + " KHz "
         audioProfile.Show()
         Close()
     End Sub
