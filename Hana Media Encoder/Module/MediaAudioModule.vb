@@ -149,6 +149,8 @@
             Else
                 value = "pcm_s16le"
             End If
+        ElseIf aCodec = "Copy" Or aCodec = "COPY" Then
+            value = "copy"
         Else
             value = ""
         End If
