@@ -32,7 +32,7 @@ Public Class InitScreen
         Hide()
     End Sub
     Private sub InitDir()
-        Dim retReqDir As String() = {"audioConfig", "audioStream", "videoConfig", "videoStream", "thumbnail", "queue", "queue\audio", "queue\video"}
+        Dim retReqDir As String() = {"audioConfig", "audioStream", "videoConfig", "videoStream", "thumbnail"}
         For Each req_dir As String In retReqDir
             Label1.Text = "Loading: " & req_dir
             Thread.Sleep(200)
