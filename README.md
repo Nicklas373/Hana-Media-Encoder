@@ -3,10 +3,9 @@
 </p>
 
 # Hana Media Encoder 
-Hana Media Encoder is the multimedia application that have feature to encode, decode, many other function to process media files using FFMPEG pre-build application (Windows Version),
-HME works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE, for now
-HME only focus to work with only hardware GPU accelerated codec that FFMPEG has support it, for now (H264 and H265) codec only, and it does not have any aim to support native or
-software or even CPU based encoding for media file in the future.
+Hana Media Encoder is a open source multimedia application for FFMPEG that have feature to encode, decode, trim, mux or even batch processing.
+It can detects and configure multiple media streams and can encode it separately if media file have more than one audio stream.
+Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE.
 
 # Current Features:
 * Support multiple media file encoding with same or different profile for each stream
@@ -14,8 +13,11 @@ software or even CPU based encoding for media file in the future.
 * Support manage chapter from media file (Video Only)
 * Support trim media file with specific stream or all stream and with same or different profile for each stream
 * Support preview media file by using FFPLAY
+* Support media queue / batch encoding for video and audio file
 
 # Current Supported Video Output Codec
+- H264 / H265 (AVC / HEVC)
+- H264 / HEVC (Native codec are not supported yet)
 - H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
 - H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
 - H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
@@ -25,8 +27,8 @@ software or even CPU based encoding for media file in the future.
 - FLAC (flac)
 - WAV (libpcm)
 - AAC (aac)
-- MP2 (libmpeg2lame)
 - OPUS (libopus)
+- MP2 (libtwolame)
 
 # How to install
 * Download .NET Framework 6.0, Hana Media Encoder setup & FFMPEG Pre-build
@@ -55,7 +57,7 @@ software or even CPU based encoding for media file in the future.
 </p>
 
 # License
-Copyright (C) 2016-2022 HANA-CI Build Project
+Copyright (C) 2016-2023 HANA-CI Build Project
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
