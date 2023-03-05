@@ -4,7 +4,6 @@ Module GlobalVariable
     ' Readonly variable
     Public ReadOnly AudioStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\audioStream\"
     Public ReadOnly AudioStreamConfigPath As String = My.Application.Info.DirectoryPath & "\audioConfig\"
-    Public ReadOnly AudioQueuePath As String = My.Application.Info.DirectoryPath & "\queue\audio"
     Public ReadOnly DownBtnPath As String = My.Application.Info.DirectoryPath & "\Assets\arrow_down.png"
     Public ReadOnly HMESetTheme As String = My.Application.Info.DirectoryPath & "\Assets\theme.xml"
     Public ReadOnly NotifyIcoPath As String = My.Application.Info.DirectoryPath & "\Assets\HME_256.ico"
@@ -13,7 +12,6 @@ Module GlobalVariable
     Public ReadOnly UpBtnPath As String = My.Application.Info.DirectoryPath & "\Assets\arrow_up.png"
     Public ReadOnly VideoStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\videoStream\"
     Public ReadOnly VideoStreamConfigPath As String = My.Application.Info.DirectoryPath & "\videoConfig\"
-    Public ReadOnly VideoQueuePath As String = My.Application.Info.DirectoryPath & "\queue\video"
     Public ReadOnly VideoPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Placeholder.png"
     Public ReadOnly VideoErrorPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Error_Placeholder.png"
 
