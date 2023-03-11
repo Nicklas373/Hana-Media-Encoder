@@ -15,8 +15,17 @@ Module MediaEncoderModule
             MassDelete(My.Application.Info.DirectoryPath & "\", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\audioStream", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\audioConfig", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\chapterConfig", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\chapterConfig", "FFMETADATAFILE")
+            MassDelete(My.Application.Info.DirectoryPath & "\queue\audio\audioStream", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\queue\audio\audioConfig", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\HME-Engine", "bat")
+            MassDelete(My.Application.Info.DirectoryPath & "\muxConfig", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\trimConfig", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\videoStream", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\videoConfig", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\queue\video\videoStream", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\queue\video\videoConfig", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\thumbnail", "jpg")
         End If
     End Sub
