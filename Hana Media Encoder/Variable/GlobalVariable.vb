@@ -4,16 +4,29 @@ Module GlobalVariable
     ' Readonly variable
     Public ReadOnly AudioStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\audioStream\"
     Public ReadOnly AudioStreamConfigPath As String = My.Application.Info.DirectoryPath & "\audioConfig\"
+    Public ReadOnly AudioQueueFlagsPath As String = My.Application.Info.DirectoryPath & "\queue\audio\audioStream\"
+    Public ReadOnly AudioQueueConfigPath As String = My.Application.Info.DirectoryPath & "\queue\audio\audioConfig\"
+    Public ReadOnly ChapterStreamConfigPath As String = My.Application.Info.DirectoryPath & "\chapterConfig\"
     Public ReadOnly DownBtnPath As String = My.Application.Info.DirectoryPath & "\Assets\arrow_down.png"
+    Public ReadOnly HMEEngine As String = My.Application.Info.DirectoryPath & "\HME-Engine\"
     Public ReadOnly HMESetTheme As String = My.Application.Info.DirectoryPath & "\Assets\theme.xml"
     Public ReadOnly NotifyIcoPath As String = My.Application.Info.DirectoryPath & "\Assets\HME_256.ico"
+    Public ReadOnly MuxStreamConfigPath As String = My.Application.Info.DirectoryPath & "\muxConfig\"
     Public ReadOnly SpectrumPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Spectrum_Placeholder.png"
     Public ReadOnly SpectrumErrorPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Spectrum_Error_Placeholder.png"
     Public ReadOnly UpBtnPath As String = My.Application.Info.DirectoryPath & "\Assets\arrow_up.png"
+    Public ReadOnly TrimStreamConfigPath As String = My.Application.Info.DirectoryPath & "\trimConfig\"
     Public ReadOnly VideoStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\videoStream\"
     Public ReadOnly VideoStreamConfigPath As String = My.Application.Info.DirectoryPath & "\videoConfig\"
+    Public ReadOnly VideoQueueFlagsPath As String = My.Application.Info.DirectoryPath & "\queue\video\videoStream\"
+    Public ReadOnly VideoQueueConfigPath As String = My.Application.Info.DirectoryPath & "\queue\video\videoConfig\"
     Public ReadOnly VideoPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Placeholder.png"
     Public ReadOnly VideoErrorPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Error_Placeholder.png"
+
+    ' Encode variable
+    Public ChapterFlags As String
+    Public MuxFlags As String
+    Public TrimFlags As String
 
     ' Global variable
     Public AdditionalEncodeStats As String
@@ -23,6 +36,9 @@ Module GlobalVariable
     Public AltEncodeStats As String
     Public AltEncodeConf As String
     Public AltEncodeTrimConf As String
+    Public AlwaysFullscreenStats As String
+    Public AlwaysFullscreenConf As String
+    Public AltAlwaysFullscreenConf As String
     Public AppChangelog
     Public AppRel As String
     Public AppVer As String
