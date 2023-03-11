@@ -43,7 +43,6 @@ Partial Class AudioProfile
         Label7 = New Label()
         TextBoxExt4 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
         Button1 = New Button()
-        ComboBox1 = New ComboBox()
         Label8 = New Label()
         TextBoxExt5 = New Syncfusion.Windows.Forms.Tools.TextBoxExt()
         Button2 = New Button()
@@ -53,6 +52,7 @@ Partial Class AudioProfile
         ContextMenuStrip1 = New ContextMenuStrip(components)
         SelectedFilesToolStripMenuItem = New ToolStripMenuItem()
         AllFilesToolStripMenuItem = New ToolStripMenuItem()
+        MetroSetComboBox2 = New MetroSet_UI.Controls.MetroSetComboBox()
         CType(TextBoxExt1, ComponentModel.ISupportInitialize).BeginInit()
         CType(TextBoxExt2, ComponentModel.ISupportInitialize).BeginInit()
         CType(TextBoxExt3, ComponentModel.ISupportInitialize).BeginInit()
@@ -143,7 +143,7 @@ Partial Class AudioProfile
         ' TextBoxExt1
         ' 
         TextBoxExt1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        TextBoxExt1.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt1.BeforeTouchSize = New Size(747, 170)
         TextBoxExt1.Border3DStyle = Border3DStyle.Flat
         TextBoxExt1.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         TextBoxExt1.BorderSides = Border3DSide.Bottom
@@ -171,7 +171,7 @@ Partial Class AudioProfile
         ' TextBoxExt2
         ' 
         TextBoxExt2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        TextBoxExt2.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt2.BeforeTouchSize = New Size(747, 170)
         TextBoxExt2.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         TextBoxExt2.BorderSides = Border3DSide.Bottom
         TextBoxExt2.BorderStyle = BorderStyle.FixedSingle
@@ -206,7 +206,7 @@ Partial Class AudioProfile
         ' TextBoxExt3
         ' 
         TextBoxExt3.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        TextBoxExt3.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt3.BeforeTouchSize = New Size(747, 170)
         TextBoxExt3.Border3DStyle = Border3DStyle.Flat
         TextBoxExt3.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         TextBoxExt3.BorderSides = Border3DSide.Bottom
@@ -290,7 +290,7 @@ Partial Class AudioProfile
         ' TextBoxExt4
         ' 
         TextBoxExt4.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        TextBoxExt4.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt4.BeforeTouchSize = New Size(747, 170)
         TextBoxExt4.Border3DStyle = Border3DStyle.Flat
         TextBoxExt4.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         TextBoxExt4.BorderSides = Border3DSide.Bottom
@@ -319,18 +319,6 @@ Partial Class AudioProfile
         Button1.Text = "Configure"
         Button1.UseVisualStyleBackColor = False
         ' 
-        ' ComboBox1
-        ' 
-        ComboBox1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        ComboBox1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        ComboBox1.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"Advanced Audio Coding (*.aac)", "Free Lossless Audio Codec (*.flac)", "MP2 Audio (*.mp2)", "MP3 Audio (*.mp3)", "Opus Audio (*.opus)", "Wave PCM (*.wav)"})
-        ComboBox1.Location = New Point(147, 320)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(301, 25)
-        ComboBox1.TabIndex = 100
-        ' 
         ' Label8
         ' 
         Label8.AutoSize = True
@@ -344,7 +332,7 @@ Partial Class AudioProfile
         ' TextBoxExt5
         ' 
         TextBoxExt5.BackColor = Color.FromArgb(CByte(22), CByte(23), CByte(37))
-        TextBoxExt5.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt5.BeforeTouchSize = New Size(747, 170)
         TextBoxExt5.Border3DStyle = Border3DStyle.Flat
         TextBoxExt5.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         TextBoxExt5.BorderSides = Border3DSide.Bottom
@@ -400,7 +388,7 @@ Partial Class AudioProfile
         ' TextBoxExt6
         ' 
         TextBoxExt6.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        TextBoxExt6.BeforeTouchSize = New Size(301, 122)
+        TextBoxExt6.BeforeTouchSize = New Size(747, 170)
         TextBoxExt6.Border3DStyle = Border3DStyle.Flat
         TextBoxExt6.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         TextBoxExt6.BorderSides = Border3DSide.Bottom
@@ -437,19 +425,47 @@ Partial Class AudioProfile
         AllFilesToolStripMenuItem.Name = "AllFilesToolStripMenuItem"
         AllFilesToolStripMenuItem.Size = New Size(144, 22)
         AllFilesToolStripMenuItem.Text = "All Files"' 
+        ' MetroSetComboBox2
+        ' 
+        MetroSetComboBox2.AllowDrop = True
+        MetroSetComboBox2.ArrowColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        MetroSetComboBox2.BackColor = Color.Transparent
+        MetroSetComboBox2.BackgroundColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox2.BorderColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        MetroSetComboBox2.CausesValidation = False
+        MetroSetComboBox2.DisabledBackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox2.DisabledBorderColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox2.DisabledForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox2.DrawMode = DrawMode.OwnerDrawFixed
+        MetroSetComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
+        MetroSetComboBox2.FlatStyle = FlatStyle.System
+        MetroSetComboBox2.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        MetroSetComboBox2.FormattingEnabled = True
+        MetroSetComboBox2.IsDerivedStyle = True
+        MetroSetComboBox2.ItemHeight = 20
+        MetroSetComboBox2.Location = New Point(147, 319)
+        MetroSetComboBox2.Name = "MetroSetComboBox2"
+        MetroSetComboBox2.SelectedItemBackColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        MetroSetComboBox2.SelectedItemForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox2.Size = New Size(301, 26)
+        MetroSetComboBox2.Style = MetroSet_UI.Enums.Style.Custom
+        MetroSetComboBox2.StyleManager = StyleManager1
+        MetroSetComboBox2.TabIndex = 114
+        MetroSetComboBox2.ThemeAuthor = "Hana-CI Build Project"
+        MetroSetComboBox2.ThemeName = "Hana Media Encoder MetroSetTheme"' 
         ' AudioProfile
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
         ClientSize = New Size(584, 695)
+        Controls.Add(MetroSetComboBox2)
         Controls.Add(TextBoxExt6)
         Controls.Add(Label9)
         Controls.Add(Button3)
         Controls.Add(Button2)
         Controls.Add(TextBoxExt5)
         Controls.Add(Label8)
-        Controls.Add(ComboBox1)
         Controls.Add(Button1)
         Controls.Add(TextBoxExt4)
         Controls.Add(Label7)
@@ -515,7 +531,6 @@ Partial Class AudioProfile
     Friend WithEvents Button1 As Button
     Friend WithEvents TextBoxExt4 As Syncfusion.Windows.Forms.Tools.TextBoxExt
     Friend WithEvents Label7 As Label
-    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents TextBoxExt5 As Syncfusion.Windows.Forms.Tools.TextBoxExt
@@ -525,4 +540,5 @@ Partial Class AudioProfile
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents SelectedFilesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AllFilesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MetroSetComboBox2 As MetroSet_UI.Controls.MetroSetComboBox
 End Class

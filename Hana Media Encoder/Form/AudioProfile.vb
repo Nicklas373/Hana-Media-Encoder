@@ -1,4 +1,5 @@
-﻿Imports Syncfusion.WinForms.Controls
+﻿Imports MetroSet_UI.Controls
+Imports Syncfusion.WinForms.Controls
 
 Public Class AudioProfile
     Inherits SfForm
@@ -13,6 +14,12 @@ Public Class AudioProfile
         MetroSetRadioButton2.ForeColor = ColorTranslator.FromHtml("#F4A950")
         MetroSetRadioButton2.BorderColor = ColorTranslator.FromHtml("#DBDBDB")
         MetroSetCheckBox1.ForeColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox2.ForeColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox2.SelectedItemBackColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox2.SelectedItemForeColor = ColorTranslator.FromHtml("#161B21")
+        MetroSetComboBox2.DisabledBackColor = ColorTranslator.FromHtml("#161B21")
+        MetroSetComboBox2.DisabledBorderColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox2.DisabledForeColor = ColorTranslator.FromHtml("#F4A950")
         If AudioTEMPFileNameOpt IsNot "null" Then
             If AudioTEMPFileNameOpt = MetroSetRadioButton1.Text Then
                 MetroSetRadioButton1.Checked = True
@@ -30,9 +37,9 @@ Public Class AudioProfile
             TextBoxExt3.Text = MediaTEMPFolderLocation
         End If
         If AudioTEMPFormatOpt IsNot "null" Then
-            ComboBox1.Text = AudioTEMPFormatOpt
+            MetroSetComboBox2.Text = AudioTEMPFormatOpt
         Else
-            ComboBox1.SelectedIndex = -1
+            MetroSetComboBox2.SelectedIndex = -1
         End If
     End Sub
     Private Sub AudioSampleType_Btn(sender As Object, e As EventArgs) Handles Button1.Click
@@ -62,12 +69,12 @@ Public Class AudioProfile
             MediaTEMPFolderLocation = "null"
             allowSave = False
         End If
-        If ComboBox1.SelectedIndex >= 0 Then
-            AudioTEMPFormatOpt = ComboBox1.Text
+        If MetroSetComboBox2.SelectedIndex >= 0 Then
+            AudioTEMPFormatOpt = MetroSetComboBox2.Text
         Else
             allowSave = False
         End If
-        If ComboBox1.Text.ToString IsNot "" Then
+        If MetroSetComboBox2.Text.ToString IsNot "" Then
             Dim audioSampleType = New AudioSampleType
             audioSampleType.Show()
             Close()
@@ -125,8 +132,8 @@ Public Class AudioProfile
             MediaTEMPFolderLocation = "null"
             allowSave = False
         End If
-        If ComboBox1.SelectedIndex >= 0 Then
-            AudioTEMPFormatOpt = ComboBox1.Text
+        If MetroSetComboBox2.SelectedIndex >= 0 Then
+            AudioTEMPFormatOpt = MetroSetComboBox2.Text
         Else
             allowSave = False
         End If
@@ -136,22 +143,22 @@ Public Class AudioProfile
             channel_layout = " -filter:a:0 aformat=channel_layouts=" & AudioTEMPChnMapping
         End If
         If allowSave Then
-            If ComboBox1.Text.ToString IsNot "" And AudioTEMPFileNameOpt IsNot "" And MediaTEMPFolderLocation IsNot "" Then
-                If ComboBox1.Text.ToString = "MP3 Audio (*.mp3)" Or ComboBox1.Text.ToString = "Advanced Audio Coding (*.aac)" Or
-                        ComboBox1.Text.ToString = "MP2 Audio (*.mp2)" Or ComboBox1.Text.ToString = "Opus Audio (*.opus)" Then
+            If MetroSetComboBox2.Text.ToString IsNot "" And AudioTEMPFileNameOpt IsNot "" And MediaTEMPFolderLocation IsNot "" Then
+                If MetroSetComboBox2.Text.ToString = "MP3 Audio (*.mp3)" Or MetroSetComboBox2.Text.ToString = "Advanced Audio Coding (*.aac)" Or
+                        MetroSetComboBox2.Text.ToString = "MP2 Audio (*.mp2)" Or MetroSetComboBox2.Text.ToString = "Opus Audio (*.opus)" Then
                     Dim lossy As String
-                    If ComboBox1.Text.ToString = "Opus Audio (*.opus)" Then
+                    If MetroSetComboBox2.Text.ToString = "Opus Audio (*.opus)" Then
                         lossy = "OPUS"
                     Else
                         lossy = "MP3"
                     End If
-                    AudioTEMPQuickFlags = aCodec(ComboBox1.Text.ToString, "", "0") + aChannel(AudioTEMPChn, "0") + aBitRate(AudioBitrateCalc(ComboBox1.Text.ToString, AudioTEMPCnvRatio), "0", lossy, "CBR") +
+                    AudioTEMPQuickFlags = aCodec(MetroSetComboBox2.Text.ToString, "", "0") + aChannel(AudioTEMPChn, "0") + aBitRate(AudioBitrateCalc(MetroSetComboBox2.Text.ToString, AudioTEMPCnvRatio), "0", lossy, "CBR") +
                             aSampleRate(AudioTEMPSmpRate, "0") + channel_layout
                 ElseIf AudioTEMPFormatOpt = "Free Lossless Audio Codec (*.flac)" Then
-                    AudioTEMPQuickFlags = aCodec(ComboBox1.Text.ToString, AudioTEMPBitDepth, "0") + aChannel(AudioTEMPChn, "0") + aBitRate(AudioBitrateCalc(ComboBox1.Text.ToString, AudioTEMPCnvRatio), "0", "FLAC", "") +
+                    AudioTEMPQuickFlags = aCodec(MetroSetComboBox2.Text.ToString, AudioTEMPBitDepth, "0") + aChannel(AudioTEMPChn, "0") + aBitRate(AudioBitrateCalc(MetroSetComboBox2.Text.ToString, AudioTEMPCnvRatio), "0", "FLAC", "") +
                             aSampleRate(AudioTEMPSmpRate, "0") + aBitDepth("FLAC", "0", AudioTEMPBitDepth) + channel_layout
                 ElseIf AudioTEMPFormatOpt = "Wave PCM (*.wav)" Then
-                    AudioTEMPQuickFlags = aCodec(ComboBox1.Text.ToString, AudioTEMPBitDepth, "0") + aChannel(AudioTEMPChn, "0") + aSampleRate(AudioTEMPSmpRate, "0") + channel_layout
+                    AudioTEMPQuickFlags = aCodec(MetroSetComboBox2.Text.ToString, AudioTEMPBitDepth, "0") + aChannel(AudioTEMPChn, "0") + aSampleRate(AudioTEMPSmpRate, "0") + channel_layout
                 Else
                     AudioTEMPQuickFlags = ""
                 End If
@@ -167,6 +174,7 @@ Public Class AudioProfile
             If MainMenu.DataGridView1.Rows.Count > 0 Then
                 For i As Integer = 0 To MainMenu.DataGridView1.Rows.Count - 1
                     If MainMenu.DataGridView1.Rows(i).Cells(0).Value = True And MainMenu.DataGridView1.Rows(i).Cells(5).Value.ToString = "Audio File" Then
+                        AudiostreamFlags = AudioQueueFlagsPath & MainMenu.DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_0.txt"
                         If MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Video") = True Then
                             Dim tempVal As String = MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString
                             Dim tempVal2 As String = MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString
@@ -175,15 +183,10 @@ Public Class AudioProfile
                             Else
                                 MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Video: " + getBetween(tempVal, "Video:", "Audio:") + ", Audio:" + TextBoxExt5.Text
                             End If
-                            If getBetween(MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString, "-c:v", "-c:a") = "" Then
-                                MainMenu.DataGridView1.Rows(i).Cells(10).Value = tempVal2 + " " + AudioTEMPQuickFlags
-                            Else
-                                MainMenu.DataGridView1.Rows(i).Cells(10).Value = "-c:v" + getBetween(tempVal2, "-c:v", "-c:a") + " " + AudioTEMPQuickFlags
-                            End If
                         Else
                             MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Audio: " + TextBoxExt5.Text
-                            MainMenu.DataGridView1.Rows(i).Cells(10).Value = AudioTEMPQuickFlags
                         End If
+                        HMEStreamProfileGenerate(AudiostreamFlags, AudioTEMPQuickFlags)
                     End If
                 Next
                 MainMenu.DataGridView1.Update()
@@ -204,6 +207,7 @@ Public Class AudioProfile
             If MainMenu.DataGridView1.Rows.Count > 0 Then
                 For i As Integer = 0 To MainMenu.DataGridView1.Rows.Count - 1
                     If MainMenu.DataGridView1.Rows(i).Cells(5).Value.ToString = "Audio File" Then
+                        AudiostreamFlags = AudioQueueFlagsPath & MainMenu.DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_0.txt"
                         If MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Video") = True Then
                             Dim tempVal As String = MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString
                             Dim tempVal2 As String = MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString
@@ -212,15 +216,10 @@ Public Class AudioProfile
                             Else
                                 MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Video: " + getBetween(tempVal, "Video:", "Audio:") + ", Audio: " + TextBoxExt5.Text
                             End If
-                            If getBetween(MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString, "-c:v", "-c:a") = "" Then
-                                MainMenu.DataGridView1.Rows(i).Cells(10).Value = tempVal2 + " " + AudioTEMPQuickFlags
-                            Else
-                                MainMenu.DataGridView1.Rows(i).Cells(10).Value = "-c:v" + getBetween(tempVal2, "-c:v", "-c:a") + " " + AudioTEMPQuickFlags
-                            End If
                         Else
                             MainMenu.DataGridView1.Rows(i).Cells(8).Value = "Audio: " + TextBoxExt5.Text
-                            MainMenu.DataGridView1.Rows(i).Cells(10).Value = AudioTEMPQuickFlags
                         End If
+                        HMEStreamProfileGenerate(AudiostreamFlags, AudioTEMPQuickFlags)
                     End If
                 Next
                 MainMenu.DataGridView1.Update()
