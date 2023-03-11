@@ -8,6 +8,20 @@
 	  <SmallLineColor1>#dbdbdb</SmallLineColor1>
     <SmallLineColor2>#dbdbdb</SmallLineColor2>
   </Form>
+   <DefaultButton>
+    <NormalColor>#161B21</NormalColor>
+    <NormalBorderColor>#F4A950</NormalBorderColor>
+    <NormalTextColor>#F4A950</NormalTextColor>
+    <HoverColor>#F4A950</HoverColor>
+    <HoverBorderColor>#F4A950</HoverBorderColor>
+    <HoverTextColor>#161B21</HoverTextColor>
+    <PressColor>#F4A950</PressColor>
+    <PressBorderColor>#F4A950</PressBorderColor>
+    <PressTextColor>#161B21</PressTextColor>
+    <DisabledBackColor>#161B21</DisabledBackColor>
+    <DisabledBorderColor>#161B21</DisabledBorderColor>
+    <DisabledForeColor>#161B21</DisabledForeColor>
+  </DefaultButton>
   <Divider>
     <Orientation>Horizontal</Orientation>
     <!--Horizontal, Vertical-->
@@ -41,10 +55,14 @@
 	<BackColor>#161B21</BackColor>
 	<BorderColor>#F4A950</BorderColor>
 	<ArrowColor>#F4A950</ArrowColor>
-	<SelectedItemBackColor>#dbdbdb</SelectedItemBackColor>
-	<SelectedItemForeColor>#dbdbdb</SelectedItemForeColor>
+	<SelectedItemBackColor>#F4A950</SelectedItemBackColor>
+	<SelectedItemForeColor>#161B21</SelectedItemForeColor>
 	<DisabledBackColor>#dbdbdb</DisabledBackColor>
 	<DisabledBorderColor>#dbdbdb</DisabledBorderColor>
 	<DisabledForeColor>#dbdbdb</DisabledForeColor>
   </ComboBox>
+   <Label>
+    <ForeColor>#F4A950</ForeColor>
+    <BackColor>#161B21</BackColor>
+  </Label>
 </MetroSetTheme>
