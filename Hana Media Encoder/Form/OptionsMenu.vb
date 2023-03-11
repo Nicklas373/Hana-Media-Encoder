@@ -19,10 +19,14 @@ Public Class OptionsMenu
     End Sub
     Private Sub General_Btn(sender As Object, e As EventArgs) Handles Button1.Click
         General_pnl.Visible = True
+        General_pnl.AutoScroll = True
+        about_pnl.AutoScroll = False
         about_pnl.Visible = False
     End Sub
     Private Sub About_Btn(sender As Object, e As EventArgs) Handles Button3.Click
+        General_pnl.AutoScroll = False
         about_pnl.Visible = True
+        about_pnl.AutoScroll = True
     End Sub
     Private Sub Browse_Btn_FFMPEG(sender As Object, e As EventArgs) Handles Button4.Click
         OpenFolderDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
@@ -60,7 +64,7 @@ Public Class OptionsMenu
             ComboBox1.Enabled = False
         End If
     End Sub
-    Private Sub Options_Close(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Options_Close(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         MainMenu.Show()
     End Sub
     Private Sub GetBackPref()
@@ -71,6 +75,7 @@ Public Class OptionsMenu
             FrameCount = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Frame Count:")
             FfmpegConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Binary:")
             Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
+            AlwaysFullscreenConf = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Always Fullscreen:")
             If DebugMode = "null" Then
                 CheckBox3.Checked = False
             Else
@@ -118,6 +123,12 @@ Public Class OptionsMenu
             Else
                 AltEncodeTrimConf = AltEncodeConf.Remove(0, 11)
                 CheckBox4.Checked = AltEncodeTrimConf
+            End If
+            If AlwaysFullscreenConf = "null" Then
+                CheckBox6.Checked = False
+            Else
+                AltAlwaysFullscreenConf = AlwaysFullscreenConf.Remove(0, 18)
+                CheckBox6.Checked = AltAlwaysFullscreenConf
             End If
         End If
     End Sub
@@ -253,6 +264,25 @@ Public Class OptionsMenu
             File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
             Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
             writer.WriteLine("Encode Info:" & tempEncodeInfo)
+            writer.Close()
+        End If
+    End Sub
+    Private Sub AlwaysFullScreen(sender As Object, e As EventArgs) Handles CheckBox6.CheckedChanged
+        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+            AlwaysFullscreenStats = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Always Fullscreen:")
+            If AlwaysFullscreenStats = "null" Then
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+                writer.WriteLine("Always Fullscreen:" & CheckBox6.Checked)
+                writer.Close()
+            Else
+                Dim AlwaysFullscreenStatsOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                AlwaysFullscreenStatsOldConf = AlwaysFullscreenStatsOldConf.Replace(AlwaysFullscreenStats, "Always Fullscreen:" & CheckBox6.Checked)
+                File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", AlwaysFullscreenStatsOldConf)
+            End If
+        Else
+            File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+            Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+            writer.WriteLine("Always Fullscreen:" & CheckBox6.Checked)
             writer.Close()
         End If
     End Sub

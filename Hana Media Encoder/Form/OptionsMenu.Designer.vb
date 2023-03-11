@@ -22,602 +22,609 @@ Partial Class OptionsMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OptionsMenu))
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.General_pnl = New System.Windows.Forms.Panel()
-        Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.about_pnl = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Panel1.SuspendLayout()
-        Me.General_pnl.SuspendLayout()
-        Me.about_pnl.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Controls.Add(Me.General_pnl)
-        Me.Panel1.Location = New System.Drawing.Point(5, 67)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1254, 588)
-        Me.Panel1.TabIndex = 0
-        '
-        'General_pnl
-        '
-        Me.General_pnl.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.General_pnl.Controls.Add(Me.about_pnl)
-        Me.General_pnl.Controls.Add(Me.LinkLabel4)
-        Me.General_pnl.Controls.Add(Me.Label9)
-        Me.General_pnl.Controls.Add(Me.Label8)
-        Me.General_pnl.Controls.Add(Me.Label7)
-        Me.General_pnl.Controls.Add(Me.Label6)
-        Me.General_pnl.Controls.Add(Me.CheckBox5)
-        Me.General_pnl.Controls.Add(Me.Label3)
-        Me.General_pnl.Controls.Add(Me.Label20)
-        Me.General_pnl.Controls.Add(Me.ComboBox2)
-        Me.General_pnl.Controls.Add(Me.Label19)
-        Me.General_pnl.Controls.Add(Me.Label4)
-        Me.General_pnl.Controls.Add(Me.Label24)
-        Me.General_pnl.Controls.Add(Me.Label22)
-        Me.General_pnl.Controls.Add(Me.CheckBox4)
-        Me.General_pnl.Controls.Add(Me.Label23)
-        Me.General_pnl.Controls.Add(Me.Label18)
-        Me.General_pnl.Controls.Add(Me.CheckBox3)
-        Me.General_pnl.Controls.Add(Me.Label17)
-        Me.General_pnl.Controls.Add(Me.CheckBox2)
-        Me.General_pnl.Controls.Add(Me.CheckBox1)
-        Me.General_pnl.Controls.Add(Me.ComboBox1)
-        Me.General_pnl.Controls.Add(Me.Label5)
-        Me.General_pnl.Controls.Add(Me.Label2)
-        Me.General_pnl.Controls.Add(Me.Label1)
-        Me.General_pnl.Controls.Add(Me.TextBox1)
-        Me.General_pnl.Controls.Add(Me.Button4)
-        Me.General_pnl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.General_pnl.Location = New System.Drawing.Point(0, 0)
-        Me.General_pnl.Name = "General_pnl"
-        Me.General_pnl.Size = New System.Drawing.Size(1257, 588)
-        Me.General_pnl.TabIndex = 38
-        '
-        'LinkLabel4
-        '
-        Me.LinkLabel4.ActiveLinkColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.LinkLabel4.AutoSize = True
-        Me.LinkLabel4.DisabledLinkColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.LinkLabel4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.LinkLabel4.LinkColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.LinkLabel4.Location = New System.Drawing.Point(297, 470)
-        Me.LinkLabel4.Name = "LinkLabel4"
-        Me.LinkLabel4.Size = New System.Drawing.Size(183, 15)
-        Me.LinkLabel4.TabIndex = 44
-        Me.LinkLabel4.TabStop = True
-        Me.LinkLabel4.Text = "(FFMPEG Official Download Link)"
-        Me.LinkLabel4.VisitedLinkColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(19, 470)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(280, 15)
-        Me.Label9.TabIndex = 43
-        Me.Label9.Text = "FFMPEG prebulit binary can be download from here"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(19, 175)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(739, 15)
-        Me.Label8.TabIndex = 42
-        Me.Label8.Text = "Advanced to show more information (encoded size, encoded frame time and encoded s" &
-    "peed), percentage to show encode process percent"
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(OptionsMenu))
+        Panel1 = New Panel()
+        General_pnl = New Panel()
+        about_pnl = New Panel()
+        Button2 = New Button()
+        LinkLabel1 = New LinkLabel()
+        Label28 = New Label()
+        LinkLabel2 = New LinkLabel()
+        Label27 = New Label()
+        Label26 = New Label()
+        Label25 = New Label()
+        Label29 = New Label()
+        Label30 = New Label()
+        PictureBox1 = New PictureBox()
+        CheckBox6 = New CheckBox()
+        Label11 = New Label()
+        Label10 = New Label()
+        LinkLabel4 = New LinkLabel()
+        Label9 = New Label()
+        Label8 = New Label()
+        Label7 = New Label()
+        Label6 = New Label()
+        CheckBox5 = New CheckBox()
+        Label3 = New Label()
+        Label20 = New Label()
+        ComboBox2 = New ComboBox()
+        Label19 = New Label()
+        Label4 = New Label()
+        Label24 = New Label()
+        Label22 = New Label()
+        CheckBox4 = New CheckBox()
+        Label23 = New Label()
+        Label18 = New Label()
+        CheckBox3 = New CheckBox()
+        Label17 = New Label()
+        CheckBox2 = New CheckBox()
+        CheckBox1 = New CheckBox()
+        ComboBox1 = New ComboBox()
+        Label5 = New Label()
+        Label2 = New Label()
+        Label1 = New Label()
+        TextBox1 = New TextBox()
+        Button4 = New Button()
+        Button1 = New Button()
+        Button3 = New Button()
+        Panel1.SuspendLayout()
+        General_pnl.SuspendLayout()
+        about_pnl.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        SuspendLayout()
+        ' 
+        ' Panel1
+        ' 
+        Panel1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Panel1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Panel1.Controls.Add(General_pnl)
+        Panel1.Location = New Point(5, 67)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(1254, 609)
+        Panel1.TabIndex = 0
+        ' 
+        ' General_pnl
+        ' 
+        General_pnl.AutoScroll = True
+        General_pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        General_pnl.Controls.Add(about_pnl)
+        General_pnl.Controls.Add(CheckBox6)
+        General_pnl.Controls.Add(Label11)
+        General_pnl.Controls.Add(Label10)
+        General_pnl.Controls.Add(LinkLabel4)
+        General_pnl.Controls.Add(Label9)
+        General_pnl.Controls.Add(Label8)
+        General_pnl.Controls.Add(Label7)
+        General_pnl.Controls.Add(Label6)
+        General_pnl.Controls.Add(CheckBox5)
+        General_pnl.Controls.Add(Label3)
+        General_pnl.Controls.Add(Label20)
+        General_pnl.Controls.Add(ComboBox2)
+        General_pnl.Controls.Add(Label19)
+        General_pnl.Controls.Add(Label4)
+        General_pnl.Controls.Add(Label24)
+        General_pnl.Controls.Add(Label22)
+        General_pnl.Controls.Add(CheckBox4)
+        General_pnl.Controls.Add(Label23)
+        General_pnl.Controls.Add(Label18)
+        General_pnl.Controls.Add(CheckBox3)
+        General_pnl.Controls.Add(Label17)
+        General_pnl.Controls.Add(CheckBox2)
+        General_pnl.Controls.Add(CheckBox1)
+        General_pnl.Controls.Add(ComboBox1)
+        General_pnl.Controls.Add(Label5)
+        General_pnl.Controls.Add(Label2)
+        General_pnl.Controls.Add(Label1)
+        General_pnl.Controls.Add(TextBox1)
+        General_pnl.Controls.Add(Button4)
+        General_pnl.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        General_pnl.Location = New Point(0, 0)
+        General_pnl.Name = "General_pnl"
+        General_pnl.Size = New Size(1257, 609)
+        General_pnl.TabIndex = 38
+        ' 
+        ' about_pnl
+        ' 
+        about_pnl.AutoScroll = True
+        about_pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        about_pnl.Controls.Add(Button2)
+        about_pnl.Controls.Add(LinkLabel1)
+        about_pnl.Controls.Add(Label28)
+        about_pnl.Controls.Add(LinkLabel2)
+        about_pnl.Controls.Add(Label27)
+        about_pnl.Controls.Add(Label26)
+        about_pnl.Controls.Add(Label25)
+        about_pnl.Controls.Add(Label29)
+        about_pnl.Controls.Add(Label30)
+        about_pnl.Controls.Add(PictureBox1)
+        about_pnl.Dock = DockStyle.Fill
+        about_pnl.Location = New Point(0, 0)
+        about_pnl.Name = "about_pnl"
+        about_pnl.Size = New Size(1240, 701)
+        about_pnl.TabIndex = 57
+        ' 
+        ' Button2
+        ' 
+        Button2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Button2.FlatAppearance.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button2.Location = New Point(627, 22)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(116, 23)
+        Button2.TabIndex = 11
+        Button2.Text = "Check for updates"
+        Button2.UseVisualStyleBackColor = False
+        ' 
+        ' LinkLabel1
+        ' 
+        LinkLabel1.ActiveLinkColor = Color.DodgerBlue
+        LinkLabel1.AutoSize = True
+        LinkLabel1.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        LinkLabel1.Location = New Point(238, 207)
+        LinkLabel1.Name = "LinkLabel1"
+        LinkLabel1.Size = New Size(325, 15)
+        LinkLabel1.TabIndex = 10
+        LinkLabel1.TabStop = True
+        LinkLabel1.Text = "https://github.com/Nicklas373/Hana-Media-Encoder/issues" ' 
+        ' Label28
+        ' 
+        Label28.AutoSize = True
+        Label28.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label28.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label28.Location = New Point(237, 181)
+        Label28.Name = "Label28"
+        Label28.Size = New Size(108, 26)
+        Label28.TabIndex = 9
+        Label28.Text = "Submit issue" ' 
+        ' LinkLabel2
+        ' 
+        LinkLabel2.ActiveLinkColor = Color.DodgerBlue
+        LinkLabel2.AutoSize = True
+        LinkLabel2.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        LinkLabel2.Location = New Point(237, 155)
+        LinkLabel2.Name = "LinkLabel2"
+        LinkLabel2.Size = New Size(289, 15)
+        LinkLabel2.TabIndex = 8
+        LinkLabel2.TabStop = True
+        LinkLabel2.Text = "https://github.com/Nicklas373/Hana-Media-Encoder" ' 
+        ' Label27
+        ' 
+        Label27.AutoSize = True
+        Label27.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label27.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label27.Location = New Point(237, 127)
+        Label27.Name = "Label27"
+        Label27.Size = New Size(72, 26)
+        Label27.TabIndex = 6
+        Label27.Text = "Website" ' 
+        ' Label26
+        ' 
+        Label26.AutoSize = True
+        Label26.Font = New Font("Poppins", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label26.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label26.Location = New Point(18, 271)
+        Label26.Name = "Label26"
+        Label26.Size = New Size(60, 23)
+        Label26.TabIndex = 5
+        Label26.Text = "Label26" ' 
+        ' Label25
+        ' 
+        Label25.AutoSize = True
+        Label25.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label25.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label25.Location = New Point(237, 85)
+        Label25.Name = "Label25"
+        Label25.Size = New Size(84, 26)
+        Label25.TabIndex = 4
+        Label25.Text = "copyright" ' 
+        ' Label29
+        ' 
+        Label29.AutoSize = True
+        Label29.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label29.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label29.Location = New Point(237, 58)
+        Label29.Name = "Label29"
+        Label29.Size = New Size(65, 26)
+        Label29.TabIndex = 3
+        Label29.Text = "appver" ' 
+        ' Label30
+        ' 
+        Label30.AutoSize = True
+        Label30.Font = New Font("Poppins SemiBold", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Label30.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label30.Location = New Point(232, 16)
+        Label30.Name = "Label30"
+        Label30.Size = New Size(148, 48)
+        Label30.TabIndex = 2
+        Label30.Text = "APPNAME" ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = Color.Transparent
+        PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), Image)
+        PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+        PictureBox1.InitialImage = Nothing
+        PictureBox1.Location = New Point(18, 21)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(200, 200)
+        PictureBox1.TabIndex = 1
+        PictureBox1.TabStop = False
+        ' 
+        ' CheckBox6
+        ' 
+        CheckBox6.AutoSize = True
+        CheckBox6.Location = New Point(19, 228)
+        CheckBox6.Name = "CheckBox6"
+        CheckBox6.Size = New Size(15, 14)
+        CheckBox6.TabIndex = 47
+        CheckBox6.UseVisualStyleBackColor = True
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label11.ForeColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        Label11.Location = New Point(19, 256)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(438, 15)
+        Label11.TabIndex = 46
+        Label11.Text = "Application will always run on fullscreen window (Not applicable to all menu)" ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label10.Location = New Point(40, 226)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(114, 17)
+        Label10.TabIndex = 45
+        Label10.Text = "Always Fullscreen" ' 
+        ' LinkLabel4
+        ' 
+        LinkLabel4.ActiveLinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        LinkLabel4.AutoSize = True
+        LinkLabel4.DisabledLinkColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        LinkLabel4.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        LinkLabel4.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        LinkLabel4.Location = New Point(297, 576)
+        LinkLabel4.Name = "LinkLabel4"
+        LinkLabel4.Size = New Size(183, 15)
+        LinkLabel4.TabIndex = 44
+        LinkLabel4.TabStop = True
+        LinkLabel4.Text = "(FFMPEG Official Download Link)"
+        LinkLabel4.VisitedLinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label9.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label9.Location = New Point(19, 576)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(280, 15)
+        Label9.TabIndex = 43
+        Label9.Text = "FFMPEG prebulit binary can be download from here" ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label8.Location = New Point(19, 175)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(739, 15)
+        Label8.TabIndex = 42
+        Label8.Text = "Advanced to show more information (encoded size, encoded frame time and encoded speed), percentage to show encode process percent"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(19, 272)
+        Me.Label7.Location = New System.Drawing.Point(19, 378)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(751, 15)
         Me.Label7.TabIndex = 41
         Me.Label7.Text = "Enable this mode to help slow frame calculation while encoding on disk drive with" &
-    " slow read / write operation (Not effective while using trim)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(19, 253)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(505, 15)
-        Me.Label6.TabIndex = 40
-        Me.Label6.Text = "NOTE: Enable this option will bypass application to count needed frame for encode" &
-    " calculation"
-        '
-        'CheckBox5
-        '
-        Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Location = New System.Drawing.Point(19, 224)
-        Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox5.TabIndex = 39
-        Me.CheckBox5.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(40, 221)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(162, 17)
-        Me.Label3.TabIndex = 38
-        Me.Label3.Text = "Bypass Frame Calculation"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label20.Location = New System.Drawing.Point(19, 156)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(526, 15)
-        Me.Label20.TabIndex = 36
-        Me.Label20.Text = "NOTE: Select additional information that want to show while on encoding, select n" &
-    "one to disable it"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Advanced", "Percentage Only", "None"})
-        Me.ComboBox2.Location = New System.Drawing.Point(234, 125)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(206, 23)
-        Me.ComboBox2.TabIndex = 35
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label19.Location = New System.Drawing.Point(19, 125)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(194, 17)
-        Me.Label19.TabIndex = 34
-        Me.Label19.Text = "Additional Encode Information"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(19, 373)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(431, 15)
-        Me.Label4.TabIndex = 33
-        Me.Label4.Text = "Enable this mode may cause encode calculation not work, proceed with caution "
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label24.Location = New System.Drawing.Point(19, 75)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(635, 15)
-        Me.Label24.TabIndex = 32
-        Me.Label24.Text = "Enable this mode while encoding progress bar stuck at specific percentage (Automa" &
-    "tically use for audio only encoding)"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label22.Location = New System.Drawing.Point(19, 56)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(587, 15)
-        Me.Label22.TabIndex = 30
-        Me.Label22.Text = "NOTE: Enable alternate encode calculation will use duration time as encode status" &
-    " instead of frame calculation"
-        '
-        'CheckBox4
-        '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Enabled = False
-        Me.CheckBox4.Location = New System.Drawing.Point(19, 26)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox4.TabIndex = 29
-        Me.CheckBox4.UseVisualStyleBackColor = True
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label23.Location = New System.Drawing.Point(40, 24)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(182, 17)
-        Me.Label23.TabIndex = 28
-        Me.Label23.Text = "Alternate Encode Calculation"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(19, 352)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(483, 15)
-        Me.Label18.TabIndex = 25
-        Me.Label18.Text = "NOTE: Enable debug mode to show encoding error log from FFMPEG result after encod" &
-    "ing"
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(19, 323)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox3.TabIndex = 24
-        Me.CheckBox3.UseVisualStyleBackColor = True
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label17.Location = New System.Drawing.Point(40, 320)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(87, 17)
-        Me.Label17.TabIndex = 23
-        Me.Label17.Text = "Debug Mode"
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.CheckBox2.Location = New System.Drawing.Point(448, 546)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(362, 19)
-        Me.CheckBox2.TabIndex = 10
-        Me.CheckBox2.Text = "Override GPU Hardware Accelerated Detection (EXPERIMENTAL)"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.CheckBox1.Location = New System.Drawing.Point(448, 519)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(206, 19)
-        Me.CheckBox1.TabIndex = 9
-        Me.CheckBox1.Text = "Enable GPU Hardware Accelerated"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.ComboBox1.Enabled = False
-        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Intel (QuickSync)", "NVIDIA (NVENC / NVDEC)", "AMD (OpenCL)"})
-        Me.ComboBox1.Location = New System.Drawing.Point(234, 519)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(206, 23)
-        Me.ComboBox1.TabIndex = 8
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(19, 521)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(171, 17)
-        Me.Label5.TabIndex = 7
-        Me.Label5.Text = "GPU Hardware Accelerated"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(19, 451)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(384, 15)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "NOTE: Choose FFMPEG folder which contain ffmpeg, ffplay and ffprobe"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(19, 422)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(101, 17)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "FFMPEG Binary"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.TextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.TextBox1.Location = New System.Drawing.Point(130, 420)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(310, 23)
-        Me.TextBox1.TabIndex = 2
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Button4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button4.Location = New System.Drawing.Point(459, 416)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(86, 29)
-        Me.Button4.TabIndex = 0
-        Me.Button4.Text = "Browse"
-        Me.Button4.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(8, 5)
-        Me.Button1.Name = "Button1"
-        Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button1.Size = New System.Drawing.Size(180, 56)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "       General"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(194, 5)
-        Me.Button3.Name = "Button3"
-        Me.Button3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button3.Size = New System.Drawing.Size(180, 56)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "About"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'about_pnl
-        '
-        Me.about_pnl.AutoScroll = True
-        Me.about_pnl.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.about_pnl.Controls.Add(Me.Button2)
-        Me.about_pnl.Controls.Add(Me.LinkLabel1)
-        Me.about_pnl.Controls.Add(Me.Label28)
-        Me.about_pnl.Controls.Add(Me.LinkLabel2)
-        Me.about_pnl.Controls.Add(Me.Label27)
-        Me.about_pnl.Controls.Add(Me.Label26)
-        Me.about_pnl.Controls.Add(Me.Label25)
-        Me.about_pnl.Controls.Add(Me.Label29)
-        Me.about_pnl.Controls.Add(Me.Label30)
-        Me.about_pnl.Controls.Add(Me.PictureBox1)
-        Me.about_pnl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.about_pnl.Location = New System.Drawing.Point(0, 0)
-        Me.about_pnl.Name = "about_pnl"
-        Me.about_pnl.Size = New System.Drawing.Size(1257, 588)
-        Me.about_pnl.TabIndex = 56
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Button2.Location = New System.Drawing.Point(627, 22)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(116, 23)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Check for updates"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'LinkLabel1
-        '
-        Me.LinkLabel1.ActiveLinkColor = System.Drawing.Color.DodgerBlue
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.LinkColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.LinkLabel1.Location = New System.Drawing.Point(238, 207)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(325, 15)
-        Me.LinkLabel1.TabIndex = 10
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "https://github.com/Nicklas373/Hana-Media-Encoder/issues"
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(237, 181)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(93, 18)
-        Me.Label28.TabIndex = 9
-        Me.Label28.Text = "Submit issue"
-        '
-        'LinkLabel2
-        '
-        Me.LinkLabel2.ActiveLinkColor = System.Drawing.Color.DodgerBlue
-        Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.LinkColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.LinkLabel2.Location = New System.Drawing.Point(237, 155)
-        Me.LinkLabel2.Name = "LinkLabel2"
-        Me.LinkLabel2.Size = New System.Drawing.Size(289, 15)
-        Me.LinkLabel2.TabIndex = 8
-        Me.LinkLabel2.TabStop = True
-        Me.LinkLabel2.Text = "https://github.com/Nicklas373/Hana-Media-Encoder"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(237, 127)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(62, 18)
-        Me.Label27.TabIndex = 6
-        Me.Label27.Text = "Website"
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.Label26.Location = New System.Drawing.Point(18, 271)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(53, 17)
-        Me.Label26.TabIndex = 5
-        Me.Label26.Text = "Label26"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label25.Location = New System.Drawing.Point(237, 85)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(68, 18)
-        Me.Label25.TabIndex = 4
-        Me.Label25.Text = "copyright"
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label29.Location = New System.Drawing.Point(237, 58)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(52, 18)
-        Me.Label29.TabIndex = 3
-        Me.Label29.Text = "appver"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label30.Location = New System.Drawing.Point(234, 21)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(136, 29)
-        Me.Label30.TabIndex = 2
-        Me.Label30.Text = "APPNAME"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.InitialImage = Nothing
-        Me.PictureBox1.Location = New System.Drawing.Point(18, 21)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(200, 200)
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'OptionsMenu
-        '
-        Me.AllowRoundedCorners = True
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1264, 681)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Panel1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(1280, 720)
-        Me.MinimumSize = New System.Drawing.Size(1280, 720)
-        Me.Name = "OptionsMenu"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Style.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Style.MdiChild.IconHorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Center
-        Me.Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center
-        Me.Style.TitleBar.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Style.TitleBar.BottomBorderColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.Style.TitleBar.CloseButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Style.TitleBar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Style.TitleBar.MinimizeButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Text = "Options"
-        Me.Panel1.ResumeLayout(False)
-        Me.General_pnl.ResumeLayout(False)
-        Me.General_pnl.PerformLayout()
-        Me.about_pnl.ResumeLayout(False)
-        Me.about_pnl.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
-
+        " slow read / write operation (Not effective while using trim)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label6.Location = New Point(19, 357)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(434, 15)
+        Label6.TabIndex = 40
+        Label6.Text = "This option will bypass application to count needed frame for encode calculation" ' 
+        ' CheckBox5
+        ' 
+        CheckBox5.AutoSize = True
+        CheckBox5.Location = New Point(19, 325)
+        CheckBox5.Name = "CheckBox5"
+        CheckBox5.Size = New Size(15, 14)
+        CheckBox5.TabIndex = 39
+        CheckBox5.UseVisualStyleBackColor = True
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label3.Location = New Point(40, 323)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(162, 17)
+        Label3.TabIndex = 38
+        Label3.Text = "Bypass Frame Calculation" ' 
+        ' Label20
+        ' 
+        Label20.AutoSize = True
+        Label20.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label20.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label20.Location = New Point(19, 156)
+        Label20.Name = "Label20"
+        Label20.Size = New Size(490, 15)
+        Label20.TabIndex = 36
+        Label20.Text = "Select additional information that want to show while on encoding, select none to disable it" ' 
+        ' ComboBox2
+        ' 
+        ComboBox2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ComboBox2.FlatStyle = FlatStyle.Flat
+        ComboBox2.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ComboBox2.FormattingEnabled = True
+        ComboBox2.Items.AddRange(New Object() {"Advanced", "Percentage Only", "None"})
+        ComboBox2.Location = New Point(234, 125)
+        ComboBox2.Name = "ComboBox2"
+        ComboBox2.Size = New Size(206, 23)
+        ComboBox2.TabIndex = 35
+        ' 
+        ' Label19
+        ' 
+        Label19.AutoSize = True
+        Label19.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label19.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label19.Location = New Point(19, 125)
+        Label19.Name = "Label19"
+        Label19.Size = New Size(194, 17)
+        Label19.TabIndex = 34
+        Label19.Text = "Additional Encode Information" ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label4.Location = New Point(19, 477)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(431, 15)
+        Label4.TabIndex = 33
+        Label4.Text = "Enable this mode may cause encode calculation not work, proceed with caution " ' 
+        ' Label24
+        ' 
+        Label24.AutoSize = True
+        Label24.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label24.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label24.Location = New Point(19, 76)
+        Label24.Name = "Label24"
+        Label24.Size = New Size(635, 15)
+        Label24.TabIndex = 32
+        Label24.Text = "Enable this mode while encoding progress bar stuck at specific percentage (Automatically use for audio only encoding)" ' 
+        ' Label22
+        ' 
+        Label22.AutoSize = True
+        Label22.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label22.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label22.Location = New Point(19, 57)
+        Label22.Name = "Label22"
+        Label22.Size = New Size(515, 15)
+        Label22.TabIndex = 30
+        Label22.Text = "Alternate encode calculation will use duration time as encode status instead of frame calculation" ' 
+        ' CheckBox4
+        ' 
+        CheckBox4.AutoSize = True
+        CheckBox4.Enabled = False
+        CheckBox4.Location = New Point(19, 27)
+        CheckBox4.Name = "CheckBox4"
+        CheckBox4.Size = New Size(15, 14)
+        CheckBox4.TabIndex = 29
+        CheckBox4.UseVisualStyleBackColor = True
+        ' 
+        ' Label23
+        ' 
+        Label23.AutoSize = True
+        Label23.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label23.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label23.Location = New Point(40, 25)
+        Label23.Name = "Label23"
+        Label23.Size = New Size(182, 17)
+        Label23.TabIndex = 28
+        Label23.Text = "Alternate Encode Calculation" ' 
+        ' Label18
+        ' 
+        Label18.AutoSize = True
+        Label18.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label18.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label18.Location = New Point(19, 456)
+        Label18.Name = "Label18"
+        Label18.Size = New Size(534, 15)
+        Label18.TabIndex = 25
+        Label18.Text = "Show encoding error log from FFMPEG result after encoding (Not work while media queue is active)" ' 
+        ' CheckBox3
+        ' 
+        CheckBox3.AutoSize = True
+        CheckBox3.Location = New Point(19, 424)
+        CheckBox3.Name = "CheckBox3"
+        CheckBox3.Size = New Size(15, 14)
+        CheckBox3.TabIndex = 24
+        CheckBox3.UseVisualStyleBackColor = True
+        ' 
+        ' Label17
+        ' 
+        Label17.AutoSize = True
+        Label17.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label17.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label17.Location = New Point(40, 422)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(87, 17)
+        Label17.TabIndex = 23
+        Label17.Text = "Debug Mode" ' 
+        ' CheckBox2
+        ' 
+        CheckBox2.AutoSize = True
+        CheckBox2.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        CheckBox2.Location = New Point(22, 682)
+        CheckBox2.Name = "CheckBox2"
+        CheckBox2.Size = New Size(362, 19)
+        CheckBox2.TabIndex = 10
+        CheckBox2.Text = "Override GPU Hardware Accelerated Detection (EXPERIMENTAL)"
+        CheckBox2.UseVisualStyleBackColor = True
+        ' 
+        ' CheckBox1
+        ' 
+        CheckBox1.AutoSize = True
+        CheckBox1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        CheckBox1.Location = New Point(22, 658)
+        CheckBox1.Name = "CheckBox1"
+        CheckBox1.Size = New Size(206, 19)
+        CheckBox1.TabIndex = 9
+        CheckBox1.Text = "Enable GPU Hardware Accelerated"
+        CheckBox1.UseVisualStyleBackColor = True
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ComboBox1.Enabled = False
+        ComboBox1.FlatStyle = FlatStyle.Flat
+        ComboBox1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Items.AddRange(New Object() {"Intel (QuickSync)", "NVIDIA (NVENC / NVDEC)", "AMD (OpenCL)"})
+        ComboBox1.Location = New Point(234, 623)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(206, 23)
+        ComboBox1.TabIndex = 8
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label5.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label5.Location = New Point(19, 625)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(171, 17)
+        Label5.TabIndex = 7
+        Label5.Text = "GPU Hardware Accelerated" ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label2.Location = New Point(19, 557)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(341, 15)
+        Label2.TabIndex = 3
+        Label2.Text = "Select FFMPEG folder which contain ffmpeg, ffplay and ffprobe" ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label1.Location = New Point(19, 525)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(101, 17)
+        Label1.TabIndex = 1
+        Label1.Text = "FFMPEG Binary" ' 
+        ' TextBox1
+        ' 
+        TextBox1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBox1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        TextBox1.Location = New Point(130, 523)
+        TextBox1.Name = "TextBox1"
+        TextBox1.ReadOnly = True
+        TextBox1.Size = New Size(310, 23)
+        TextBox1.TabIndex = 2
+        ' 
+        ' Button4
+        ' 
+        Button4.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Button4.FlatAppearance.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button4.FlatStyle = FlatStyle.Flat
+        Button4.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Button4.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button4.Location = New Point(459, 521)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(86, 29)
+        Button4.TabIndex = 0
+        Button4.Text = "Browse"
+        Button4.UseVisualStyleBackColor = False
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Button1.FlatAppearance.BorderSize = 0
+        Button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Button1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Button1.Image = CType(resources.GetObject("Button1.Image"), Image)
+        Button1.ImageAlign = ContentAlignment.MiddleLeft
+        Button1.Location = New Point(8, 5)
+        Button1.Name = "Button1"
+        Button1.RightToLeft = RightToLeft.No
+        Button1.Size = New Size(180, 56)
+        Button1.TabIndex = 1
+        Button1.Text = "       General"
+        Button1.UseVisualStyleBackColor = False
+        ' 
+        ' Button3
+        ' 
+        Button3.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Button3.FlatAppearance.BorderSize = 0
+        Button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button3.FlatStyle = FlatStyle.Flat
+        Button3.Font = New Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Button3.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Button3.Image = CType(resources.GetObject("Button3.Image"), Image)
+        Button3.ImageAlign = ContentAlignment.MiddleLeft
+        Button3.Location = New Point(194, 5)
+        Button3.Name = "Button3"
+        Button3.RightToLeft = RightToLeft.No
+        Button3.Size = New Size(180, 56)
+        Button3.TabIndex = 2
+        Button3.Text = "About"
+        Button3.UseVisualStyleBackColor = False
+        ' 
+        ' OptionsMenu
+        ' 
+        AllowRoundedCorners = True
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ClientSize = New Size(1264, 681)
+        Controls.Add(Button3)
+        Controls.Add(Button1)
+        Controls.Add(Panel1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        MaximizeBox = False
+        MaximumSize = New Size(1280, 720)
+        MinimumSize = New Size(1280, 720)
+        Name = "OptionsMenu"
+        StartPosition = FormStartPosition.CenterScreen
+        Style.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Style.MdiChild.IconHorizontalAlignment = HorizontalAlignment.Center
+        Style.MdiChild.IconVerticalAlignment = VisualStyles.VerticalAlignment.Center
+        Style.TitleBar.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Style.TitleBar.BottomBorderColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Style.TitleBar.CloseButtonForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Style.TitleBar.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Style.TitleBar.MinimizeButtonForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Text = "Options"
+        Panel1.ResumeLayout(False)
+        General_pnl.ResumeLayout(False)
+        General_pnl.PerformLayout()
+        about_pnl.ResumeLayout(False)
+        about_pnl.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        ResumeLayout(False)
     End Sub
 
     Friend WithEvents Panel1 As Panel
@@ -650,6 +657,9 @@ Partial Class OptionsMenu
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents LinkLabel4 As LinkLabel
+    Friend WithEvents CheckBox6 As CheckBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
     Friend WithEvents about_pnl As Panel
     Friend WithEvents Button2 As Button
     Friend WithEvents LinkLabel1 As LinkLabel
