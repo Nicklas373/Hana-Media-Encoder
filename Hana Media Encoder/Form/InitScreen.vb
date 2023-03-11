@@ -32,13 +32,15 @@ Public Class InitScreen
         Hide()
     End Sub
     Private sub InitDir()
-        Dim retReqDir As String() = {"audioConfig", "audioStream", "videoConfig", "videoStream", "thumbnail"}
+        Dim retReqDir As String() = {"audioConfig", "audioStream", "videoConfig", "videoStream", "thumbnail", "queue", "queue\audio",
+                                     "queue\audio\audioStream", "queue\audio\audioConfig", "queue\video", "queue\video\videoStream",
+                                     "queue\video\videoConfig", "chapterConfig", "muxConfig", "trimConfig", "HME-Engine"}
         For Each req_dir As String In retReqDir
             Label1.Text = "Loading: " & req_dir
-            Thread.Sleep(200)
+            Thread.Sleep(100)
             Refresh()
             If Directory.Exists(My.Application.Info.DirectoryPath & "\" & req_dir) = False Then
-                Thread.Sleep(200)
+                Thread.Sleep(100)
                 Refresh()
                 Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\" & req_dir)
             End If
