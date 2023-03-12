@@ -76,7 +76,7 @@ Public Class EFlagsMenu
         End If
     End Sub
     Public Sub MediaEncodeLoad()
-        If MetroSetComboBox2.Text.ToString = "Video Flags" Then
+        If MetroSetComboBox2.Text.ToString = "Video Command" Then
             If File.Exists(VideoStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
                 TextBoxExt1.Text = File.ReadAllText(VideoStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt")
             ElseIf File.Exists(VideoQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
@@ -84,7 +84,7 @@ Public Class EFlagsMenu
             Else
                 TextBoxExt1.Text = "Command not found :("
             End If
-        ElseIf MetroSetComboBox2.Text.ToString = "Audio Flags" Then
+        ElseIf MetroSetComboBox2.Text.ToString = "Audio Command" Then
             If File.Exists(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
                 If MainMenu.MetroSetSwitch6.Switched = False And MainMenu.DataGridView1.Rows.Count <= 0 Then
                     FlagsCount = MainMenu.MetroSetComboBox3.Items.Count
@@ -102,19 +102,19 @@ Public Class EFlagsMenu
             Else
                 TextBoxExt1.Text = "Command not found :("
             End If
-        ElseIf MetroSetComboBox2.Text.ToString = "Chapter Flags" Then
+        ElseIf MetroSetComboBox2.Text.ToString = "Chapter Command" Then
             If File.Exists(ChapterStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
                 TextBoxExt1.Text = File.ReadAllText(ChapterStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt")
             Else
                 TextBoxExt1.Text = "Command not found :("
             End If
-        ElseIf MetroSetComboBox2.Text.ToString = "Mux Flags" Then
+        ElseIf MetroSetComboBox2.Text.ToString = "Mux Command" Then
             If File.Exists(MuxStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
                 TextBoxExt1.Text = File.ReadAllText(MuxStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt")
             Else
                 TextBoxExt1.Text = "Command not found :("
             End If
-        ElseIf MetroSetComboBox2.Text.ToString = "Trim Flags" Then
+        ElseIf MetroSetComboBox2.Text.ToString = "Trim Command" Then
             If File.Exists(TrimStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
                 TextBoxExt1.Text = File.ReadAllText(TrimStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt")
             Else
