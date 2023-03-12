@@ -1969,12 +1969,24 @@ Public Class MainMenu
                                                             " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
                                         End If
                                     Else
+                                        If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
+                                            Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath &
+                                                            Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
+                                                            " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
+                                        Else
+                                            Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
+                                                            " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
+                                        End If
+                                    End If
+                                Else
+                                    If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
+                                        Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath &
+                                                            Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
+                                                            " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
+                                    Else
                                         Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
                                                             " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
                                     End If
-                                Else
-                                    Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                            " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
                                 End If
                                 HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                 TextBox1.Enabled = False
