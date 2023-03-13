@@ -3792,7 +3792,6 @@ Public Class MainMenu
                     Button16.BackColor = ColorTranslator.FromHtml("#F4A950")
                     Button15.Enabled = False
                     Button16.Enabled = True
-                    NotifyIcon("Hana Media Encoder", "Video profile has been saved!", 1000, True)
                 ElseIf contextstripstate1 = "remove" Then
                     For i As Integer = 0 To DataGridView1.Rows.Count - 1
                         VideoStreamFlags = VideoQueueFlagsPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".txt"
@@ -3819,7 +3818,6 @@ Public Class MainMenu
                     Button16.BackColor = ColorTranslator.FromHtml("#161B21")
                     Button15.Enabled = True
                     Button16.Enabled = False
-                    NotifyIcon("Hana Media Encoder", "Video profile has been removed!", 1000, True)
                 Else
                     NotifyIcon("Hana Media Encoder", "Invalid option!", 1000, False)
                 End If
@@ -3894,7 +3892,6 @@ Public Class MainMenu
                             Button18.BackColor = ColorTranslator.FromHtml("#F4A950")
                             Button17.Enabled = False
                             Button18.Enabled = True
-                            NotifyIcon("Hana Media Encoder", "Audio profile has been saved!", 1000, True)
                         Else
                             NotifyIcon("Hana Media Encoder", "Failed to save audio profile!", 1000, True)
                         End If
@@ -3923,7 +3920,6 @@ Public Class MainMenu
                     Button18.BackColor = ColorTranslator.FromHtml("#161B21")
                     Button17.Enabled = True
                     Button18.Enabled = False
-                    NotifyIcon("Hana Media Encoder", "Audio profile has been removed!", 1000, True)
                 Else
                     NotifyIcon("Hana Media Encoder", "Invalid option!", 1000, False)
                 End If
@@ -4024,7 +4020,6 @@ Public Class MainMenu
                     Button16.BackColor = ColorTranslator.FromHtml("#F4A950")
                     Button15.Enabled = False
                     Button16.Enabled = True
-                    NotifyIcon("Hana Media Encoder", "Video profile has been saved!", 1000, True)
                 ElseIf contextstripstate1 = "remove" Then
                     For i As Integer = 0 To DataGridView1.Rows.Count - 1
                         If DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Audio") = True Then
@@ -4039,7 +4034,6 @@ Public Class MainMenu
                     Button16.BackColor = ColorTranslator.FromHtml("#161B21")
                     Button15.Enabled = True
                     Button16.Enabled = False
-                    NotifyIcon("Hana Media Encoder", "Video profile has been removed!", 1000, True)
                 Else
                     NotifyIcon("Hana Media Encoder", "Invalid option!", 1000, False)
                 End If
@@ -4116,7 +4110,6 @@ Public Class MainMenu
                             Button18.BackColor = ColorTranslator.FromHtml("#F4A950")
                             Button17.Enabled = False
                             Button18.Enabled = True
-                            NotifyIcon("Hana Media Encoder", "Audio profile has been saved!", 1000, True)
                         Else
                             NotifyIcon("Hana Media Encoder", "Failed to save audio profile!", 1000, True)
                         End If
@@ -4143,7 +4136,6 @@ Public Class MainMenu
                     Button18.BackColor = ColorTranslator.FromHtml("#161B21")
                     Button17.Enabled = True
                     Button18.Enabled = False
-                    NotifyIcon("Hana Media Encoder", "Audio profile has been removed!", 1000, True)
                 Else
                     NotifyIcon("Hana Media Encoder", "Invalid option!", 1000, False)
                 End If
@@ -5898,6 +5890,7 @@ Public Class MainMenu
         Dim files() As String = e.Data.GetData(DataFormats.FileDrop)
         Dim num As Integer = 0
         Dim order As Integer
+        unloadMedia()
         For Each mediapath In files
             If Strings.Right(mediapath, 4).ToLower = "flac" Or Strings.Right(mediapath, 4).ToLower = ".wav" Or Strings.Right(mediapath, 4).ToLower = ".mp3" Or
                 Strings.Right(mediapath, 4).ToLower = ".mp2" Or Strings.Right(mediapath, 4).ToLower = ".aac" Or Strings.Right(mediapath, 4).ToLower = ".dts" Or
@@ -5944,7 +5937,6 @@ Public Class MainMenu
                 MetroSetSwitch2.Enabled = True
                 DataGridView1.DataSource = mediaQueueTable
                 num += 1
-                unloadMedia()
             ElseIf Strings.Right(mediapath, 4).ToLower = ".mkv" Or Strings.Right(mediapath, 4).ToLower = ".mp4" Or
                    Strings.Right(mediapath, 4).ToLower = ".avi" Or Strings.Right(mediapath, 4).ToLower = ".flv" Or
                    Strings.Right(mediapath, 3).ToLower = ".ts" Or Strings.Right(mediapath, 4).ToLower = "m2ts" Or
@@ -5995,7 +5987,6 @@ Public Class MainMenu
                 MetroSetSwitch1.Enabled = True
                 MetroSetSwitch2.Enabled = True
                 MetroSetComboBox2.Enabled = True
-                unloadMedia()
             Else
                 NotifyIcon("Hana Media Encoder", "Media file format are not supported !", 1000, False)
             End If
@@ -6062,6 +6053,7 @@ Public Class MainMenu
         OpenFileDialog.Title = "Choose Media File"
         OpenFileDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         If OpenFileDialog.ShowDialog() = DialogResult.OK Then
+            unloadMedia()
             If Strings.Right(OpenFileDialog.FileName, 4).ToLower = "flac" Or Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".wav" Or Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".mp3" Or
                 Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".mp2" Or Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".aac" Or Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".dts" Or
                 Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".dsd" Or Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".pcm" Or Strings.Right(OpenFileDialog.FileName, 4).ToLower = "opus" Or
@@ -6099,7 +6091,6 @@ Public Class MainMenu
                 AudioQueue = False
                 MetroSetCheckBox2.Enabled = True
                 MetroSetSwitch2.Enabled = True
-                unloadMedia()
             ElseIf Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".mkv" Or Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".mp4" Or Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".avi" Or
                             Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".flv" Or Strings.Right(OpenFileDialog.FileName, 3).ToLower = ".ts" Or Strings.Right(OpenFileDialog.FileName, 4).ToLower = "m2ts" Or
                             Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".mov" Or Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".mp4" Or Strings.Right(OpenFileDialog.FileName, 4).ToLower = ".vob" Or
@@ -6141,7 +6132,6 @@ Public Class MainMenu
                 MetroSetSwitch1.Enabled = True
                 MetroSetSwitch2.Enabled = True
                 MetroSetComboBox2.Enabled = True
-                unloadMedia()
             Else
                 NotifyIcon("Hana Media Encoder", "Media file format are not supported !", 1000, False)
             End If
