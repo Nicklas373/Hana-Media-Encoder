@@ -1,8 +1,15 @@
 {
-	"release_date": "23 November 2022",
-	"version": "1.3.9.0",
+	"release_date": "13 March 2023",
+	"version": "1.4.0.0",
 	"changelog": [
-	    "- Fixup issue with auto naming convention for 'copy' audio codec format"
+		"- Introduce Always Fullscreen options",
+		"- Introduce Command Flags menu to show all encoding flags in single menu",
+	    "- Introduce Media Queue feature (Batch processing)",
+		"- Introduce new feature to save, remove or encode with single or queue media files (Media Queue)",
+		"- Introduce quick profile feature to configure audio profile (Media Queue)",
+		"- Introduce feature to configure video container to use another container (Media Queue)",
+		"- Misc updates and cleanup",
+		"- Slightly re-design interface on several menu"
 	],
-	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.3.9/HME_Setup.msi"
+	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.4.0/HME_Setup.msi"
 }

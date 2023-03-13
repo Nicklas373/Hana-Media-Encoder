@@ -236,7 +236,7 @@ then execute it to FFMPEG, FFPLAY or FFPROBE.
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
     <SupportedOSPlatformVersion>10.0.22000.0</SupportedOSPlatformVersion>
-    <PackageIcon>Assets\HME_Logo_Hi.png</PackageIcon>
+    <PackageIcon>HME_Logo_Hi.png</PackageIcon>
     <ApplicationIcon>Assets\HME_256.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSymbols>True</IncludeSymbols>
@@ -304,6 +304,11 @@ then execute it to FFMPEG, FFPLAY or FFPROBE.
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="My Project\Settings.Designer.vb">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -323,6 +328,11 @@ then execute it to FFMPEG, FFPLAY or FFPROBE.
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Update="My Project\Settings.settings">
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -336,12 +346,20 @@ then execute it to FFMPEG, FFPLAY or FFPROBE.
       <PackagePath>\</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Assets\HME_Logo_Hi.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Newtonsoft.Json.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net6.0-windows10.0.22621.0\Assets\" />
   </ItemGroup>
 
 </Project>

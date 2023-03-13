@@ -15,7 +15,19 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_070B2774AA014BB3A02E77CFB1158447"
+        "MsmKey" = "8:_038982B9057744C98103F5CEB01A89E5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_13F31049B94946FB8E666130FD2E9066"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1DF9B11800FB42069DC16BB882B25190"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -27,67 +39,73 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_40FB057E81D54720A6B785828DD00B70"
+        "MsmKey" = "8:_2CEBDEE6972548F6879CA6D13D70E86E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4AC4B1175AAD4B76B51DB5FC0DB59D29"
+        "MsmKey" = "8:_4B2B528DC61245359F90C92101C1F60F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_561CF94F2D6E49AE95956FC85742E09B"
+        "MsmKey" = "8:_631E7A48894D49E0932BD49CE3AE9CC4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_590791B94C3C4B1CA450DE9EFE7C842F"
+        "MsmKey" = "8:_7C2B1BC6F29D408B89D41CCD03C98DEA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6089CDFA43BC4AD3A55D8F95EAA987DC"
+        "MsmKey" = "8:_7C50BD42AD904548A34E8CB137124E75"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_638E66AC424E47C8B71585C29EE6F33D"
+        "MsmKey" = "8:_8A5E393F96F940948ABE0B053F7C2C00"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_7CBAE0B292B9445D809C396952D8EED0"
+        "MsmKey" = "8:_8DF062EC846D4DEB9921934B208FAB89"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A7B3421DDB9C48D4B0DD7AFAA0C7100E"
+        "MsmKey" = "8:_A49E2EBC33E04A89B4499FF249F8B3D6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_DB72D202146747D2A6B441256145611D"
+        "MsmKey" = "8:_B0897B96DBB64ED78745A2CB1CE01A77"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E3B61B46F28A4164AECE56852B6B3804"
+        "MsmKey" = "8:_D083F0EB0A374D16A1FF48A5AA375556"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EACC46E79B044240A8C5607016DB45AD"
+        "MsmKey" = "8:_E56ACAD63FB64F1D9E5D34951CA3754B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EDCB1FA33BB647288C41F35CE4669A51"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -198,12 +216,12 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_070B2774AA014BB3A02E77CFB1158447"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_038982B9057744C98103F5CEB01A89E5"
             {
-            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Snapshot_Placeholder.png"
-            "TargetName" = "8:Snapshot_Placeholder.png"
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Remove.png"
+            "TargetName" = "8:Remove.png"
             "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -218,12 +236,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_40FB057E81D54720A6B785828DD00B70"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_13F31049B94946FB8E666130FD2E9066"
             {
-            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_Logo_Hi.png"
-            "TargetName" = "8:HME_Logo_Hi.png"
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Add.png"
+            "TargetName" = "8:Add.png"
             "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -238,32 +256,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4AC4B1175AAD4B76B51DB5FC0DB59D29"
-            {
-            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_128.ico"
-            "TargetName" = "8:HME_128.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_561CF94F2D6E49AE95956FC85742E09B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1DF9B11800FB42069DC16BB882B25190"
             {
             "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME.ico"
             "TargetName" = "8:HME.ico"
             "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -278,12 +276,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_590791B94C3C4B1CA450DE9EFE7C842F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2CEBDEE6972548F6879CA6D13D70E86E"
             {
-            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_256.ico"
-            "TargetName" = "8:HME_256.ico"
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_128.ico"
+            "TargetName" = "8:HME_128.ico"
             "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -298,12 +296,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6089CDFA43BC4AD3A55D8F95EAA987DC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4B2B528DC61245359F90C92101C1F60F"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_Logo_Hi.png"
+            "TargetName" = "8:HME_Logo_Hi.png"
+            "Tag" = "8:"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_631E7A48894D49E0932BD49CE3AE9CC4"
             {
             "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Spectrum_Placeholder.png"
             "TargetName" = "8:Spectrum_Placeholder.png"
             "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -318,12 +336,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_638E66AC424E47C8B71585C29EE6F33D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7C2B1BC6F29D408B89D41CCD03C98DEA"
             {
-            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_Logo.png"
-            "TargetName" = "8:HME_Logo.png"
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Snapshot_Placeholder.png"
+            "TargetName" = "8:Snapshot_Placeholder.png"
             "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -338,12 +356,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7CBAE0B292B9445D809C396952D8EED0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7C50BD42AD904548A34E8CB137124E75"
             {
-            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Snapshot_Error_Placeholder.png"
-            "TargetName" = "8:Snapshot_Error_Placeholder.png"
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_256.ico"
+            "TargetName" = "8:HME_256.ico"
             "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -358,12 +376,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A7B3421DDB9C48D4B0DD7AFAA0C7100E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8A5E393F96F940948ABE0B053F7C2C00"
             {
             "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\arrow_up.png"
             "TargetName" = "8:arrow_up.png"
             "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -378,12 +396,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DB72D202146747D2A6B441256145611D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8DF062EC846D4DEB9921934B208FAB89"
             {
-            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\arrow_down.png"
-            "TargetName" = "8:arrow_down.png"
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Snapshot_Error_Placeholder.png"
+            "TargetName" = "8:Snapshot_Error_Placeholder.png"
             "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -398,12 +416,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E3B61B46F28A4164AECE56852B6B3804"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A49E2EBC33E04A89B4499FF249F8B3D6"
             {
             "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\theme.xml"
             "TargetName" = "8:theme.xml"
             "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -418,12 +436,72 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EACC46E79B044240A8C5607016DB45AD"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0897B96DBB64ED78745A2CB1CE01A77"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\arrow_prev.png"
+            "TargetName" = "8:arrow_prev.png"
+            "Tag" = "8:"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D083F0EB0A374D16A1FF48A5AA375556"
             {
             "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\Spectrum_Error_Placeholder.png"
             "TargetName" = "8:Spectrum_Error_Placeholder.png"
             "Tag" = "8:"
-            "Folder" = "8:_B024D129C8B0493E9A37D83DB28A4C5E"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E56ACAD63FB64F1D9E5D34951CA3754B"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\arrow_down.png"
+            "TargetName" = "8:arrow_down.png"
+            "Tag" = "8:"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EDCB1FA33BB647288C41F35CE4669A51"
+            {
+            "SourcePath" = "8:..\\Hana Media Encoder\\Assets\\HME_Logo.png"
+            "TargetName" = "8:HME_Logo.png"
+            "Tag" = "8:"
+            "Folder" = "8:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -476,13 +554,13 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_B024D129C8B0493E9A37D83DB28A4C5E"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_0D7BC6A3E8C546A09CB0823E2B0B9DED"
                     {
                     "Name" = "8:Assets"
-                    "AlwaysCreate" = "11:TRUE"
+                    "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_73C516990BFC467CA2C037123B0CD5C2"
+                    "Property" = "8:_CDA1D07F931240B29A7C230434912572"
                         "Folders"
                         {
                         }
@@ -523,7 +601,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Hana Media Encoder"
         "ARPURLINFOABOUT" = "8:https://github.com/HANA-CI-Build-Project"
-        "ARPPRODUCTICON" = "8:_4AC4B1175AAD4B76B51DB5FC0DB59D29"
+        "ARPPRODUCTICON" = "8:_7C50BD42AD904548A34E8CB137124E75"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -637,7 +715,7 @@
             "Target" = "8:_253E5B8251864449844D3471D298269B"
             "Folder" = "8:_0A6EEF3DD3EA427BA7CE73662C3A2E3D"
             "WorkingFolder" = "8:_D6B82C45758E485CA0C5AC04002D03AC"
-            "Icon" = "8:_4AC4B1175AAD4B76B51DB5FC0DB59D29"
+            "Icon" = "8:_7C50BD42AD904548A34E8CB137124E75"
             "Feature" = "8:"
             }
         }
@@ -1041,7 +1119,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_253E5B8251864449844D3471D298269B"
             {
-            "SourcePath" = "8:..\\Hana Media Encoder\\obj\\Debug\\net6.0-windows10.0.22621.0\\apphost.exe"
+            "SourcePath" = "8:..\\Hana Media Encoder\\obj\\Release\\net6.0-windows10.0.22621.0\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D6B82C45758E485CA0C5AC04002D03AC"
