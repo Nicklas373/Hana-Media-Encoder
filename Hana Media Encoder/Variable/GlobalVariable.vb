@@ -1,5 +1,5 @@
-﻿Imports Newtonsoft.Json.Linq
-Imports System.Net
+﻿Imports System.Net
+Imports Newtonsoft.Json.Linq
 Module GlobalVariable
     ' Readonly variable
     Public ReadOnly AudioStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\audioStream\"

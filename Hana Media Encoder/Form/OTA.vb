@@ -1,9 +1,9 @@
-﻿Imports Syncfusion.Windows.Forms
-Imports Syncfusion.WinForms.Controls
-Imports Newtonsoft.Json.Linq
-Imports Newtonsoft.Json.JsonConvert
+﻿Imports System.IO
 Imports System.Net
-Imports System.IO
+Imports Newtonsoft.Json.JsonConvert
+Imports Newtonsoft.Json.Linq
+Imports Syncfusion.Windows.Forms
+Imports Syncfusion.WinForms.Controls
 Public Class OTAMenu
     Inherits SfForm
     Dim downloadStats As Boolean = True

@@ -442,6 +442,7 @@ Partial Class AudioProfile
         MetroSetComboBox2.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
         MetroSetComboBox2.FormattingEnabled = True
         MetroSetComboBox2.IsDerivedStyle = True
+        MetroSetComboBox2.Items.AddRange(New Object() {"Advanced Audio Coding (*.aac)", "Free Lossless Audio Codec (*.flac)", "MP2 Audio (*.mp2)", "MP3 Audio (*.mp3)", "Opus Audio (*.opus)", "Wave PCM (*.wav)"})
         MetroSetComboBox2.ItemHeight = 20
         MetroSetComboBox2.Location = New Point(147, 319)
         MetroSetComboBox2.Name = "MetroSetComboBox2"
