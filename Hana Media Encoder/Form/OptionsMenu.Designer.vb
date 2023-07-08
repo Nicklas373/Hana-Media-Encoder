@@ -25,17 +25,6 @@ Partial Class OptionsMenu
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(OptionsMenu))
         Panel1 = New Panel()
         General_pnl = New Panel()
-        about_pnl = New Panel()
-        Button2 = New Button()
-        LinkLabel1 = New LinkLabel()
-        Label28 = New Label()
-        LinkLabel2 = New LinkLabel()
-        Label27 = New Label()
-        Label26 = New Label()
-        Label25 = New Label()
-        Label29 = New Label()
-        Label30 = New Label()
-        PictureBox1 = New PictureBox()
         CheckBox6 = New CheckBox()
         Label11 = New Label()
         Label10 = New Label()
@@ -67,6 +56,17 @@ Partial Class OptionsMenu
         Button4 = New Button()
         Button1 = New Button()
         Button3 = New Button()
+        about_pnl = New Panel()
+        Button2 = New Button()
+        LinkLabel1 = New LinkLabel()
+        Label28 = New Label()
+        LinkLabel2 = New LinkLabel()
+        Label27 = New Label()
+        Label26 = New Label()
+        Label25 = New Label()
+        Label29 = New Label()
+        Label30 = New Label()
+        PictureBox1 = New PictureBox()
         Panel1.SuspendLayout()
         General_pnl.SuspendLayout()
         about_pnl.SuspendLayout()
@@ -123,133 +123,6 @@ Partial Class OptionsMenu
         General_pnl.Size = New Size(1257, 609)
         General_pnl.TabIndex = 38
         ' 
-        ' about_pnl
-        ' 
-        about_pnl.AutoScroll = True
-        about_pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        about_pnl.Controls.Add(Button2)
-        about_pnl.Controls.Add(LinkLabel1)
-        about_pnl.Controls.Add(Label28)
-        about_pnl.Controls.Add(LinkLabel2)
-        about_pnl.Controls.Add(Label27)
-        about_pnl.Controls.Add(Label26)
-        about_pnl.Controls.Add(Label25)
-        about_pnl.Controls.Add(Label29)
-        about_pnl.Controls.Add(Label30)
-        about_pnl.Controls.Add(PictureBox1)
-        about_pnl.Dock = DockStyle.Fill
-        about_pnl.Location = New Point(0, 0)
-        about_pnl.Name = "about_pnl"
-        about_pnl.Size = New Size(1240, 701)
-        about_pnl.TabIndex = 57
-        ' 
-        ' Button2
-        ' 
-        Button2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        Button2.FlatAppearance.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Button2.FlatStyle = FlatStyle.Flat
-        Button2.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Button2.Location = New Point(627, 22)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(116, 23)
-        Button2.TabIndex = 11
-        Button2.Text = "Check for updates"
-        Button2.UseVisualStyleBackColor = False
-        ' 
-        ' LinkLabel1
-        ' 
-        LinkLabel1.ActiveLinkColor = Color.DodgerBlue
-        LinkLabel1.AutoSize = True
-        LinkLabel1.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        LinkLabel1.Location = New Point(238, 207)
-        LinkLabel1.Name = "LinkLabel1"
-        LinkLabel1.Size = New Size(325, 15)
-        LinkLabel1.TabIndex = 10
-        LinkLabel1.TabStop = True
-        LinkLabel1.Text = "https://github.com/Nicklas373/Hana-Media-Encoder/issues" ' 
-        ' Label28
-        ' 
-        Label28.AutoSize = True
-        Label28.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Label28.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label28.Location = New Point(237, 181)
-        Label28.Name = "Label28"
-        Label28.Size = New Size(108, 26)
-        Label28.TabIndex = 9
-        Label28.Text = "Submit issue" ' 
-        ' LinkLabel2
-        ' 
-        LinkLabel2.ActiveLinkColor = Color.DodgerBlue
-        LinkLabel2.AutoSize = True
-        LinkLabel2.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        LinkLabel2.Location = New Point(237, 155)
-        LinkLabel2.Name = "LinkLabel2"
-        LinkLabel2.Size = New Size(289, 15)
-        LinkLabel2.TabIndex = 8
-        LinkLabel2.TabStop = True
-        LinkLabel2.Text = "https://github.com/Nicklas373/Hana-Media-Encoder" ' 
-        ' Label27
-        ' 
-        Label27.AutoSize = True
-        Label27.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Label27.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label27.Location = New Point(237, 127)
-        Label27.Name = "Label27"
-        Label27.Size = New Size(72, 26)
-        Label27.TabIndex = 6
-        Label27.Text = "Website" ' 
-        ' Label26
-        ' 
-        Label26.AutoSize = True
-        Label26.Font = New Font("Poppins", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label26.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label26.Location = New Point(18, 271)
-        Label26.Name = "Label26"
-        Label26.Size = New Size(60, 23)
-        Label26.TabIndex = 5
-        Label26.Text = "Label26" ' 
-        ' Label25
-        ' 
-        Label25.AutoSize = True
-        Label25.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Label25.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label25.Location = New Point(237, 85)
-        Label25.Name = "Label25"
-        Label25.Size = New Size(84, 26)
-        Label25.TabIndex = 4
-        Label25.Text = "copyright" ' 
-        ' Label29
-        ' 
-        Label29.AutoSize = True
-        Label29.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Label29.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label29.Location = New Point(237, 58)
-        Label29.Name = "Label29"
-        Label29.Size = New Size(65, 26)
-        Label29.TabIndex = 3
-        Label29.Text = "appver" ' 
-        ' Label30
-        ' 
-        Label30.AutoSize = True
-        Label30.Font = New Font("Poppins SemiBold", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label30.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label30.Location = New Point(232, 16)
-        Label30.Name = "Label30"
-        Label30.Size = New Size(148, 48)
-        Label30.TabIndex = 2
-        Label30.Text = "APPNAME" ' 
-        ' PictureBox1
-        ' 
-        PictureBox1.BackColor = Color.Transparent
-        PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), Image)
-        PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBox1.InitialImage = Nothing
-        PictureBox1.Location = New Point(18, 21)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(200, 200)
-        PictureBox1.TabIndex = 1
-        PictureBox1.TabStop = False
-        ' 
         ' CheckBox6
         ' 
         CheckBox6.AutoSize = True
@@ -262,13 +135,14 @@ Partial Class OptionsMenu
         ' Label11
         ' 
         Label11.AutoSize = True
-        Label11.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label11.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label11.ForeColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
         Label11.Location = New Point(19, 256)
         Label11.Name = "Label11"
-        Label11.Size = New Size(438, 15)
+        Label11.Size = New Size(415, 15)
         Label11.TabIndex = 46
-        Label11.Text = "Application will always run on fullscreen window (Not applicable to all menu)" ' 
+        Label11.Text = "Application will always run on fullscreen window (Not applicable to all menu)"
+        ' 
         ' Label10
         ' 
         Label10.AutoSize = True
@@ -277,15 +151,16 @@ Partial Class OptionsMenu
         Label10.Name = "Label10"
         Label10.Size = New Size(114, 17)
         Label10.TabIndex = 45
-        Label10.Text = "Always Fullscreen" ' 
+        Label10.Text = "Always Fullscreen"
+        ' 
         ' LinkLabel4
         ' 
         LinkLabel4.ActiveLinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
         LinkLabel4.AutoSize = True
         LinkLabel4.DisabledLinkColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        LinkLabel4.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        LinkLabel4.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         LinkLabel4.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        LinkLabel4.Location = New Point(297, 576)
+        LinkLabel4.Location = New Point(297, 556)
         LinkLabel4.Name = "LinkLabel4"
         LinkLabel4.Size = New Size(183, 15)
         LinkLabel4.TabIndex = 44
@@ -296,50 +171,51 @@ Partial Class OptionsMenu
         ' Label9
         ' 
         Label9.AutoSize = True
-        Label9.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label9.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label9.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label9.Location = New Point(19, 576)
+        Label9.Location = New Point(19, 556)
         Label9.Name = "Label9"
         Label9.Size = New Size(280, 15)
         Label9.TabIndex = 43
-        Label9.Text = "FFMPEG prebulit binary can be download from here" ' 
+        Label9.Text = "FFMPEG prebulit binary can be download from here"
+        ' 
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label8.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         Label8.Location = New Point(19, 175)
         Label8.Name = "Label8"
         Label8.Size = New Size(739, 15)
         Label8.TabIndex = 42
         Label8.Text = "Advanced to show more information (encoded size, encoded frame time and encoded speed), percentage to show encode process percent"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(19, 378)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(751, 15)
-        Me.Label7.TabIndex = 41
-        Me.Label7.Text = "Enable this mode to help slow frame calculation while encoding on disk drive with" &
-        " slow read / write operation (Not effective while using trim)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label7.Location = New Point(19, 356)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(751, 15)
+        Label7.TabIndex = 41
+        Label7.Text = "Enable this mode to help slow frame calculation while encoding on disk drive with slow read / write operation (Not effective while using trim)" & vbCrLf
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label6.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label6.Location = New Point(19, 357)
+        Label6.Location = New Point(19, 337)
         Label6.Name = "Label6"
         Label6.Size = New Size(434, 15)
         Label6.TabIndex = 40
-        Label6.Text = "This option will bypass application to count needed frame for encode calculation" ' 
+        Label6.Text = "This option will bypass application to count needed frame for encode calculation"
+        ' 
         ' CheckBox5
         ' 
         CheckBox5.AutoSize = True
-        CheckBox5.Location = New Point(19, 325)
+        CheckBox5.Location = New Point(19, 309)
         CheckBox5.Name = "CheckBox5"
         CheckBox5.Size = New Size(15, 14)
         CheckBox5.TabIndex = 39
@@ -350,21 +226,23 @@ Partial Class OptionsMenu
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label3.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label3.Location = New Point(40, 323)
+        Label3.Location = New Point(40, 307)
         Label3.Name = "Label3"
         Label3.Size = New Size(162, 17)
         Label3.TabIndex = 38
-        Label3.Text = "Bypass Frame Calculation" ' 
+        Label3.Text = "Bypass Frame Calculation"
+        ' 
         ' Label20
         ' 
         Label20.AutoSize = True
-        Label20.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label20.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label20.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         Label20.Location = New Point(19, 156)
         Label20.Name = "Label20"
         Label20.Size = New Size(490, 15)
         Label20.TabIndex = 36
-        Label20.Text = "Select additional information that want to show while on encoding, select none to disable it" ' 
+        Label20.Text = "Select additional information that want to show while on encoding, select none to disable it"
+        ' 
         ' ComboBox2
         ' 
         ComboBox2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
@@ -386,37 +264,41 @@ Partial Class OptionsMenu
         Label19.Name = "Label19"
         Label19.Size = New Size(194, 17)
         Label19.TabIndex = 34
-        Label19.Text = "Additional Encode Information" ' 
+        Label19.Text = "Additional Encode Information"
+        ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label4.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label4.Location = New Point(19, 477)
+        Label4.Location = New Point(19, 456)
         Label4.Name = "Label4"
         Label4.Size = New Size(431, 15)
         Label4.TabIndex = 33
-        Label4.Text = "Enable this mode may cause encode calculation not work, proceed with caution " ' 
+        Label4.Text = "Enable this mode may cause encode calculation not work, proceed with caution "
+        ' 
         ' Label24
         ' 
         Label24.AutoSize = True
-        Label24.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label24.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label24.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         Label24.Location = New Point(19, 76)
         Label24.Name = "Label24"
         Label24.Size = New Size(635, 15)
         Label24.TabIndex = 32
-        Label24.Text = "Enable this mode while encoding progress bar stuck at specific percentage (Automatically use for audio only encoding)" ' 
+        Label24.Text = "Enable this mode while encoding progress bar stuck at specific percentage (Automatically use for audio only encoding)"
+        ' 
         ' Label22
         ' 
         Label22.AutoSize = True
-        Label22.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label22.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label22.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         Label22.Location = New Point(19, 57)
         Label22.Name = "Label22"
         Label22.Size = New Size(515, 15)
         Label22.TabIndex = 30
-        Label22.Text = "Alternate encode calculation will use duration time as encode status instead of frame calculation" ' 
+        Label22.Text = "Alternate encode calculation will use duration time as encode status instead of frame calculation"
+        ' 
         ' CheckBox4
         ' 
         CheckBox4.AutoSize = True
@@ -436,21 +318,23 @@ Partial Class OptionsMenu
         Label23.Name = "Label23"
         Label23.Size = New Size(182, 17)
         Label23.TabIndex = 28
-        Label23.Text = "Alternate Encode Calculation" ' 
+        Label23.Text = "Alternate Encode Calculation"
+        ' 
         ' Label18
         ' 
         Label18.AutoSize = True
-        Label18.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label18.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label18.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label18.Location = New Point(19, 456)
+        Label18.Location = New Point(19, 437)
         Label18.Name = "Label18"
         Label18.Size = New Size(534, 15)
         Label18.TabIndex = 25
-        Label18.Text = "Show encoding error log from FFMPEG result after encoding (Not work while media queue is active)" ' 
+        Label18.Text = "Show encoding error log from FFMPEG result after encoding (Not work while media queue is active)"
+        ' 
         ' CheckBox3
         ' 
         CheckBox3.AutoSize = True
-        CheckBox3.Location = New Point(19, 424)
+        CheckBox3.Location = New Point(19, 409)
         CheckBox3.Name = "CheckBox3"
         CheckBox3.Size = New Size(15, 14)
         CheckBox3.TabIndex = 24
@@ -461,11 +345,12 @@ Partial Class OptionsMenu
         Label17.AutoSize = True
         Label17.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label17.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label17.Location = New Point(40, 422)
+        Label17.Location = New Point(40, 407)
         Label17.Name = "Label17"
         Label17.Size = New Size(87, 17)
         Label17.TabIndex = 23
-        Label17.Text = "Debug Mode" ' 
+        Label17.Text = "Debug Mode"
+        ' 
         ' CheckBox2
         ' 
         CheckBox2.AutoSize = True
@@ -510,32 +395,35 @@ Partial Class OptionsMenu
         Label5.Name = "Label5"
         Label5.Size = New Size(171, 17)
         Label5.TabIndex = 7
-        Label5.Text = "GPU Hardware Accelerated" ' 
+        Label5.Text = "GPU Hardware Accelerated"
+        ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label2.Location = New Point(19, 557)
+        Label2.Location = New Point(19, 537)
         Label2.Name = "Label2"
         Label2.Size = New Size(341, 15)
         Label2.TabIndex = 3
-        Label2.Text = "Select FFMPEG folder which contain ffmpeg, ffplay and ffprobe" ' 
+        Label2.Text = "Select FFMPEG folder which contain ffmpeg, ffplay and ffprobe"
+        ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label1.Location = New Point(19, 525)
+        Label1.Location = New Point(19, 507)
         Label1.Name = "Label1"
         Label1.Size = New Size(101, 17)
         Label1.TabIndex = 1
-        Label1.Text = "FFMPEG Binary" ' 
+        Label1.Text = "FFMPEG Binary"
+        ' 
         ' TextBox1
         ' 
         TextBox1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
         TextBox1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        TextBox1.Location = New Point(130, 523)
+        TextBox1.Location = New Point(130, 507)
         TextBox1.Name = "TextBox1"
         TextBox1.ReadOnly = True
         TextBox1.Size = New Size(310, 23)
@@ -548,7 +436,7 @@ Partial Class OptionsMenu
         Button4.FlatStyle = FlatStyle.Flat
         Button4.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         Button4.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Button4.Location = New Point(459, 521)
+        Button4.Location = New Point(459, 507)
         Button4.Name = "Button4"
         Button4.Size = New Size(86, 29)
         Button4.TabIndex = 0
@@ -592,6 +480,141 @@ Partial Class OptionsMenu
         Button3.TabIndex = 2
         Button3.Text = "About"
         Button3.UseVisualStyleBackColor = False
+        ' 
+        ' about_pnl
+        ' 
+        about_pnl.AutoScroll = True
+        about_pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        about_pnl.Controls.Add(Button2)
+        about_pnl.Controls.Add(LinkLabel1)
+        about_pnl.Controls.Add(Label28)
+        about_pnl.Controls.Add(LinkLabel2)
+        about_pnl.Controls.Add(Label27)
+        about_pnl.Controls.Add(Label26)
+        about_pnl.Controls.Add(Label25)
+        about_pnl.Controls.Add(Label29)
+        about_pnl.Controls.Add(Label30)
+        about_pnl.Controls.Add(PictureBox1)
+        about_pnl.Dock = DockStyle.Fill
+        about_pnl.Location = New Point(0, 0)
+        about_pnl.Name = "about_pnl"
+        about_pnl.Size = New Size(1240, 701)
+        about_pnl.TabIndex = 58
+        ' 
+        ' Button2
+        ' 
+        Button2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Button2.FlatAppearance.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button2.Location = New Point(627, 22)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(116, 23)
+        Button2.TabIndex = 11
+        Button2.Text = "Check for updates"
+        Button2.UseVisualStyleBackColor = False
+        ' 
+        ' LinkLabel1
+        ' 
+        LinkLabel1.ActiveLinkColor = Color.DodgerBlue
+        LinkLabel1.AutoSize = True
+        LinkLabel1.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        LinkLabel1.Location = New Point(238, 207)
+        LinkLabel1.Name = "LinkLabel1"
+        LinkLabel1.Size = New Size(325, 15)
+        LinkLabel1.TabIndex = 10
+        LinkLabel1.TabStop = True
+        LinkLabel1.Text = "https://github.com/Nicklas373/Hana-Media-Encoder/issues"
+        ' 
+        ' Label28
+        ' 
+        Label28.AutoSize = True
+        Label28.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label28.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label28.Location = New Point(237, 181)
+        Label28.Name = "Label28"
+        Label28.Size = New Size(108, 26)
+        Label28.TabIndex = 9
+        Label28.Text = "Submit issue"
+        ' 
+        ' LinkLabel2
+        ' 
+        LinkLabel2.ActiveLinkColor = Color.DodgerBlue
+        LinkLabel2.AutoSize = True
+        LinkLabel2.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        LinkLabel2.Location = New Point(237, 155)
+        LinkLabel2.Name = "LinkLabel2"
+        LinkLabel2.Size = New Size(289, 15)
+        LinkLabel2.TabIndex = 8
+        LinkLabel2.TabStop = True
+        LinkLabel2.Text = "https://github.com/Nicklas373/Hana-Media-Encoder"
+        ' 
+        ' Label27
+        ' 
+        Label27.AutoSize = True
+        Label27.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label27.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label27.Location = New Point(237, 127)
+        Label27.Name = "Label27"
+        Label27.Size = New Size(72, 26)
+        Label27.TabIndex = 6
+        Label27.Text = "Website"
+        ' 
+        ' Label26
+        ' 
+        Label26.AutoSize = True
+        Label26.Font = New Font("Poppins", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label26.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label26.Location = New Point(18, 271)
+        Label26.Name = "Label26"
+        Label26.Size = New Size(60, 23)
+        Label26.TabIndex = 5
+        Label26.Text = "Label26"
+        ' 
+        ' Label25
+        ' 
+        Label25.AutoSize = True
+        Label25.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label25.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label25.Location = New Point(237, 85)
+        Label25.Name = "Label25"
+        Label25.Size = New Size(84, 26)
+        Label25.TabIndex = 4
+        Label25.Text = "copyright"
+        ' 
+        ' Label29
+        ' 
+        Label29.AutoSize = True
+        Label29.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label29.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label29.Location = New Point(237, 58)
+        Label29.Name = "Label29"
+        Label29.Size = New Size(65, 26)
+        Label29.TabIndex = 3
+        Label29.Text = "appver"
+        ' 
+        ' Label30
+        ' 
+        Label30.AutoSize = True
+        Label30.Font = New Font("Poppins SemiBold", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Label30.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label30.Location = New Point(232, 16)
+        Label30.Name = "Label30"
+        Label30.Size = New Size(148, 48)
+        Label30.TabIndex = 2
+        Label30.Text = "APPNAME"
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = Color.Transparent
+        PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), Image)
+        PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+        PictureBox1.InitialImage = Nothing
+        PictureBox1.Location = New Point(18, 21)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(200, 200)
+        PictureBox1.TabIndex = 1
+        PictureBox1.TabStop = False
         ' 
         ' OptionsMenu
         ' 

@@ -2866,7 +2866,7 @@ Partial Class MainMenu
         ComboBox5.Font = New Font("Segoe UI Semilight", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
         ComboBox5.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
         ComboBox5.FormattingEnabled = True
-        ComboBox5.Items.AddRange(New Object() {"default", "slow", "medium", "fast"})
+        ComboBox5.Items.AddRange(New Object() {"default", "slowest", "slow", "medium", "fast"})
         ComboBox5.Location = New Point(400, 45)
         ComboBox5.Name = "ComboBox5"
         ComboBox5.Size = New Size(134, 23)

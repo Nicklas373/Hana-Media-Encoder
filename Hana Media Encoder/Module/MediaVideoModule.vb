@@ -80,12 +80,32 @@
             If GPUHW = "opencl" Then
                 If Cmbx = "default" Then
                     value = " -quality balanced "
-                ElseIf Cmbx = "slow" Then
+                ElseIf Cmbx = "slow" Or Cmbx = "slowest" Then
                     value = " -quality quality "
                 ElseIf Cmbx = "medium" Then
                     value = " -quality balanced "
                 ElseIf Cmbx = "fast" Then
                     value = " -quality speed "
+                Else
+                    value = ""
+                End If
+            ElseIf GPUHW = "qsv" Then
+                If Cmbx = "slowest" Then
+                    value = " -preset slower"
+                Else
+                    value = " -preset " & Cmbx & " "
+                End If
+            ElseIf GPUHW = "cuda" Then
+                If Cmbx = "default" Then
+                    value = " -preset p4 "
+                ElseIf Cmbx = "slowest" Then
+                    value = " -preset p7 "
+                ElseIf Cmbx = "slow" Then
+                    value = " -preset p5 "
+                ElseIf Cmbx = "medium" Then
+                    value = " -preset p4 "
+                ElseIf Cmbx = "fast" Then
+                    value = " -preset p3 "
                 Else
                     value = ""
                 End If

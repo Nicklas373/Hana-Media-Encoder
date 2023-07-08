@@ -7,8 +7,24 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2023</Copyright>
-    <PackageReleaseNotes>v.1.4.0 (20230304):
-- TBA
+    <PackageReleaseNotes>v.1.4.1 (20230709):
+- Fixup encoding algorithm while choose as single encode
+- Fixup join audio issue while audio was single stream
+- Fixup media queue set or apply to selected algorithm
+- Introduce slowest video preset configuration
+- Misc fixes and cleanup
+- Use NVENC preset for video preset (replace default preset, CUDA accelerated only)
+
+
+v.1.4.0 (20230304):
+- Introduce Always Fullscreen options
+- Introduce Command Flags menu to show all encoding flags in single menu
+- Introduce Media Queue feature (Batch processing)
+- Introduce new feature to save, remove or encode with single or queue media files (Media Queue)
+- Introduce quick profile feature to configure audio profile (Media Queue)
+- Introduce feature to configure video container to use another container (Media Queue)
+- Misc updates and cleanup
+- Slightly re-design interface on several menu
 
 v1.3.9 (20221123):
 - Fixup issue with auto naming convetion for "copy" audio codec format
@@ -199,9 +215,9 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2023</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.4.0</Version>
-    <AssemblyVersion>1.4.0</AssemblyVersion>
-    <FileVersion>1.4.0</FileVersion>
+    <Version>1.4.1</Version>
+    <AssemblyVersion>1.4.1</AssemblyVersion>
+    <FileVersion>1.4.1</FileVersion>
     <Description>Hana Media Encoder is a open source multimedia application for FFMPEG that have feature to encode, decode, trim, mux or even batch processing.
 It can detects and configure multiple media streams and can encode it separately if media file have more than one audio stream.
 Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options
