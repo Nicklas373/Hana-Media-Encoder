@@ -1,6 +1,10 @@
-Hana Media Encoder/bin/Debug/*.*
-Hana Media Encoder/obj/Debug/*.*
-HME_Setup/Debug/HME_Setup.msi
-HME_Setup/Debug/setup.exe
-HME_Setup/Release/HME_Setup.msi
-HME_Setup/Release/setup.exe
+Hana Media Encoder/bin
+Hana Media Encoder/obj
+Hana Media Encoder/.vs/Hana Media Encoder/DesignTimeBuild/*.*
+Hana Media Encoder/.vs/Hana Media Encoder/FileContentIndex/*.*
+Hana Media Encoder/.vs/Hana Media Encoder/v17/*.*
+Hana Media Encoder/.vs/ProjectEvaluation/*.*
+Hana Media Encoder/bin/Release
+HME-Setup/*.*
+HME-Setup/Debug
+HME-Setup/Release
