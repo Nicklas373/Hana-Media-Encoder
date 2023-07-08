@@ -1,15 +1,13 @@
 {
-	"release_date": "13 March 2023",
-	"version": "1.4.0.0",
+	"release_date": "09 July 2023",
+	"version": "1.4.1.0",
 	"changelog": [
-		"- Introduce Always Fullscreen options",
-		"- Introduce Command Flags menu to show all encoding flags in single menu",
-	    "- Introduce Media Queue feature (Batch processing)",
-		"- Introduce new feature to save, remove or encode with single or queue media files (Media Queue)",
-		"- Introduce quick profile feature to configure audio profile (Media Queue)",
-		"- Introduce feature to configure video container to use another container (Media Queue)",
-		"- Misc updates and cleanup",
-		"- Slightly re-design interface on several menu"
+		"- Fixup encoding algorithm while choose as single encode",
+		"- Fixup join audio issue while audio was single stream",
+		"- Fixup media queue set or apply to selected algorithm",
+		"- Introduce slowest video preset configuration",
+		"- Misc fixes and cleanup",
+		"- Use NVENC preset for video preset (replace default preset, CUDA accelerated only)"
 	],
-	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.4.0/HME_Setup.msi"
+	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.4.1/HME_Setup.msi"
 }
