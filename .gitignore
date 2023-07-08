@@ -1,2 +1,6 @@
 Hana Media Encoder/bin/Debug/*.*
 Hana Media Encoder/obj/Debug/*.*
+HME_Setup/Debug/HME_Setup.msi
+HME_Setup/Debug/setup.exe
+HME_Setup/Release/HME_Setup.msi
+HME_Setup/Release/setup.exe

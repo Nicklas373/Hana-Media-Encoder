@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>HME_HANA-CI</id>
+    <version>1.4.0</version>
+    <title>Hana Media Encoder</title>
+    <authors>Dicky Herlambang</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="file">LICENSE</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>HME_Logo_Hi.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/Nicklas373/Hana-Media-Encoder</projectUrl>
+    <description>Hana Media Encoder is a open source multimedia application for FFMPEG that have feature to encode, decode, trim, mux or even batch processing.
+It can detects and configure multiple media streams and can encode it separately if media file have more than one audio stream.
+Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options
+then execute it to FFMPEG, FFPLAY or FFPROBE.
+
+# Current Features:
+* Support multiple media file encoding with same or different profile for each stream
+* Support mux/demux media file with specific stream or all stream and with same or different profile for each stream
+* Support manage chapter from media file (Video Only)
+* Support trim media file with specific stream or all stream and with same or different profile for each stream
+* Support preview media file by using FFPLAY
+* Support media queue / batch encoding for video and audio file
+
+# Current Supported Video Output Codec
+- H264 / H265 (AVC / HEVC)
+- H264 / HEVC (Native codec are not supported yet)
+- H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
+- H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
+- H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
+
+# Current Supported Audio Output Codec
+- MP3 (libmp3lame)
+- FLAC (flac)
+- WAV (libpcm)
+- AAC (aac)
+- OPUS (libopus)
+- MP2 (libtwolame)</description>
+    <releaseNotes>v.1.4.0 (20230304):
+- TBA
+
+v1.3.9 (20221123):
+- Fixup issue with auto naming convetion for "copy" audio codec format
+
+v1.3.8 (20221016):
+- Fixup application crash while try tunning on administration mode
+- Fixup some of file that should be supported but are detect as not supported while load media
+- Include MPEG-TS (MTS) as supported video file
+- Integrated with "OpenWith" feature from windows explorer
+- Introduce more Windows API notification message instead of default one
+- Misc fixes with encoding algorithm
+- Properly refresh MainMenu form after configure enable debug mode on options
+- Re-design main tab menu to using MetroSet UI
+- Re-design options menu (Introduce new options to add more detail on encoding progress)
+- Re-written video aspect ratio, scaling type (Crop and Pad) and resolution encoding algorithm
+
+v1.3.6 (20220917):
+- Automatically rename file container if incompatibility found with file container and selected audio codec
+- Automatically write video resolution into video profile after enable it
+- Configure default value for WAV codec as PCM_S16LE while bit depth are not selected
+- Configure muxing profile to enable while media are not loaded with some condition
+- Detect .m2v file as supported media file
+- Do not reset profile configuration while user are trying to switching codec
+- Do not reset previous loaded media file name if user abort to load new media file
+- Do not set minimum image resolution for image snapshots
+- Fixup AAC encoding algorithm
+- Fixup crash while load new media file continously after complete load first media file
+- Fixup chapter add and read algorithm
+- Fixup frame mode value that always empty
+- Fixup issue with progressbar are not working while encoding audio file only or while enabling debug mode or frame skip from options menu
+- Fixup issue with wrong value that was restored from config for max and overal video bitrate
+- Introduce Color range, primary and space based from FFMPEG video filter (BT.709 &amp; BT.2020) for video configuration
+- Introduce MP2 and OPUS audio codec
+- Lock all codec and menu configuration while media file are not loaded
+- Reduce almost all unnecessary messagebox notification
+- Remove duplicate variable call in other function
+- Simplify all process by remove depend with lock profile while want to load, save media and enable some of codec configuration
+- Simplify all file container check on all function
+- Switch some of notification to using windows native notification UI
+- Update some of codec information
+
+v1.3.4 (20220912):
+- Disable panel drag drop feature while FFMPEG are not load properly
+- Drop dependency for video and audio codec while value is empty (Default FFMPEG value will be used while empty)
+- Do not restart application while enabling debug mode or frame mode
+- Fixup AAC and MP3 value condition for codec configuration
+- Fixup issue with chapter read and refresh algorithm
+- Fixup issue with progressbar not work while encoding process
+- Fixup issue with snapshot algorithm for audio file
+- Introduce channel layout feature for audio codec
+- Introduce feature to do action after encoding completed
+- Introduce new button to change checkbox for save stream config per each stream
+- Introduce slide animation for each main configuration on video / audio codec after grouping
+- Introduce tooltip (Information tool) that will show minimal information about selected text from video codec configurations
+- Introduce video scale or interpolation algorithm
+- Misc fixes with audio decision algorithm
+- Re-design layout interface
+
+v1.3.1 (20220904):
+- Fixup debug mode are not show log while enable in some cases
+- Fixup encoding algorithm
+- Introduce MP4 and AAC media file extensions
+
+v1.3.0 (20220903):
+- Do not clear or reset chapter when chapter reset was clicked (Back to initial state instead)
+- Do not show next or previous button when show spectrum
+- Fixup white color issue while move is hovering into some of buttons
+- Fixup chapter are not reset properly when 'Enable Chapter' are disable
+- Fixup issue with remove chapter when chapter listview are not selected by user
+- Fixup issue with UI freeze while load media, initialize frame or while encoding process
+- Guard enable video options to check if GPU HW Accelerated config already set or not
+- Introduce chapter time validity before input chapter on minute and seconds
+- Introduce fullscreen layout and resizeable layout for main menu
+- Introduce function to get video chapter directly from ffmpeg metadata and import it into chapter listview
+- Introduce new algorithm for 'Add Chapter' to check if new chapter are the same or less than previous chapter for time duration if is exists
+- Introduce new algorithm on 'Update Chapter' to check if new chapter are same, less or more than previous or next chapter in time duration
+- Introduce progressbar widget from SyncFusion
+- Implement new asynchronous method for getduration_summary, getpreview_summary
+- Override arrow function key to control ImagePreview on picturebox
+- Properly reset media file name text if was not loaded
+- Properly show encoding text status instead only show "ENCODING and COMPLETED"
+- Separate function to next and previous image into standalone function to avoid repeat call function
+- Show GB (gigabyte) as file size when MB size is too high
+- Switch to jpg from png as image extensions
+- Reduce warning notifications while selecting snapshot or spectrum
+- Re-work logic to get snapshot with asynchronous workload (reduce time to load snapshots)
+- Re-work implementation of asynchronous method for start encode functions
+
+v1.2.6 (20220827):
+- Fix issue with clickable link that crash while clicked
+- Fix issue when insert chapters on existing video with chapters file are not replacing the new one
+- Properly reset media file before insert new one
+   (Avoid undefinitely loading media file when replace existing media files)
+- Properly set button that are should / shouldn't be disable or not
+
+v1.2.5 (20220827):
+- Change screenshot to snapshots
+- Configure color for details button on messagebox
+- Fixup issue with FileExplorer crash or freeze while using drag n drop feature into this app
+- Fixup issue with FFMPEG command on video or audio menu missing after unlock profile
+- Fixup issue with media name in some cases can no be updated while on load progress (white block text)
+- Fixup issue with restore value from video resolution and aspect ratio in some cases return empty or wrong value
+- Fixup issue with Snapshot in some cases can not get in total of 5 snapshots and cause application error
+- Fixup issue with unknown value that show up on sample format (Now formatted as 16, 24 and 32bit)
+- Fixup issue with weird color when some toggle or function are on disable state
+- Fixup issue with video resolution and aspect ratio command
+- Include new information for video and audio summary (Video / Audio profile and audio bit rate)
+- Introduce loading initial interface
+- Introduce new feature to configure video aspect ratio and video resolution on video menu
+- Introduce several icon and placeholder image for snapshots, spectrum , preview, next, previous and some toggle on chapter button
+- Include proper check for file extensions on open media file function same like drag n drop function (Make sure media file are valid file to process)
+- Limit maximum video resolution to upscale to 7680 x 4320
+- Properly tell exists total and initial screenshot and spectrum file that are generated from applications
+
+v1.2.0 (20220821):
+- Fixup application crash while OTA download is on progress in some case
+- Fixup h264 for nvidia gpu encode error while aqstrength is included
+- Fixup video frame rate information that are not show correctly in some case
+- Introduce loading interface while load or initialize new media file
+- Introduce new application logo and design
+- Introduce support for drag and drop media file into application on main menu
+- Only show short codec name for media file
+- Re-design all user interface component
+- Re-design message information interface
+- Re-written logic for create media screenshot and audio spectrum
+
+v1.1.0 (20220817):
+- Configure spectrum resolution to higher resolution 768x768 from 854x480
+- Disable low power mode while using QSV
+- Drop level profile configuration on video codec for QSV (Quicksync are not support it)
+- Do not show image if thumbnail are not exists
+- Fixup debug mode are not run correctly
+- Fixup encoding logic in some cases
+- Fixup issue with video codec detection issue (QSV in primary, other codec is config only)
+- Fixup issue with audio codec detection issue (Copy profile)
+- Fixup issue with audio codec profile enable unconditionally after try to lock profile without set saved media file
+- Fixup missing main10 video profile on QSV
+- Properly clean all temporary files and process after application close
+- Specify ffplay to show audio waveform only if file detected as audio, if detected as video then show video
+
+v1.0.8 (20220816):
+- Add new options for preview summary to preview screenshot or spectrum only
+- Add function to preview image from picturebox using default image viewer
+- Introduce audio spectrum generator
+   (After open media files, HME will automatically generate spectrum file as temporary image and can be show from preview summary)
+
+v1.0.7 (20220816):
+- Minor fix for update algorithm
+
+v1.0.6 (20220816):
+- Introduce About application menu
+- Introduce OTA menu
+- Only restart application while some of config has been changed, if not then do not restart application
+- Properly guard application load &amp; encode function if some of config file are not detected or not invalid
+- Properly reset chapter list if chapter menu has been disable
+- Re-configure config written algorithm (adapt with MainMenu changes)
+
+v1.0.5 (20220813):
+- Always set as "Not Detected" when ffprobe detect empty stream id on A/V file
+- Check saved file extensions, if not suitable with selected codec then give it warning
+- Detect lower kb files as success
+   (For some cases, if trim only in several seconds, file size will be in kb (less than MB) and give error from the app cause size below than set algorithm. Use kb file sizes and limit to 1 KB , less than that is failure)
+- Do not count video frame for ffmpeg while video stream are not detected from media file
+- Do not enable video, chapter, and trim if media file does not contain any video stream, same with audio
+- Do not include A/V stream into specific combobox if A/V stream are not detected
+- Drop milliseconds on chapter mode
+- Fixup missing binding after remove python binary
+- Fixup algorithm with detect missing A/V stream for each stream while locking profile
+   (On old algorithm while select only specific profile, then algorithm will check all of profile that are not should be included into check, and that cause about failed to lock due missing A/V stream profile which are not should be saved)
+- Include "avoid_negative_ts 1" flags while trim without encoding
+- Organize declaration variable
+- Properly set value for skip frame count options
+- Properly use .text instead of .selecteditem to prevent missing focus on combobox if combobox value got changed by some algorithm
+- Reset picturebox while load another media file
+- Use another approach to get correct total video duration
+
+v1.0.2 (20220809):
+- Add chapter module
+- Add more logic guard while encoding start
+
+v1.0.1 (20220808):
+- Fixup trim inconsistency
+
+v1.0.0 (20220724):
+
+- INITIAL RELEASE</releaseNotes>
+    <copyright>HANA-CI Build Project 2016 - 2023</copyright>
+    <repository type="git" url="https://github.com/Nicklas373/Hana-Media-Encoder" />
+    <dependencies>
+      <group targetFramework="net6.0-windows10.0.22621">
+        <dependency id="MetroSet_UI" version="2.0.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="Syncfusion.Core.WinForms" version="20.3.0.58" exclude="Build,Analyzers" />
+        <dependency id="Syncfusion.Shared.Base" version="20.3.0.58" exclude="Build,Analyzers" />
+        <dependency id="Syncfusion.Shared.Windows" version="20.2.0.44" exclude="Build,Analyzers" />
+        <dependency id="System.Management" version="7.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows10.0.22621">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net6.0-windows10.0.22621/Assets/HME_256.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Users\Nickl\Documents\GitHub\Hana-Media-Encoder\Hana Media Encoder\bin\Release\net6.0-windows10.0.22621.0\Hana Media Encoder.runtimeconfig.json" target="lib\net6.0-windows10.0.22621\Hana Media Encoder.runtimeconfig.json" />
+    <file src="C:\Users\Nickl\Documents\GitHub\Hana-Media-Encoder\Hana Media Encoder\bin\Release\net6.0-windows10.0.22621.0\Hana Media Encoder.dll" target="lib\net6.0-windows10.0.22621\Hana Media Encoder.dll" />
+    <file src="C:\Users\Nickl\Documents\GitHub\Hana-Media-Encoder\Hana Media Encoder\Assets\HME_256.ico" target="content\Assets\HME_256.ico" />
+    <file src="C:\Users\Nickl\Documents\GitHub\Hana-Media-Encoder\Hana Media Encoder\Assets\HME_256.ico" target="contentFiles\any\net6.0-windows10.0.22621\Assets\HME_256.ico" />
+    <file src="C:\Users\Nickl\Documents\GitHub\Hana-Media-Encoder\Hana Media Encoder\Assets\HME_Logo_Hi.png" target="\Assets\HME_Logo_Hi.png" />
+    <file src="C:\Users\Nickl\Documents\GitHub\Hana-Media-Encoder\Hana Media Encoder\Assets\HME_Logo_Hi.png" target="\HME_Logo_Hi.png" />
+    <file src="C:\Users\Nickl\Documents\GitHub\Hana-Media-Encoder\LICENSE" target="\LICENSE" />
+    <file src="C:\Users\Nickl\Documents\GitHub\Hana-Media-Encoder\README.md" target="\README.md" />
+  </files>
+</package>
