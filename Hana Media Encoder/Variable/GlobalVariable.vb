@@ -91,6 +91,7 @@ Module GlobalVariable
     Public FPS As String
     Public HitReset As Boolean
     Public HwAccelFormat As String
+    Public HwAccelOutputFormat As String
     Public HwAccelDev As String
     Public Hwdefconfig As String
     Public ImageDir As String
@@ -130,6 +131,9 @@ Module GlobalVariable
     Public ProgPercentage As Integer
     Public TargetQualityControl As String
     Public TempValue As String
+    Public TileColumn As Integer
+    Public TileFlags As String
+    Public TileRows As Integer
     Public TimeSplit As String()
     Public TimeDur As Integer
     Public TimeChapter As Integer
