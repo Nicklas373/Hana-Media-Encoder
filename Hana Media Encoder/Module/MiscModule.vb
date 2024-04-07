@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Management
 Module MiscModule
     Public Function FindConfig(confpath As String, contains As String) As String
         Dim value As String
@@ -6,8 +7,13 @@ Module MiscModule
             While Not sReader.EndOfStream
                 Dim line As String = sReader.ReadLine()
                 If line.Contains(contains) Then
-                    value = line
-                    Return value
+                    If line IsNot "" Then
+                        value = line
+                        Return value
+                    Else
+                        value = "null"
+                        Return value
+                    End If
                 End If
             End While
             value = "null"
@@ -41,16 +47,30 @@ Module MiscModule
             End If
         End If
     End Function
+    Public Function GetFileSizeAlt(file As Integer) As String
+        Dim fileSize As Double = file / 1000 / 1000
+        Dim humanFileSize As String
+        If fileSize < 1.0 Then
+            Dim newFileSize As Double = file / 1000
+            If newFileSize < 1.0 Then
+                humanFileSize = Format(file, "###.##").ToString & " KB"
+            Else
+                humanFileSize = Format(newFileSize, "###.##").ToString & " MB"
+            End If
+        Else
+            humanFileSize = Format(fileSize, "###.##").ToString & " GB"
+        End If
+        Return humanFileSize
+    End Function
     Public Function getBetween(ByVal strSource As String, ByVal strStart As String, ByVal strEnd As String) As String
         If strSource = "" Then
-            Return "FAIL"
+            Return ""
         Else
             If strSource.Contains(strStart) AndAlso strSource.Contains(strEnd) Then
                 Dim Start, [End] As Integer
                 Start = strSource.IndexOf(strStart, 0) + strStart.Length
                 If (strSource.IndexOf(strEnd, Start)) < 0 Then
-                    MsgBox("End Error")
-                    Return "End Error"
+                    Return ""
                 Else
                     [End] = strSource.IndexOf(strEnd, Start)
                     Return strSource.Substring(Start, [End] - Start)
@@ -58,6 +78,18 @@ Module MiscModule
             End If
         End If
         Return ""
+    End Function
+    Public Function GetGraphicsCardName(gpuProperty As String) As String
+        Dim searcher As ManagementObjectSearcher = New ManagementObjectSearcher("SELECT * FROM Win32_VideoController")
+        Dim graphicsCard As String = String.Empty
+        For Each mo As ManagementObject In searcher.[Get]()
+            For Each [property] As PropertyData In mo.Properties
+                If [property].Name = gpuProperty Then
+                    graphicsCard = [property].Value.ToString()
+                End If
+            Next
+        Next
+        Return graphicsCard
     End Function
     Public Sub InitMedia(mediaFile As Control)
         Dim sCmdLine As String = Environment.CommandLine()
@@ -90,7 +122,7 @@ Module MiscModule
 
         ElseIf cmbx = "Exit Application" Then
             CleanEnv("all")
-            InitExit()
+            InitExit("")
         ElseIf cmbx = "Log Out" Then
             Shell("Shutdown -l -t 5 -c " & Chr(34) & "Your computer will log out after 5 seconds" & Chr(34))
         ElseIf cmbx = "Restart" Then
