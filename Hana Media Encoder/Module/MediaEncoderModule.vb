@@ -120,9 +120,9 @@ Module MediaEncoderModule
     End Sub
     Public Sub HMEVideoStreamConfigGenerate(HMEName As String, brCompat As String, ovrbitrate As String, bref As String, codec As String, framerate As String,
                                             level As String, maxbitrate As String, multipass As String, preset As String, pixfmt As String, profile As String,
-                                            ratectr As String, spatialaq As String, aqstrength As String, temporalaq As String, targetql As String,
-                                            tier As String, tune As String, ar As String, res As String, algo As String, colorrange As String,
-                                            colorprimary As String, colorspace As String, scaleType As String)
+                                            force10bit As String, ratectr As String, lookahead As String, spatialaq As String, aqstrength As String, temporalaq As String, targetql As String,
+                                            tier As String, tune As String, tilecol As String, tilerow As String, ar As String, res As String, algo As String, colorrange As String,
+                                            colorprimary As String, colorspace As String, scaleType As String, metaData As String)
         If File.Exists(HMEName) Then
             GC.Collect()
             GC.WaitForPendingFinalizers()
@@ -143,13 +143,17 @@ Module MediaEncoderModule
         writer.WriteLine("Preset=" & preset)
         writer.WriteLine("PixelFormat=" & pixfmt)
         writer.WriteLine("Profile=" & profile)
+        writer.WriteLine("Force10Bit=" & force10bit)
         writer.WriteLine("RateControl=" & ratectr)
+        writer.WriteLine("LookAhead=" & lookahead)
         writer.WriteLine("SpatialAQ=" & spatialaq)
         writer.WriteLine("AQStrength=" & aqstrength)
         writer.WriteLine("TemporalAQ=" & temporalaq)
         writer.WriteLine("TargetQL=" & targetql)
         writer.WriteLine("Tier=" & tier)
         writer.WriteLine("Tune=" & tune)
+        writer.WriteLine("TileCol=" & tilecol)
+        writer.WriteLine("TileRow=" & tilerow)
         writer.WriteLine("AspectRatio=" & ar)
         writer.WriteLine("Resolution=" & res)
         writer.WriteLine("ScaleAlgo=" & algo)
@@ -157,9 +161,10 @@ Module MediaEncoderModule
         writer.WriteLine("ColorPrimary=" & colorprimary)
         writer.WriteLine("ColorSpace=" & colorspace)
         writer.WriteLine("ScaleType=" & scaleType)
+        writer.WriteLine("Metadata=" & metaData)
         writer.Close()
     End Sub
-    Public Sub InitExit()
+    Public Sub InitExit(state As String)
         Dim progList As String() = {"ffplay", "ffmpeg", "ffprobe"}
         For Each prog As Process In Process.GetProcesses
             For Each progQueue As String In progList
@@ -168,12 +173,15 @@ Module MediaEncoderModule
                 End If
             Next
         Next
-        Environment.Exit(Environment.ExitCode)
+        If state IsNot "reset" Then
+            Environment.Exit(Environment.ExitCode)
+        End If
+
     End Sub
-    Public Sub previewMediaModule(mediaFile As String, ffplay As String, mediaID As String)
+    Public Sub previewMediaModule(mediaFile As String, ffplay As String, hwengine As String, mediaID As String)
         Dim newffargs As String
         If mediaID = "Not Detected" Then
-            newffargs = " -x 960 -y 540 -showmode 1"
+            newffargs = " -hwaccel " & hwengine & " -x 960 -y 540 -showmode 1"
         Else
             newffargs = " -x 960 -y 540 -showmode 0"
         End If
