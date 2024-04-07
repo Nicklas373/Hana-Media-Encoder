@@ -1,13 +1,20 @@
 {
-	"release_date": "09 July 2023",
-	"version": "1.4.1.0",
-	"changelog": [
-		"- Fixup encoding algorithm while choose as single encode",
-		"- Fixup join audio issue while audio was single stream",
-		"- Fixup media queue set or apply to selected algorithm",
-		"- Introduce slowest video preset configuration",
-		"- Misc fixes and cleanup",
-		"- Use NVENC preset for video preset (replace default preset, CUDA accelerated only)"
-	],
-	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.4.1/HME_Setup.msi"
+    "release_date": "07 April 2024",
+    "version": "1.4.3.0",
+    "changelog": [
+        "- Add AV1 Encoding support for AMF, QSV and NVENC based FFMPEG [Experimental]",
+        "- Drop unused functions",
+        "- Fixup trim logic failed to find config for specific or all stream from media that was loaded",
+        "- Fixup un-mapped video flags when try to restore saved profile for specific video or audio stream",
+        "- Fixup un-proper handle for configurable options that should be enable or disable for selected video or audio codecs",
+        "- Introduce feature to reset application to initial state, that will kill all background related FFMPEG process when encoding is on going",
+        "- Introduce function to check if media file that was inserted and on going seeking are valid or not, if media file are not valid (Video or Audio) stream then seeking process will stop to avoid any error that will cause from empty seeking process",
+        "- Introduce new configurable video flags from AVI [Tiles, Lookahead, Force10Bit] (Documentation already on it)",
+        "- Introduce feature to remove video metadata",
+        "- Implement check for null possibility value that was came from ffmpeg or ffprobe while seeking media file, if null then state as 'Not Detected' string instead throwing error 'Cannot converted '' into Int'",
+        "- Implement check for AV1 support for only specific GPUs [Unsupported GPU are not able to access this encoding method]",
+        "- Implement HW Accelerated Output Format & HW Accelerated flags for encoding based on FFMPEG",
+        "- Use HW Accelerated based on GPU when using preview function"
+    ],
+    "update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.4.3/HME_Setup.msi"
 }
