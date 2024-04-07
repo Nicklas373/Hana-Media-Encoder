@@ -15,6 +15,8 @@ Public Class Loading
         Me.Refresh()
         If mediaType = "Frame" Then
             Label1.Text = "Calculate frame size"
+        ElseIf mediaType = "Reset" Then
+            Label1.Text = "Re-setting to initial state"
         Else
             Label1.Text = "Loading " & mediaType & " : " & Path.GetFileName(mediaTitle)
         End If
