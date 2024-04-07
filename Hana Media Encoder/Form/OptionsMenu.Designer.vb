@@ -22,7 +22,7 @@ Partial Class OptionsMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(OptionsMenu))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OptionsMenu))
         Panel1 = New Panel()
         General_pnl = New Panel()
         CheckBox6 = New CheckBox()
@@ -355,22 +355,22 @@ Partial Class OptionsMenu
         ' 
         CheckBox2.AutoSize = True
         CheckBox2.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        CheckBox2.Location = New Point(22, 682)
+        CheckBox2.Location = New Point(22, 660)
         CheckBox2.Name = "CheckBox2"
-        CheckBox2.Size = New Size(362, 19)
+        CheckBox2.Size = New Size(350, 19)
         CheckBox2.TabIndex = 10
-        CheckBox2.Text = "Override GPU Hardware Accelerated Detection (EXPERIMENTAL)"
+        CheckBox2.Text = "Override GPU Hardware Encoding Detection (EXPERIMENTAL)"
         CheckBox2.UseVisualStyleBackColor = True
         ' 
         ' CheckBox1
         ' 
         CheckBox1.AutoSize = True
         CheckBox1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        CheckBox1.Location = New Point(22, 658)
+        CheckBox1.Location = New Point(22, 637)
         CheckBox1.Name = "CheckBox1"
-        CheckBox1.Size = New Size(206, 19)
+        CheckBox1.Size = New Size(194, 19)
         CheckBox1.TabIndex = 9
-        CheckBox1.Text = "Enable GPU Hardware Accelerated"
+        CheckBox1.Text = "Enable GPU Hardware Encoding"
         CheckBox1.UseVisualStyleBackColor = True
         ' 
         ' ComboBox1
@@ -381,7 +381,7 @@ Partial Class OptionsMenu
         ComboBox1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
         ComboBox1.FormattingEnabled = True
         ComboBox1.Items.AddRange(New Object() {"Intel (QuickSync)", "NVIDIA (NVENC / NVDEC)", "AMD (OpenCL)"})
-        ComboBox1.Location = New Point(234, 623)
+        ComboBox1.Location = New Point(234, 607)
         ComboBox1.Name = "ComboBox1"
         ComboBox1.Size = New Size(206, 23)
         ComboBox1.TabIndex = 8
@@ -391,11 +391,11 @@ Partial Class OptionsMenu
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label5.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label5.Location = New Point(19, 625)
+        Label5.Location = New Point(19, 607)
         Label5.Name = "Label5"
-        Label5.Size = New Size(171, 17)
+        Label5.Size = New Size(157, 17)
         Label5.TabIndex = 7
-        Label5.Text = "GPU Hardware Accelerated"
+        Label5.Text = "GPU Hardware Encoding"
         ' 
         ' Label2
         ' 
@@ -498,8 +498,8 @@ Partial Class OptionsMenu
         about_pnl.Dock = DockStyle.Fill
         about_pnl.Location = New Point(0, 0)
         about_pnl.Name = "about_pnl"
-        about_pnl.Size = New Size(1240, 701)
-        about_pnl.TabIndex = 58
+        about_pnl.Size = New Size(1240, 679)
+        about_pnl.TabIndex = 60
         ' 
         ' Button2
         ' 
