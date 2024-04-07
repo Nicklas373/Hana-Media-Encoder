@@ -39,6 +39,16 @@
             Else
                 value = "copy"
             End If
+        ElseIf Cmbx = "AV1" Then
+            If Encoder = "opencl" Then
+                value = "av1_amf"
+            ElseIf Encoder = "qsv" Then
+                value = "av1_qsv"
+            ElseIf Encoder = "cuda" Then
+                value = "av1_nvenc"
+            Else
+                value = "copy"
+            End If
         Else
             value = "copy"
         End If
@@ -71,7 +81,23 @@
 
         Return value
     End Function
-    Public Function vPreset(Cmbx As String, GPUHW As String) As String
+    Public Function metadata(cmbx As String) As String
+        'Metrosetcheckbox4.checked'
+        Dim value As String
+        If cmbx = "True" Then
+            value = " -bitexact -map_metadata -1 "
+        ElseIf cmbx = "False" Then
+            value = " "
+        Else
+            value = " "
+        End If
+
+        Return value
+    End Function
+    Public Function finalMetadata() As String
+        Return " -metadata ENCODER=HME_1.4.2"
+    End Function
+    Public Function vPreset(Cmbx As String, GPUHW As String, Codec As String) As String
         'Combobox5.text'
         Dim value As String
         If Cmbx = "" Then
@@ -81,7 +107,11 @@
                 If Cmbx = "default" Then
                     value = " -quality balanced "
                 ElseIf Cmbx = "slow" Or Cmbx = "slowest" Then
-                    value = " -quality quality "
+                    If Codec = "AV1" Then
+                        value = " -quality high_quality "
+                    Else
+                        value = " -quality quality "
+                    End If
                 ElseIf Cmbx = "medium" Then
                     value = " -quality balanced "
                 ElseIf Cmbx = "fast" Then
@@ -116,13 +146,31 @@
 
         Return value
     End Function
-    Public Function vPixFmt(Cmbx As String) As String
+    Public Function vPixFmt(Cmbx As String, GPUHW As String, Codec As String, Force10Bit As String) As String
         'Combobox3.text'
+        Dim newValue As String
         Dim value As String
         If Cmbx = "" Then
             value = " "
         Else
-            value = " -pix_fmt " & Cmbx & " "
+            If Codec = "AV1" And GPUHW IsNot "opencl" Then
+                If Cmbx = "yuv420p" Then
+                    newValue = " -pix_fmt " & Cmbx & " -rgb_mode 1 "
+                ElseIf Cmbx = "yuv444p" Then
+                    newValue = " -pix_fmt " & Cmbx & " -rgb_mode 2 "
+                ElseIf Cmbx = "p010le" Then
+                    newValue = " -pix_fmt " & Cmbx & " -rgb_mode 1 "
+                Else
+                    newValue = " -pix_fmt " & Cmbx & " -rgb_mode 1 "
+                End If
+                If Force10Bit Then
+                    value = newValue & " -highbitdepth true "
+                Else
+                    value = newValue
+                End If
+            Else
+                value = " -pix_fmt " & Cmbx & " "
+            End If
         End If
 
         Return value
@@ -138,17 +186,36 @@
 
         Return value
     End Function
-    Public Function vRateControl(Cmbx As String) As String
+    Public Function vRateControl(Cmbx As String, Codec As String, HWAccel As String) As String
         'Combobox4.text'
         Dim value As String
         If Cmbx = "" Then
             value = " "
         ElseIf Cmbx = "Variable Bit Rate" Then
-            value = " -rc:v:0 vbr "
+            If Codec = "AV1" And HWAccel = "opencl" Then
+                value = " -rc:v:0 hqvbr "
+            Else
+                value = " -rc:v:0 vbr "
+            End If
         ElseIf Cmbx = "Constant Bit Rate" Then
-            value = " -rc:v:0 cbr "
+            If Codec = "AV1" And HWAccel = "opencl" Then
+                value = " -rc:v:0 hqcbr "
+            Else
+                value = " -rc:v:0 cbr "
+            End If
         Else
             value = " "
+        End If
+
+        Return value
+    End Function
+    Public Function vLookAheadLvl(Cmbx As String) As String
+        'LookaheadUpDown1'
+        Dim value As String
+        If Cmbx = "" Then
+            value = " "
+        Else
+            value = " -lookahead_level " & Cmbx
         End If
 
         Return value
@@ -207,7 +274,7 @@
 
         Return value
     End Function
-    Public Function vTier(Cmbx As String, GPUHW As String) As String
+    Public Function vTier(Cmbx As String, GPUHW As String, Codec As String) As String
         'Combobox9.text'
         Dim value As String
         If Cmbx = "" Then
@@ -216,7 +283,17 @@
             If GPUHW = "opencl" Then
                 value = " -profile_tier " & Cmbx
             Else
-                value = " -tier " & Cmbx
+                If GPUHW = "cuda" And Codec = "AV1" Then
+                    If Cmbx = "main" Then
+                        value = " -tier 0"
+                    ElseIf Cmbx = "high" Then
+                        value = " -tier 1"
+                    Else
+                        value = " -tier 0"
+                    End If
+                Else
+                    value = " -tier " & Cmbx
+                End If
             End If
         End If
 
