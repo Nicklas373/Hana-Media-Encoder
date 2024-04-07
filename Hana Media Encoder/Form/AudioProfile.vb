@@ -1,5 +1,4 @@
-﻿Imports MetroSet_UI.Controls
-Imports Syncfusion.WinForms.Controls
+﻿Imports Syncfusion.WinForms.Controls
 
 Public Class AudioProfile
     Inherits SfForm
