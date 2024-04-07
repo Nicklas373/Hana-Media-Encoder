@@ -16,11 +16,10 @@ Hana Media Encoder works by creating line of command based on user preferences t
 * Support media queue / batch encoding for video and audio file
 
 # Current Supported Video Output Codec
-- H264 / H265 (AVC / HEVC)
-- H264 / HEVC (Native codec are not supported yet)
-- H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
-- H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
-- H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
+- H264 / H265 / AV1 (AVC / HEVC / AV1)
+- H264_QSV / HEVC_QSV / AV1_QSV (Intel Quicksync H.264/HEVC/AV1 Encoder)
+- H264_AMF / HEVC_AMF / AV1_AMF (AMD AMF H.264/HEVC/AV1 Encoder)
+- H264_NVENC / HEVC_NVENC / AV1_NVENC (Nvidia NVENC H.264/HEVC/AV1 Encoder)
 
 # Current Supported Audio Output Codec
 - MP3 (libmp3lame)
@@ -31,7 +30,9 @@ Hana Media Encoder works by creating line of command based on user preferences t
 - MP2 (libtwolame)
 
 # How to install
-* Download .NET Framework 6.0, Hana Media Encoder setup & FFMPEG Pre-build
+* Download software requirement
+	- [.NET Desktop Runtime 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+	- [FFMPEG](https://github.com/BtbN/FFmpeg-Builds/releases)
 * Extract FFMPEG to folder
 * Install Hana Media Encoder beside folder location except "Program Files" or "Program Files (x86)" or other folder that doesn't required any permission (Due write-access protection)
   (Ex: Install it on desktop or user folder)
@@ -47,7 +48,7 @@ Hana Media Encoder works by creating line of command based on user preferences t
 
 # App Compatibility
 - [.NET Desktop Runtime 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
-- [FFMPEG](https://www.gyan.dev/ffmpeg/builds/)
+- [FFMPEG](https://github.com/BtbN/FFmpeg-Builds/releases)
 
 # Documentation
 <p align="left">
@@ -57,10 +58,10 @@ Hana Media Encoder works by creating line of command based on user preferences t
 </p>
 
 # License
-Copyright (C) 2016-2023 HANA-CI Build Project
+Copyright (C) 2016-2024 HANA-CI Build Project
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-# HANA-CI Build Project 2016 - 2022
+# HANA-CI Build Project 2016 - 2024

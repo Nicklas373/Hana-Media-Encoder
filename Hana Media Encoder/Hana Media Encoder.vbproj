@@ -6,8 +6,23 @@
     <StartupObject>Sub Main</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
-    <Copyright>HANA-CI Build Project 2016 - 2023</Copyright>
-    <PackageReleaseNotes>v.1.4.1 (20230709):
+    <Copyright>HANA-CI Build Project 2016 - 2024</Copyright>
+    <PackageReleaseNotes>v.1.4.3 (20240407):
+- Add AV1 Encoding support for AMF, QSV and NVENC based FFMPEG [Experimental]
+- Drop unused functions
+- Fixup trim logic failed to find config for specific or all stream from media that was loaded
+- Fixup un-mapped video flags when try to restore saved profile for specific video or audio stream
+- Fixup un-proper handle for configurable options that should be enable or disable for selected video or audio codecs
+- Introduce feature to reset application to initial state, that will kill all background related FFMPEG process when encoding is on going
+- Introduce function to check if media file that was inserted and on going seeking are valid or not, if media file are not valid (Video or Audio) stream then seeking process will stop to avoid any error that will cause from empty seeking process
+- Introduce new configurable video flags from AVI [Tiles, Lookahead, Force10Bit] (Documentation already on it)
+- Introduce feature to remove video metadata
+- Implement check for null possibility value that was came from ffmpeg or ffprobe while seeking media file, if null then state as "Not Detected" string instead throwing error "Cannot converted "" into Int"
+- Implement check for AV1 support for only specific GPUs [Unsupported GPU are not able to access this encoding method]
+- Implement HW Accelerated Output Format &amp; HW Accelerated flags for encoding based on FFMPEG
+- Use HW Accelerated based on GPU when using preview function
+
+v.1.4.1 (20230709):
 - Fixup encoding algorithm while choose as single encode
 - Fixup join audio issue while audio was single stream
 - Fixup media queue set or apply to selected algorithm
@@ -212,12 +227,12 @@ v1.0.0 (20220724):
 
 - INITIAL RELEASE</PackageReleaseNotes>
     <Authors>Dicky Herlambang</Authors>
-    <Company>HANA-CI Build Project 2016 - 2023</Company>
+    <Company>HANA-CI Build Project 2016 - 2024</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.4.1</Version>
-    <AssemblyVersion>1.4.1</AssemblyVersion>
-    <FileVersion>1.4.1</FileVersion>
+    <Version>1.4.3</Version>
+    <AssemblyVersion>1.4.2</AssemblyVersion>
+    <FileVersion>1.4.3</FileVersion>
     <Description>Hana Media Encoder is a open source multimedia application for FFMPEG that have feature to encode, decode, trim, mux or even batch processing.
 It can detects and configure multiple media streams and can encode it separately if media file have more than one audio stream.
 Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options
@@ -232,11 +247,10 @@ then execute it to FFMPEG, FFPLAY or FFPROBE.
 * Support media queue / batch encoding for video and audio file
 
 # Current Supported Video Output Codec
-- H264 / H265 (AVC / HEVC)
-- H264 / HEVC (Native codec are not supported yet)
-- H264_QSV / HEVC_QSV (Intel Quicksync H.264/HEVC Encoder)
-- H264_AMF / HEVC_AMF (AMD AMF H.264/HEVC Encoder)
-- H264_NVENC / HEVC_NVENC (Nvidia H.264/HEVC Encoder)
+- H264 / HEVC / AV1 (Native codec are not supported yet)
+- H264_QSV / HEVC_QSV / AV1_QSV (Intel Quicksync H.264/HEVC/AV1 Encoder)
+- H264_AMF / HEVC_AMF / AV1_AMF (AMD AMF H.264/HEVC/AV1 Encoder)
+- H264_NVENC / HEVC_NVENC / AV1_NVENC (Nvidia NVENC H.264/HEVC/AV1 Encoder)
 
 # Current Supported Audio Output Codec
 - MP3 (libmp3lame)
@@ -306,7 +320,7 @@ then execute it to FFMPEG, FFPLAY or FFPROBE.
     <PackageReference Include="Syncfusion.Core.WinForms" Version="20.3.0.58" />
     <PackageReference Include="Syncfusion.Shared.Base" Version="20.3.0.58" />
     <PackageReference Include="Syncfusion.Shared.Windows" Version="20.2.0.44" />
-    <PackageReference Include="System.Management" Version="7.0.0" />
+    <PackageReference Include="System.Management" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
