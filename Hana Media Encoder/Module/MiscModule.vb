@@ -91,6 +91,15 @@ Module MiscModule
         Next
         Return graphicsCard
     End Function
+    Public Function NVENCCCompatibility() As Boolean
+        Dim graphicsName As String = GetGraphicsCardName("Name")
+
+        If graphicsName.Contains("NVIDIA") Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
     Public Sub InitMedia(mediaFile As Control)
         Dim sCmdLine As String = Environment.CommandLine()
         If sCmdLine.Equals("") = False Then
@@ -147,4 +156,66 @@ Module MiscModule
         }
         toolTip.SetToolTip(control, subtitle)
     End Sub
+    Public Function getMediaEngineVersion(mediaEngine As String) As String
+        Dim version As String
+        Dim cmdArgs As String
+        Dim mediaResult As String
+        Dim mediaArgs As String
+        Dim mediaConf As String
+        Dim mediaLetter As String
+
+        FfmpegConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Binary:")
+        NVENCCBinary = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "NVENCC Binary:")
+
+        If mediaEngine = "NVENCC" Then
+            mediaArgs = "nvencc64"
+            cmdArgs = mediaArgs & " --version 2>&1"
+            mediaConf = NVENCCBinary.Remove(0, 14) & "\"
+            mediaLetter = mediaConf.Substring(0, 1) & ":"
+        ElseIf mediaEngine = "FFMPEG" Then
+            mediaArgs = "ffmpeg"
+            cmdArgs = mediaArgs & " -version 2>&1"
+            mediaConf = FfmpegConfig.Remove(0, 14) & "\"
+            mediaLetter = String.Concat(mediaConf.AsSpan(0, 1), ":")
+        Else
+            mediaArgs = "ffmpeg"
+            cmdArgs = mediaArgs & " -version 2>&1"
+            mediaConf = FfmpegConfig.Remove(0, 14) & "\"
+            mediaLetter = String.Concat(mediaConf.AsSpan(0, 1), ":")
+        End If
+
+        HMEGenerateAlt(My.Application.Info.DirectoryPath & "\HME_ME_Version.bat", mediaLetter, Chr(34) & mediaConf & Chr(34), cmdArgs, "")
+        Dim psi As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_ME_Version.bat") With {
+            .RedirectStandardError = False,
+            .RedirectStandardOutput = True,
+            .CreateNoWindow = True,
+            .WindowStyle = ProcessWindowStyle.Hidden,
+            .UseShellExecute = False
+        }
+        Dim process As Process = Process.Start(psi)
+        While Not process.StandardOutput.EndOfStream
+            mediaResult = process.StandardOutput.ReadToEnd
+            If mediaEngine = "FFMPEG" Then
+                If RemoveWhitespace(getBetween(mediaResult, "ffmpeg", "Copyright")) IsNot "" Then
+                    version = getBetween(mediaResult, "ffmpeg", "Copyright")
+                Else
+                    version = ""
+                End If
+            ElseIf mediaEngine = "NVENCC" Then
+                If RemoveWhitespace(getBetween(mediaResult, "NVEncC", "by rigaya")) IsNot "" Then
+                    version = getBetween(mediaResult, "NVEncC", "by rigaya")
+                Else
+                    version = ""
+                End If
+            Else
+                If RemoveWhitespace(getBetween(mediaResult, "ffmpeg", "Copyright")) IsNot "" Then
+                    version = getBetween(mediaResult, "ffmpeg", "Copyright")
+                Else
+                    version = ""
+                End If
+            End If
+        End While
+
+        Return version
+    End Function
 End Module
