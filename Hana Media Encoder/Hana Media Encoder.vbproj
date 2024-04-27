@@ -7,7 +7,17 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2024</Copyright>
-    <PackageReleaseNotes>v.1.4.3 (20240407):
+    <PackageReleaseNotes>v1.4.5 (20240427):
+- Fixup issue some video configuration panel are hidden when expand
+- Fixup issue with audio codec configuration logic
+- Fixup issue with audio config load for audio codec that are not read properly
+- Introduce deinterlace method for video encoding
+- Introduce feature to choose which media encoder that will to use
+- Integrate NVENCC as another media encoding resource, only for NVIDIA GPU [Experimental with limited features]
+- Properly set HW Acceleration when encoding and preview video [It can reduce more CPU load than previous configuration]
+- Re-writing video config R/W algorithm to improve config read, if it was choose to re-load the config
+
+v1.4.3 (20240407):
 - Add AV1 Encoding support for AMF, QSV and NVENC based FFMPEG [Experimental]
 - Drop unused functions
 - Fixup trim logic failed to find config for specific or all stream from media that was loaded
@@ -22,7 +32,7 @@
 - Implement HW Accelerated Output Format &amp; HW Accelerated flags for encoding based on FFMPEG
 - Use HW Accelerated based on GPU when using preview function
 
-v.1.4.1 (20230709):
+v1.4.1 (20230709):
 - Fixup encoding algorithm while choose as single encode
 - Fixup join audio issue while audio was single stream
 - Fixup media queue set or apply to selected algorithm
@@ -31,7 +41,7 @@ v.1.4.1 (20230709):
 - Use NVENC preset for video preset (replace default preset, CUDA accelerated only)
 
 
-v.1.4.0 (20230304):
+v1.4.0 (20230304):
 - Introduce Always Fullscreen options
 - Introduce Command Flags menu to show all encoding flags in single menu
 - Introduce Media Queue feature (Batch processing)

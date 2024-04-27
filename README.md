@@ -49,6 +49,7 @@ Hana Media Encoder works by creating line of command based on user preferences t
 # App Compatibility
 - [.NET Desktop Runtime 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - [FFMPEG](https://github.com/BtbN/FFmpeg-Builds/releases)
+- [NVENCC](https://github.com/rigaya/NVEnc/releases)
 
 # Documentation
 <p align="left">
