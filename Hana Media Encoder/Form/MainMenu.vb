@@ -1030,9 +1030,9 @@ Public Class MainMenu
         GC.WaitForPendingFinalizers()
         File.Delete(HMEEngine & "HME_Stream_Summary.bat")
         Dim start As Integer
-        Dim videoRegex As New Regex(": Video:", RegexOptions.IgnoreCase Or RegexOptions.Singleline)
+        'Dim videoRegex As New Regex(": Video:", RegexOptions.IgnoreCase Or RegexOptions.Singleline)
         Dim audioRegex As New Regex(": Audio:", RegexOptions.IgnoreCase Or RegexOptions.Singleline)
-        Dim videoMatches As MatchCollection = videoRegex.Matches(StreamInfo)
+        'Dim videoMatches As MatchCollection = videoRegex.Matches(StreamInfo)
         Dim audioMatches As MatchCollection = audioRegex.Matches(StreamInfo)
         If ffmpegMode = "Encoding" Then
             MetroSetComboBox3.Items.Clear()
@@ -1041,10 +1041,12 @@ Public Class MainMenu
             ComboBox25.Items.Clear()
             MetroSetComboBox1.Items.Clear()
             If Label5.Text.Equals("Not Detected") = False Then
-                For start = 1 To videoMatches.Count
-                    ComboBox24.Items.Add("Stream #0:" & start)
-                    MetroSetComboBox1.Items.Add("Stream #0:" & start)
-                Next
+                'For start = 1 To videoMatches.Count
+                'Bypass this for now, this cause complicated issue when FFMPEG read image as video stream
+                'NEED TO CHECK THIS LATER
+                ComboBox24.Items.Add("Stream #0:1")
+                MetroSetComboBox1.Items.Add("Stream #0:1")
+                'Next
             End If
             If Label44.Text.Equals("Not Detected") = False Then
                 For start = 1 To audioMatches.Count
@@ -1057,9 +1059,11 @@ Public Class MainMenu
             MetroSetComboBox3.Items.Clear()
             ComboBox25.Items.Clear()
             MetroSetComboBox1.Items.Clear()
-            For start = 1 To videoMatches.Count
-                MetroSetComboBox1.Items.Add("Stream #0:" & start)
-            Next
+            'For start = 1 To videoMatches.Count
+            'Bypass this for now, this cause complicated issue when FFMPEG read image as video stream
+            'NEED TO CHECK THIS LATER
+            MetroSetComboBox1.Items.Add("Stream #0:1")
+            'Next
             For start = 1 To audioMatches.Count
                 ComboBox25.Items.Add("Stream #0:" & start)
                 MetroSetComboBox3.Items.Add("Stream #0:" & start)
@@ -1068,9 +1072,12 @@ Public Class MainMenu
             MetroSetComboBox3.Items.Clear()
             ComboBox25.Items.Clear()
             MetroSetComboBox1.Items.Clear()
-            For start = 1 To videoMatches.Count
-                MetroSetComboBox1.Items.Add("Stream #0:" & start)
-            Next
+            'For start = 1 To videoMatches.Count
+            'Bypass this for now, this cause complicated issue when FFMPEG read image as video stream
+            'NEED TO CHECK THIS LATER
+            ComboBox24.Items.Add("Stream #0:1")
+            MetroSetComboBox1.Items.Add("Stream #0:1")
+            'Next
             For start = 1 To audioMatches.Count + 1
                 MetroSetComboBox3.Items.Add("Stream #0:" & start)
                 ComboBox25.Items.Add("Stream #0:" & start)
@@ -1081,16 +1088,20 @@ Public Class MainMenu
             MetroSetComboBox1.Items.Clear()
             If ComboBox28.SelectedIndex = 0 Then
                 If Label5.Text.Equals("Not Detected") = False Then
-                    For start = 1 To videoMatches.Count
-                        MetroSetComboBox1.Items.Add("Stream #0:" & start)
-                        ComboBox27.Items.Add("Stream #0:" & start)
-                    Next
+                    'For start = 1 To videoMatches.Count
+                    'Bypass this for now, this cause complicated issue when FFMPEG read image as video stream
+                    'NEED TO CHECK THIS LATER
+                    ComboBox24.Items.Add("Stream #0:1")
+                    MetroSetComboBox1.Items.Add("Stream #0:1")
+                    'Next
                 End If
             Else
                 If Label5.Text.Equals("Not Detected") = False Then
-                    For start = 1 To videoMatches.Count
-                        MetroSetComboBox1.Items.Add("Stream #0:" & start)
-                    Next
+                    'For start = 1 To videoMatches.Count
+                    'Bypass this for now, this cause complicated issue when FFMPEG read image as video stream
+                    'NEED TO CHECK THIS LATER
+                    MetroSetComboBox1.Items.Add("Stream #0:1")
+                    'Next
                 End If
                 If Label44.Text.Equals("Not Detected") = False Then
                     For start = 1 To audioMatches.Count
@@ -1106,10 +1117,12 @@ Public Class MainMenu
                 ComboBox24.Items.Clear()
                 MetroSetComboBox1.Items.Clear()
                 If Label5.Text.Equals("Not Detected") = False Then
-                    For start = 1 To videoMatches.Count
-                        ComboBox24.Items.Add("Stream #0:" & start)
-                        MetroSetComboBox1.Items.Add("Stream #0:" & start)
-                    Next
+                    'For start = 1 To videoMatches.Count
+                    'Bypass this for now, this cause complicated issue when FFMPEG read image as video stream
+                    'NEED TO CHECK THIS LATER
+                    ComboBox24.Items.Add("Stream #0:1")
+                    MetroSetComboBox1.Items.Add("Stream #0:1")
+                    'Next
                 End If
                 If Label44.Text.Equals("Not Detected") = False Then
                     For start = 1 To audioMatches.Count
@@ -3004,7 +3017,7 @@ Public Class MainMenu
                     ComboBox21.Enabled = False
                     MetroSetCheckBox3.Enabled = True
                 End If
-                ComboBox9.Enabled = False
+                ComboBox9.Enabled = True
                 TileRowsUpDown1.Enabled = True
                 TileColumnUpDown1.Enabled = True
             Else
