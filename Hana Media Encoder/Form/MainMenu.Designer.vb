@@ -138,6 +138,14 @@ Partial Class MainMenu
         ComboBox3 = New ComboBox()
         Label34 = New Label()
         Vid_Enc_Add_Pnl = New Panel()
+        ComboBox44 = New ComboBox()
+        Label154 = New Label()
+        ComboBox42 = New ComboBox()
+        Label153 = New Label()
+        ComboBox29 = New ComboBox()
+        Label152 = New Label()
+        ComboBox22 = New ComboBox()
+        Label151 = New Label()
         MetroSetCheckBox4 = New MetroSet_UI.Controls.MetroSetCheckBox()
         Button21 = New Button()
         Label119 = New Label()
@@ -1919,6 +1927,14 @@ Partial Class MainMenu
         ' Vid_Enc_Add_Pnl
         ' 
         Vid_Enc_Add_Pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Vid_Enc_Add_Pnl.Controls.Add(ComboBox44)
+        Vid_Enc_Add_Pnl.Controls.Add(Label154)
+        Vid_Enc_Add_Pnl.Controls.Add(ComboBox42)
+        Vid_Enc_Add_Pnl.Controls.Add(Label153)
+        Vid_Enc_Add_Pnl.Controls.Add(ComboBox29)
+        Vid_Enc_Add_Pnl.Controls.Add(Label152)
+        Vid_Enc_Add_Pnl.Controls.Add(ComboBox22)
+        Vid_Enc_Add_Pnl.Controls.Add(Label151)
         Vid_Enc_Add_Pnl.Controls.Add(MetroSetCheckBox4)
         Vid_Enc_Add_Pnl.Controls.Add(Button21)
         Vid_Enc_Add_Pnl.Controls.Add(Label119)
@@ -1930,6 +1946,106 @@ Partial Class MainMenu
         Vid_Enc_Add_Pnl.Name = "Vid_Enc_Add_Pnl"
         Vid_Enc_Add_Pnl.Size = New Size(815, 38)
         Vid_Enc_Add_Pnl.TabIndex = 86
+        ' 
+        ' ComboBox44
+        ' 
+        ComboBox44.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ComboBox44.Enabled = False
+        ComboBox44.FlatStyle = FlatStyle.Flat
+        ComboBox44.Font = New Font("Segoe UI Semilight", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox44.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ComboBox44.FormattingEnabled = True
+        ComboBox44.Items.AddRange(New Object() {"all", "interlaced"})
+        ComboBox44.Location = New Point(133, 125)
+        ComboBox44.Name = "ComboBox44"
+        ComboBox44.Size = New Size(134, 23)
+        ComboBox44.TabIndex = 127
+        ' 
+        ' Label154
+        ' 
+        Label154.AutoSize = True
+        Label154.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label154.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label154.Location = New Point(33, 125)
+        Label154.Name = "Label154"
+        Label154.Size = New Size(102, 17)
+        Label154.TabIndex = 126
+        Label154.Text = "Frame Interlace"
+        ' 
+        ' ComboBox42
+        ' 
+        ComboBox42.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ComboBox42.Enabled = False
+        ComboBox42.FlatStyle = FlatStyle.Flat
+        ComboBox42.Font = New Font("Segoe UI Semilight", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox42.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ComboBox42.FormattingEnabled = True
+        ComboBox42.Items.AddRange(New Object() {"top field", "bottom field", "auto"})
+        ComboBox42.Location = New Point(400, 125)
+        ComboBox42.Name = "ComboBox42"
+        ComboBox42.Size = New Size(134, 23)
+        ComboBox42.TabIndex = 125
+        ' 
+        ' Label153
+        ' 
+        Label153.AutoSize = True
+        Label153.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label153.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label153.Location = New Point(298, 125)
+        Label153.Name = "Label153"
+        Label153.Size = New Size(99, 17)
+        Label153.TabIndex = 124
+        Label153.Text = "Interlace Parity"
+        ' 
+        ' ComboBox29
+        ' 
+        ComboBox29.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ComboBox29.Enabled = False
+        ComboBox29.FlatStyle = FlatStyle.Flat
+        ComboBox29.Font = New Font("Segoe UI Semilight", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox29.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ComboBox29.FormattingEnabled = True
+        ComboBox29.Items.AddRange(New Object() {"send_frame", "send_field", "send_frame_nospatial", "send_field_nospatial"})
+        ComboBox29.Location = New Point(400, 85)
+        ComboBox29.Name = "ComboBox29"
+        ComboBox29.Size = New Size(134, 23)
+        ComboBox29.TabIndex = 123
+        ' 
+        ' Label152
+        ' 
+        Label152.AutoSize = True
+        Label152.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label152.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label152.Location = New Point(298, 85)
+        Label152.Name = "Label152"
+        Label152.Size = New Size(99, 17)
+        Label152.TabIndex = 122
+        Label152.Text = "Interlace Mode"
+        ' 
+        ' ComboBox22
+        ' 
+        ComboBox22.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ComboBox22.Enabled = False
+        ComboBox22.FlatStyle = FlatStyle.Flat
+        ComboBox22.Font = New Font("Segoe UI Semilight", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox22.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ComboBox22.FormattingEnabled = True
+        ComboBox22.Items.AddRange(New Object() {"bwdif", "yadif"})
+        ComboBox22.Location = New Point(133, 85)
+        ComboBox22.Name = "ComboBox22"
+        ComboBox22.Size = New Size(134, 23)
+        ComboBox22.TabIndex = 121
+        ' 
+        ' Label151
+        ' 
+        Label151.AutoSize = True
+        Label151.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label151.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label151.Location = New Point(33, 85)
+        Label151.Name = "Label151"
+        Label151.Size = New Size(75, 17)
+        Label151.TabIndex = 120
+        Label151.Text = "Deinterlace"
         ' 
         ' MetroSetCheckBox4
         ' 
@@ -3617,7 +3733,7 @@ Partial Class MainMenu
         Panel12.Controls.Add(ListView1)
         Panel12.Location = New Point(10, 8)
         Panel12.Name = "Panel12"
-        Panel12.Size = New Size(579, 9447)
+        Panel12.Size = New Size(579, 14243)
         Panel12.TabIndex = 86
         ' 
         ' Label127
@@ -3643,7 +3759,7 @@ Partial Class MainMenu
         ListView1.GridLines = True
         ListView1.Location = New Point(10, 61)
         ListView1.Name = "ListView1"
-        ListView1.Size = New Size(520, 9381)
+        ListView1.Size = New Size(520, 14177)
         ListView1.TabIndex = 0
         ListView1.UseCompatibleStateImageBehavior = False
         ListView1.View = View.Details
@@ -5199,13 +5315,6 @@ Partial Class MainMenu
     Friend WithEvents Button15 As Button
     Friend WithEvents Label59 As Label
     Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents Audio_Enc_Ch_Pnl As Panel
-    Friend WithEvents Button27 As Button
-    Friend WithEvents Label124 As Label
-    Friend WithEvents ComboBox33 As ComboBox
-    Friend WithEvents Label65 As Label
-    Friend WithEvents ComboBox34 As ComboBox
-    Friend WithEvents Label111 As Label
     Friend WithEvents Audio_Enc_QC_Pnl As Panel
     Friend WithEvents Button26 As Button
     Friend WithEvents Label123 As Label
@@ -5383,4 +5492,19 @@ Partial Class MainMenu
     Friend WithEvents LookaheadUpDown1 As NumericUpDown
     Friend WithEvents Label150 As Label
     Friend WithEvents Button29 As Button
+    Friend WithEvents ComboBox22 As ComboBox
+    Friend WithEvents Label151 As Label
+    Friend WithEvents ComboBox44 As ComboBox
+    Friend WithEvents Label154 As Label
+    Friend WithEvents ComboBox42 As ComboBox
+    Friend WithEvents Label153 As Label
+    Friend WithEvents ComboBox29 As ComboBox
+    Friend WithEvents Label152 As Label
+    Friend WithEvents Audio_Enc_Ch_Pnl As Panel
+    Friend WithEvents Button27 As Button
+    Friend WithEvents Label124 As Label
+    Friend WithEvents ComboBox33 As ComboBox
+    Friend WithEvents Label65 As Label
+    Friend WithEvents ComboBox34 As ComboBox
+    Friend WithEvents Label111 As Label
 End Class
