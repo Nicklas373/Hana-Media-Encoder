@@ -32,19 +32,19 @@
     End Function
     Public Function aCodecReverse(codec As String) As String
         Dim reverse As String
-        If codec = "pcm_s16le" Or codec = "pcm_s24le" Or codec = "pcm_s32le" Then
+        If codec = "pcm_s16le" Or codec = "pcm_s24le" Or codec = "pcm_s32le" Or codec = "WAV" Then
             reverse = "WAV"
-        ElseIf codec = "libmp3lame" Then
+        ElseIf codec = "libmp3lame" Or codec = "MP3" Then
             reverse = "MP3"
-        ElseIf codec = "aac" Then
+        ElseIf codec = "aac" Or codec = "AAC" Then
             reverse = "AAC"
-        ElseIf codec = "mp2" Or codec = "libtwolame" Then
+        ElseIf codec = "mp2" Or codec = "libtwolame" Or codec = "MP2" Then
             reverse = "MP2"
-        ElseIf codec = "opus" Or codec = "libopus" Then
+        ElseIf codec = "opus" Or codec = "libopus" Or codec = "OPUS" Then
             reverse = "OPUS"
-        ElseIf codec = "flac" Then
+        ElseIf codec = "flac" Or codec = "FLAC" Then
             reverse = "FLAC"
-        ElseIf codec = "copy" Then
+        ElseIf codec = "copy" Or codec = "Copy" Then
             reverse = "Copy"
         Else
             reverse = ""

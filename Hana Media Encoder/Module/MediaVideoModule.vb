@@ -27,7 +27,7 @@
             ElseIf Encoder = "cuda" Then
                 value = "h264_nvenc"
             Else
-                value = "copy"
+                value = " "
             End If
         ElseIf Cmbx = "HEVC" Then
             If Encoder = "opencl" Then
@@ -37,7 +37,7 @@
             ElseIf Encoder = "cuda" Then
                 value = "hevc_nvenc"
             Else
-                value = "copy"
+                value = " "
             End If
         ElseIf Cmbx = "AV1" Then
             If Encoder = "opencl" Then
@@ -47,10 +47,10 @@
             ElseIf Encoder = "cuda" Then
                 value = "av1_nvenc"
             Else
-                value = "copy"
+                value = " "
             End If
         Else
-            value = "copy"
+            value = " "
         End If
 
         Return value
@@ -93,9 +93,6 @@
         End If
 
         Return value
-    End Function
-    Public Function finalMetadata() As String
-        Return " -metadata ENCODER=HME_1.4.2"
     End Function
     Public Function vPreset(Cmbx As String, GPUHW As String, Codec As String) As String
         'Combobox5.text'
@@ -140,7 +137,7 @@
                     value = ""
                 End If
             Else
-                value = " -preset " & Cmbx & " "
+                value = " "
             End If
         End If
 
@@ -169,7 +166,7 @@
                     value = newValue
                 End If
             Else
-                value = " -pix_fmt " & Cmbx & " "
+                value = " "
             End If
         End If
 
@@ -220,15 +217,17 @@
 
         Return value
     End Function
-    Public Function vSpaTempAQ(Cmbx As String) As String
+    Public Function vSpaTempAQ(Cmbx As String, Codec As String) As String
         'Combobox11.text'
         Dim value As String
         If Cmbx = "disable" Then
             value = ""
-        ElseIf Cmbx = "enable" Then
+        ElseIf Cmbx = "enable" And Codec IsNot "AV1" Then
             value = " -spatial_aq 1 "
+        ElseIf Cmbx = "enable" And Codec Is "AV1" Then
+            value = " -spatial-aq 1 "
         Else
-            value = ""
+            value = " "
         End If
 
         Return value
@@ -244,15 +243,17 @@
 
         Return value
     End Function
-    Public Function vTempAQ(Cmbx As String) As String
+    Public Function vTempAQ(Cmbx As String, codec As String) As String
         'Combobox13.text'
         Dim value As String
         If Cmbx = "disable" Then
-            value = ""
-        ElseIf Cmbx = "enable" Then
+            value = " "
+        ElseIf Cmbx = "enable" And Codec IsNot "AV1" Then
             value = " -temporal_aq 1 "
+        ElseIf Cmbx = "enable" And Codec Is "AV1" Then
+            value = " -temporal-aq 1 "
         Else
-            value = ""
+            value = " "
         End If
 
         Return value
@@ -322,7 +323,7 @@
         ElseIf cmbx = "2.33 (21:9)" Then
             value = "2.33"
         Else
-            value = "null"
+            value = " "
         End If
 
         Return value
@@ -394,7 +395,7 @@
         ElseIf cmbx = "Limited" Then
             value = " -color_range 1"
         Else
-            value = ""
+            value = " "
         End If
 
         Return value
@@ -407,12 +408,12 @@
         ElseIf cmbx = "BT.2020" Then
             value = " -color_primaries bt2020"
         Else
-            value = ""
+            value = " "
         End If
 
         Return value
     End Function
-    Public Function vColorSpace(cmbx As String) As String
+    Public Function vColorSpace(cmbx As String, hwaccel As String) As String
         'Combobox39.text'
         Dim value As String
         If cmbx = "BT.2020 Constant" Then
@@ -422,7 +423,67 @@
         ElseIf cmbx = "BT.709" Then
             value = " -colorspace bt709 -color_trc bt709"
         Else
-            value = ""
+            value = " "
+        End If
+
+        Return value
+    End Function
+    Public Function vDeInterlace(cmbx As String, hwaccel As String, mode As String, parity As String, deint As String)
+        Dim value As String
+        Dim newMode As String
+        Dim newParity As String
+        Dim newDeint As String
+
+        If mode = "" Then
+            newMode = ""
+        Else
+            If mode = "send_frame" Then
+                newMode = "0"
+            ElseIf mode = "send_field" Then
+                newMode = "1"
+            ElseIf mode = "send_frame_nospatial" And cmbx = "yadif" And hwaccel.Contains("cuda") Then
+                newMode = "2"
+            ElseIf mode = "send_field_nospatial" And cmbx = "yadif" And hwaccel.Contains("cuda") Then
+                newMode = "3"
+            Else
+                newMode = "0"
+            End If
+        End If
+
+        If parity = "" Then
+            newParity = ""
+        Else
+            If parity = "top field" Then
+                newParity = "0"
+            ElseIf parity = "bottom field" Then
+                newParity = "1"
+            Else
+                newParity = "-1"
+            End If
+        End If
+
+        If deint = "" Then
+            newDeint = ""
+        Else
+            If deint = "all" Then
+                newDeint = "0"
+            ElseIf deint = "interlaced" Then
+                newDeint = "1"
+            Else
+                newDeint = "0"
+            End If
+        End If
+
+        If cmbx = "" Then
+            value = " "
+        ElseIf newDeint Is "" Or newMode Is "" Or newParity Is "" Then
+            value = " "
+        Else
+            If hwaccel.Contains("cuda") Then
+                value = " -vf " & cmbx & "_cuda=" & newMode & ":" & newParity & ":" & newDeint
+            Else
+                value = " -vf " & cmbx & "=" & newMode & ":" & newParity & ":" & newDeint
+            End If
         End If
 
         Return value
@@ -459,7 +520,7 @@
         'Combobox40.text'
         Dim value As String
         If cmbx = "" Then
-            value = ""
+            value = " "
         Else
             value = getBetween(cmbx, "(", ")") & "y"
         End If
@@ -469,7 +530,7 @@
     Public Function vResTranslateReverse(asp As String, res As String) As String
         Dim value As String
         If asp = "" Then
-            value = ""
+            value = " "
         ElseIf asp = "1.33 (4:3)" Then
             If getBetween(res, "=", "x") = "960" Then
                 value = "720p (960x720)"
@@ -482,7 +543,7 @@
             ElseIf getBetween(res, "=", "x") = "2880" Then
                 value = "4K UHD (2880x2160)"
             Else
-                value = ""
+                value = " "
             End If
         ElseIf asp = "1.78 (16:9)" Then
             If getBetween(res, "=", "x") = "720" Then
@@ -496,7 +557,7 @@
             ElseIf getBetween(res, "=", "x") = "3840" Then
                 value = "4K UHD (3840x2160)"
             Else
-                value = ""
+                value = " "
             End If
         ElseIf asp = "2.33 (21:9)" Then
             If getBetween(res, "=", "x") = "2560" Then
@@ -510,10 +571,10 @@
             ElseIf getBetween(res, "=", "x") = "4320" Then
                 value = "UW4K (4320x1800)"
             Else
-                value = ""
+                value = " "
             End If
         Else
-            value = ""
+            value = " "
         End If
 
         Return value
