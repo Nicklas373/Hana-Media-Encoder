@@ -230,9 +230,9 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2024</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.4.3</Version>
-    <AssemblyVersion>1.4.3</AssemblyVersion>
-    <FileVersion>1.4.3</FileVersion>
+    <Version>1.4.5</Version>
+    <AssemblyVersion>1.4.5</AssemblyVersion>
+    <FileVersion>1.4.5</FileVersion>
     <Description>Hana Media Encoder is a open source multimedia application for FFMPEG that have feature to encode, decode, trim, mux or even batch processing.
 It can detects and configure multiple media streams and can encode it separately if media file have more than one audio stream.
 Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options
@@ -350,6 +350,10 @@ then execute it to FFMPEG, FFPLAY or FFPROBE.
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Assets\HME_128.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Update="Assets\HME_Logo_Hi.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>

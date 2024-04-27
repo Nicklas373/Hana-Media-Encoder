@@ -104,13 +104,17 @@ Module GlobalVariable
     Public Newffres As String
     Public Newframestate As String
     Public NewParsedVer As String()
+    Public NVENCCConf As String
+    Public NVENCCLetter As String
     Public MaxPos As Integer
     Public MaxBitRate As String
+    Public MediaEngine As String
     Public MediaTEMPFolderLocation As String
     Public MediaQueueOrigDir As New List(Of String)
     Public MergedCurVer As Integer
     Public MergedNewVer As Integer
     Public MissedFlags(255) As Integer
+    Public NVENCCBinary As String
     Public OpenFileDialog As New OpenFileDialog
     Public OpenFolderDialog As New FolderBrowserDialog
     Public OldTitle As String

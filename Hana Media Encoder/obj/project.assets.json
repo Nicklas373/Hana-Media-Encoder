@@ -373,7 +373,7 @@
     "C:\\Users\\Nickl\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.4.3",
+    "version": "1.4.5",
     "restore": {
       "projectUniqueName": "C:\\Users\\Nickl\\Documents\\GitHub\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj",
       "projectName": "HME_HANA-CI",
@@ -466,7 +466,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }
