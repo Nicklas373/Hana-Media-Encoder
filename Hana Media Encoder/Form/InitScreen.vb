@@ -40,7 +40,7 @@ Public Class InitScreen
             Thread.Sleep(100)
             Refresh()
             If Directory.Exists(My.Application.Info.DirectoryPath & "\" & req_dir) = False Then
-                Thread.Sleep(100)
+                Thread.Sleep(50)
                 Refresh()
                 Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\" & req_dir)
             End If
@@ -74,9 +74,12 @@ Public Class InitScreen
             Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
             NVENCCBinary = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "NVENCC Binary:")
             MediaEngine = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Media Engine:")
-            If FfmpegConfig = "null" Or NVENCCBinary = "null" Then
+            If FfmpegConfig = "null" Then
                 retStats = "False"
-                retMessage = "Media engine configuration was not found !" & vbCrLf & vbCrLf & "Please configure it on options menu !"
+                retMessage = "START1: FFMPEG configuration was not found ! :END1" & vbCrLf & vbCrLf & "START2: Please configure it on options menu ! :END2"
+            ElseIf NVENCCBinary = "null" Then
+                retStats = "False"
+                retMessage = "START1: NVENCC configuration was not found ! :END1" & vbCrLf & vbCrLf & "START2: Please configure it on options menu ! :END2"
             Else
                 If NVENCCBinary = "null" Then
                     nvBinaryPath = ""
@@ -132,7 +135,7 @@ Public Class InitScreen
                                 retStats = "False"
                                 retMessage = "START1: GPU HW Encoder was not configured ! :END1" & vbCrLf & vbCrLf & "START2: Please configure it on options menu, native encoding are not supported yet !" & " :END2"
                             Else
-                                retStats = True
+                                retStats = "True"
                                 retMessage = ""
                             End If
                         End If
@@ -180,7 +183,7 @@ Public Class InitScreen
                                 retStats = "False"
                                 retMessage = "START1: GPU HW Encoder was not configured ! :END1" & vbCrLf & vbCrLf & "START2: Please configure it on options menu, native encoding are not supported yet !" & " :END2"
                             Else
-                                retStats = True
+                                retStats = "True"
                                 retMessage = ""
                             End If
                         End If
