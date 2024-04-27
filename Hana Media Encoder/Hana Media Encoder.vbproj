@@ -7,7 +7,13 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2024</Copyright>
-    <PackageReleaseNotes>v1.4.5 (20240427):
+    <PackageReleaseNotes>v1.4.6 (20240427):
+- Drop temporary feature for detect multi stream video support
+- Fix crashing issue when some of config are not written in the first place, then cause application crash and failed to load
+- Fix encoding issue when selected video codec are not AV1
+- Fix issue with FFPLAY that can't detect HW Accelerated configuration then causing FFPLAY can't preview video
+
+v1.4.5 (20240427):
 - Fixup issue some video configuration panel are hidden when expand
 - Fixup issue with audio codec configuration logic
 - Fixup issue with audio config load for audio codec that are not read properly
@@ -240,13 +246,13 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2024</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.4.5</Version>
-    <AssemblyVersion>1.4.5</AssemblyVersion>
-    <FileVersion>1.4.5</FileVersion>
-    <Description>Hana Media Encoder is a open source multimedia application for FFMPEG that have feature to encode, decode, trim, mux or even batch processing.
+    <Version>1.4.6</Version>
+    <AssemblyVersion>1.4.6</AssemblyVersion>
+    <FileVersion>1.4.6</FileVersion>
+    <Description>Hana Media Encoder is a open source multimedia application for FFMPEG or NVENCC that have feature to encode, decode, trim, mux or even batch processing.
 It can detects and configure multiple media streams and can encode it separately if media file have more than one audio stream.
 Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options
-then execute it to FFMPEG, FFPLAY or FFPROBE.
+then execute it to FFMPEG, FFPLAY, FFPROBE or NVENCC.
 
 # Current Features:
 * Support multiple media file encoding with same or different profile for each stream

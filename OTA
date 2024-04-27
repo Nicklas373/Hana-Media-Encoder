@@ -2,14 +2,10 @@
         "release_date": "27 April 2024",
         "version": "1.4.5.0",
         "changelog": [
-            "- Fixup issue some video configuration panel are hidden when expand",
-            "- Fixup issue with audio codec configuration logic",
-            "- Fixup issue with audio config load for audio codec that are not read properly",
-			"- Introduce deinterlace method for video encoding",
-            "- Introduce feature to choose which media encoder that will to use",
-			"- Integrate NVENCC as another media encoding resource, only for NVIDIA GPU [Experimental with limited features]",
-            "- Properly set HW Acceleration when encoding and preview video [It can reduce more CPU load than previous configuration]",
-            "- Re-writing video config R/W algorithm to improve config read, if it was choose to re-load the config"
+            "- Drop temporary feature for detect multi stream video support",
+            "- Fix crashing issue when some of config are not written in the first place, then cause application crash and failed to load",
+            "- Fix encoding issue when selected video codec are not AV1",
+			"- Fix issue with FFPLAY that can't detect HW Accelerated configuration then causing FFPLAY can't preview video"
         ],
-        "update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.4.5/HME_Setup.msi"
+        "update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.4.6/HME_Setup.msi"
 }
