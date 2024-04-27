@@ -31,7 +31,7 @@ Public Class InitScreen
         writer.Close()
         Hide()
     End Sub
-    Private sub InitDir()
+    Private Sub InitDir()
         Dim retReqDir As String() = {"audioConfig", "audioStream", "videoConfig", "videoStream", "thumbnail", "queue", "queue\audio",
                                      "queue\audio\audioStream", "queue\audio\audioConfig", "queue\video", "queue\video\videoStream",
                                      "queue\video\videoConfig", "chapterConfig", "muxConfig", "trimConfig", "HME-Engine"}
@@ -45,10 +45,12 @@ Public Class InitScreen
                 Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\" & req_dir)
             End If
         Next
-    End sub
+    End Sub
     Private Function InitFFMPEG() As String
         Dim retFFMPEGConf As String
         Dim retFFMPEGLetter As String
+        Dim retNVENCCConf As String
+        Dim retNVENCCLetter As String
         Dim retStats As String
         Dim retMessage As String
         Dim ffBinaryLoad As String() = {"ffmpeg.exe", "ffplay.exe", "ffprobe.exe"}
@@ -57,57 +59,130 @@ Public Class InitScreen
         Dim ffBinaryValidityMissLoad As New List(Of String)()
         Dim ffBinaryCount As Integer = 3
         Dim ffBinaryValidityCount As Integer = 3
+        Dim nvBinaryLoad As String() = {"NVEncC64.exe", "hdr10plus_gen.exe", "avcodec-60.dll", "avdevice-60.dll", "avfilter-9.dll", "avformat-60.dll", "avutil-58.dll",
+                                        "cudart64_110.dll", "libass-9.dll", "libvmaf.dll", "msvcp140.dll", "NVEncNVOFFRUC.dll", "NvOFFRUC.dll", "nvrtc64_101_0.dll", "nvrtc-builtins64_101.dll",
+                                        "swresample-4.dll", "vcruntime140.dll", "vcruntime140_1.dll"}
+        Dim nvBinaryValidityLoad As String() = {"nvencc64"}
+        Dim nvBinaryMissLoad As New List(Of String)()
+        Dim nvBinaryValidityMissLoad As New List(Of String)()
+        Dim nvBinaryCount As Integer = 18
+        Dim nvBinaryValidityCount As Integer = 1
+        Dim nvBinaryPath As String
+        Dim mediaenginestate As String
         If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
             FfmpegConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Binary:")
             Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
-            If FfmpegConfig = "null" Then
+            NVENCCBinary = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "NVENCC Binary:")
+            MediaEngine = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Media Engine:")
+            If FfmpegConfig = "null" Or NVENCCBinary = "null" Then
                 retStats = "False"
-                retMessage = "FFMPEG configuration was not found !" & vbCrLf & vbCrLf & "Please configure it on options menu !"
+                retMessage = "Media engine configuration was not found !" & vbCrLf & vbCrLf & "Please configure it on options menu !"
             Else
-                retFFMPEGConf = FfmpegConfig.Remove(0, 14) & "\"
-                retFFMPEGLetter = String.Concat(retFFMPEGConf.AsSpan(0, 1), ":")
-                For Each ffBin As String In ffBinaryLoad
-                    Label1.Text = "Loading: " & ffBin
-                    Thread.Sleep(200)
-                    Refresh()
-                    If File.Exists(retFFMPEGConf & ffBin) = False Then
-                        ffBinaryCount += 1
-                        ffBinaryMissLoad.Add(ffBin)
-                    End If
-                Next
-                If ffBinaryCount > 3 Then
-                    retStats = "False"
-                    retMessage = "START1: Failed to find FFMPEG Binary ! :END1" & vbCrLf & vbCrLf & "START2: Missing FFMPEG Binary: " & String.Join(" , ", ffBinaryMissLoad) & " :END2"
+                If NVENCCBinary = "null" Then
+                    nvBinaryPath = ""
                 Else
-                    For Each ffres As String In ffBinaryValidityLoad
-                        Newffargs = ffres & " -hide_banner -version 2>&1"
-                        HMEGenerateAlt(My.Application.Info.DirectoryPath & "\HME_FFMPEG_Init.bat", retFFMPEGLetter, Chr(34) & retFFMPEGConf & Chr(34), Newffargs, "")
-                        Dim psi As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_FFMPEG_Init.bat") With {
-                            .RedirectStandardError = False,
-                            .RedirectStandardOutput = True,
-                            .CreateNoWindow = True,
-                            .WindowStyle = ProcessWindowStyle.Hidden,
-                            .UseShellExecute = False
-                        }
-                        Dim process As Process = Process.Start(psi)
-                        While Not process.StandardOutput.EndOfStream
-                            Newffres = process.StandardOutput.ReadToEnd
-                            If Strings.Left(Newffres, 2).Equals("ff") = False Then
-                                ffBinaryValidityCount += 1
-                                ffBinaryValidityMissLoad.Add(ffres)
-                            End If
-                        End While
+                    nvBinaryPath = NVENCCBinary.Remove(0, 14)
+                End If
+                If MediaEngine IsNot "null" Then
+                    mediaenginestate = MediaEngine.Remove(0, 13)
+                Else
+                    mediaenginestate = "FFMPEG"
+                End If
+                If mediaenginestate = "NVENCC" Then
+                    retNVENCCConf = NVENCCBinary.Remove(0, 14) & "\"
+                    For Each nvBin As String In nvBinaryLoad
+                        Label1.Text = "Loading: " & nvBin
+                        Thread.Sleep(100)
+                        Refresh()
+                        If File.Exists(retNVENCCConf & nvBin) = False Then
+                            nvBinaryCount += 1
+                            nvBinaryMissLoad.Add(nvBin)
+                        End If
                     Next
-                    If ffBinaryValidityCount > 3 Then
+                    retNVENCCConf = NVENCCBinary.Remove(0, 14) & "\"
+                    retNVENCCLetter = retNVENCCConf.Substring(0, 1) & ":"
+                    If nvBinaryCount > 18 Then
                         retStats = "False"
-                        retMessage = "START1: Failed to initialize FFMPEG Binary ! :END1" & vbCrLf & vbCrLf & "START2: Invalid FFMPEG Binary: " & String.Join(" , ", ffBinaryValidityMissLoad) & " :END2"
+                        retMessage = "START1: Failed to find NVENCC Binary ! :END1" & vbCrLf & vbCrLf & "START2: Missing NVENCC Binary: " & String.Join(" , ", nvBinaryMissLoad) & " :END2"
                     Else
-                        If Hwdefconfig = "GPU Engine:" Then
+                        For Each nvres As String In nvBinaryValidityLoad
+                            Newffargs = nvres & " --version 2>&1"
+                            HMEGenerateAlt(My.Application.Info.DirectoryPath & "\HME_NVENCC_Init.bat", retNVENCCLetter, Chr(34) & retNVENCCConf & Chr(34), Newffargs, "")
+                            Dim psi As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_NVENCC_Init.bat") With {
+                                .RedirectStandardError = False,
+                                .RedirectStandardOutput = True,
+                                .CreateNoWindow = True,
+                                .WindowStyle = ProcessWindowStyle.Hidden,
+                                .UseShellExecute = False
+                            }
+                            Dim process As Process = Process.Start(psi)
+                            While Not process.StandardOutput.EndOfStream
+                                Newffres = process.StandardOutput.ReadToEnd
+                                If Strings.Left(Newffres, 2).Equals("nv") = False Then
+                                    nvBinaryValidityCount += 1
+                                    nvBinaryValidityMissLoad.Add(nvres)
+                                End If
+                            End While
+                        Next
+                        If nvBinaryValidityCount > 18 Then
                             retStats = "False"
-                            retMessage = "START1: GPU HW Encoder was not configured ! :END1" & vbCrLf & vbCrLf & "START2: Please configure it on options menu, native encoding are not supported yet !" & " :END2"
+                            retMessage = "START1: Failed to initialize NVENCC Binary ! :END1" & vbCrLf & vbCrLf & "START2: Invalid NVENCC Binary: " & String.Join(" , ", nvBinaryValidityMissLoad) & " :END2"
                         Else
-                            retStats = True
-                            retMessage = ""
+                            If Hwdefconfig = "GPU Engine:" Then
+                                retStats = "False"
+                                retMessage = "START1: GPU HW Encoder was not configured ! :END1" & vbCrLf & vbCrLf & "START2: Please configure it on options menu, native encoding are not supported yet !" & " :END2"
+                            Else
+                                retStats = True
+                                retMessage = ""
+                            End If
+                        End If
+                    End If
+                Else
+                    retFFMPEGConf = FfmpegConfig.Remove(0, 14) & "\"
+                    retFFMPEGLetter = String.Concat(retFFMPEGConf.AsSpan(0, 1), ":")
+                    For Each ffBin As String In ffBinaryLoad
+                        Label1.Text = "Loading: " & ffBin
+                        Thread.Sleep(100)
+                        Refresh()
+                        If File.Exists(retFFMPEGConf & ffBin) = False Then
+                            ffBinaryCount += 1
+                            ffBinaryMissLoad.Add(ffBin)
+                        End If
+                    Next
+                    If ffBinaryCount > 3 Then
+                        retStats = "False"
+                        retMessage = "START1: Failed to find FFMPEG Binary ! :END1" & vbCrLf & vbCrLf & "START2: Missing FFMPEG Binary: " & String.Join(" , ", ffBinaryMissLoad) & " :END2"
+                    Else
+                        For Each ffres As String In ffBinaryValidityLoad
+                            Newffargs = ffres & " -hide_banner -version 2>&1"
+                            HMEGenerateAlt(My.Application.Info.DirectoryPath & "\HME_FFMPEG_Init.bat", retFFMPEGLetter, Chr(34) & retFFMPEGConf & Chr(34), Newffargs, "")
+                            Dim psi As New ProcessStartInfo(My.Application.Info.DirectoryPath & "\HME_FFMPEG_Init.bat") With {
+                                .RedirectStandardError = False,
+                                .RedirectStandardOutput = True,
+                                .CreateNoWindow = True,
+                                .WindowStyle = ProcessWindowStyle.Hidden,
+                                .UseShellExecute = False
+                            }
+                            Dim process As Process = Process.Start(psi)
+                            While Not process.StandardOutput.EndOfStream
+                                Newffres = process.StandardOutput.ReadToEnd
+                                If Strings.Left(Newffres, 2).Equals("ff") = False Then
+                                    ffBinaryValidityCount += 1
+                                    ffBinaryValidityMissLoad.Add(ffres)
+                                End If
+                            End While
+                        Next
+                        If ffBinaryValidityCount > 3 Then
+                            retStats = "False"
+                            retMessage = "START1: Failed to initialize FFMPEG Binary ! :END1" & vbCrLf & vbCrLf & "START2: Invalid FFMPEG Binary: " & String.Join(" , ", ffBinaryValidityMissLoad) & " :END2"
+                        Else
+                            If Hwdefconfig = "GPU Engine:" Then
+                                retStats = "False"
+                                retMessage = "START1: GPU HW Encoder was not configured ! :END1" & vbCrLf & vbCrLf & "START2: Please configure it on options menu, native encoding are not supported yet !" & " :END2"
+                            Else
+                                retStats = True
+                                retMessage = ""
+                            End If
                         End If
                     End If
                 End If
