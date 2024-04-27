@@ -122,7 +122,7 @@ Module MediaEncoderModule
                                             level As String, maxbitrate As String, multipass As String, preset As String, pixfmt As String, profile As String,
                                             force10bit As String, ratectr As String, lookahead As String, spatialaq As String, aqstrength As String, temporalaq As String, targetql As String,
                                             tier As String, tune As String, tilecol As String, tilerow As String, ar As String, res As String, algo As String, colorrange As String,
-                                            colorprimary As String, colorspace As String, scaleType As String, metaData As String)
+                                            colorprimary As String, colorspace As String, deinterlace As String, deinterlaceMode As String, deinterlaceParity As String, deinterlaceFrame As String, scaleType As String, metaData As String)
         If File.Exists(HMEName) Then
             GC.Collect()
             GC.WaitForPendingFinalizers()
@@ -160,12 +160,16 @@ Module MediaEncoderModule
         writer.WriteLine("ColorRange=" & colorrange)
         writer.WriteLine("ColorPrimary=" & colorprimary)
         writer.WriteLine("ColorSpace=" & colorspace)
+        writer.WriteLine("Deinterlace=" & deinterlace)
+        writer.WriteLine("DeMode=" & deinterlaceMode)
+        writer.WriteLine("DeParity=" & deinterlaceParity)
+        writer.WriteLine("DeFrame=" & deinterlaceFrame)
         writer.WriteLine("ScaleType=" & scaleType)
         writer.WriteLine("Metadata=" & metaData)
         writer.Close()
     End Sub
     Public Sub InitExit(state As String)
-        Dim progList As String() = {"ffplay", "ffmpeg", "ffprobe"}
+        Dim progList As String() = {"ffplay", "ffmpeg", "ffprobe", "nvencc64"}
         For Each prog As Process In Process.GetProcesses
             For Each progQueue As String In progList
                 If prog.ProcessName = progQueue Then
@@ -181,9 +185,9 @@ Module MediaEncoderModule
     Public Sub previewMediaModule(mediaFile As String, ffplay As String, hwengine As String, mediaID As String)
         Dim newffargs As String
         If mediaID = "Not Detected" Then
-            newffargs = " -hwaccel " & hwengine & " -x 960 -y 540 -showmode 1"
+            newffargs = " -x 960 -y 540 -showmode 1"
         Else
-            newffargs = " -x 960 -y 540 -showmode 0"
+            newffargs = " -hwaccel " & hwengine & " -x 960 -y 540 -showmode 0"
         End If
         Dim psi As New ProcessStartInfo(ffplay) With {
                .RedirectStandardError = False,
