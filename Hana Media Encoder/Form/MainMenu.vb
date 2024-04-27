@@ -502,6 +502,12 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub PreviewMedia(sender As Object, e As EventArgs) Handles Button4.Click
+        Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
+        If Hwdefconfig = "GPU Engine:" Then
+            HwAccelDev = ""
+        Else
+            HwAccelDev = Hwdefconfig.Remove(0, 11)
+        End If
         If Textbox77.Text = "" Then
             NotifyIcon("Preview media", "Please open media file first", 1000, False)
         Else
