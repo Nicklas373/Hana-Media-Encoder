@@ -3216,23 +3216,23 @@ Public Class MainMenu
                         TileRows = TileRowsUpDown1.Value
                         If TileRowsUpDown1.Value > 0 Then
                             If TileColumnUpDown1.Value > 0 Then
-                                If mediaenginestate = "NVENCC" Then
+                                If mediaenginestate = "NVENCC" And ComboBox2.Text = "AV1" Then
                                     TileFlags = " --tile-columns " & TileColumnUpDown1.Value & " --tile-rows " & TileRowsUpDown1.Value
-                                Else
+                                ElseIf ComboBox2.Text = "AV1" Then
                                     TileFlags = " -tile-columns " & TileColumnUpDown1.Value & " -tile-rows " & TileRowsUpDown1.Value
                                 End If
                             Else
-                                If mediaenginestate = "NVENCC" Then
+                                If mediaenginestate = "NVENCC" And ComboBox2.Text = "AV1" Then
                                     TileFlags = " --tile-columns auto " & " --tile-rows " & TileRowsUpDown1.Value
-                                Else
+                                ElseIf ComboBox2.Text = "AV1" Then
                                     TileFlags = " -tile-columns -1 " & " -tile-rows " & TileRowsUpDown1.Value
                                 End If
                             End If
                         Else
-                            If mediaenginestate = "NVENCC" Then
-                                TileFlags = " "
-                            Else
+                            If mediaenginestate = "NVENCC" And ComboBox2.Text = "AV1" Then
                                 TileFlags = " --tile-columns -1 " & " --tile-rows -1 "
+                            ElseIf ComboBox2.Text = "AV1" Then
+                                TileFlags = " -tile-columns -1 " & " -tile-rows -1 "
                             End If
                         End If
                         If HwAccelDev = "cuda" Then
