@@ -16,6 +16,20 @@ Public Class OptionsMenu
         Label29.Text = My.Application.Info.Version.ToString
         Label25.Text = My.Application.Info.Copyright
         Label26.Text = My.Application.Info.Description
+        If NVENCCCompatibility() = False Then
+            Button2.Enabled = False
+            ComboBox3.Enabled = False
+            MediaEngine = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Media Engine:")
+            If MediaEngine = "null" Then
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+                writer.WriteLine("Media Engine:FFMPEG")
+                writer.Close()
+            Else
+                Dim MediaEngineOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                MediaEngineOldConf = MediaEngineOldConf.Replace(MediaEngine, "Media Engine:FFMPEG")
+                File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", MediaEngineOldConf)
+            End If
+        End If
     End Sub
     Private Sub General_Btn(sender As Object, e As EventArgs) Handles Button1.Click
         General_pnl.Visible = True
@@ -30,7 +44,7 @@ Public Class OptionsMenu
     End Sub
     Private Sub Browse_Btn_FFMPEG(sender As Object, e As EventArgs) Handles Button4.Click
         OpenFolderDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
-        If OpenFolderDialog.ShowDialog() = DialogResult.OK Then
+        If OpenFolderDialog.ShowDialog = DialogResult.OK Then
             If File.Exists(OpenFolderDialog.SelectedPath & "\ffmpeg.exe") And File.Exists(OpenFolderDialog.SelectedPath & "\ffplay.exe") And File.Exists(OpenFolderDialog.SelectedPath & "\ffprobe.exe") Then
                 TextBox1.Text = OpenFolderDialog.SelectedPath
                 If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
@@ -40,7 +54,7 @@ Public Class OptionsMenu
                         writer.WriteLine("FFMPEG Binary:" & TextBox1.Text)
                         writer.Close()
                     Else
-                        Dim FFMPEGReaderOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                        Dim FFMPEGReaderOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                         FFMPEGReaderOldConf = FFMPEGReaderOldConf.Replace(FfmpegConf, "FFMPEG Binary:" & TextBox1.Text)
                         File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", FFMPEGReaderOldConf)
                     End If
@@ -52,6 +66,33 @@ Public Class OptionsMenu
                 End If
             Else
                 MessageBoxAdv.Show("Make sure that folder have required FFMPEG Files !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+    End Sub
+    Private Sub Browse_Btn_NVENCC(sender As Object, e As EventArgs) Handles Button2.Click
+        OpenFolderDialog.InitialDirectory = Environment.SpecialFolder.UserProfile
+        If OpenFolderDialog.ShowDialog = DialogResult.OK Then
+            If File.Exists(OpenFolderDialog.SelectedPath & "\nvencc64.exe") And File.Exists(OpenFolderDialog.SelectedPath & "\hdr10plus_gen.exe") Then
+                TextBox2.Text = OpenFolderDialog.SelectedPath
+                If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+                    FfmpegConf = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "NVENCC Binary:")
+                    If FfmpegConf = "null" Then
+                        Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+                        writer.WriteLine("NVENCC Binary:" & TextBox2.Text)
+                        writer.Close()
+                    Else
+                        Dim FFMPEGReaderOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                        FFMPEGReaderOldConf = FFMPEGReaderOldConf.Replace(FfmpegConf, "NVENCC Binary:" & TextBox2.Text)
+                        File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", FFMPEGReaderOldConf)
+                    End If
+                Else
+                    File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+                    Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+                    writer.WriteLine("NVENCC Binary:" & TextBox2.Text)
+                    writer.Close()
+                End If
+            Else
+                MessageBoxAdv.Show("Make sure that folder have required NVENCC Files !", "Hana Media Encoder", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
     End Sub
@@ -74,6 +115,8 @@ Public Class OptionsMenu
             DebugMode = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Debug Mode:")
             FrameCount = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Frame Count:")
             FfmpegConfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "FFMPEG Binary:")
+            NVENCCBinary = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "NVENCC Binary:")
+            MediaEngine = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Media Engine:")
             Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
             AlwaysFullscreenConf = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Always Fullscreen:")
             If DebugMode = "null" Then
@@ -86,6 +129,11 @@ Public Class OptionsMenu
                 TextBox1.Text = ""
             Else
                 TextBox1.Text = FfmpegConfig.Remove(0, 14)
+            End If
+            If NVENCCBinary = "null" Then
+                TextBox2.Text = ""
+            Else
+                TextBox2.Text = NVENCCBinary.Remove(0, 14)
             End If
             If FrameCount = "null" Then
                 CheckBox5.Checked = False
@@ -111,6 +159,17 @@ Public Class OptionsMenu
                 ElseIf Label7.Text.Contains("NVIDIA") Then
                     ComboBox1.SelectedText = "NVIDIA (NVENC / NVDEC)"
                 End If
+            End If
+            If MediaEngine = "Media Engine:FFMPEG" Or MediaEngine = "Media Engine:NVENCC" Then
+                If MediaEngine.Remove(0, 13) = "FFMPEG" Then
+                    ComboBox3.SelectedText = "FFMPEG"
+                ElseIf MediaEngine.Remove(0, 13) = "NVENCC" Then
+                    ComboBox3.SelectedText = "NVENCC"
+                Else
+                    ComboBox3.SelectedText = ""
+                End If
+            Else
+                ComboBox3.SelectedText = ""
             End If
             If AddEncConf = "null" Then
                 ComboBox2.Text = ""
@@ -146,7 +205,7 @@ Public Class OptionsMenu
                 Else
                     If GetGraphicsHWEngine(ComboBox1.Text) = "null" Then
                     Else
-                        Dim HWDecOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                        Dim HWDecOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                         HWDecOldConf = HWDecOldConf.Replace(Hwdefconfig, "GPU Engine:" & GetGraphicsHWEngine(ComboBox1.Text))
                         File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", HWDecOldConf)
                     End If
@@ -166,7 +225,7 @@ Public Class OptionsMenu
             End If
         Else
             If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
-                Dim HWDecOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                Dim HWDecOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                 HWDecOldConf = HWDecOldConf.Replace(Hwdefconfig, "GPU Engine:")
                 File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", HWDecOldConf)
             Else
@@ -185,7 +244,7 @@ Public Class OptionsMenu
                 writer.WriteLine("Debug Mode:" & CheckBox3.Checked)
                 writer.Close()
             Else
-                Dim debugModeOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                Dim debugModeOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                 debugModeOldConf = debugModeOldConf.Replace(DebugMode, "Debug Mode:" & CheckBox3.Checked)
                 File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", debugModeOldConf)
             End If
@@ -210,7 +269,7 @@ Public Class OptionsMenu
                 writer.WriteLine("Frame Count:" & CheckBox5.Checked)
                 writer.Close()
             Else
-                Dim frameCountOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                Dim frameCountOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                 frameCountOldConf = frameCountOldConf.Replace(FrameCount, "Frame Count:" & CheckBox5.Checked)
                 File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", frameCountOldConf)
             End If
@@ -229,7 +288,7 @@ Public Class OptionsMenu
                 writer.WriteLine("Alt Encode:" & CheckBox4.Checked)
                 writer.Close()
             Else
-                Dim AltEncodeStatsOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                Dim AltEncodeStatsOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                 AltEncodeStatsOldConf = AltEncodeStatsOldConf.Replace(AltEncodeStats, "Alt Encode:" & CheckBox4.Checked)
                 File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", AltEncodeStatsOldConf)
             End If
@@ -256,7 +315,7 @@ Public Class OptionsMenu
                 writer.WriteLine("Encode Info:" & tempEncodeInfo)
                 writer.Close()
             Else
-                Dim encodeInfoOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                Dim encodeInfoOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                 encodeInfoOldConf = encodeInfoOldConf.Replace(AdditionalEncodeStats, "Encode Info:" & tempEncodeInfo)
                 File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", encodeInfoOldConf)
             End If
@@ -275,7 +334,7 @@ Public Class OptionsMenu
                 writer.WriteLine("Always Fullscreen:" & CheckBox6.Checked)
                 writer.Close()
             Else
-                Dim AlwaysFullscreenStatsOldConf As String = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                Dim AlwaysFullscreenStatsOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
                 AlwaysFullscreenStatsOldConf = AlwaysFullscreenStatsOldConf.Replace(AlwaysFullscreenStats, "Always Fullscreen:" & CheckBox6.Checked)
                 File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", AlwaysFullscreenStatsOldConf)
             End If
@@ -286,6 +345,45 @@ Public Class OptionsMenu
             writer.Close()
         End If
     End Sub
+    Private Sub GPUMediaEngine(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
+        If ComboBox3.Text = "NVENCC" Then
+            If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+                Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
+                If Hwdefconfig = "null" Then
+                    Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+                    writer.WriteLine("GPU Engine:cuda")
+                    writer.Close()
+                Else
+                    Dim HWDecOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                    HWDecOldConf = HWDecOldConf.Replace(Hwdefconfig, "GPU Engine:cuda")
+                    File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", HWDecOldConf)
+                End If
+            Else
+                File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+                writer.WriteLine("GPU Engine:cuda")
+                writer.Close()
+            End If
+            ComboBox1.SelectedIndex = 1
+        End If
+        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+            MediaEngine = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "Media Engine:")
+            If MediaEngine = "null" Then
+                Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+                writer.WriteLine("Media Engine:" & ComboBox3.Text)
+                writer.Close()
+            Else
+                Dim MediaEngineOldConf = File.ReadAllText(My.Application.Info.DirectoryPath & "\config.ini")
+                MediaEngineOldConf = MediaEngineOldConf.Replace(MediaEngine, "Media Engine:" & ComboBox3.Text)
+                File.WriteAllText(My.Application.Info.DirectoryPath & "\config.ini", MediaEngineOldConf)
+            End If
+        Else
+            File.Create(My.Application.Info.DirectoryPath & "\config.ini").Dispose()
+            Dim writer As New StreamWriter(My.Application.Info.DirectoryPath & "\config.ini", True)
+            writer.WriteLine("Media Engine:" & ComboBox3.Text)
+            writer.Close()
+        End If
+    End Sub
     Private Sub FFMPEGURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel4.LinkClicked
         Dim psi As New ProcessStartInfo With {
                .FileName = "https://ffmpeg.org/download.html#build-windows",
@@ -293,21 +391,28 @@ Public Class OptionsMenu
            }
         Process.Start(psi)
     End Sub
-    Private Sub WebURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
+    Private Sub NVENCCURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Dim psi As New ProcessStartInfo With {
+               .FileName = "https://github.com/rigaya/NVEnc/releases",
+               .UseShellExecute = True
+           }
+        Process.Start(psi)
+    End Sub
+    Private Sub WebURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel3.LinkClicked
         Dim psi As New ProcessStartInfo With {
                .FileName = "https://github.com/Nicklas373/Hana-Media-Encoder",
                .UseShellExecute = True
            }
         Process.Start(psi)
     End Sub
-    Private Sub CopyrightURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+    Private Sub CopyrightURL(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         Dim psi As New ProcessStartInfo With {
                .FileName = "https://github.com/Nicklas373/Hana-Media-Encoder/issues",
                .UseShellExecute = True
            }
         Process.Start(psi)
     End Sub
-    Private Sub OTAMenu(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub OTAMenu(sender As Object, e As EventArgs) Handles Button5.Click
         Dim tryParse As Boolean
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Try

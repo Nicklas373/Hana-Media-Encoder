@@ -25,6 +25,27 @@ Partial Class OptionsMenu
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OptionsMenu))
         Panel1 = New Panel()
         General_pnl = New Panel()
+        about_pnl = New Panel()
+        Button5 = New Button()
+        LinkLabel2 = New LinkLabel()
+        Label28 = New Label()
+        LinkLabel3 = New LinkLabel()
+        Label27 = New Label()
+        Label26 = New Label()
+        Label25 = New Label()
+        Label29 = New Label()
+        Label30 = New Label()
+        PictureBox1 = New PictureBox()
+        Label21 = New Label()
+        Label16 = New Label()
+        ComboBox3 = New ComboBox()
+        Label15 = New Label()
+        LinkLabel1 = New LinkLabel()
+        Label12 = New Label()
+        Label13 = New Label()
+        Label14 = New Label()
+        TextBox2 = New TextBox()
+        Button2 = New Button()
         CheckBox6 = New CheckBox()
         Label11 = New Label()
         Label10 = New Label()
@@ -56,17 +77,6 @@ Partial Class OptionsMenu
         Button4 = New Button()
         Button1 = New Button()
         Button3 = New Button()
-        about_pnl = New Panel()
-        Button2 = New Button()
-        LinkLabel1 = New LinkLabel()
-        Label28 = New Label()
-        LinkLabel2 = New LinkLabel()
-        Label27 = New Label()
-        Label26 = New Label()
-        Label25 = New Label()
-        Label29 = New Label()
-        Label30 = New Label()
-        PictureBox1 = New PictureBox()
         Panel1.SuspendLayout()
         General_pnl.SuspendLayout()
         about_pnl.SuspendLayout()
@@ -88,6 +98,16 @@ Partial Class OptionsMenu
         General_pnl.AutoScroll = True
         General_pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
         General_pnl.Controls.Add(about_pnl)
+        General_pnl.Controls.Add(Label21)
+        General_pnl.Controls.Add(Label16)
+        General_pnl.Controls.Add(ComboBox3)
+        General_pnl.Controls.Add(Label15)
+        General_pnl.Controls.Add(LinkLabel1)
+        General_pnl.Controls.Add(Label12)
+        General_pnl.Controls.Add(Label13)
+        General_pnl.Controls.Add(Label14)
+        General_pnl.Controls.Add(TextBox2)
+        General_pnl.Controls.Add(Button2)
         General_pnl.Controls.Add(CheckBox6)
         General_pnl.Controls.Add(Label11)
         General_pnl.Controls.Add(Label10)
@@ -117,11 +137,266 @@ Partial Class OptionsMenu
         General_pnl.Controls.Add(Label1)
         General_pnl.Controls.Add(TextBox1)
         General_pnl.Controls.Add(Button4)
+        General_pnl.Dock = DockStyle.Fill
         General_pnl.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
         General_pnl.Location = New Point(0, 0)
         General_pnl.Name = "General_pnl"
-        General_pnl.Size = New Size(1257, 609)
-        General_pnl.TabIndex = 38
+        General_pnl.Size = New Size(1254, 609)
+        General_pnl.TabIndex = 40
+        ' 
+        ' about_pnl
+        ' 
+        about_pnl.AutoScroll = True
+        about_pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        about_pnl.Controls.Add(Button5)
+        about_pnl.Controls.Add(LinkLabel2)
+        about_pnl.Controls.Add(Label28)
+        about_pnl.Controls.Add(LinkLabel3)
+        about_pnl.Controls.Add(Label27)
+        about_pnl.Controls.Add(Label26)
+        about_pnl.Controls.Add(Label25)
+        about_pnl.Controls.Add(Label29)
+        about_pnl.Controls.Add(Label30)
+        about_pnl.Controls.Add(PictureBox1)
+        about_pnl.Dock = DockStyle.Fill
+        about_pnl.Location = New Point(0, 0)
+        about_pnl.Name = "about_pnl"
+        about_pnl.Size = New Size(1237, 875)
+        about_pnl.TabIndex = 67
+        ' 
+        ' Button5
+        ' 
+        Button5.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Button5.FlatAppearance.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button5.FlatStyle = FlatStyle.Flat
+        Button5.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button5.Location = New Point(627, 22)
+        Button5.Name = "Button5"
+        Button5.Size = New Size(116, 23)
+        Button5.TabIndex = 11
+        Button5.Text = "Check for updates"
+        Button5.UseVisualStyleBackColor = False
+        ' 
+        ' LinkLabel2
+        ' 
+        LinkLabel2.ActiveLinkColor = Color.DodgerBlue
+        LinkLabel2.AutoSize = True
+        LinkLabel2.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        LinkLabel2.Location = New Point(238, 207)
+        LinkLabel2.Name = "LinkLabel2"
+        LinkLabel2.Size = New Size(325, 15)
+        LinkLabel2.TabIndex = 10
+        LinkLabel2.TabStop = True
+        LinkLabel2.Text = "https://github.com/Nicklas373/Hana-Media-Encoder/issues"
+        ' 
+        ' Label28
+        ' 
+        Label28.AutoSize = True
+        Label28.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label28.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label28.Location = New Point(237, 181)
+        Label28.Name = "Label28"
+        Label28.Size = New Size(108, 26)
+        Label28.TabIndex = 9
+        Label28.Text = "Submit issue"
+        ' 
+        ' LinkLabel3
+        ' 
+        LinkLabel3.ActiveLinkColor = Color.DodgerBlue
+        LinkLabel3.AutoSize = True
+        LinkLabel3.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        LinkLabel3.Location = New Point(237, 155)
+        LinkLabel3.Name = "LinkLabel3"
+        LinkLabel3.Size = New Size(289, 15)
+        LinkLabel3.TabIndex = 8
+        LinkLabel3.TabStop = True
+        LinkLabel3.Text = "https://github.com/Nicklas373/Hana-Media-Encoder"
+        ' 
+        ' Label27
+        ' 
+        Label27.AutoSize = True
+        Label27.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label27.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label27.Location = New Point(237, 127)
+        Label27.Name = "Label27"
+        Label27.Size = New Size(72, 26)
+        Label27.TabIndex = 6
+        Label27.Text = "Website"
+        ' 
+        ' Label26
+        ' 
+        Label26.AutoSize = True
+        Label26.Font = New Font("Poppins", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label26.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label26.Location = New Point(18, 271)
+        Label26.Name = "Label26"
+        Label26.Size = New Size(60, 23)
+        Label26.TabIndex = 5
+        Label26.Text = "Label26"
+        ' 
+        ' Label25
+        ' 
+        Label25.AutoSize = True
+        Label25.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label25.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label25.Location = New Point(237, 85)
+        Label25.Name = "Label25"
+        Label25.Size = New Size(84, 26)
+        Label25.TabIndex = 4
+        Label25.Text = "copyright"
+        ' 
+        ' Label29
+        ' 
+        Label29.AutoSize = True
+        Label29.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label29.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label29.Location = New Point(237, 58)
+        Label29.Name = "Label29"
+        Label29.Size = New Size(65, 26)
+        Label29.TabIndex = 3
+        Label29.Text = "appver"
+        ' 
+        ' Label30
+        ' 
+        Label30.AutoSize = True
+        Label30.Font = New Font("Poppins SemiBold", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Label30.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label30.Location = New Point(232, 16)
+        Label30.Name = "Label30"
+        Label30.Size = New Size(148, 48)
+        Label30.TabIndex = 2
+        Label30.Text = "APPNAME"
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = Color.Transparent
+        PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+        PictureBox1.Image = My.Resources.Resources.HME_Logo_Hi
+        PictureBox1.InitialImage = Nothing
+        PictureBox1.Location = New Point(18, 21)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(200, 200)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 1
+        PictureBox1.TabStop = False
+        ' 
+        ' Label21
+        ' 
+        Label21.AutoSize = True
+        Label21.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label21.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label21.Location = New Point(19, 860)
+        Label21.Name = "Label21"
+        Label21.Size = New Size(338, 15)
+        Label21.TabIndex = 57
+        Label21.Text = "NOTE: NVENCC still experimental, while FFMPEG already stable"
+        ' 
+        ' Label16
+        ' 
+        Label16.AutoSize = True
+        Label16.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label16.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label16.Location = New Point(19, 841)
+        Label16.Name = "Label16"
+        Label16.Size = New Size(402, 15)
+        Label16.TabIndex = 56
+        Label16.Text = "Select Media Encoding for general encoding process [FFMPEG or NVENCC]"
+        ' 
+        ' ComboBox3
+        ' 
+        ComboBox3.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ComboBox3.Enabled = True
+        ComboBox3.FlatStyle = FlatStyle.Flat
+        ComboBox3.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ComboBox3.FormattingEnabled = True
+        ComboBox3.Items.AddRange(New Object() {"FFMPEG", "NVENCC"})
+        ComboBox3.Location = New Point(234, 811)
+        ComboBox3.Name = "ComboBox3"
+        ComboBox3.Size = New Size(206, 23)
+        ComboBox3.TabIndex = 55
+        ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label15.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label15.Location = New Point(19, 811)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(105, 17)
+        Label15.TabIndex = 54
+        Label15.Text = "Media Encoding"
+        ' 
+        ' LinkLabel1
+        ' 
+        LinkLabel1.ActiveLinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        LinkLabel1.AutoSize = True
+        LinkLabel1.DisabledLinkColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        LinkLabel1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        LinkLabel1.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        LinkLabel1.Location = New Point(297, 656)
+        LinkLabel1.Name = "LinkLabel1"
+        LinkLabel1.Size = New Size(185, 15)
+        LinkLabel1.TabIndex = 53
+        LinkLabel1.TabStop = True
+        LinkLabel1.Text = "(NVENCC Official Download Link)"
+        LinkLabel1.VisitedLinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label12.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label12.Location = New Point(19, 656)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(282, 15)
+        Label12.TabIndex = 52
+        Label12.Text = "NVENCC prebuilt binary can be download from here"
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label13.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label13.Location = New Point(19, 637)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(255, 15)
+        Label13.TabIndex = 51
+        Label13.Text = "Select NVENCC folder which contain nvencc64"
+        ' 
+        ' Label14
+        ' 
+        Label14.AutoSize = True
+        Label14.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label14.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label14.Location = New Point(19, 607)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(102, 17)
+        Label14.TabIndex = 49
+        Label14.Text = "NVENCC Binary"
+        ' 
+        ' TextBox2
+        ' 
+        TextBox2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBox2.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        TextBox2.Location = New Point(130, 607)
+        TextBox2.Name = "TextBox2"
+        TextBox2.ReadOnly = True
+        TextBox2.Size = New Size(310, 23)
+        TextBox2.TabIndex = 50
+        ' 
+        ' Button2
+        ' 
+        Button2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        Button2.FlatAppearance.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Button2.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Button2.Location = New Point(459, 607)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(86, 29)
+        Button2.TabIndex = 48
+        Button2.Text = "Browse"
+        Button2.UseVisualStyleBackColor = False
         ' 
         ' CheckBox6
         ' 
@@ -355,7 +630,7 @@ Partial Class OptionsMenu
         ' 
         CheckBox2.AutoSize = True
         CheckBox2.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        CheckBox2.Location = New Point(22, 660)
+        CheckBox2.Location = New Point(22, 760)
         CheckBox2.Name = "CheckBox2"
         CheckBox2.Size = New Size(350, 19)
         CheckBox2.TabIndex = 10
@@ -366,7 +641,7 @@ Partial Class OptionsMenu
         ' 
         CheckBox1.AutoSize = True
         CheckBox1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        CheckBox1.Location = New Point(22, 637)
+        CheckBox1.Location = New Point(22, 737)
         CheckBox1.Name = "CheckBox1"
         CheckBox1.Size = New Size(194, 19)
         CheckBox1.TabIndex = 9
@@ -381,7 +656,7 @@ Partial Class OptionsMenu
         ComboBox1.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
         ComboBox1.FormattingEnabled = True
         ComboBox1.Items.AddRange(New Object() {"Intel (QuickSync)", "NVIDIA (NVENC / NVDEC)", "AMD (OpenCL)"})
-        ComboBox1.Location = New Point(234, 607)
+        ComboBox1.Location = New Point(234, 707)
         ComboBox1.Name = "ComboBox1"
         ComboBox1.Size = New Size(206, 23)
         ComboBox1.TabIndex = 8
@@ -391,7 +666,7 @@ Partial Class OptionsMenu
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label5.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label5.Location = New Point(19, 607)
+        Label5.Location = New Point(19, 707)
         Label5.Name = "Label5"
         Label5.Size = New Size(157, 17)
         Label5.TabIndex = 7
@@ -481,141 +756,6 @@ Partial Class OptionsMenu
         Button3.Text = "About"
         Button3.UseVisualStyleBackColor = False
         ' 
-        ' about_pnl
-        ' 
-        about_pnl.AutoScroll = True
-        about_pnl.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        about_pnl.Controls.Add(Button2)
-        about_pnl.Controls.Add(LinkLabel1)
-        about_pnl.Controls.Add(Label28)
-        about_pnl.Controls.Add(LinkLabel2)
-        about_pnl.Controls.Add(Label27)
-        about_pnl.Controls.Add(Label26)
-        about_pnl.Controls.Add(Label25)
-        about_pnl.Controls.Add(Label29)
-        about_pnl.Controls.Add(Label30)
-        about_pnl.Controls.Add(PictureBox1)
-        about_pnl.Dock = DockStyle.Fill
-        about_pnl.Location = New Point(0, 0)
-        about_pnl.Name = "about_pnl"
-        about_pnl.Size = New Size(1240, 679)
-        about_pnl.TabIndex = 60
-        ' 
-        ' Button2
-        ' 
-        Button2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        Button2.FlatAppearance.BorderColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Button2.FlatStyle = FlatStyle.Flat
-        Button2.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Button2.Location = New Point(627, 22)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(116, 23)
-        Button2.TabIndex = 11
-        Button2.Text = "Check for updates"
-        Button2.UseVisualStyleBackColor = False
-        ' 
-        ' LinkLabel1
-        ' 
-        LinkLabel1.ActiveLinkColor = Color.DodgerBlue
-        LinkLabel1.AutoSize = True
-        LinkLabel1.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        LinkLabel1.Location = New Point(238, 207)
-        LinkLabel1.Name = "LinkLabel1"
-        LinkLabel1.Size = New Size(325, 15)
-        LinkLabel1.TabIndex = 10
-        LinkLabel1.TabStop = True
-        LinkLabel1.Text = "https://github.com/Nicklas373/Hana-Media-Encoder/issues"
-        ' 
-        ' Label28
-        ' 
-        Label28.AutoSize = True
-        Label28.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Label28.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label28.Location = New Point(237, 181)
-        Label28.Name = "Label28"
-        Label28.Size = New Size(108, 26)
-        Label28.TabIndex = 9
-        Label28.Text = "Submit issue"
-        ' 
-        ' LinkLabel2
-        ' 
-        LinkLabel2.ActiveLinkColor = Color.DodgerBlue
-        LinkLabel2.AutoSize = True
-        LinkLabel2.LinkColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        LinkLabel2.Location = New Point(237, 155)
-        LinkLabel2.Name = "LinkLabel2"
-        LinkLabel2.Size = New Size(289, 15)
-        LinkLabel2.TabIndex = 8
-        LinkLabel2.TabStop = True
-        LinkLabel2.Text = "https://github.com/Nicklas373/Hana-Media-Encoder"
-        ' 
-        ' Label27
-        ' 
-        Label27.AutoSize = True
-        Label27.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Label27.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label27.Location = New Point(237, 127)
-        Label27.Name = "Label27"
-        Label27.Size = New Size(72, 26)
-        Label27.TabIndex = 6
-        Label27.Text = "Website"
-        ' 
-        ' Label26
-        ' 
-        Label26.AutoSize = True
-        Label26.Font = New Font("Poppins", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label26.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label26.Location = New Point(18, 271)
-        Label26.Name = "Label26"
-        Label26.Size = New Size(60, 23)
-        Label26.TabIndex = 5
-        Label26.Text = "Label26"
-        ' 
-        ' Label25
-        ' 
-        Label25.AutoSize = True
-        Label25.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Label25.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label25.Location = New Point(237, 85)
-        Label25.Name = "Label25"
-        Label25.Size = New Size(84, 26)
-        Label25.TabIndex = 4
-        Label25.Text = "copyright"
-        ' 
-        ' Label29
-        ' 
-        Label29.AutoSize = True
-        Label29.Font = New Font("Poppins", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Label29.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label29.Location = New Point(237, 58)
-        Label29.Name = "Label29"
-        Label29.Size = New Size(65, 26)
-        Label29.TabIndex = 3
-        Label29.Text = "appver"
-        ' 
-        ' Label30
-        ' 
-        Label30.AutoSize = True
-        Label30.Font = New Font("Poppins SemiBold", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label30.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label30.Location = New Point(232, 16)
-        Label30.Name = "Label30"
-        Label30.Size = New Size(148, 48)
-        Label30.TabIndex = 2
-        Label30.Text = "APPNAME"
-        ' 
-        ' PictureBox1
-        ' 
-        PictureBox1.BackColor = Color.Transparent
-        PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), Image)
-        PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBox1.InitialImage = Nothing
-        PictureBox1.Location = New Point(18, 21)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(200, 200)
-        PictureBox1.TabIndex = 1
-        PictureBox1.TabStop = False
-        ' 
         ' OptionsMenu
         ' 
         AllowRoundedCorners = True
@@ -654,10 +794,34 @@ Partial Class OptionsMenu
     Friend WithEvents Button1 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents General_pnl As Panel
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents CheckBox6 As CheckBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents LinkLabel4 As LinkLabel
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents CheckBox5 As CheckBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label4 As Label
     Friend WithEvents Label24 As Label
     Friend WithEvents Label22 As Label
+    Friend WithEvents CheckBox4 As CheckBox
     Friend WithEvents Label23 As Label
-    Friend WithEvents Label19 As Label
     Friend WithEvents Label18 As Label
     Friend WithEvents CheckBox3 As CheckBox
     Friend WithEvents Label17 As Label
@@ -669,25 +833,11 @@ Partial Class OptionsMenu
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button4 As Button
-    Friend WithEvents Label20 As Label
-    Friend WithEvents CheckBox5 As CheckBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents CheckBox4 As CheckBox
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents LinkLabel4 As LinkLabel
-    Friend WithEvents CheckBox6 As CheckBox
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label10 As Label
     Friend WithEvents about_pnl As Panel
-    Friend WithEvents Button2 As Button
-    Friend WithEvents LinkLabel1 As LinkLabel
-    Friend WithEvents Label28 As Label
+    Friend WithEvents Button5 As Button
     Friend WithEvents LinkLabel2 As LinkLabel
+    Friend WithEvents Label28 As Label
+    Friend WithEvents LinkLabel3 As LinkLabel
     Friend WithEvents Label27 As Label
     Friend WithEvents Label26 As Label
     Friend WithEvents Label25 As Label
