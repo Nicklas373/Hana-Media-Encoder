@@ -3,9 +3,10 @@
 </p>
 
 # Hana Media Encoder 
-Hana Media Encoder is a open source multimedia application for FFMPEG that have feature to encode, decode, trim, mux or even batch processing.
+Hana Media Encoder is a open source multimedia application for FFMPEG or NVENCC that have feature to encode, decode, trim, mux or even batch processing.
 It can detects and configure multiple media streams and can encode it separately if media file have more than one audio stream.
-Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options then execute it to FFMPEG, FFPLAY or FFPROBE.
+Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options
+then execute it to FFMPEG, FFPLAY, FFPROBE or NVENCC.
 
 # Current Features:
 * Support multiple media file encoding with same or different profile for each stream
@@ -16,7 +17,7 @@ Hana Media Encoder works by creating line of command based on user preferences t
 * Support media queue / batch encoding for video and audio file
 
 # Current Supported Video Output Codec
-- H264 / H265 / AV1 (AVC / HEVC / AV1)
+- H264 / HEVC / AV1 (Native codec are not supported yet)
 - H264_QSV / HEVC_QSV / AV1_QSV (Intel Quicksync H.264/HEVC/AV1 Encoder)
 - H264_AMF / HEVC_AMF / AV1_AMF (AMD AMF H.264/HEVC/AV1 Encoder)
 - H264_NVENC / HEVC_NVENC / AV1_NVENC (Nvidia NVENC H.264/HEVC/AV1 Encoder)

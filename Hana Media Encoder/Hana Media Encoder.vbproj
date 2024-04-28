@@ -7,7 +7,10 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2024</Copyright>
-    <PackageReleaseNotes>v1.4.6 (20240427):
+    <PackageReleaseNotes>v1.4.7 (20240428):
+- Fix issue when preview media from "drag n drop" or "open with" features causing app crash due couldn't find config files
+
+v1.4.6 (20240427):
 - Drop temporary feature for detect multi stream video support
 - Fix crashing issue when some of config are not written in the first place, then cause application crash and failed to load
 - Fix encoding issue when selected video codec are not AV1
@@ -240,15 +243,14 @@ v1.0.1 (20220808):
 - Fixup trim inconsistency
 
 v1.0.0 (20220724):
-
 - INITIAL RELEASE</PackageReleaseNotes>
     <Authors>Dicky Herlambang</Authors>
     <Company>HANA-CI Build Project 2016 - 2024</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.4.6</Version>
-    <AssemblyVersion>1.4.6</AssemblyVersion>
-    <FileVersion>1.4.6</FileVersion>
+    <Version>1.4.7</Version>
+    <AssemblyVersion>1.4.7</AssemblyVersion>
+    <FileVersion>1.4.7</FileVersion>
     <Description>Hana Media Encoder is a open source multimedia application for FFMPEG or NVENCC that have feature to encode, decode, trim, mux or even batch processing.
 It can detects and configure multiple media streams and can encode it separately if media file have more than one audio stream.
 Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options
