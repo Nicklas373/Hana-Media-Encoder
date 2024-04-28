@@ -502,7 +502,7 @@ Public Class MainMenu
         End If
     End Sub
     Private Sub PreviewMedia(sender As Object, e As EventArgs) Handles Button4.Click
-        Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
+        Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
         If Hwdefconfig = "GPU Engine:" Then
             HwAccelDev = ""
         Else
@@ -3378,7 +3378,7 @@ Public Class MainMenu
     End Sub
     Private Sub VcodecReset()
         Dim GraphicCardName As String = GetGraphicsCardName("Name")
-        Hwdefconfig = FindConfig("config.ini", "GPU Engine:")
+        Hwdefconfig = FindConfig(My.Application.Info.DirectoryPath & "\config.ini", "GPU Engine:")
         If Hwdefconfig = "GPU Engine:" Then
             HwAccelDev = ""
         Else
