@@ -77,9 +77,17 @@
             value = " "
         Else
             If Force10Bit Then
-                value = " --output-csp " & Cmbx & " --output-depth 10 "
+                If Cmbx = "yuv420p" Then
+                    value = " --output-csp yuv420 --output-depth 10 "
+                Else
+                    value = " --output-csp yuv444 --output-depth 10 "
+                End If
             Else
-                value = " --output-csp " & Cmbx & " --output-depth 8 "
+                If Cmbx = "yuv420p" Then
+                    value = " --output-csp yuv420 --output-depth 8 "
+                Else
+                    value = " --output-csp yuv444 --output-depth 8 "
+                End If
             End If
         End If
 
@@ -155,17 +163,19 @@
         Return value
     End Function
 
-    Public Function vTuneAlt(Cmbx As String) As String
+    Public Function vTuneAlt(Cmbx As String, Codec As String) As String
         'Combobox6.text'
         Dim value As String
         If Cmbx = "High quality" Then
-            value = " --tune hq "
-        ElseIf Cmbx = "Low latency" Then
-            value = " --tune lowlatency "
-        ElseIf Cmbx = "Ultra low latency" Then
-            value = " --tune ultralowlatency "
+            If Codec = "HEVC" Then
+                value = " -b 4 --tf-level 4 --lookahead 3 --lookahead-level 0 "
+            Else
+                value = " -b 4 --tf-level 4 --lookahead 3 "
+            End If
+        ElseIf Cmbx = "Low latency" Or Cmbx = "Ultra low latency" Then
+            value = " --lowlatency "
         ElseIf Cmbx = "Lossless" Then
-            value = " --tune lossless "
+            value = " --lossless "
         Else
             value = " "
         End If
@@ -286,6 +296,20 @@
             value = " --multipass 2pass-full "
         Else
             value = " "
+        End If
+
+        Return value
+    End Function
+
+    Public Function metadataAlt(cmbx As String) As String
+        'Metrosetcheckbox4.checked'
+        Dim value As String
+        If cmbx = "True" Then
+            value = " --video-metadata clear --audio-metadata clear --video-metadata encoder=" + Chr(34) + My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString.Replace(".0", "") + Chr(34) + ""
+        ElseIf cmbx = "False" Then
+            value = " --video-metadata encoder=" + Chr(34) + My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString.Replace(".0", "") + Chr(34) + ""
+        Else
+            value = " --video-metadata encoder=" + Chr(34) + My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString.Replace(".0", "") + Chr(34) + ""
         End If
 
         Return value
