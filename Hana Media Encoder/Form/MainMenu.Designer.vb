@@ -55,59 +55,6 @@ Partial Class MainMenu
         Label71 = New Label()
         Label70 = New Label()
         MetroSetTabControl1 = New MetroSet_UI.Controls.MetroSetTabControl()
-        TabPage1 = New TabPage()
-        Label106 = New Label()
-        Label107 = New Label()
-        Label64 = New Label()
-        Label74 = New Label()
-        Label60 = New Label()
-        Label61 = New Label()
-        Label98 = New Label()
-        Label97 = New Label()
-        Label96 = New Label()
-        ComboBox31 = New ComboBox()
-        ComboBox24 = New ComboBox()
-        ComboBox23 = New ComboBox()
-        Button8 = New Button()
-        Button7 = New Button()
-        Label27 = New Label()
-        PictureBox1 = New PictureBox()
-        Label25 = New Label()
-        Label26 = New Label()
-        Label29 = New Label()
-        Label30 = New Label()
-        Label31 = New Label()
-        Label32 = New Label()
-        Label35 = New Label()
-        Label36 = New Label()
-        Label37 = New Label()
-        Label39 = New Label()
-        Label40 = New Label()
-        Label41 = New Label()
-        Label42 = New Label()
-        Label44 = New Label()
-        Label45 = New Label()
-        Label23 = New Label()
-        Label24 = New Label()
-        Label21 = New Label()
-        Label22 = New Label()
-        Label19 = New Label()
-        Label20 = New Label()
-        Label17 = New Label()
-        Label18 = New Label()
-        Label15 = New Label()
-        Label16 = New Label()
-        Label14 = New Label()
-        Label13 = New Label()
-        Label12 = New Label()
-        Label11 = New Label()
-        Label10 = New Label()
-        Label9 = New Label()
-        Label8 = New Label()
-        Label7 = New Label()
-        Label6 = New Label()
-        Label5 = New Label()
-        Label4 = New Label()
         TabPage2 = New TabPage()
         GroupBar3 = New Syncfusion.Windows.Forms.Tools.GroupBar()
         MetroSetComboBox2 = New MetroSet_UI.Controls.MetroSetComboBox()
@@ -115,6 +62,10 @@ Partial Class MainMenu
         Label141 = New Label()
         MetroSetCheckBox1 = New MetroSet_UI.Controls.MetroSetCheckBox()
         GroupBar1 = New Syncfusion.Windows.Forms.Tools.GroupBar()
+        TextBox2 = New TextBox()
+        Label156 = New Label()
+        MetroSetComboBox4 = New MetroSet_UI.Controls.MetroSetComboBox()
+        Label155 = New Label()
         Label78 = New Label()
         MetroSetSwitch1 = New MetroSet_UI.Controls.MetroSetSwitch()
         StyleManager1 = New MetroSet_UI.Components.StyleManager()
@@ -217,12 +168,69 @@ Partial Class MainMenu
         Label55 = New Label()
         Label56 = New Label()
         ComboBox12 = New ComboBox()
+        TabPage1 = New TabPage()
+        Label106 = New Label()
+        Label107 = New Label()
+        Label64 = New Label()
+        Label74 = New Label()
+        Label60 = New Label()
+        Label61 = New Label()
+        Label98 = New Label()
+        Label97 = New Label()
+        Label96 = New Label()
+        ComboBox31 = New ComboBox()
+        ComboBox24 = New ComboBox()
+        ComboBox23 = New ComboBox()
+        Button8 = New Button()
+        Button7 = New Button()
+        Label27 = New Label()
+        PictureBox1 = New PictureBox()
+        Label25 = New Label()
+        Label26 = New Label()
+        Label29 = New Label()
+        Label30 = New Label()
+        Label31 = New Label()
+        Label32 = New Label()
+        Label35 = New Label()
+        Label36 = New Label()
+        Label37 = New Label()
+        Label39 = New Label()
+        Label40 = New Label()
+        Label41 = New Label()
+        Label42 = New Label()
+        Label44 = New Label()
+        Label45 = New Label()
+        Label23 = New Label()
+        Label24 = New Label()
+        Label21 = New Label()
+        Label22 = New Label()
+        Label19 = New Label()
+        Label20 = New Label()
+        Label17 = New Label()
+        Label18 = New Label()
+        Label15 = New Label()
+        Label16 = New Label()
+        Label14 = New Label()
+        Label13 = New Label()
+        Label12 = New Label()
+        Label11 = New Label()
+        Label10 = New Label()
+        Label9 = New Label()
+        Label8 = New Label()
+        Label7 = New Label()
+        Label6 = New Label()
+        Label5 = New Label()
+        Label4 = New Label()
         TabPage3 = New TabPage()
         GroupBar5 = New Syncfusion.Windows.Forms.Tools.GroupBar()
         Label146 = New Label()
         MetroSetCheckBox2 = New MetroSet_UI.Controls.MetroSetCheckBox()
         MetroSetButton4 = New MetroSet_UI.Controls.MetroSetButton()
         GroupBar4 = New Syncfusion.Windows.Forms.Tools.GroupBar()
+        TextBox3 = New TextBox()
+        Label157 = New Label()
+        MetroSetComboBox5 = New MetroSet_UI.Controls.MetroSetComboBox()
+        Label158 = New Label()
         Label102 = New Label()
         MetroSetSwitch2 = New MetroSet_UI.Controls.MetroSetSwitch()
         MetroSetComboBox3 = New MetroSet_UI.Controls.MetroSetComboBox()
@@ -361,8 +369,6 @@ Partial Class MainMenu
         BottomPnl.SuspendLayout()
         CType(ProgressBarAdv1, ComponentModel.ISupportInitialize).BeginInit()
         MetroSetTabControl1.SuspendLayout()
-        TabPage1.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         TabPage2.SuspendLayout()
         CType(GroupBar3, ComponentModel.ISupportInitialize).BeginInit()
         GroupBar3.SuspendLayout()
@@ -381,6 +387,8 @@ Partial Class MainMenu
         CType(BitRate_UpDown, ComponentModel.ISupportInitialize).BeginInit()
         Vid_Encoder_Opt_Pnl.SuspendLayout()
         AQ_Pnl.SuspendLayout()
+        TabPage1.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         TabPage3.SuspendLayout()
         CType(GroupBar5, ComponentModel.ISupportInitialize).BeginInit()
         GroupBar5.SuspendLayout()
@@ -442,7 +450,7 @@ Partial Class MainMenu
         Button5.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
         Button5.Image = CType(resources.GetObject("Button5.Image"), Image)
         Button5.ImageAlign = ContentAlignment.MiddleLeft
-        Button5.Location = New Point(1192, 5)
+        Button5.Location = New Point(1278, 5)
         Button5.Name = "Button5"
         Button5.RightToLeft = RightToLeft.No
         Button5.Size = New Size(60, 56)
@@ -550,7 +558,7 @@ Partial Class MainMenu
         Textbox77.Name = "Textbox77"
         Textbox77.ReadOnly = True
         Textbox77.ScrollBars = ScrollBars.Horizontal
-        Textbox77.Size = New Size(1150, 20)
+        Textbox77.Size = New Size(1236, 20)
         Textbox77.TabIndex = 98
         ' 
         ' Panel1
@@ -564,7 +572,7 @@ Partial Class MainMenu
         Panel1.Controls.Add(Label1)
         Panel1.Location = New Point(-5, 67)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(1920, 720)
+        Panel1.Size = New Size(2006, 768)
         Panel1.TabIndex = 1
         ' 
         ' BottomPnl
@@ -582,9 +590,9 @@ Partial Class MainMenu
         BottomPnl.Controls.Add(Label134)
         BottomPnl.Controls.Add(Label71)
         BottomPnl.Controls.Add(Label70)
-        BottomPnl.Location = New Point(1, 533)
+        BottomPnl.Location = New Point(1, 581)
         BottomPnl.Name = "BottomPnl"
-        BottomPnl.Size = New Size(1275, 80)
+        BottomPnl.Size = New Size(1361, 80)
         BottomPnl.TabIndex = 15
         ' 
         ' TextBox1
@@ -597,7 +605,7 @@ Partial Class MainMenu
         TextBox1.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         TextBox1.Location = New Point(86, 11)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(1062, 23)
+        TextBox1.Size = New Size(1148, 23)
         TextBox1.TabIndex = 91
         ' 
         ' ProgressBarAdv1
@@ -622,7 +630,7 @@ Partial Class MainMenu
         ProgressBarAdv1.ProgressFallbackStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.Office2016Black
         ProgressBarAdv1.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.Office2016Black
         ProgressBarAdv1.SegmentWidth = 10
-        ProgressBarAdv1.Size = New Size(621, 23)
+        ProgressBarAdv1.Size = New Size(707, 23)
         ProgressBarAdv1.TabIndex = 98
         ProgressBarAdv1.Text = "ProgressBarAdv1"
         ProgressBarAdv1.TextVisible = False
@@ -662,7 +670,7 @@ Partial Class MainMenu
         Button6.FlatStyle = FlatStyle.Flat
         Button6.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Button6.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Button6.Location = New Point(1166, 6)
+        Button6.Location = New Point(1252, 6)
         Button6.Name = "Button6"
         Button6.Size = New Size(90, 33)
         Button6.TabIndex = 89
@@ -678,7 +686,7 @@ Partial Class MainMenu
         ComboBox36.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         ComboBox36.FormattingEnabled = True
         ComboBox36.Items.AddRange(New Object() {"Do Nothing", "Exit Application", "Log Out", "Shutdown", "Restart"})
-        ComboBox36.Location = New Point(1154, 50)
+        ComboBox36.Location = New Point(1240, 50)
         ComboBox36.Name = "ComboBox36"
         ComboBox36.Size = New Size(109, 25)
         ComboBox36.TabIndex = 99
@@ -725,7 +733,7 @@ Partial Class MainMenu
         Label134.AutoSize = True
         Label134.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label134.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label134.Location = New Point(1061, 55)
+        Label134.Location = New Point(1147, 55)
         Label134.Name = "Label134"
         Label134.Size = New Size(87, 15)
         Label134.TabIndex = 100
@@ -778,7 +786,7 @@ Partial Class MainMenu
         MetroSetTabControl1.Name = "MetroSetTabControl1"
         MetroSetTabControl1.SelectedIndex = 0
         MetroSetTabControl1.SelectedTextColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        MetroSetTabControl1.Size = New Size(1912, 1050)
+        MetroSetTabControl1.Size = New Size(1998, 1098)
         MetroSetTabControl1.SizeMode = TabSizeMode.Fixed
         MetroSetTabControl1.Speed = 100
         MetroSetTabControl1.Style = MetroSet_UI.Enums.Style.Custom
@@ -789,643 +797,6 @@ Partial Class MainMenu
         MetroSetTabControl1.ThemeName = Nothing
         MetroSetTabControl1.UnselectedTextColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
         MetroSetTabControl1.UseAnimation = False
-        ' 
-        ' TabPage1
-        ' 
-        TabPage1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        TabPage1.Controls.Add(Label106)
-        TabPage1.Controls.Add(Label107)
-        TabPage1.Controls.Add(Label64)
-        TabPage1.Controls.Add(Label74)
-        TabPage1.Controls.Add(Label60)
-        TabPage1.Controls.Add(Label61)
-        TabPage1.Controls.Add(Label98)
-        TabPage1.Controls.Add(Label97)
-        TabPage1.Controls.Add(Label96)
-        TabPage1.Controls.Add(ComboBox31)
-        TabPage1.Controls.Add(ComboBox24)
-        TabPage1.Controls.Add(ComboBox23)
-        TabPage1.Controls.Add(Button8)
-        TabPage1.Controls.Add(Button7)
-        TabPage1.Controls.Add(Label27)
-        TabPage1.Controls.Add(PictureBox1)
-        TabPage1.Controls.Add(Label25)
-        TabPage1.Controls.Add(Label26)
-        TabPage1.Controls.Add(Label29)
-        TabPage1.Controls.Add(Label30)
-        TabPage1.Controls.Add(Label31)
-        TabPage1.Controls.Add(Label32)
-        TabPage1.Controls.Add(Label35)
-        TabPage1.Controls.Add(Label36)
-        TabPage1.Controls.Add(Label37)
-        TabPage1.Controls.Add(Label39)
-        TabPage1.Controls.Add(Label40)
-        TabPage1.Controls.Add(Label41)
-        TabPage1.Controls.Add(Label42)
-        TabPage1.Controls.Add(Label44)
-        TabPage1.Controls.Add(Label45)
-        TabPage1.Controls.Add(Label23)
-        TabPage1.Controls.Add(Label24)
-        TabPage1.Controls.Add(Label21)
-        TabPage1.Controls.Add(Label22)
-        TabPage1.Controls.Add(Label19)
-        TabPage1.Controls.Add(Label20)
-        TabPage1.Controls.Add(Label17)
-        TabPage1.Controls.Add(Label18)
-        TabPage1.Controls.Add(Label15)
-        TabPage1.Controls.Add(Label16)
-        TabPage1.Controls.Add(Label14)
-        TabPage1.Controls.Add(Label13)
-        TabPage1.Controls.Add(Label12)
-        TabPage1.Controls.Add(Label11)
-        TabPage1.Controls.Add(Label10)
-        TabPage1.Controls.Add(Label9)
-        TabPage1.Controls.Add(Label8)
-        TabPage1.Controls.Add(Label7)
-        TabPage1.Controls.Add(Label6)
-        TabPage1.Controls.Add(Label5)
-        TabPage1.Controls.Add(Label4)
-        TabPage1.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TabPage1.ForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        TabPage1.Location = New Point(4, 42)
-        TabPage1.Name = "TabPage1"
-        TabPage1.Padding = New Padding(3)
-        TabPage1.Size = New Size(1904, 1004)
-        TabPage1.TabIndex = 0
-        TabPage1.Text = "Media Summary"
-        ' 
-        ' Label106
-        ' 
-        Label106.AutoSize = True
-        Label106.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label106.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label106.Location = New Point(303, 323)
-        Label106.Name = "Label106"
-        Label106.Size = New Size(46, 17)
-        Label106.TabIndex = 76
-        Label106.Text = "Profile"
-        ' 
-        ' Label107
-        ' 
-        Label107.AutoSize = True
-        Label107.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label107.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label107.Location = New Point(427, 323)
-        Label107.Name = "Label107"
-        Label107.Size = New Size(0, 17)
-        Label107.TabIndex = 75
-        ' 
-        ' Label64
-        ' 
-        Label64.AutoSize = True
-        Label64.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label64.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label64.Location = New Point(12, 354)
-        Label64.Name = "Label64"
-        Label64.Size = New Size(46, 17)
-        Label64.TabIndex = 74
-        Label64.Text = "Profile"
-        ' 
-        ' Label74
-        ' 
-        Label74.AutoSize = True
-        Label74.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label74.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label74.Location = New Point(123, 354)
-        Label74.Name = "Label74"
-        Label74.Size = New Size(0, 17)
-        Label74.TabIndex = 73
-        ' 
-        ' Label60
-        ' 
-        Label60.AutoSize = True
-        Label60.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label60.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label60.Location = New Point(303, 168)
-        Label60.Name = "Label60"
-        Label60.Size = New Size(48, 17)
-        Label60.TabIndex = 72
-        Label60.Text = "Bitrate"
-        ' 
-        ' Label61
-        ' 
-        Label61.AutoSize = True
-        Label61.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label61.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label61.Location = New Point(427, 168)
-        Label61.Name = "Label61"
-        Label61.Size = New Size(0, 17)
-        Label61.TabIndex = 71
-        ' 
-        ' Label98
-        ' 
-        Label98.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
-        Label98.AutoSize = True
-        Label98.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label98.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label98.Location = New Point(1152, 322)
-        Label98.Name = "Label98"
-        Label98.Size = New Size(19, 21)
-        Label98.TabIndex = 70
-        Label98.Text = "0"
-        ' 
-        ' Label97
-        ' 
-        Label97.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
-        Label97.AutoSize = True
-        Label97.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label97.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label97.Location = New Point(1134, 322)
-        Label97.Name = "Label97"
-        Label97.Size = New Size(17, 21)
-        Label97.TabIndex = 69
-        Label97.Text = "/"
-        ' 
-        ' Label96
-        ' 
-        Label96.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
-        Label96.AutoSize = True
-        Label96.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label96.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label96.Location = New Point(1115, 322)
-        Label96.Name = "Label96"
-        Label96.Size = New Size(19, 21)
-        Label96.TabIndex = 68
-        Label96.Text = "0"
-        ' 
-        ' ComboBox31
-        ' 
-        ComboBox31.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
-        ComboBox31.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        ComboBox31.Enabled = False
-        ComboBox31.FlatStyle = FlatStyle.Flat
-        ComboBox31.Font = New Font("Segoe UI Semilight", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        ComboBox31.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        ComboBox31.FormattingEnabled = True
-        ComboBox31.Items.AddRange(New Object() {"Snapshots", "Spectrum"})
-        ComboBox31.Location = New Point(783, 322)
-        ComboBox31.Name = "ComboBox31"
-        ComboBox31.Size = New Size(134, 23)
-        ComboBox31.TabIndex = 67
-        ' 
-        ' ComboBox24
-        ' 
-        ComboBox24.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        ComboBox24.Enabled = False
-        ComboBox24.FlatStyle = FlatStyle.Flat
-        ComboBox24.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        ComboBox24.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        ComboBox24.FormattingEnabled = True
-        ComboBox24.Location = New Point(117, 28)
-        ComboBox24.Name = "ComboBox24"
-        ComboBox24.Size = New Size(134, 25)
-        ComboBox24.TabIndex = 66
-        ' 
-        ' ComboBox23
-        ' 
-        ComboBox23.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        ComboBox23.Enabled = False
-        ComboBox23.FlatStyle = FlatStyle.Flat
-        ComboBox23.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        ComboBox23.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        ComboBox23.FormattingEnabled = True
-        ComboBox23.Location = New Point(421, 28)
-        ComboBox23.Name = "ComboBox23"
-        ComboBox23.Size = New Size(134, 25)
-        ComboBox23.TabIndex = 65
-        ' 
-        ' Button8
-        ' 
-        Button8.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
-        Button8.BackColor = Color.Transparent
-        Button8.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button8.FlatAppearance.MouseOverBackColor = Color.Transparent
-        Button8.FlatStyle = FlatStyle.Flat
-        Button8.Image = CType(resources.GetObject("Button8.Image"), Image)
-        Button8.Location = New Point(598, 146)
-        Button8.Name = "Button8"
-        Button8.Size = New Size(58, 39)
-        Button8.TabIndex = 45
-        Button8.UseVisualStyleBackColor = False
-        ' 
-        ' Button7
-        ' 
-        Button7.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Right
-        Button7.BackColor = Color.Transparent
-        Button7.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button7.FlatAppearance.MouseOverBackColor = Color.Transparent
-        Button7.FlatStyle = FlatStyle.Flat
-        Button7.Image = CType(resources.GetObject("Button7.Image"), Image)
-        Button7.Location = New Point(1176, 146)
-        Button7.Name = "Button7"
-        Button7.Size = New Size(58, 39)
-        Button7.TabIndex = 44
-        Button7.UseVisualStyleBackColor = False
-        ' 
-        ' Label27
-        ' 
-        Label27.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
-        Label27.AutoSize = True
-        Label27.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label27.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label27.Location = New Point(662, 322)
-        Label27.Name = "Label27"
-        Label27.Size = New Size(118, 17)
-        Label27.TabIndex = 43
-        Label27.Text = "Preview Summary"
-        ' 
-        ' PictureBox1
-        ' 
-        PictureBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        PictureBox1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        PictureBox1.BackgroundImageLayout = ImageLayout.Zoom
-        PictureBox1.InitialImage = Nothing
-        PictureBox1.Location = New Point(662, 28)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(508, 286)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 42
-        PictureBox1.TabStop = False
-        PictureBox1.WaitOnLoad = True
-        ' 
-        ' Label25
-        ' 
-        Label25.AutoSize = True
-        Label25.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label25.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label25.Location = New Point(303, 199)
-        Label25.Name = "Label25"
-        Label25.Size = New Size(63, 17)
-        Label25.TabIndex = 41
-        Label25.Text = "Channels"
-        ' 
-        ' Label26
-        ' 
-        Label26.AutoSize = True
-        Label26.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label26.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label26.Location = New Point(427, 199)
-        Label26.Name = "Label26"
-        Label26.Size = New Size(0, 17)
-        Label26.TabIndex = 40
-        ' 
-        ' Label29
-        ' 
-        Label29.AutoSize = True
-        Label29.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label29.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label29.Location = New Point(303, 137)
-        Label29.Name = "Label29"
-        Label29.Size = New Size(102, 17)
-        Label29.TabIndex = 37
-        Label29.Text = "Bits Per Sample"
-        ' 
-        ' Label30
-        ' 
-        Label30.AutoSize = True
-        Label30.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label30.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label30.Location = New Point(427, 137)
-        Label30.Name = "Label30"
-        Label30.Size = New Size(0, 17)
-        Label30.TabIndex = 36
-        ' 
-        ' Label31
-        ' 
-        Label31.AutoSize = True
-        Label31.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label31.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label31.Location = New Point(303, 230)
-        Label31.Name = "Label31"
-        Label31.Size = New Size(108, 17)
-        Label31.TabIndex = 35
-        Label31.Text = "Channels Layout"
-        ' 
-        ' Label32
-        ' 
-        Label32.AutoSize = True
-        Label32.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label32.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label32.Location = New Point(427, 230)
-        Label32.Name = "Label32"
-        Label32.Size = New Size(0, 17)
-        Label32.TabIndex = 34
-        ' 
-        ' Label35
-        ' 
-        Label35.AutoSize = True
-        Label35.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label35.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label35.Location = New Point(427, 292)
-        Label35.Name = "Label35"
-        Label35.Size = New Size(0, 17)
-        Label35.TabIndex = 31
-        ' 
-        ' Label36
-        ' 
-        Label36.AutoSize = True
-        Label36.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label36.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label36.Location = New Point(303, 292)
-        Label36.Name = "Label36"
-        Label36.Size = New Size(83, 17)
-        Label36.TabIndex = 30
-        Label36.Text = "Sample Rate"
-        ' 
-        ' Label37
-        ' 
-        Label37.AutoSize = True
-        Label37.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label37.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label37.Location = New Point(303, 261)
-        Label37.Name = "Label37"
-        Label37.Size = New Size(100, 17)
-        Label37.TabIndex = 29
-        Label37.Text = "Sample Format"
-        ' 
-        ' Label39
-        ' 
-        Label39.AutoSize = True
-        Label39.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label39.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label39.Location = New Point(427, 106)
-        Label39.Name = "Label39"
-        Label39.Size = New Size(0, 17)
-        Label39.TabIndex = 27
-        ' 
-        ' Label40
-        ' 
-        Label40.AutoSize = True
-        Label40.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label40.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label40.Location = New Point(303, 106)
-        Label40.Name = "Label40"
-        Label40.Size = New Size(77, 17)
-        Label40.TabIndex = 26
-        Label40.Text = "Codec Type"
-        ' 
-        ' Label41
-        ' 
-        Label41.AutoSize = True
-        Label41.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label41.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label41.Location = New Point(303, 75)
-        Label41.Name = "Label41"
-        Label41.Size = New Size(85, 17)
-        Label41.TabIndex = 25
-        Label41.Text = "Codec Name"
-        ' 
-        ' Label42
-        ' 
-        Label42.AutoSize = True
-        Label42.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label42.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label42.Location = New Point(427, 261)
-        Label42.Name = "Label42"
-        Label42.Size = New Size(0, 17)
-        Label42.TabIndex = 24
-        ' 
-        ' Label44
-        ' 
-        Label44.AutoSize = True
-        Label44.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label44.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label44.Location = New Point(427, 75)
-        Label44.Name = "Label44"
-        Label44.Size = New Size(0, 17)
-        Label44.TabIndex = 22
-        ' 
-        ' Label45
-        ' 
-        Label45.AutoSize = True
-        Label45.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label45.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label45.Location = New Point(303, 31)
-        Label45.Name = "Label45"
-        Label45.Size = New Size(72, 17)
-        Label45.TabIndex = 21
-        Label45.Text = "Audio Info"
-        ' 
-        ' Label23
-        ' 
-        Label23.AutoSize = True
-        Label23.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label23.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label23.Location = New Point(12, 199)
-        Label23.Name = "Label23"
-        Label23.Size = New Size(55, 17)
-        Label23.TabIndex = 20
-        Label23.Text = "Bit Rate"
-        ' 
-        ' Label24
-        ' 
-        Label24.AutoSize = True
-        Label24.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label24.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label24.Location = New Point(123, 199)
-        Label24.Name = "Label24"
-        Label24.Size = New Size(0, 17)
-        Label24.TabIndex = 19
-        ' 
-        ' Label21
-        ' 
-        Label21.AutoSize = True
-        Label21.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label21.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label21.Location = New Point(12, 292)
-        Label21.Name = "Label21"
-        Label21.Size = New Size(77, 17)
-        Label21.TabIndex = 18
-        Label21.Text = "Frame Rate"
-        ' 
-        ' Label22
-        ' 
-        Label22.AutoSize = True
-        Label22.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label22.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label22.Location = New Point(123, 292)
-        Label22.Name = "Label22"
-        Label22.Size = New Size(0, 17)
-        Label22.TabIndex = 17
-        ' 
-        ' Label19
-        ' 
-        Label19.AutoSize = True
-        Label19.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label19.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label19.Location = New Point(12, 261)
-        Label19.Name = "Label19"
-        Label19.Size = New Size(79, 17)
-        Label19.TabIndex = 16
-        Label19.Text = "Color Space"
-        ' 
-        ' Label20
-        ' 
-        Label20.AutoSize = True
-        Label20.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label20.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label20.Location = New Point(123, 261)
-        Label20.Name = "Label20"
-        Label20.Size = New Size(0, 17)
-        Label20.TabIndex = 15
-        ' 
-        ' Label17
-        ' 
-        Label17.AutoSize = True
-        Label17.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label17.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label17.Location = New Point(12, 230)
-        Label17.Name = "Label17"
-        Label17.Size = New Size(82, 17)
-        Label17.TabIndex = 14
-        Label17.Text = "Color Range"
-        ' 
-        ' Label18
-        ' 
-        Label18.AutoSize = True
-        Label18.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label18.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label18.Location = New Point(123, 230)
-        Label18.Name = "Label18"
-        Label18.Size = New Size(0, 17)
-        Label18.TabIndex = 13
-        ' 
-        ' Label15
-        ' 
-        Label15.AutoSize = True
-        Label15.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label15.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label15.Location = New Point(12, 323)
-        Label15.Name = "Label15"
-        Label15.Size = New Size(84, 17)
-        Label15.TabIndex = 12
-        Label15.Text = "Pixel Format"
-        ' 
-        ' Label16
-        ' 
-        Label16.AutoSize = True
-        Label16.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label16.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label16.Location = New Point(123, 323)
-        Label16.Name = "Label16"
-        Label16.Size = New Size(0, 17)
-        Label16.TabIndex = 11
-        ' 
-        ' Label14
-        ' 
-        Label14.AutoSize = True
-        Label14.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label14.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label14.Location = New Point(123, 168)
-        Label14.Name = "Label14"
-        Label14.Size = New Size(0, 17)
-        Label14.TabIndex = 10
-        ' 
-        ' Label13
-        ' 
-        Label13.AutoSize = True
-        Label13.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label13.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label13.Location = New Point(12, 168)
-        Label13.Name = "Label13"
-        Label13.Size = New Size(65, 17)
-        Label13.TabIndex = 9
-        Label13.Text = "B-Frames"
-        ' 
-        ' Label12
-        ' 
-        Label12.AutoSize = True
-        Label12.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label12.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label12.Location = New Point(12, 137)
-        Label12.Name = "Label12"
-        Label12.Size = New Size(84, 17)
-        Label12.TabIndex = 8
-        Label12.Text = "Aspect Ratio"
-        ' 
-        ' Label11
-        ' 
-        Label11.AutoSize = True
-        Label11.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label11.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label11.Location = New Point(12, 385)
-        Label11.Name = "Label11"
-        Label11.Size = New Size(72, 17)
-        Label11.TabIndex = 7
-        Label11.Text = "Resolution"
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label10.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label10.Location = New Point(123, 106)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(0, 17)
-        Label10.TabIndex = 6
-        ' 
-        ' Label9
-        ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label9.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label9.Location = New Point(12, 106)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(77, 17)
-        Label9.TabIndex = 5
-        Label9.Text = "Codec Type"
-        ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label8.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label8.Location = New Point(12, 75)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(85, 17)
-        Label8.TabIndex = 4
-        Label8.Text = "Codec Name"
-        ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label7.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label7.Location = New Point(123, 137)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(0, 17)
-        Label7.TabIndex = 3
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label6.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label6.Location = New Point(123, 385)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(0, 17)
-        Label6.TabIndex = 2
-        ' 
-        ' Label5
-        ' 
-        Label5.AutoSize = True
-        Label5.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label5.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label5.Location = New Point(123, 75)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(0, 17)
-        Label5.TabIndex = 1
-        ' 
-        ' Label4
-        ' 
-        Label4.AutoSize = True
-        Label4.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
-        Label4.Location = New Point(14, 31)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(70, 17)
-        Label4.TabIndex = 0
-        Label4.Text = "Video Info"
         ' 
         ' TabPage2
         ' 
@@ -1448,7 +819,7 @@ Partial Class MainMenu
         TabPage2.Location = New Point(4, 42)
         TabPage2.Name = "TabPage2"
         TabPage2.Padding = New Padding(3)
-        TabPage2.Size = New Size(1904, 1004)
+        TabPage2.Size = New Size(1990, 1052)
         TabPage2.TabIndex = 1
         TabPage2.Text = "Video Profile"
         ' 
@@ -1468,12 +839,12 @@ Partial Class MainMenu
         GroupBar3.GroupBarDropDownToolTip = Nothing
         GroupBar3.HeaderBackColor = SystemColors.ControlDark
         GroupBar3.IndexOnVisibleItems = True
-        GroupBar3.Location = New Point(891, 286)
+        GroupBar3.Location = New Point(977, 359)
         GroupBar3.MinimizeButtonToolTip = Nothing
         GroupBar3.Name = "GroupBar3"
         GroupBar3.NavigationPaneTooltip = Nothing
         GroupBar3.PopupClientSize = New Size(0, 0)
-        GroupBar3.Size = New Size(371, 153)
+        GroupBar3.Size = New Size(371, 106)
         GroupBar3.SmartSizeBox = False
         GroupBar3.Splittercolor = SystemColors.ControlDark
         GroupBar3.TabIndex = 118
@@ -1568,6 +939,10 @@ Partial Class MainMenu
         GroupBar1.BeforeTouchSize = New Size(371, 153)
         GroupBar1.BorderColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
         GroupBar1.BorderStyle = BorderStyle.FixedSingle
+        GroupBar1.Controls.Add(TextBox2)
+        GroupBar1.Controls.Add(Label156)
+        GroupBar1.Controls.Add(MetroSetComboBox4)
+        GroupBar1.Controls.Add(Label155)
         GroupBar1.Controls.Add(Label78)
         GroupBar1.Controls.Add(MetroSetSwitch1)
         GroupBar1.Controls.Add(MetroSetComboBox1)
@@ -1580,12 +955,12 @@ Partial Class MainMenu
         GroupBar1.GroupBarDropDownToolTip = Nothing
         GroupBar1.HeaderBackColor = SystemColors.ControlDark
         GroupBar1.IndexOnVisibleItems = True
-        GroupBar1.Location = New Point(891, 53)
+        GroupBar1.Location = New Point(977, 53)
         GroupBar1.MinimizeButtonToolTip = Nothing
         GroupBar1.Name = "GroupBar1"
         GroupBar1.NavigationPaneTooltip = Nothing
         GroupBar1.PopupClientSize = New Size(0, 0)
-        GroupBar1.Size = New Size(371, 153)
+        GroupBar1.Size = New Size(371, 223)
         GroupBar1.SmartSizeBox = False
         GroupBar1.Splittercolor = SystemColors.ControlDark
         GroupBar1.TabIndex = 90
@@ -1593,6 +968,76 @@ Partial Class MainMenu
         GroupBar1.ThemeStyle.CollapsedViewStyle.ItemStyle.SelectedForeColor = Color.FromArgb(CByte(68), CByte(68), CByte(68))
         GroupBar1.ThemeStyle.ItemStyle.SelectedForeColor = Color.FromArgb(CByte(68), CByte(68), CByte(68))
         GroupBar1.ThemeStyle.StackedViewStyle.CollapsedItemStyle.SelectedForeColor = Color.FromArgb(CByte(68), CByte(68), CByte(68))
+        ' 
+        ' TextBox2
+        ' 
+        TextBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        TextBox2.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBox2.BorderStyle = BorderStyle.FixedSingle
+        TextBox2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBox2.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBox2.Location = New Point(185, 143)
+        TextBox2.Name = "TextBox2"
+        TextBox2.ScrollBars = ScrollBars.Horizontal
+        TextBox2.Size = New Size(161, 23)
+        TextBox2.TabIndex = 123
+        ' 
+        ' Label156
+        ' 
+        Label156.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Label156.AutoSize = True
+        Label156.BackColor = Color.Transparent
+        Label156.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label156.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label156.Location = New Point(10, 143)
+        Label156.Name = "Label156"
+        Label156.Size = New Size(113, 28)
+        Label156.TabIndex = 122
+        Label156.Text = "Preset Name"
+        ' 
+        ' MetroSetComboBox4
+        ' 
+        MetroSetComboBox4.AllowDrop = True
+        MetroSetComboBox4.ArrowColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        MetroSetComboBox4.BackColor = Color.Transparent
+        MetroSetComboBox4.BackgroundColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox4.BorderColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        MetroSetComboBox4.CausesValidation = False
+        MetroSetComboBox4.DisabledBackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox4.DisabledBorderColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox4.DisabledForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox4.DrawMode = DrawMode.OwnerDrawFixed
+        MetroSetComboBox4.DropDownStyle = ComboBoxStyle.DropDownList
+        MetroSetComboBox4.Enabled = False
+        MetroSetComboBox4.FlatStyle = FlatStyle.System
+        MetroSetComboBox4.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        MetroSetComboBox4.FormattingEnabled = True
+        MetroSetComboBox4.IsDerivedStyle = True
+        MetroSetComboBox4.ItemHeight = 20
+        MetroSetComboBox4.Location = New Point(185, 103)
+        MetroSetComboBox4.MaxDropDownItems = 100
+        MetroSetComboBox4.Name = "MetroSetComboBox4"
+        MetroSetComboBox4.SelectedItemBackColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        MetroSetComboBox4.SelectedItemForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox4.Size = New Size(161, 26)
+        MetroSetComboBox4.Style = MetroSet_UI.Enums.Style.Custom
+        MetroSetComboBox4.StyleManager = Nothing
+        MetroSetComboBox4.TabIndex = 121
+        MetroSetComboBox4.ThemeAuthor = "Hana-CI Build Project"
+        MetroSetComboBox4.ThemeName = "Hana Media Encoder MetroSetTheme"
+        ' 
+        ' Label155
+        ' 
+        Label155.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Label155.AutoSize = True
+        Label155.BackColor = Color.Transparent
+        Label155.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label155.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label155.Location = New Point(10, 103)
+        Label155.Name = "Label155"
+        Label155.Size = New Size(61, 28)
+        Label155.TabIndex = 120
+        Label155.Text = "Preset"
         ' 
         ' Label78
         ' 
@@ -1691,7 +1136,7 @@ Partial Class MainMenu
         Button15.FlatStyle = FlatStyle.Popup
         Button15.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Button15.ForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        Button15.Location = New Point(261, 103)
+        Button15.Location = New Point(261, 183)
         Button15.Name = "Button15"
         Button15.Size = New Size(70, 30)
         Button15.TabIndex = 76
@@ -1728,11 +1173,11 @@ Partial Class MainMenu
         Label121.BackColor = Color.Transparent
         Label121.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label121.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label121.Location = New Point(10, 103)
+        Label121.Location = New Point(10, 183)
         Label121.Name = "Label121"
         Label121.Size = New Size(104, 28)
         Label121.TabIndex = 36
-        Label121.Text = "Video Flags"
+        Label121.Text = "Save Preset"
         ' 
         ' Button16
         ' 
@@ -1743,7 +1188,7 @@ Partial Class MainMenu
         Button16.FlatStyle = FlatStyle.Flat
         Button16.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Button16.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Button16.Location = New Point(185, 103)
+        Button16.Location = New Point(185, 183)
         Button16.Name = "Button16"
         Button16.Size = New Size(70, 30)
         Button16.TabIndex = 77
@@ -1761,7 +1206,7 @@ Partial Class MainMenu
         MetroSetButton1.HoverColor = Color.FromArgb(CByte(95), CByte(207), CByte(255))
         MetroSetButton1.HoverTextColor = Color.White
         MetroSetButton1.IsDerivedStyle = True
-        MetroSetButton1.Location = New Point(891, 8)
+        MetroSetButton1.Location = New Point(977, 8)
         MetroSetButton1.Name = "MetroSetButton1"
         MetroSetButton1.NormalBorderColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
         MetroSetButton1.NormalColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
@@ -1788,7 +1233,7 @@ Partial Class MainMenu
         MetroSetButton2.HoverColor = Color.FromArgb(CByte(95), CByte(207), CByte(255))
         MetroSetButton2.HoverTextColor = Color.White
         MetroSetButton2.IsDerivedStyle = True
-        MetroSetButton2.Location = New Point(891, 237)
+        MetroSetButton2.Location = New Point(977, 310)
         MetroSetButton2.Name = "MetroSetButton2"
         MetroSetButton2.NormalBorderColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
         MetroSetButton2.NormalColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
@@ -2998,6 +2443,643 @@ Partial Class MainMenu
         ComboBox12.Size = New Size(134, 23)
         ComboBox12.TabIndex = 31
         ' 
+        ' TabPage1
+        ' 
+        TabPage1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TabPage1.Controls.Add(Label106)
+        TabPage1.Controls.Add(Label107)
+        TabPage1.Controls.Add(Label64)
+        TabPage1.Controls.Add(Label74)
+        TabPage1.Controls.Add(Label60)
+        TabPage1.Controls.Add(Label61)
+        TabPage1.Controls.Add(Label98)
+        TabPage1.Controls.Add(Label97)
+        TabPage1.Controls.Add(Label96)
+        TabPage1.Controls.Add(ComboBox31)
+        TabPage1.Controls.Add(ComboBox24)
+        TabPage1.Controls.Add(ComboBox23)
+        TabPage1.Controls.Add(Button8)
+        TabPage1.Controls.Add(Button7)
+        TabPage1.Controls.Add(Label27)
+        TabPage1.Controls.Add(PictureBox1)
+        TabPage1.Controls.Add(Label25)
+        TabPage1.Controls.Add(Label26)
+        TabPage1.Controls.Add(Label29)
+        TabPage1.Controls.Add(Label30)
+        TabPage1.Controls.Add(Label31)
+        TabPage1.Controls.Add(Label32)
+        TabPage1.Controls.Add(Label35)
+        TabPage1.Controls.Add(Label36)
+        TabPage1.Controls.Add(Label37)
+        TabPage1.Controls.Add(Label39)
+        TabPage1.Controls.Add(Label40)
+        TabPage1.Controls.Add(Label41)
+        TabPage1.Controls.Add(Label42)
+        TabPage1.Controls.Add(Label44)
+        TabPage1.Controls.Add(Label45)
+        TabPage1.Controls.Add(Label23)
+        TabPage1.Controls.Add(Label24)
+        TabPage1.Controls.Add(Label21)
+        TabPage1.Controls.Add(Label22)
+        TabPage1.Controls.Add(Label19)
+        TabPage1.Controls.Add(Label20)
+        TabPage1.Controls.Add(Label17)
+        TabPage1.Controls.Add(Label18)
+        TabPage1.Controls.Add(Label15)
+        TabPage1.Controls.Add(Label16)
+        TabPage1.Controls.Add(Label14)
+        TabPage1.Controls.Add(Label13)
+        TabPage1.Controls.Add(Label12)
+        TabPage1.Controls.Add(Label11)
+        TabPage1.Controls.Add(Label10)
+        TabPage1.Controls.Add(Label9)
+        TabPage1.Controls.Add(Label8)
+        TabPage1.Controls.Add(Label7)
+        TabPage1.Controls.Add(Label6)
+        TabPage1.Controls.Add(Label5)
+        TabPage1.Controls.Add(Label4)
+        TabPage1.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        TabPage1.ForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TabPage1.Location = New Point(4, 42)
+        TabPage1.Name = "TabPage1"
+        TabPage1.Padding = New Padding(3)
+        TabPage1.Size = New Size(1990, 1052)
+        TabPage1.TabIndex = 0
+        TabPage1.Text = "Media Summary"
+        ' 
+        ' Label106
+        ' 
+        Label106.AutoSize = True
+        Label106.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label106.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label106.Location = New Point(303, 323)
+        Label106.Name = "Label106"
+        Label106.Size = New Size(46, 17)
+        Label106.TabIndex = 76
+        Label106.Text = "Profile"
+        ' 
+        ' Label107
+        ' 
+        Label107.AutoSize = True
+        Label107.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label107.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label107.Location = New Point(427, 323)
+        Label107.Name = "Label107"
+        Label107.Size = New Size(0, 17)
+        Label107.TabIndex = 75
+        ' 
+        ' Label64
+        ' 
+        Label64.AutoSize = True
+        Label64.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label64.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label64.Location = New Point(12, 354)
+        Label64.Name = "Label64"
+        Label64.Size = New Size(46, 17)
+        Label64.TabIndex = 74
+        Label64.Text = "Profile"
+        ' 
+        ' Label74
+        ' 
+        Label74.AutoSize = True
+        Label74.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label74.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label74.Location = New Point(123, 354)
+        Label74.Name = "Label74"
+        Label74.Size = New Size(0, 17)
+        Label74.TabIndex = 73
+        ' 
+        ' Label60
+        ' 
+        Label60.AutoSize = True
+        Label60.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label60.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label60.Location = New Point(303, 168)
+        Label60.Name = "Label60"
+        Label60.Size = New Size(48, 17)
+        Label60.TabIndex = 72
+        Label60.Text = "Bitrate"
+        ' 
+        ' Label61
+        ' 
+        Label61.AutoSize = True
+        Label61.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label61.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label61.Location = New Point(427, 168)
+        Label61.Name = "Label61"
+        Label61.Size = New Size(0, 17)
+        Label61.TabIndex = 71
+        ' 
+        ' Label98
+        ' 
+        Label98.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Label98.AutoSize = True
+        Label98.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label98.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label98.Location = New Point(1238, 370)
+        Label98.Name = "Label98"
+        Label98.Size = New Size(19, 21)
+        Label98.TabIndex = 70
+        Label98.Text = "0"
+        ' 
+        ' Label97
+        ' 
+        Label97.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Label97.AutoSize = True
+        Label97.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label97.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label97.Location = New Point(1220, 370)
+        Label97.Name = "Label97"
+        Label97.Size = New Size(17, 21)
+        Label97.TabIndex = 69
+        Label97.Text = "/"
+        ' 
+        ' Label96
+        ' 
+        Label96.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Label96.AutoSize = True
+        Label96.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label96.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label96.Location = New Point(1201, 370)
+        Label96.Name = "Label96"
+        Label96.Size = New Size(19, 21)
+        Label96.TabIndex = 68
+        Label96.Text = "0"
+        ' 
+        ' ComboBox31
+        ' 
+        ComboBox31.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        ComboBox31.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ComboBox31.Enabled = False
+        ComboBox31.FlatStyle = FlatStyle.Flat
+        ComboBox31.Font = New Font("Segoe UI Semilight", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox31.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ComboBox31.FormattingEnabled = True
+        ComboBox31.Items.AddRange(New Object() {"Snapshots", "Spectrum"})
+        ComboBox31.Location = New Point(803, 370)
+        ComboBox31.Name = "ComboBox31"
+        ComboBox31.Size = New Size(134, 23)
+        ComboBox31.TabIndex = 67
+        ' 
+        ' ComboBox24
+        ' 
+        ComboBox24.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ComboBox24.Enabled = False
+        ComboBox24.FlatStyle = FlatStyle.Flat
+        ComboBox24.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox24.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ComboBox24.FormattingEnabled = True
+        ComboBox24.Location = New Point(117, 28)
+        ComboBox24.Name = "ComboBox24"
+        ComboBox24.Size = New Size(134, 25)
+        ComboBox24.TabIndex = 66
+        ' 
+        ' ComboBox23
+        ' 
+        ComboBox23.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        ComboBox23.Enabled = False
+        ComboBox23.FlatStyle = FlatStyle.Flat
+        ComboBox23.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox23.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        ComboBox23.FormattingEnabled = True
+        ComboBox23.Location = New Point(421, 28)
+        ComboBox23.Name = "ComboBox23"
+        ComboBox23.Size = New Size(134, 25)
+        ComboBox23.TabIndex = 65
+        ' 
+        ' Button8
+        ' 
+        Button8.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
+        Button8.BackColor = Color.Transparent
+        Button8.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button8.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button8.FlatStyle = FlatStyle.Flat
+        Button8.Image = CType(resources.GetObject("Button8.Image"), Image)
+        Button8.Location = New Point(618, 146)
+        Button8.Name = "Button8"
+        Button8.Size = New Size(58, 87)
+        Button8.TabIndex = 45
+        Button8.UseVisualStyleBackColor = False
+        ' 
+        ' Button7
+        ' 
+        Button7.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Right
+        Button7.BackColor = Color.Transparent
+        Button7.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button7.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button7.FlatStyle = FlatStyle.Flat
+        Button7.Image = CType(resources.GetObject("Button7.Image"), Image)
+        Button7.Location = New Point(1282, 146)
+        Button7.Name = "Button7"
+        Button7.Size = New Size(58, 87)
+        Button7.TabIndex = 44
+        Button7.UseVisualStyleBackColor = False
+        ' 
+        ' Label27
+        ' 
+        Label27.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        Label27.AutoSize = True
+        Label27.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label27.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label27.Location = New Point(682, 370)
+        Label27.Name = "Label27"
+        Label27.Size = New Size(118, 17)
+        Label27.TabIndex = 43
+        Label27.Text = "Preview Summary"
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        PictureBox1.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        PictureBox1.BackgroundImageLayout = ImageLayout.Zoom
+        PictureBox1.InitialImage = Nothing
+        PictureBox1.Location = New Point(682, 28)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(594, 334)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.TabIndex = 42
+        PictureBox1.TabStop = False
+        PictureBox1.WaitOnLoad = True
+        ' 
+        ' Label25
+        ' 
+        Label25.AutoSize = True
+        Label25.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label25.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label25.Location = New Point(303, 199)
+        Label25.Name = "Label25"
+        Label25.Size = New Size(63, 17)
+        Label25.TabIndex = 41
+        Label25.Text = "Channels"
+        ' 
+        ' Label26
+        ' 
+        Label26.AutoSize = True
+        Label26.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label26.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label26.Location = New Point(427, 199)
+        Label26.Name = "Label26"
+        Label26.Size = New Size(0, 17)
+        Label26.TabIndex = 40
+        ' 
+        ' Label29
+        ' 
+        Label29.AutoSize = True
+        Label29.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label29.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label29.Location = New Point(303, 137)
+        Label29.Name = "Label29"
+        Label29.Size = New Size(102, 17)
+        Label29.TabIndex = 37
+        Label29.Text = "Bits Per Sample"
+        ' 
+        ' Label30
+        ' 
+        Label30.AutoSize = True
+        Label30.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label30.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label30.Location = New Point(427, 137)
+        Label30.Name = "Label30"
+        Label30.Size = New Size(0, 17)
+        Label30.TabIndex = 36
+        ' 
+        ' Label31
+        ' 
+        Label31.AutoSize = True
+        Label31.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label31.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label31.Location = New Point(303, 230)
+        Label31.Name = "Label31"
+        Label31.Size = New Size(108, 17)
+        Label31.TabIndex = 35
+        Label31.Text = "Channels Layout"
+        ' 
+        ' Label32
+        ' 
+        Label32.AutoSize = True
+        Label32.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label32.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label32.Location = New Point(427, 230)
+        Label32.Name = "Label32"
+        Label32.Size = New Size(0, 17)
+        Label32.TabIndex = 34
+        ' 
+        ' Label35
+        ' 
+        Label35.AutoSize = True
+        Label35.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label35.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label35.Location = New Point(427, 292)
+        Label35.Name = "Label35"
+        Label35.Size = New Size(0, 17)
+        Label35.TabIndex = 31
+        ' 
+        ' Label36
+        ' 
+        Label36.AutoSize = True
+        Label36.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label36.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label36.Location = New Point(303, 292)
+        Label36.Name = "Label36"
+        Label36.Size = New Size(83, 17)
+        Label36.TabIndex = 30
+        Label36.Text = "Sample Rate"
+        ' 
+        ' Label37
+        ' 
+        Label37.AutoSize = True
+        Label37.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label37.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label37.Location = New Point(303, 261)
+        Label37.Name = "Label37"
+        Label37.Size = New Size(100, 17)
+        Label37.TabIndex = 29
+        Label37.Text = "Sample Format"
+        ' 
+        ' Label39
+        ' 
+        Label39.AutoSize = True
+        Label39.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label39.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label39.Location = New Point(427, 106)
+        Label39.Name = "Label39"
+        Label39.Size = New Size(0, 17)
+        Label39.TabIndex = 27
+        ' 
+        ' Label40
+        ' 
+        Label40.AutoSize = True
+        Label40.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label40.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label40.Location = New Point(303, 106)
+        Label40.Name = "Label40"
+        Label40.Size = New Size(77, 17)
+        Label40.TabIndex = 26
+        Label40.Text = "Codec Type"
+        ' 
+        ' Label41
+        ' 
+        Label41.AutoSize = True
+        Label41.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label41.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label41.Location = New Point(303, 75)
+        Label41.Name = "Label41"
+        Label41.Size = New Size(85, 17)
+        Label41.TabIndex = 25
+        Label41.Text = "Codec Name"
+        ' 
+        ' Label42
+        ' 
+        Label42.AutoSize = True
+        Label42.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label42.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label42.Location = New Point(427, 261)
+        Label42.Name = "Label42"
+        Label42.Size = New Size(0, 17)
+        Label42.TabIndex = 24
+        ' 
+        ' Label44
+        ' 
+        Label44.AutoSize = True
+        Label44.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label44.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label44.Location = New Point(427, 75)
+        Label44.Name = "Label44"
+        Label44.Size = New Size(0, 17)
+        Label44.TabIndex = 22
+        ' 
+        ' Label45
+        ' 
+        Label45.AutoSize = True
+        Label45.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label45.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label45.Location = New Point(303, 31)
+        Label45.Name = "Label45"
+        Label45.Size = New Size(72, 17)
+        Label45.TabIndex = 21
+        Label45.Text = "Audio Info"
+        ' 
+        ' Label23
+        ' 
+        Label23.AutoSize = True
+        Label23.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label23.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label23.Location = New Point(12, 199)
+        Label23.Name = "Label23"
+        Label23.Size = New Size(55, 17)
+        Label23.TabIndex = 20
+        Label23.Text = "Bit Rate"
+        ' 
+        ' Label24
+        ' 
+        Label24.AutoSize = True
+        Label24.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label24.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label24.Location = New Point(123, 199)
+        Label24.Name = "Label24"
+        Label24.Size = New Size(0, 17)
+        Label24.TabIndex = 19
+        ' 
+        ' Label21
+        ' 
+        Label21.AutoSize = True
+        Label21.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label21.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label21.Location = New Point(12, 292)
+        Label21.Name = "Label21"
+        Label21.Size = New Size(77, 17)
+        Label21.TabIndex = 18
+        Label21.Text = "Frame Rate"
+        ' 
+        ' Label22
+        ' 
+        Label22.AutoSize = True
+        Label22.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label22.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label22.Location = New Point(123, 292)
+        Label22.Name = "Label22"
+        Label22.Size = New Size(0, 17)
+        Label22.TabIndex = 17
+        ' 
+        ' Label19
+        ' 
+        Label19.AutoSize = True
+        Label19.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label19.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label19.Location = New Point(12, 261)
+        Label19.Name = "Label19"
+        Label19.Size = New Size(79, 17)
+        Label19.TabIndex = 16
+        Label19.Text = "Color Space"
+        ' 
+        ' Label20
+        ' 
+        Label20.AutoSize = True
+        Label20.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label20.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label20.Location = New Point(123, 261)
+        Label20.Name = "Label20"
+        Label20.Size = New Size(0, 17)
+        Label20.TabIndex = 15
+        ' 
+        ' Label17
+        ' 
+        Label17.AutoSize = True
+        Label17.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label17.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label17.Location = New Point(12, 230)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(82, 17)
+        Label17.TabIndex = 14
+        Label17.Text = "Color Range"
+        ' 
+        ' Label18
+        ' 
+        Label18.AutoSize = True
+        Label18.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label18.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label18.Location = New Point(123, 230)
+        Label18.Name = "Label18"
+        Label18.Size = New Size(0, 17)
+        Label18.TabIndex = 13
+        ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label15.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label15.Location = New Point(12, 323)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(84, 17)
+        Label15.TabIndex = 12
+        Label15.Text = "Pixel Format"
+        ' 
+        ' Label16
+        ' 
+        Label16.AutoSize = True
+        Label16.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label16.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label16.Location = New Point(123, 323)
+        Label16.Name = "Label16"
+        Label16.Size = New Size(0, 17)
+        Label16.TabIndex = 11
+        ' 
+        ' Label14
+        ' 
+        Label14.AutoSize = True
+        Label14.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label14.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label14.Location = New Point(123, 168)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(0, 17)
+        Label14.TabIndex = 10
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label13.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label13.Location = New Point(12, 168)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(65, 17)
+        Label13.TabIndex = 9
+        Label13.Text = "B-Frames"
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label12.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label12.Location = New Point(12, 137)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(84, 17)
+        Label12.TabIndex = 8
+        Label12.Text = "Aspect Ratio"
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label11.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label11.Location = New Point(12, 385)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(72, 17)
+        Label11.TabIndex = 7
+        Label11.Text = "Resolution"
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label10.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label10.Location = New Point(123, 106)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(0, 17)
+        Label10.TabIndex = 6
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label9.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label9.Location = New Point(12, 106)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(77, 17)
+        Label9.TabIndex = 5
+        Label9.Text = "Codec Type"
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label8.Location = New Point(12, 75)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(85, 17)
+        Label8.TabIndex = 4
+        Label8.Text = "Codec Name"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label7.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label7.Location = New Point(123, 137)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(0, 17)
+        Label7.TabIndex = 3
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label6.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label6.Location = New Point(123, 385)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(0, 17)
+        Label6.TabIndex = 2
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Font = New Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label5.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label5.Location = New Point(123, 75)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(0, 17)
+        Label5.TabIndex = 1
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
+        Label4.Location = New Point(14, 31)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(70, 17)
+        Label4.TabIndex = 0
+        Label4.Text = "Video Info"
+        ' 
         ' TabPage3
         ' 
         TabPage3.AutoScroll = True
@@ -3015,7 +3097,7 @@ Partial Class MainMenu
         TabPage3.ForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
         TabPage3.Location = New Point(4, 42)
         TabPage3.Name = "TabPage3"
-        TabPage3.Size = New Size(1904, 1004)
+        TabPage3.Size = New Size(1990, 1052)
         TabPage3.TabIndex = 2
         TabPage3.Text = "Audio Profile"
         ' 
@@ -3033,12 +3115,12 @@ Partial Class MainMenu
         GroupBar5.GroupBarDropDownToolTip = Nothing
         GroupBar5.HeaderBackColor = SystemColors.ControlDark
         GroupBar5.IndexOnVisibleItems = True
-        GroupBar5.Location = New Point(891, 286)
+        GroupBar5.Location = New Point(977, 357)
         GroupBar5.MinimizeButtonToolTip = Nothing
         GroupBar5.Name = "GroupBar5"
         GroupBar5.NavigationPaneTooltip = Nothing
         GroupBar5.PopupClientSize = New Size(0, 0)
-        GroupBar5.Size = New Size(371, 153)
+        GroupBar5.Size = New Size(371, 82)
         GroupBar5.SmartSizeBox = False
         GroupBar5.Splittercolor = SystemColors.ControlDark
         GroupBar5.TabIndex = 120
@@ -3092,7 +3174,7 @@ Partial Class MainMenu
         MetroSetButton4.HoverColor = Color.FromArgb(CByte(95), CByte(207), CByte(255))
         MetroSetButton4.HoverTextColor = Color.White
         MetroSetButton4.IsDerivedStyle = True
-        MetroSetButton4.Location = New Point(891, 237)
+        MetroSetButton4.Location = New Point(977, 310)
         MetroSetButton4.Name = "MetroSetButton4"
         MetroSetButton4.NormalBorderColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
         MetroSetButton4.NormalColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
@@ -3115,6 +3197,10 @@ Partial Class MainMenu
         GroupBar4.BeforeTouchSize = New Size(371, 153)
         GroupBar4.BorderColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
         GroupBar4.BorderStyle = BorderStyle.FixedSingle
+        GroupBar4.Controls.Add(TextBox3)
+        GroupBar4.Controls.Add(Label157)
+        GroupBar4.Controls.Add(MetroSetComboBox5)
+        GroupBar4.Controls.Add(Label158)
         GroupBar4.Controls.Add(Label102)
         GroupBar4.Controls.Add(MetroSetSwitch2)
         GroupBar4.Controls.Add(MetroSetComboBox3)
@@ -3127,12 +3213,12 @@ Partial Class MainMenu
         GroupBar4.GroupBarDropDownToolTip = Nothing
         GroupBar4.HeaderBackColor = SystemColors.ControlDark
         GroupBar4.IndexOnVisibleItems = True
-        GroupBar4.Location = New Point(891, 53)
+        GroupBar4.Location = New Point(977, 53)
         GroupBar4.MinimizeButtonToolTip = Nothing
         GroupBar4.Name = "GroupBar4"
         GroupBar4.NavigationPaneTooltip = Nothing
         GroupBar4.PopupClientSize = New Size(0, 0)
-        GroupBar4.Size = New Size(371, 153)
+        GroupBar4.Size = New Size(371, 223)
         GroupBar4.SmartSizeBox = False
         GroupBar4.Splittercolor = SystemColors.ControlDark
         GroupBar4.TabIndex = 92
@@ -3140,6 +3226,76 @@ Partial Class MainMenu
         GroupBar4.ThemeStyle.CollapsedViewStyle.ItemStyle.SelectedForeColor = Color.FromArgb(CByte(68), CByte(68), CByte(68))
         GroupBar4.ThemeStyle.ItemStyle.SelectedForeColor = Color.FromArgb(CByte(68), CByte(68), CByte(68))
         GroupBar4.ThemeStyle.StackedViewStyle.CollapsedItemStyle.SelectedForeColor = Color.FromArgb(CByte(68), CByte(68), CByte(68))
+        ' 
+        ' TextBox3
+        ' 
+        TextBox3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        TextBox3.BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        TextBox3.BorderStyle = BorderStyle.FixedSingle
+        TextBox3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBox3.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        TextBox3.Location = New Point(185, 143)
+        TextBox3.Name = "TextBox3"
+        TextBox3.ScrollBars = ScrollBars.Horizontal
+        TextBox3.Size = New Size(161, 23)
+        TextBox3.TabIndex = 127
+        ' 
+        ' Label157
+        ' 
+        Label157.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Label157.AutoSize = True
+        Label157.BackColor = Color.Transparent
+        Label157.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label157.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label157.Location = New Point(10, 143)
+        Label157.Name = "Label157"
+        Label157.Size = New Size(113, 28)
+        Label157.TabIndex = 126
+        Label157.Text = "Preset Name"
+        ' 
+        ' MetroSetComboBox5
+        ' 
+        MetroSetComboBox5.AllowDrop = True
+        MetroSetComboBox5.ArrowColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        MetroSetComboBox5.BackColor = Color.Transparent
+        MetroSetComboBox5.BackgroundColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox5.BorderColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        MetroSetComboBox5.CausesValidation = False
+        MetroSetComboBox5.DisabledBackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox5.DisabledBorderColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox5.DisabledForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox5.DrawMode = DrawMode.OwnerDrawFixed
+        MetroSetComboBox5.DropDownStyle = ComboBoxStyle.DropDownList
+        MetroSetComboBox5.Enabled = False
+        MetroSetComboBox5.FlatStyle = FlatStyle.System
+        MetroSetComboBox5.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        MetroSetComboBox5.FormattingEnabled = True
+        MetroSetComboBox5.IsDerivedStyle = True
+        MetroSetComboBox5.ItemHeight = 20
+        MetroSetComboBox5.Location = New Point(185, 103)
+        MetroSetComboBox5.MaxDropDownItems = 100
+        MetroSetComboBox5.Name = "MetroSetComboBox5"
+        MetroSetComboBox5.SelectedItemBackColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
+        MetroSetComboBox5.SelectedItemForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
+        MetroSetComboBox5.Size = New Size(161, 26)
+        MetroSetComboBox5.Style = MetroSet_UI.Enums.Style.Custom
+        MetroSetComboBox5.StyleManager = Nothing
+        MetroSetComboBox5.TabIndex = 125
+        MetroSetComboBox5.ThemeAuthor = "Hana-CI Build Project"
+        MetroSetComboBox5.ThemeName = "Hana Media Encoder MetroSetTheme"
+        ' 
+        ' Label158
+        ' 
+        Label158.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Label158.AutoSize = True
+        Label158.BackColor = Color.Transparent
+        Label158.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label158.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
+        Label158.Location = New Point(10, 103)
+        Label158.Name = "Label158"
+        Label158.Size = New Size(61, 28)
+        Label158.TabIndex = 124
+        Label158.Text = "Preset"
         ' 
         ' Label102
         ' 
@@ -3215,9 +3371,9 @@ Partial Class MainMenu
         Label143.ForeColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
         Label143.Location = New Point(10, 63)
         Label143.Name = "Label143"
-        Label143.Size = New Size(120, 28)
+        Label143.Size = New Size(70, 28)
         Label143.TabIndex = 39
-        Label143.Text = "Audio Stream"
+        Label143.Text = "Stream"
         ' 
         ' Button17
         ' 
@@ -3226,7 +3382,7 @@ Partial Class MainMenu
         Button17.FlatStyle = FlatStyle.Popup
         Button17.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Button17.ForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        Button17.Location = New Point(261, 103)
+        Button17.Location = New Point(261, 183)
         Button17.Name = "Button17"
         Button17.Size = New Size(68, 30)
         Button17.TabIndex = 66
@@ -3241,7 +3397,7 @@ Partial Class MainMenu
         Button18.FlatStyle = FlatStyle.Flat
         Button18.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Button18.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Button18.Location = New Point(185, 103)
+        Button18.Location = New Point(185, 183)
         Button18.Name = "Button18"
         Button18.Size = New Size(70, 30)
         Button18.TabIndex = 67
@@ -3254,11 +3410,11 @@ Partial Class MainMenu
         Label144.BackColor = Color.Transparent
         Label144.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label144.ForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
-        Label144.Location = New Point(10, 103)
+        Label144.Location = New Point(10, 182)
         Label144.Name = "Label144"
         Label144.Size = New Size(104, 28)
         Label144.TabIndex = 36
-        Label144.Text = "Audio Flags"
+        Label144.Text = "Save Preset"
         ' 
         ' MetroSetButton3
         ' 
@@ -3271,7 +3427,7 @@ Partial Class MainMenu
         MetroSetButton3.HoverColor = Color.FromArgb(CByte(95), CByte(207), CByte(255))
         MetroSetButton3.HoverTextColor = Color.White
         MetroSetButton3.IsDerivedStyle = True
-        MetroSetButton3.Location = New Point(891, 8)
+        MetroSetButton3.Location = New Point(977, 8)
         MetroSetButton3.Name = "MetroSetButton3"
         MetroSetButton3.NormalBorderColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
         MetroSetButton3.NormalColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
@@ -3631,7 +3787,7 @@ Partial Class MainMenu
         TabPage4.ForeColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
         TabPage4.Location = New Point(4, 42)
         TabPage4.Name = "TabPage4"
-        TabPage4.Size = New Size(1904, 1004)
+        TabPage4.Size = New Size(1990, 1052)
         TabPage4.TabIndex = 3
         TabPage4.Text = "Media Chapter"
         ' 
@@ -3649,7 +3805,7 @@ Partial Class MainMenu
         GroupBar2.GroupBarDropDownToolTip = Nothing
         GroupBar2.HeaderBackColor = SystemColors.ControlDark
         GroupBar2.IndexOnVisibleItems = True
-        GroupBar2.Location = New Point(891, 53)
+        GroupBar2.Location = New Point(977, 53)
         GroupBar2.MinimizeButtonToolTip = Nothing
         GroupBar2.Name = "GroupBar2"
         GroupBar2.NavigationPaneTooltip = Nothing
@@ -3710,7 +3866,7 @@ Partial Class MainMenu
         MetroSetButton5.HoverColor = Color.FromArgb(CByte(95), CByte(207), CByte(255))
         MetroSetButton5.HoverTextColor = Color.White
         MetroSetButton5.IsDerivedStyle = True
-        MetroSetButton5.Location = New Point(891, 8)
+        MetroSetButton5.Location = New Point(977, 8)
         MetroSetButton5.Name = "MetroSetButton5"
         MetroSetButton5.NormalBorderColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
         MetroSetButton5.NormalColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
@@ -3729,11 +3885,12 @@ Partial Class MainMenu
         ' Panel12
         ' 
         Panel12.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
+        Panel12.AutoSizeMode = AutoSizeMode.GrowAndShrink
         Panel12.Controls.Add(Label127)
         Panel12.Controls.Add(ListView1)
         Panel12.Location = New Point(10, 8)
         Panel12.Name = "Panel12"
-        Panel12.Size = New Size(579, 14243)
+        Panel12.Size = New Size(533, 14679)
         Panel12.TabIndex = 86
         ' 
         ' Label127
@@ -3759,7 +3916,7 @@ Partial Class MainMenu
         ListView1.GridLines = True
         ListView1.Location = New Point(10, 61)
         ListView1.Name = "ListView1"
-        ListView1.Size = New Size(520, 14177)
+        ListView1.Size = New Size(520, 14613)
         ListView1.TabIndex = 0
         ListView1.UseCompatibleStateImageBehavior = False
         ListView1.View = View.Details
@@ -4013,7 +4170,7 @@ Partial Class MainMenu
         TabPage5.ForeColor = Color.FromArgb(CByte(219), CByte(219), CByte(219))
         TabPage5.Location = New Point(4, 42)
         TabPage5.Name = "TabPage5"
-        TabPage5.Size = New Size(1904, 1004)
+        TabPage5.Size = New Size(1990, 1052)
         TabPage5.TabIndex = 4
         TabPage5.Text = "Media Muxing"
         ' 
@@ -4031,7 +4188,7 @@ Partial Class MainMenu
         GroupBar6.GroupBarDropDownToolTip = Nothing
         GroupBar6.HeaderBackColor = SystemColors.ControlDark
         GroupBar6.IndexOnVisibleItems = True
-        GroupBar6.Location = New Point(891, 53)
+        GroupBar6.Location = New Point(977, 53)
         GroupBar6.MinimizeButtonToolTip = Nothing
         GroupBar6.Name = "GroupBar6"
         GroupBar6.NavigationPaneTooltip = Nothing
@@ -4092,7 +4249,7 @@ Partial Class MainMenu
         MetroSetButton6.HoverColor = Color.FromArgb(CByte(95), CByte(207), CByte(255))
         MetroSetButton6.HoverTextColor = Color.White
         MetroSetButton6.IsDerivedStyle = True
-        MetroSetButton6.Location = New Point(891, 8)
+        MetroSetButton6.Location = New Point(977, 8)
         MetroSetButton6.Name = "MetroSetButton6"
         MetroSetButton6.NormalBorderColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
         MetroSetButton6.NormalColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
@@ -4345,7 +4502,7 @@ Partial Class MainMenu
         TabPage6.Location = New Point(4, 42)
         TabPage6.Name = "TabPage6"
         TabPage6.Padding = New Padding(3)
-        TabPage6.Size = New Size(1904, 1004)
+        TabPage6.Size = New Size(1990, 1052)
         TabPage6.TabIndex = 5
         TabPage6.Text = "Media Trim"
         ' 
@@ -4363,7 +4520,7 @@ Partial Class MainMenu
         GroupBar7.GroupBarDropDownToolTip = Nothing
         GroupBar7.HeaderBackColor = SystemColors.ControlDark
         GroupBar7.IndexOnVisibleItems = True
-        GroupBar7.Location = New Point(891, 53)
+        GroupBar7.Location = New Point(977, 53)
         GroupBar7.MinimizeButtonToolTip = Nothing
         GroupBar7.Name = "GroupBar7"
         GroupBar7.NavigationPaneTooltip = Nothing
@@ -4424,7 +4581,7 @@ Partial Class MainMenu
         MetroSetButton7.HoverColor = Color.FromArgb(CByte(95), CByte(207), CByte(255))
         MetroSetButton7.HoverTextColor = Color.White
         MetroSetButton7.IsDerivedStyle = True
-        MetroSetButton7.Location = New Point(891, 8)
+        MetroSetButton7.Location = New Point(977, 8)
         MetroSetButton7.Name = "MetroSetButton7"
         MetroSetButton7.NormalBorderColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
         MetroSetButton7.NormalColor = Color.FromArgb(CByte(65), CByte(177), CByte(225))
@@ -4779,7 +4936,7 @@ Partial Class MainMenu
         TabPage7.Controls.Add(Panel2)
         TabPage7.Location = New Point(4, 42)
         TabPage7.Name = "TabPage7"
-        TabPage7.Size = New Size(1904, 1004)
+        TabPage7.Size = New Size(1990, 1052)
         TabPage7.TabIndex = 6
         TabPage7.Text = "Media Queue"
         ' 
@@ -4794,7 +4951,7 @@ Partial Class MainMenu
         Panel2.Controls.Add(Label2)
         Panel2.Location = New Point(10, 6)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(1250, 413)
+        Panel2.Size = New Size(1336, 461)
         Panel2.TabIndex = 87
         ' 
         ' Label145
@@ -4803,7 +4960,7 @@ Partial Class MainMenu
         Label145.AutoSize = True
         Label145.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label145.ForeColor = Color.FromArgb(CByte(240), CByte(169), CByte(80))
-        Label145.Location = New Point(934, 17)
+        Label145.Location = New Point(1020, 17)
         Label145.Name = "Label145"
         Label145.Size = New Size(201, 28)
         Label145.TabIndex = 119
@@ -4822,7 +4979,7 @@ Partial Class MainMenu
         MetroSetSwitch6.DisabledUnCheckColor = Color.FromArgb(CByte(200), CByte(205), CByte(205), CByte(205))
         MetroSetSwitch6.Enabled = False
         MetroSetSwitch6.IsDerivedStyle = True
-        MetroSetSwitch6.Location = New Point(1156, 19)
+        MetroSetSwitch6.Location = New Point(1242, 19)
         MetroSetSwitch6.Name = "MetroSetSwitch6"
         MetroSetSwitch6.Size = New Size(58, 22)
         MetroSetSwitch6.Style = MetroSet_UI.Enums.Style.Light
@@ -4885,7 +5042,7 @@ Partial Class MainMenu
         DataGridViewCellStyle10.SelectionForeColor = Color.FromArgb(CByte(244), CByte(169), CByte(80))
         DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle10
         DataGridView1.RowTemplate.Height = 25
-        DataGridView1.Size = New Size(754, 304)
+        DataGridView1.Size = New Size(840, 352)
         DataGridView1.TabIndex = 90
         ' 
         ' ContextMenuStrip2
@@ -4937,9 +5094,9 @@ Partial Class MainMenu
         Panel3.Controls.Add(ComboBox43)
         Panel3.Controls.Add(Label139)
         Panel3.Controls.Add(Label140)
-        Panel3.Location = New Point(774, 61)
+        Panel3.Location = New Point(860, 61)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(507, 311)
+        Panel3.Size = New Size(507, 359)
         Panel3.TabIndex = 89
         ' 
         ' Button32
@@ -5071,7 +5228,7 @@ Partial Class MainMenu
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(22), CByte(27), CByte(33))
-        ClientSize = New Size(1264, 681)
+        ClientSize = New Size(1350, 729)
         Controls.Add(Button29)
         Controls.Add(Button28)
         Controls.Add(Button2)
@@ -5082,7 +5239,7 @@ Partial Class MainMenu
         Controls.Add(Button1)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximumSize = New Size(1920, 1080)
-        MinimumSize = New Size(1280, 720)
+        MinimumSize = New Size(1366, 768)
         Name = "MainMenu"
         Padding = New Padding(0)
         StartPosition = FormStartPosition.CenterScreen
@@ -5104,9 +5261,6 @@ Partial Class MainMenu
         BottomPnl.PerformLayout()
         CType(ProgressBarAdv1, ComponentModel.ISupportInitialize).EndInit()
         MetroSetTabControl1.ResumeLayout(False)
-        TabPage1.ResumeLayout(False)
-        TabPage1.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         TabPage2.ResumeLayout(False)
         CType(GroupBar3, ComponentModel.ISupportInitialize).EndInit()
         GroupBar3.ResumeLayout(False)
@@ -5133,6 +5287,9 @@ Partial Class MainMenu
         Vid_Encoder_Opt_Pnl.PerformLayout()
         AQ_Pnl.ResumeLayout(False)
         AQ_Pnl.PerformLayout()
+        TabPage1.ResumeLayout(False)
+        TabPage1.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         TabPage3.ResumeLayout(False)
         CType(GroupBar5, ComponentModel.ISupportInitialize).EndInit()
         GroupBar5.ResumeLayout(False)
@@ -5507,4 +5664,12 @@ Partial Class MainMenu
     Friend WithEvents Label65 As Label
     Friend WithEvents ComboBox34 As ComboBox
     Friend WithEvents Label111 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label156 As Label
+    Friend WithEvents MetroSetComboBox4 As MetroSet_UI.Controls.MetroSetComboBox
+    Friend WithEvents Label155 As Label
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Label157 As Label
+    Friend WithEvents MetroSetComboBox5 As MetroSet_UI.Controls.MetroSetComboBox
+    Friend WithEvents Label158 As Label
 End Class

@@ -1,5 +1,7 @@
 ﻿Imports System.IO
 Imports System.Text.RegularExpressions
+Imports Newtonsoft.Json.Linq
+Imports Newtonsoft.Json.JsonConvert
 Imports Syncfusion.Windows.Forms
 Imports Syncfusion.Windows.Forms.Tools
 Imports Syncfusion.WinForms.Controls
@@ -60,10 +62,10 @@ Public Class MainMenu
             Dim ImgPrev1 As New FileStream(VideoPlaceholder, FileMode.Open, FileAccess.Read)
             PictureBox1.Image = Image.FromStream(ImgPrev1)
             ImgPrev1.Close()
-            Text = My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString + " - [" + mediaenginestate + getMediaEngineVersion(mediaenginestate).ToString.Substring(0, getMediaEngineVersion(mediaenginestate).ToString.Length - 1) + "]"
+            Text = My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString.Replace(".0", "") + " - [" + mediaenginestate + getMediaEngineVersion(mediaenginestate).ToString.Substring(0, getMediaEngineVersion(mediaenginestate).ToString.Length - 1) + "]"
             If DebugMode IsNot "null" Then
                 If DebugMode.Remove(0, 11) = "True" Then
-                    Text = My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString + " (Debug Mode) - [" + mediaenginestate + getMediaEngineVersion(mediaenginestate).ToString.Substring(0, getMediaEngineVersion(mediaenginestate).ToString.Length - 1) + "]"
+                    Text = My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString.Replace(".0", "") + " (Debug Mode) - [" + mediaenginestate + getMediaEngineVersion(mediaenginestate).ToString.Substring(0, getMediaEngineVersion(mediaenginestate).ToString.Length - 1) + "]"
                 End If
             End If
             If AlwaysFullscreenConf IsNot "null" Then
@@ -1049,11 +1051,18 @@ Public Class MainMenu
                 'Next
             End If
             If Label44.Text.Equals("Not Detected") = False Then
-                For start = 1 To audioMatches.Count
-                    MetroSetComboBox3.Items.Add("Stream #0:" & start)
-                    ComboBox25.Items.Add("Stream #0:" & start)
-                    ComboBox23.Items.Add("Stream #0:" & start)
-                Next
+                If mediaenginestate = "NVENCC" Then
+                    NotifyIcon("NVENCC Media Engine", "Audio stream support are limited !", 1000, True)
+                    MetroSetComboBox3.Items.Add("Stream #0:1")
+                    ComboBox25.Items.Add("Stream #0:1")
+                    ComboBox23.Items.Add("Stream #0:1")
+                Else
+                    For start = 1 To audioMatches.Count
+                        MetroSetComboBox3.Items.Add("Stream #0:" & start)
+                        ComboBox25.Items.Add("Stream #0:" & start)
+                        ComboBox23.Items.Add("Stream #0:" & start)
+                    Next
+                End If
             End If
         ElseIf ffmpegMode = "Muxing" Then
             MetroSetComboBox3.Items.Clear()
@@ -1064,10 +1073,16 @@ Public Class MainMenu
             'NEED TO CHECK THIS LATER
             MetroSetComboBox1.Items.Add("Stream #0:1")
             'Next
-            For start = 1 To audioMatches.Count
-                ComboBox25.Items.Add("Stream #0:" & start)
-                MetroSetComboBox3.Items.Add("Stream #0:" & start)
-            Next
+            If mediaenginestate = "NVENCC" Then
+                NotifyIcon("NVENCC Media Engine", "Audio stream support are limited !", 1000, True)
+                MetroSetComboBox3.Items.Add("Stream #0:1")
+                ComboBox25.Items.Add("Stream #0:1")
+            Else
+                For start = 1 To audioMatches.Count
+                    ComboBox25.Items.Add("Stream #0:" & start)
+                    MetroSetComboBox3.Items.Add("Stream #0:" & start)
+                Next
+            End If
         ElseIf ffmpegMode = "Muxing + Custom" Then
             MetroSetComboBox3.Items.Clear()
             ComboBox25.Items.Clear()
@@ -1078,10 +1093,16 @@ Public Class MainMenu
             ComboBox24.Items.Add("Stream #0:1")
             MetroSetComboBox1.Items.Add("Stream #0:1")
             'Next
-            For start = 1 To audioMatches.Count + 1
-                MetroSetComboBox3.Items.Add("Stream #0:" & start)
-                ComboBox25.Items.Add("Stream #0:" & start)
-            Next
+            If mediaenginestate = "NVENCC" Then
+                NotifyIcon("NVENCC Media Engine", "Audio stream support are limited !", 1000, True)
+                MetroSetComboBox3.Items.Add("Stream #0:1")
+                ComboBox25.Items.Add("Stream #0:1")
+            Else
+                For start = 1 To audioMatches.Count
+                    ComboBox25.Items.Add("Stream #0:" & start)
+                    MetroSetComboBox3.Items.Add("Stream #0:" & start)
+                Next
+            End If
         ElseIf ffmpegMode = "Trim" Then
             ComboBox27.Items.Clear()
             MetroSetComboBox3.Items.Clear()
@@ -1104,10 +1125,16 @@ Public Class MainMenu
                     'Next
                 End If
                 If Label44.Text.Equals("Not Detected") = False Then
-                    For start = 1 To audioMatches.Count
-                        MetroSetComboBox3.Items.Add("Stream #0:" & start)
-                        ComboBox27.Items.Add("Stream #0:" & start)
-                    Next
+                    If mediaenginestate = "NVENCC" Then
+                        NotifyIcon("NVENCC Media Engine", "Audio stream support are limited !", 1000, True)
+                        MetroSetComboBox3.Items.Add("Stream #0:1")
+                        ComboBox27.Items.Add("Stream #0:1")
+                    Else
+                        For start = 1 To audioMatches.Count
+                            ComboBox27.Items.Add("Stream #0:" & start)
+                            MetroSetComboBox3.Items.Add("Stream #0:" & start)
+                        Next
+                    End If
                 End If
             End If
         ElseIf ffmpegMode = "Queue" Then
@@ -1125,10 +1152,16 @@ Public Class MainMenu
                     'Next
                 End If
                 If Label44.Text.Equals("Not Detected") = False Then
-                    For start = 1 To audioMatches.Count
-                        MetroSetComboBox3.Items.Add("Stream #0:" & start)
-                        ComboBox23.Items.Add("Stream #0:" & start)
-                    Next
+                    If mediaenginestate = "NVENCC" Then
+                        NotifyIcon("NVENCC Media Engine", "Audio stream support are limited !", 1000, True)
+                        MetroSetComboBox3.Items.Add("Stream #0:1")
+                        ComboBox23.Items.Add("Stream #0:1")
+                    Else
+                        For start = 1 To audioMatches.Count
+                            ComboBox23.Items.Add("Stream #0:" & start)
+                            MetroSetComboBox3.Items.Add("Stream #0:" & start)
+                        Next
+                    End If
                 End If
             Else
                 MetroSetComboBox3.Items.Clear()
@@ -1252,10 +1285,10 @@ Public Class MainMenu
                                                                 Next
                                                                 If File.Exists(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt") Then
                                                                     Dim joinAudio As String = File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt")
-                                                                    Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & ChapterFlags & " " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                                    Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & ChapterFlags & " " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & joinAudio & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                                 End If
                                                             Else
-                                                                Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & ChapterFlags & " " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                                Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & ChapterFlags & " " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                             End If
                                                             HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                                             encpass2 = True
@@ -1267,7 +1300,7 @@ Public Class MainMenu
                                                         encpass2 = False
                                                     End If
                                                 ElseIf MetroSetSwitch2.Switched = False Then
-                                                    Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & ChapterFlags & " " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
+                                                    Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & ChapterFlags & " " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & "  -an " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text & Chr(34)
                                                     HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                                     encpass2 = True
                                                 End If
@@ -1275,7 +1308,7 @@ Public Class MainMenu
                                                 encpass2 = False
                                             End If
                                         Else
-                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & ChapterFlags & " -c copy " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & Chr(34) & TextBox1.Text & Chr(34)
+                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & ChapterFlags & " -c copy " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text & Chr(34)
                                             HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             encpass2 = True
                                         End If
@@ -1290,7 +1323,7 @@ Public Class MainMenu
                                 If MuxLock() = True Then
                                     HMEStreamProfileGenerate(MuxStreamConfigPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt", MuxFlags)
                                     If ComboBox1.Text = "Original Quality" Then
-                                        Newffargs = "ffmpeg -hide_banner " & MuxFlags & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                        Newffargs = "ffmpeg -hide_banner " & MuxFlags & " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text & Chr(34)
                                         HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                         encpass2 = True
                                     ElseIf ComboBox1.Text = "Custom Quality" Then
@@ -1302,10 +1335,10 @@ Public Class MainMenu
                                                 Next
                                                 If File.Exists(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt") Then
                                                     Dim joinAudio As String = File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt")
-                                                    Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & MuxFlags & " " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                    Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & MuxFlags & " " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & joinAudio & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                 End If
                                             Else
-                                                Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & MuxFlags & " " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & MuxFlags & " " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                             End If
                                             HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             encpass2 = True
@@ -1322,25 +1355,25 @@ Public Class MainMenu
                                     HMEStreamProfileGenerate(TrimStreamConfigPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt", TrimFlags)
                                     If ComboBox26.Text = "Original Quality" Then
                                         If ComboBox28.Text = "Video Only" Then
-                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:0 -c:v:0 copy -an -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:0 -c:v:0 copy -an -avoid_negative_ts 1 " & Chr(34) & metadata(MetroSetCheckBox4.Checked) & TextBox1.Text & Chr(34)
                                         ElseIf ComboBox28.Text = "Video + Audio (Specific source)" Then
-                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:0 -map 0:" & CInt(Strings.Mid(ComboBox27.Text.ToString, 11)).ToString & " -c copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:0 -map 0:" & CInt(Strings.Mid(ComboBox27.Text.ToString, 11)).ToString & " -c copy -avoid_negative_ts 1 " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text & Chr(34)
                                         ElseIf ComboBox28.Text = "Video + Audio (All source)" Then
-                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0 -c copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0 -c copy -avoid_negative_ts 1 " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text & Chr(34)
                                         ElseIf ComboBox28.Text = "Audio Only (Specific Source)" Then
                                             If Label5.Text.Equals("Not Detected") = False Then
-                                                Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & CInt(Strings.Mid(ComboBox27.Text.ToString, 11)).ToString & " -vn -c:a:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & " copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                                Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & CInt(Strings.Mid(ComboBox27.Text.ToString, 11)).ToString & " -vn -c:a:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & " copy -avoid_negative_ts 1 " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text & Chr(34)
                                             Else
-                                                Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & " -c:a:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & " copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                                Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & " -c:a:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & " copy -avoid_negative_ts 1 " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text & Chr(34)
                                             End If
                                         Else
-                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0 -c copy -avoid_negative_ts 1 " & Chr(34) & TextBox1.Text & Chr(34)
+                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0 -c copy -avoid_negative_ts 1 " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text & Chr(34)
                                         End If
                                         HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                         encpass2 = True
                                     ElseIf ComboBox26.Text = "Custom Quality" Then
                                         If ComboBox28.Text = "Video Only" Then
-                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:0 " & File.ReadAllText(VideoStreamFlagsPath & "\" & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " -an " & Chr(34) & TextBox1.Text & Chr(34)
+                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:0 " & File.ReadAllText(VideoStreamFlagsPath & "\" & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " -an " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text & Chr(34)
                                             HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             encpass2 = True
                                         ElseIf ComboBox28.Text = "Video + Audio (Specific source)" Then
@@ -1352,10 +1385,10 @@ Public Class MainMenu
                                                     Next
                                                     If File.Exists(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt") Then
                                                         Dim joinAudio As String = File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt")
-                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:0 -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:0 -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & joinAudio & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                     End If
                                                 Else
-                                                    Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:0 -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                    Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:0 -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                 End If
                                                 HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                                 encpass2 = True
@@ -1372,10 +1405,10 @@ Public Class MainMenu
                                                     Next
                                                     If File.Exists(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt") Then
                                                         Dim joinAudio As String = File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt")
-                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0 " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0 " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & joinAudio & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                     End If
                                                 Else
-                                                    Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0 " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                    Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0 " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                 End If
                                                 HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                                 encpass2 = True
@@ -1393,16 +1426,16 @@ Public Class MainMenu
                                                     If File.Exists(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt") Then
                                                         Dim joinAudio As String = File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt")
                                                         If Label5.Text.Equals("Not Detected") = False Then
-                                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & " -vn " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & " -vn " & joinAudio & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                         Else
-                                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & joinAudio & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                         End If
                                                     End If
                                                 Else
                                                     If Label5.Text.Equals("Not Detected") = False Then
-                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & " -vn " & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11))).ToString & " -vn " & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                     Else
-                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " " & TrimFlags & " -map 0:" & (CInt(Strings.Mid(ComboBox27.Text.ToString, 11)) - 1).ToString & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                     End If
                                                 End If
                                                 HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
@@ -1420,10 +1453,10 @@ Public Class MainMenu
                                                     Next
                                                     If File.Exists(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt") Then
                                                         Dim joinAudio As String = File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt")
-                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & TrimFlags & " -map 0 " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & TrimFlags & " -map 0 " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & joinAudio & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                     End If
                                                 Else
-                                                    Newffargs = Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & TrimFlags & " -map 0 " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                    Newffargs = Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & TrimFlags & " -map 0 " & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                 End If
                                                 HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                                 encpass2 = True
@@ -1448,16 +1481,16 @@ Public Class MainMenu
                                                     If File.Exists(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt") Then
                                                         Dim joinAudio As String = File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_join.txt")
                                                         If mediaenginestate = "NVENCC" Then
-                                                            Newffargs = "nvencc64 -i " & Chr(34) & VideoFilePath & Chr(34) & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & joinAudio & " -o " & Chr(34) & TextBox1.Text & Chr(34)
+                                                            Newffargs = "nvencc64 -i " & Chr(34) & VideoFilePath & Chr(34) & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & joinAudio & metadataAlt(MetroSetCheckBox4.Checked) & " -o " & Chr(34) & TextBox1.Text & Chr(34)
                                                         Else
-                                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & joinAudio & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & joinAudio & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                         End If
                                                     End If
                                                 Else
                                                     If mediaenginestate = "NVENCC" Then
-                                                        Newffargs = "nvencc64 -i " & Chr(34) & VideoFilePath & Chr(34) & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " -o " & Chr(34) & TextBox1.Text & Chr(34)
+                                                        Newffargs = "nvencc64 -i " & Chr(34) & VideoFilePath & Chr(34) & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & metadataAlt(MetroSetCheckBox4.Checked) & " -o " & Chr(34) & TextBox1.Text & Chr(34)
                                                     Else
-                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & " " & Chr(34) & TextBox1.Text & Chr(34)
+                                                        Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & File.ReadAllText(AudioStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & metadata(MetroSetCheckBox4.Checked) & " " & Chr(34) & TextBox1.Text & Chr(34)
                                                     End If
                                                 End If
                                                 If mediaenginestate = "NVENCC" Then
@@ -1478,7 +1511,7 @@ Public Class MainMenu
                                             NotifyIcon("Media file has failed to encode", "NVENCC are not supported to encode video only !", 1000, False)
                                             encpass2 = False
                                         Else
-                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & "  -an " & Chr(34) & TextBox1.Text & Chr(34)
+                                            Newffargs = "ffmpeg -hide_banner " & HwAccelFormat & " -i " & Chr(34) & VideoFilePath & Chr(34) & File.ReadAllText(VideoStreamFlagsPath & Path.GetFileName(VideoFilePath) & "_flags_0.txt") & "  -an " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text & Chr(34)
                                             HMEGenerate(HMEEngine & "HME.bat", FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Newffargs.Replace(vbCr, "").Replace(vbLf, ""), "")
                                             encpass2 = True
                                         End If
@@ -1898,7 +1931,7 @@ Public Class MainMenu
                                                 If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                                     Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
                                                                DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                               File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & Chr(34) & TextBox1.Text +
+                                                               File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text +
                                                                "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & mediaTEMPPostValue & "." + newMediaTEMPFormatOpt & Chr(34)
                                                 Else
                                                     Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
@@ -1909,7 +1942,7 @@ Public Class MainMenu
                                                 If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                                     Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
                                                            DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                           File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & Chr(34) & TextBox1.Text +
+                                                           File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text +
                                                            "\" & mediaTEMPPreValue + Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
                                                 Else
                                                     Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
@@ -1920,7 +1953,7 @@ Public Class MainMenu
                                                 If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                                     Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
                                                                 DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                                File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & Chr(34) & TextBox1.Text +
+                                                                File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text +
                                                                 "\" & mediaTEMPPreValue + Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & mediaTEMPPostValue & "." & newMediaTEMPFormatOpt & Chr(34)
                                                 Else
                                                     Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
@@ -1932,7 +1965,7 @@ Public Class MainMenu
                                             If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                                 Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath &
                                                             Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                            " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
+                                                            " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
                                             Else
                                                 Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
                                                             " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
@@ -1941,7 +1974,7 @@ Public Class MainMenu
                                             If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                                 Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath &
                                                             Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                            " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
+                                                            " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
                                             Else
                                                 Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
                                                             " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
@@ -1951,7 +1984,7 @@ Public Class MainMenu
                                         If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                             Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath &
                                                             Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                            " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
+                                                            " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
                                         Else
                                             Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
                                                             " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
@@ -2138,7 +2171,7 @@ Public Class MainMenu
                                             If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                                 Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
                                                                DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                               File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & Chr(34) & TextBox1.Text +
+                                                               File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text +
                                                                "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & mediaTEMPPostValue & "." + newMediaTEMPFormatOpt & Chr(34)
                                             Else
                                                 Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
@@ -2149,7 +2182,7 @@ Public Class MainMenu
                                             If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                                 Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
                                                            DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                           File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & Chr(34) & TextBox1.Text +
+                                                           File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text +
                                                            "\" & mediaTEMPPreValue + Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
                                             Else
                                                 Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
@@ -2160,7 +2193,7 @@ Public Class MainMenu
                                             If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                                 Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
                                                                 DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                                File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & Chr(34) & TextBox1.Text +
+                                                                File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") + " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text +
                                                                 "\" & mediaTEMPPreValue + Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & mediaTEMPPostValue & "." & newMediaTEMPFormatOpt & Chr(34)
                                             Else
                                                 Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) + "\" +
@@ -2172,7 +2205,7 @@ Public Class MainMenu
                                         If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                             Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath &
                                                             Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                            " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
+                                                            " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
                                         Else
                                             Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
                                                             " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
@@ -2181,7 +2214,7 @@ Public Class MainMenu
                                         If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                             Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath &
                                                             Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                            " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
+                                                            " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
                                         Else
                                             Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
                                                             " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
@@ -2191,7 +2224,7 @@ Public Class MainMenu
                                     If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                         Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(VideoQueueFlagsPath &
                                                             Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
-                                                            " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
+                                                            " " & metadata(MetroSetCheckBox4.Checked) & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
                                     Else
                                         Newffargs = "ffmpeg -hide_banner -i " & Chr(34) & MediaQueueOrigDir(num) & "\" & DataGridView1.Rows(i).Cells(2).Value.ToString & Chr(34) & File.ReadAllText(AudioQueueFlagsPath & Path.GetFileName(DataGridView1.Rows(i).Cells(2).Value.ToString) & "_flags_0.txt") &
                                                             " " & Chr(34) & TextBox1.Text + "\" & Path.GetFileNameWithoutExtension(DataGridView1.Rows(i).Cells(2).Value.ToString) & "." + newMediaTEMPFormatOpt & Chr(34)
@@ -2361,7 +2394,6 @@ Public Class MainMenu
                     HwAccelFormat = "-hwaccel " & Hwdefconfig.Remove(0, 11)
                     HwAccelDev = Hwdefconfig.Remove(0, 11)
                     ComboBox2.Enabled = True
-                    MetroSetComboBox1.Enabled = True
                     Button15.Enabled = True
                     Button16.Enabled = True
                     If Textbox77.Text IsNot "" Then
@@ -2372,6 +2404,9 @@ Public Class MainMenu
                     End If
                     MetroSetComboBox3.Enabled = True
                     MetroSetCheckBox1.Enabled = True
+                    LoadVideoPreset()
+                    MetroSetComboBox4.Enabled = True
+                    TextBox2.Enabled = True
                     NotifyIcon("Video Profile", "Multi video stream configuration are not supported when media queue is enable !", 1000, True)
                 End If
             Else
@@ -2390,10 +2425,12 @@ Public Class MainMenu
                         HwAccelDev = Hwdefconfig.Remove(0, 11)
                         HwAccelFormat = "-hwaccel " & Hwdefconfig.Remove(0, 11)
                         ComboBox2.Enabled = True
-                        MetroSetComboBox1.Enabled = True
                         Button15.Enabled = True
                         Button16.Enabled = False
                         MetroSetComboBox1.SelectedIndex = 0
+                        LoadVideoPreset()
+                        MetroSetComboBox4.Enabled = True
+                        TextBox2.Enabled = True
                     End If
                 End If
             End If
@@ -2464,247 +2501,10 @@ Public Class MainMenu
             ComboBox41.Enabled = False
             MetroSetCheckBox4.Checked = False
             MetroSetCheckBox4.Enabled = False
-        End If
-    End Sub
-    Private Sub VideoStreamSource(sender As Object, e As EventArgs) Handles MetroSetComboBox1.SelectedIndexChanged
-        If MetroSetSwitch6.Switched = False Then
-            If MetroSetComboBox1.SelectedIndex >= 0 Then
-                VideoStreamFlags = VideoStreamFlagsPath & Path.GetFileName(Textbox77.Text) & "_flags_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".txt"
-                VideoStreamConfig = VideoStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_config_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".txt"
-                If File.Exists(VideoStreamFlags) And File.Exists(VideoStreamConfig) Then
-                    Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Configuration for video profile with stream #0:" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & " already exists !" & vbCrLf & vbCrLf &
-                                                                          "Check previous configuration for video profile with stream #0:" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & " ?" &
-                                                                          vbCrLf & "NOTE: This will replace current video profile configuration", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                    If configResult = DialogResult.Yes Then
-                        VcodecReset()
-                        Dim prevVideoBrCompat As String = FindConfig(VideoStreamConfig, "BRCompat=")
-                        Dim prevVideoOvr As String = FindConfig(VideoStreamConfig, "OvrBitrate=")
-                        Dim prevVideoBref As String = FindConfig(VideoStreamConfig, "Bref=")
-                        Dim prevVideoCodec As String = FindConfig(VideoStreamConfig, "Codec=")
-                        Dim prevVideoFps As String = FindConfig(VideoStreamConfig, "Fps=")
-                        Dim prevVideoLvl As String = FindConfig(VideoStreamConfig, "Level=")
-                        Dim prevVideoMaxBr As String = FindConfig(VideoStreamConfig, "MaxBitrate=")
-                        Dim prevVideoMp As String = FindConfig(VideoStreamConfig, "Multipass=")
-                        Dim prevVideoPreset As String = FindConfig(VideoStreamConfig, "Preset=")
-                        Dim prevVideoPixFmt As String = FindConfig(VideoStreamConfig, "PixelFormat=")
-                        Dim prevVideoProfile As String = FindConfig(VideoStreamConfig, "Profile=")
-                        Dim prevVideoForce10Bit As String = FindConfig(VideoStreamConfig, "Force10Bit=")
-                        Dim prevVideoRateCtr As String = FindConfig(VideoStreamConfig, "RateControl=")
-                        Dim prevVideoLookRate As String = FindConfig(VideoStreamConfig, "LookAhead=")
-                        Dim prevVideoSpatialAQ As String = FindConfig(VideoStreamConfig, "SpatialAQ=")
-                        Dim prevVideoAQStrength As String = FindConfig(VideoStreamConfig, "AQStrength=")
-                        Dim prevVideoTempAQ As String = FindConfig(VideoStreamConfig, "TemporalAQ=")
-                        Dim prevVideoTargetQL As String = FindConfig(VideoStreamConfig, "TargetQL=")
-                        Dim prevVideoTier As String = FindConfig(VideoStreamConfig, "Tier=")
-                        Dim prevVideoTune As String = FindConfig(VideoStreamConfig, "Tune=")
-                        Dim prevVideoTileCol As String = FindConfig(VideoStreamConfig, "TileCol=")
-                        Dim prevVideoTileRow As String = FindConfig(VideoStreamConfig, "TileRow=")
-                        Dim prevVideoAspectRatio As String = FindConfig(VideoStreamConfig, "AspectRatio=")
-                        Dim prevVideoResolution As String = FindConfig(VideoStreamConfig, "Resolution=")
-                        Dim prevVideoScaleAlgo As String = FindConfig(VideoStreamConfig, "ScaleAlgo=")
-                        Dim prevVideoColorRange As String = FindConfig(VideoStreamConfig, "ColorRange=")
-                        Dim prevVideoColorPrimary As String = FindConfig(VideoStreamConfig, "ColorPrimary=")
-                        Dim prevVideoColorSpace As String = FindConfig(VideoStreamConfig, "ColorSpace=")
-                        Dim prevVideoScaleType As String = FindConfig(VideoStreamConfig, "ScaleType=")
-                        Dim prevVideoMetadata As String = FindConfig(VideoStreamConfig, "Metadata=")
-                        Dim prevVideoDeinterlaceMode As String = FindConfig(VideoStreamConfig, "DeMode=")
-                        Dim prevVideoDeinterlaceParity As String = FindConfig(VideoStreamConfig, "DeParity=")
-                        Dim prevVideoDeinterlace As String = FindConfig(VideoStreamConfig, "Deinterlace=")
-                        Dim prevVideoDeinterlaceFrame As String = FindConfig(VideoStreamConfig, "DeFrame=")
-                        If RemoveWhitespace(Strings.Mid(prevVideoBrCompat, 10)) IsNot "" Then
-                            ComboBox21.Text = RemoveWhitespace(Strings.Mid(prevVideoBrCompat, 10))
-                        Else
-                            ComboBox21.Text = "disable"
-                        End If
-                        If Strings.Mid(prevVideoOvr, 12) = "" Then
-                            BitRate_UpDown.Value = 0
-                        Else
-                            Dim tempOBR As String = RemoveWhitespace(Strings.Mid(prevVideoOvr, 12))
-                            BitRate_UpDown.Text = CInt(tempOBR)
-                        End If
-                        If Strings.Mid(prevVideoBref, 6) = "" Then
-                            ComboBox10.Text = ""
-                        Else
-                            ComboBox10.Text = Strings.Mid(prevVideoBref, 6)
-                        End If
-                        If Strings.Mid(prevVideoCodec, 7) = "" Then
-                            ComboBox2.Text = ""
-                        Else
-                            ComboBox2.Text = Strings.Mid(prevVideoCodec, 7).ToUpper.Replace("_", String.Empty)
-                        End If
-                        ComboBox30.Text = Strings.Mid(prevVideoFps, 5)
-                        If Strings.Mid(prevVideoLvl, 7) = "" Then
-                            ComboBox8.Text = ""
-                        Else
-                            ComboBox8.Text = Strings.Mid(prevVideoLvl, 7)
-                        End If
-                        If Strings.Mid(prevVideoMaxBr, 12) = "" Then
-                            MaxBitRate_UpDown.Value = 0
-                        Else
-                            Dim tempMBR As String = RemoveWhitespace(Strings.Mid(prevVideoMaxBr, 12))
-                            MaxBitRate_UpDown.Text = CInt(tempMBR)
-                        End If
-                        If Strings.Mid(prevVideoMp, 11) = "" Then
-                            ComboBox14.Text = ""
-                        Else
-                            ComboBox14.Text = Strings.Mid(prevVideoMp, 11)
-                        End If
-                        If Strings.Mid(prevVideoPreset, 8) = "" Then
-                            ComboBox5.Text = ""
-                        Else
-                            ComboBox5.Text = Strings.Mid(prevVideoPreset, 8)
-                        End If
-                        If Strings.Mid(prevVideoTier, 6) = "" Then
-                            ComboBox9.Text = ""
-                        Else
-                            ComboBox9.Text = Strings.Mid(prevVideoTier, 6)
-                        End If
-                        If Strings.Mid(prevVideoPixFmt, 13) = "" Then
-                            ComboBox3.Text = ""
-                        Else
-                            ComboBox3.Text = Strings.Mid(prevVideoPixFmt, 13)
-                        End If
-                        If Strings.Mid(prevVideoProfile, 9) = "" Then
-                            ComboBox7.Text = ""
-                        Else
-                            ComboBox7.Text = Strings.Mid(prevVideoProfile, 9)
-                        End If
-                        If Strings.Mid(prevVideoForce10Bit, 12) = "" Then
-                            MetroSetCheckBox3.Checked = False
-                        Else
-                            MetroSetCheckBox3.Checked = Boolean.Parse(Strings.Mid(prevVideoForce10Bit, 12))
-                        End If
-                        If Strings.Mid(prevVideoRateCtr, 13) = "" Then
-                            ComboBox4.Text = ""
-                        Else
-                            ComboBox4.Text = Strings.Mid(prevVideoRateCtr, 13)
-                        End If
-                        If Strings.Mid(prevVideoLookRate, 11) = "" Then
-                            LookaheadUpDown1.Value = 0
-                        Else
-                            If (Integer.TryParse(Strings.Mid(prevVideoLookRate, 11), vbNull)) Then
-                                LookaheadUpDown1.Value = CInt(Strings.Mid(prevVideoLookRate, 11))
-                            Else
-                                LookaheadUpDown1.Value = 0
-                            End If
-                        End If
-                        If Strings.Mid(prevVideoSpatialAQ, 11) = "" Then
-                            ComboBox11.Text = ""
-                        Else
-                            ComboBox11.Text = Strings.Mid(prevVideoSpatialAQ, 11)
-                        End If
-                        If Strings.Mid(prevVideoAQStrength, 12) = "" Then
-                            ComboBox12.Text = ""
-                        Else
-                            ComboBox12.Text = Strings.Mid(prevVideoAQStrength, 12)
-                        End If
-                        If Strings.Mid(prevVideoTempAQ, 12) = "" Then
-                            ComboBox13.Text = ""
-                        Else
-                            ComboBox13.Text = Strings.Mid(prevVideoTempAQ, 12)
-                        End If
-                        If Strings.Mid(prevVideoTargetQL, 10) = "" Then
-                            CRF_VBR_UpDown.Text = 0
-                        Else
-                            CRF_VBR_UpDown.Text = CInt(RemoveWhitespace(Strings.Mid(prevVideoTargetQL, 10)))
-                        End If
-                        If Strings.Mid(prevVideoTune, 6) = "" Then
-                            ComboBox6.Text = ""
-                        Else
-                            ComboBox6.Text = Strings.Mid(prevVideoTune, 6)
-                        End If
-                        If Strings.Mid(prevVideoTileCol, 9) = "" Then
-                            TileColumnUpDown1.Value = 0
-                        Else
-                            TileColumnUpDown1.Value = CInt(Strings.Mid(prevVideoTileCol, 9))
-                        End If
-                        If Strings.Mid(prevVideoTileRow, 9) = "" Then
-                            TileRowsUpDown1.Value = 0
-                        Else
-                            TileRowsUpDown1.Value = CInt(Strings.Mid(prevVideoTileRow, 9))
-                        End If
-                        If Strings.Mid(prevVideoAspectRatio, 13) = "" Then
-                            ComboBox32.Text = ""
-                        Else
-                            ComboBox32.Text = Strings.Mid(prevVideoAspectRatio, 13)
-                        End If
-                        If Strings.Mid(prevVideoResolution, 12) = "" Then
-                            ComboBox40.Text = ""
-                        Else
-                            ComboBox40.Text = Strings.Mid(prevVideoResolution, 12)
-                        End If
-                        If Strings.Mid(prevVideoScaleAlgo, 11) = "" Then
-                            ComboBox35.Text = ""
-                        Else
-                            ComboBox35.Text = Strings.Mid(prevVideoScaleAlgo, 11)
-                        End If
-                        If Strings.Mid(prevVideoColorRange, 12) = "" Then
-                            ComboBox37.Text = ""
-                        Else
-                            ComboBox37.Text = Strings.Mid(prevVideoColorRange, 12)
-                        End If
-                        If Strings.Mid(prevVideoColorPrimary, 14) = "" Then
-                            ComboBox38.Text = ""
-                        Else
-                            ComboBox38.Text = Strings.Mid(prevVideoColorPrimary, 14)
-                        End If
-                        If Strings.Mid(prevVideoColorSpace, 12) = "" Then
-                            ComboBox39.Text = ""
-                        Else
-                            ComboBox39.Text = Strings.Mid(prevVideoColorSpace, 12)
-                        End If
-                        If Strings.Mid(prevVideoScaleType, 11) = "" Then
-                            ComboBox41.Text = ""
-                        Else
-                            ComboBox41.Text = Strings.Mid(prevVideoScaleType, 11)
-                        End If
-                        If Strings.Mid(prevVideoMetadata, 10) = "" Then
-                            MetroSetCheckBox4.Checked = False
-                        Else
-                            If Strings.Mid(prevVideoMetadata, 10) = "True" Then
-                                MetroSetCheckBox4.Checked = True
-                            Else
-                                MetroSetCheckBox4.Checked = False
-                            End If
-                        End If
-                        If RemoveWhitespace(Strings.Mid(prevVideoDeinterlaceMode, 15)) IsNot "" Then
-                            ComboBox29.Text = RemoveWhitespace(Strings.Mid(prevVideoDeinterlaceMode, 15))
-                        Else
-                            ComboBox29.Text = ""
-                        End If
-                        If RemoveWhitespace(Strings.Mid(prevVideoDeinterlaceFrame, 15)) IsNot "" Then
-                            ComboBox44.Text = RemoveWhitespace(Strings.Mid(prevVideoDeinterlaceFrame, 15))
-                        Else
-                            ComboBox44.Text = ""
-                        End If
-                        If Strings.Mid(prevVideoDeinterlaceParity, 10) IsNot "" Then
-                            ComboBox42.Text = Strings.Mid(prevVideoDeinterlaceParity, 10)
-                        Else
-                            ComboBox42.Text = ""
-                        End If
-                        If RemoveWhitespace(Strings.Mid(prevVideoDeinterlace, 13)) IsNot "" Then
-                            ComboBox29.Text = RemoveWhitespace(Strings.Mid(prevVideoDeinterlace, 13))
-                        Else
-                            ComboBox29.Text = ""
-                        End If
-                    End If
-                    If MetroSetSwitch6.Switched = True And DataGridView1.Rows.Count > 0 Then
-                        Button15.Enabled = True
-                        Button16.Enabled = True
-                    Else
-                        Button15.Enabled = False
-                        Button16.Enabled = True
-                    End If
-                Else
-                    If MetroSetSwitch6.Switched = True And DataGridView1.Rows.Count > 0 Then
-                        Button15.Enabled = True
-                        Button16.Enabled = True
-                    Else
-                        Button15.Enabled = True
-                        Button16.Enabled = False
-                    End If
-                End If
-            End If
+            MetroSetComboBox4.Enabled = False
+            MetroSetComboBox4.SelectedIndex = -1
+            TextBox2.Enabled = False
+            TextBox2.Text = ""
         End If
     End Sub
     Private Sub VideoAspToRes(sender As Object, e As EventArgs) Handles ComboBox32.SelectedIndexChanged
@@ -3078,7 +2878,7 @@ Public Class MainMenu
             ComboBox42.Enabled = True
         End If
     End Sub
-    Private Sub VideoStreamInitConfig(queue As Boolean, rows As Integer, codec As Boolean)
+    Private Sub VideoStreamInitConfig(queue As Boolean, rows As Integer, codec As Boolean, isPreset As Boolean)
         Dim forceDecision As Boolean = False
         If MetroSetComboBox1.SelectedIndex >= 0 Then
             If ComboBox2.Text = "" Then
@@ -3090,18 +2890,29 @@ Public Class MainMenu
                 NotifyIcon("Hana Media Encoder", "Please configure GPU hardware acceleration !", 1000, False)
                 ReturnVideoStats = False
             Else
+                If isPreset Then
+                    If TextBox2.Text = "" Then
+                        VideoPresetName = Path.GetFileNameWithoutExtension(Textbox77.Text).Replace(" ", "_")
+                    Else
+                        VideoPresetName = TextBox2.Text.Replace(" ", "_")
+                    End If
+                    VideoPresetConfig = VideoUserProfile & VideoPresetName & ".json"
+                End If
                 If codec = False Then
                     HMEStreamProfileGenerate(VideoStreamFlags, " -vn ")
                     HMEVideoStreamConfigGenerate(VideoStreamConfig, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+                    If isPreset Then
+                        HMEVideoStreamConfigGenerate(VideoPresetConfig, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+                    End If
                     ReturnVideoStats = True
                 Else
                     If queue Then
                         VideoStreamFlags = VideoQueueFlagsPath & DataGridView1.Rows(rows).Cells(2).Value.ToString & "_flags_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11))).ToString & ".txt"
-                        VideoStreamConfig = VideoQueueConfigPath & DataGridView1.Rows(rows).Cells(2).Value.ToString & "_config_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11))).ToString & ".txt"
+                        VideoStreamConfig = VideoQueueConfigPath & DataGridView1.Rows(rows).Cells(2).Value.ToString & "_profile_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11))).ToString & ".json"
                         VideoStreamSourceList = CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString
                     Else
                         VideoStreamFlags = VideoStreamFlagsPath & Path.GetFileName(Textbox77.Text) & "_flags_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".txt"
-                        VideoStreamConfig = VideoStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_config_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".txt"
+                        VideoStreamConfig = VideoStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_profile_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".json"
                         VideoStreamSourceList = (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString
                     End If
                     If ComboBox2.Text.Equals("Copy") = True Then
@@ -3110,6 +2921,9 @@ Public Class MainMenu
                         End If
                         HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " copy")
                         HMEVideoStreamConfigGenerate(VideoStreamConfig, "", "", "", "copy", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+                        If isPreset Then
+                            HMEVideoStreamConfigGenerate(VideoPresetConfig, "", "", "", "copy", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+                        End If
                         ReturnVideoStats = True
                     Else
                         If ComboBox32.SelectedIndex >= 0 And ComboBox32.SelectedIndex < 3 Then
@@ -3244,11 +3058,11 @@ Public Class MainMenu
                         End If
                         If mediaenginestate = "NVENCC" Then
                             HMEStreamProfileGenerate(VideoStreamFlags, vCodecAlt(ComboBox2.Text) & vPixFmtAlt(ComboBox3.Text, MetroSetCheckBox3.Checked) &
-                                                      vRateControlAlt(ComboBox4.Text, MaxBitRate_UpDown.Text, BitRate_UpDown.Text, CRF_VBR_UpDown.Text) & vPresetAlt(ComboBox5.Text) & vTuneAlt(ComboBox6.Text) & vProfileAlt(ComboBox7.Text) &
+                                                      vRateControlAlt(ComboBox4.Text, MaxBitRate_UpDown.Text, BitRate_UpDown.Text, CRF_VBR_UpDown.Text) & vPresetAlt(ComboBox5.Text) & vTuneAlt(ComboBox6.Text, ComboBox2.Text) & vProfileAlt(ComboBox7.Text) &
                                                       vLevelAlt(ComboBox8.Text) & vTierAlt(ComboBox9.Text, ComboBox2.Text) & bRefModeAlt(ComboBox10.Text) &
                                                       multiPassAlt(ComboBox14.Text) & TileFlags & vColorRangeAlt(ComboBox37.Text) & vColorPrimaryAlt(ComboBox38.Text) & vColorSpaceAlt(ComboBox39.Text) & vFpsAlt(ComboBox30.Text))
                         Else
-                            HMEStreamProfileGenerate(VideoStreamFlags, metadata(MetroSetCheckBox4.Checked) & " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & vPixFmt(ComboBox3.Text, HwAccelDev, ComboBox2.Text, MetroSetCheckBox3.Checked) & vRateControl(ComboBox4.Text, ComboBox2.Text, HwAccelDev) &
+                            HMEStreamProfileGenerate(VideoStreamFlags, " -c:v:" & VideoStreamSourceList & " " & vCodec(ComboBox2.Text, HwAccelDev) & vPixFmt(ComboBox3.Text, HwAccelDev, ComboBox2.Text, MetroSetCheckBox3.Checked) & vRateControl(ComboBox4.Text, ComboBox2.Text, HwAccelDev) &
                                                           TargetQualityControl & vLookAheadLvl(LookaheadUpDown1.Value) & vPreset(ComboBox5.Text, HwAccelDev, ComboBox2.Text) & vTune(ComboBox6.Text) & vProfile(ComboBox7.Text) & vLevel(ComboBox8.Text) & vTier(ComboBox9.Text, HwAccelDev, ComboBox2.Text) &
                                                           vBrcompat(ComboBox21.Text) & BitRate & MaxBitRate & bRefMode(ComboBox10.Text) & vSpaTempAQ(ComboBox11.Text, ComboBox2.Text) & vAQStrength(ComboBox12.Text) & vTempAQ(ComboBox13.Text, ComboBox2.Text) &
                                                           multiPass(ComboBox14.Text) & TileFlags & vColorRange(ComboBox37.Text) & vColorPrimary(ComboBox38.Text) & vColorSpace(ComboBox39.Text, HwAccelDev) & vDeInterlace(ComboBox22.Text, HwAccelDev, ComboBox29.Text, ComboBox42.Text, ComboBox44.Text) & AspectRatio & VideoRes & FPS)
@@ -3257,7 +3071,264 @@ Public Class MainMenu
                                                                              ComboBox14.Text, ComboBox5.Text, ComboBox3.Text, ComboBox7.Text, MetroSetCheckBox3.Checked, ComboBox4.Text, LookaheadUpDown1.Text, ComboBox11.Text,
                                                                              ComboBox12.Text, ComboBox13.Text, CRF_VBR_UpDown.Text, ComboBox9.Text, ComboBox6.Text, TileColumn, TileRows, ComboBox32.Text, ComboBox40.Text, ComboBox35.Text,
                                                                              ComboBox37.Text, ComboBox38.Text, ComboBox39.Text, ComboBox22.Text, ComboBox29.Text, ComboBox42.Text, ComboBox44.Text, ComboBox41.Text, MetroSetCheckBox4.Checked)
+                        If isPreset Then
+                            HMEVideoStreamConfigGenerate(VideoPresetConfig, ComboBox21.Text, BitRate_UpDown.Text, ComboBox10.Text, ComboBox2.Text, ComboBox30.Text, ComboBox8.Text, MaxBitRate_UpDown.Text,
+                                                                             ComboBox14.Text, ComboBox5.Text, ComboBox3.Text, ComboBox7.Text, MetroSetCheckBox3.Checked, ComboBox4.Text, LookaheadUpDown1.Text, ComboBox11.Text,
+                                                                             ComboBox12.Text, ComboBox13.Text, CRF_VBR_UpDown.Text, ComboBox9.Text, ComboBox6.Text, TileColumn, TileRows, ComboBox32.Text, ComboBox40.Text, ComboBox35.Text,
+                                                                             ComboBox37.Text, ComboBox38.Text, ComboBox39.Text, ComboBox22.Text, ComboBox29.Text, ComboBox42.Text, ComboBox44.Text, ComboBox41.Text, MetroSetCheckBox4.Checked)
+
+                        End If
                         ReturnVideoStats = True
+                    End If
+                End If
+            End If
+        End If
+    End Sub
+    Private Sub LoadVideoPreset()
+        If Directory.Exists(VideoUserProfile) Then
+            If HasJsonFile(VideoUserProfile) Then
+                Dim videoPreset As String() = Directory.GetFiles(VideoUserProfile, "*.json")
+                For Each preset In videoPreset
+                    MetroSetComboBox4.Items.Add(Path.GetFileNameWithoutExtension(preset))
+                Next
+                Button15.Enabled = True
+                Button16.Enabled = True
+            Else
+                Button15.Enabled = True
+                Button16.Enabled = False
+            End If
+        End If
+    End Sub
+    Private Sub SetVideoPreset(sender As Object, e As EventArgs) Handles MetroSetComboBox4.SelectedIndexChanged
+        If MetroSetSwitch6.Switched = False Then
+            VideoStreamConfig = VideoStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_profile_" & (CInt(Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".json"
+            If MetroSetComboBox4.Text IsNot "" Then
+                VideoPresetConfig = VideoUserProfile & MetroSetComboBox4.Text & ".json"
+            End If
+            If File.Exists(VideoStreamConfig) Or File.Exists(VideoPresetConfig) Then
+                Dim configResult = MessageBoxAdv.Show(Me, "Configuration for video preset with stream #0:" & CInt(Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & " already exists !" & vbCrLf & vbCrLf &
+                                                                      "Check previous configuration for video profile with stream #0:" & CInt(Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & " ?" &
+                                                                      vbCrLf & "NOTE: This will replace current video profile configuration", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                If configResult = DialogResult.Yes Then
+                    VcodecReset()
+                    Dim mediaVideoProfile As String
+                    If File.Exists(VideoPresetConfig) Then
+                        mediaVideoProfile = File.ReadAllText(VideoPresetConfig)
+                    ElseIf File.Exists(VideoStreamConfig) Then
+                        mediaVideoProfile = File.ReadAllText(VideoStreamConfig)
+                    Else
+                        mediaVideoProfile = File.ReadAllText(VideoStreamConfig)
+                    End If
+                    Dim jsonObject = JObject.Parse(mediaVideoProfile)
+                    Dim prevVideoBrCompat = jsonObject("BRCompat").ToString
+                    Dim prevVideoOvr = jsonObject("OvrBitrate").ToString
+                    Dim prevVideoBref = jsonObject("Bref").ToString
+                    Dim prevVideoCodec = jsonObject("Codec").ToString
+                    Dim prevVideoFps = jsonObject("Fps").ToString
+                    Dim prevVideoLvl = jsonObject("Level").ToString
+                    Dim prevVideoMaxBr = jsonObject("MaxBitrate").ToString
+                    Dim prevVideoMp = jsonObject("Multipass").ToString
+                    Dim prevVideoPreset = jsonObject("Preset").ToString
+                    Dim prevVideoPixFmt = jsonObject("PixelFormat").ToString
+                    Dim prevVideoProfile = jsonObject("Profile").ToString
+                    Dim prevVideoForce10Bit = jsonObject("Force10Bit").ToString
+                    Dim prevVideoRateCtr = jsonObject("RateControl").ToString
+                    Dim prevVideoLookRate = jsonObject("LookAhead").ToString
+                    Dim prevVideoSpatialAQ = jsonObject("SpatialAQ").ToString
+                    Dim prevVideoAQStrength = jsonObject("AQStrength").ToString
+                    Dim prevVideoTempAQ = jsonObject("TemporalAQ").ToString
+                    Dim prevVideoTargetQL = jsonObject("TargetQL").ToString
+                    Dim prevVideoTier = jsonObject("Tier").ToString
+                    Dim prevVideoTune = jsonObject("Tune").ToString
+                    Dim prevVideoTileCol = jsonObject("TileCol").ToString
+                    Dim prevVideoTileRow = jsonObject("TileRow").ToString
+                    Dim prevVideoAspectRatio = jsonObject("AspectRatio").ToString
+                    Dim prevVideoResolution = jsonObject("Resolution").ToString
+                    Dim prevVideoScaleAlgo = jsonObject("ScaleAlgo").ToString
+                    Dim prevVideoColorRange = jsonObject("ColorRange").ToString
+                    Dim prevVideoColorPrimary = jsonObject("ColorPrimary").ToString
+                    Dim prevVideoColorSpace = jsonObject("ColorSpace").ToString
+                    Dim prevVideoScaleType = jsonObject("ScaleType").ToString
+                    Dim prevVideoMetadata = jsonObject("Metadata").ToString
+                    Dim prevVideoDeinterlaceMode = jsonObject("DeMode").ToString
+                    Dim prevVideoDeinterlaceParity = jsonObject("DeParity").ToString
+                    Dim prevVideoDeinterlace = jsonObject("Deinterlace").ToString
+                    Dim prevVideoDeinterlaceFrame = jsonObject("DeFrame").ToString
+                    If RemoveWhitespace(prevVideoBrCompat) IsNot "" Then
+                        ComboBox21.Text = RemoveWhitespace(prevVideoBrCompat)
+                    Else
+                        ComboBox21.Text = "disable"
+                    End If
+                    If prevVideoOvr = "" Then
+                        BitRate_UpDown.Value = 0
+                    Else
+                        Dim tempOBR = RemoveWhitespace(prevVideoOvr)
+                        BitRate_UpDown.Text = CInt(tempOBR)
+                    End If
+                    If prevVideoBref = "" Then
+                        ComboBox10.Text = ""
+                    Else
+                        ComboBox10.Text = prevVideoBref
+                    End If
+                    If prevVideoCodec = "" Then
+                        ComboBox2.Text = ""
+                    Else
+                        ComboBox2.Text = prevVideoCodec.ToUpper.Replace("_", String.Empty)
+                    End If
+                    ComboBox30.Text = prevVideoFps
+                    If prevVideoLvl = "" Then
+                        ComboBox8.Text = ""
+                    Else
+                        ComboBox8.Text = prevVideoLvl
+                    End If
+                    If prevVideoMaxBr = "" Then
+                        MaxBitRate_UpDown.Value = 0
+                    Else
+                        Dim tempMBR = RemoveWhitespace(prevVideoMaxBr)
+                        MaxBitRate_UpDown.Text = CInt(tempMBR)
+                    End If
+                    If prevVideoMp = "" Then
+                        ComboBox14.Text = ""
+                    Else
+                        ComboBox14.Text = prevVideoMp
+                    End If
+                    If prevVideoPreset = "" Then
+                        ComboBox5.Text = ""
+                    Else
+                        ComboBox5.Text = prevVideoPreset
+                    End If
+                    If prevVideoTier = "" Then
+                        ComboBox9.Text = ""
+                    Else
+                        ComboBox9.Text = prevVideoTier
+                    End If
+                    If prevVideoPixFmt = "" Then
+                        ComboBox3.Text = ""
+                    Else
+                        ComboBox3.Text = prevVideoPixFmt
+                    End If
+                    If prevVideoProfile = "" Then
+                        ComboBox7.Text = ""
+                    Else
+                        ComboBox7.Text = prevVideoProfile
+                    End If
+                    If prevVideoForce10Bit = "" Then
+                        MetroSetCheckBox3.Checked = False
+                    Else
+                        MetroSetCheckBox3.Checked = Boolean.Parse(prevVideoForce10Bit)
+                    End If
+                    If prevVideoRateCtr = "" Then
+                        ComboBox4.Text = ""
+                    Else
+                        ComboBox4.Text = prevVideoRateCtr
+                    End If
+                    If prevVideoLookRate = "" Then
+                        LookaheadUpDown1.Value = 0
+                    Else
+                        If Integer.TryParse(prevVideoLookRate, vbNull) Then
+                            LookaheadUpDown1.Value = CInt(prevVideoLookRate)
+                        Else
+                            LookaheadUpDown1.Value = 0
+                        End If
+                    End If
+                    If prevVideoSpatialAQ = "" Then
+                        ComboBox11.Text = ""
+                    Else
+                        ComboBox11.Text = prevVideoSpatialAQ
+                    End If
+                    If prevVideoAQStrength = "" Then
+                        ComboBox12.Text = ""
+                    Else
+                        ComboBox12.Text = prevVideoAQStrength
+                    End If
+                    If prevVideoTempAQ = "" Then
+                        ComboBox13.Text = ""
+                    Else
+                        ComboBox13.Text = prevVideoTempAQ
+                    End If
+                    If prevVideoTargetQL = "" Then
+                        CRF_VBR_UpDown.Text = 0
+                    Else
+                        CRF_VBR_UpDown.Text = CInt(RemoveWhitespace(prevVideoTargetQL))
+                    End If
+                    If prevVideoTune = "" Then
+                        ComboBox6.Text = ""
+                    Else
+                        ComboBox6.Text = prevVideoTune
+                    End If
+                    If prevVideoTileCol = "" Then
+                        TileColumnUpDown1.Value = 0
+                    Else
+                        TileColumnUpDown1.Value = CInt(prevVideoTileCol)
+                    End If
+                    If prevVideoTileRow = "" Then
+                        TileRowsUpDown1.Value = 0
+                    Else
+                        TileRowsUpDown1.Value = CInt(prevVideoTileRow)
+                    End If
+                    If Mid(prevVideoAspectRatio, 13) = "" Then
+                        ComboBox32.Text = ""
+                    Else
+                        ComboBox32.Text = prevVideoAspectRatio
+                    End If
+                    If prevVideoResolution = "" Then
+                        ComboBox40.Text = ""
+                    Else
+                        ComboBox40.Text = prevVideoResolution
+                    End If
+                    If prevVideoScaleAlgo = "" Then
+                        ComboBox35.Text = ""
+                    Else
+                        ComboBox35.Text = prevVideoScaleAlgo
+                    End If
+                    If prevVideoColorRange = "" Then
+                        ComboBox37.Text = ""
+                    Else
+                        ComboBox37.Text = prevVideoColorRange
+                    End If
+                    If prevVideoColorPrimary = "" Then
+                        ComboBox38.Text = ""
+                    Else
+                        ComboBox38.Text = prevVideoColorPrimary
+                    End If
+                    If prevVideoColorSpace = "" Then
+                        ComboBox39.Text = ""
+                    Else
+                        ComboBox39.Text = prevVideoColorSpace
+                    End If
+                    If prevVideoScaleType = "" Then
+                        ComboBox41.Text = ""
+                    Else
+                        ComboBox41.Text = prevVideoScaleType
+                    End If
+                    If prevVideoMetadata = "" Then
+                        MetroSetCheckBox4.Checked = False
+                    Else
+                        If prevVideoMetadata = "True" Then
+                            MetroSetCheckBox4.Checked = True
+                        Else
+                            MetroSetCheckBox4.Checked = False
+                        End If
+                    End If
+                    If RemoveWhitespace(prevVideoDeinterlaceMode) IsNot "" Then
+                        ComboBox29.Text = RemoveWhitespace(prevVideoDeinterlaceMode)
+                    Else
+                        ComboBox29.Text = ""
+                    End If
+                    If RemoveWhitespace(prevVideoDeinterlaceFrame) IsNot "" Then
+                        ComboBox44.Text = RemoveWhitespace(prevVideoDeinterlaceFrame)
+                    Else
+                        ComboBox44.Text = ""
+                    End If
+                    If prevVideoDeinterlaceParity IsNot "" Then
+                        ComboBox42.Text = prevVideoDeinterlaceParity
+                    Else
+                        ComboBox42.Text = ""
+                    End If
+                    If RemoveWhitespace(prevVideoDeinterlace) IsNot "" Then
+                        ComboBox29.Text = RemoveWhitespace(prevVideoDeinterlace)
+                    Else
+                        ComboBox29.Text = ""
                     End If
                 End If
             End If
@@ -3265,6 +3336,7 @@ Public Class MainMenu
     End Sub
     Private Sub SaveVideoStream_Btn(sender As Object, e As EventArgs) Handles Button15.Click
         Dim interlaceCheck As Boolean
+        Dim isSystemPreset As Boolean
         If ComboBox22.Text IsNot "" Then
             If ComboBox44.SelectedIndex < 0 Or ComboBox29.SelectedIndex < 0 Or ComboBox42.SelectedIndex < 0 Then
                 interlaceCheck = False
@@ -3278,7 +3350,26 @@ Public Class MainMenu
             If MetroSetComboBox1.SelectedIndex >= 0 Then
                 If MetroSetSwitch6.Switched = False Then
                     VideoStreamFlags = VideoStreamFlagsPath & Path.GetFileName(Textbox77.Text) & "_flags_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".txt"
-                    VideoStreamConfig = VideoStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_config_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".txt"
+                    VideoStreamConfig = VideoStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_profile_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".json"
+                    If TextBox2.Text = "" Then
+                        If MetroSetComboBox4.Text IsNot "" Then
+                            VideoPresetName = MetroSetComboBox4.Text.Replace(" ", "_")
+                            TextBox2.Text = VideoPresetName
+                        Else
+                            VideoPresetName = Path.GetFileNameWithoutExtension(Textbox77.Text).Replace(" ", "_")
+                            TextBox2.Text = VideoPresetName
+                        End If
+                    ElseIf TextBox2.Text Is "" And MetroSetComboBox4.Text IsNot "" Then
+                        VideoPresetName = MetroSetComboBox4.Text.Replace(" ", "_")
+                    Else
+                        VideoPresetName = TextBox2.Text.Replace(" ", "_")
+                    End If
+                    For Each preset In VideoSystemPreset
+                        If VideoPresetName = preset Then
+                            isSystemPreset = True
+                        End If
+                    Next
+                    VideoPresetConfig = VideoUserProfile & VideoPresetName & ".json"
                     If File.Exists(VideoStreamFlags) And File.Exists(VideoStreamConfig) Then
                         Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Configuration for video profile with stream #0:" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & " already exists !" & vbCrLf &
                                                                               "Overwrite previous configuration ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -3288,43 +3379,95 @@ Public Class MainMenu
                             File.Delete(VideoStreamFlags)
                             File.Delete(VideoStreamConfig)
                             VcodecReset()
-                            VideoStreamInitConfig(False, 0, True)
+                            VideoStreamInitConfig(False, 0, True, False)
                             If ReturnVideoStats = False Then
                                 NotifyIcon("Hana Media Encoder", "Failed to save video profile !", 1000, False)
-                                Button15.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                                Button15.BackColor = ColorTranslator.FromHtml("#161B21")
-                                Button16.ForeColor = ColorTranslator.FromHtml("#161B21")
-                                Button16.BackColor = ColorTranslator.FromHtml("#F4A950")
-                                Button15.Enabled = True
-                                Button16.Enabled = False
                             Else
                                 NotifyIcon("Hana Media Encoder", "Video profile has been saved!", 1000, True)
-                                Button15.ForeColor = ColorTranslator.FromHtml("#161B21")
-                                Button15.BackColor = ColorTranslator.FromHtml("#F4A950")
-                                Button16.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                                Button16.BackColor = ColorTranslator.FromHtml("#161B21")
-                                Button15.Enabled = False
-                                Button16.Enabled = True
+                                If File.Exists(VideoPresetConfig) Then
+                                    Dim presetResult As DialogResult = MessageBoxAdv.Show(Me, "Replace current preset configuration ?" & vbCrLf &
+                                                                                      "Current preset: " & VideoPresetName, "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                    If presetResult = DialogResult.Yes Then
+                                        If isSystemPreset Then
+                                            NotifyIcon("Hana Media Encoder", "Cannot override system preset :(", 1000, False)
+                                        Else
+                                            GC.Collect()
+                                            GC.WaitForPendingFinalizers()
+                                            File.Delete(VideoPresetConfig)
+                                            VideoStreamInitConfig(False, 0, True, True)
+                                            If ReturnVideoStats = False Then
+                                                NotifyIcon("Hana Media Encoder", "Failed to save video preset !", 1000, False)
+                                            Else
+                                                NotifyIcon("Hana Media Encoder", "Video preset has been saved!", 1000, True)
+                                            End If
+                                        End If
+                                    End If
+                                Else
+                                    Dim presetResult As DialogResult = MessageBoxAdv.Show(Me, "Save current preset configuration ?" & vbCrLf &
+                                                                                      "Current preset: " & VideoPresetName, "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                    If presetResult = DialogResult.Yes Then
+                                        If isSystemPreset Then
+                                            NotifyIcon("Hana Media Encoder", "Cannot override system preset :(", 1000, False)
+                                        Else
+                                            GC.Collect()
+                                            GC.WaitForPendingFinalizers()
+                                            File.Delete(VideoPresetConfig)
+                                            VideoStreamInitConfig(False, 0, True, True)
+                                            If ReturnVideoStats = False Then
+                                                NotifyIcon("Hana Media Encoder", "Failed to save video preset !", 1000, False)
+                                            Else
+                                                NotifyIcon("Hana Media Encoder", "Video preset has been saved!", 1000, True)
+                                                MetroSetComboBox4.Items.Add(VideoPresetName)
+                                            End If
+                                        End If
+                                    End If
+                                End If
                             End If
                         End If
                     Else
-                        VideoStreamInitConfig(False, 0, True)
+                        VideoStreamInitConfig(False, 0, True, False)
                         If ReturnVideoStats = False Then
                             NotifyIcon("Hana Media Encoder", "Failed to save video profile !", 1000, False)
-                            Button15.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                            Button15.BackColor = ColorTranslator.FromHtml("#161B21")
-                            Button16.ForeColor = ColorTranslator.FromHtml("#161B21")
-                            Button16.BackColor = ColorTranslator.FromHtml("#F4A950")
-                            Button15.Enabled = True
-                            Button16.Enabled = False
                         Else
                             NotifyIcon("Hana Media Encoder", "Video profile has been saved!", 1000, True)
-                            Button15.ForeColor = ColorTranslator.FromHtml("#161B21")
-                            Button15.BackColor = ColorTranslator.FromHtml("#F4A950")
-                            Button16.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                            Button16.BackColor = ColorTranslator.FromHtml("#161B21")
-                            Button15.Enabled = False
-                            Button16.Enabled = True
+                            If File.Exists(VideoPresetConfig) Then
+                                Dim presetResult As DialogResult = MessageBoxAdv.Show(Me, "Replace current preset configuration ?" & vbCrLf &
+                                                                                      "Current preset: " & VideoPresetName, "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                If presetResult = DialogResult.Yes Then
+                                    If isSystemPreset Then
+                                        NotifyIcon("Hana Media Encoder", "Cannot override system preset :(", 1000, False)
+                                    Else
+                                        GC.Collect()
+                                        GC.WaitForPendingFinalizers()
+                                        File.Delete(VideoPresetConfig)
+                                        VideoStreamInitConfig(False, 0, True, True)
+                                        If ReturnVideoStats = False Then
+                                            NotifyIcon("Hana Media Encoder", "Failed to save video preset !", 1000, False)
+                                        Else
+                                            NotifyIcon("Hana Media Encoder", "Video preset has been saved!", 1000, True)
+                                        End If
+                                    End If
+                                End If
+                            Else
+                                Dim presetResult As DialogResult = MessageBoxAdv.Show(Me, "Save current preset configuration ?" & vbCrLf &
+                                                                                      "Current preset: " & VideoPresetName, "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                If presetResult = DialogResult.Yes Then
+                                    If isSystemPreset Then
+                                        NotifyIcon("Hana Media Encoder", "Cannot override system preset :(", 1000, False)
+                                    Else
+                                        GC.Collect()
+                                        GC.WaitForPendingFinalizers()
+                                        File.Delete(VideoPresetConfig)
+                                        VideoStreamInitConfig(False, 0, True, True)
+                                        If ReturnVideoStats = False Then
+                                            NotifyIcon("Hana Media Encoder", "Failed to save video preset !", 1000, False)
+                                        Else
+                                            NotifyIcon("Hana Media Encoder", "Video preset has been saved!", 1000, True)
+                                            MetroSetComboBox4.Items.Add(VideoPresetName)
+                                        End If
+                                    End If
+                                End If
+                            End If
                         End If
                     End If
                 Else
@@ -3346,20 +3489,48 @@ Public Class MainMenu
     End Sub
     Private Sub RemoveVideoStream_Btn(sender As Object, e As EventArgs) Handles Button16.Click
         If MetroSetComboBox1.SelectedIndex >= 0 Then
+            Dim isSystemPreset As Boolean
             If MetroSetSwitch6.Switched = False Then
                 VideoStreamFlags = VideoStreamFlagsPath & Path.GetFileName(Textbox77.Text) & "_flags_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".txt"
-                VideoStreamConfig = VideoStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_config_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".txt"
+                VideoStreamConfig = VideoStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_profile_" & (CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)) - 1).ToString & ".json"
+                If TextBox2.Text IsNot "" Then
+                    If MetroSetComboBox4.Text IsNot "" Then
+                        VideoPresetName = MetroSetComboBox4.Text.Replace(" ", "_")
+                    Else
+                        VideoPresetName = Path.GetFileNameWithoutExtension(Textbox77.Text).Replace(" ", "_")
+                    End If
+                ElseIf TextBox2.Text Is "" And MetroSetComboBox4.Text IsNot "" Then
+                    VideoPresetName = MetroSetComboBox4.Text.Replace(" ", "_")
+                Else
+                    VideoPresetName = TextBox2.Text.Replace(" ", "_")
+                End If
+                For Each preset In VideoSystemPreset
+                    If VideoPresetName = preset Then
+                        isSystemPreset = True
+                    End If
+                Next
+                VideoPresetConfig = VideoUserProfile & VideoPresetName & ".json"
+                If File.Exists(VideoPresetConfig) Then
+                    Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Remove current preset configuration ?" & vbCrLf &
+                                                                          "Current preset: " & VideoPresetName, "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    If configResult = DialogResult.Yes Then
+                        If isSystemPreset Then
+                            NotifyIcon("Hana Media Encoder", "Cannot remove system preset :(", 1000, False)
+                        Else
+                            GC.Collect()
+                            GC.WaitForPendingFinalizers()
+                            File.Delete(VideoPresetConfig)
+                            MetroSetComboBox4.Items.Remove(VideoPresetName)
+                        End If
+                    End If
+                Else
+                    NotifyIcon("Hana Media Encoder", "Current preset: " & VideoPresetConfig & " does not exist :(", 1000, False)
+                End If
                 GC.Collect()
                 GC.WaitForPendingFinalizers()
                 File.Delete(VideoStreamFlags)
                 File.Delete(VideoStreamConfig)
                 VcodecReset()
-                Button15.ForeColor = ColorTranslator.FromHtml("#161B21")
-                Button15.BackColor = ColorTranslator.FromHtml("#F4A950")
-                Button16.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                Button16.BackColor = ColorTranslator.FromHtml("#161B21")
-                Button15.Enabled = True
-                Button16.Enabled = False
             Else
                 If DataGridView1.Rows.Count > 0 Then
                     contextstripstate1 = "remove"
@@ -3677,10 +3848,7 @@ Public Class MainMenu
     End Sub
     Private Function VideoCodecLock() As Boolean
         Dim result As Boolean
-        If mediaenginestate = "NVENCC" Then
-            'Bypassing for now
-            result = True
-        ElseIf MetroSetSwitch6.Switched = True And DataGridView1.Rows.Count > 0 Then
+        If MetroSetSwitch6.Switched = True And DataGridView1.Rows.Count > 0 Then
             result = True
         Else
             FlagsCount = MetroSetComboBox1.Items.Count
@@ -3916,11 +4084,12 @@ Public Class MainMenu
                     ComboBox15.Enabled = True
                     MetroSetComboBox3.Enabled = True
                     MetroSetCheckBox2.Enabled = True
-                    Button17.Enabled = True
-                    Button18.Enabled = True
                     MetroSetComboBox3.Items.Add("Stream #0:0")
                     NotifyIcon("Audio Profile", "Multi audio stream configuration are not supported when media queue is enable !", 1000, True)
                     MetroSetComboBox3.SelectedIndex = 0
+                    LoadAudioPreset()
+                    MetroSetComboBox5.Enabled = True
+                    TextBox3.Enabled = True
                 Else
                     MetroSetSwitch2.Switched = False
                     NotifyIcon("Audio Profile", "Please load media file before enable audio configuration", 1000, True)
@@ -3932,9 +4101,10 @@ Public Class MainMenu
                 ComboBox15.Enabled = True
                 MetroSetComboBox3.Enabled = True
                 MetroSetCheckBox2.Enabled = False
-                Button17.Enabled = True
-                Button18.Enabled = False
                 MetroSetComboBox3.SelectedIndex = 0
+                LoadAudioPreset()
+                MetroSetComboBox5.Enabled = True
+                TextBox3.Enabled = True
             End If
         Else
             ComboBox15.Enabled = False
@@ -3957,70 +4127,141 @@ Public Class MainMenu
             MetroSetComboBox3.SelectedIndex = -1
             Button17.Enabled = False
             Button18.Enabled = False
+            MetroSetComboBox5.Enabled = True
+            MetroSetComboBox5.SelectedIndex = -1
+            TextBox3.Enabled = False
+            TextBox3.Text = ""
+        End If
+    End Sub
+    Private Sub LoadAudioPreset()
+        If Directory.Exists(AudioUserProfile) Then
+            If HasJsonFile(AudioUserProfile) Then
+                Dim audioPreset As String() = Directory.GetFiles(AudioUserProfile, "*.json")
+                For Each preset In audioPreset
+                    MetroSetComboBox5.Items.Add(Path.GetFileNameWithoutExtension(preset))
+                Next
+                Button17.Enabled = True
+                Button18.Enabled = True
+            Else
+                Button17.Enabled = True
+                Button18.Enabled = False
+            End If
         End If
     End Sub
     Private Sub AudioStream_Source(sender As Object, e As EventArgs) Handles MetroSetComboBox3.SelectedIndexChanged
         If MetroSetSwitch6.Switched = False Then
             If MetroSetComboBox3.SelectedIndex >= 0 Then
                 AudiostreamFlags = AudioStreamFlagsPath & Path.GetFileName(Textbox77.Text) & "_flags_" & (CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)) - 1).ToString & ".txt"
-                AudiostreamConfig = AudioStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_config_" & (CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)) - 1).ToString & ".txt"
+                AudiostreamConfig = AudioStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_profile_" & (CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)) - 1).ToString & ".json"
                 If File.Exists(AudiostreamFlags) And File.Exists(AudiostreamConfig) Then
                     Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Configuration for audio profile with stream #0:" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & "  already exists !" & vbCrLf & vbCrLf &
                                                                           "Check previous configuration for audio profile with stream #0:" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & " ?" &
                                                                           vbCrLf & "NOTE: This will replace current audio profile configuration", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                     If configResult = DialogResult.Yes Then
                         AcodecReset()
-                        Dim prevAudioCodec As String = FindConfig(AudiostreamConfig, "Codec=")
-                        Dim prevAudioBitDepth As String = FindConfig(AudiostreamConfig, "BitDepth=")
-                        Dim prevAudioRateControl As String = FindConfig(AudiostreamConfig, "RateControl=")
-                        Dim prevAudioRate As String = FindConfig(AudiostreamConfig, "Rate=")
-                        Dim prevAudioChannel As String = FindConfig(AudiostreamConfig, "Channel=")
-                        Dim prevAudioChannelLayout As String = FindConfig(AudiostreamConfig, "ChannelLayout=")
-                        Dim prevAudioCompLvl As String = FindConfig(AudiostreamConfig, "Compression=")
-                        Dim prevAudioFreq As String = FindConfig(AudiostreamConfig, "Frequency=")
-                        If RemoveWhitespace(Strings.Mid(prevAudioCodec, 15)) Is "" Then
-                            If RemoveWhitespace(Strings.Mid(prevAudioCodec, 7)) IsNot "" Then
-                                ComboBox15.Text = aCodecReverse(RemoveWhitespace(Strings.Mid(prevAudioCodec, 7)))
-                            Else
-                                ComboBox15.Text = "Copy"
-                            End If
+                        Dim mediaAudioProfile = File.ReadAllText(AudiostreamConfig)
+                        Dim jsonObject = JObject.Parse(mediaAudioProfile)
+                        Dim prevAudioCodec = jsonObject("Codec").ToString()
+                        Dim prevAudioBitDepth = jsonObject("BitDepth").ToString()
+                        Dim prevAudioRateControl = jsonObject("RateControl").ToString()
+                        Dim prevAudioRate = jsonObject("Rate").ToString()
+                        Dim prevAudioChannel = jsonObject("Channel").ToString()
+                        Dim prevAudioChannelLayout = jsonObject("ChannelLayout").ToString()
+                        Dim prevAudioCompLvl = jsonObject("Compression").ToString()
+                        Dim prevAudioFreq = jsonObject("Frequency").ToString()
+                        If prevAudioCodec IsNot "" Then
+                            ComboBox15.Text = aCodecReverse(RemoveWhitespace(prevAudioCodec).Replace("-c:a:0", ""))
                         Else
-                            ComboBox15.Text = aCodecReverse(Strings.Mid(prevAudioCodec, 15))
+                            ComboBox15.Text = "Copy"
                         End If
 
                         If ComboBox15.Text = "WAV" Then
-                            If Strings.Mid(prevAudioCodec, 15) = "pcm_s16le" Then
+                            If RemoveWhitespace(prevAudioCodec).Replace("-c:a:0", "") = "pcm_s16le" Then
                                 ComboBox18.Text = "16 Bit"
-                            ElseIf Strings.Mid(prevAudioCodec, 15) = "pcm_s124le" Then
+                            ElseIf RemoveWhitespace(prevAudioCodec).Replace("-c:a:0", "") = "pcm_s124le" Then
                                 ComboBox18.Text = "24 Bit"
-                            ElseIf Strings.Mid(prevAudioCodec, 15) = "pcm_s32le" Then
+                            ElseIf RemoveWhitespace(prevAudioCodec).Replace("-c:a:0", "") = "pcm_s32le" Then
                                 ComboBox18.Text = "32 Bit"
                             Else
                                 ComboBox18.Text = "16 Bit"
                             End If
                         ElseIf ComboBox15.Text = "FLAC" Then
-                            If RemoveWhitespace(Strings.Mid(prevAudioBitDepth, 10)) = "-sample_fmt:a:0s16" Then
+                            If RemoveWhitespace(prevAudioBitDepth) = "-sample_fmt:a:0s16" Then
                                 ComboBox18.Text = "16 Bit"
-                            ElseIf RemoveWhitespace(Strings.Mid(prevAudioBitDepth, 10)) = "-sample_fmt:a:0s32" Then
+                            ElseIf RemoveWhitespace(prevAudioBitDepth) = "-sample_fmt:a:0s32" Then
                                 ComboBox18.Text = "24 Bit"
                             Else
                                 ComboBox18.Text = "16 Bit"
                             End If
                         Else
-                            ComboBox18.Text = Strings.Mid(prevAudioBitDepth, 10)
+                            ComboBox18.Text = prevAudioBitDepth
                         End If
-                        ComboBox20.Text = Strings.Mid(prevAudioRateControl, 13)
-                        ComboBox19.Text = Strings.Mid(prevAudioRate, 6)
-                        ComboBox33.Text = Strings.Mid(prevAudioChannel, 9)
-                        ComboBox34.Text = Strings.Mid(prevAudioChannelLayout, 15)
-                        ComboBox17.Text = Strings.Mid(prevAudioCompLvl, 13)
-                        ComboBox16.Text = Strings.Mid(prevAudioFreq, 11)
+                        ComboBox20.Text = prevAudioRateControl
+                        ComboBox19.Text = prevAudioRate
+                        ComboBox33.Text = prevAudioChannel
+                        ComboBox34.Text = prevAudioChannelLayout
+                        ComboBox17.Text = prevAudioCompLvl
+                        ComboBox16.Text = prevAudioFreq
                     End If
-                    Button17.Enabled = False
-                    Button18.Enabled = True
-                Else
-                    Button17.Enabled = True
-                    Button18.Enabled = False
+                End If
+            End If
+        End If
+    End Sub
+    Private Sub AudioStream_Profile(sender As Object, e As EventArgs) Handles MetroSetComboBox5.SelectedIndexChanged
+        If MetroSetSwitch6.Switched = False Then
+            If MetroSetComboBox5.SelectedIndex >= 0 Then
+                If MetroSetComboBox5.Text IsNot "" Then
+                    AudioPresetConfig = AudioUserProfile & MetroSetComboBox5.Text & ".json"
+                End If
+                If File.Exists(AudioPresetConfig) Then
+                    Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Replace current preset configuration ?" & vbCrLf &
+                                                                                  "Current preset: " & MetroSetComboBox5.Text, "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    If configResult = DialogResult.Yes Then
+                        AcodecReset()
+                        Dim mediaAudioProfile = File.ReadAllText(AudioPresetConfig)
+                        Dim jsonObject = JObject.Parse(mediaAudioProfile)
+                        Dim prevAudioCodec = jsonObject("Codec").ToString()
+                        Dim prevAudioBitDepth = jsonObject("BitDepth").ToString()
+                        Dim prevAudioRateControl = jsonObject("RateControl").ToString()
+                        Dim prevAudioRate = jsonObject("Rate").ToString()
+                        Dim prevAudioChannel = jsonObject("Channel").ToString()
+                        Dim prevAudioChannelLayout = jsonObject("ChannelLayout").ToString()
+                        Dim prevAudioCompLvl = jsonObject("Compression").ToString()
+                        Dim prevAudioFreq = jsonObject("Frequency").ToString()
+                        If prevAudioCodec IsNot "" Then
+                            ComboBox15.Text = aCodecReverse(RemoveWhitespace(prevAudioCodec).Replace("-c:a:0", ""))
+                        Else
+                            ComboBox15.Text = "Copy"
+                        End If
+
+                        If ComboBox15.Text = "WAV" Then
+                            If RemoveWhitespace(prevAudioCodec).Replace("-c:a:0", "") = "pcm_s16le" Then
+                                ComboBox18.Text = "16 Bit"
+                            ElseIf RemoveWhitespace(prevAudioCodec).Replace("-c:a:0", "") = "pcm_s124le" Then
+                                ComboBox18.Text = "24 Bit"
+                            ElseIf RemoveWhitespace(prevAudioCodec).Replace("-c:a:0", "") = "pcm_s32le" Then
+                                ComboBox18.Text = "32 Bit"
+                            Else
+                                ComboBox18.Text = "16 Bit"
+                            End If
+                        ElseIf ComboBox15.Text = "FLAC" Then
+                            If RemoveWhitespace(prevAudioBitDepth) = "-sample_fmt:a:0s16" Then
+                                ComboBox18.Text = "16 Bit"
+                            ElseIf RemoveWhitespace(prevAudioBitDepth) = "-sample_fmt:a:0s32" Then
+                                ComboBox18.Text = "24 Bit"
+                            Else
+                                ComboBox18.Text = "16 Bit"
+                            End If
+                        Else
+                            ComboBox18.Text = prevAudioBitDepth
+                        End If
+                        ComboBox20.Text = prevAudioRateControl
+                        ComboBox19.Text = prevAudioRate
+                        ComboBox33.Text = prevAudioChannel
+                        ComboBox34.Text = prevAudioChannelLayout
+                        ComboBox17.Text = prevAudioCompLvl
+                        ComboBox16.Text = prevAudioFreq
+                    End If
                 End If
             End If
         End If
@@ -4104,9 +4345,29 @@ Public Class MainMenu
     End Sub
     Private Sub SaveAudioStream_Btn(sender As Object, e As EventArgs) Handles Button17.Click
         If MetroSetComboBox3.SelectedIndex >= 0 Then
+            Dim isSystemPreset As Boolean = False
             If MetroSetSwitch6.Switched = False Then
                 AudiostreamFlags = AudioStreamFlagsPath & Path.GetFileName(Textbox77.Text) & "_flags_" & (CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)) - 1).ToString & ".txt"
-                AudiostreamConfig = AudioStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_config_" & (CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)) - 1).ToString & ".txt"
+                AudiostreamConfig = AudioStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_profile_" & (CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)) - 1).ToString & ".json"
+                If TextBox3.Text = "" Then
+                    If MetroSetComboBox5.Text IsNot "" Then
+                        AudioPresetName = MetroSetComboBox5.Text.Replace(" ", "_")
+                        TextBox3.Text = AudioPresetName
+                    Else
+                        AudioPresetName = Path.GetFileNameWithoutExtension(Textbox77.Text).Replace(" ", "_")
+                        TextBox3.Text = AudioPresetName
+                    End If
+                ElseIf TextBox3.Text Is "" And MetroSetComboBox5.Text IsNot "" Then
+                    AudioPresetName = MetroSetComboBox5.Text.Replace(" ", "_")
+                Else
+                    AudioPresetName = TextBox3.Text.Replace(" ", "_")
+                End If
+                For Each preset In AudioSystemPreset
+                    If AudioPresetName = preset Then
+                        isSystemPreset = True
+                    End If
+                Next
+                AudioPresetConfig = AudioUserProfile & AudioPresetName & ".json"
                 If File.Exists(AudiostreamFlags) And File.Exists(AudiostreamConfig) Then
                     Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Configuration for audio profile with stream #0:" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & " already exists !" & vbCrLf & vbCrLf &
                                                                       "Overwrite previous configuration ?", "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -4116,43 +4377,95 @@ Public Class MainMenu
                         File.Delete(AudiostreamFlags)
                         File.Delete(AudiostreamConfig)
                         AcodecReset()
-                        AudioStreamInitConfig(False, 0, True)
+                        AudioStreamInitConfig(False, 0, True, False)
                         If ReturnAudioStats = False Then
                             NotifyIcon("Hana Media Encoder", "Failed to save audio profile !", 1000, False)
-                            Button17.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                            Button17.BackColor = ColorTranslator.FromHtml("#161B21")
-                            Button18.ForeColor = ColorTranslator.FromHtml("#161B21")
-                            Button18.BackColor = ColorTranslator.FromHtml("#F4A950")
-                            Button17.Enabled = True
-                            Button18.Enabled = False
                         Else
                             NotifyIcon("Hana Media Encoder", "Audio profile has been saved!", 1000, True)
-                            Button17.ForeColor = ColorTranslator.FromHtml("#161B21")
-                            Button17.BackColor = ColorTranslator.FromHtml("#F4A950")
-                            Button18.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                            Button18.BackColor = ColorTranslator.FromHtml("#161B21")
-                            Button17.Enabled = False
-                            Button18.Enabled = True
+                            If File.Exists(AudioPresetConfig) Then
+                                Dim presetResult As DialogResult = MessageBoxAdv.Show(Me, "Replace current preset configuration ?" & vbCrLf &
+                                                                                  "Current preset: " & AudioPresetName, "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                If presetResult = DialogResult.Yes Then
+                                    If isSystemPreset Then
+                                        NotifyIcon("Hana Media Encoder", "Cannot override system preset :(", 1000, False)
+                                    Else
+                                        GC.Collect()
+                                        GC.WaitForPendingFinalizers()
+                                        File.Delete(AudioPresetConfig)
+                                        AudioStreamInitConfig(False, 0, True, True)
+                                        If ReturnAudioStats = False Then
+                                            NotifyIcon("Hana Media Encoder", "Failed to save audio preset !", 1000, False)
+                                        Else
+                                            NotifyIcon("Hana Media Encoder", "Audio preset has been saved!", 1000, True)
+                                        End If
+                                    End If
+                                End If
+                            Else
+                                Dim presetResult As DialogResult = MessageBoxAdv.Show(Me, "Save current preset configuration ?" & vbCrLf &
+                                                                                  "Current preset: " & AudioPresetName, "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                If presetResult = DialogResult.Yes Then
+                                    If isSystemPreset Then
+                                        NotifyIcon("Hana Media Encoder", "Cannot override system preset :(", 1000, False)
+                                    Else
+                                        GC.Collect()
+                                        GC.WaitForPendingFinalizers()
+                                        File.Delete(AudioPresetConfig)
+                                        AudioStreamInitConfig(False, 0, True, True)
+                                        If ReturnAudioStats = False Then
+                                            NotifyIcon("Hana Media Encoder", "Failed to save audio preset !", 1000, False)
+                                        Else
+                                            NotifyIcon("Hana Media Encoder", "Audio preset has been saved!", 1000, True)
+                                            MetroSetComboBox5.Items.Add(AudioPresetName)
+                                        End If
+                                    End If
+                                End If
+                            End If
                         End If
                     End If
                 Else
-                    AudioStreamInitConfig(False, 0, True)
+                    AudioStreamInitConfig(False, 0, True, False)
                     If ReturnAudioStats = False Then
                         NotifyIcon("Hana Media Encoder", "Failed to save audio profile !", 1000, False)
-                        Button17.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                        Button17.BackColor = ColorTranslator.FromHtml("#161B21")
-                        Button18.ForeColor = ColorTranslator.FromHtml("#161B21")
-                        Button18.BackColor = ColorTranslator.FromHtml("#F4A950")
-                        Button17.Enabled = True
-                        Button18.Enabled = False
                     Else
                         NotifyIcon("Hana Media Encoder", "Audio profile has been saved!", 1000, True)
-                        Button17.ForeColor = ColorTranslator.FromHtml("#161B21")
-                        Button17.BackColor = ColorTranslator.FromHtml("#F4A950")
-                        Button18.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                        Button18.BackColor = ColorTranslator.FromHtml("#161B21")
-                        Button17.Enabled = False
-                        Button18.Enabled = True
+                        If File.Exists(AudioPresetConfig) Then
+                            Dim presetResult As DialogResult = MessageBoxAdv.Show(Me, "Replace current preset configuration ?" & vbCrLf &
+                                                                                  "Current preset: " & AudioPresetName, "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                            If presetResult = DialogResult.Yes Then
+                                If isSystemPreset Then
+                                    NotifyIcon("Hana Media Encoder", "Cannot override system preset :(", 1000, False)
+                                Else
+                                    GC.Collect()
+                                    GC.WaitForPendingFinalizers()
+                                    File.Delete(AudioPresetConfig)
+                                    AudioStreamInitConfig(False, 0, True, True)
+                                    If ReturnAudioStats = False Then
+                                        NotifyIcon("Hana Media Encoder", "Failed to save audio preset !", 1000, False)
+                                    Else
+                                        NotifyIcon("Hana Media Encoder", "Audio preset has been saved!", 1000, True)
+                                    End If
+                                End If
+                            End If
+                        Else
+                            Dim presetResult As DialogResult = MessageBoxAdv.Show(Me, "Save current preset configuration ?" & vbCrLf &
+                                                                                  "Current preset: " & AudioPresetName, "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                            If presetResult = DialogResult.Yes Then
+                                If isSystemPreset Then
+                                    NotifyIcon("Hana Media Encoder", "Cannot override system preset :(", 1000, False)
+                                Else
+                                    GC.Collect()
+                                    GC.WaitForPendingFinalizers()
+                                    File.Delete(AudioPresetConfig)
+                                    AudioStreamInitConfig(False, 0, True, True)
+                                    If ReturnAudioStats = False Then
+                                        NotifyIcon("Hana Media Encoder", "Failed to save audio preset !", 1000, False)
+                                    Else
+                                        NotifyIcon("Hana Media Encoder", "Audio preset has been saved!", 1000, True)
+                                        MetroSetComboBox5.Items.Add(AudioPresetName)
+                                    End If
+                                End If
+                            End If
+                        End If
                     End If
                 End If
             Else
@@ -4198,19 +4511,51 @@ Public Class MainMenu
     Private Sub RemoveAudioStream_Btn(sender As Object, e As EventArgs) Handles Button18.Click
         If MetroSetComboBox3.SelectedIndex >= 0 Then
             If MetroSetSwitch6.Switched = False Then
+                Dim isSystemPreset As Boolean = False
                 AudiostreamFlags = AudioStreamFlagsPath & Path.GetFileName(Textbox77.Text) & "_flags_" & (CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)) - 1).ToString & ".txt"
-                AudiostreamConfig = AudioStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_config_" & (CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)) - 1).ToString & ".txt"
+                AudiostreamConfig = AudioStreamConfigPath & Path.GetFileName(Textbox77.Text) & "_profile_" & (CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)) - 1).ToString & ".json"
+                If TextBox3.Text IsNot "" Then
+                    If MetroSetComboBox5.Text IsNot "" Then
+                        AudioPresetName = MetroSetComboBox5.Text.Replace(" ", "_")
+                    Else
+                        AudioPresetName = Path.GetFileNameWithoutExtension(Textbox77.Text).Replace(" ", "_")
+                    End If
+                ElseIf TextBox3.Text Is "" And MetroSetComboBox5.Text IsNot "" Then
+                    AudioPresetName = MetroSetComboBox5.Text.Replace(" ", "_")
+                Else
+                    AudioPresetName = TextBox3.Text.Replace(" ", "_")
+                End If
+                For Each preset In AudioSystemPreset
+                    If AudioPresetName = preset Then
+                        isSystemPreset = True
+                    End If
+                Next
+                AudioPresetConfig = AudioUserProfile & AudioPresetName & ".json"
+                If File.Exists(AudioPresetConfig) And isSystemPreset = False Then
+                    Dim configResult As DialogResult = MessageBoxAdv.Show(Me, "Remove current preset configuration ?" & vbCrLf &
+                                                                      "Current preset: " & AudioPresetName, "Hana Media Encoder", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    If configResult = DialogResult.Yes Then
+                        If isSystemPreset Then
+                            NotifyIcon("Hana Media Encoder", "Cannot remove system preset :(", 1000, False)
+                        Else
+                            GC.Collect()
+                            GC.WaitForPendingFinalizers()
+                            File.Delete(AudioPresetConfig)
+                            MetroSetComboBox5.Items.Remove(AudioPresetName)
+                        End If
+                    End If
+                Else
+                    If isSystemPreset Then
+                        NotifyIcon("Hana Media Encoder", "Cannot remove system preset :(", 1000, False)
+                    Else
+                        NotifyIcon("Hana Media Encoder", "Current preset: " & AudioPresetName & " does not exist :(", 1000, False)
+                    End If
+                End If
                 GC.Collect()
                 GC.WaitForPendingFinalizers()
                 File.Delete(AudiostreamFlags)
                 File.Delete(AudiostreamConfig)
                 AcodecReset()
-                Button17.ForeColor = ColorTranslator.FromHtml("#161B21")
-                Button17.BackColor = ColorTranslator.FromHtml("#F4A950")
-                Button18.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                Button18.BackColor = ColorTranslator.FromHtml("#161B21")
-                Button17.Enabled = True
-                Button18.Enabled = False
             Else
                 If DataGridView1.Rows.Count > 0 Then
                     contextstripstate1 = "remove"
@@ -4235,7 +4580,7 @@ Public Class MainMenu
                         For i As Integer = 0 To DataGridView1.Rows.Count - 1
                             If DataGridView1.Rows(i).Cells(0).Value = True Then
                                 VideoStreamFlags = VideoQueueFlagsPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".txt"
-                                VideoStreamConfig = VideoQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_config_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".txt"
+                                VideoStreamConfig = VideoQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_profile_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".json"
                                 If File.Exists(VideoStreamFlags) Then
                                     File.Delete(VideoStreamFlags)
                                 End If
@@ -4282,9 +4627,9 @@ Public Class MainMenu
 
                                 If DataGridView1.Rows(i).Cells(5).Value.ToString.Contains("Video File") = True Then
                                     If MetroSetCheckBox1.Checked = True Then
-                                        VideoStreamInitConfig(True, i, False)
+                                        VideoStreamInitConfig(True, i, False, False)
                                     Else
-                                        VideoStreamInitConfig(True, i, True)
+                                        VideoStreamInitConfig(True, i, True, False)
                                     End If
                                     If DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Audio") = True Then
                                         Dim tempVal As String = DataGridView1.Rows(i).Cells(8).Value.ToString
@@ -4315,17 +4660,11 @@ Public Class MainMenu
                                 End If
                             End If
                         Next
-                        Button15.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                        Button15.BackColor = ColorTranslator.FromHtml("#161B21")
-                        Button16.ForeColor = ColorTranslator.FromHtml("#161B21")
-                        Button16.BackColor = ColorTranslator.FromHtml("#F4A950")
-                        Button15.Enabled = False
-                        Button16.Enabled = True
                     ElseIf contextstripstate1 = "remove" Then
                         For i As Integer = 0 To DataGridView1.Rows.Count - 1
                             If DataGridView1.Rows(i).Cells(0).Value = True Then
                                 VideoStreamFlags = VideoQueueFlagsPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".txt"
-                                VideoStreamConfig = VideoQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_config_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".txt"
+                                VideoStreamConfig = VideoQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_profile_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".json"
                                 If DataGridView1.Rows(i).Cells(5).Value.ToString = "Video File" Then
                                     If File.Exists(VideoStreamFlags) Then
                                         File.Delete(VideoStreamFlags)
@@ -4341,12 +4680,6 @@ Public Class MainMenu
                                 End If
                             End If
                         Next
-                        Button15.ForeColor = ColorTranslator.FromHtml("#161B21")
-                        Button15.BackColor = ColorTranslator.FromHtml("#F4A950")
-                        Button16.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                        Button16.BackColor = ColorTranslator.FromHtml("#161B21")
-                        Button15.Enabled = True
-                        Button16.Enabled = False
                     Else
                         NotifyIcon("Hana Media Encoder", "Invalid option!", 1000, False)
                     End If
@@ -4355,7 +4688,7 @@ Public Class MainMenu
                         For i As Integer = 0 To DataGridView1.Rows.Count - 1
                             If DataGridView1.Rows(i).Cells(0).Value = True Then
                                 AudiostreamFlags = AudioQueueFlagsPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & ".txt"
-                                AudiostreamConfig = AudioQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_config_" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & ".txt"
+                                AudiostreamConfig = AudioQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_profile_" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & ".json"
                                 Dim bitdepth As String
                                 Dim afreq As String
                                 Dim achn As String
@@ -4391,9 +4724,9 @@ Public Class MainMenu
                                     achn = ""
                                 End If
                                 If MetroSetCheckBox2.Checked = False Then
-                                    AudioStreamInitConfig(True, i, True)
+                                    AudioStreamInitConfig(True, i, True, False)
                                 Else
-                                    AudioStreamInitConfig(True, i, False)
+                                    AudioStreamInitConfig(True, i, False, False)
                                 End If
                                 If ReturnAudioStats Then
                                     If DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Video") = True Then
@@ -4420,12 +4753,6 @@ Public Class MainMenu
                                             DataGridView1.Rows(i).Cells(8).Value = "Audio: No Audio"
                                         End If
                                     End If
-                                    Button17.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                                    Button17.BackColor = ColorTranslator.FromHtml("#161B21")
-                                    Button18.ForeColor = ColorTranslator.FromHtml("#161B21")
-                                    Button18.BackColor = ColorTranslator.FromHtml("#F4A950")
-                                    Button17.Enabled = False
-                                    Button18.Enabled = True
                                 Else
                                     NotifyIcon("Hana Media Encoder", "Failed to save audio profile!", 1000, True)
                                 End If
@@ -4435,7 +4762,7 @@ Public Class MainMenu
                         For i As Integer = 0 To DataGridView1.Rows.Count - 1
                             If DataGridView1.Rows(i).Cells(0).Value = True Then
                                 AudiostreamFlags = AudioQueueFlagsPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".txt"
-                                AudiostreamConfig = AudioQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_config_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".txt"
+                                AudiostreamConfig = AudioQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_profile_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".json"
                                 If File.Exists(AudiostreamFlags) Then
                                     File.Delete(AudiostreamFlags)
                                 End If
@@ -4449,12 +4776,6 @@ Public Class MainMenu
                                 End If
                             End If
                         Next
-                        Button17.ForeColor = ColorTranslator.FromHtml("#161B21")
-                        Button17.BackColor = ColorTranslator.FromHtml("#F4A950")
-                        Button18.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                        Button18.BackColor = ColorTranslator.FromHtml("#161B21")
-                        Button17.Enabled = True
-                        Button18.Enabled = False
                     Else
                         NotifyIcon("Hana Media Encoder", "Invalid option!", 1000, False)
                     End If
@@ -4477,7 +4798,7 @@ Public Class MainMenu
                     If contextstripstate1 = "save" Then
                         For i As Integer = 0 To DataGridView1.Rows.Count - 1
                             VideoStreamFlags = VideoQueueFlagsPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".txt"
-                            VideoStreamConfig = VideoQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_config_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".txt"
+                            VideoStreamConfig = VideoQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_profile_" & CInt(Strings.Mid(MetroSetComboBox1.Text.ToString, 11)).ToString & ".json"
                             If File.Exists(VideoStreamFlags) Then
                                 File.Delete(VideoStreamFlags)
                             End If
@@ -4523,9 +4844,9 @@ Public Class MainMenu
                             End If
                             If DataGridView1.Rows(i).Cells(5).Value.ToString.Contains("Video File") = True Then
                                 If MetroSetCheckBox1.Checked = False Then
-                                    VideoStreamInitConfig(True, i, True)
+                                    VideoStreamInitConfig(True, i, True, False)
                                 Else
-                                    VideoStreamInitConfig(True, i, False)
+                                    VideoStreamInitConfig(True, i, False, False)
                                 End If
                                 If DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Audio") = True Then
                                     Dim tempVal As String = DataGridView1.Rows(i).Cells(8).Value.ToString
@@ -4553,12 +4874,6 @@ Public Class MainMenu
                                 End If
                             End If
                         Next
-                        Button15.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                        Button15.BackColor = ColorTranslator.FromHtml("#161B21")
-                        Button16.ForeColor = ColorTranslator.FromHtml("#161B21")
-                        Button16.BackColor = ColorTranslator.FromHtml("#F4A950")
-                        Button15.Enabled = False
-                        Button16.Enabled = True
                     ElseIf contextstripstate1 = "remove" Then
                         For i As Integer = 0 To DataGridView1.Rows.Count - 1
                             If DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Audio") = True Then
@@ -4567,12 +4882,6 @@ Public Class MainMenu
                                 DataGridView1.Rows(i).Cells(8).Value = ""
                             End If
                         Next
-                        Button15.ForeColor = ColorTranslator.FromHtml("#161B21")
-                        Button15.BackColor = ColorTranslator.FromHtml("#F4A950")
-                        Button16.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                        Button16.BackColor = ColorTranslator.FromHtml("#161B21")
-                        Button15.Enabled = True
-                        Button16.Enabled = False
                     Else
                         NotifyIcon("Hana Media Encoder", "Invalid option!", 1000, False)
                     End If
@@ -4580,7 +4889,7 @@ Public Class MainMenu
                     If contextstripstate1 = "save" Then
                         For i As Integer = 0 To DataGridView1.Rows.Count - 1
                             AudiostreamFlags = AudioQueueFlagsPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & ".txt"
-                            AudiostreamConfig = AudioQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_config_" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & ".txt"
+                            AudiostreamConfig = AudioQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_profile_" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & ".json"
                             If File.Exists(AudiostreamFlags) Then
                                 File.Delete(AudiostreamFlags)
                             End If
@@ -4614,9 +4923,9 @@ Public Class MainMenu
                                 achn = ""
                             End If
                             If MetroSetCheckBox2.Checked = False Then
-                                AudioStreamInitConfig(True, i, True)
+                                AudioStreamInitConfig(True, i, True, False)
                             Else
-                                AudioStreamInitConfig(True, i, False)
+                                AudioStreamInitConfig(True, i, False, False)
                             End If
                             If ReturnAudioStats Then
                                 If DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Video") = True Then
@@ -4643,12 +4952,6 @@ Public Class MainMenu
                                         DataGridView1.Rows(i).Cells(8).Value = "Audio: No Audio"
                                     End If
                                 End If
-                                Button17.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                                Button17.BackColor = ColorTranslator.FromHtml("#161B21")
-                                Button18.ForeColor = ColorTranslator.FromHtml("#161B21")
-                                Button18.BackColor = ColorTranslator.FromHtml("#F4A950")
-                                Button17.Enabled = False
-                                Button18.Enabled = True
                             Else
                                 NotifyIcon("Hana Media Encoder", "Failed to save audio profile!", 1000, True)
                             End If
@@ -4656,7 +4959,7 @@ Public Class MainMenu
                     ElseIf contextstripstate1 = "remove" Then
                         For i As Integer = 0 To DataGridView1.Rows.Count - 1
                             AudiostreamFlags = AudioQueueFlagsPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & ".txt"
-                            AudiostreamConfig = AudioQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_config_" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & ".txt"
+                            AudiostreamConfig = AudioQueueConfigPath & DataGridView1.Rows(i).Cells(2).Value.ToString & "_config_" & CInt(Strings.Mid(MetroSetComboBox3.Text.ToString, 11)).ToString & ".json"
                             If File.Exists(AudiostreamFlags) Then
                                 File.Delete(AudiostreamFlags)
                             End If
@@ -4669,12 +4972,6 @@ Public Class MainMenu
                                 DataGridView1.Rows(i).Cells(8).Value = ""
                             End If
                         Next
-                        Button17.ForeColor = ColorTranslator.FromHtml("#161B21")
-                        Button17.BackColor = ColorTranslator.FromHtml("#F4A950")
-                        Button18.ForeColor = ColorTranslator.FromHtml("#F4A950")
-                        Button18.BackColor = ColorTranslator.FromHtml("#161B21")
-                        Button17.Enabled = True
-                        Button18.Enabled = False
                     Else
                         NotifyIcon("Hana Media Encoder", "Invalid option!", 1000, False)
                     End If
@@ -4688,11 +4985,22 @@ Public Class MainMenu
             DataGridView1.Refresh()
         End If
     End Sub
-    Private Sub AudioStreamInitConfig(queue As Boolean, rows As Integer, codec As Boolean)
+    Private Sub AudioStreamInitConfig(queue As Boolean, rows As Integer, codec As Boolean, isPreset As Boolean)
         If MetroSetComboBox3.SelectedIndex >= 0 Then
+            If isPreset Then
+                If TextBox3.Text = "" Then
+                    AudioPresetName = Path.GetFileNameWithoutExtension(Textbox77.Text).Replace(" ", "_")
+                Else
+                    AudioPresetName = TextBox3.Text.Replace(" ", "_")
+                End If
+                AudioPresetConfig = AudioUserProfile & AudioPresetName & ".json"
+            End If
             If codec = False Then
                 HMEStreamProfileGenerate(AudiostreamFlags, " -an ")
                 HMEAudioStreamConfigGenerate(AudiostreamConfig, "", "", "", "", "", "", "", "")
+                If isPreset Then
+                    HMEAudioStreamConfigGenerate(AudioPresetConfig, "", "", "", "", "", "", "", "")
+                End If
                 ReturnAudioStats = True
             Else
                 If queue Then
@@ -4714,12 +5022,21 @@ Public Class MainMenu
                     If ComboBox15.Text = "Copy" Then
                         HMEStreamProfileGenerate(AudiostreamFlags, " --audio-copy")
                         HMEAudioStreamConfigGenerate(AudiostreamConfig, "copy", "", "", "", "", "", "", "")
+                        If isPreset Then
+                            HMEAudioStreamConfigGenerate(AudioPresetConfig, "copy", "", "", "", "", "", "", "")
+                        End If
                     ElseIf ComboBox15.Text = "WAV" Or ComboBox15.Text = "FLAC" Then
                         HMEStreamProfileGenerate(AudiostreamFlags, aCodecAlt(ComboBox15.Text, ComboBox18.Text) & aSampleRateAlt(ComboBox16.Text))
                         HMEAudioStreamConfigGenerate(AudiostreamConfig, ComboBox15.Text, ComboBox18.Text, "", "", "", "", ComboBox16.Text, "")
+                        If isPreset Then
+                            HMEAudioStreamConfigGenerate(AudioPresetConfig, ComboBox15.Text, ComboBox18.Text, "", "", "", "", ComboBox16.Text, "")
+                        End If
                     Else
                         HMEStreamProfileGenerate(AudiostreamFlags, aCodecAlt(ComboBox15.Text, ComboBox18.Text) & aBitRateAlt(ComboBox17.Text) & aSampleRateAlt(ComboBox16.Text))
                         HMEAudioStreamConfigGenerate(AudiostreamConfig, ComboBox15.Text, "", ComboBox17.Text, "", "", "", ComboBox16.Text, "")
+                        If isPreset Then
+                            HMEAudioStreamConfigGenerate(AudioPresetConfig, ComboBox15.Text, "", ComboBox17.Text, "", "", "", ComboBox16.Text, "")
+                        End If
                     End If
                     ReturnAudioStats = True
                 Else
@@ -4735,16 +5052,25 @@ Public Class MainMenu
                             HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
                                                              aBitRate(ComboBox19.Text, AudioStreamSourceList, Lossy, "CBR") & aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
                             HMEAudioStreamConfigGenerate(AudiostreamConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), "", "CBR", ComboBox19.Text, ComboBox33.Text, "", ComboBox16.Text, ComboBox34.Text)
+                            If isPreset Then
+                                HMEAudioStreamConfigGenerate(AudioPresetConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), "", "CBR", ComboBox19.Text, ComboBox33.Text, "", ComboBox16.Text, ComboBox34.Text)
+                            End If
                             ReturnAudioStats = True
                         ElseIf ComboBox20.Text = "VBR" Then
                             HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
                                                                  aBitRate(ComboBox17.Text, AudioStreamSourceList, Lossy, "VBR") & aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
                             HMEAudioStreamConfigGenerate(AudiostreamConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), "", "VBR", ComboBox19.Text, ComboBox33.Text, ComboBox17.Text, ComboBox16.Text, ComboBox34.Text)
+                            If isPreset Then
+                                HMEAudioStreamConfigGenerate(AudioPresetConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), "", "VBR", ComboBox19.Text, ComboBox33.Text, ComboBox17.Text, ComboBox16.Text, ComboBox34.Text)
+                            End If
                             ReturnAudioStats = True
                         Else
                             HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
                                                                     aBitRate(ComboBox17.Text, AudioStreamSourceList, "", "") & aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
                             HMEAudioStreamConfigGenerate(AudiostreamConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), "", "VBR", ComboBox19.Text, ComboBox33.Text, ComboBox17.Text, ComboBox16.Text, ComboBox34.Text)
+                            If isPreset Then
+                                HMEAudioStreamConfigGenerate(AudioPresetConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), "", "VBR", ComboBox19.Text, ComboBox33.Text, ComboBox17.Text, ComboBox16.Text, ComboBox34.Text)
+                            End If
                             ReturnAudioStats = True
                         End If
                     ElseIf ComboBox15.Text = "FLAC" Then
@@ -4753,15 +5079,25 @@ Public Class MainMenu
                                             aBitDepth(ComboBox15.Text, AudioStreamSourceList, ComboBox18.Text) & channel_layout)
                         HMEAudioStreamConfigGenerate(AudiostreamConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), aBitDepth(ComboBox15.Text, AudioStreamSourceList, ComboBox18.Text), "", "",
                                                                     ComboBox33.Text, ComboBox17.Text, ComboBox16.Text, ComboBox34.Text)
+                        If isPreset Then
+                            HMEAudioStreamConfigGenerate(AudioPresetConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), aBitDepth(ComboBox15.Text, AudioStreamSourceList, ComboBox18.Text), "", "",
+                                                                    ComboBox33.Text, ComboBox17.Text, ComboBox16.Text, ComboBox34.Text)
+                        End If
                         ReturnAudioStats = True
                     ElseIf ComboBox15.Text = "WAV" Then
                         HMEStreamProfileGenerate(AudiostreamFlags, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList) & aChannel(ComboBox33.Text, AudioStreamSourceList) &
                                                   aSampleRate(ComboBox16.Text, AudioStreamSourceList) & channel_layout)
                         HMEAudioStreamConfigGenerate(AudiostreamConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), ComboBox15.Text, "", "", ComboBox33.Text, "", ComboBox16.Text, ComboBox34.Text)
+                        If isPreset Then
+                            HMEAudioStreamConfigGenerate(AudioPresetConfig, aCodec(ComboBox15.Text, ComboBox18.Text, AudioStreamSourceList), ComboBox15.Text, "", "", ComboBox33.Text, "", ComboBox16.Text, ComboBox34.Text)
+                        End If
                         ReturnAudioStats = True
                     ElseIf ComboBox15.Text = "Copy" Then
                         HMEStreamProfileGenerate(AudiostreamFlags, " -c:a:" & AudioStreamSourceList & " copy")
                         HMEAudioStreamConfigGenerate(AudiostreamConfig, "copy", "", "", "", "", "", "", "")
+                        If isPreset Then
+                            HMEAudioStreamConfigGenerate(AudioPresetConfig, "copy", "", "", "", "", "", "", "")
+                        End If
                         ReturnAudioStats = True
                     ElseIf ComboBox15.Text Is "" Then
                         NotifyIcon("Hana Media Encoder", "Audio codec can not empty !", 1000, False)
@@ -6789,6 +7125,18 @@ Public Class MainMenu
         MetroSetComboBox3.DisabledBackColor = ColorTranslator.FromHtml("#161B21")
         MetroSetComboBox3.DisabledBorderColor = ColorTranslator.FromHtml("#F4A950")
         MetroSetComboBox3.DisabledForeColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox4.ForeColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox4.SelectedItemBackColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox4.SelectedItemForeColor = ColorTranslator.FromHtml("#161B21")
+        MetroSetComboBox4.DisabledBackColor = ColorTranslator.FromHtml("#161B21")
+        MetroSetComboBox4.DisabledBorderColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox4.DisabledForeColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox5.ForeColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox5.SelectedItemBackColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox5.SelectedItemForeColor = ColorTranslator.FromHtml("#161B21")
+        MetroSetComboBox5.DisabledBackColor = ColorTranslator.FromHtml("#161B21")
+        MetroSetComboBox5.DisabledBorderColor = ColorTranslator.FromHtml("#F4A950")
+        MetroSetComboBox5.DisabledForeColor = ColorTranslator.FromHtml("#F4A950")
         MetroSetButton1.ForeColor = ColorTranslator.FromHtml("#F4A950")
         MetroSetButton1.NormalBorderColor = ColorTranslator.FromHtml("#F4A950")
         MetroSetButton1.NormalColor = ColorTranslator.FromHtml("#F4A950")
