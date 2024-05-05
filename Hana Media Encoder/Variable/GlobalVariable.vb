@@ -2,6 +2,8 @@
 Imports System.Net
 Module GlobalVariable
     ' Readonly variable
+    Public ReadOnly AudioUserProfile As String = My.Application.Info.DirectoryPath & "\profile\audio\"
+    Public ReadOnly AudioSystemPreset As String() = {"WAV", "FLAC", "AAC", "MP3", "Passthrough"}
     Public ReadOnly AudioStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\audioStream\"
     Public ReadOnly AudioStreamConfigPath As String = My.Application.Info.DirectoryPath & "\audioConfig\"
     Public ReadOnly AudioQueueFlagsPath As String = My.Application.Info.DirectoryPath & "\queue\audio\audioStream\"
@@ -22,6 +24,8 @@ Module GlobalVariable
     Public ReadOnly VideoQueueConfigPath As String = My.Application.Info.DirectoryPath & "\queue\video\videoConfig\"
     Public ReadOnly VideoPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Placeholder.png"
     Public ReadOnly VideoErrorPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Error_Placeholder.png"
+    Public ReadOnly VideoUserProfile As String = My.Application.Info.DirectoryPath & "\profile\video\"
+    Public ReadOnly VideoSystemPreset As String() = {"H264", "HEVC", "AV1", "Passthrough"}
 
     ' Encode variable
     Public ChapterFlags As String
@@ -61,6 +65,8 @@ Module GlobalVariable
     Public AudioTEMPChkDir As String
     Public AudioTEMPNewSmpType As String
     Public audioTEMPProfile As String
+    Public AudioPresetConfig As String
+    Public AudioPresetName As String
     Public AspectRatio As String
     Public BitRate As String
     Public CurParsedVer As String()
@@ -163,5 +169,7 @@ Module GlobalVariable
     Public VideoQueue As Boolean
     Public VideoQueueFlags As String
     Public VideoQueueCodecInf As String
+    Public VideoPresetConfig As String
+    Public VideoPresetName As String
     Public WC As New WebClient
 End Module
