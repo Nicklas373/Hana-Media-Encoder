@@ -218,4 +218,15 @@ Module MiscModule
 
         Return version
     End Function
+
+    Public Function HasJsonFile(folder As String) As Boolean
+        Dim filePaths As String() = Directory.GetFiles(folder)
+        For Each filePath As String In filePaths
+            If Path.GetExtension(filePath) = ".json" Then
+                Return True
+            End If
+        Next
+
+        Return False
+    End Function
 End Module
