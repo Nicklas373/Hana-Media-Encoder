@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports Newtonsoft.Json
 
 Module MediaEncoderModule
     Public Sub CleanEnv(cleanStats As String)
@@ -51,20 +52,21 @@ Module MediaEncoderModule
             GC.Collect()
             GC.WaitForPendingFinalizers()
             File.Delete(HMEName)
-            File.Create(HMEName).Dispose()
-        Else
-            File.Create(HMEName).Dispose()
         End If
-        Dim writer As New StreamWriter(HMEName, True)
-        writer.WriteLine("Codec=" & acodec)
-        writer.WriteLine("BitDepth=" & abitdepth)
-        writer.WriteLine("RateControl=" & aratecontrol)
-        writer.WriteLine("Rate=" & arate)
-        writer.WriteLine("Channel=" & achannel)
-        writer.WriteLine("ChannelLayout=" & achannellayout)
-        writer.WriteLine("Compression=" & acomplvl)
-        writer.WriteLine("Frequency=" & afreq)
-        writer.Close()
+
+        Dim mediaAudioProfile As New MediaAudioClass With {
+            .Codec = acodec,
+            .BitDepth = abitdepth,
+            .RateControl = aratecontrol,
+            .Rate = arate,
+            .Channel = achannel,
+            .ChannelLayout = achannellayout,
+            .Compression = acomplvl,
+            .Frequency = afreq
+        }
+
+        Dim AUProfile As String = JsonConvert.SerializeObject(mediaAudioProfile)
+        File.WriteAllText(HMEName, AUProfile)
     End Sub
     Public Sub HMEGenerate(HMEName As String, ffmpegletter As String, ffmpegbin As String, ffargs As String, ffargs2 As String)
         If File.Exists(HMEName) Then
@@ -122,51 +124,53 @@ Module MediaEncoderModule
                                             level As String, maxbitrate As String, multipass As String, preset As String, pixfmt As String, profile As String,
                                             force10bit As String, ratectr As String, lookahead As String, spatialaq As String, aqstrength As String, temporalaq As String, targetql As String,
                                             tier As String, tune As String, tilecol As String, tilerow As String, ar As String, res As String, algo As String, colorrange As String,
-                                            colorprimary As String, colorspace As String, deinterlace As String, deinterlaceMode As String, deinterlaceParity As String, deinterlaceFrame As String, scaleType As String, metaData As String)
+                                            colorprimary As String, colorspace As String, deinterlace As String, deinterlaceMode As String, deinterlaceParity As String, deinterlaceFrame As String,
+                                            scaleType As String, metaData As String)
         If File.Exists(HMEName) Then
             GC.Collect()
             GC.WaitForPendingFinalizers()
             File.Delete(HMEName)
-            File.Create(HMEName).Dispose()
-        Else
-            File.Create(HMEName).Dispose()
         End If
-        Dim writer As New StreamWriter(HMEName, True)
-        writer.WriteLine("BRCompat=" & brCompat)
-        writer.WriteLine("OvrBitrate=" & ovrbitrate)
-        writer.WriteLine("Bref=" & bref)
-        writer.WriteLine("Codec=" & codec)
-        writer.WriteLine("Fps=" & framerate)
-        writer.WriteLine("Level=" & level)
-        writer.WriteLine("MaxBitrate=" & maxbitrate)
-        writer.WriteLine("Multipass=" & multipass)
-        writer.WriteLine("Preset=" & preset)
-        writer.WriteLine("PixelFormat=" & pixfmt)
-        writer.WriteLine("Profile=" & profile)
-        writer.WriteLine("Force10Bit=" & force10bit)
-        writer.WriteLine("RateControl=" & ratectr)
-        writer.WriteLine("LookAhead=" & lookahead)
-        writer.WriteLine("SpatialAQ=" & spatialaq)
-        writer.WriteLine("AQStrength=" & aqstrength)
-        writer.WriteLine("TemporalAQ=" & temporalaq)
-        writer.WriteLine("TargetQL=" & targetql)
-        writer.WriteLine("Tier=" & tier)
-        writer.WriteLine("Tune=" & tune)
-        writer.WriteLine("TileCol=" & tilecol)
-        writer.WriteLine("TileRow=" & tilerow)
-        writer.WriteLine("AspectRatio=" & ar)
-        writer.WriteLine("Resolution=" & res)
-        writer.WriteLine("ScaleAlgo=" & algo)
-        writer.WriteLine("ColorRange=" & colorrange)
-        writer.WriteLine("ColorPrimary=" & colorprimary)
-        writer.WriteLine("ColorSpace=" & colorspace)
-        writer.WriteLine("Deinterlace=" & deinterlace)
-        writer.WriteLine("DeMode=" & deinterlaceMode)
-        writer.WriteLine("DeParity=" & deinterlaceParity)
-        writer.WriteLine("DeFrame=" & deinterlaceFrame)
-        writer.WriteLine("ScaleType=" & scaleType)
-        writer.WriteLine("Metadata=" & metaData)
-        writer.Close()
+
+        Dim mediaVideoProfile As New MediaVideoClass With {
+            .BRCompat = brCompat,
+            .OvrBitrate = ovrbitrate,
+            .Bref = bref,
+            .Codec = codec,
+            .Fps = framerate,
+            .Level = level,
+            .MaxBitrate = maxbitrate,
+            .Multipass = multipass,
+            .Preset = preset,
+            .PixelFormat = pixfmt,
+            .Profile = profile,
+            .Force10Bit = force10bit,
+            .RateControl = ratectr,
+            .LookAhead = lookahead,
+            .SpatialAQ = spatialaq,
+            .AQStrength = aqstrength,
+            .TemporalAQ = temporalaq,
+            .TargetQL = targetql,
+            .Tier = tier,
+            .Tune = tune,
+            .TileCol = tilecol,
+            .TileRow = tilerow,
+            .AspectRatio = ar,
+            .Resolution = res,
+            .ScaleAlgo = algo,
+            .ColorRange = colorrange,
+            .ColorPrimary = colorprimary,
+            .ColorSpace = colorspace,
+            .Deinterlace = deinterlace,
+            .DeMode = deinterlaceMode,
+            .DeParity = deinterlaceParity,
+            .DeFrame = deinterlaceFrame,
+            .ScaleType = scaleType,
+            .Metadata = metaData
+        }
+
+        Dim MVProfile As String = JsonConvert.SerializeObject(mediaVideoProfile)
+        File.WriteAllText(HMEName, MVProfile)
     End Sub
     Public Sub InitExit(state As String)
         Dim progList As String() = {"ffplay", "ffmpeg", "ffprobe", "nvencc64"}
