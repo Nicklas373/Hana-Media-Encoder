@@ -34,7 +34,8 @@ Public Class InitScreen
     Private Sub InitDir()
         Dim retReqDir As String() = {"audioConfig", "audioStream", "videoConfig", "videoStream", "thumbnail", "queue", "queue\audio",
                                      "queue\audio\audioStream", "queue\audio\audioConfig", "queue\video", "queue\video\videoStream",
-                                     "queue\video\videoConfig", "chapterConfig", "muxConfig", "trimConfig", "HME-Engine"}
+                                     "queue\video\videoConfig", "profile\video", "profile\audio", "chapterConfig", "muxConfig",
+                                     "trimConfig", "HME-Engine"}
         For Each req_dir As String In retReqDir
             Label1.Text = "Loading: " & req_dir
             Thread.Sleep(100)
