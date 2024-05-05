@@ -85,11 +85,11 @@
         'Metrosetcheckbox4.checked'
         Dim value As String
         If cmbx = "True" Then
-            value = " -bitexact -map_metadata -1 "
+            value = " -bitexact -map_metadata -1 -metadata:s:v:0 encoder=" + Chr(34) + My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString.Replace(".0", "") + Chr(34) + ""
         ElseIf cmbx = "False" Then
-            value = " "
+            value = " -metadata:s:v:0 encoder=" + Chr(34) + My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString.Replace(".0", "") + Chr(34) + ""
         Else
-            value = " "
+            value = " -metadata:s:v:0 encoder=" + Chr(34) + My.Application.Info.Title.ToString + " v" + My.Application.Info.Version.ToString.Replace(".0", "") + Chr(34) + ""
         End If
 
         Return value
