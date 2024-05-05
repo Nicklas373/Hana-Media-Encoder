@@ -1,0 +1,36 @@
+﻿Public Class MediaVideoClass
+    Public Property BRCompat As String
+    Public Property OvrBitrate As String
+    Public Property Bref As String
+    Public Property Codec As String
+    Public Property Fps As String
+    Public Property Level As String
+    Public Property MaxBitrate As String
+    Public Property Multipass As String
+    Public Property Preset As String
+    Public Property PixelFormat As String
+    Public Property Profile As String
+    Public Property Force10Bit As String
+    Public Property RateControl As String
+    Public Property LookAhead As String
+    Public Property SpatialAQ As String
+    Public Property AQStrength As String
+    Public Property TemporalAQ As String
+    Public Property TargetQL As String
+    Public Property Tier As String
+    Public Property Tune As String
+    Public Property TileCol As String
+    Public Property TileRow As String
+    Public Property AspectRatio As String
+    Public Property Resolution As String
+    Public Property ScaleAlgo As String
+    Public Property ColorRange As String
+    Public Property ColorPrimary As String
+    Public Property ColorSpace As String
+    Public Property Deinterlace As String
+    Public Property DeMode As String
+    Public Property DeParity As String
+    Public Property DeFrame As String
+    Public Property ScaleType As String
+    Public Property Metadata As String
+End Class
