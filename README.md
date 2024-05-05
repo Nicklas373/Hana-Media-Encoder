@@ -9,12 +9,14 @@ Hana Media Encoder works by creating line of command based on user preferences t
 then execute it to FFMPEG, FFPLAY, FFPROBE or NVENCC.
 
 # Current Features:
-* Support multiple media file encoding with same or different profile for each stream
-* Support mux/demux media file with specific stream or all stream and with same or different profile for each stream
 * Support manage chapter from media file (Video Only)
+* Support media queue / batch encoding for video and audio file
+* Support multiple media file encoding with same or different profile for each stream
+* Support multiple media encoding engine (FFMPEG and NVENCC)
+* Support mux/demux media file with specific stream or all stream and with same or different profile for each stream
 * Support trim media file with specific stream or all stream and with same or different profile for each stream
 * Support preview media file by using FFPLAY
-* Support media queue / batch encoding for video and audio file
+* Support preset management for audio and video configuration
 
 # Current Supported Video Output Codec
 - H264 / HEVC / AV1 (Native codec are not supported yet)
@@ -34,11 +36,14 @@ then execute it to FFMPEG, FFPLAY, FFPROBE or NVENCC.
 * Download software requirement
 	- [.NET Desktop Runtime 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 	- [FFMPEG](https://github.com/BtbN/FFmpeg-Builds/releases)
+	- [NVENCC](https://github.com/rigaya/NVEnc/releases)
 * Extract FFMPEG to folder
+* Extract NVENCC to folder (Additional)
 * Install Hana Media Encoder beside folder location except "Program Files" or "Program Files (x86)" or other folder that doesn't required any permission (Due write-access protection)
   (Ex: Install it on desktop or user folder)
 * Go to options menu
 * Configure FFMPEG binary folder to your bin folder from FFMPEG folder (FFMPEG/bin)
+* Configure NVENCC binary folder to your root folder from NVENCC folder (which included NVEncC64.exe)
 * After application restart then open application again then go to options
 * Checklist 'Enable GPU Hardware Accelerated' [NOTE: Please configure correct GPU name with your current primary GPU Renderer]
 * And You're good to go

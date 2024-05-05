@@ -7,7 +7,17 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2024</Copyright>
-    <PackageReleaseNotes>v1.4.7 (20240428):
+    <PackageReleaseNotes>v1.4.8 (20240505):
+- Fix issue with undefined pixel format for NVENCC
+- Enhance Audio and Video save and load configuration logic to use JSON format as saved settings instead of normal text file
+- Introduce Audio and Video preset feature (Included some preset by default)
+- Properly implement metadata function for video encoding (FFMPEG and NVENCC are included)
+- Properly limit to only load first audio stream if NVENCC are selected
+- Reflect and adapt changes from https://github.com/rigaya/NVEnc/releases/tag/7.51 to remove --tune flags support on latest NVENCC updates
+- Simplify application version scheme on title bar
+- Update metadata format scheme
+
+v1.4.7 (20240428):
 - Fix issue when preview media from "drag n drop" or "open with" features causing app crash due couldn't find config files
 
 v1.4.6 (20240427):
@@ -248,21 +258,23 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2024</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.4.7</Version>
-    <AssemblyVersion>1.4.7</AssemblyVersion>
-    <FileVersion>1.4.7</FileVersion>
+    <Version>1.4.8</Version>
+    <AssemblyVersion>1.4.8</AssemblyVersion>
+    <FileVersion>1.4.8</FileVersion>
     <Description>Hana Media Encoder is a open source multimedia application for FFMPEG or NVENCC that have feature to encode, decode, trim, mux or even batch processing.
 It can detects and configure multiple media streams and can encode it separately if media file have more than one audio stream.
 Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options
 then execute it to FFMPEG, FFPLAY, FFPROBE or NVENCC.
 
 # Current Features:
-* Support multiple media file encoding with same or different profile for each stream
-* Support mux/demux media file with specific stream or all stream and with same or different profile for each stream
 * Support manage chapter from media file (Video Only)
+* Support media queue / batch encoding for video and audio file
+* Support multiple media file encoding with same or different profile for each stream
+* Support multiple media encoding engine (FFMPEG and NVENCC)
+* Support mux/demux media file with specific stream or all stream and with same or different profile for each stream
 * Support trim media file with specific stream or all stream and with same or different profile for each stream
 * Support preview media file by using FFPLAY
-* Support media queue / batch encoding for video and audio file
+* Support preset management for audio and video configuration
 
 # Current Supported Video Output Codec
 - H264 / HEVC / AV1 (Native codec are not supported yet)

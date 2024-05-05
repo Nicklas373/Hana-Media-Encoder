@@ -1,8 +1,15 @@
 {
-	"release_date": "28 April 2024",
-	"version": "1.4.7.0",
+	"release_date": "05 May 2024",
+	"version": "1.4.8.0",
 	"changelog": [
-		"- Fix issue when preview media from drag n drop or open with features causing app crash due couldn't find config files"
+		"- Fix issue with undefined pixel format for NVENCC",
+		"- Enhance Audio and Video save and load configuration logic to use JSON format as saved settings instead of normal text file",
+		"- Introduce Audio and Video preset feature (Included some preset by default)",
+		"- Properly implement metadata function for video encoding (FFMPEG and NVENCC are included)",
+		"- Properly limit to only load first audio stream if NVENCC are selected",
+		"- Reflect and adapt changes from https://github.com/rigaya/NVEnc/releases/tag/7.51 to remove --tune flags support on latest NVENCC updates",
+		"- Simplify application version scheme on title bar",
+		"- Update metadata format scheme"
 	],
-	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.4.7/HME_Setup.msi"
+	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.4.8/HME_Setup.msi"
 }
