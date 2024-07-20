@@ -294,8 +294,8 @@ then execute it to FFMPEG, FFPLAY, FFPROBE or NVENCC.
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
     <Title>Hana Media Encoder</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
-    <SupportedOSPlatformVersion>10.0.22000.0</SupportedOSPlatformVersion>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    <SupportedOSPlatformVersion>10.0.22621.0</SupportedOSPlatformVersion>
     <PackageIcon>HME_Logo_Hi.png</PackageIcon>
     <ApplicationIcon>Assets\HME_256.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5tQUDsQ4lQjIVYnCcjIFXZLC6DACyxLlPqIXZUSeu3rEMfvXNtwjOftOBEV9Xbv5zzScHe7+yHd0H4ZCsQAriQ==",
+  "dgSpecHash": "L0dL8L7tlaU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nickl\\Documents\\GitHub\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj",
+  "projectFilePath": "C:\\Users\\Nickl\\Documents\\Github\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nickl\\.nuget\\packages\\metroset_ui\\2.0.0\\metroset_ui.2.0.0.nupkg.sha512",
     "C:\\Users\\Nickl\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",

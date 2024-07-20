@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows10.0.22621": {
+    "net8.0-windows10.0.22621": {
       "MetroSet_UI/2.0.0": {
         "type": "package",
         "compile": {
@@ -89,12 +89,12 @@
       "System.CodeDom/8.0.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/System.CodeDom.dll": {
+          "lib/net8.0/System.CodeDom.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.CodeDom.dll": {
+          "lib/net8.0/System.CodeDom.dll": {
             "related": ".xml"
           }
         },
@@ -108,12 +108,12 @@
           "System.CodeDom": "8.0.0"
         },
         "compile": {
-          "lib/net6.0/System.Management.dll": {
+          "lib/net8.0/System.Management.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.Management.dll": {
+          "lib/net8.0/System.Management.dll": {
             "related": ".xml"
           }
         },
@@ -121,7 +121,7 @@
           "buildTransitive/net6.0/_._": {}
         },
         "runtimeTargets": {
-          "runtimes/win/lib/net6.0/System.Management.dll": {
+          "runtimes/win/lib/net8.0/System.Management.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -360,7 +360,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0-windows10.0.22621": [
+    "net8.0-windows10.0.22621": [
       "MetroSet_UI >= 2.0.0",
       "Newtonsoft.Json >= 13.0.3",
       "Syncfusion.Core.WinForms >= 20.3.0.58",
@@ -375,26 +375,26 @@
   "project": {
     "version": "1.4.8",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nickl\\Documents\\GitHub\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj",
+      "projectUniqueName": "C:\\Users\\Nickl\\Documents\\Github\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj",
       "projectName": "HME_HANA-CI",
-      "projectPath": "C:\\Users\\Nickl\\Documents\\GitHub\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj",
+      "projectPath": "C:\\Users\\Nickl\\Documents\\Github\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj",
       "packagesPath": "C:\\Users\\Nickl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nickl\\Documents\\GitHub\\Hana-Media-Encoder\\Hana Media Encoder\\obj\\",
+      "outputPath": "C:\\Users\\Nickl\\Documents\\Github\\Hana-Media-Encoder\\Hana Media Encoder\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nickl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows10.0.22621.0"
+        "net8.0-windows10.0.22621.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0-windows10.0.22621": {
-          "targetAlias": "net6.0-windows10.0.22621.0",
+        "net8.0-windows10.0.22621": {
+          "targetAlias": "net8.0-windows10.0.22621.0",
           "projectReferences": {}
         }
       },
@@ -410,8 +410,8 @@
       }
     },
     "frameworks": {
-      "net6.0-windows10.0.22621": {
-        "targetAlias": "net6.0-windows10.0.22621.0",
+      "net8.0-windows10.0.22621": {
+        "targetAlias": "net8.0-windows10.0.22621.0",
         "dependencies": {
           "MetroSet_UI": {
             "target": "Package",
@@ -466,7 +466,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Hana Media Encoder",
+    "\\Hana Media Encoder\\Form",
+    "\\Hana Media Encoder\\Module"
   ],
-  "SelectedNode": "\\Hana Media Encoder.sln",
+  "SelectedNode": "\\Hana Media Encoder\\Form\\MainMenu.vb",
   "PreviewInSolutionExplorer": false
 }
