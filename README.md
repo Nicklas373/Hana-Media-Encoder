@@ -34,7 +34,7 @@ then execute it to FFMPEG, FFPLAY, FFPROBE or NVENCC.
 
 # How to install
 * Download software requirement
-	- [.NET Desktop Runtime 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+	- [.NET Desktop Runtime 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 	- [FFMPEG](https://github.com/BtbN/FFmpeg-Builds/releases)
 	- [NVENCC](https://github.com/rigaya/NVEnc/releases)
 * Extract FFMPEG to folder
@@ -53,7 +53,7 @@ then execute it to FFMPEG, FFPLAY, FFPROBE or NVENCC.
 - [Newtonsoft](https://www.newtonsoft.com/json) (Json.NET)
 
 # App Compatibility
-- [.NET Desktop Runtime 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- [.NET Desktop Runtime 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 - [FFMPEG](https://github.com/BtbN/FFmpeg-Builds/releases)
 - [NVENCC](https://github.com/rigaya/NVEnc/releases)
 
