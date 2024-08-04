@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Hana_Media_Encoder</RootNamespace>
-    <StartupObject>Sub Main</StartupObject>
+    <StartupObject>Hana_Media_Encoder.My.MyApplication</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2024</Copyright>
@@ -258,9 +258,9 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2024</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.4.8</Version>
-    <AssemblyVersion>1.4.8</AssemblyVersion>
-    <FileVersion>1.4.8</FileVersion>
+    <Version>1.5.0</Version>
+    <AssemblyVersion>1.5.0</AssemblyVersion>
+    <FileVersion>1.5.0</FileVersion>
     <Description>Hana Media Encoder is a open source multimedia application for FFMPEG or NVENCC that have feature to encode, decode, trim, mux or even batch processing.
 It can detects and configure multiple media streams and can encode it separately if media file have more than one audio stream.
 Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options
@@ -302,6 +302,8 @@ then execute it to FFMPEG, FFPLAY, FFPROBE or NVENCC.
     <IncludeSymbols>True</IncludeSymbols>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -381,6 +383,10 @@ then execute it to FFMPEG, FFPLAY, FFPROBE or NVENCC.
 
   <ItemGroup>
     <None Update="Assets\HME_128.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Assets\HME_Logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
