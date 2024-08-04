@@ -1,15 +1,29 @@
 {
-	"release_date": "05 May 2024",
-	"version": "1.4.8.0",
+	"release_date": "04 August 2024",
+	"version": "1.5.0.0",
 	"changelog": [
-		"- Fix issue with undefined pixel format for NVENCC",
-		"- Enhance Audio and Video save and load configuration logic to use JSON format as saved settings instead of normal text file",
-		"- Introduce Audio and Video preset feature (Included some preset by default)",
-		"- Properly implement metadata function for video encoding (FFMPEG and NVENCC are included)",
-		"- Properly limit to only load first audio stream if NVENCC are selected",
-		"- Reflect and adapt changes from https://github.com/rigaya/NVEnc/releases/tag/7.51 to remove --tune flags support on latest NVENCC updates",
-		"- Simplify application version scheme on title bar",
-		"- Update metadata format scheme"
+		"- Added new library dependent on latest NVENCC",
+		"- Add new support for channel configuration for NVENCC",
+		"- Add new temporary folder to cleanup",
+		"- Configure video profile for each separate directory, to define which encoder method that was used. And re-set all profile for specific encoder",
+		"- Enhance logic for StartEncode function [SQ & MQ] & MediaQueue function",
+		"- Enhance logic for savepreset and removepreset function when mediaqueue is turned on",
+		"- Enhance media library check logic, try to keep check FFMPEG library whenever NVENCC media engine was selected",
+		"- Fix error when try to encoding in some specific condition with FFMPEG or NVENCC",
+		"- Fix error when try to encoding with Intel or QSV HW Accelerated",
+		"- Fix error when try to load video chapter that doesn't contain default or pre-defined METADATA from FFMPEG",
+		"- Fix static video container issue when using media queue, this to prevent same media container are selected for all queue, instead specific container that already selected before",
+		"- Fix unknown or wrong video bitrate text after load media",
+		"- Implement logic Directory.Exists from Directory in-built function on vb.net, to guard and make sure if the directory was exists or not. This to prevent any error that may come when the directory are not exists in some case",
+		"- Implement logic File.Exists from File in-built function on vb.net, to guard and make sure first if the file was exists or not. This to prevent any error that may come when file are not exists in some case",
+		"- Implement logic String.IsNullOrEmpty from String in-built function on vb.net, this for better function than regular string compare to define if string or text is null or not",
+		"- Implement new Async function for PreviewMedia function, to achieve temporary script can be deleted after stream is completed [Incompatiblity with .NET 8.0 if using older without async approach]",
+		"- Implement multi stream support for audio when NVENCC are selected",
+		"- Properly check for audio flags on each stream, it's actually fix issue on previous version, which is are not check per each stream, but only check on first stream.",
+		"- Properly define NVENCC as new media engine that can handle audio multistream with video for now, but still some features are limited",
+		"- Properly clear and reset mediaqueue when remove button are clicked",
+		"- Set and save user-defined profile to specific directory and not merge with system or in-build profile",
+		"- Switch default stream from #0:0 to #0:1"
 	],
-	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.4.8/HME_Setup.msi"
+	"update_url": "https://github.com/Nicklas373/Hana-Media-Encoder/releases/download/v1.5.0/HME_Setup.msi"
 }
