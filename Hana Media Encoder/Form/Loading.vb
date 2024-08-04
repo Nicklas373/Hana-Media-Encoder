@@ -17,6 +17,8 @@ Public Class Loading
             Label1.Text = "Calculate frame size"
         ElseIf mediaType = "Reset" Then
             Label1.Text = "Re-setting to initial state"
+        ElseIf mediaType = "Chapter" Then
+            Label1.Text = "Loading chapter for " & Path.GetFileName(mediaTitle)
         Else
             Label1.Text = "Loading " & mediaType & " : " & Path.GetFileName(mediaTitle)
         End If
