@@ -2,7 +2,7 @@
     Public Function aCodec(Cmbx As String, bdCmbx As String, aStream As String) As String
         'Combobox15.text & Combobox18.text'
         Dim value As String
-        If Cmbx = "Copy" Then
+        If Cmbx = "Copy" Or Cmbx = "Passthrough" Then
             value = " -c:a:" & aStream & " copy"
         ElseIf Cmbx = "MP3" Or Cmbx = "MP3 Audio (*.mp3)" Then
             value = " -c:a:" & aStream & " libmp3lame"
@@ -74,7 +74,7 @@
     Public Function aBitRate(Cmbx As String, aStream As String, aCodec As String, rateControl As String) As String
         'Combobox19.text '
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = ""
         Else
             If rateControl = "CBR" And aCodec = "MP3" Or aCodec = "MP3 Audio (*.mp3)" Then
@@ -97,7 +97,7 @@
     Public Function aChannel(Cmbx As String, aStream As String) As String
         'Combobox33.text '
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = ""
         Else
             value = " -ac:a:" & aStream & " " & Cmbx
@@ -108,7 +108,7 @@
     Public Function aSampleFormat(Cmbx As String, aStream As String) As String
         'Combobox15.text '
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = ""
         Else
             value = " -sample_fmt:a:" & aStream & " " & Cmbx
@@ -119,7 +119,7 @@
     Public Function aSampleRate(Cmbx As String, aStream As String) As String
         'Combobox16.text '
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = ""
         Else
             value = " -ar:a:" & aStream & " " & Cmbx

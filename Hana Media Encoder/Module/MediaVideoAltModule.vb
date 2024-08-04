@@ -17,7 +17,7 @@
 
     Public Function vFpsAlt(cmbx As String) As String
         Dim values As String
-        If cmbx IsNot "" Then
+        If String.IsNullOrEmpty(cmbx) = False Then
             values = " --fps " & cmbx
         Else
             values = " "
@@ -28,7 +28,7 @@
 
     Public Function vProfileAlt(Cmbx As String) As String
         Dim value As String
-        If Cmbx IsNot "" Then
+        If String.IsNullOrEmpty(Cmbx) = False Then
             value = " --profile " & Cmbx
         Else
             value = " "
@@ -40,7 +40,7 @@
     Public Function vLevelAlt(Cmbx As String) As String
         'Combobox8.text'
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = False Then
             value = " "
         Else
             value = " --level " & Cmbx
@@ -51,7 +51,7 @@
 
     Public Function vTierAlt(Cmbx As String, codec As String) As String
         Dim value As String
-        If Cmbx IsNot "" Then
+        If String.IsNullOrEmpty(Cmbx) = False Then
             If codec = "AV1" Then
                 If Cmbx = "main" Then
                     value = " --tier 0"
@@ -73,7 +73,7 @@
     Public Function vPixFmtAlt(Cmbx As String, Force10Bit As String) As String
         'Combobox3.text'
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             If Force10Bit Then
@@ -101,16 +101,16 @@
         Dim ovrbitratenewvalue As String
         Dim ratequalitynewvalue As String
 
-        If MaxBitrate = "" Or MaxBitrate = "0" Then
+        If String.IsNullOrEmpty(MaxBitrate) = True Or MaxBitrate = "0" Then
             maxbitratenewvalue = " "
         Else
             maxbitratenewvalue = " --max-bitrate " & MaxBitrate & "000K"
         End If
 
-        If OvrBitrate = "" Or OvrBitrate = "0" Then
+        If String.IsNullOrEmpty(OvrBitrate) = True Or OvrBitrate = "0" Then
             ovrbitratenewvalue = " "
         Else
-            If Cmbx = "" Then
+            If String.IsNullOrEmpty(Cmbx) = True Then
                 ovrbitratenewvalue = " "
             ElseIf Cmbx = "Variable Bit Rate" Then
                 ovrbitratenewvalue = " --vbr " & OvrBitrate & "000K"
@@ -121,10 +121,10 @@
             End If
         End If
 
-        If RateQuality = "" Or RateQuality = "0" Then
+        If String.IsNullOrEmpty(RateQuality) = True Or RateQuality = "0" Then
             ratequalitynewvalue = " "
         Else
-            If Cmbx = "" Then
+            If String.IsNullOrEmpty(Cmbx) = True Then
                 ratequalitynewvalue = " "
             ElseIf Cmbx = "Variable Bit Rate" Then
                 ratequalitynewvalue = " --vbr-quality " & RateQuality
@@ -142,7 +142,7 @@
 
     Public Function vPresetAlt(Cmbx As String) As String
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             If Cmbx = "default" Then
@@ -228,7 +228,7 @@
     Public Function vSpaTempAQAlt(Cmbx As String) As String
         'Combobox11.text'
         Dim value As String
-        If Cmbx = "disable" Or Cmbx = "" Then
+        If Cmbx = "disable" Or String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             value = " --aq "
@@ -239,7 +239,7 @@
     Public Function vAQStrengthAlt(Cmbx As String) As String
         'Combobox12.text'
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             value = " --aq-strength " & Cmbx
@@ -250,7 +250,7 @@
     Public Function vTempAQAlt(Cmbx As String) As String
         'Combobox13.text'
         Dim value As String
-        If Cmbx = "disable" Or Cmbx = "" Then
+        If Cmbx = "disable" Or String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             value = " --aq-temporal "
@@ -262,7 +262,7 @@
     Public Function vBrcompatAlt(cmbx As String) As String
         'ComboBox21.text'
         Dim value As String
-        If cmbx = "enable" Or cmbx = "" Then
+        If cmbx = "enable" Or String.IsNullOrEmpty(cmbx) = True Then
             value = " --bluray "
         ElseIf cmbx = "disable" Then
             value = " "
@@ -276,7 +276,7 @@
     Public Function bRefModeAlt(Cmbx As String) As String
         'Combobox10.text'
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             value = " --bref-mode " & Cmbx

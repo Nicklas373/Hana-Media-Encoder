@@ -73,7 +73,7 @@ Public Class AudioProfile
         Else
             allowSave = False
         End If
-        If MetroSetComboBox2.Text.ToString IsNot "" Then
+        If String.IsNullOrEmpty(MetroSetComboBox2.Text.ToString) = False Then
             Dim audioSampleType = New AudioSampleType
             audioSampleType.Show()
             Close()
@@ -107,12 +107,12 @@ Public Class AudioProfile
         Dim channel_layout As String
         If MetroSetRadioButton1.Checked = True Then
             AudioTEMPFileNameOpt = MetroSetRadioButton1.Text
-            If TextBoxExt1.Text IsNot "" Then
+            If String.IsNullOrEmpty(TextBoxExt1.Text) = False Then
                 AudioTEMPPreValue = TextBoxExt1.Text
             Else
                 AudioTEMPPreValue = "null"
             End If
-            If TextBoxExt2.Text IsNot "" Then
+            If String.IsNullOrEmpty(TextBoxExt2.Text) = False Then
                 AudioTEMPPostValue = TextBoxExt2.Text
             Else
                 AudioTEMPPostValue = "null"
@@ -125,7 +125,7 @@ Public Class AudioProfile
                 allowSave = False
             End If
         End If
-        If TextBoxExt3.Text IsNot "" Then
+        If String.IsNullOrEmpty(TextBoxExt3.Text) = False Then
             MediaTEMPFolderLocation = TextBoxExt3.Text
         Else
             MediaTEMPFolderLocation = "null"
@@ -136,13 +136,13 @@ Public Class AudioProfile
         Else
             allowSave = False
         End If
-        If AudioTEMPChnMapping = "" Then
+        If String.IsNullOrEmpty(AudioTEMPChnMapping) = True Then
             channel_layout = ""
         Else
             channel_layout = " -filter:a:0 aformat=channel_layouts=" & AudioTEMPChnMapping
         End If
         If allowSave Then
-            If MetroSetComboBox2.Text.ToString IsNot "" And AudioTEMPFileNameOpt IsNot "" And MediaTEMPFolderLocation IsNot "" Then
+            If String.IsNullOrEmpty(MetroSetComboBox2.Text.ToString) = False And String.IsNullOrEmpty(AudioTEMPFileNameOpt) = False And String.IsNullOrEmpty(MediaTEMPFolderLocation) = False Then
                 If MetroSetComboBox2.Text.ToString = "MP3 Audio (*.mp3)" Or MetroSetComboBox2.Text.ToString = "Advanced Audio Coding (*.aac)" Or
                         MetroSetComboBox2.Text.ToString = "MP2 Audio (*.mp2)" Or MetroSetComboBox2.Text.ToString = "Opus Audio (*.opus)" Then
                     Dim lossy As String
@@ -169,11 +169,11 @@ Public Class AudioProfile
         End If
     End Sub
     Private Sub Contextmenustrip_submenu1_onclick(sender As Object, e As EventArgs) Handles SelectedFilesToolStripMenuItem.Click
-        If TextBoxExt4.Text.ToString IsNot "" And TextBoxExt5.Text.ToString IsNot "" And TextBoxExt6.Text.ToString IsNot "" Then
+        If String.IsNullOrEmpty(TextBoxExt4.Text.ToString) = False And String.IsNullOrEmpty(TextBoxExt5.Text.ToString) = False And String.IsNullOrEmpty(TextBoxExt6.Text.ToString) = False Then
             If MainMenu.DataGridView1.Rows.Count > 0 Then
                 For i As Integer = 0 To MainMenu.DataGridView1.Rows.Count - 1
                     If MainMenu.DataGridView1.Rows(i).Cells(0).Value = True And MainMenu.DataGridView1.Rows(i).Cells(5).Value.ToString = "Audio File" Then
-                        AudiostreamFlags = AudioQueueFlagsPath & MainMenu.DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_0.txt"
+                        AudiostreamFlags = AudioQueueFlagsPath & MainMenu.DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_1.txt"
                         If MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Video") = True Then
                             Dim tempVal As String = MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString
                             Dim tempVal2 As String = MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString
@@ -202,11 +202,11 @@ Public Class AudioProfile
         End If
     End Sub
     Private Sub Contextmenustrip_submenu2_onclick(sender As Object, e As EventArgs) Handles AllFilesToolStripMenuItem.Click
-        If TextBoxExt4.Text.ToString IsNot "" And TextBoxExt5.Text.ToString IsNot "" And TextBoxExt6.Text.ToString IsNot "" Then
+        If String.IsNullOrEmpty(TextBoxExt4.Text.ToString) = False And String.IsNullOrEmpty(TextBoxExt5.Text.ToString) = False And String.IsNullOrEmpty(TextBoxExt6.Text.ToString) = False Then
             If MainMenu.DataGridView1.Rows.Count > 0 Then
                 For i As Integer = 0 To MainMenu.DataGridView1.Rows.Count - 1
                     If MainMenu.DataGridView1.Rows(i).Cells(5).Value.ToString = "Audio File" Then
-                        AudiostreamFlags = AudioQueueFlagsPath & MainMenu.DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_0.txt"
+                        AudiostreamFlags = AudioQueueFlagsPath & MainMenu.DataGridView1.Rows(i).Cells(2).Value.ToString & "_flags_1.txt"
                         If MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString.Contains("Video") = True Then
                             Dim tempVal As String = MainMenu.DataGridView1.Rows(i).Cells(8).Value.ToString
                             Dim tempVal2 As String = MainMenu.DataGridView1.Rows(i).Cells(10).Value.ToString

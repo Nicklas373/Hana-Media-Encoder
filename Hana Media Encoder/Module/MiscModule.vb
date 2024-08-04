@@ -7,7 +7,7 @@ Module MiscModule
             While Not sReader.EndOfStream
                 Dim line As String = sReader.ReadLine()
                 If line.Contains(contains) Then
-                    If line IsNot "" Then
+                    If String.IsNullOrEmpty(line) = False Then
                         value = line
                         Return value
                     Else
@@ -22,7 +22,7 @@ Module MiscModule
     End Function
     Public Function GetFileSize(file As String) As String
         Dim srcFile As String
-        If file = "" Then
+        If String.IsNullOrEmpty(file) = True Then
             srcFile = ""
             Return srcFile
         Else
@@ -63,7 +63,7 @@ Module MiscModule
         Return humanFileSize
     End Function
     Public Function getBetween(ByVal strSource As String, ByVal strStart As String, ByVal strEnd As String) As String
-        If strSource = "" Then
+        If String.IsNullOrEmpty(strSource) = True Then
             Return ""
         Else
             If strSource.Contains(strStart) AndAlso strSource.Contains(strEnd) Then
@@ -102,7 +102,7 @@ Module MiscModule
     End Function
     Public Sub InitMedia(mediaFile As Control)
         Dim sCmdLine As String = Environment.CommandLine()
-        If sCmdLine.Equals("") = False Then
+        If String.IsNullOrEmpty(sCmdLine) = False Then
             Dim iPos = sCmdLine.IndexOf("""", 2)
             Dim sCmdLineArgs = sCmdLine.Substring(iPos + 1).Trim()
             mediaFile.Text = sCmdLineArgs.Replace(Chr(34), "")

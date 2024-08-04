@@ -25,7 +25,7 @@ Public Class AudioSampleType
         Else
             ComboBox18.SelectedIndex = -1
         End If
-        If AudioTEMPFormatOpt IsNot "" Then
+        If String.IsNullOrEmpty(AudioTEMPFormatOpt) = False Then
             If AudioTEMPFormatOpt = "Wave PCM (*.wav)" Then
                 TrackBar1.Enabled = False
                 Label3.Text = "0%"
@@ -38,7 +38,7 @@ Public Class AudioSampleType
             ElseIf AudioTEMPFormatOpt = "Free Lossless Audio Codec (*.flac)" Then
                 TrackBar1.Enabled = True
                 TrackBar1.Maximum = 10
-                If AudioTEMPCnvRatio IsNot "" Then
+                If String.IsNullOrEmpty(AudioTEMPCnvRatio) = False Then
                     TrackBar1.Value = AudioTEMPCnvRatio
                     If AudioTEMPCnvRatio = 0 Then
                         Label3.Text = "0%"

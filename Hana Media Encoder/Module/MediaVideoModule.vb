@@ -17,7 +17,7 @@
     Public Function vCodec(Cmbx As String, Encoder As String) As String
         'Combobox2.text'
         Dim value As String
-        If Cmbx = "Copy" Then
+        If Cmbx = "Copy" Or Cmbx = "Passthrough" Then
             value = "copy"
         ElseIf Cmbx = "H264" Then
             If Encoder = "opencl" Then
@@ -58,7 +58,7 @@
     Public Function vLevel(Cmbx As String) As String
         'Combobox8.text'
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             value = " -level " & Cmbx
@@ -97,7 +97,7 @@
     Public Function vPreset(Cmbx As String, GPUHW As String, Codec As String) As String
         'Combobox5.text'
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             If GPUHW = "opencl" Then
@@ -147,7 +147,7 @@
         'Combobox3.text'
         Dim newValue As String
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             If Codec = "AV1" And GPUHW IsNot "opencl" Then
@@ -175,7 +175,7 @@
     Public Function vProfile(Cmbx As String) As String
         'Combobox7.text'
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             value = " -profile:v " & Cmbx & " "
@@ -186,7 +186,7 @@
     Public Function vRateControl(Cmbx As String, Codec As String, HWAccel As String) As String
         'Combobox4.text'
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         ElseIf Cmbx = "Variable Bit Rate" Then
             If Codec = "AV1" And HWAccel = "opencl" Then
@@ -206,13 +206,21 @@
 
         Return value
     End Function
-    Public Function vLookAheadLvl(Cmbx As String) As String
+    Public Function vLookAheadLvl(Cmbx As String, GPUHW As String, codec As String) As String
         'LookaheadUpDown1'
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
-            value = " -lookahead_level " & Cmbx
+            If GPUHW = "opencl" Then
+                If codec = "H264" Then
+                    value = " -lookahead true -lookahead_depth " & Cmbx
+                Else
+                    value = " -lookahead_depth " & Cmbx
+                End If
+            Else
+                value = " -lookahead_level " & Cmbx
+            End If
         End If
 
         Return value
@@ -235,7 +243,7 @@
     Public Function vAQStrength(Cmbx As String) As String
         'Combobox12.text'
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             value = " -aq-strength " & Cmbx
@@ -278,7 +286,7 @@
     Public Function vTier(Cmbx As String, GPUHW As String, Codec As String) As String
         'Combobox9.text'
         Dim value As String
-        If Cmbx = "" Then
+        If String.IsNullOrEmpty(Cmbx) = True Then
             value = " "
         Else
             If GPUHW = "opencl" Then
@@ -434,7 +442,7 @@
         Dim newParity As String
         Dim newDeint As String
 
-        If mode = "" Then
+        If String.IsNullOrEmpty(mode) = True Then
             newMode = ""
         Else
             If mode = "send_frame" Then
@@ -450,7 +458,7 @@
             End If
         End If
 
-        If parity = "" Then
+        If String.IsNullOrEmpty(parity) = True Then
             newParity = ""
         Else
             If parity = "top field" Then
@@ -462,7 +470,7 @@
             End If
         End If
 
-        If deint = "" Then
+        If String.IsNullOrEmpty(deint) = True Then
             newDeint = ""
         Else
             If deint = "all" Then
@@ -474,7 +482,7 @@
             End If
         End If
 
-        If cmbx = "" Then
+        If String.IsNullOrEmpty(cmbx) = True Then
             value = " "
         ElseIf newDeint Is "" Or newMode Is "" Or newParity Is "" Then
             value = " "
@@ -519,7 +527,7 @@
     Public Function vResTranslate(cmbx As String) As String
         'Combobox40.text'
         Dim value As String
-        If cmbx = "" Then
+        If String.IsNullOrEmpty(cmbx) = True Then
             value = " "
         Else
             value = getBetween(cmbx, "(", ")") & "y"
@@ -529,7 +537,7 @@
     End Function
     Public Function vResTranslateReverse(asp As String, res As String) As String
         Dim value As String
-        If asp = "" Then
+        If String.IsNullOrEmpty(asp) = True Then
             value = " "
         ElseIf asp = "1.33 (4:3)" Then
             If getBetween(res, "=", "x") = "960" Then
