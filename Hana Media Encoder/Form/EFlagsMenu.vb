@@ -52,23 +52,23 @@ Public Class EFlagsMenu
     Public Sub MediaFlagsLoad()
         MetroSetComboBox2.Enabled = True
         MetroSetComboBox2.Items.Clear()
-        If File.Exists(VideoStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
+        If File.Exists(VideoStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
             MetroSetComboBox2.Items.Add("Video Command")
-        ElseIf File.Exists(VideoQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
+        ElseIf File.Exists(VideoQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
             MetroSetComboBox2.Items.Add("Video Command")
         End If
-        If File.Exists(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
+        If File.Exists(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
             MetroSetComboBox2.Items.Add("Audio Command")
-        ElseIf File.Exists(AudioQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
+        ElseIf File.Exists(AudioQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
             MetroSetComboBox2.Items.Add("Audio Command")
         End If
-        If File.Exists(ChapterStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
+        If File.Exists(ChapterStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
             MetroSetComboBox2.Items.Add("Chapter Command")
         End If
-        If File.Exists(MuxStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
+        If File.Exists(MuxStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
             MetroSetComboBox2.Items.Add("Mux Command")
         End If
-        If File.Exists(TrimStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
+        If File.Exists(TrimStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
             MetroSetComboBox2.Items.Add("Trim Command")
         End If
         If MetroSetComboBox2.Items.Count <= 0 Then
@@ -77,46 +77,47 @@ Public Class EFlagsMenu
     End Sub
     Public Sub MediaEncodeLoad()
         If MetroSetComboBox2.Text.ToString = "Video Command" Then
-            If File.Exists(VideoStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
-                TextBoxExt1.Text = File.ReadAllText(VideoStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt")
-            ElseIf File.Exists(VideoQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
-                TextBoxExt1.Text = File.ReadAllText(VideoQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt")
+            If File.Exists(VideoStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
+                TextBoxExt1.Text = File.ReadAllText(VideoStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt")
+            ElseIf File.Exists(VideoQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
+                TextBoxExt1.Text = File.ReadAllText(VideoQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt")
             Else
                 TextBoxExt1.Text = "Command not found :("
             End If
         ElseIf MetroSetComboBox2.Text.ToString = "Audio Command" Then
-            If File.Exists(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
+            If File.Exists(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
                 If MainMenu.MetroSetSwitch6.Switched = False And MainMenu.DataGridView1.Rows.Count <= 0 Then
                     FlagsCount = MainMenu.MetroSetComboBox3.Items.Count
                     For FlagsStart = 1 To FlagsCount
-                        My.Computer.FileSystem.WriteAllText(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_join.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_" & (FlagsStart - 1).ToString & ".txt")), True)
+                        My.Computer.FileSystem.WriteAllText(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_join.txt", String.Join(" ", File.ReadAllLines(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_" & FlagsStart.ToString & ".txt")), True)
                     Next
                     If File.Exists(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_join.txt") Then
                         TextBoxExt1.Text = File.ReadAllText(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_join.txt")
+                        File.Delete(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_join.txt")
                     End If
                 Else
-                    TextBoxExt1.Text = File.ReadAllText(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt")
+                    TextBoxExt1.Text = File.ReadAllText(AudioStreamFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt")
                 End If
-            ElseIf File.Exists(AudioQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
-                TextBoxExt1.Text = File.ReadAllText(AudioQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt")
+            ElseIf File.Exists(AudioQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
+                TextBoxExt1.Text = File.ReadAllText(AudioQueueFlagsPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt")
             Else
                 TextBoxExt1.Text = "Command not found :("
             End If
         ElseIf MetroSetComboBox2.Text.ToString = "Chapter Command" Then
-            If File.Exists(ChapterStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
-                TextBoxExt1.Text = File.ReadAllText(ChapterStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt")
+            If File.Exists(ChapterStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
+                TextBoxExt1.Text = File.ReadAllText(ChapterStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt")
             Else
                 TextBoxExt1.Text = "Command not found :("
             End If
         ElseIf MetroSetComboBox2.Text.ToString = "Mux Command" Then
-            If File.Exists(MuxStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
-                TextBoxExt1.Text = File.ReadAllText(MuxStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt")
+            If File.Exists(MuxStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
+                TextBoxExt1.Text = File.ReadAllText(MuxStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt")
             Else
                 TextBoxExt1.Text = "Command not found :("
             End If
         ElseIf MetroSetComboBox2.Text.ToString = "Trim Command" Then
-            If File.Exists(TrimStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt") Then
-                TextBoxExt1.Text = File.ReadAllText(TrimStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_0.txt")
+            If File.Exists(TrimStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt") Then
+                TextBoxExt1.Text = File.ReadAllText(TrimStreamConfigPath & MetroSetComboBox1.Text.ToString & "_flags_1.txt")
             Else
                 TextBoxExt1.Text = "Command not found :("
             End If
