@@ -2,7 +2,8 @@
 Imports System.Net
 Module GlobalVariable
     ' Readonly variable
-    Public ReadOnly AudioUserProfile As String = My.Application.Info.DirectoryPath & "\profile\audio\"
+    Public ReadOnly AudioUserProfile As String = My.Application.Info.DirectoryPath & "\profile\audio\user\"
+    Public ReadOnly AudioSystemProfile As String = My.Application.Info.DirectoryPath & "\profile\audio\system\"
     Public ReadOnly AudioSystemPreset As String() = {"WAV", "FLAC", "AAC", "MP3", "Passthrough"}
     Public ReadOnly AudioStreamFlagsPath As String = My.Application.Info.DirectoryPath & "\audioStream\"
     Public ReadOnly AudioStreamConfigPath As String = My.Application.Info.DirectoryPath & "\audioConfig\"
@@ -24,7 +25,8 @@ Module GlobalVariable
     Public ReadOnly VideoQueueConfigPath As String = My.Application.Info.DirectoryPath & "\queue\video\videoConfig\"
     Public ReadOnly VideoPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Placeholder.png"
     Public ReadOnly VideoErrorPlaceholder As String = My.Application.Info.DirectoryPath & "\Assets\Snapshot_Error_Placeholder.png"
-    Public ReadOnly VideoUserProfile As String = My.Application.Info.DirectoryPath & "\profile\video\"
+    Public ReadOnly VideoSystemProfile As String = My.Application.Info.DirectoryPath & "\profile\video\system\"
+    Public ReadOnly VideoUserProfile As String = My.Application.Info.DirectoryPath & "\profile\video\user\"
     Public ReadOnly VideoSystemPreset As String() = {"H264", "HEVC", "AV1", "Passthrough"}
 
     ' Encode variable
