@@ -1,0 +1,1 @@
+{"Codec":" -c:a:0 flac","BitDepth":" -sample_fmt:a:0 s16","RateControl":"","Rate":"","Channel":"2","ChannelLayout":"stereo","Compression":"5","Frequency":"44100"}
