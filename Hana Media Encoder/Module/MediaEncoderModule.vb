@@ -16,17 +16,21 @@ Module MediaEncoderModule
             MassDelete(My.Application.Info.DirectoryPath & "\", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\audioStream", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\audioConfig", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\audioConfig", "json")
             MassDelete(My.Application.Info.DirectoryPath & "\chapterConfig", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\chapterConfig", "FFMETADATAFILE")
             MassDelete(My.Application.Info.DirectoryPath & "\queue\audio\audioStream", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\queue\audio\audioConfig", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\queue\audio\audioConfig", "json")
             MassDelete(My.Application.Info.DirectoryPath & "\HME-Engine", "bat")
             MassDelete(My.Application.Info.DirectoryPath & "\muxConfig", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\trimConfig", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\videoStream", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\videoConfig", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\videoConfig", "json")
             MassDelete(My.Application.Info.DirectoryPath & "\queue\video\videoStream", "txt")
             MassDelete(My.Application.Info.DirectoryPath & "\queue\video\videoConfig", "txt")
+            MassDelete(My.Application.Info.DirectoryPath & "\queue\video\videoConfig", "json")
             MassDelete(My.Application.Info.DirectoryPath & "\thumbnail", "jpg")
         End If
     End Sub
@@ -186,23 +190,6 @@ Module MediaEncoderModule
         End If
 
     End Sub
-    Public Sub previewMediaModule(mediaFile As String, ffplay As String, hwengine As String, mediaID As String)
-        Dim newffargs As String
-        If mediaID = "Not Detected" Then
-            newffargs = " -x 960 -y 540 -showmode 1"
-        Else
-            newffargs = " -hwaccel " & hwengine & " -x 960 -y 540 -showmode 0"
-        End If
-        Dim psi As New ProcessStartInfo(ffplay) With {
-               .RedirectStandardError = False,
-               .RedirectStandardOutput = True,
-               .CreateNoWindow = True,
-               .Arguments = Chr(34) & mediaFile & Chr(34) & newffargs,
-               .WindowStyle = ProcessWindowStyle.Hidden,
-               .UseShellExecute = False
-           }
-        Dim process As Process = Process.Start(psi)
-    End Sub
     Public Sub RunProc(bat As String)
         Dim psi As New ProcessStartInfo(bat) With {
             .RedirectStandardError = False,
@@ -224,7 +211,7 @@ Module MediaEncoderModule
         }
         Dim process As Process = Process.Start(psi)
     End Sub
-    Public Async Sub RunProcAsync(bat As String)
+    Public Async Function RunProcAsync(bat As String) As Task
         Dim psi As New ProcessStartInfo(bat) With {
             .RedirectStandardError = False,
             .RedirectStandardOutput = False,
@@ -235,7 +222,12 @@ Module MediaEncoderModule
         Dim process As Process = Process.Start(psi)
         Await Task.Delay(1500)
         Await Task.Run(Sub() process.WaitForExit())
-    End Sub
+    End Function
+    Public Async Function RunProcAsAsync(bat As String) As Task
+        Dim runProcTask As Task = RunProcAsync(bat)
+        Await runProcTask
+        File.Delete(bat)
+    End Function
     Public Function TimeConversion(Hours As Integer, Minute As Integer, Seconds As Integer) As Integer
         Dim hoursToMinute As Integer = Hours * 60
         Dim minuteToSeconds As Integer = (hoursToMinute + Minute) * 60
