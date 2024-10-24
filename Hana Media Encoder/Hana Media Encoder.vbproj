@@ -7,7 +7,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Copyright>HANA-CI Build Project 2016 - 2024</Copyright>
-    <PackageReleaseNotes>v1.5.0 (20240804):
+    <PackageReleaseNotes>v1.5.1 (20241024):
+- Enhance chapter read algorithm
+- Fix wrong audio stream while using trim for specific source
+
+v1.5.0 (20240804):
 - Added new library dependent on latest NVENCC
 - Add new support for channel configuration for NVENCC
 - Add new temporary folder to cleanup
@@ -282,9 +286,9 @@ v1.0.0 (20220724):
     <Company>HANA-CI Build Project 2016 - 2024</Company>
     <PackageId>HME_HANA-CI</PackageId>
     <RepositoryType>git</RepositoryType>
-    <Version>1.5.0</Version>
-    <AssemblyVersion>1.5.0</AssemblyVersion>
-    <FileVersion>1.5.0</FileVersion>
+    <Version>1.5.1</Version>
+    <AssemblyVersion>1.5.1</AssemblyVersion>
+    <FileVersion>1.5.1</FileVersion>
     <Description>Hana Media Encoder is a open source multimedia application for FFMPEG or NVENCC that have feature to encode, decode, trim, mux or even batch processing.
 It can detects and configure multiple media streams and can encode it separately if media file have more than one audio stream.
 Hana Media Encoder works by creating line of command based on user preferences that was taken from application available menu or options
