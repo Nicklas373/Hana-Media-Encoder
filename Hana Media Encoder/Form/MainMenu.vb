@@ -1102,6 +1102,10 @@ Public Class MainMenu
                     Next
                 End If
             End If
+        ElseIf ffmpegMode = "TrimStream" Then
+            MetroSetComboBox3.Items.Clear()
+            MetroSetComboBox3.Items.Add(ComboBox27.Text)
+            MetroSetComboBox3.SelectedIndex = 0
         ElseIf ffmpegMode = "Queue" Then
             If ffmpegHybMode = "LoadMedia" Then
                 MetroSetComboBox3.Items.Clear()
@@ -1884,10 +1888,10 @@ Public Class MainMenu
                         CleanEnv("null")
                     End If
                 Else
-                    NotifyIcon("Media file has failed to encode", "Encoding profile not found", 1000, False)
+                    NotifyIcon("Media file has failed to encode", "Please select location to save media file before encode", 1000, False)
                 End If
             Else
-                NotifyIcon("Media file has failed to encode", "Please select location to save media file before encode", 1000, False)
+                NotifyIcon("Media file has failed to encode", "Encoding profile not found", 1000, False)
             End If
         Else
             NotifyIcon("Media file has failed to encode", "Configuration for GPU hardware acceleration not found", 1000, False)
@@ -5893,6 +5897,9 @@ Public Class MainMenu
             ComboBox28.SelectedIndex = -1
         End If
     End Sub
+    Private Sub TrimStream(sender As Object, e As EventArgs) Handles ComboBox27.SelectedIndexChanged
+        getStreamSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Textbox77.Text & Chr(34), "TrimStream", "")
+    End Sub
     Private Sub TrimOptions(sender As Object, e As EventArgs) Handles ComboBox28.SelectedIndexChanged
         ComboBox27.Items.Clear()
         getStreamSummary(FfmpegLetter, Chr(34) & FfmpegConf & Chr(34), Chr(34) & Textbox77.Text & Chr(34), "Trim", "")
@@ -6036,7 +6043,7 @@ Public Class MainMenu
                             If ComboBox28.SelectedIndex = 1 Then
                                 FlagsAudioCount = CInt(Strings.Mid(ComboBox27.Text.ToString, 11))
                             Else
-                                FlagsAudioCount = MetroSetComboBox3.Items.Count
+                                FlagsAudioCount = MetroSetComboBox3.Items.Count - 1
                             End If
                             If File.Exists(VideoStreamFlagsPath & Path.GetFileName(Textbox77.Text) & "_flags_1.txt") Then
                                 TrimPreCondition += 1
@@ -6073,7 +6080,7 @@ Public Class MainMenu
                 If ComboBox26.SelectedIndex = 1 Then
                     If ComboBox28.SelectedIndex = 3 Then
                         FlagsResult = 0
-                        FlagsCount = MetroSetComboBox3.Items.Count
+                        FlagsCount = MetroSetComboBox3.Items.Count - 1
                         For FlagsStart = 1 To FlagsAudioCount
                             If File.Exists(AudioStreamFlagsPath & Path.GetFileName(Textbox77.Text) & "_flags_" & FlagsStart & ".txt") Then
                                 FlagsResult += 1
@@ -6562,10 +6569,20 @@ Public Class MainMenu
             Dim curLoop As Integer = 1
             Dim cnvTime As String
             Dim count As Integer = 0
+            Dim dynTimeCnv As Integer = 0
+            Dim dynAltTimeCnv As Integer = 0
             Dim selectedTime As New List(Of String)()
             Dim selectedTitle As New List(Of String)()
             Dim readMetadataLines() As String = File.ReadAllLines(ChapterStreamConfigPath & "\FFMETADATAFILE")
+            Dim useDynTime As Boolean = False
             If File.ReadAllText(ChapterStreamConfigPath & "FFMETADATAFILE").Contains("START=") = True Then
+                If File.ReadAllText(ChapterStreamConfigPath & "FFMETADATAFILE").Contains("TIMEBASE=") = True Then
+                    dynTimeCnv = getBetween(File.ReadAllText(ChapterStreamConfigPath & "FFMETADATAFILE"), "TIMEBASE=", "START=").Trim().Replace("1/1", "").Length
+                    useDynTime = True
+                Else
+                    dynTimeCnv = 9
+                    useDynTime = False
+                End If
                 Do
                     If readMetadataLines(count).Contains("START=") Then
                         Dim curLines As String = RemoveWhitespace(Strings.Mid(readMetadataLines(count), 7))
@@ -6573,7 +6590,12 @@ Public Class MainMenu
                         If curLines = "0" Then
                             updatedLines = curLines
                         Else
-                            updatedLines = curLines.Remove(curLines.Length - 9)
+                            If (CInt(curLines.Length) < dynTimeCnv) Then
+                                dynAltTimeCnv = dynTimeCnv - CInt(curLines.Length)
+                                updatedLines = curLines.Remove(curLines.Length - dynAltTimeCnv)
+                            Else
+                                updatedLines = curLines.Remove(curLines.Length - dynTimeCnv)
+                            End If
                         End If
                         If String.IsNullOrEmpty(updatedLines) = False Then
                             cnvTime = TimeConversionReverse(updatedLines)
