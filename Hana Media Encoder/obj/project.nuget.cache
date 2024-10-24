@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SFhbTgbBkqU=",
+  "dgSpecHash": "rq9fh3NXAk8=",
   "success": true,
   "projectFilePath": "C:\\Users\\Nickl\\Documents\\Github\\Hana-Media-Encoder\\Hana Media Encoder\\Hana Media Encoder.vbproj",
   "expectedPackageFiles": [
@@ -12,7 +12,7 @@
     "C:\\Users\\Nickl\\.nuget\\packages\\syncfusion.shared.windows\\20.2.0.44\\syncfusion.shared.windows.20.2.0.44.nupkg.sha512",
     "C:\\Users\\Nickl\\.nuget\\packages\\system.codedom\\8.0.0\\system.codedom.8.0.0.nupkg.sha512",
     "C:\\Users\\Nickl\\.nuget\\packages\\system.management\\8.0.0\\system.management.8.0.0.nupkg.sha512",
-    "C:\\Users\\Nickl\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.22621.31\\microsoft.windows.sdk.net.ref.10.0.22621.31.nupkg.sha512"
+    "C:\\Users\\Nickl\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.22621.34\\microsoft.windows.sdk.net.ref.10.0.22621.34.nupkg.sha512"
   ],
   "logs": []
 }
